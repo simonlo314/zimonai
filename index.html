@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>ZimonAI — AI Hardware Safety Diagnostics</title>
+<meta name="description" content="ZimonAI protects your flagship devices with AI-powered charging diagnostics. Get a detailed safety report in 2 minutes, free."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-15%;left:50%;transform:translateX(-50%);width:1000px;height:600px;background:radial-gradient(ellipse,rgba(0,229,255,0.055),transparent 65%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.016) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.016) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 100% 75% at 50% 15%,black,transparent);pointer-events:none}
+.h-eye{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:28px;opacity:0;animation:up 1s cubic-bezier(.16,1,.3,1) .15s forwards}
+.h-title{font-size:clamp(52px,9vw,112px);font-weight:700;letter-spacing:-0.04em;line-height:1.01;color:var(--white);margin-bottom:32px;opacity:0;animation:up 1s cubic-bezier(.16,1,.3,1) .3s forwards}
+.h-title em{font-style:normal;color:var(--cyan)}
+.h-sub{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:540px;line-height:1.65;font-weight:300;margin-bottom:48px;opacity:0;animation:up 1s cubic-bezier(.16,1,.3,1) .46s forwards}
+.h-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;opacity:0;animation:up 1s cubic-bezier(.16,1,.3,1) .62s forwards}
+.h-note{font-size:13px;color:rgba(245,245,247,0.35);opacity:0;animation:up 1s cubic-bezier(.16,1,.3,1) .76s forwards}
+.how{background:var(--bg1);text-align:center}
+.how .bc{max-width:520px;margin:0 auto 72px;font-size:17px}
+.testi{background:var(--bg1);text-align:center}
+.testi .bc{max-width:480px;margin:0 auto 64px;font-size:17px}
+.why{text-align:center}
+.why .dsp{max-width:780px;margin:0 auto 20px}
+.why .bc{max-width:560px;margin:0 auto 72px}
+</style>
+</head>
+<body data-page="home">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <p class="h-eye">AI-Powered Hardware Safety</p>
+  <h1 class="h-title">Precision.<br/><em>Protection.</em><br/>Performance.</h1>
+  <p class="h-sub">Pro gear demands pro-grade power. ZimonAI matches your flagship devices with the safest charging tech — backed by real lab data.</p>
+  <div class="h-ctas">
+    <a href="diagnostic.html" class="btn-s">Start Free Assessment</a>
+    <a href="how-it-works.html" class="btn-g">See How It Works</a>
+  </div>
+  <p class="h-note">Free to assess · No hardware required · 2 min</p>
+</section>
+
+<!-- Stats -->
+<div class="sbar rv">
+  <div class="sbar-in">
+    <div class="si"><div class="si-n">99<em>%</em></div><div class="si-l">Diagnostic Accuracy</div></div>
+    <div class="si"><div class="si-n">12<em>K+</em></div><div class="si-l">Devices Audited</div></div>
+    <div class="si"><div class="si-n">4.2<em>K+</em></div><div class="si-l">Certified Profiles</div></div>
+    <div class="si"><div class="si-n">48<em>h</em></div><div class="si-l">Report Delivery</div></div>
+  </div>
+</div>
+
+<!-- How It Works -->
+<section class="ch how">
+  <div class="ch-in">
+    <div class="rv">
+      <p class="eye">How It Works</p>
+      <h2 class="dsp">Your report in three steps.</h2>
+      <p class="bc">Fill out a quick questionnaire — we handle the analysis.</p>
+    </div>
+    <div class="steps rv d1">
+      <div class="step">
+        <div class="step-no">Step 01</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <div class="step-t">Answer 5 Questions</div>
+        <div class="step-d">Tell us your devices and charger models. Under 2 minutes, completely free.</div>
+      </div>
+      <div class="step">
+        <div class="step-no">Step 02</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+        <div class="step-t">AI Runs the Analysis</div>
+        <div class="step-d">Our model cross-references your setup against 4,200+ certified hardware profiles and lab safety data.</div>
+      </div>
+      <div class="step">
+        <div class="step-no">Step 03</div>
+        <div class="step-ic"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="step-t">Get Your PDF Report</div>
+        <div class="step-d">Receive a detailed safety report with risk scores, compatibility ratings, and specific product recommendations.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px" class="rv d2">
+      <a href="how-it-works.html" class="btn-g">Learn More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Why It Matters -->
+<section class="ch why">
+  <div class="ch-in">
+    <div class="rv">
+      <p class="eye">Why It Matters</p>
+      <h2 class="dsp">Charging is the lifeline of your digital legacy.</h2>
+      <p class="bc">In an era where work happens on the move, a safe charge is the invisible foundation of productivity. <strong style="color:var(--text);font-weight:500">Don't let a $5 cable be the silent killer of your professional gear.</strong></p>
+    </div>
+    <div class="feat-g rv d1">
+      <div class="fc">
+        <div class="fc-ic"><svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="fc-no">01 — Risk</div>
+        <div class="fc-tt">Voltage Spike Damage</div>
+        <div class="fc-bd">Unregulated chargers send irregular voltage bursts that silently degrade battery cells and logic boards over weeks.</div>
+      </div>
+      <div class="fc">
+        <div class="fc-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="fc-no">02 — Risk</div>
+        <div class="fc-tt">Thermal Runaway Risk</div>
+        <div class="fc-bd">Cheap peripherals lack proper thermal management, pushing your device beyond safe operating temperatures.</div>
+      </div>
+      <div class="fc">
+        <div class="fc-ic"><svg viewBox="0 0 24 24"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg></div>
+        <div class="fc-no">03 — Risk</div>
+        <div class="fc-tt">Battery Lifespan Erosion</div>
+        <div class="fc-bd">Incompatible charge profiles accelerate cycle degradation — cutting your battery's lifespan by up to 40%.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="ch testi">
+  <div class="ch-in">
+    <div class="rv">
+      <p class="eye">What Users Say</p>
+      <h2 class="dsp">Trusted by pro creators and engineers.</h2>
+      <p class="bc">Real feedback from real users who protect real gear.</p>
+    </div>
+    <div class="tcard-g">
+      <div class="tcard rv">
+        <div class="stars">★★★★★</div>
+        <p class="tq">"I was using a random USB-C brick for my M3 Max. ZimonAI flagged it immediately — voltage ripple was way out of spec. Switched chargers the same day."</p>
+        <div class="tauthor"><div class="tav">MR</div><div><div class="t-nm">Marcus R.</div><div class="t-rl">Video Editor, Los Angeles</div></div></div>
+      </div>
+      <div class="tcard rv d1">
+        <div class="stars">★★★★★</div>
+        <p class="tq">"Finally something that explains compatibility in plain English. The PDF report is incredibly detailed and actually actionable."</p>
+        <div class="tauthor"><div class="tav">PS</div><div><div class="t-nm">Priya S.</div><div class="t-rl">ML Engineer, San Francisco</div></div></div>
+      </div>
+      <div class="tcard rv d2">
+        <div class="stars">★★★★★</div>
+        <p class="tq">"Our IT team uses ZimonAI for every new hardware purchase. The enterprise tier saves us from expensive mistakes."</p>
+        <div class="tauthor"><div class="tav">DK</div><div><div class="t-nm">David K.</div><div class="t-rl">IT Director, Austin</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<div class="banner rv">
+  <div class="ch-in">
+    <p class="eye">Get Started</p>
+    <h2 class="dsp">Your gear deserves better protection.</h2>
+    <p class="bc">2-minute assessment — free. Know your risk before it's too late.</p>
+    <div class="btn-row" style="margin-top:44px">
+      <a href="diagnostic.html" class="btn-s">Start Free Assessment →</a>
+      <a href="pricing.html" class="btn-g">View Pricing</a>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>

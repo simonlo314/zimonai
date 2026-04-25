@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>How It Works — ZimonAI</title>
+<meta name="description" content="Learn how ZimonAI's AI-powered diagnostic process works. Three steps to protect your devices from charging damage."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.detail-steps{display:flex;flex-direction:column;gap:1px;background:var(--border);border:0.5px solid var(--border);border-radius:20px;overflow:hidden;margin-top:64px}
+.ds{background:var(--bg1);padding:52px 48px;display:grid;grid-template-columns:80px 1fr;gap:40px;align-items:start}
+.ds-num{font-size:72px;font-weight:800;color:var(--cyan);opacity:.12;line-height:1;letter-spacing:-.04em}
+.ds-body .step-no{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px;opacity:.7}
+.ds-body h3{font-size:28px;font-weight:700;color:var(--white);margin-bottom:16px;letter-spacing:-.02em}
+.ds-body p{font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+.ds-body p:last-child{margin:0}
+.ds-detail{background:rgba(0,229,255,0.05);border:0.5px solid rgba(0,229,255,0.15);border-radius:12px;padding:16px 20px;font-size:14px;color:rgba(245,245,247,0.6);line-height:1.6;margin-top:16px}
+.ds-detail strong{color:var(--cyan)}
+.tech-g{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:64px}
+.tech-card{background:var(--bg1);border:0.5px solid var(--border);border-radius:20px;padding:36px 32px;transition:border-color .3s}
+.tech-card:hover{border-color:rgba(0,229,255,.3)}
+.tech-ic{width:48px;height:48px;border-radius:14px;background:var(--cdim);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.tech-ic svg{width:22px;height:22px;stroke:var(--cyan);fill:none;stroke-width:1.8}
+.tech-t{font-size:19px;font-weight:600;color:var(--white);margin-bottom:10px}
+.tech-d{font-size:15px;color:var(--muted);line-height:1.7}
+@media(max-width:860px){.ds{grid-template-columns:1fr}.ds-num{display:none}.tech-g{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="how">
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <p class="eye">Methodology</p>
+  <h1>How ZimonAI <em>Works</em></h1>
+  <p>From questionnaire to PDF report — here's exactly what happens behind the scenes when you run a diagnosis.</p>
+</section>
+
+<!-- Detailed Steps -->
+<section class="ch" style="background:var(--bg1)">
+  <div class="ch-in">
+    <div class="rv">
+      <p class="eye">The Process</p>
+      <h2 class="dsp">Three steps. One report.<br/>Zero guesswork.</h2>
+      <p class="bc" style="max-width:560px">Our diagnostic pipeline combines hardware database matching with AI risk modeling to give you lab-grade insights — without a lab.</p>
+    </div>
+    <div class="detail-steps rv d1">
+      <div class="ds">
+        <div class="ds-num">01</div>
+        <div class="ds-body">
+          <div class="step-no">Step 01 — Input</div>
+          <h3>Answer 5 Quick Questions</h3>
+          <p>You tell us your device model, charger brand and wattage, cable type, battery health, and any symptoms you've noticed. No hardware inspection needed — just what you know.</p>
+          <p>The entire questionnaire takes under 2 minutes and is completely free. Your answers form the foundation of your personalized risk profile.</p>
+          <div class="ds-detail"><strong>What we ask:</strong> Device model · Charger brand & wattage · Cable source · Battery age · Any symptoms (heat, slow charging, etc.)</div>
+        </div>
+      </div>
+      <div class="ds">
+        <div class="ds-num">02</div>
+        <div class="ds-body">
+          <div class="step-no">Step 02 — Analysis</div>
+          <h3>AI Cross-References 4,200+ Profiles</h3>
+          <p>Our AI model instantly cross-references your configuration against our certified hardware database — built from real lab testing, manufacturer specs, and safety certifications (UL, CE, RoHS).</p>
+          <p>The model checks for voltage ripple risk, thermal compatibility, charging protocol mismatches, and cable integrity indicators. It generates a risk score from 0–100.</p>
+          <div class="ds-detail"><strong>What the AI checks:</strong> Voltage ripple thresholds · Thermal envelope compatibility · Charging protocol (PD, QC, MagSafe) · Cable resistance rating · Battery chemistry match</div>
+        </div>
+      </div>
+      <div class="ds">
+        <div class="ds-num">03</div>
+        <div class="ds-body">
+          <div class="step-no">Step 03 — Report</div>
+          <h3>Receive Your PDF Safety Report</h3>
+          <p>Within 48 hours, a detailed PDF report lands in your inbox from lab@zimonai.com. It includes your risk score, a breakdown of each risk factor, and specific product recommendations tailored to your setup.</p>
+          <p>Reports are clear, jargon-free, and actionable. No PhD required to understand what to do next.</p>
+          <div class="ds-detail"><strong>What's in the report:</strong> Risk score (0–100) · Factor-by-factor breakdown · Compatibility rating · Specific charger & cable recommendations · Safety certification summary</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Technology -->
+<section class="ch">
+  <div class="ch-in">
+    <div class="rv" style="text-align:center;margin-bottom:64px">
+      <p class="eye">The Technology</p>
+      <h2 class="dsp">What's under the hood.</h2>
+      <p class="bc" style="max-width:520px;margin:0 auto">Our diagnostic engine is built on years of hardware testing and a constantly growing certified database.</p>
+    </div>
+    <div class="tech-g rv d1">
+      <div class="tech-card">
+        <div class="tech-ic"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="tech-t">Voltage Ripple Monitor</div>
+        <div class="tech-d">Real-time waveform analysis comparing your charger's output profile against safe operating thresholds for your specific device.</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+        <div class="tech-t">Thermal Signature Analysis</div>
+        <div class="tech-d">Component-level heat mapping to identify whether your charger-device combination risks thermal runaway or sustained overtemperature operation.</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <div class="tech-t">Hardware Compatibility DB</div>
+        <div class="tech-d">4,200+ certified device and charger profiles drawn from manufacturer specs, independent lab tests, and ongoing community verification.</div>
+      </div>
+      <div class="tech-card">
+        <div class="tech-ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="tech-t">Safety Certification Engine</div>
+        <div class="tech-d">Automated cross-referencing against UL, CE, and RoHS certifications to flag uncertified components in your charging setup.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="ch" id="faq" style="background:var(--bg1)">
+  <div class="ch-in">
+    <div class="rv" style="text-align:center;margin-bottom:64px">
+      <p class="eye">FAQ</p>
+      <h2 class="dsp">Common questions.</h2>
+    </div>
+    <div class="faq-list rv d1">
+      <div class="faq-item">
+        <div class="faq-q">Is the assessment really free?</div>
+        <div class="faq-a">Yes. The questionnaire and risk score preview are completely free. You only pay for the full PDF report, which contains the detailed breakdown and product recommendations.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to send in my hardware?</div>
+        <div class="faq-a">No. Everything is done digitally based on your device and charger model information. No shipping, no lab visit required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How accurate is the diagnostic?</div>
+        <div class="faq-a">Our AI achieves 99% accuracy against verified lab benchmarks. The model is continuously updated with new certified profiles and real-world testing data.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does the report take?</div>
+        <div class="faq-a">Most reports are delivered within 24–48 hours. You'll receive an email from lab@zimonai.com when your report is ready.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What devices do you support?</div>
+        <div class="faq-a">We support MacBooks, iPhones, iPads, Android flagships, Windows laptops, and USB-C devices from all major manufacturers. Our database covers 4,200+ certified profiles.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is my data safe?</div>
+        <div class="faq-a">Yes. Your data is encrypted in transit and at rest. We never sell your information to third parties. See our Privacy Policy for full details.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="banner rv">
+  <div class="ch-in">
+    <p class="eye">Ready?</p>
+    <h2 class="dsp">Take 2 minutes to protect your gear.</h2>
+    <p class="bc">Free assessment. No hardware required. Results in 48 hours.</p>
+    <div class="btn-row" style="margin-top:44px">
+      <a href="diagnostic.html" class="btn-s">Start Free Assessment →</a>
+      <a href="pricing.html" class="btn-g">View Pricing</a>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>

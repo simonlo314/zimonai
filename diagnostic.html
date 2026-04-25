@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>ZimonAI Diagnostic</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#000;--bg1:#0d0d0d;--bg2:#141414;--cyan:#00E5FF;--cdim:rgba(0,229,255,0.08);--cbrd:rgba(0,229,255,0.2);--white:#fff;--text:#f0f0f2;--muted:rgba(240,240,242,0.5);--border:rgba(255,255,255,0.07);--danger:#ff4757;--warn:#ffa502;--ok:#2ed573;--r:16px}
+html,body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;font-size:15px}
+.topbar{background:rgba(0,0,0,0.9);border-bottom:0.5px solid var(--border);padding:0 24px;height:50px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)}
+.logo{font-size:16px;font-weight:600;color:var(--white);display:flex;align-items:center;gap:6px}
+.logo em{font-style:normal;color:var(--cyan)}
+.step-count{font-size:12px;color:var(--muted)}
+.prog-wrap{height:2px;background:rgba(255,255,255,0.06)}
+.prog-bar{height:2px;background:var(--cyan);transition:width .5s cubic-bezier(.16,1,.3,1)}
+.layout{display:grid;grid-template-columns:1fr 280px;gap:24px;max-width:900px;margin:0 auto;padding:32px 20px 60px;align-items:start}
+@media(max-width:720px){.layout{grid-template-columns:1fr}.sidebar{order:-1}}
+.form-card{background:var(--bg1);border:0.5px solid var(--border);border-radius:var(--r);overflow:hidden;min-height:400px;position:relative}
+.step{display:none;padding:36px 32px;animation:fadeIn .35s ease}
+.step.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.step-eye{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;opacity:.7}
+.step-title{font-size:22px;font-weight:600;color:var(--white);margin-bottom:8px;line-height:1.25}
+.step-sub{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.q-label{font-size:13px;font-weight:500;color:var(--muted);margin-bottom:14px;letter-spacing:.02em}
+.opts{display:grid;gap:8px;margin-bottom:24px}
+.opts.cols2{grid-template-columns:1fr 1fr}
+.opt{background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:13px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .18s;user-select:none}
+.opt:hover{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.04)}
+.opt.sel{border-color:var(--cyan);background:var(--cdim)}
+.opt.sel .opt-dot{background:var(--cyan);border-color:var(--cyan)}
+.opt.sel .opt-dot::after{opacity:1}
+.opt-dot{width:17px;height:17px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);flex-shrink:0;position:relative;transition:all .15s}
+.opt-dot::after{content:'';position:absolute;width:7px;height:7px;border-radius:50%;background:var(--bg);top:50%;left:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity .15s}
+.opt-chk{width:17px;height:17px;border-radius:4px;border:1.5px solid rgba(255,255,255,.25);flex-shrink:0;position:relative;transition:all .15s}
+.opt.sel .opt-chk{background:var(--cyan);border-color:var(--cyan)}
+.opt.sel .opt-chk::after{content:'✓';position:absolute;font-size:10px;font-weight:700;color:#000;top:50%;left:50%;transform:translate(-50%,-50%)}
+.opt-txt{font-size:14px;color:var(--text);line-height:1.4}
+.opt-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.opt-badge{margin-left:auto;font-size:10px;font-weight:700;padding:3px 8px;border-radius:20px;letter-spacing:.05em}
+.risk-badge{background:rgba(255,71,87,.15);color:var(--danger);border:0.5px solid rgba(255,71,87,.3)}
+.ok-badge{background:rgba(46,213,115,.12);color:var(--ok);border:0.5px solid rgba(46,213,115,.3)}
+.warn-badge{background:rgba(255,165,2,.12);color:var(--warn);border:0.5px solid rgba(255,165,2,.3)}
+.slider-wrap{margin-bottom:24px}
+.slider-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.slider-val{font-size:28px;font-weight:700;color:var(--white);min-width:52px}
+.slider-val span{font-size:14px;color:var(--muted);font-weight:400}
+input[type=range]{flex:1;-webkit-appearance:none;height:4px;background:rgba(255,255,255,.12);border-radius:2px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--cyan);cursor:pointer;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--cyan)}
+.slider-hint{font-size:11px;color:var(--muted)}
+.bat-bar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:10px;overflow:hidden}
+.bat-fill{height:100%;border-radius:3px;transition:width .3s,background .3s}
+input[type=email]{width:100%;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:14px 16px;color:var(--text);font-size:15px;outline:none;font-family:inherit;transition:border-color .2s;margin-bottom:16px}
+input[type=email]:focus{border-color:var(--cyan)}
+input[type=email]::placeholder{color:var(--muted)}
+.consent-row{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;cursor:pointer;transition:border-color .2s}
+.consent-row.sel{border-color:var(--cbrd)}
+.cbox{width:17px;height:17px;border-radius:4px;border:1.5px solid rgba(255,255,255,.25);flex-shrink:0;margin-top:1px;position:relative;transition:all .15s}
+.consent-row.sel .cbox{background:var(--cyan);border-color:var(--cyan)}
+.consent-row.sel .cbox::after{content:'✓';position:absolute;font-size:10px;font-weight:700;color:#000;top:50%;left:50%;transform:translate(-50%,-50%)}
+.consent-txt{font-size:13px;color:var(--muted);line-height:1.5}
+.actions{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:20px;border-top:0.5px solid var(--border)}
+.btn-back{background:transparent;border:0.5px solid rgba(255,255,255,.15);color:var(--muted);padding:10px 20px;border-radius:980px;cursor:pointer;font-size:13px;font-family:inherit;transition:all .2s}
+.btn-back:hover{border-color:rgba(255,255,255,.3);color:var(--text)}
+.btn-next{background:var(--cyan);color:#000;border:none;padding:11px 28px;border-radius:980px;cursor:pointer;font-size:14px;font-weight:600;font-family:inherit;transition:all .2s;display:flex;align-items:center;gap:6px}
+.btn-next:hover{background:#00cce0}
+.btn-next:disabled{opacity:.35;cursor:not-allowed}
+.btn-next.ghost{background:transparent;border:0.5px solid rgba(255,255,255,.2);color:var(--text);font-weight:400}
+.btn-next.ghost:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.35)}
+.sidebar{display:flex;flex-direction:column;gap:16px}
+.s-card{background:var(--bg1);border:0.5px solid var(--border);border-radius:var(--r);padding:22px}
+.s-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.gauge-wrap{position:relative;width:120px;height:60px;margin:0 auto 8px;overflow:hidden}
+.gauge-bg{fill:none;stroke:rgba(255,255,255,.07);stroke-width:12;stroke-linecap:round}
+.gauge-fg{fill:none;stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.16,1,.3,1),stroke .4s}
+.gauge-center{position:absolute;bottom:0;left:50%;transform:translateX(-50%);text-align:center;width:120px}
+.gauge-pct{font-size:22px;font-weight:700;color:var(--white);line-height:1}
+.gauge-lbl{font-size:10px;font-weight:600;letter-spacing:.06em;margin-top:2px;text-transform:uppercase}
+.risk-items{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.ri{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;background:var(--bg2);border:0.5px solid var(--border);transition:all .3s}
+.ri.lit{border-color:rgba(255,71,87,.3);background:rgba(255,71,87,.06)}
+.ri.ok-lit{border-color:rgba(46,213,115,.3);background:rgba(46,213,115,.06)}
+.ri-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;transition:background .3s}
+.ri.lit .ri-dot{background:var(--danger)}
+.ri.ok-lit .ri-dot{background:var(--ok)}
+.ri-txt{font-size:12px;color:var(--muted);transition:color .3s}
+.ri.lit .ri-txt,.ri.ok-lit .ri-txt{color:var(--text)}
+.tip-card{padding:16px;background:rgba(0,229,255,.05);border:0.5px solid var(--cbrd);border-radius:10px;font-size:12px;color:rgba(240,240,242,.6);line-height:1.6}
+.tip-card strong{color:var(--cyan);font-weight:500}
+.preview-screen{padding:32px;text-align:center}
+.preview-ic{width:70px;height:70px;border-radius:50%;background:rgba(255,165,2,.1);border:0.5px solid rgba(255,165,2,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
+.preview-ic.hi{background:rgba(255,71,87,.1);border-color:rgba(255,71,87,.3)}
+.preview-ic.lo{background:rgba(46,213,115,.1);border-color:rgba(46,213,115,.3)}
+.preview-title{font-size:20px;font-weight:600;color:var(--white);margin-bottom:8px}
+.preview-sub{font-size:14px;color:var(--muted);max-width:360px;margin:0 auto 28px;line-height:1.65}
+.rfact-list{display:flex;flex-direction:column;gap:8px;margin-bottom:28px;text-align:left;max-width:380px;margin-left:auto;margin-right:auto}
+.rf{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:9px;background:var(--bg2);border:0.5px solid var(--border);font-size:13px;color:var(--text)}
+.rf-ic{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
+.rf.danger .rf-ic{background:rgba(255,71,87,.15);color:var(--danger)}
+.rf.warn .rf-ic{background:rgba(255,165,2,.12);color:var(--warn)}
+.rf.ok .rf-ic{background:rgba(46,213,115,.12);color:var(--ok)}
+.proc-screen{padding:40px 32px;text-align:center}
+.proc-logo{width:56px;height:56px;border:0.5px solid var(--cbrd);border-radius:14px;background:var(--cdim);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.proc-title{font-size:18px;font-weight:600;color:var(--white);margin-bottom:8px}
+.proc-sub{font-size:13px;color:var(--muted);margin-bottom:32px;line-height:1.6}
+.proc-items{display:flex;flex-direction:column;gap:0;max-width:360px;margin:0 auto 32px;text-align:left}
+.pi{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:0.5px solid var(--border);font-size:13px;color:var(--muted);transition:color .3s}
+.pi:last-child{border:none}
+.pi.done{color:var(--text)}
+.pi-ic{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;transition:all .3s}
+.pi.done .pi-ic{background:rgba(46,213,115,.2);color:var(--ok)}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.15);border-top-color:var(--cyan);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.done-screen{padding:40px 32px;text-align:center}
+.done-ic{width:72px;height:72px;border-radius:50%;background:rgba(46,213,115,.12);border:0.5px solid rgba(46,213,115,.35);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 20px}
+.done-title{font-size:22px;font-weight:600;color:var(--white);margin-bottom:10px}
+.done-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.65;max-width:360px;margin-left:auto;margin-right:auto}
+.done-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:360px;margin:0 auto 32px}
+.dm{background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:14px;text-align:left}
+.dm-n{font-size:20px;font-weight:700;color:var(--white)}
+.dm-l{font-size:11px;color:var(--muted);margin-top:3px}
+.divider{height:0.5px;background:var(--border);margin:24px 0}
+.hint-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-bottom:14px}
+.hint-ic{width:18px;height:18px;border-radius:50%;background:var(--cdim);border:0.5px solid var(--cbrd);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--cyan);flex-shrink:0}
+.intro-screen{padding:40px 32px;text-align:center}
+.intro-logo{width:64px;height:64px;border:0.5px solid var(--cbrd);border-radius:16px;background:var(--cdim);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.intro-title{font-size:24px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.2}
+.intro-sub{font-size:14px;color:var(--muted);max-width:340px;margin:0 auto 28px;line-height:1.7}
+.intro-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.pill{background:rgba(255,255,255,.06);border:0.5px solid var(--border);border-radius:980px;padding:5px 14px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="index.html" class="logo">
+    <svg width="18" height="22" viewBox="0 0 100 122"><path d="M36,108C85,108,90,72,52,54C10,36,10,12,64,12" stroke="#00E5FF" stroke-width="13" stroke-linecap="round" fill="none"/><rect x="3" y="98" width="34" height="20" rx="6" fill="#00E5FF"/><rect x="63" y="3" width="34" height="18" rx="3" fill="#00E5FF"/></svg>
+    Zimon<em>AI</em>
+  </a>
+  <div class="step-count" id="stepCount">Free Assessment</div>
+</div>
+<div class="prog-wrap"><div class="prog-bar" id="progBar" style="width:0%"></div></div>
+
+<div class="layout">
+<div>
+<div class="form-card">
+
+<!-- STEP 0: Intro -->
+<div class="step active" id="step0">
+  <div class="intro-screen">
+    <div class="intro-logo">
+      <svg width="30" height="36" viewBox="0 0 100 122"><path d="M36,108C85,108,90,72,52,54C10,36,10,12,64,12" stroke="#00E5FF" stroke-width="13" stroke-linecap="round" fill="none"/><rect x="3" y="98" width="34" height="20" rx="6" fill="#00E5FF"/><rect x="63" y="3" width="34" height="18" rx="3" fill="#00E5FF"/></svg>
+    </div>
+    <h1 class="intro-title">ZimonAI 硬體安全診斷</h1>
+    <p class="intro-sub">AI 將交叉比對您的配置與 4,200+ 份認證硬體資料，並於 24 小時內生成您的專屬 PDF 報告。</p>
+    <div class="intro-pills">
+      <span class="pill">全程免費</span>
+      <span class="pill">2 分鐘完成</span>
+      <span class="pill">無需攜帶設備</span>
+      <span class="pill">資料加密保護</span>
+    </div>
+    <button class="btn-next" style="margin:0 auto;font-size:15px;padding:13px 36px" onclick="goNext()">開始診斷 →</button>
+  </div>
+</div>
+
+<!-- STEP 1: Q1 Device -->
+<div class="step" id="step1">
+  <div class="step-eye">第一階段 — 設備識別</div>
+  <h2 class="step-title">您的主要生產力設備？</h2>
+  <p class="step-sub">選擇最能代表您主力工作機的類型。</p>
+  <div class="opts" id="q1opts">
+    <div class="opt" onclick="pick('q1','mbp',this)"><div class="opt-dot"></div><div class="opt-txt">MacBook Pro <span style="color:var(--muted)">(M1 / M2 / M3 / M4 系列)</span><div class="opt-sub">高功耗設備，充電相容性要求最嚴苛</div></div><span class="opt-badge warn-badge">高風險群</span></div>
+    <div class="opt" onclick="pick('q1','mba',this)"><div class="opt-dot"></div><div class="opt-txt">MacBook Air / Neo 系列<div class="opt-sub">中等功耗，對充電協議仍有嚴格規範</div></div></div>
+    <div class="opt" onclick="pick('q1','iphone',this)"><div class="opt-dot"></div><div class="opt-txt">iPhone 旗艦系列 <span style="color:var(--muted)">(Pro / Pro Max)</span><div class="opt-sub">電池容量小但對紋波極敏感</div></div></div>
+    <div class="opt" onclick="pick('q1','other',this)"><div class="opt-dot"></div><div class="opt-txt">Other Pro Laptops<div class="opt-sub">Dell XPS、Razer Blade、Lenovo ThinkPad 等</div></div><span class="opt-badge risk-badge">高紋波風險</span></div>
+  </div>
+  <div class="actions">
+    <button class="btn-back" onclick="goBack()">← 返回</button>
+    <button class="btn-next" id="next1" onclick="goNext()" disabled>繼續 →</button>
+  </div>
+</div>
+
+<!-- STEP 1b: Q1 conditional - MacBook Neo extra -->
+<div class="step" id="step1b">
+  <div class="step-eye">第一階段 — 設備識別（補充）</div>
+  <h2 class="step-title">您的 MacBook Neo 是 2026 最新款？</h2>
+  <p class="step-sub">2026 款搭載全新 USB4 Gen 3 控制器，充電協議規範與前代不同，需額外比對。</p>
+  <div class="opts" id="q1bopts">
+    <div class="opt" onclick="pick('q1b','yes',this)"><div class="opt-dot"></div><div class="opt-txt">是，2026 最新款<div class="opt-sub">需要比對新版充電協議資料庫</div></div><span class="opt-badge warn-badge">需特別比對</span></div>
+    <div class="opt" onclick="pick('q1b','no',this)"><div class="opt-dot"></div><div class="opt-txt">否，2025 年或更早<div class="opt-sub">使用標準 MacBook Air Neo 診斷流程</div></div></div>
+  </div>
+  <div class="actions">
+    <button class="btn-back" onclick="goBack()">← 返回</button>
+    <button class="btn-next" id="next1b" onclick="goNext()" disabled>繼續 →</button>
+  </div>
+</div>
+
+<!-- STEP 2: Q2 + Q3 -->
+<div class="step" id="step2">
+  <div class="step-eye">第一階段 — 設備識別</div>
+  <h2 class="step-title">設備年齡與電池健康度</h2>
+  <p class="step-sub">電池自然損耗率是風險計算的關鍵參數之一。</p>
+  <p class="q-label">設備購入時間</p>
+  <div class="opts cols2" id="q2opts">
+    <div class="opt" onclick="pick('q2','new',this)"><div class="opt-dot"></div><div class="opt-txt">1 年以內<div class="opt-sub">損耗率低</div></div></div>
+    <div class="opt" onclick="pick('q2','mid',this)"><div class="opt-dot"></div><div class="opt-txt">1 – 3 年<div class="opt-sub">開始進入損耗期</div></div></div>
+    <div class="opt" onclick="pick('q2','old',this)"><div class="opt-dot"></div><div class="opt-txt">3 年以上<div class="opt-sub">損耗風險顯著</div></div></div>
+    <div class="opt" onclick="pick('q2','vold',this)"><div class="opt-dot"></div><div class="opt-txt">5 年以上<div class="opt-sub">高度建議換機評估</div></div></div>
+  </div>
+  <div class="divider"></div>
+  <p class="q-label">目前電池健康度 (Battery Health)</p>
+  <div class="hint-row"><div class="hint-ic">i</div><span>iPhone: 設定 → 電池 → 電池健康度｜Mac: 系統資訊 → 電源</span></div>
+  <div class="slider-wrap">
+    <div class="slider-row">
+      <div class="slider-val"><span id="batPct">87</span><span>%</span></div>
+      <input type="range" min="50" max="100" value="87" step="1" id="batSlider" oninput="updateBat(this.value)"/>
+    </div>
+    <div class="bat-bar"><div class="bat-fill" id="batFill" style="width:74%;background:var(--ok)"></div></div>
+    <div class="slider-hint" id="batHint" style="margin-top:6px;color:var(--ok)">電池狀態良好，風險較低</div>
+  </div>
+  <div class="actions">
+    <button class="btn-back" onclick="goBack()">← 返回</button>
+    <button class="btn-next" id="next2" onclick="goNext()" disabled>繼續 →</button>
+  </div>
+</div>
+
+<!-- STEP 3: Q4 Charger -->
+<div class="step" id="step3">
+  <div class="step-eye">第二階段 — 電力來源稽核</div>
+  <h2 class="step-title">您最常使用的充電頭品牌？</h2>
+  <p class="step-sub">充電器的品牌直接決定電壓紋波 (Voltage Ripple) 風險等級。</p>
+  <div class="opts" id="q4opts">
+    <div class="opt" onclick="pick('q4','apple',this)"><div class="opt-dot"></div><div class="opt-txt">Apple 原廠充電器<div class="opt-sub">通過完整 MFi 認證，紋波控制最佳</div></div><span class="opt-badge ok-badge">LOW RISK</span></div>
+    <div class="opt" onclick="pick('q4','anker',this)"><div class="opt-dot"></div><div class="opt-txt">Anker / Belkin<div class="opt-sub">主流品牌，多數通過認證，偶有批次差異</div></div><span class="opt-badge ok-badge">LOW RISK</span></div>
+    <div class="opt" onclick="pick('q4','cuktech',this)"><div class="opt-dot"></div><div class="opt-txt">CUKTECH / Baseus / 小米<div class="opt-sub">品質參差，建議核對認證標章</div></div><span class="opt-badge warn-badge">MODERATE</span></div>
+    <div class="opt" onclick="pick('q4','nobrand',this)"><div class="opt-dot"></div><div class="opt-txt">雜牌 / 無標誌 / 電商隨機購入<div class="opt-sub">電壓突波風險最高，為主要損壞來源</div></div><span class="opt-badge risk-badge">HIGH RISK</span></div>
+    <div class="opt" onclick="pick('q4','unknown',this)"><div class="opt-dot"></div><div class="opt-txt">不清楚 / 忘記品牌<div class="opt-sub">ZimonAI 將按最保守方案診斷</div></div></div>
+  </div>
+  <div class="actions">
+    <button class="btn-back" onclick="goBack()">← 返回</button>
+    <button class="btn-next" id="next3" onclick="goNext()" disabled>繼續 →</button>
+  </div>
+</div>
+
+<!-- STEP 4: Q5 + Q6 -->
+<div class="step" id="step4">
+  <div class="step-eye">第二階段 — 電力來源稽核</div>
+  <h2 class="step-title">充電功率與線材來源</h2>
+  <p class="step-sub">充電功率與線材規格的匹配程度是過熱風險的核心指標。</p>
+  <p class="q-label">充電頭標稱功率 (W) — 翻面看充電頭背面標籤</p>
+  <div class="opts cols2" id="q5opts">
+    <div class="opt" onclick="pick('q5','20',this)"><div class="opt-dot"></div><div class="opt-txt">20W 以下</div></div>
+    <div class="opt" onclick="pick('q5','30',this)"><div class="opt-dot"></div><div class="opt-txt">20W – 45W</div></div>
+    <div class="opt" onclick="pick('q5','67',this)"><div class="opt-dot"></div><div class="opt-txt">45W – 67W</div></div>
+    <div class="opt" onclick="pick('q5','100',this)"><div class="opt-dot"></div><div class="opt-txt">100W – 140W</div></div>
+    <div class="opt" onclick="pick('q5','unk',this)"><div class="opt-dot"></div><div class="opt-txt">不確定</div></div>
+  </div>
+  <div class="divider"></div>
+  <p class="q-label">充電線材來源</p>
+  <div class="opts" id="q6opts">
+    <div class="opt" onclick="pick('q6','oem',this)"><div class="opt-dot"></div><div class="opt-txt">原廠附贈線材<div class="opt-sub">標準規格，與設備完全相容</div></div><span class="opt-badge ok-badge">SAFE</span></div>
+    <div class="opt" onclick="pick('q6','mfi',this)"><div class="opt-dot"></div><div class="opt-txt">品牌編織線 (有 MFi 認證標章)<div class="opt-sub">符合規範，線材老化是主要監控點</div></div><span class="opt-badge ok-badge">SAFE</span></div>
+    <div class="opt" onclick="pick('q6','random',this)"><div class="opt-dot"></div><div class="opt-txt">電商隨機購入 (無特別標註)<div class="opt-sub">導體截面積不足，觸發電阻過熱風險</div></div><span class="opt-badge risk-badge">HIGH RISK</span></div>
+  </div>
+  <div class="actions">
+    <button class="btn-back" onclick="goBack()">← 返回</button>
+    <button class="btn-next" id="next4" onclick="goNext()" disabled>繼續 →</button>
+  </div>
+</div>
+
+<!-- STEP 5: Q7 Symptoms -->
+<div class="step" id="step5">
+  <div class="step-eye">第三階段 — 臨床症狀偵測</div>
+  <h2 class="step-title">充電時是否出現以下症狀？</h2>
+  <p class="step-sub">可複選。這些症狀是反推硬體風險的關鍵臨床指標。</p>
+  <div class="opts" id="q7opts">
+    <div class="opt" onclick="toggleCheck('q7_heat',this)" data-key="q7_heat"><div class="opt-chk"></div><div class="opt-txt">設備異常發燙 (燙到難以持握)<div class="opt-sub">熱失控前兆，優先級最高</div></div><span class="opt-badge risk-badge">+2 風險</span></div>
+    <div class="opt" onclick="toggleCheck('q7_touch',this)" data-key="q7_touch"><div class="opt-chk"></div><div class="opt-txt">觸控板 / 螢幕偶爾失靈或漂移<div class="opt-sub">電壓紋波過大的典型徵兆</div></div><span class="opt-badge risk-badge">+2 風險</span></div>
+    <div class="opt" onclick="toggleCheck('q7_drain',this)" data-key="q7_drain"><div class="opt-chk"></div><div class="opt-txt">電量掉得異常快速<div class="opt-sub">充電曲線不相容導致電池加速損耗</div></div><span class="opt-badge warn-badge">+1 風險</span></div>
+    <div class="opt" onclick="toggleCheck('q7_burn',this)" data-key="q7_burn"><div class="opt-chk"></div><div class="opt-txt">充電接頭有黑色焦跡或燒焦氣味<div class="opt-sub">碳化現象，立即更換充電器</div></div><span class="opt-badge risk-badge">+3 緊急</span></div>
+    <div class="opt" onclick="toggleCheck('q7_none',this)" data-key="q7_none"><div class="opt-chk"></div><div class="opt-txt">以上症狀均無<div class="opt-sub">目前無明顯症狀，預防性診斷</div></div></div>
+  </div>
+  <div class="actions">
+    <button class="btn-back" onclick="goBack()">← 返回</button>
+    <button class="btn-next" id="next5" onclick="goNext()">查看風險預覽 →</button>
+  </div>
+</div>
+
+<!-- STEP 6: Risk Preview -->
+<div class="step" id="step6">
+  <div class="preview-screen" id="previewScreen">
+    <!-- filled by JS -->
+  </div>
+</div>
+
+<!-- STEP 7: Email -->
+<div class="step" id="step7">
+  <div class="step-eye">第四階段 — 報告交付</div>
+  <h2 class="step-title">您的報告準備就緒</h2>
+  <p class="step-sub">完整的 PDF 診斷報告將在 24 小時內送達您的信箱，包含具體的充電器更換建議。</p>
+  <p class="q-label">分析結果發送至</p>
+  <input type="email" id="emailInput" placeholder="your@email.com" oninput="checkEmail()"/>
+  <div onclick="toggleConsent()" class="consent-row" id="consentRow">
+    <div class="cbox" id="cbox"></div>
+    <div class="consent-txt">（選填）我願意匿名提供此份診斷數據，協助 ZimonAI 擴充硬體相容性資料庫。我了解此資料不包含任何個人識別資訊。</div>
+  </div>
+  <div class="actions">
+    <button class="btn-back" onclick="goBack()">← 返回</button>
+    <button class="btn-next" id="next7" onclick="startProcessing()" disabled>發送報告 →</button>
+  </div>
+</div>
+
+<!-- STEP 8: Processing -->
+<div class="step" id="step8">
+  <div class="proc-screen">
+    <div class="proc-logo">
+      <svg width="26" height="32" viewBox="0 0 100 122"><path d="M36,108C85,108,90,72,52,54C10,36,10,12,64,12" stroke="#00E5FF" stroke-width="13" stroke-linecap="round" fill="none"/><rect x="3" y="98" width="34" height="20" rx="6" fill="#00E5FF"/><rect x="63" y="3" width="34" height="18" rx="3" fill="#00E5FF"/></svg>
+    </div>
+    <h2 class="proc-title">數據已上傳至 ZimonAI 雲端實驗室</h2>
+    <p class="proc-sub">正在比對 4,200+ 份硬體指紋資料庫<br/>預計報告將於 24 小時內送達</p>
+    <div class="proc-items" id="procItems">
+      <div class="pi" id="pi1"><div class="spin"></div>上傳診斷資料至雲端伺服器</div>
+      <div class="pi" id="pi2"><div class="pi-ic"></div>比對認證硬體資料庫 (v3.1)</div>
+      <div class="pi" id="pi3"><div class="pi-ic"></div>執行電壓紋波風險模型</div>
+      <div class="pi" id="pi4"><div class="pi-ic"></div>生成個人化充電方案建議</div>
+      <div class="pi" id="pi5"><div class="pi-ic"></div>排程 PDF 報告交付</div>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 9: Done -->
+<div class="step" id="step9">
+  <div class="done-screen">
+    <div class="done-ic">✓</div>
+    <h2 class="done-title">診斷完成，報告排程中</h2>
+    <p class="done-sub" id="doneEmail">報告已排入佇列，將於 24 小時內以 PDF 格式發送至您的信箱。請留意來自 lab@zimonai.com 的郵件。</p>
+    <div class="done-meta">
+      <div class="dm"><div class="dm-n" id="doneScore">—</div><div class="dm-l">風險指數</div></div>
+      <div class="dm"><div class="dm-n" id="doneFacts">—</div><div class="dm-l">偵測到的風險因子</div></div>
+      <div class="dm"><div class="dm-n">24h</div><div class="dm-l">預計報告交付</div></div>
+      <div class="dm"><div class="dm-n" id="doneType">—</div><div class="dm-l">診斷類型</div></div>
+    </div>
+    <button class="btn-next" style="margin:0 auto;padding:12px 32px" onclick="restartQuiz()">重新診斷另一台設備</button>
+  </div>
+</div>
+
+</div><!-- form-card -->
+</div><!-- left col -->
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="s-card">
+    <div class="s-label">即時風險評估</div>
+    <div class="gauge-wrap">
+      <svg viewBox="0 0 120 60" width="120" height="60" style="overflow:visible">
+        <path d="M10,55 A50,50,0,0,1,110,55" class="gauge-bg" stroke-dasharray="157" stroke-dashoffset="0"/>
+        <path id="gaugePath" d="M10,55 A50,50,0,0,1,110,55" class="gauge-fg" stroke="#2ed573" stroke-dasharray="157" stroke-dashoffset="157"/>
+      </svg>
+      <div class="gauge-center">
+        <div class="gauge-pct" id="gaugePct">0</div>
+        <div class="gauge-lbl" id="gaugeLbl" style="color:var(--ok)">SAFE</div>
+      </div>
+    </div>
+    <div class="risk-items">
+      <div class="ri" id="ri_charger"><div class="ri-dot"></div><div class="ri-txt">充電器風險</div></div>
+      <div class="ri" id="ri_cable"><div class="ri-dot"></div><div class="ri-txt">線材風險</div></div>
+      <div class="ri" id="ri_battery"><div class="ri-dot"></div><div class="ri-txt">電池健康</div></div>
+      <div class="ri" id="ri_symptom"><div class="ri-dot"></div><div class="ri-txt">臨床症狀</div></div>
+    </div>
+  </div>
+  <div class="tip-card" id="sideTip">
+    <strong>填寫提示</strong><br/>所有問題均有條件分支——根據您的回答，AI 將聚焦在最相關的風險向量上。
+  </div>
+</div>
+</div>
+
+<script>
+const ans={};
+let curStep=0,consentOn=false;
+const steps=[0,1,null,2,3,4,5,6,7,8,9];
+const totalSteps=8;
+
+function showStep(n){
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  const pct=Math.round((n/totalSteps)*100);
+  document.getElementById('progBar').style.width=pct+'%';
+  document.getElementById('stepCount').textContent=n===0?'診斷問卷':n===8||n===9?'完成':`步驟 ${n} / ${totalSteps}`;
+  curStep=n;
+  updateGauge();
+}
+
+function pick(key,val,el){
+  ans[key]=val;
+  document.querySelectorAll('#'+key+'opts .opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  const nx=document.getElementById('next'+curStep);
+  if(nx)nx.removeAttribute('disabled');
+  if(key==='q4')updateChargerRisk();
+  if(key==='q6')updateCableRisk();
+  if(key==='q2'||key==='q3')checkQ2Q3();
+  updateGauge();
+  updateTip();
+}
+
+function checkQ2Q3(){
+  const ok=ans.q2;
+  const nx=document.getElementById('next2');
+  if(ok&&nx)nx.removeAttribute('disabled');
+}
+
+function toggleCheck(key,el){
+  if(key==='q7_none'){
+    ['q7_heat','q7_touch','q7_drain','q7_burn'].forEach(k=>{
+      delete ans[k];
+      const e=document.querySelector(`[data-key="${k}"]`);
+      if(e)e.classList.remove('sel');
+    });
+    if(ans[key]){delete ans[key];el.classList.remove('sel');}
+    else{ans[key]=true;el.classList.add('sel');}
+  } else {
+    delete ans.q7_none;
+    document.querySelector('[data-key="q7_none"]')?.classList.remove('sel');
+    if(ans[key]){delete ans[key];el.classList.remove('sel');}
+    else{ans[key]=true;el.classList.add('sel');}
+  }
+  updateGauge();updateTip();
+}
+
+function updateBat(v){
+  ans.bat=parseInt(v);
+  document.getElementById('batPct').textContent=v;
+  const pct=(v-50)/50*100;
+  const fill=document.getElementById('batFill');
+  const hint=document.getElementById('batHint');
+  fill.style.width=pct+'%';
+  if(v>=85){fill.style.background='var(--ok)';hint.style.color='var(--ok)';hint.textContent='電池狀態良好，風險較低';}
+  else if(v>=75){fill.style.background='var(--warn)';hint.style.color='var(--warn)';hint.textContent='電池有一定損耗，建議留意充電習慣';}
+  else if(v>=65){fill.style.background='#ff6b35';hint.style.color='#ff6b35';hint.textContent='電池損耗明顯，充電相容性尤為重要';}
+  else{fill.style.background='var(--danger)';hint.style.color='var(--danger)';hint.textContent='電池嚴重老化，建議優先安排換電評估';}
+  updateGauge();
+}
+
+function calcRisk(){
+  let score=0,factors=[];
+  const q4=ans.q4;
+  if(q4==='nobrand'||q4==='unknown'){score+=30;if(q4==='nobrand')factors.push({type:'danger',txt:'使用無認證充電器，高紋波風險'});}
+  else if(q4==='cuktech'){score+=12;factors.push({type:'warn',txt:'充電器品質待確認，建議核對認證'});}
+  else if(q4==='apple'||q4==='anker'){factors.push({type:'ok',txt:'充電器為認證品牌，風險低'});}
+  const q6=ans.q6;
+  if(q6==='random'){score+=25;factors.push({type:'danger',txt:'線材無認證，導體過熱風險高'});}
+  else if(q6==='mfi'){score+=5;}
+  else if(q6==='oem'){factors.push({type:'ok',txt:'原廠線材，規格完全相容'});}
+  const bat=ans.bat||87;
+  if(bat<70){score+=20;factors.push({type:'danger',txt:'電池嚴重老化，需優先處理'});}
+  else if(bat<80){score+=10;factors.push({type:'warn',txt:'電池損耗中等，充電需謹慎'});}
+  const q2=ans.q2;
+  if(q2==='vold'){score+=10;}else if(q2==='old'){score+=5;}
+  if(ans.q7_burn){score+=25;factors.push({type:'danger',txt:'緊急：偵測到碳化徵兆，立即停止使用'});}
+  if(ans.q7_heat){score+=15;factors.push({type:'danger',txt:'熱失控前兆，需立即排查充電器'});}
+  if(ans.q7_touch){score+=12;factors.push({type:'danger',txt:'觸控失靈為電壓紋波超標典型症狀'});}
+  if(ans.q7_drain){score+=8;factors.push({type:'warn',txt:'掉電異常，充電協議可能不相容'});}
+  return{score:Math.min(score,100),factors};
+}
+
+function updateGauge(){
+  const{score,factors}=calcRisk();
+  const path=document.getElementById('gaugePath');
+  const pct=document.getElementById('gaugePct');
+  const lbl=document.getElementById('gaugeLbl');
+  const offset=157-(score/100*157);
+  path.style.strokeDashoffset=offset;
+  pct.textContent=Math.round(score);
+  let col,label;
+  if(score<25){col='#2ed573';label='SAFE';}
+  else if(score<50){col='#ffa502';label='MODERATE';}
+  else if(score<75){col='#ff6b35';label='HIGH';}
+  else{col='#ff4757';label='CRITICAL';}
+  path.style.stroke=col;
+  lbl.style.color=col;
+  lbl.textContent=label;
+  const riMap={ri_charger:['apple','anker'].includes(ans.q4)?'ok':['nobrand','unknown','cuktech'].includes(ans.q4)?'lit':null,
+    ri_cable:ans.q6==='random'?'lit':ans.q6?'ok-lit':null,
+    ri_battery:ans.bat?((ans.bat<75)?'lit':(ans.bat<85)?null:'ok-lit'):null,
+    ri_symptom:(ans.q7_burn||ans.q7_heat||ans.q7_touch)?'lit':(ans.q7_drain)?null:(ans.q7_none)?'ok-lit':null};
+  Object.entries(riMap).forEach(([id,cls])=>{
+    const el=document.getElementById(id);
+    el.classList.remove('lit','ok-lit');
+    if(cls)el.classList.add(cls);
+  });
+}
+
+function updateChargerRisk(){}
+function updateCableRisk(){}
+
+function updateTip(){
+  const tips={q4_nobrand:'<strong>高風險偵測</strong><br/>無認證充電器的電壓紋波通常超出安全閾值 3–8 倍，是邏輯板損壞的首要原因。',q4_apple:'<strong>充電器安全</strong><br/>原廠充電器的主要風險轉移至線材老化。重點檢查線材接頭是否磨損。',q6_random:'<strong>線材風險</strong><br/>劣質 USB-C 線材的導體截面積不足，在高功率充電時產生額外電阻與熱量，進而觸發過熱保護機制反覆啟停。',q7_touch:'<strong>紋波超標診斷</strong><br/>觸控板與螢幕的偶發失靈，是電壓紋波 (Voltage Ripple) 過大的高信度臨床指標，診斷重點將聚焦此向量。',q7_burn:'<strong>緊急：立即停止使用</strong><br/>充電接頭碳化是電弧放電的物理證據，代表線材絕緣層已破壞，存在短路起火風險。'};
+  let tip='<strong>填寫提示</strong><br/>所有問題均有條件分支——根據您的回答，AI 將聚焦在最相關的風險向量上。';
+  if(ans.q7_burn)tip=tips.q7_burn;
+  else if(ans.q7_touch)tip=tips.q7_touch;
+  else if(ans.q6==='random')tip=tips.q6_random;
+  else if(ans.q4==='nobrand')tip=tips.q4_nobrand;
+  else if(ans.q4==='apple')tip=tips.q4_apple;
+  document.getElementById('sideTip').innerHTML=tip;
+}
+
+function goNext(){
+  if(curStep===0){showStep(1);return;}
+  if(curStep===1){
+    if(ans.q1==='mba'){showStep('1b');return;}
+    showStep(2);return;
+  }
+  if(curStep==='1b'){showStep(2);return;}
+  if(curStep===2){showStep(3);return;}
+  if(curStep===3){showStep(4);return;}
+  if(curStep===4){showStep(5);return;}
+  if(curStep===5){buildPreview();showStep(6);return;}
+  if(curStep===6){showStep(7);return;}
+}
+
+function goBack(){
+  if(curStep===1){showStep(0);return;}
+  if(curStep==='1b'){showStep(1);return;}
+  if(curStep===2){if(ans.q1==='mba')showStep('1b');else showStep(1);return;}
+  if(curStep===3){showStep(2);return;}
+  if(curStep===4){showStep(3);return;}
+  if(curStep===5){showStep(4);return;}
+  if(curStep===6){showStep(5);return;}
+  if(curStep===7){showStep(6);return;}
+}
+
+function buildPreview(){
+  const{score,factors}=calcRisk();
+  let icClass='',emoji='',riskTxt='',riskCol='var(--ok)';
+  if(score>=75){icClass='hi';emoji='⚠';riskTxt='高度風險';riskCol='var(--danger)';}
+  else if(score>=40){icClass='';emoji='◎';riskTxt='中度風險';riskCol='var(--warn)';}
+  else{icClass='lo';emoji='✓';riskTxt='低度風險';riskCol='var(--ok)';}
+  const isOEM=ans.q4==='apple'||ans.q4==='anker';
+  const isNoBrand=ans.q4==='nobrand'||ans.q4==='unknown';
+  const focusTxt=isNoBrand?'報告將聚焦：電壓突波與紋波分析':isOEM?'報告將聚焦：線材老化與接頭退化評估':'報告將聚焦：綜合相容性與熱管理評估';
+  const rfHtml=factors.length?factors.map(f=>`<div class="rf ${f.type}"><div class="rf-ic">${f.type==='danger'?'!':f.type==='warn'?'~':'✓'}</div>${f.txt}</div>`).join(''):'<div class="rf ok"><div class="rf-ic">✓</div>目前未偵測到明顯高風險因子</div>';
+  document.getElementById('previewScreen').innerHTML=`
+    <div class="preview-ic ${icClass}">${emoji}</div>
+    <h2 class="preview-title">偵測到 <span style="color:${riskCol}">${factors.length} 項</span> 風險因子</h2>
+    <p class="preview-sub">風險指數 <strong style="color:${riskCol}">${Math.round(score)}/100</strong>　${riskTxt}<br/><span style="font-size:12px;color:var(--muted)">${focusTxt}</span></p>
+    <div class="rfact-list">${rfHtml}</div>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:24px">填入您的 Email，接收完整 PDF 診斷報告與具體建議</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-next ghost" onclick="goBack()">← 修改答案</button>
+      <button class="btn-next" onclick="goNext()">取得完整報告 →</button>
+    </div>`;
+}
+
+function checkEmail(){
+  const v=document.getElementById('emailInput').value;
+  const ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  document.getElementById('next7').disabled=!ok;
+}
+
+function toggleConsent(){
+  consentOn=!consentOn;
+  document.getElementById('consentRow').classList.toggle('sel',consentOn);
+  document.getElementById('cbox').classList.toggle('sel',consentOn);
+}
+
+async function sendToMake(payload){
+  try{
+    await fetch('https://hook.us2.make.com/gksxjh6lj2rgz9tq4fdausx2equkjp4l',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+  }catch(e){console.log('webhook error',e);}
+}
+
+function startProcessing(){
+  ans.email=document.getElementById('emailInput').value;
+  ans.consent=consentOn;
+  const{score,factors}=calcRisk();
+  const payload={
+    device:ans.q1,
+    is_2026_neo:ans.q1b||null,
+    device_age:ans.q2,
+    battery_health:ans.bat||87,
+    charger_brand:ans.q4,
+    charger_wattage:ans.q5,
+    cable_source:ans.q6,
+    symptoms:{
+      heat:!!ans.q7_heat,
+      touch:!!ans.q7_touch,
+      drain:!!ans.q7_drain,
+      burn:!!ans.q7_burn,
+      none:!!ans.q7_none
+    },
+    risk_score:Math.round(score),
+    risk_factors:factors.map(f=>f.txt),
+    email:ans.email,
+    consent:ans.consent,
+    submitted_at:new Date().toISOString()
+  };
+  sendToMake(payload);
+  showStep(8);
+  const pis=['pi1','pi2','pi3','pi4','pi5'];
+  pis.forEach((id,i)=>{
+    setTimeout(()=>{
+      const el=document.getElementById(id);
+      el.querySelector('.spin,.pi-ic').outerHTML='<div class="pi-ic">✓</div>';
+      el.classList.add('done');
+      if(i<pis.length-1){
+        const nx=document.getElementById(pis[i+1]);
+        if(nx){const sp=document.createElement('div');sp.className='spin';nx.insertBefore(sp,nx.childNodes[0]);nx.childNodes[1]&&nx.childNodes[1].remove();}
+      }
+    },900+i*1100);
+  });
+  setTimeout(()=>{
+    const{score,factors}=calcRisk();
+    let lvl;if(score>=75)lvl='CRITICAL';else if(score>=50)lvl='HIGH';else if(score>=25)lvl='MODERATE';else lvl='LOW';
+    document.getElementById('doneScore').textContent=Math.round(score)+'/100';
+    document.getElementById('doneFacts').textContent=factors.length+'項';
+    const isNoBrand=ans.q4==='nobrand'||ans.q4==='unknown';
+    const isOEM=ans.q4==='apple'||ans.q4==='anker';
+    document.getElementById('doneType').textContent=isNoBrand?'紋波分析':isOEM?'線材老化':' 綜合診斷';
+    document.getElementById('doneEmail').textContent=`報告已排入佇列，將於 24 小時內發送至 ${ans.email}。請留意來自 lab@zimonai.com 的郵件。`;
+    showStep(9);
+  },6800);
+}
+
+function restartQuiz(){
+  Object.keys(ans).forEach(k=>delete ans[k]);
+  consentOn=false;
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  document.getElementById('emailInput').value='';
+  document.getElementById('batSlider').value=87;
+  updateBat(87);
+  document.getElementById('progBar').style.width='0%';
+  ['pi1','pi2','pi3','pi4','pi5'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.classList.remove('done');
+  });
+  updateGauge();
+  showStep(0);
+}
+
+document.getElementById('batSlider').addEventListener('input',e=>updateBat(e.target.value));
+updateBat(87);
+</script>
+</body>
+</html>
