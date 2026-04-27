@@ -14,6 +14,7 @@ const NAV_HTML=(active)=>`
   </a>
   <ul class="nav-mid">
     <li><a href="how-it-works.html" ${active==='how'?'class="active"':''}>How It Works</a></li>
+    <li><a href="blog.html" ${active==='blog'?'class="active"':''}>Blog</a></li>
     <li><a href="pricing.html" ${active==='pricing'?'class="active"':''}>Pricing</a></li>
     <li><a href="about.html" ${active==='about'?'class="active"':''}>About</a></li>
     <li><a href="contact.html" ${active==='contact'?'class="active"':''}>Contact</a></li>
