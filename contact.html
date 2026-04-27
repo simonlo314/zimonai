@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>聯絡我們 — ZimonAI</title>
@@ -13,9 +13,9 @@
 
 <!-- Page Hero -->
 <section class="page-hero">
-  <p class="eye">Get In Touch</p>
-  <h1>We'd Love to <em>Hear</em> From You</h1>
-  <p>Questions about your report, enterprise plans, or partnerships — we're here.</p>
+  <p class="eye" data-i18n="pages.contact.hero_eye">Get In Touch</p>
+  <h1 data-i18n-html="pages.contact.hero_title_html">We'd Love to <em>Hear</em> From You</h1>
+  <p data-i18n="pages.contact.hero_sub">Questions about your report, enterprise plans, or partnerships — we're here.</p>
 </section>
 
 <!-- Contact Section -->
@@ -24,20 +24,20 @@
     <div class="contact-grid">
       <!-- Form -->
       <div class="rv">
-        <p class="eye" style="margin-bottom:32px">Send a Message</p>
+        <p class="eye" style="margin-bottom:32px" data-i18n="pages.contact.form_eye">Send a Message</p>
         <div id="contactForm">
           <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" id="fname" placeholder="Alex Johnson" required/>
+            <label data-i18n="pages.contact.name_label">Full Name</label>
+            <input type="text" id="fname" placeholder="Alex Johnson" data-i18n-placeholder="pages.contact.name_ph" required/>
           </div>
           <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="femail" placeholder="alex@company.com" required/>
+            <label data-i18n="pages.contact.email_label">Email Address</label>
+            <input type="email" id="femail" placeholder="alex@company.com" data-i18n-placeholder="pages.contact.email_ph" required/>
           </div>
           <div class="form-group">
-            <label>Subject</label>
+            <label data-i18n="pages.contact.subject_label">Subject</label>
             <select id="fsubject">
-              <option value="">Select a topic...</option>
+              <option value="" data-i18n="pages.contact.subject_ph">Select a topic...</option>
               <option>Question about my report</option>
               <option>Enterprise / Team pricing</option>
               <option>Partnership inquiry</option>
@@ -47,17 +47,17 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Message</label>
-            <textarea id="fmessage" placeholder="Tell us how we can help..."></textarea>
+            <label data-i18n="pages.contact.msg_label">Message</label>
+            <textarea id="fmessage" placeholder="Tell us how we can help..." data-i18n-placeholder="pages.contact.msg_ph"></textarea>
           </div>
-          <button class="submit-btn" onclick="submitForm()">Send Message →</button>
-          <div class="success-msg" id="successMsg">✓ Message sent! We'll get back to you within 24 hours.</div>
+          <button class="submit-btn" onclick="submitForm()" data-i18n="pages.contact.submit">Send Message →</button>
+          <div class="success-msg" id="successMsg" data-i18n="pages.contact.success">✓ Message sent! We'll get back to you within 24 hours.</div>
         </div>
       </div>
 
       <!-- Info -->
       <div class="rv d1">
-        <p class="eye" style="margin-bottom:32px">Contact Info</p>
+        <p class="eye" style="margin-bottom:32px" data-i18n="pages.contact.info_eye">Contact Info</p>
         <div class="contact-info-card">
           <div class="ci-item">
             <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
@@ -69,37 +69,37 @@
           <div class="ci-item">
             <div class="ci-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
             <div>
-              <div class="ci-label">Response Time</div>
-              <div class="ci-val">Within 24 hours on business days</div>
+              <div class="ci-label" data-i18n="pages.contact.resp_label">Response Time</div>
+              <div class="ci-val" data-i18n="pages.contact.resp_val">Within 24 hours on business days</div>
             </div>
           </div>
           <div class="ci-item">
             <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div>
-              <div class="ci-label">Locations</div>
-              <div class="ci-val">Shenzhen, China<br/>Taipei, Taiwan</div>
+              <div class="ci-label" data-i18n="pages.contact.loc_label">Locations</div>
+              <div class="ci-val" data-i18n-html="pages.contact.loc_val_html">Shenzhen, China<br/>Taipei, Taiwan</div>
             </div>
           </div>
           <div class="ci-item" style="margin-bottom:0">
             <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
             <div>
-              <div class="ci-label">Report Issues</div>
-              <div class="ci-val">For issues with existing reports, include your order ID and email in your message for faster support.</div>
+              <div class="ci-label" data-i18n="pages.contact.issues_label">Report Issues</div>
+              <div class="ci-val" data-i18n="pages.contact.issues_val">For issues with existing reports, include your order ID and email in your message for faster support.</div>
             </div>
           </div>
         </div>
 
         <!-- Quick links -->
         <div style="margin-top:24px;background:var(--bg1);border:0.5px solid var(--border);border-radius:20px;padding:28px 32px">
-          <p style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Quick Links</p>
+          <p style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px" data-i18n="pages.contact.quick_links">Quick Links</p>
           <a href="how-it-works.html#faq" style="display:flex;align-items:center;gap:10px;color:rgba(245,245,247,.5);text-decoration:none;font-size:14px;padding:10px 0;border-bottom:0.5px solid var(--border);transition:color .2s">
-            <span style="color:var(--cyan)">→</span> Read our FAQ
+            <span style="color:var(--cyan)">→</span> <span data-i18n="pages.contact.link_faq">Read our FAQ</span>
           </a>
           <a href="pricing.html" style="display:flex;align-items:center;gap:10px;color:rgba(245,245,247,.5);text-decoration:none;font-size:14px;padding:10px 0;border-bottom:0.5px solid var(--border);transition:color .2s">
-            <span style="color:var(--cyan)">→</span> View Pricing Plans
+            <span style="color:var(--cyan)">→</span> <span data-i18n="pages.contact.link_pricing">View Pricing Plans</span>
           </a>
           <a href="diagnostic.html" style="display:flex;align-items:center;gap:10px;color:rgba(245,245,247,.5);text-decoration:none;font-size:14px;padding:10px 0;transition:color .2s">
-            <span style="color:var(--cyan)">→</span> Start Free Assessment
+            <span style="color:var(--cyan)">→</span> <span data-i18n="pages.contact.link_assess">Start Free Assessment</span>
           </a>
         </div>
       </div>
@@ -112,6 +112,9 @@
 const CONTACT_ENDPOINT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
 
 async function submitForm(){
+  const lang = (document.documentElement.getAttribute('data-lang') || document.documentElement.getAttribute('lang') || 'en').trim();
+  const tr = (k)=> (window.I18N && window.I18N[lang] && window.I18N[lang].pages && window.I18N[lang].pages.contact && window.I18N[lang].pages.contact[k]) || (window.I18N && window.I18N.en && window.I18N.en.pages && window.I18N.en.pages.contact && window.I18N.en.pages.contact[k]) || '';
+
   const successMsgEl = document.getElementById('successMsg');
   successMsgEl.style.display = 'none';
 
@@ -121,11 +124,11 @@ async function submitForm(){
   const message = document.getElementById('fmessage').value.trim();
 
   if(!name || !email || !message){
-    alert('Please fill in your name, email, and message.');
+    alert(tr('alert_missing') || 'Please fill in your name, email, and message.');
     return;
   }
   if(!CONTACT_ENDPOINT_URL || CONTACT_ENDPOINT_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')){
-    alert('Contact form endpoint is not configured yet.');
+    alert(tr('alert_unconfigured') || 'Contact form endpoint is not configured yet.');
     return;
   }
 
@@ -134,7 +137,7 @@ async function submitForm(){
   if(submitBtn){
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.7';
-    submitBtn.textContent = 'Sending…';
+    submitBtn.textContent = tr('sending') || 'Sending…';
   }
 
   try{
@@ -163,7 +166,7 @@ async function submitForm(){
     document.getElementById('fsubject').value = '';
     document.getElementById('fmessage').value = '';
   }catch(err){
-    alert('Sorry — failed to send. Please try again, or email us directly.');
+    alert(tr('alert_failed') || 'Sorry — failed to send. Please try again, or email us directly.');
   }finally{
     if(submitBtn){
       submitBtn.disabled = false;
