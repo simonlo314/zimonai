@@ -2,6 +2,11 @@
 
 const LOGO_SVG=`<svg style="display:none"><symbol id="logo-s" viewBox="0 0 100 122"><path d="M 36,108 C 85,108 90,72 52,54 C 10,36 10,12 64,12" stroke="#00E5FF" stroke-width="13" stroke-linecap="round" fill="none"/><rect x="3" y="98" width="34" height="20" rx="6" fill="#00E5FF"/><rect x="9" y="103" width="16" height="10" rx="5" fill="#000"/><rect x="63" y="3" width="34" height="18" rx="3" fill="#00E5FF"/><line x1="70" y1="4" x2="70" y2="20" stroke="#000" stroke-width="2.2"/><line x1="76" y1="4" x2="76" y2="20" stroke="#000" stroke-width="2.2"/><line x1="82" y1="4" x2="82" y2="20" stroke="#000" stroke-width="2.2"/><line x1="88" y1="4" x2="88" y2="20" stroke="#000" stroke-width="2.2"/></symbol></svg>`;
 
+// Optional lightweight analytics (Google Apps Script endpoint).
+// Leave as-is until you deploy the endpoint and paste the URL.
+const ANALYTICS_ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbxNyz1_X2eMV-8v-AaYnsCOgtJl8Fd98MOfst21ZefBqTggu4bhdcrd0VZR5EiyqcxB/exec';
+const ANALYTICS_SITE_ID = 'zimonai.com';
+
 const NAV_HTML=(active)=>`
 <nav>
   <a href="index.html" class="logo">
@@ -63,6 +68,35 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.body.insertAdjacentHTML('afterbegin', LOGO_SVG);
   document.body.insertAdjacentHTML('afterbegin', NAV_HTML(active));
   document.body.insertAdjacentHTML('beforeend', FOOTER_HTML);
+
+  // Pageview tracking (safe no-op until configured)
+  try{
+    if(ANALYTICS_ENDPOINT_URL && !ANALYTICS_ENDPOINT_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_ANALYTICS_WEB_APP_URL_HERE')){
+      const payload = {
+        type: 'pageview',
+        site_id: ANALYTICS_SITE_ID,
+        page: window.location.pathname,
+        title: document.title,
+        referrer: document.referrer || '',
+        user_agent: navigator.userAgent,
+        tz: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+        ts: new Date().toISOString()
+      };
+      const body = JSON.stringify(payload);
+
+      if(navigator.sendBeacon){
+        const blob = new Blob([body], { type: 'application/json' });
+        navigator.sendBeacon(ANALYTICS_ENDPOINT_URL, blob);
+      }else{
+        fetch(ANALYTICS_ENDPOINT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body,
+          keepalive: true
+        }).catch(()=>{});
+      }
+    }
+  }catch(e){}
 
   // Scroll reveal
   const io=new IntersectionObserver(e=>{

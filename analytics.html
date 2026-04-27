@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Analytics — ZimonAI</title>
+<meta name="description" content="Traffic analytics dashboard for ZimonAI."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.a-wrap{max-width:980px;margin:0 auto}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.kpi{background:var(--bg1);border:0.5px solid var(--border);border-radius:20px;padding:28px 26px}
+.kpi-l{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.kpi-v{font-size:40px;font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:var(--white)}
+.kpi-s{font-size:13px;color:rgba(245,245,247,0.5);margin-top:10px;line-height:1.6}
+.card{margin-top:20px;background:var(--bg1);border:0.5px solid var(--border);border-radius:20px;padding:24px 22px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 6px;border-bottom:0.5px solid var(--border)}
+.row:last-child{border-bottom:none}
+.d{font-size:14px;color:rgba(245,245,247,0.8)}
+.n{font-size:14px;color:var(--muted)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.mini{background:transparent;border:0.5px solid rgba(255,255,255,.2);color:var(--text);padding:10px 14px;border-radius:980px;font-size:13px;cursor:pointer;font-family:inherit}
+.mini:hover{border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
+.warn{margin-top:14px;font-size:13px;color:rgba(255,255,247,0.55);line-height:1.7}
+.err{display:none;margin-top:14px;background:rgba(255,71,87,0.08);border:0.5px solid rgba(255,71,87,0.35);border-radius:12px;padding:14px 16px;font-size:14px;color:rgba(255,71,87,0.95);text-align:center}
+@media(max-width:860px){.kpis{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="analytics">
+
+<section class="page-hero">
+  <p class="eye">Analytics</p>
+  <h1>Traffic <em>Dashboard</em></h1>
+  <p>Daily traffic and total traffic for your marketing site.</p>
+</section>
+
+<section class="ch">
+  <div class="ch-in">
+    <div class="a-wrap rv">
+      <div class="kpis">
+        <div class="kpi">
+          <div class="kpi-l">Today</div>
+          <div class="kpi-v" id="k_today">—</div>
+          <div class="kpi-s" id="k_today_s">Pageviews</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-l">Last 7 days</div>
+          <div class="kpi-v" id="k_7d">—</div>
+          <div class="kpi-s">Pageviews</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-l">All-time</div>
+          <div class="kpi-v" id="k_all">—</div>
+          <div class="kpi-s">Pageviews</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <p class="eye" style="margin:0">Daily breakdown</p>
+          <div class="tools">
+            <button class="mini" onclick="loadStats()">Refresh</button>
+            <button class="mini" onclick="setRange(7)">7d</button>
+            <button class="mini" onclick="setRange(14)">14d</button>
+            <button class="mini" onclick="setRange(30)">30d</button>
+          </div>
+        </div>
+
+        <div id="daily_list" style="margin-top:14px"></div>
+        <div class="err" id="a_err">Analytics endpoint is not configured, or failed to load.</div>
+        <div class="warn">
+          Tip: keep this page unlinked publicly (or protect it) if you don’t want visitors to see traffic numbers.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="shared.js"></script>
+<script>
+// Reuse the same Apps Script pattern as contact/delivery.
+const ANALYTICS_STATS_ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbxNyz1_X2eMV-8v-AaYnsCOgtJl8Fd98MOfst21ZefBqTggu4bhdcrd0VZR5EiyqcxB/exec';
+const SITE_ID = 'zimonai.com';
+
+let RANGE_DAYS = 14;
+
+function setRange(days){
+  RANGE_DAYS = days;
+  loadStats();
+}
+
+function fmt(n){
+  if(typeof n !== 'number') return '—';
+  return n.toLocaleString();
+}
+
+function el(tag, cls, html){
+  const x = document.createElement(tag);
+  if(cls) x.className = cls;
+  if(html != null) x.innerHTML = html;
+  return x;
+}
+
+async function loadStats(){
+  const errEl = document.getElementById('a_err');
+  errEl.style.display = 'none';
+
+  if(!ANALYTICS_STATS_ENDPOINT_URL || ANALYTICS_STATS_ENDPOINT_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_ANALYTICS_WEB_APP_URL_HERE')){
+    errEl.style.display = 'block';
+    return;
+  }
+
+  try{
+    const url = new URL(ANALYTICS_STATS_ENDPOINT_URL);
+    url.searchParams.set('action', 'stats');
+    url.searchParams.set('site_id', SITE_ID);
+    url.searchParams.set('days', String(RANGE_DAYS));
+
+    const res = await fetch(url.toString(), { method: 'GET' });
+    if(!res.ok) throw new Error('Request failed');
+    const data = await res.json();
+
+    document.getElementById('k_today').textContent = fmt(data.today || 0);
+    document.getElementById('k_7d').textContent = fmt(data.last_7_days || 0);
+    document.getElementById('k_all').textContent = fmt(data.all_time || 0);
+
+    const list = document.getElementById('daily_list');
+    list.innerHTML = '';
+    (data.daily || []).forEach(item=>{
+      const row = el('div','row');
+      row.appendChild(el('div','d', item.date || ''));
+      row.appendChild(el('div','n', fmt(item.pageviews || 0)));
+      list.appendChild(row);
+    });
+  }catch(e){
+    errEl.style.display = 'block';
+  }
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  loadStats();
+});
+</script>
+</body>
+</html>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Delivery — ZimonAI</title>
+<meta name="description" content="Submit your email to receive your ZimonAI report."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.delivery-wrap{max-width:720px;margin:0 auto}
+.note{font-size:14px;color:rgba(245,245,247,0.5);line-height:1.7;margin-top:10px}
+.err{display:none;background:rgba(255,71,87,0.08);border:0.5px solid rgba(255,71,87,0.35);border-radius:12px;padding:14px 16px;font-size:14px;color:rgba(255,71,87,0.95);margin-top:14px;text-align:center}
+.ok{display:none;background:rgba(46,213,115,0.08);border:0.5px solid rgba(46,213,115,0.3);border-radius:12px;padding:16px 18px;font-size:14px;color:#2ed573;margin-top:14px;text-align:center}
+</style>
+</head>
+<body data-page="delivery">
+
+<section class="page-hero">
+  <p class="eye">Delivery</p>
+  <h1>Get your <em>Report</em></h1>
+  <p>Enter your email so we can deliver your PDF report securely.</p>
+</section>
+
+<section class="ch">
+  <div class="ch-in">
+    <div class="delivery-wrap rv">
+      <p class="eye" style="margin-bottom:18px">Report details</p>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" id="d_email" placeholder="you@company.com" required/>
+        <div class="note">Use the same email you used at checkout if possible.</div>
+      </div>
+      <div class="form-group">
+        <label>Order reference (optional)</label>
+        <input type="text" id="d_order" placeholder="e.g. Paddle order ID / receipt reference"/>
+        <div class="note">If you have an order reference, include it to speed things up.</div>
+      </div>
+      <div class="form-group">
+        <label>Notes (optional)</label>
+        <textarea id="d_notes" placeholder="Anything we should know about your order or delivery?"></textarea>
+      </div>
+
+      <button class="submit-btn" id="d_submit" onclick="submitDelivery()">Submit for delivery →</button>
+      <div class="ok" id="d_ok">✓ Submitted. We'll email your report shortly.</div>
+      <div class="err" id="d_err">Sorry — we couldn't submit your details. Please try again or email us.</div>
+
+      <div style="margin-top:28px">
+        <p class="note">
+          Need help? Email <a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="shared.js"></script>
+<script>
+const DELIVERY_ENDPOINT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+function getQueryParam(name){
+  const u = new URL(window.location.href);
+  return u.searchParams.get(name) || '';
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  // If Paddle returns an order reference via query params, we can prefill it.
+  // Keep flexible: different setups use different param names.
+  const possible = [
+    getQueryParam('order'),
+    getQueryParam('order_id'),
+    getQueryParam('orderId'),
+    getQueryParam('checkout'),
+    getQueryParam('checkout_id'),
+    getQueryParam('transaction_id'),
+    getQueryParam('receipt'),
+    getQueryParam('reference')
+  ].filter(Boolean);
+  if(possible.length){
+    document.getElementById('d_order').value = possible[0];
+  }
+});
+
+async function submitDelivery(){
+  const okEl = document.getElementById('d_ok');
+  const errEl = document.getElementById('d_err');
+  okEl.style.display = 'none';
+  errEl.style.display = 'none';
+
+  const email = document.getElementById('d_email').value.trim();
+  const order_ref = document.getElementById('d_order').value.trim();
+  const notes = document.getElementById('d_notes').value.trim();
+
+  if(!email){
+    alert('Please enter your email address.');
+    return;
+  }
+  if(!DELIVERY_ENDPOINT_URL || DELIVERY_ENDPOINT_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    alert('Delivery endpoint is not configured yet.');
+    return;
+  }
+
+  const btn = document.getElementById('d_submit');
+  const oldText = btn.textContent;
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+  btn.textContent = 'Submitting…';
+
+  try{
+    const res = await fetch(DELIVERY_ENDPOINT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'report_delivery',
+        email,
+        order_ref,
+        notes,
+        page: window.location.pathname,
+        user_agent: navigator.userAgent,
+        submitted_at: new Date().toISOString()
+      })
+    });
+    if(!res.ok) throw new Error('Request failed');
+
+    okEl.style.display = 'block';
+    document.getElementById('d_email').value = '';
+    document.getElementById('d_order').value = '';
+    document.getElementById('d_notes').value = '';
+  }catch(e){
+    errEl.style.display = 'block';
+  }finally{
+    btn.disabled = false;
+    btn.style.opacity = '';
+    btn.textContent = oldText;
+  }
+}
+</script>
+</body>
+</html>
+
