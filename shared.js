@@ -36,14 +36,15 @@ const FOOTER_HTML=`
       <h5>Company</h5>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="refund.html">Refund Policy</a>
     </div>
     <div class="f-col">
       <h5>Support</h5>
       <a href="how-it-works.html#faq">FAQ</a>
       <a href="contact.html">Help Center</a>
-      <a href="mailto:lab@zimonai.com">lab@zimonai.com</a>
+      <a href="mailto:slab.stores@gmail.com">slab.stores@gmail.com</a>
     </div>
   </div>
   <div class="f-bot">
