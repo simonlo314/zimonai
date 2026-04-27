@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AI Lab — ZimonAI</title>
+<meta name="description" content="Interactive AI Lab: simulate charging risk, find your best-fit plan, and estimate ROI."/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body data-page="lab">
+
+<section class="page-hero">
+  <p class="eye" data-i18n="pages.lab.hero_eye">Interactive Lab</p>
+  <h1 data-i18n-html="pages.lab.hero_title_html">AI Growth <em>Lab</em></h1>
+  <p data-i18n="pages.lab.hero_sub">Simulate risk, match your plan, and estimate cost-of-risk in one place.</p>
+</section>
+
+<section class="ch">
+  <div class="ch-in">
+    <div class="interactive-grid">
+      <article class="interactive-card rv">
+        <p class="eye" data-i18n="pages.lab.sim_eye">Risk Simulator</p>
+        <h2 class="interactive-title" data-i18n="pages.lab.sim_title">Live charging risk signal</h2>
+        <p class="interactive-sub" data-i18n="pages.lab.sim_sub">Use your real setup profile for a practical baseline.</p>
+
+        <div class="form-group">
+          <label for="simDevice" data-i18n="pages.lab.sim_device">Device class</label>
+          <select id="simDevice">
+            <option value="1" data-i18n="pages.use_cases.tab_creator">Creator Setup</option>
+            <option value="2" data-i18n="pages.use_cases.tab_it">IT Procurement</option>
+            <option value="3" data-i18n="pages.use_cases.tab_travel">Frequent Traveler</option>
+            <option value="4" data-i18n="pages.use_cases.tab_enterprise">Enterprise Compliance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="simCharger" data-i18n="pages.lab.sim_charger">Charger tier</label>
+          <select id="simCharger">
+            <option value="1" data-i18n="pages.lab.sim_charger_a">Tier A (Certified)</option>
+            <option value="2" data-i18n="pages.lab.sim_charger_b">Tier B (Mixed)</option>
+            <option value="3" data-i18n="pages.lab.sim_charger_c">Tier C (Unknown)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="simCable" data-i18n="pages.lab.sim_cable">Cable quality</label>
+          <select id="simCable">
+            <option value="1" data-i18n="pages.lab.sim_cable_a">Certified</option>
+            <option value="2" data-i18n="pages.lab.sim_cable_b">Generic</option>
+            <option value="3" data-i18n="pages.lab.sim_cable_c">Unknown</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="simUsage" data-i18n="pages.lab.sim_usage">Daily load intensity</label>
+          <input id="simUsage" type="range" min="1" max="10" value="6"/>
+        </div>
+        <button class="submit-btn" id="simBtn" data-i18n="pages.lab.sim_btn">Simulate Risk</button>
+        <div id="simResult" class="result-panel"></div>
+      </article>
+
+      <article class="interactive-card rv d1">
+        <p class="eye" data-i18n="pages.lab.fit_eye">Plan Fit Engine</p>
+        <h2 class="interactive-title" data-i18n="pages.lab.fit_title">Which plan fits you best?</h2>
+        <p class="interactive-sub" data-i18n="pages.lab.fit_sub">Answer a few practical questions and get a recommendation.</p>
+
+        <div class="form-group">
+          <label for="fitDevices" data-i18n="pages.lab.fit_q1">How many devices are in your setup?</label>
+          <input id="fitDevices" type="range" min="1" max="50" value="8"/>
+        </div>
+        <div class="form-group">
+          <label for="fitDowntime" data-i18n="pages.lab.fit_q2">How costly is downtime for you?</label>
+          <input id="fitDowntime" type="range" min="1" max="10" value="5"/>
+        </div>
+        <div class="form-group">
+          <label for="fitDocs" data-i18n="pages.lab.fit_q3">Do you need team/procurement documentation?</label>
+          <select id="fitDocs">
+            <option value="0" data-i18n="pages.lab.fit_docs_no">No</option>
+            <option value="1" data-i18n="pages.lab.fit_docs_some">Sometimes</option>
+            <option value="2" data-i18n="pages.lab.fit_docs_yes">Yes</option>
+          </select>
+        </div>
+        <button class="submit-btn" id="fitBtn" data-i18n="pages.lab.fit_btn">Get Plan Recommendation</button>
+        <div id="fitResult" class="result-panel"></div>
+        <a id="fitGoPlan" href="pricing.html" class="btn-g" style="margin-top:10px;display:none" data-i18n="pages.lab.go_plan">Open Recommended Plan</a>
+      </article>
+
+      <article class="interactive-card rv d2">
+        <p class="eye" data-i18n="pages.lab.roi_eye">ROI Estimator</p>
+        <h2 class="interactive-title" data-i18n="pages.lab.roi_title">Cost-of-risk vs report cost</h2>
+        <p class="interactive-sub" data-i18n="pages.lab.roi_sub">Estimate potential avoidable loss from unstable charging setups.</p>
+
+        <div class="form-group">
+          <label for="roiDevice" data-i18n="pages.lab.roi_device_cost">Device replacement cost (USD)</label>
+          <input id="roiDevice" type="number" min="200" step="50" value="2400"/>
+        </div>
+        <div class="form-group">
+          <label for="roiDown" data-i18n="pages.lab.roi_downtime">Downtime cost per day (USD)</label>
+          <input id="roiDown" type="number" min="20" step="20" value="300"/>
+        </div>
+        <div class="form-group">
+          <label for="roiProb" data-i18n="pages.lab.roi_prob">Estimated incident probability (%)</label>
+          <input id="roiProb" type="number" min="1" max="95" value="18"/>
+        </div>
+        <button class="submit-btn" id="roiBtn" data-i18n="pages.lab.roi_btn">Estimate ROI</button>
+        <div id="roiResult" class="result-panel"></div>
+      </article>
+    </div>
+
+    <div class="banner rv" style="padding:84px 0 0;border-top:none">
+      <div class="btn-row">
+        <a class="btn-s" href="diagnostic.html" data-i18n="pages.lab.cta_primary">Start Full Diagnosis →</a>
+        <a class="btn-g" href="pricing.html" data-i18n="pages.lab.cta_secondary">View Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(()=>{
+  const $ = (id)=>document.getElementById(id);
+  const FALLBACK_KEYS = { preferredPlan: 'za_preferred_plan', riskBand: 'za_risk_band', lastToolResult: 'za_last_tool_result', contextCase: 'za_context_case' };
+  const save = (k,v)=>{
+    if(window.ZAState) window.ZAState.set(window.ZAState.keys[k], v);
+    else localStorage.setItem(FALLBACK_KEYS[k] || k,v);
+  };
+  const lang = ()=>document.documentElement.getAttribute('lang') || 'en';
+  const t = (key)=>{
+    const lib = (window.I18N && window.I18N[lang()] && window.I18N[lang()].pages) || {};
+    return key.split('.').reduce((acc, k)=>acc && acc[k], lib) || key;
+  };
+  const riskBand = (score)=> score >= 67 ? 'high' : score >= 40 ? 'mid' : 'low';
+
+  $('simBtn')?.addEventListener('click', ()=>{
+    const score =
+      Number($('simDevice').value) * 12 +
+      Number($('simCharger').value) * 16 +
+      Number($('simCable').value) * 14 +
+      Number($('simUsage').value) * 3;
+    const band = riskBand(score);
+    const msgKey = band === 'high' ? 'lab.sim_high' : band === 'mid' ? 'lab.sim_mid' : 'lab.sim_low';
+    const out = $('simResult');
+    out.innerHTML = '<span class="badge">'+band.toUpperCase()+'</span><p>'+t(msgKey)+'</p>';
+    save('riskBand', band);
+    const caseMap = { '1':'creator', '2':'it', '3':'travel', '4':'enterprise' };
+    save('contextCase', caseMap[String($('simDevice').value)] || 'creator');
+    try{ window.ZA?.trackEvent('lab_risk_simulated', { band, device_case: $('simDevice').value }); }catch(e){}
+  });
+
+  $('fitBtn')?.addEventListener('click', ()=>{
+    const score =
+      Number($('fitDevices').value) * 1.2 +
+      Number($('fitDowntime').value) * 5 +
+      Number($('fitDocs').value) * 15;
+    let plan = 'free';
+    if(score >= 75) plan = 'custom';
+    else if(score >= 58) plan = 'biz';
+    else if(score >= 35) plan = 'pro';
+    const mapping = {
+      free: 'lab.fit_free',
+      pro: 'lab.fit_pro',
+      biz: 'lab.fit_biz',
+      custom: 'lab.fit_custom'
+    };
+    const confidence = Math.max(62, Math.min(97, Math.round(score + 30)));
+    const out = $('fitResult');
+    out.innerHTML = '<span class="badge">'+plan.toUpperCase()+'</span><p>'+t(mapping[plan])+' · '+t('lab.fit_conf')+': '+confidence+'%</p>';
+    save('preferredPlan', plan);
+    save('lastToolResult', JSON.stringify({ plan, confidence }));
+    const go = $('fitGoPlan');
+    go.href = 'pricing.html?plan='+encodeURIComponent(plan)+'#plans';
+    go.style.display = 'inline-block';
+    try{ window.ZA?.trackEvent('lab_plan_fit_generated', { plan, confidence }); }catch(e){}
+  });
+
+  $('roiBtn')?.addEventListener('click', ()=>{
+    const device = Number($('roiDevice').value || 0);
+    const down = Number($('roiDown').value || 0);
+    const prob = Number($('roiProb').value || 0) / 100;
+    const loss = Math.round((device + (down * 2)) * prob);
+    const report = 20;
+    const valueGap = Math.max(0, loss - report);
+    const out = $('roiResult');
+    out.innerHTML = `
+      <p>${t('lab.roi_loss')}: <strong>$${loss}</strong></p>
+      <p>${t('lab.roi_report')}: <strong>$${report}</strong></p>
+      <p>${t('lab.roi_value')}: <strong>$${valueGap}</strong></p>
+    `;
+    save('lastToolResult', JSON.stringify({ loss, report, valueGap }));
+    try{ window.ZA?.trackEvent('lab_roi_estimated', { loss, report, valueGap }); }catch(e){}
+  });
+  $('fitGoPlan')?.addEventListener('click', ()=>{
+    try{ window.ZA?.trackEvent('lab_open_recommended_plan', {}); }catch(e){}
+  });
+})();
+</script>
+<script src="shared.js"></script>
+</body>
+</html>

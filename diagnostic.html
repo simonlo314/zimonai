@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>ZimonAI Diagnostic</title>
+<title>ZimonAI 診斷</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -146,7 +146,7 @@ input[type=email]::placeholder{color:var(--muted)}
       <button class="lbtn on" type="button" data-lang="en">EN</button>
       <button class="lbtn" type="button" data-lang="zh-Hant">繁中</button>
     </div>
-    <div class="step-count" id="stepCount">Free Assessment</div>
+    <div class="step-count" id="stepCount">診斷問卷</div>
   </div>
 </div>
 <div class="prog-wrap"><div class="prog-bar" id="progBar" style="width:0%"></div></div>
@@ -182,7 +182,7 @@ input[type=email]::placeholder{color:var(--muted)}
     <div class="opt" onclick="pick('q1','mbp',this)"><div class="opt-dot"></div><div class="opt-txt">MacBook Pro <span style="color:var(--muted)">(M1 / M2 / M3 / M4 系列)</span><div class="opt-sub">高功耗設備，充電相容性要求最嚴苛</div></div><span class="opt-badge warn-badge">高風險群</span></div>
     <div class="opt" onclick="pick('q1','mba',this)"><div class="opt-dot"></div><div class="opt-txt">MacBook Air / Neo 系列<div class="opt-sub">中等功耗，對充電協議仍有嚴格規範</div></div></div>
     <div class="opt" onclick="pick('q1','iphone',this)"><div class="opt-dot"></div><div class="opt-txt">iPhone 旗艦系列 <span style="color:var(--muted)">(Pro / Pro Max)</span><div class="opt-sub">電池容量小但對紋波極敏感</div></div></div>
-    <div class="opt" onclick="pick('q1','other',this)"><div class="opt-dot"></div><div class="opt-txt">Other Pro Laptops<div class="opt-sub">Dell XPS、Razer Blade、Lenovo ThinkPad 等</div></div><span class="opt-badge risk-badge">高紋波風險</span></div>
+    <div class="opt" onclick="pick('q1','other',this)"><div class="opt-dot"></div><div class="opt-txt">其他專業筆電<div class="opt-sub">Dell XPS、Razer Blade、Lenovo ThinkPad 等</div></div><span class="opt-badge risk-badge">高紋波風險</span></div>
   </div>
   <div class="actions">
     <button class="btn-back" onclick="goBack()">← 返回</button>
@@ -218,7 +218,7 @@ input[type=email]::placeholder{color:var(--muted)}
     <div class="opt" onclick="pick('q2','vold',this)"><div class="opt-dot"></div><div class="opt-txt">5 年以上<div class="opt-sub">高度建議換機評估</div></div></div>
   </div>
   <div class="divider"></div>
-  <p class="q-label">目前電池健康度 (Battery Health)</p>
+  <p class="q-label">目前電池健康度</p>
   <div class="hint-row"><div class="hint-ic">i</div><span>iPhone: 設定 → 電池 → 電池健康度｜Mac: 系統資訊 → 電源</span></div>
   <div class="slider-wrap">
     <div class="slider-row">
@@ -238,12 +238,12 @@ input[type=email]::placeholder{color:var(--muted)}
 <div class="step" id="step3">
   <div class="step-eye">第二階段 — 電力來源稽核</div>
   <h2 class="step-title">您最常使用的充電頭品牌？</h2>
-  <p class="step-sub">充電器的品牌直接決定電壓紋波 (Voltage Ripple) 風險等級。</p>
+  <p class="step-sub">充電器的品牌直接決定電壓紋波風險等級。</p>
   <div class="opts" id="q4opts">
-    <div class="opt" onclick="pick('q4','apple',this)"><div class="opt-dot"></div><div class="opt-txt">Apple 原廠充電器<div class="opt-sub">通過完整 MFi 認證，紋波控制最佳</div></div><span class="opt-badge ok-badge">LOW RISK</span></div>
-    <div class="opt" onclick="pick('q4','anker',this)"><div class="opt-dot"></div><div class="opt-txt">Anker / Belkin<div class="opt-sub">主流品牌，多數通過認證，偶有批次差異</div></div><span class="opt-badge ok-badge">LOW RISK</span></div>
-    <div class="opt" onclick="pick('q4','cuktech',this)"><div class="opt-dot"></div><div class="opt-txt">CUKTECH / Baseus / 小米<div class="opt-sub">品質參差，建議核對認證標章</div></div><span class="opt-badge warn-badge">MODERATE</span></div>
-    <div class="opt" onclick="pick('q4','nobrand',this)"><div class="opt-dot"></div><div class="opt-txt">雜牌 / 無標誌 / 電商隨機購入<div class="opt-sub">電壓突波風險最高，為主要損壞來源</div></div><span class="opt-badge risk-badge">HIGH RISK</span></div>
+    <div class="opt" onclick="pick('q4','apple',this)"><div class="opt-dot"></div><div class="opt-txt">Apple 原廠充電器<div class="opt-sub">通過完整 MFi 認證，紋波控制最佳</div></div><span class="opt-badge ok-badge">低風險</span></div>
+    <div class="opt" onclick="pick('q4','anker',this)"><div class="opt-dot"></div><div class="opt-txt">Anker / Belkin<div class="opt-sub">主流品牌，多數通過認證，偶有批次差異</div></div><span class="opt-badge ok-badge">低風險</span></div>
+    <div class="opt" onclick="pick('q4','cuktech',this)"><div class="opt-dot"></div><div class="opt-txt">CUKTECH / Baseus / 小米<div class="opt-sub">品質參差，建議核對認證標章</div></div><span class="opt-badge warn-badge">中風險</span></div>
+    <div class="opt" onclick="pick('q4','nobrand',this)"><div class="opt-dot"></div><div class="opt-txt">雜牌 / 無標誌 / 電商隨機購入<div class="opt-sub">電壓突波風險最高，為主要損壞來源</div></div><span class="opt-badge risk-badge">高風險</span></div>
     <div class="opt" onclick="pick('q4','unknown',this)"><div class="opt-dot"></div><div class="opt-txt">不清楚 / 忘記品牌<div class="opt-sub">ZimonAI 將按最保守方案診斷</div></div></div>
   </div>
   <div class="actions">
@@ -268,9 +268,9 @@ input[type=email]::placeholder{color:var(--muted)}
   <div class="divider"></div>
   <p class="q-label">充電線材來源</p>
   <div class="opts" id="q6opts">
-    <div class="opt" onclick="pick('q6','oem',this)"><div class="opt-dot"></div><div class="opt-txt">原廠附贈線材<div class="opt-sub">標準規格，與設備完全相容</div></div><span class="opt-badge ok-badge">SAFE</span></div>
-    <div class="opt" onclick="pick('q6','mfi',this)"><div class="opt-dot"></div><div class="opt-txt">品牌編織線 (有 MFi 認證標章)<div class="opt-sub">符合規範，線材老化是主要監控點</div></div><span class="opt-badge ok-badge">SAFE</span></div>
-    <div class="opt" onclick="pick('q6','random',this)"><div class="opt-dot"></div><div class="opt-txt">電商隨機購入 (無特別標註)<div class="opt-sub">導體截面積不足，觸發電阻過熱風險</div></div><span class="opt-badge risk-badge">HIGH RISK</span></div>
+    <div class="opt" onclick="pick('q6','oem',this)"><div class="opt-dot"></div><div class="opt-txt">原廠附贈線材<div class="opt-sub">標準規格，與設備完全相容</div></div><span class="opt-badge ok-badge">安全</span></div>
+    <div class="opt" onclick="pick('q6','mfi',this)"><div class="opt-dot"></div><div class="opt-txt">品牌編織線 (有 MFi 認證標章)<div class="opt-sub">符合規範，線材老化是主要監控點</div></div><span class="opt-badge ok-badge">安全</span></div>
+    <div class="opt" onclick="pick('q6','random',this)"><div class="opt-dot"></div><div class="opt-txt">電商隨機購入 (無特別標註)<div class="opt-sub">導體截面積不足，觸發電阻過熱風險</div></div><span class="opt-badge risk-badge">高風險</span></div>
   </div>
   <div class="actions">
     <button class="btn-back" onclick="goBack()">← 返回</button>
@@ -368,7 +368,7 @@ input[type=email]::placeholder{color:var(--muted)}
       </svg>
       <div class="gauge-center">
         <div class="gauge-pct" id="gaugePct">0</div>
-        <div class="gauge-lbl" id="gaugeLbl" style="color:var(--ok)">SAFE</div>
+        <div class="gauge-lbl" id="gaugeLbl" style="color:var(--ok)">安全</div>
       </div>
     </div>
     <div class="risk-items">
@@ -393,6 +393,7 @@ const LANG_KEY='zimonai_lang';
 let diagLang='en';
 
 const DIAG_ZH_TO_EN={
+  'ZimonAI 診斷':'ZimonAI Diagnostic',
   'ZimonAI 硬體安全診斷':'ZimonAI Hardware Safety Diagnostic',
   'AI 將交叉比對您的配置與 4,200+ 份認證硬體資料，並於 24 小時內生成您的專屬 PDF 報告。':'Our AI cross-checks your setup against 4,200+ certified hardware profiles and prepares your PDF report within 24 hours.',
   '全程免費':'Free',
@@ -429,6 +430,14 @@ const DIAG_ZH_TO_EN={
   '臨床症狀':'Symptoms',
   '填寫提示':'Input tip',
   '所有問題均有條件分支——根據您的回答，AI 將聚焦在最相關的風險向量上。':'Each answer guides the next step. AI focuses on the most relevant risk vectors for your setup.',
+  '其他專業筆電':'Other Pro Laptops',
+  '低風險':'LOW RISK',
+  '中風險':'MODERATE',
+  '高風險':'HIGH RISK',
+  '安全':'SAFE',
+  '中等':'MODERATE',
+  '偏高':'HIGH',
+  '極高':'CRITICAL',
   '← 返回':'← Back',
   '繼續 →':'Continue →',
   '查看風險預覽 →':'See risk preview →',
@@ -464,6 +473,7 @@ function applyDiagLang(lang){
   // translate static text by map (fast retrofit for existing DOM)
   if(diagLang==='en') replaceTextNodes(DIAG_ZH_TO_EN);
   else replaceTextNodes(DIAG_EN_TO_ZH);
+  document.title = t('ZimonAI 診斷','ZimonAI Diagnostic');
   showStep(curStep);
 }
 
@@ -575,10 +585,10 @@ function updateGauge(){
   path.style.strokeDashoffset=offset;
   pct.textContent=Math.round(score);
   let col,label;
-  if(score<25){col='#2ed573';label='SAFE';}
-  else if(score<50){col='#ffa502';label='MODERATE';}
-  else if(score<75){col='#ff6b35';label='HIGH';}
-  else{col='#ff4757';label='CRITICAL';}
+  if(score<25){col='#2ed573';label=t('安全','SAFE');}
+  else if(score<50){col='#ffa502';label=t('中等','MODERATE');}
+  else if(score<75){col='#ff6b35';label=t('偏高','HIGH');}
+  else{col='#ff4757';label=t('極高','CRITICAL');}
   path.style.stroke=col;
   lbl.style.color=col;
   lbl.textContent=label;

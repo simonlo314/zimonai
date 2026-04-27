@@ -9,8 +9,32 @@ const DEFAULT_LANG = 'en';
 
 const I18N = {
   en: {
+    meta: {
+      index: 'ZimonAI — AI Hardware Safety Diagnostics',
+      how_it_works: 'How It Works — ZimonAI',
+      pricing: 'Pricing — ZimonAI',
+      about: 'About — ZimonAI',
+      contact: 'Contact — ZimonAI',
+      blog: 'Blog — ZimonAI',
+      blog_01: 'USB-C is not a promise — ZimonAI Blog',
+      blog_02: 'Voltage ripple in plain English — ZimonAI Blog',
+      blog_03: 'Procurement checklist for chargers & cables — ZimonAI Blog',
+      blog_04: 'Battery health myths — ZimonAI Blog',
+      blog_05: 'Wi-Fi 6/6E/7 — ZimonAI Blog',
+      blog_06: 'SSD basics — ZimonAI Blog',
+      analytics: 'Analytics — ZimonAI',
+      delivery: 'Delivery — ZimonAI',
+      terms: 'Terms of Service — ZimonAI',
+      privacy: 'Privacy Policy — ZimonAI',
+      refund: 'Refund Policy — ZimonAI',
+      lab: 'AI Lab — ZimonAI',
+      use_cases: 'Use Cases — ZimonAI',
+      diagnostic: 'ZimonAI Diagnostic'
+    },
     nav: {
       how: 'How It Works',
+      lab: 'AI Lab',
+      use_cases: 'Use Cases',
       blog: 'Blog',
       pricing: 'Pricing',
       about: 'About',
@@ -26,6 +50,8 @@ const I18N = {
       deep: 'Deep Report',
       ent: 'Enterprise',
       meth: 'Methodology',
+      lab: 'AI Lab',
+      use_cases: 'Use Cases',
       about: 'About Us',
       contact: 'Contact',
       privacy: 'Privacy Policy',
@@ -40,8 +66,32 @@ const I18N = {
     }
   },
   'zh-Hant': {
+    meta: {
+      index: 'ZimonAI — AI 硬體安全診斷',
+      how_it_works: '運作方式 — ZimonAI',
+      pricing: '定價 — ZimonAI',
+      about: '關於我們 — ZimonAI',
+      contact: '聯絡我們 — ZimonAI',
+      blog: '文章專欄 — ZimonAI',
+      blog_01: 'USB-C 不是保證 — ZimonAI 文章',
+      blog_02: '白話解析電壓紋波 — ZimonAI 文章',
+      blog_03: '充電器與線材採購清單 — ZimonAI 文章',
+      blog_04: '電池健康迷思 — ZimonAI 文章',
+      blog_05: 'Wi-Fi 6/6E/7 一次看懂 — ZimonAI 文章',
+      blog_06: 'SSD 基礎與散熱 — ZimonAI 文章',
+      analytics: '流量分析 — ZimonAI',
+      delivery: '報告交付 — ZimonAI',
+      terms: '服務條款 — ZimonAI',
+      privacy: '隱私權政策 — ZimonAI',
+      refund: '退款政策 — ZimonAI',
+      lab: 'AI 實驗室 — ZimonAI',
+      use_cases: '應用場景 — ZimonAI',
+      diagnostic: 'ZimonAI 診斷'
+    },
     nav: {
       how: '運作方式',
+      lab: 'AI 實驗室',
+      use_cases: '應用場景',
       blog: '文章專欄',
       pricing: '定價',
       about: '關於我們',
@@ -57,6 +107,8 @@ const I18N = {
       deep: '專業報告',
       ent: '企業方案',
       meth: '方法論',
+      lab: 'AI 實驗室',
+      use_cases: '應用場景',
       about: '關於我們',
       contact: '聯絡我們',
       privacy: '隱私權政策',
@@ -87,7 +139,83 @@ I18N.en.pages = {
     how_eye: 'How It Works',
     how_title: 'Your report in three steps.',
     how_sub: 'Fill out a quick questionnaire — we handle the analysis.',
-    learn_more: 'Learn More →'
+    learn_more: 'Learn More →',
+    stat_1: 'Diagnostic Accuracy',
+    stat_2: 'Devices Audited',
+    stat_3: 'Certified Profiles',
+    stat_4: 'Report Delivery',
+    step_1_no: 'Step 01',
+    step_1_t: 'Answer a few quick questions',
+    step_1_d: 'Tell us your devices and charger models. It only takes a couple of minutes and is free.',
+    step_2_no: 'Step 02',
+    step_2_t: 'AI runs the analysis',
+    step_2_d: 'Our model compares your setup with certified hardware profiles and safety signals.',
+    step_3_no: 'Step 03',
+    step_3_t: 'Get your PDF report',
+    step_3_d: 'Receive a detailed report with risk levels, compatibility notes, and practical recommendations.',
+    why_eye: 'Why It Matters',
+    why_title: 'Charging is the lifeline of your digital legacy.',
+    why_sub_html: 'In an era where work happens on the move, a safe charge is the invisible foundation of productivity. <strong style="color:var(--text);font-weight:500">Don\'t let a cheap cable become the silent killer of your professional gear.</strong>',
+    fc1_no: '01 — Risk',
+    fc1_t: 'Voltage spike damage',
+    fc1_d: 'Unregulated chargers can send unstable bursts that slowly stress batteries and logic boards.',
+    fc2_no: '02 — Risk',
+    fc2_t: 'Thermal runaway risk',
+    fc2_d: 'Poor thermal control in low-quality accessories can push devices beyond safe operating ranges.',
+    fc3_no: '03 — Risk',
+    fc3_t: 'Battery lifespan erosion',
+    fc3_d: 'Mismatched charging profiles may accelerate battery wear and long-term degradation.',
+    testi_eye: 'What Users Say',
+    testi_title: 'Trusted by pro creators and engineers.',
+    testi_sub: 'Real feedback from users who care about protecting their gear.',
+    testi_q1: '"I was using a random USB-C brick for my M3 Max. ZimonAI flagged it immediately — the ripple risk was clear. I switched chargers the same day."',
+    testi_q2: '"Finally a service that explains compatibility in plain English. The report is detailed and actually actionable."',
+    testi_q3: '"Our IT team now checks every new hardware purchase with ZimonAI. It prevents expensive mistakes."',
+    testi_r1: 'Video Editor, Los Angeles',
+    testi_r2: 'ML Engineer, San Francisco',
+    testi_r3: 'IT Director, Austin',
+    cta_eye: 'Get Started',
+    cta_title: 'Your gear deserves better protection.',
+    cta_sub: '2-minute assessment — free. Know your risk before it becomes a real problem.',
+    cta_primary: 'Start Free Assessment →',
+    cta_secondary: 'View Pricing',
+    quick_eye: 'Quick Risk Check',
+    quick_title: 'See your charging risk in 10 seconds.',
+    quick_sub: 'Pick your setup and instantly get a baseline risk signal.',
+    quick_device: 'Primary device',
+    quick_device_1: 'Smartphone',
+    quick_device_2: 'Tablet',
+    quick_device_3: 'Laptop',
+    quick_device_4: 'Workstation',
+    quick_charger: 'Charger quality',
+    quick_charger_1: 'Certified',
+    quick_charger_2: 'Mixed',
+    quick_charger_3: 'Unknown',
+    quick_cable: 'Cable quality',
+    quick_cable_1: 'Certified',
+    quick_cable_2: 'Generic',
+    quick_cable_3: 'Unknown',
+    quick_btn: 'Run Quick Check',
+    quick_result_low: 'Low baseline risk. Keep your current setup and monitor heat over time.',
+    quick_result_mid: 'Moderate baseline risk. A better charger or cable can reduce long-term battery wear.',
+    quick_result_high: 'High baseline risk. Upgrade your power setup now to avoid hidden hardware damage.',
+    quick_cta_diag: 'Run Full Diagnosis',
+    quick_cta_price: 'See Plan Fit',
+    compare_eye: 'Decision Advantage',
+    compare_title: 'Without vs with ZimonAI.',
+    compare_left_t: 'Without ZimonAI',
+    compare_left_1: 'Guess-based charger purchases',
+    compare_left_2: 'Unclear compatibility risks',
+    compare_left_3: 'Higher chance of silent battery wear',
+    compare_right_t: 'With ZimonAI',
+    compare_right_1: 'Data-backed purchase decisions',
+    compare_right_2: 'Clear risk and compatibility signals',
+    compare_right_3: 'Actionable steps to protect device lifespan',
+    sticky_default: 'Protect your setup with a 2-minute assessment.',
+    sticky_mid: 'Your setup may have hidden risk. Run the full check now.',
+    sticky_end: 'Ready to decide? Choose the right plan for your setup.',
+    sticky_cta_assess: 'Start Assessment',
+    sticky_cta_pricing: 'View Pricing'
   },
   how: {
     hero_eye: 'Methodology',
@@ -101,7 +229,46 @@ I18N.en.pages = {
     ready_title: 'Take 2 minutes to protect your gear.',
     ready_sub: 'Free assessment. No hardware required. Results in 48 hours.',
     ready_cta_primary: 'Start Free Assessment →',
-    ready_cta_secondary: 'View Pricing'
+    ready_cta_secondary: 'View Pricing',
+    ds1_no: 'Step 01 — Input',
+    ds1_t: 'Answer a few quick questions',
+    ds1_p1: 'Share your device model, charger brand and wattage, cable type, battery health, and any symptoms you noticed.',
+    ds1_p2: 'The questionnaire is free and takes only a few minutes. Your answers become the foundation of your risk profile.',
+    ds1_detail_html: '<strong>What we ask:</strong> Device model · Charger brand & wattage · Cable source · Battery age · Observed symptoms',
+    ds2_no: 'Step 02 — Analysis',
+    ds2_t: 'AI cross-references certified profiles',
+    ds2_p1: 'Our AI compares your setup with certified hardware data from lab testing, manufacturer specs, and safety references.',
+    ds2_p2: 'It checks ripple risk, thermal compatibility, protocol mismatch, and cable integrity to estimate your risk level.',
+    ds2_detail_html: '<strong>What AI checks:</strong> Ripple thresholds · Thermal compatibility · Charging protocol match · Cable resistance · Battery fit',
+    ds3_no: 'Step 03 — Report',
+    ds3_t: 'Receive your PDF safety report',
+    ds3_p1: 'A detailed PDF report is delivered to your inbox with risk breakdown and tailored recommendations.',
+    ds3_p2: 'Reports are clear and actionable, so you can decide your next step quickly.',
+    ds3_detail_html: '<strong>Report includes:</strong> Risk score · Factor breakdown · Compatibility notes · Charger/cable guidance · Safety summary',
+    tech_eye: 'The Technology',
+    tech_title: "What's under the hood.",
+    tech_sub: 'Our diagnostic engine is built on hardware testing experience and a continuously updated certified dataset.',
+    tech1_t: 'Voltage Ripple Monitor',
+    tech1_d: "Waveform-aware checks compare charger output behavior with safer operating ranges for your device class.",
+    tech2_t: 'Thermal Signature Analysis',
+    tech2_d: 'Heat-pattern analysis helps detect combinations that may lead to unstable or unsafe charging behavior.',
+    tech3_t: 'Hardware Compatibility DB',
+    tech3_d: 'A growing compatibility dataset helps us evaluate charger-device-cable combinations more reliably.',
+    tech4_t: 'Safety Certification Engine',
+    tech4_d: 'Cross-references certification signals to flag potentially unverified components in your setup.',
+    faq_eye: 'FAQ',
+    faq1_q: 'Is the assessment really free?',
+    faq1_a: 'Yes. The questionnaire and preview are free. You only pay if you want the full PDF report.',
+    faq2_q: 'Do I need to send in my hardware?',
+    faq2_a: 'No. The process is fully digital based on your device and charger information.',
+    faq3_q: 'How accurate is the diagnostic?',
+    faq3_a: 'The model is continuously refined with new reference data and verification signals to improve reliability.',
+    faq4_q: 'How long does the report take?',
+    faq4_a: 'Most reports are delivered within 24-48 hours by email.',
+    faq5_q: 'What devices do you support?',
+    faq5_a: 'We support major laptop, smartphone, tablet, and USB-C device categories across mainstream ecosystems.',
+    faq6_q: 'Is my data safe?',
+    faq6_a: 'Your data is protected in transit and storage, and is not sold to third parties.'
   },
   pricing: {
     hero_eye: 'Pricing',
@@ -131,7 +298,70 @@ I18N.en.pages = {
     cta_title: 'Assessment is always free.',
     cta_sub: 'Know your risk in 2 minutes. Pay only when you want the full report.',
     cta_primary: 'Start Free Assessment →',
-    cta_secondary: 'Talk to Sales'
+    cta_secondary: 'Talk to Sales',
+    free_desc: 'Answer a few simple questions to get an immediate snapshot of risk signals and next-step guidance.',
+    free_f1: '✓ Full questionnaire experience',
+    free_f2: '✓ High-level risk signals',
+    free_f3: '✓ Preview recommendations',
+    free_f4: '✓ Upgrade anytime',
+    pro_desc: 'A professional PDF report tailored to your setup, with clear recommendations and practical next steps.',
+    pro_f1: '✓ Compatibility & risk analysis',
+    pro_f2: '✓ Actionable improvement checklist',
+    pro_f3: '✓ Recommended charger criteria',
+    pro_f4: '✓ Priority delivery window',
+    pro_f5: '✓ Email support follow-up',
+    biz_desc: 'For higher-stakes setups: deeper analysis, clearer audit trail, and stronger review standards.',
+    biz_f1: '✓ Everything in Pro',
+    biz_f2: '✓ Expanded risk & failure modes',
+    biz_f3: '✓ Procurement-ready summary',
+    biz_f4: '✓ Priority support routing',
+    biz_f5: '✓ Optional call scheduling',
+    custom_desc: "Need tailored scope, multiple devices, or a procurement workflow? We'll design a plan that fits your team.",
+    custom_f1: '✓ Custom scope & deliverables',
+    custom_f2: '✓ Volume pricing options',
+    custom_f3: '✓ Team-ready deliverable format',
+    custom_f4: '✓ Security & compliance alignment',
+    custom_f5: '✓ Priority scheduling',
+    trust_1: '30-Day Money-Back Guarantee',
+    trust_2: 'Your Data is Never Sold',
+    trust_3: 'Secure Encrypted Transmission',
+    faq1_q: "What's included in the free assessment?",
+    faq1_a: "The free assessment includes the full questionnaire and a preview of key risk signals. Upgrade to get the full PDF report.",
+    faq2_q: 'Can I upgrade after purchasing?',
+    faq2_a: "Yes. If you've already purchased and want to upgrade, contact us and we'll help apply your credit.",
+    faq3_q: 'What does the money-back guarantee cover?',
+    faq3_a: "If you're not satisfied within the stated window, you can request a refund based on policy terms.",
+    faq4_q: 'Is the advanced plan suitable for my team?',
+    faq4_a: 'It is designed for higher-stakes environments with stricter procurement or reliability requirements.',
+    faq5_q: 'Do you offer volume discounts?',
+    faq5_a: 'Yes. For multi-report teams, we offer custom enterprise pricing.',
+    reco_badge: 'Recommended for you',
+    sim_eye: 'Value Simulator',
+    sim_title: 'Estimate value before you buy.',
+    sim_sub: 'Model your risk and see which plan gives the strongest expected value.',
+    sim_reports: 'Reports needed per month',
+    sim_device_cost: 'Average protected device value (USD)',
+    sim_incident: 'Expected annual risk rate (%)',
+    sim_btn: 'Run Value Estimate',
+    sim_loss: 'Estimated annual avoidable loss',
+    sim_invest: 'Estimated annual report investment',
+    sim_gap: 'Potential value gap',
+    sim_reco: 'Best value plan',
+    ctx_prefix: 'Detected context',
+    ctx_creator: 'Creator setup',
+    ctx_it: 'IT procurement',
+    ctx_travel: 'Frequent traveler',
+    ctx_enterprise: 'Enterprise compliance',
+    explorer_eye: 'Plan Explorer',
+    explorer_title: 'Compare plans by your priorities.',
+    explorer_sub: 'Tune priorities and instantly see which plan aligns best.',
+    explorer_priority: 'Priority profile',
+    explorer_scale: 'Setup complexity',
+    explorer_btn: 'Compare Plans',
+    explorer_p1: 'Lower upfront spend',
+    explorer_p2: 'Balanced value and speed',
+    explorer_p3: 'Maximum reliability and governance',
+    explorer_score: 'Fit score'
   },
   contact: {
     hero_eye: 'Get In Touch',
@@ -144,12 +374,19 @@ I18N.en.pages = {
     email_ph: 'alex@company.com',
     subject_label: 'Subject',
     subject_ph: 'Select a topic...',
+    subject_opt_1: 'Question about my report',
+    subject_opt_2: 'Enterprise / Team pricing',
+    subject_opt_3: 'Partnership inquiry',
+    subject_opt_4: 'Technical support',
+    subject_opt_5: 'Press / Media',
+    subject_opt_6: 'Other',
     msg_label: 'Message',
     msg_ph: 'Tell us how we can help...',
     submit: 'Send Message →',
     sending: 'Sending…',
     success: "✓ Message sent! We'll get back to you within 24 hours.",
     info_eye: 'Contact Info',
+    email_info_label: 'Email',
     resp_label: 'Response Time',
     resp_val: 'Within 24 hours on business days',
     loc_label: 'Locations',
@@ -199,6 +436,24 @@ I18N.en.pages = {
     sh_desc: "Home to our hardware testing lab and supplier network. Direct access to component-level data from the world's largest electronics manufacturing hub.",
     tp_role: 'Engineering & AI Development',
     tp_desc: 'Our AI model training, software engineering, and quality assurance operations. Where lab data becomes actionable intelligence.',
+    console_lbl: 'ZIMONAI CONSOLE',
+    console_1_name: 'Voltage Ripple Monitor',
+    console_1_desc: 'Real-time waveform analysis',
+    console_1_badge: 'ACTIVE',
+    console_2_name: 'Thermal Signature Scan',
+    console_2_desc: 'Component heat mapping',
+    console_2_badge: 'LIVE',
+    console_3_name: 'Hardware Compatibility DB',
+    console_3_desc: '4,200+ certified profiles',
+    console_4_name: 'Safety Certification Check',
+    console_4_desc: 'UL / CE / RoHS cross-reference',
+    console_4_badge: 'READY',
+    sh_city: 'Shenzhen',
+    tp_city: 'Taipei',
+    stat_1: 'Diagnostic Accuracy',
+    stat_2: 'Devices Audited',
+    stat_3: 'Certified Profiles',
+    stat_4: 'Report Delivery',
     cta_eye: 'Work With Us',
     cta_title: 'Ready to protect your gear?',
     cta_sub: 'Start with a free 2-minute assessment — or reach out if you have questions.',
@@ -237,6 +492,22 @@ I18N.en.pages = {
     suggest: 'Suggest a topic',
     read: 'Read →',
     by: 'By ZimonAI Lab',
+    date_apr_27_2026: 'Apr 27, 2026',
+    read_6min: '6 min',
+    read_7min: '7 min',
+    read_8min: '8 min',
+    card_1_title: 'USB‑C is not a promise: what to check before you trust a charger',
+    card_1_desc: 'Learn the 5 practical checks that separate safe charging from silent device degradation — without needing lab equipment.',
+    card_2_title: 'Voltage ripple in plain English: what it is, why it matters',
+    card_2_desc: 'A practical explanation of ripple, noise, heat, and why stable power is about more than just wattage.',
+    card_3_title: 'A procurement checklist for chargers & cables (teams)',
+    card_3_desc: 'A simple internal standard for buying power accessories — consistent, defensible, and easy to adopt for teams.',
+    card_4_title: 'Battery health myths: what “100%” really costs',
+    card_4_desc: 'Charging habits, heat, and why “always full” isn’t the same as “always healthy”.',
+    card_5_title: 'Wi‑Fi 6/6E/7: what changes for everyday devices',
+    card_5_desc: 'A plain-language map of bands, latency, and when upgrades actually help.',
+    card_6_title: 'SSD basics: endurance, heat, and why “fast” isn’t everything',
+    card_6_desc: 'What TBW means, when throttling happens, and how to pick a drive you can trust.',
     tag_standards: 'Standards',
     tag_diagnostics: 'Diagnostics',
     tag_procurement: 'Procurement',
@@ -254,8 +525,95 @@ I18N.en.pages = {
     k_pageviews: 'Pageviews',
     breakdown: 'Daily breakdown',
     refresh: 'Refresh',
+    range_7d: '7d',
+    range_14d: '14d',
+    range_30d: '30d',
     warn: 'Tip: keep this page unlinked publicly (or protect it) if you don’t want visitors to see traffic numbers.',
     err: 'Analytics endpoint is not configured, or failed to load.'
+  },
+  lab: {
+    hero_eye: 'Interactive Lab',
+    hero_title_html: 'AI Growth <em>Lab</em>',
+    hero_sub: 'Simulate risk, match your plan, and estimate cost-of-risk in one place.',
+    sim_eye: 'Risk Simulator',
+    sim_title: 'Live charging risk signal',
+    sim_sub: 'Use your real setup profile for a practical baseline.',
+    sim_device: 'Device class',
+    sim_charger: 'Charger tier',
+    sim_charger_a: 'Tier A (Certified)',
+    sim_charger_b: 'Tier B (Mixed)',
+    sim_charger_c: 'Tier C (Unknown)',
+    sim_cable: 'Cable quality',
+    sim_cable_a: 'Certified',
+    sim_cable_b: 'Generic',
+    sim_cable_c: 'Unknown',
+    sim_usage: 'Daily load intensity',
+    sim_btn: 'Simulate Risk',
+    sim_low: 'Low risk baseline. Keep current setup and monitor thermals.',
+    sim_mid: 'Moderate risk baseline. Consider upgrading charger or cable.',
+    sim_high: 'High risk baseline. Prioritize safer accessories immediately.',
+    fit_eye: 'Plan Fit Engine',
+    fit_title: 'Which plan fits you best?',
+    fit_sub: 'Answer a few practical questions and get a recommendation.',
+    fit_q1: 'How many devices are in your setup?',
+    fit_q2: 'How costly is downtime for you?',
+    fit_q3: 'Do you need team/procurement documentation?',
+    fit_docs_no: 'No',
+    fit_docs_some: 'Sometimes',
+    fit_docs_yes: 'Yes',
+    fit_btn: 'Get Plan Recommendation',
+    fit_free: 'Recommended: Free',
+    fit_pro: 'Recommended: Pro',
+    fit_biz: 'Recommended: Business',
+    fit_custom: 'Recommended: Custom',
+    fit_conf: 'Confidence',
+    roi_eye: 'ROI Estimator',
+    roi_title: 'Cost-of-risk vs report cost',
+    roi_sub: 'Estimate potential avoidable loss from unstable charging setups.',
+    roi_device_cost: 'Device replacement cost (USD)',
+    roi_downtime: 'Downtime cost per day (USD)',
+    roi_prob: 'Estimated incident probability (%)',
+    roi_btn: 'Estimate ROI',
+    roi_loss: 'Potential avoidable loss',
+    roi_report: 'Report investment',
+    roi_value: 'Potential value gap',
+    cta_primary: 'Start Full Diagnosis →',
+    cta_secondary: 'View Pricing',
+    go_plan: 'Open Recommended Plan'
+  },
+  use_cases: {
+    hero_eye: 'Use Cases',
+    hero_title_html: 'Scenarios that drive <em>better decisions</em>.',
+    hero_sub: 'Choose your context and see risk patterns, plan fit, and next actions.',
+    tab_creator: 'Creator Setup',
+    tab_it: 'IT Procurement',
+    tab_travel: 'Frequent Traveler',
+    tab_enterprise: 'Enterprise Compliance',
+    pain_title: 'Core risks',
+    action_title: 'Recommended actions',
+    plan_title: 'Best-fit plan',
+    creator_p1: 'High-load editing with mixed chargers increases thermal and ripple stress.',
+    creator_p2: 'Tight delivery schedules make downtime expensive.',
+    creator_a1: 'Standardize charger + cable combos for each device class.',
+    creator_a2: 'Run diagnostics before critical project windows.',
+    creator_plan: 'Pro',
+    it_p1: 'Inconsistent accessory purchases create hidden support overhead.',
+    it_p2: 'No unified benchmark for charger/cable approvals.',
+    it_a1: 'Build a procurement-approved accessory matrix.',
+    it_a2: 'Use report outputs as audit-ready rationale.',
+    it_plan: 'Business',
+    travel_p1: 'Mixed hotel/airport power environments increase instability risk.',
+    travel_p2: 'Portable chargers and cables are often replaced ad-hoc.',
+    travel_a1: 'Maintain a validated travel power kit.',
+    travel_a2: 'Re-check setup after accessory replacement.',
+    travel_plan: 'Pro',
+    enterprise_p1: 'Compliance and traceability require defensible risk controls.',
+    enterprise_p2: 'Fleet-level inconsistency drives avoidable failure cost.',
+    enterprise_a1: 'Adopt policy-backed evaluation for approved accessories.',
+    enterprise_a2: 'Use periodic diagnostics for governance evidence.',
+    enterprise_plan: 'Custom',
+    cta_primary: 'Start Assessment',
+    cta_secondary: 'Talk to Sales'
   },
   terms: {
     eye: 'Terms',
@@ -269,7 +627,17 @@ I18N.en.pages = {
     s6: '6. Intellectual property',
     s7: '7. Limitation of liability',
     s8: '8. Changes to these Terms',
-    s9: '9. Contact'
+    s9: '9. Contact',
+    intro: 'These Terms of Service ("Terms") govern your access to and use of the ZimonAI website and services (the "Service") operated by ZimonAI (智蒙灣科技) ("ZimonAI", "we", "us"). By using the Service, you agree to these Terms.',
+    p1: 'ZimonAI provides AI-assisted diagnostics and reports intended to help users understand charging and hardware compatibility risks. Outputs may include summaries, recommendations, and report documents.',
+    p2: 'The Service is provided on an "as is" and "as available" basis. Reports are for informational purposes and do not guarantee outcomes. You remain responsible for decisions, purchases, and use of hardware and accessories.',
+    p3: 'You must be legally able to enter into these Terms in your jurisdiction. If you use the Service on behalf of an organization, you represent that you have authority to bind that organization.',
+    p4: 'If you purchase paid features, payment processing may be handled by a third-party merchant of record. Prices, taxes, and fees presented at checkout apply. We may update offerings and pricing from time to time.',
+    p5: 'You agree not to misuse the Service, including attempting unauthorized access, disrupting systems, scraping beyond reasonable use, or using the Service to violate laws or third-party rights.',
+    p6: 'The Service, including its design, software, and content, is owned by ZimonAI or its licensors and is protected by applicable laws. You may not copy, modify, or distribute it except as permitted by law or with our written permission.',
+    p7: 'To the maximum extent permitted by law, ZimonAI will not be liable for indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, or goodwill arising from your use of the Service.',
+    p8: 'We may update these Terms. If changes are material, we will update the effective date on this page. Continued use of the Service after changes means you accept the updated Terms.',
+    p9_html: 'Questions about these Terms: <a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a>.'
   },
   privacy: {
     eye: 'Privacy',
@@ -282,7 +650,16 @@ I18N.en.pages = {
     s5: '5. Data retention',
     s6: '6. Security',
     s7: '7. Your choices',
-    s8: '8. Contact'
+    s8: '8. Contact',
+    intro: 'This Privacy Policy explains how ZimonAI (智蒙灣科技) ("ZimonAI", "we", "us") collects, uses, and shares information when you use our website and services.',
+    p1: 'We may collect information you provide directly (such as your name, email address, and message content when you contact us), as well as technical information (such as browser type, device information, and approximate usage metadata) to operate and improve the Service.',
+    p2: 'We use information to respond to inquiries, provide and improve the Service, maintain security, prevent abuse, and comply with legal obligations.',
+    p3: 'If you make a purchase, payment processing is handled by a third-party merchant of record or payment provider. We do not store full payment card details on our servers.',
+    p4: 'We may share information with service providers that help us operate the Service (for example, analytics, support tooling, hosting, or payment processing), and when required to comply with applicable laws. We do not sell your personal information.',
+    p5: 'We keep information only as long as necessary to provide the Service, maintain records, resolve disputes, enforce agreements, and meet legal requirements.',
+    p6: 'We use reasonable safeguards designed to protect information. No method of transmission or storage is completely secure.',
+    p7: 'You may contact us to request access, correction, or deletion of personal information where applicable.',
+    p8_html: 'Privacy questions: <a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a>.'
   },
   refund: {
     eye: 'Refunds',
@@ -292,12 +669,20 @@ I18N.en.pages = {
     s2: '2. Refund window',
     s3: '3. How to request a refund',
     s4: '4. Policy reference',
-    s5: '5. Changes'
+    s5: '5. Changes',
+    intro_html: 'This Refund Policy describes how refunds are handled for purchases related to ZimonAI (智蒙灣科技). If you have questions, contact <a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a>.',
+    p1: 'Payments are processed by Paddle.com Market Limited (or its affiliates) as the merchant of record. Refunds are handled by Paddle in line with its refund policy.',
+    p2_html: 'Refund requests must be submitted within <strong style="color:var(--text);font-weight:500">14 calendar days</strong> of the transaction date.',
+    p3_html: 'To request a refund, please submit your request via Paddle\'s buyer support portal at <a href="https://paddle.net" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">paddle.net</a>. If you need product help, you can also email us at <a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a>.',
+    p4_html: 'This page is intended to match Paddle\'s refund policy. For the full details and any legally applicable withdrawal rights, please see <a href="https://www.paddle.com/legal/refund-policy" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">Paddle\'s Refund Policy</a>.',
+    p5: 'We may update this policy. The effective date will be updated on this page.'
   },
   posts: {
     p1: {
       title_html: 'USB‑C is not a <em>promise</em>.',
       sub: 'What to check before you trust a charger — without lab equipment.',
+      meta_date: 'Apr 27, 2026',
+      meta_read: '6 min read',
       back: '← Back to Blog',
       lead: 'USB‑C looks universal, but the connector shape tells you almost nothing about the quality of power inside a charger. Two bricks can both “support fast charge” yet behave very differently under load.',
       h1: '1) Look for real standards, not slogans',
@@ -318,6 +703,8 @@ I18N.en.pages = {
     p2: {
       title_html: 'Voltage ripple in <em>plain English</em>.',
       sub: 'Stable charging is about more than wattage.',
+      meta_date: 'Apr 27, 2026',
+      meta_read: '7 min read',
       back: '← Back to Blog',
       lead: '“It charges” is not the same as “it charges cleanly”. Ripple is one of the reasons a cheap charger can look fine on the outside yet slowly degrade a device over time.',
       h1: 'What is ripple?',
@@ -338,6 +725,8 @@ I18N.en.pages = {
     p3: {
       title_html: 'A procurement <em>checklist</em>.',
       sub: 'For teams buying chargers & cables — consistent, easy to adopt.',
+      meta_date: 'Apr 27, 2026',
+      meta_read: '8 min read',
       back: '← Back to Blog',
       lead: 'Teams often standardize laptops and phones — then treat power accessories as “cheap and interchangeable”. This checklist helps you buy fewer, better SKUs with fewer surprises.',
       h1: '1) Define your device classes',
@@ -358,6 +747,8 @@ I18N.en.pages = {
     p4: {
       title_html: 'Battery health <em>myths</em>.',
       sub: 'What “100%” really costs — and what actually matters.',
+      meta_date: 'Apr 27, 2026',
+      meta_read: '6 min read',
       back: '← Back to Blog',
       lead: 'Battery health advice online is often presented as strict rules. In reality, most of the impact comes from a few themes: heat, time at high charge, and how hard you push the battery day after day.',
       h1: 'Myth: “Always charge to 100% is fine”',
@@ -376,6 +767,8 @@ I18N.en.pages = {
     p5: {
       title_html: 'Wi‑Fi 6/6E/7, <em>explained</em>.',
       sub: 'What changes for everyday devices — and what doesn’t.',
+      meta_date: 'Apr 27, 2026',
+      meta_read: '7 min read',
       back: '← Back to Blog',
       lead: 'Router marketing often makes upgrades feel mandatory. The truth: many Wi‑Fi “generation jumps” are about capacity and consistency, not just peak speed.',
       h1: 'Wi‑Fi 6: better in crowded environments',
@@ -394,6 +787,8 @@ I18N.en.pages = {
     p6: {
       title_html: 'SSD basics: endurance & <em>heat</em>.',
       sub: 'Why “fast” isn’t everything — especially for sustained workloads.',
+      meta_date: 'Apr 27, 2026',
+      meta_read: '6 min read',
       back: '← Back to Blog',
       lead: 'SSD specs often highlight peak speed, but real performance is usually limited by sustained load, heat, and controller behavior. Reliability is a design choice, not a marketing checkbox.',
       h1: 'What endurance (TBW) means',
@@ -423,7 +818,83 @@ I18N['zh-Hant'].pages = {
     how_eye: '運作方式',
     how_title: '三步驟完成報告。',
     how_sub: '回答幾個簡單問題，其餘交給我們分析。',
-    learn_more: '了解更多 →'
+    learn_more: '了解更多 →',
+    stat_1: '診斷準確度',
+    stat_2: '已分析裝置',
+    stat_3: '認證資料檔',
+    stat_4: '報告交付',
+    step_1_no: '步驟 01',
+    step_1_t: '回答幾個簡單問題',
+    step_1_d: '告訴我們你的裝置與充電器組合，幾分鐘內即可完成，且完全免費。',
+    step_2_no: '步驟 02',
+    step_2_t: 'AI 自動分析',
+    step_2_d: '模型會比對你的配置與認證硬體資料與安全訊號。',
+    step_3_no: '步驟 03',
+    step_3_t: '取得 PDF 報告',
+    step_3_d: '收到包含風險層級、相容性說明與可執行建議的詳細報告。',
+    why_eye: '為什麼重要',
+    why_title: '充電品質是你數位資產的生命線。',
+    why_sub_html: '在行動工作時代，安全充電是生產力的隱形基礎。<strong style="color:var(--text);font-weight:500">不要讓低品質線材悄悄傷害你的專業設備。</strong>',
+    fc1_no: '01 — 風險',
+    fc1_t: '電壓突波傷害',
+    fc1_d: '不穩定充電器可能輸出異常突波，長期壓力會累積在電池與主板上。',
+    fc2_no: '02 — 風險',
+    fc2_t: '熱失控風險',
+    fc2_d: '低品質配件散熱不足，可能讓裝置長時間超出理想溫度範圍。',
+    fc3_no: '03 — 風險',
+    fc3_t: '電池壽命侵蝕',
+    fc3_d: '不匹配的充電曲線可能加速電池老化與長期衰退。',
+    testi_eye: '使用者回饋',
+    testi_title: '受到創作者與工程團隊信賴。',
+    testi_sub: '來自真實使用者的回饋，聚焦於實際可用的改善。',
+    testi_q1: '"我原本用隨機買的 USB-C 充電器，ZimonAI 很快就提醒我紋波風險。當天就換掉，安心很多。"',
+    testi_q2: '"終於有看得懂的相容性解釋，報告細節完整，而且每一項建議都能立刻執行。"',
+    testi_q3: '"我們 IT 團隊現在每次採購前都先看 ZimonAI，省下不少錯誤成本。"',
+    testi_r1: '影片剪輯師，洛杉磯',
+    testi_r2: '機器學習工程師，舊金山',
+    testi_r3: '資訊總監，奧斯汀',
+    cta_eye: '立即開始',
+    cta_title: '你的裝備值得更好的守護。',
+    cta_sub: '2 分鐘免費檢測，先看風險，再決定下一步。',
+    cta_primary: '開始免費檢測 →',
+    cta_secondary: '查看定價',
+    quick_eye: '快速風險檢查',
+    quick_title: '10 秒看你的充電風險。',
+    quick_sub: '選擇你的設備組合，立刻得到基礎風險訊號。',
+    quick_device: '主要裝置',
+    quick_device_1: '手機',
+    quick_device_2: '平板',
+    quick_device_3: '筆電',
+    quick_device_4: '工作站',
+    quick_charger: '充電器品質',
+    quick_charger_1: '已認證',
+    quick_charger_2: '混合使用',
+    quick_charger_3: '來源不明',
+    quick_cable: '線材品質',
+    quick_cable_1: '已認證',
+    quick_cable_2: '通用款',
+    quick_cable_3: '來源不明',
+    quick_btn: '開始快速檢查',
+    quick_result_low: '基礎風險偏低，可維持現有配置並持續觀察溫度表現。',
+    quick_result_mid: '基礎風險中等，升級充電器或線材可降低長期電池損耗。',
+    quick_result_high: '基礎風險偏高，建議盡快升級供電配置，避免隱性硬體傷害。',
+    quick_cta_diag: '進行完整診斷',
+    quick_cta_price: '查看方案建議',
+    compare_eye: '決策優勢',
+    compare_title: '沒有 ZimonAI 與有 ZimonAI 的差別。',
+    compare_left_t: '沒有 ZimonAI',
+    compare_left_1: '充電器採購靠直覺',
+    compare_left_2: '相容風險不透明',
+    compare_left_3: '更容易出現隱性電池耗損',
+    compare_right_t: '有 ZimonAI',
+    compare_right_1: '用資料做採購決策',
+    compare_right_2: '風險與相容性一目了然',
+    compare_right_3: '有明確可執行的保護步驟',
+    sticky_default: '用 2 分鐘檢測，先守住你的設備安全。',
+    sticky_mid: '你的配置可能有隱性風險，現在就做完整檢查。',
+    sticky_end: '準備好做決策？選擇最適合你的方案。',
+    sticky_cta_assess: '開始檢測',
+    sticky_cta_pricing: '查看定價'
   },
   how: {
     hero_eye: '方法論',
@@ -437,7 +908,46 @@ I18N['zh-Hant'].pages = {
     ready_title: '用 2 分鐘守護你的裝備。',
     ready_sub: '免費檢測。不需寄送硬體。結果將以 email 通知。',
     ready_cta_primary: '開始免費檢測 →',
-    ready_cta_secondary: '查看定價'
+    ready_cta_secondary: '查看定價',
+    ds1_no: '步驟 01 — 輸入',
+    ds1_t: '回答幾個簡單問題',
+    ds1_p1: '填入裝置型號、充電器品牌與瓦數、線材來源、電池健康度與可見症狀。',
+    ds1_p2: '問卷免費且快速完成，你的回答會成為風險分析基礎。',
+    ds1_detail_html: '<strong>我們會詢問：</strong> 裝置型號 · 充電器品牌與瓦數 · 線材來源 · 電池年齡 · 可見症狀',
+    ds2_no: '步驟 02 — 分析',
+    ds2_t: 'AI 比對認證資料',
+    ds2_p1: 'AI 會把你的配置與實測資料、規格與安全參考進行交叉比對。',
+    ds2_p2: '系統會檢查紋波風險、熱相容、協議匹配與線材完整性，估算整體風險。',
+    ds2_detail_html: '<strong>AI 檢查項目：</strong> 紋波閾值 · 熱相容 · 充電協議匹配 · 線材阻抗 · 電池匹配',
+    ds3_no: '步驟 03 — 報告',
+    ds3_t: '收到 PDF 安全報告',
+    ds3_p1: '你會透過 email 收到詳細 PDF，包含風險拆解與對應建議。',
+    ds3_p2: '內容盡量清楚、可執行，讓你能快速做決策。',
+    ds3_detail_html: '<strong>報告內容：</strong> 風險分數 · 因子拆解 · 相容性說明 · 充電器/線材建議 · 安全摘要',
+    tech_eye: '技術核心',
+    tech_title: '系統底層在做什麼。',
+    tech_sub: '診斷引擎建立在硬體測試經驗與持續更新的資料集之上。',
+    tech1_t: '電壓紋波監測',
+    tech1_d: '以波形與行為訊號評估充電輸出是否落在更安全的範圍內。',
+    tech2_t: '熱特徵分析',
+    tech2_d: '透過熱特徵判斷可能導致不穩或不安全充電的組合。',
+    tech3_t: '硬體相容資料庫',
+    tech3_d: '持續擴充的相容資料，提升充電器、裝置與線材組合評估可靠度。',
+    tech4_t: '安全認證引擎',
+    tech4_d: '交叉比對認證訊號，協助辨識可能未充分驗證的配件。',
+    faq_eye: '常見問題',
+    faq1_q: '檢測真的免費嗎？',
+    faq1_a: '是。問卷與預覽免費，只有你需要完整 PDF 報告時才付費。',
+    faq2_q: '需要寄送硬體嗎？',
+    faq2_a: '不用。整個流程都在線上完成，根據你提供的資訊分析。',
+    faq3_q: '診斷準確嗎？',
+    faq3_a: '模型會隨資料持續更新與校準，以提升分析可靠度。',
+    faq4_q: '多久能收到報告？',
+    faq4_a: '大多數報告會在 24-48 小時內寄送。',
+    faq5_q: '支援哪些裝置？',
+    faq5_a: '涵蓋主流筆電、手機、平板與 USB-C 生態系設備。',
+    faq6_q: '資料安全嗎？',
+    faq6_a: '資料在傳輸與儲存皆採保護措施，且不販售給第三方。'
   },
   pricing: {
     hero_eye: '定價',
@@ -467,7 +977,70 @@ I18N['zh-Hant'].pages = {
     cta_title: '檢測永遠免費。',
     cta_sub: '2 分鐘了解風險。你想要完整報告時再付費。',
     cta_primary: '開始免費檢測 →',
-    cta_secondary: '洽談合作'
+    cta_secondary: '洽談合作',
+    free_desc: '回答幾個簡單問題，立即取得風險概覽與下一步方向。',
+    free_f1: '✓ 完整問卷體驗',
+    free_f2: '✓ 高層級風險訊號',
+    free_f3: '✓ 建議預覽',
+    free_f4: '✓ 可隨時升級',
+    pro_desc: '針對你的配置提供更完整的 PDF 報告，內容清楚且可直接執行。',
+    pro_f1: '✓ 相容性與風險分析',
+    pro_f2: '✓ 可執行改善清單',
+    pro_f3: '✓ 充電器建議基準',
+    pro_f4: '✓ 優先交付時段',
+    pro_f5: '✓ Email 後續支援',
+    biz_desc: '適合更高要求場景：更深入分析、更清楚紀錄與更高審視標準。',
+    biz_f1: '✓ 含 Pro 全部內容',
+    biz_f2: '✓ 擴充風險與失效模式',
+    biz_f3: '✓ 採購可用摘要',
+    biz_f4: '✓ 優先支援流程',
+    biz_f5: '✓ 可安排諮詢時段',
+    custom_desc: '若你需要客製範圍、多裝置分析或採購流程整合，我們可為團隊設計方案。',
+    custom_f1: '✓ 客製範圍與交付',
+    custom_f2: '✓ 量大價格方案',
+    custom_f3: '✓ 團隊可用交付格式',
+    custom_f4: '✓ 安全與合規對齊',
+    custom_f5: '✓ 優先排程',
+    trust_1: '30 天退款保障',
+    trust_2: '資料不對外販售',
+    trust_3: '傳輸全程加密',
+    faq1_q: '免費檢測包含哪些內容？',
+    faq1_a: '免費版包含完整問卷與風險預覽；若需要完整 PDF 報告再升級即可。',
+    faq2_q: '購買後可以升級嗎？',
+    faq2_a: '可以。若你已購買報告想升級，聯絡我們可協助處理折抵。',
+    faq3_q: '退款保障涵蓋什麼？',
+    faq3_a: '若你在保障期間內不滿意，可依政策流程申請退款。',
+    faq4_q: '進階方案適合哪些團隊？',
+    faq4_a: '適合對採購一致性、可靠性與可追溯性有較高要求的團隊。',
+    faq5_q: '有大量採購折扣嗎？',
+    faq5_a: '有。多份報告需求可提供客製企業報價。',
+    reco_badge: '最適合你的方案',
+    sim_eye: '價值模擬器',
+    sim_title: '購買前先估算價值。',
+    sim_sub: '用你的風險條件估算，快速看哪個方案最划算。',
+    sim_reports: '每月預計需要報告數量',
+    sim_device_cost: '平均受保護設備價值（USD）',
+    sim_incident: '預估年度事故風險率（%）',
+    sim_btn: '開始價值估算',
+    sim_loss: '預估年度可避免損失',
+    sim_invest: '預估年度報告投入',
+    sim_gap: '潛在價值差',
+    sim_reco: '最有價值方案',
+    ctx_prefix: '已識別情境',
+    ctx_creator: '創作者工作流',
+    ctx_it: 'IT 採購管理',
+    ctx_travel: '高頻差旅',
+    ctx_enterprise: '企業合規',
+    explorer_eye: '方案比較器',
+    explorer_title: '依你的重點比較方案。',
+    explorer_sub: '調整優先條件，立即看哪個方案最適合。',
+    explorer_priority: '優先條件',
+    explorer_scale: '配置複雜度',
+    explorer_btn: '開始比較',
+    explorer_p1: '優先控制前期成本',
+    explorer_p2: '平衡成本與交付效率',
+    explorer_p3: '優先穩定性與治理能力',
+    explorer_score: '匹配分數'
   },
   contact: {
     hero_eye: '聯絡我們',
@@ -480,12 +1053,19 @@ I18N['zh-Hant'].pages = {
     email_ph: 'you@company.com',
     subject_label: '主旨',
     subject_ph: '選擇主題...',
+    subject_opt_1: '報告相關問題',
+    subject_opt_2: '企業 / 團隊方案',
+    subject_opt_3: '合作洽詢',
+    subject_opt_4: '技術支援',
+    subject_opt_5: '媒體 / 採訪',
+    subject_opt_6: '其他',
     msg_label: '訊息內容',
     msg_ph: '請描述你的需求...',
     submit: '送出訊息 →',
     sending: '送出中…',
     success: '✓ 已送出！我們會在 1 個工作天內回覆。',
     info_eye: '聯絡資訊',
+    email_info_label: '電子郵件',
     resp_label: '回覆時間',
     resp_val: '工作日 24 小時內回覆',
     loc_label: '據點',
@@ -535,6 +1115,24 @@ I18N['zh-Hant'].pages = {
     sh_desc: '硬體測試與供應商網絡的基地，能更接近元件層級資訊與製造實務。',
     tp_role: '工程與 AI 開發',
     tp_desc: '模型訓練、軟體工程與品質驗證所在地，把測試資料轉化成可行動的洞察。',
+    console_lbl: 'ZIMONAI 主控台',
+    console_1_name: '電壓紋波監測',
+    console_1_desc: '即時波形分析',
+    console_1_badge: '運行中',
+    console_2_name: '熱特徵掃描',
+    console_2_desc: '元件熱分佈映射',
+    console_2_badge: '即時',
+    console_3_name: '硬體相容資料庫',
+    console_3_desc: '4,200+ 認證檔案',
+    console_4_name: '安全認證檢查',
+    console_4_desc: 'UL / CE / RoHS 交叉比對',
+    console_4_badge: '就緒',
+    sh_city: '深圳',
+    tp_city: '台北',
+    stat_1: '診斷準確度',
+    stat_2: '已分析裝置',
+    stat_3: '認證資料檔',
+    stat_4: '報告交付',
     cta_eye: '與我們合作',
     cta_title: '準備好守護你的裝備了嗎？',
     cta_sub: '先做一個 2 分鐘的免費檢測；若有問題也歡迎直接聯絡我們。',
@@ -573,6 +1171,22 @@ I18N['zh-Hant'].pages = {
     suggest: '建議主題',
     read: '閱讀 →',
     by: 'ZimonAI Lab',
+    date_apr_27_2026: '2026 年 4 月 27 日',
+    read_6min: '6 分鐘',
+    read_7min: '7 分鐘',
+    read_8min: '8 分鐘',
+    card_1_title: 'USB‑C 不是保證：充電器真正該檢查什麼',
+    card_1_desc: '不用實驗室設備，也能快速判斷安全充電與長期損耗之間的差異。',
+    card_2_title: '白話解析電壓紋波：它是什麼、為何重要',
+    card_2_desc: '用實際情境解釋紋波、噪聲與發熱，理解穩定供電不只看瓦數。',
+    card_3_title: '團隊版充電器與線材採購檢核表',
+    card_3_desc: '建立一致、可辯護、容易落地的配件採購標準。',
+    card_4_title: '電池健康迷思：維持 100% 的真正代價',
+    card_4_desc: '充電習慣與熱管理如何影響電池壽命，重點一次看懂。',
+    card_5_title: 'Wi‑Fi 6/6E/7：日常使用到底差在哪裡',
+    card_5_desc: '用白話整理頻段、延遲與升級時機，避免無效升級。',
+    card_6_title: 'SSD 基礎：耐用度、發熱與穩定性',
+    card_6_desc: '理解 TBW、降速時機與實用選購重點，不只看峰值速度。',
     tag_standards: '標準',
     tag_diagnostics: '診斷',
     tag_procurement: '採購',
@@ -590,8 +1204,95 @@ I18N['zh-Hant'].pages = {
     k_pageviews: '瀏覽量',
     breakdown: '每日明細',
     refresh: '重新整理',
+    range_7d: '近 7 天',
+    range_14d: '近 14 天',
+    range_30d: '近 30 天',
     warn: '提示：若不希望訪客看到流量數字，請不要公開連結此頁。',
     err: '分析服務尚未完成設定，或讀取失敗。'
+  },
+  lab: {
+    hero_eye: '互動實驗室',
+    hero_title_html: 'AI 成長 <em>實驗室</em>',
+    hero_sub: '在同一頁完成風險模擬、方案匹配與損失估算。',
+    sim_eye: '風險模擬器',
+    sim_title: '即時充電風險訊號',
+    sim_sub: '用你的實際配置快速取得基礎風險判斷。',
+    sim_device: '裝置類型',
+    sim_charger: '充電器等級',
+    sim_charger_a: 'A 級（已驗證）',
+    sim_charger_b: 'B 級（混合）',
+    sim_charger_c: 'C 級（未知）',
+    sim_cable: '線材品質',
+    sim_cable_a: '已認證',
+    sim_cable_b: '通用款',
+    sim_cable_c: '來源不明',
+    sim_usage: '每日負載強度',
+    sim_btn: '模擬風險',
+    sim_low: '基礎風險偏低，可維持現有配置並持續觀察溫度。',
+    sim_mid: '基礎風險中等，建議升級充電器或線材。',
+    sim_high: '基礎風險偏高，建議優先更換更安全的配件。',
+    fit_eye: '方案匹配引擎',
+    fit_title: '哪個方案最適合你？',
+    fit_sub: '回答幾個實務問題，立即得到建議方案。',
+    fit_q1: '你的設備數量大約多少？',
+    fit_q2: '停機對你的成本高嗎？',
+    fit_q3: '你需要團隊/採購文件化依據嗎？',
+    fit_docs_no: '不需要',
+    fit_docs_some: '有時需要',
+    fit_docs_yes: '需要',
+    fit_btn: '取得方案建議',
+    fit_free: '建議方案：Free',
+    fit_pro: '建議方案：Pro',
+    fit_biz: '建議方案：Business',
+    fit_custom: '建議方案：Custom',
+    fit_conf: '信心指數',
+    roi_eye: 'ROI 估算器',
+    roi_title: '風險成本 vs 報告成本',
+    roi_sub: '估算不穩定供電可能造成的可避免損失。',
+    roi_device_cost: '設備替換成本（USD）',
+    roi_downtime: '單日停機成本（USD）',
+    roi_prob: '預估事故機率（%）',
+    roi_btn: '估算 ROI',
+    roi_loss: '可避免潛在損失',
+    roi_report: '報告投入成本',
+    roi_value: '潛在價值差',
+    cta_primary: '開始完整診斷 →',
+    cta_secondary: '查看定價',
+    go_plan: '開啟建議方案'
+  },
+  use_cases: {
+    hero_eye: '應用場景',
+    hero_title_html: '在不同情境下做出更好的 <em>設備決策</em>。',
+    hero_sub: '選擇你的情境，快速看風險模式、方案建議與行動路徑。',
+    tab_creator: '創作者工作流',
+    tab_it: 'IT 採購管理',
+    tab_travel: '高頻差旅',
+    tab_enterprise: '企業合規',
+    pain_title: '主要風險',
+    action_title: '建議行動',
+    plan_title: '最佳方案',
+    creator_p1: '高負載剪輯搭配混用充電器，容易放大熱與紋波壓力。',
+    creator_p2: '交付時程緊湊，任何停機都可能造成高成本延誤。',
+    creator_a1: '為每種設備建立固定的充電器與線材組合。',
+    creator_a2: '重大專案前先做一次完整診斷。',
+    creator_plan: 'Pro',
+    it_p1: '配件採購不一致會形成隱性維運成本。',
+    it_p2: '缺少統一的充電器與線材核准基準。',
+    it_a1: '建立可核准的採購清單與相容矩陣。',
+    it_a2: '用報告作為可稽核的採購依據。',
+    it_plan: 'Business',
+    travel_p1: '旅館、機場等混合供電環境增加不穩定風險。',
+    travel_p2: '行動電源與線材常臨時更換，品質不一致。',
+    travel_a1: '維持一組已驗證的差旅供電套件。',
+    travel_a2: '更換配件後重新檢查配置風險。',
+    travel_plan: 'Pro',
+    enterprise_p1: '合規與可追溯性要求可辯護的風險控制。',
+    enterprise_p2: '艦隊級設備不一致會帶來可避免的失效成本。',
+    enterprise_a1: '建立政策化的配件評估與核准流程。',
+    enterprise_a2: '透過定期診斷提供治理證據。',
+    enterprise_plan: 'Custom',
+    cta_primary: '開始檢測',
+    cta_secondary: '聯絡業務'
   },
   terms: {
     eye: '條款',
@@ -605,7 +1306,17 @@ I18N['zh-Hant'].pages = {
     s6: '6. 智慧財產權',
     s7: '7. 責任限制',
     s8: '8. 條款更新',
-    s9: '9. 聯絡方式'
+    s9: '9. 聯絡方式',
+    intro: '本服務條款（以下稱「本條款」）規範你對 ZimonAI（智蒙灣科技）網站與服務（以下稱「本服務」）的存取與使用。當你使用本服務，即表示你同意遵守本條款。',
+    p1: 'ZimonAI 提供 AI 輔助診斷與報告，協助使用者了解充電與硬體相容風險。輸出內容可能包含摘要、建議與報告文件。',
+    p2: '本服務以「現況」及「可用狀態」提供。報告內容僅供參考，不構成結果保證。你仍需自行承擔硬體購買、使用與決策責任。',
+    p3: '你必須在所屬司法管轄區具備締約能力。若你代表組織使用本服務，表示你有權代表該組織受本條款拘束。',
+    p4: '若你購買付費功能，付款可能由第三方 Merchant of Record 處理。結帳頁顯示的價格、稅費與手續費為準。我們可能不定期調整方案與價格。',
+    p5: '你同意不濫用本服務，包括但不限於未授權存取、干擾系統、超出合理範圍擷取資料，或利用本服務侵害法律或第三方權利。',
+    p6: '本服務（含設計、軟體與內容）由 ZimonAI 或其授權方持有，並受相關法律保護。除法律允許或經書面同意外，不得擅自複製、修改或散布。',
+    p7: '在法律允許範圍內，ZimonAI 不對任何間接、附帶、特殊、衍生或懲罰性損害，或任何利潤、資料、商譽損失負責。',
+    p8: '我們可能更新本條款。若為重大變更，將更新本頁生效日期。你在更新後持續使用本服務，即視為接受更新內容。',
+    p9_html: '若對本條款有疑問：<a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a>。'
   },
   privacy: {
     eye: '隱私',
@@ -618,7 +1329,16 @@ I18N['zh-Hant'].pages = {
     s5: '5. 資料保存',
     s6: '6. 資安措施',
     s7: '7. 你的選擇',
-    s8: '8. 聯絡方式'
+    s8: '8. 聯絡方式',
+    intro: '本隱私政策說明當你使用 ZimonAI（智蒙灣科技）網站與服務時，我們如何蒐集、使用與分享資訊。',
+    p1: '我們可能蒐集你直接提供的資訊（例如聯絡時填寫的姓名、Email 與訊息內容），以及技術資訊（如瀏覽器類型、裝置資訊與使用中繼資料）以維運與改善服務。',
+    p2: '我們使用資訊來回覆需求、提供並優化服務、維護安全、防止濫用，並遵循法律義務。',
+    p3: '若你進行購買，付款由第三方 Merchant of Record 或支付供應商處理。我們不會在伺服器保存完整信用卡資訊。',
+    p4: '我們可能與協助營運的服務供應商分享必要資訊（例如分析、客服工具、託管或付款處理），或在法律要求下提供資訊。我們不販售你的個人資料。',
+    p5: '我們僅在提供服務、維持紀錄、處理爭議、執行合約與符合法規所需期間內保存資料。',
+    p6: '我們採取合理安全措施保護資訊，但任何傳輸或儲存方式都無法保證絕對安全。',
+    p7: '在適用法令下，你可聯絡我們申請查閱、更正或刪除個人資料。',
+    p8_html: '隱私相關問題：<a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a>。'
   },
   refund: {
     eye: '退款',
@@ -628,12 +1348,20 @@ I18N['zh-Hant'].pages = {
     s2: '2. 退款期間',
     s3: '3. 退款申請方式',
     s4: '4. 政策參考',
-    s5: '5. 政策更新'
+    s5: '5. 政策更新',
+    intro_html: '本退款政策說明與 ZimonAI（智蒙灣科技）相關購買的退款處理方式。如有疑問，請聯絡 <a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a>。',
+    p1: '付款由 Paddle.com Market Limited（或其關係企業）作為 Merchant of Record 處理；退款亦依 Paddle 退款政策執行。',
+    p2_html: '退款申請必須於交易日後 <strong style="color:var(--text);font-weight:500">14 個日曆日</strong> 內提出。',
+    p3_html: '若需申請退款，請透過 Paddle 買家支援入口 <a href="https://paddle.net" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">paddle.net</a> 提交。若需產品協助，也可來信 <a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a>。',
+    p4_html: '本頁內容旨在與 Paddle 退款政策一致。完整細則與適用法定撤回權，請參考 <a href="https://www.paddle.com/legal/refund-policy" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">Paddle 退款政策</a>。',
+    p5: '我們可能更新本政策，並在本頁更新生效日期。'
   },
   posts: {
     p1: {
       title_html: 'USB‑C 不是 <em>保證</em>。',
       sub: '不用實驗室設備，也能判斷一顆充電器值不值得信任。',
+      meta_date: '2026 年 4 月 27 日',
+      meta_read: '6 分鐘閱讀',
       back: '← 回到文章列表',
       lead: 'USB‑C 看起來很通用，但接頭長相幾乎無法代表供電品質。兩顆都宣稱「支援快充」的充電器，在負載下可能有截然不同的表現。',
       h1: '1) 先看標準，不看口號',
@@ -654,6 +1382,8 @@ I18N['zh-Hant'].pages = {
     p2: {
       title_html: '用 <em>白話</em> 看懂電壓紋波。',
       sub: '充電穩不穩，從來不只看瓦數。',
+      meta_date: '2026 年 4 月 27 日',
+      meta_read: '7 分鐘閱讀',
       back: '← 回到文章列表',
       lead: '「可以充」不等於「充得乾淨」。許多廉價充電器外觀看起來正常，卻可能長期以不穩定供電慢慢傷害裝置。',
       h1: '什麼是紋波？',
@@ -674,6 +1404,8 @@ I18N['zh-Hant'].pages = {
     p3: {
       title_html: '採購 <em>清單</em>：充電器與線材。',
       sub: '給團隊的採購標準：一致、可執行、好維護。',
+      meta_date: '2026 年 4 月 27 日',
+      meta_read: '8 分鐘閱讀',
       back: '← 回到文章列表',
       lead: '許多團隊會標準化筆電與手機，卻把供電配件當成可隨便替換的消耗品。這份清單幫你用更少 SKU、降低後續風險。',
       h1: '1) 先定義裝置類別',
@@ -694,6 +1426,8 @@ I18N['zh-Hant'].pages = {
     p4: {
       title_html: '電池健康的 <em>迷思</em>。',
       sub: '「100%」的代價是什麼？真正該在意什麼？',
+      meta_date: '2026 年 4 月 27 日',
+      meta_read: '6 分鐘閱讀',
       back: '← 回到文章列表',
       lead: '網路上的電池建議常像硬性規則，但實際上影響最大的通常只有幾件事：溫度、長時間高電量、以及你每天如何使用裝置。',
       h1: '迷思：一直充到 100% 沒差',
@@ -712,6 +1446,8 @@ I18N['zh-Hant'].pages = {
     p5: {
       title_html: 'Wi‑Fi 6/6E/7，<em>一次看懂</em>。',
       sub: '哪些升級值得做？哪些其實不用急？',
+      meta_date: '2026 年 4 月 27 日',
+      meta_read: '7 分鐘閱讀',
       back: '← 回到文章列表',
       lead: '路由器行銷常讓升級看起來像必需，但很多世代變化其實重點是「多人環境下的穩定性與效率」，不只是峰值速度。',
       h1: 'Wi‑Fi 6：多人環境更穩',
@@ -730,6 +1466,8 @@ I18N['zh-Hant'].pages = {
     p6: {
       title_html: 'SSD 基礎：耐久與 <em>散熱</em>。',
       sub: '為什麼「快」不是唯一指標。',
+      meta_date: '2026 年 4 月 27 日',
+      meta_read: '6 分鐘閱讀',
       back: '← 回到文章列表',
       lead: 'SSD 規格常主打峰值速度，但真實體驗常受持續負載、溫度與控制器行為影響。可靠性是設計結果，不是口號。',
       h1: 'TBW（可寫入總量）代表什麼',
@@ -764,8 +1502,10 @@ function setLang(lang){
   document.documentElement.setAttribute('lang', next);
   document.documentElement.setAttribute('data-lang', next);
   applyI18n(next);
+  applyMetaTitle(next);
   // re-render nav/footer so labels update
   rerenderShell(next);
+  applyGrowthPersonalization(next);
 }
 
 function t(path, lang){
@@ -800,6 +1540,98 @@ function applyI18n(lang){
   });
 }
 
+function applyMetaTitle(lang){
+  try{
+    const file = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    const pageId = file.replace('.html','').replace(/-/g,'_');
+    const title = t(`meta.${pageId}`, lang);
+    if(title) document.title = title;
+  }catch(e){}
+}
+
+const ZA_STATE_KEYS = {
+  preferredPlan: 'za_preferred_plan',
+  riskBand: 'za_risk_band',
+  lastToolResult: 'za_last_tool_result',
+  contextCase: 'za_context_case'
+};
+
+function getZAState(key){
+  try{ return localStorage.getItem(key); }catch(e){ return null; }
+}
+
+function setZAState(key, value){
+  try{ localStorage.setItem(key, value); }catch(e){}
+}
+
+try{
+  window.ZAState = { get: getZAState, set: setZAState, keys: ZA_STATE_KEYS };
+}catch(e){}
+
+function applyPricingPersonalization(lang){
+  if((document.body?.dataset?.page || '') !== 'pricing') return;
+  let plan = getZAState(ZA_STATE_KEYS.preferredPlan);
+  const contextCase = getZAState(ZA_STATE_KEYS.contextCase);
+  try{
+    const qp = new URLSearchParams(window.location.search);
+    const fromUrl = qp.get('plan');
+    if(fromUrl && ['free','pro','biz','custom'].includes(fromUrl)){
+      plan = fromUrl;
+      setZAState(ZA_STATE_KEYS.preferredPlan, fromUrl);
+    }
+  }catch(e){}
+  if(!plan) return;
+  document.querySelectorAll('.pc[data-plan]').forEach(card=>{
+    card.classList.remove('pc-reco');
+    const old = card.querySelector('.plan-reco-badge');
+    if(old) old.remove();
+    const oldHint = card.querySelector('.plan-context-hint');
+    if(oldHint) oldHint.remove();
+
+    if(contextCase && ['creator','it','travel','enterprise'].includes(contextCase)){
+      const hint = document.createElement('div');
+      hint.className = 'plan-context-hint';
+      hint.textContent = `${t('pages.pricing.ctx_prefix', lang)}: ${t(`pages.pricing.ctx_${contextCase}`, lang)}`;
+      card.appendChild(hint);
+    }
+
+    if(card.getAttribute('data-plan') === plan){
+      card.classList.add('pc-reco');
+      const badge = document.createElement('div');
+      badge.className = 'plan-reco-badge';
+      badge.textContent = t('pages.pricing.reco_badge', lang);
+      card.appendChild(badge);
+      if(window.location.hash === '#plans'){
+        try{ card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }catch(e){}
+      }
+    }
+  });
+}
+
+function applyHomeStickyPersonalization(lang){
+  if((document.body?.dataset?.page || '') !== 'home') return;
+  const sticky = document.getElementById('homeStickyCta');
+  const stickyText = document.getElementById('homeStickyText');
+  if(!sticky || !stickyText) return;
+  const update = ()=>{
+    const progress = window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight);
+    const riskBand = getZAState(ZA_STATE_KEYS.riskBand);
+    let key = 'pages.home.sticky_default';
+    if(progress > 0.62) key = 'pages.home.sticky_end';
+    else if(progress > 0.28) key = 'pages.home.sticky_mid';
+    if(riskBand === 'high') key = 'pages.home.sticky_mid';
+    stickyText.textContent = t(key, lang);
+    sticky.classList.toggle('on', window.scrollY > 160);
+  };
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
+function applyGrowthPersonalization(lang){
+  applyPricingPersonalization(lang);
+  applyHomeStickyPersonalization(lang);
+}
+
 function shellLangSwitch(lang){
   return `
     <div class="lang-sw" role="group" aria-label="Language switch">
@@ -814,6 +1646,44 @@ function shellLangSwitch(lang){
 const ANALYTICS_ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbxNyz1_X2eMV-8v-AaYnsCOgtJl8Fd98MOfst21ZefBqTggu4bhdcrd0VZR5EiyqcxB/exec';
 const ANALYTICS_SITE_ID = 'zimonai.com';
 
+function isAnalyticsEnabled(){
+  return !!(ANALYTICS_ENDPOINT_URL && !ANALYTICS_ENDPOINT_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_ANALYTICS_WEB_APP_URL_HERE'));
+}
+
+function sendAnalytics(payload){
+  if(!isAnalyticsEnabled()) return;
+  const body = JSON.stringify(payload);
+  if(navigator.sendBeacon){
+    const blob = new Blob([body], { type: 'application/json' });
+    navigator.sendBeacon(ANALYTICS_ENDPOINT_URL, blob);
+  }else{
+    fetch(ANALYTICS_ENDPOINT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body,
+      keepalive: true
+    }).catch(()=>{});
+  }
+}
+
+function trackEvent(event_name, props){
+  try{
+    sendAnalytics({
+      type: 'event',
+      site_id: ANALYTICS_SITE_ID,
+      event_name,
+      props: props || {},
+      page: window.location.pathname,
+      lang: getLang(),
+      ts: new Date().toISOString()
+    });
+  }catch(e){}
+}
+
+try{
+  window.ZA = Object.assign({}, window.ZA || {}, { trackEvent });
+}catch(e){}
+
 const NAV_HTML=(active, lang)=>`
 <nav>
   <a href="index.html" class="logo">
@@ -821,6 +1691,8 @@ const NAV_HTML=(active, lang)=>`
   </a>
   <ul class="nav-mid">
     <li><a href="how-it-works.html" ${active==='how'?'class="active"':''}>${t('nav.how',lang)}</a></li>
+    <li><a href="lab.html" ${active==='lab'?'class="active"':''}>${t('nav.lab',lang)}</a></li>
+    <li><a href="use-cases.html" ${active==='use-cases'?'class="active"':''}>${t('nav.use_cases',lang)}</a></li>
     <li><a href="blog.html" ${active==='blog'?'class="active"':''}>${t('nav.blog',lang)}</a></li>
     <li><a href="pricing.html" ${active==='pricing'?'class="active"':''}>${t('nav.pricing',lang)}</a></li>
     <li><a href="about.html" ${active==='about'?'class="active"':''}>${t('nav.about',lang)}</a></li>
@@ -845,9 +1717,11 @@ const FOOTER_HTML=(lang)=>`
       <a href="pricing.html">${t('footer.deep',lang)}</a>
       <a href="pricing.html">${t('footer.ent',lang)}</a>
       <a href="how-it-works.html">${t('footer.meth',lang)}</a>
+      <a href="lab.html">${t('footer.lab',lang)}</a>
     </div>
     <div class="f-col">
       <h5>${t('footer.company',lang)}</h5>
+      <a href="use-cases.html">${t('footer.use_cases',lang)}</a>
       <a href="about.html">${t('footer.about',lang)}</a>
       <a href="contact.html">${t('footer.contact',lang)}</a>
       <a href="privacy.html">${t('footer.privacy',lang)}</a>
@@ -913,36 +1787,24 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   // apply page-specific i18n keys (optional)
   try{
-    applyI18n(getLang());
+    const activeLang = getLang();
+    applyI18n(activeLang);
+    applyMetaTitle(activeLang);
+    applyGrowthPersonalization(activeLang);
   }catch(e){}
 
   // Pageview tracking (safe no-op until configured)
   try{
-    if(ANALYTICS_ENDPOINT_URL && !ANALYTICS_ENDPOINT_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_ANALYTICS_WEB_APP_URL_HERE')){
-      const payload = {
-        type: 'pageview',
-        site_id: ANALYTICS_SITE_ID,
-        page: window.location.pathname,
-        title: document.title,
-        referrer: document.referrer || '',
-        user_agent: navigator.userAgent,
-        tz: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
-        ts: new Date().toISOString()
-      };
-      const body = JSON.stringify(payload);
-
-      if(navigator.sendBeacon){
-        const blob = new Blob([body], { type: 'application/json' });
-        navigator.sendBeacon(ANALYTICS_ENDPOINT_URL, blob);
-      }else{
-        fetch(ANALYTICS_ENDPOINT_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body,
-          keepalive: true
-        }).catch(()=>{});
-      }
-    }
+    sendAnalytics({
+      type: 'pageview',
+      site_id: ANALYTICS_SITE_ID,
+      page: window.location.pathname,
+      title: document.title,
+      referrer: document.referrer || '',
+      user_agent: navigator.userAgent,
+      tz: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+      ts: new Date().toISOString()
+    });
   }catch(e){}
 
   // Scroll reveal
