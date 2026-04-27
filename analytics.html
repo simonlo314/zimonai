@@ -28,9 +28,9 @@
 <body data-page="analytics">
 
 <section class="page-hero">
-  <p class="eye">Analytics</p>
-  <h1>Traffic <em>Dashboard</em></h1>
-  <p>Daily traffic and total traffic for your marketing site.</p>
+  <p class="eye" data-i18n="pages.analytics.hero_eye">Analytics</p>
+  <h1 data-i18n-html="pages.analytics.hero_title_html">Traffic <em>Dashboard</em></h1>
+  <p data-i18n="pages.analytics.hero_sub">Daily traffic and total traffic for your marketing site.</p>
 </section>
 
 <section class="ch">
@@ -38,27 +38,27 @@
     <div class="a-wrap rv">
       <div class="kpis">
         <div class="kpi">
-          <div class="kpi-l">Today</div>
+          <div class="kpi-l" data-i18n="pages.analytics.k_today">Today</div>
           <div class="kpi-v" id="k_today">—</div>
-          <div class="kpi-s" id="k_today_s">Pageviews</div>
+          <div class="kpi-s" id="k_today_s" data-i18n="pages.analytics.k_pageviews">Pageviews</div>
         </div>
         <div class="kpi">
-          <div class="kpi-l">Last 7 days</div>
+          <div class="kpi-l" data-i18n="pages.analytics.k_7d">Last 7 days</div>
           <div class="kpi-v" id="k_7d">—</div>
-          <div class="kpi-s">Pageviews</div>
+          <div class="kpi-s" data-i18n="pages.analytics.k_pageviews">Pageviews</div>
         </div>
         <div class="kpi">
-          <div class="kpi-l">All-time</div>
+          <div class="kpi-l" data-i18n="pages.analytics.k_all">All-time</div>
           <div class="kpi-v" id="k_all">—</div>
-          <div class="kpi-s">Pageviews</div>
+          <div class="kpi-s" data-i18n="pages.analytics.k_pageviews">Pageviews</div>
         </div>
       </div>
 
       <div class="card" style="margin-top:18px">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-          <p class="eye" style="margin:0">Daily breakdown</p>
+          <p class="eye" style="margin:0" data-i18n="pages.analytics.breakdown">Daily breakdown</p>
           <div class="tools">
-            <button class="mini" onclick="loadStats()">Refresh</button>
+            <button class="mini" onclick="loadStats()" data-i18n="pages.analytics.refresh">Refresh</button>
             <button class="mini" onclick="setRange(7)">7d</button>
             <button class="mini" onclick="setRange(14)">14d</button>
             <button class="mini" onclick="setRange(30)">30d</button>
@@ -66,8 +66,8 @@
         </div>
 
         <div id="daily_list" style="margin-top:14px"></div>
-        <div class="err" id="a_err">Analytics endpoint is not configured, or failed to load.</div>
-        <div class="warn">
+        <div class="err" id="a_err" data-i18n="pages.analytics.err">Analytics endpoint is not configured, or failed to load.</div>
+        <div class="warn" data-i18n="pages.analytics.warn">
           Tip: keep this page unlinked publicly (or protect it) if you don’t want visitors to see traffic numbers.
         </div>
       </div>

@@ -244,6 +244,56 @@ I18N.en.pages = {
     tag_wifi: 'Wi‑Fi',
     tag_storage: 'Storage'
   },
+  analytics: {
+    hero_eye: 'Analytics',
+    hero_title_html: 'Traffic <em>Dashboard</em>',
+    hero_sub: 'Daily traffic and total traffic for your marketing site.',
+    k_today: 'Today',
+    k_7d: 'Last 7 days',
+    k_all: 'All-time',
+    k_pageviews: 'Pageviews',
+    breakdown: 'Daily breakdown',
+    refresh: 'Refresh',
+    warn: 'Tip: keep this page unlinked publicly (or protect it) if you don’t want visitors to see traffic numbers.',
+    err: 'Analytics endpoint is not configured, or failed to load.'
+  },
+  terms: {
+    eye: 'Terms',
+    title_html: 'Terms of <em>Service</em>',
+    effective: 'Effective date: 2026-04-27',
+    s1: '1. Service overview',
+    s2: '2. No warranty; informational use',
+    s3: '3. Eligibility',
+    s4: '4. Purchases',
+    s5: '5. Acceptable use',
+    s6: '6. Intellectual property',
+    s7: '7. Limitation of liability',
+    s8: '8. Changes to these Terms',
+    s9: '9. Contact'
+  },
+  privacy: {
+    eye: 'Privacy',
+    title_html: 'Privacy <em>Policy</em>',
+    effective: 'Effective date: 2026-04-27',
+    s1: '1. Information we collect',
+    s2: '2. How we use information',
+    s3: '3. Payments',
+    s4: '4. Sharing',
+    s5: '5. Data retention',
+    s6: '6. Security',
+    s7: '7. Your choices',
+    s8: '8. Contact'
+  },
+  refund: {
+    eye: 'Refunds',
+    title_html: 'Refund <em>Policy</em>',
+    effective: 'Effective date: 2026-04-27',
+    s1: '1. Who processes your payment',
+    s2: '2. Refund window',
+    s3: '3. How to request a refund',
+    s4: '4. Policy reference',
+    s5: '5. Changes'
+  },
   posts: {
     p1: {
       title_html: 'USB‑C is not a <em>promise</em>.',
@@ -262,6 +312,100 @@ I18N.en.pages = {
       p5: 'For USB‑C, cable quality matters. Use reputable, appropriately rated cables for the power you’re drawing. If a cable feels loose, shows discoloration, or behaves inconsistently, replace it.',
       cta_t: 'Want a tailored recommendation?',
       cta_d: 'Run a free assessment. Upgrade only if you want a detailed PDF report.',
+      cta_a: 'Start Free Assessment →',
+      cta_b: 'View Pricing'
+    },
+    p2: {
+      title_html: 'Voltage ripple in <em>plain English</em>.',
+      sub: 'Stable charging is about more than wattage.',
+      back: '← Back to Blog',
+      lead: '“It charges” is not the same as “it charges cleanly”. Ripple is one of the reasons a cheap charger can look fine on the outside yet slowly degrade a device over time.',
+      h1: 'What is ripple?',
+      p1: 'In simple terms, ripple is the small, rapid fluctuation on top of a power signal that’s supposed to be steady. Think of it as “electrical wobble” riding on the line while your device is trying to charge.',
+      h2: 'Why it matters (in real life)',
+      p2: 'Devices contain power-management circuits that convert incoming power into what the battery and components actually need. When incoming power is noisy or unstable, those circuits may work harder, generate more heat, and operate with less margin.',
+      h3: 'Common signals you can notice without tools',
+      p3: 'You can’t measure ripple precisely without equipment, but you can still watch for practical signals: chargers that run unusually hot, inconsistent fast charging, random touch issues while charging, or accessories that behave differently depending on which outlet or power strip you use.',
+      h4: 'Not all “fast chargers” are equal',
+      p4: 'A label that advertises high wattage says nothing about regulation quality. Good designs use better component selection, thermal design, and protection circuits. Cheap designs often cut corners in exactly the places you can’t see.',
+      h5: 'A safer baseline checklist',
+      p5: 'When you want a safer default: choose reputable brands, prefer clearly stated standards (e.g., USB‑PD), avoid suspiciously cheap “high‑power multi‑port” bricks, and use appropriately rated cables.',
+      cta_t: 'Want a tailored check for your exact setup?',
+      cta_d: 'Run a free assessment. Upgrade only if you want a detailed PDF report.',
+      cta_a: 'Start Free Assessment →',
+      cta_b: 'View Pricing'
+    },
+    p3: {
+      title_html: 'A procurement <em>checklist</em>.',
+      sub: 'For teams buying chargers & cables — consistent, easy to adopt.',
+      back: '← Back to Blog',
+      lead: 'Teams often standardize laptops and phones — then treat power accessories as “cheap and interchangeable”. This checklist helps you buy fewer, better SKUs with fewer surprises.',
+      h1: '1) Define your device classes',
+      p1: 'List the common device types in your org (e.g., laptops, tablets, phones, peripherals). Procurement gets easier when accessories map to a known set of power needs.',
+      h2: '2) Prefer standards and documented profiles',
+      p2: 'Look for clear support statements for charging standards (such as USB‑PD) and avoid ambiguous “fast charge” marketing. If the spec sheet is vague, treat it as a risk signal.',
+      h3: '3) Cable policy: rating, length, and connectors',
+      p3: 'Decide what ratings you allow, acceptable lengths, and connector durability requirements. Cables are a frequent failure point and the easiest to standardize.',
+      h4: '4) Heat and enclosure design matter',
+      p4: 'Favor chargers with credible thermal design and safety markings, not ultra-compact bricks claiming extreme power. If the charger runs very hot in normal use, treat it as non-compliant.',
+      h5: '5) Operationalize it',
+      p5: 'Write a one-page internal rule: approved brands/models, replacement intervals, and a process for exceptions. Most teams win by being consistent, not by being perfect.',
+      cta_t: 'Need a company-ready standard?',
+      cta_d: 'We can help you define a defensible accessory policy and report format.',
+      cta_a: 'Talk to us →',
+      cta_b: 'View Pricing'
+    },
+    p4: {
+      title_html: 'Battery health <em>myths</em>.',
+      sub: 'What “100%” really costs — and what actually matters.',
+      back: '← Back to Blog',
+      lead: 'Battery health advice online is often presented as strict rules. In reality, most of the impact comes from a few themes: heat, time at high charge, and how hard you push the battery day after day.',
+      h1: 'Myth: “Always charge to 100% is fine”',
+      p1: 'For many lithium batteries, spending long periods near full charge increases stress compared to stopping earlier. This doesn’t mean “never hit 100%” — it means avoid living there all day, every day.',
+      h2: 'Myth: “Fast charging destroys batteries”',
+      p2: 'Fast charging is a tool. Good devices and good chargers manage heat and current dynamically. The bigger risk is poor-quality power and sustained heat, not the concept of “fast”.',
+      h3: 'Heat is the multiplier',
+      p3: 'Heat accelerates wear. If your device is hot while charging (especially under heavy use), battery aging is more likely to speed up. If you can, charge in a cooler environment and avoid heavy workloads during charging.',
+      h4: 'Practical habits that don’t require obsession',
+      p4: 'Use reputable chargers/cables, avoid “too hot to touch” charging sessions, and don’t keep a device at full charge for long periods unnecessarily. Consistency beats perfection.',
+      cta_t: 'Not sure if your charger is stressing your device?',
+      cta_d: 'Run a free assessment and get tailored next steps.',
+      cta_a: 'Start Free Assessment →',
+      cta_b: 'View Pricing'
+    },
+    p5: {
+      title_html: 'Wi‑Fi 6/6E/7, <em>explained</em>.',
+      sub: 'What changes for everyday devices — and what doesn’t.',
+      back: '← Back to Blog',
+      lead: 'Router marketing often makes upgrades feel mandatory. The truth: many Wi‑Fi “generation jumps” are about capacity and consistency, not just peak speed.',
+      h1: 'Wi‑Fi 6: better in crowded environments',
+      p1: 'Wi‑Fi 6 focuses on efficiency when multiple devices share the same router. Homes and offices with many phones, laptops, TVs, and IoT devices often feel more stable with a good Wi‑Fi 6 setup.',
+      h2: 'Wi‑Fi 6E: the 6 GHz lane (when supported)',
+      p2: 'Wi‑Fi 6E adds access to the 6 GHz band where available, which can reduce interference. The benefit depends on whether your devices support 6E and whether your environment is congested.',
+      h3: 'Wi‑Fi 7: lower latency potential, more complexity',
+      p3: 'Wi‑Fi 7 aims to improve throughput and latency for high-performance setups. It can be great, but early ecosystems can be mixed: device support, firmware maturity, and feature compatibility matter a lot.',
+      h4: 'How to decide without overthinking',
+      p4: 'If your current setup is stable and meets your needs, you can wait. If you have congestion, dropouts, or many devices competing, a well-reviewed Wi‑Fi 6 (or 6E if your devices support it) is often a practical upgrade.',
+      cta_t: 'Optimizing a device + power setup?',
+      cta_d: 'Start with a free assessment and upgrade only when you want a full report.',
+      cta_a: 'Start Free Assessment →',
+      cta_b: 'View Pricing'
+    },
+    p6: {
+      title_html: 'SSD basics: endurance & <em>heat</em>.',
+      sub: 'Why “fast” isn’t everything — especially for sustained workloads.',
+      back: '← Back to Blog',
+      lead: 'SSD specs often highlight peak speed, but real performance is usually limited by sustained load, heat, and controller behavior. Reliability is a design choice, not a marketing checkbox.',
+      h1: 'What endurance (TBW) means',
+      p1: 'TBW (“terabytes written”) is a warranty endurance metric. It’s not a perfect predictor, but it gives a baseline sense of how a drive is positioned. Higher isn’t always necessary, but extremely low endurance on large-capacity drives is a risk signal.',
+      h2: 'Why SSDs slow down (and it’s normal)',
+      p2: 'Many drives use an SLC cache to boost short bursts. When you write for long periods (big exports, backups, video footage), performance can drop once the cache is exhausted.',
+      h3: 'Heat and throttling',
+      p3: 'Sustained writes generate heat. When temperatures rise, drives may throttle to protect themselves. Good enclosures, airflow, and realistic workload expectations make a bigger difference than “best peak speed”.',
+      h4: 'A sane buying checklist',
+      p4: 'Prefer reputable controllers, transparent specs, and credible reviews that include sustained testing. If you’re using an external SSD, pick an enclosure designed for thermal control, not just looks.',
+      cta_t: 'Building a stable setup end-to-end?',
+      cta_d: 'Power + storage + peripherals all affect reliability. Start with a free assessment.',
       cta_a: 'Start Free Assessment →',
       cta_b: 'View Pricing'
     }
@@ -436,6 +580,56 @@ I18N['zh-Hant'].pages = {
     tag_wifi: 'Wi‑Fi',
     tag_storage: '儲存'
   },
+  analytics: {
+    hero_eye: '流量分析',
+    hero_title_html: '流量 <em>儀表板</em>',
+    hero_sub: '查看你的官網每日流量與累計流量。',
+    k_today: '今天',
+    k_7d: '近 7 天',
+    k_all: '累計',
+    k_pageviews: '瀏覽量',
+    breakdown: '每日明細',
+    refresh: '重新整理',
+    warn: '提示：若不希望訪客看到流量數字，請不要公開連結此頁。',
+    err: '分析服務尚未完成設定，或讀取失敗。'
+  },
+  terms: {
+    eye: '條款',
+    title_html: '服務 <em>條款</em>',
+    effective: '生效日期：2026-04-27',
+    s1: '1. 服務概要',
+    s2: '2. 免責聲明與資訊用途',
+    s3: '3. 使用資格',
+    s4: '4. 購買與付款',
+    s5: '5. 可接受使用規範',
+    s6: '6. 智慧財產權',
+    s7: '7. 責任限制',
+    s8: '8. 條款更新',
+    s9: '9. 聯絡方式'
+  },
+  privacy: {
+    eye: '隱私',
+    title_html: '隱私權 <em>政策</em>',
+    effective: '生效日期：2026-04-27',
+    s1: '1. 我們蒐集的資訊',
+    s2: '2. 資訊使用方式',
+    s3: '3. 付款處理',
+    s4: '4. 資訊分享',
+    s5: '5. 資料保存',
+    s6: '6. 資安措施',
+    s7: '7. 你的選擇',
+    s8: '8. 聯絡方式'
+  },
+  refund: {
+    eye: '退款',
+    title_html: '退款 <em>政策</em>',
+    effective: '生效日期：2026-04-27',
+    s1: '1. 付款處理單位',
+    s2: '2. 退款期間',
+    s3: '3. 退款申請方式',
+    s4: '4. 政策參考',
+    s5: '5. 政策更新'
+  },
   posts: {
     p1: {
       title_html: 'USB‑C 不是 <em>保證</em>。',
@@ -456,11 +650,103 @@ I18N['zh-Hant'].pages = {
       cta_d: '先做免費檢測。只有你需要完整 PDF 報告時才付費升級。',
       cta_a: '開始免費檢測 →',
       cta_b: '查看定價'
+    },
+    p2: {
+      title_html: '用 <em>白話</em> 看懂電壓紋波。',
+      sub: '充電穩不穩，從來不只看瓦數。',
+      back: '← 回到文章列表',
+      lead: '「可以充」不等於「充得乾淨」。許多廉價充電器外觀看起來正常，卻可能長期以不穩定供電慢慢傷害裝置。',
+      h1: '什麼是紋波？',
+      p1: '簡單說，紋波就是本該穩定的電壓上，出現細小而快速的波動。你可以把它想成供電線上的「抖動」。',
+      h2: '為什麼它在現實中很重要',
+      p2: '裝置內部有電源管理電路會把輸入電力轉成電池與元件真正需要的形式。當輸入電力噪聲偏高，這些電路可能更吃力、更熱，穩定餘裕也更小。',
+      h3: '不用儀器也能觀察的訊號',
+      p3: '你未必能直接量測紋波，但可以留意：充電器異常燙、快充忽快忽慢、充電時觸控異常，或換個插座就行為不同。',
+      h4: '不是每顆「快充」都一樣',
+      p4: '高瓦數標示不代表調節品質好。好的設計在元件、散熱、保護機制都更紮實；便宜方案常在看不見的地方省料。',
+      h5: '一份更安全的基礎清單',
+      p5: '優先選擇可信品牌、規格標示清楚（如 USB‑PD）、避免過度便宜的高功率多孔充電器，並使用額定匹配的線材。',
+      cta_t: '想檢查你的實際組合嗎？',
+      cta_d: '先做免費檢測，只有你需要完整 PDF 報告時再升級。',
+      cta_a: '開始免費檢測 →',
+      cta_b: '查看定價'
+    },
+    p3: {
+      title_html: '採購 <em>清單</em>：充電器與線材。',
+      sub: '給團隊的採購標準：一致、可執行、好維護。',
+      back: '← 回到文章列表',
+      lead: '許多團隊會標準化筆電與手機，卻把供電配件當成可隨便替換的消耗品。這份清單幫你用更少 SKU、降低後續風險。',
+      h1: '1) 先定義裝置類別',
+      p1: '先盤點主要裝置類型（筆電、平板、手機、周邊）。當配件可以對應到清楚的需求分類，採購會簡單很多。',
+      h2: '2) 優先看標準與可驗證規格',
+      p2: '選擇明確標示充電標準（例如 USB‑PD）的產品，避免只寫「快充」卻沒有細節。規格含糊就是風險訊號。',
+      h3: '3) 制定線材政策：額定、長度、耐用性',
+      p3: '先規範可接受的線材額定、長度範圍與接頭耐用標準。線材是最常見故障點，也最容易先做好。',
+      h4: '4) 散熱與外殼設計很重要',
+      p4: '優先選擇散熱設計與安全標示可信的充電器，而不是追求極小體積卻宣稱極高功率的產品。若日常使用就過熱，應視為不合格。',
+      h5: '5) 把規範落地',
+      p5: '用一頁文件定義：核准品牌/型號、替換週期、例外申請流程。多數團隊靠一致執行就能明顯降低風險。',
+      cta_t: '需要企業可用的採購標準？',
+      cta_d: '我們可以協助你設計可落地的配件政策與報告格式。',
+      cta_a: '聯絡我們 →',
+      cta_b: '查看定價'
+    },
+    p4: {
+      title_html: '電池健康的 <em>迷思</em>。',
+      sub: '「100%」的代價是什麼？真正該在意什麼？',
+      back: '← 回到文章列表',
+      lead: '網路上的電池建議常像硬性規則，但實際上影響最大的通常只有幾件事：溫度、長時間高電量、以及你每天如何使用裝置。',
+      h1: '迷思：一直充到 100% 沒差',
+      p1: '對多數鋰電池而言，長時間處在高電量通常比提早停止更有壓力。不是不能到 100%，而是不要長期停在滿電狀態。',
+      h2: '迷思：快充一定傷電池',
+      p2: '快充本身只是工具。好的裝置與充電器會動態管理溫度與電流；真正風險通常是低品質供電與長時間高溫。',
+      h3: '溫度是放大器',
+      p3: '高溫會加速老化。若你充電時裝置經常偏燙（尤其同時高負載），老化通常會更快。可行的做法是降低環境溫度並避免邊重度使用邊充電。',
+      h4: '不需要焦慮，也能做對',
+      p4: '使用可靠的充電器與線材，避免「燙到拿不住」的充電情境，也不要長期讓裝置一直滿電。持續做對比追求完美更重要。',
+      cta_t: '不確定你的充電組合是否在傷設備？',
+      cta_d: '做一次免費檢測，取得可執行的下一步建議。',
+      cta_a: '開始免費檢測 →',
+      cta_b: '查看定價'
+    },
+    p5: {
+      title_html: 'Wi‑Fi 6/6E/7，<em>一次看懂</em>。',
+      sub: '哪些升級值得做？哪些其實不用急？',
+      back: '← 回到文章列表',
+      lead: '路由器行銷常讓升級看起來像必需，但很多世代變化其實重點是「多人環境下的穩定性與效率」，不只是峰值速度。',
+      h1: 'Wi‑Fi 6：多人環境更穩',
+      p1: 'Wi‑Fi 6 的核心是提升多裝置同時連線效率。若家裡或辦公室設備很多，通常會感受到更穩定的日常體驗。',
+      h2: 'Wi‑Fi 6E：新增 6GHz 頻段（需支援）',
+      p2: '6E 在可用地區可使用 6GHz，常能降低干擾；但效果取決於你的終端是否支援，以及環境是否擁擠。',
+      h3: 'Wi‑Fi 7：更低延遲潛力，也更看生態成熟度',
+      p3: 'Wi‑Fi 7 在吞吐與延遲上有潛力，但初期也更仰賴裝置支援、韌體成熟度與相容性。',
+      h4: '怎麼選最務實',
+      p4: '如果現有網路穩定且夠用，可以先不升；若你常遇到擁塞、掉線、多裝置互搶，優質的 Wi‑Fi 6（或裝置支援時選 6E）通常是實際有效的升級。',
+      cta_t: '想同時優化設備與供電組合？',
+      cta_d: '先做免費檢測，只有需要完整報告時再升級。',
+      cta_a: '開始免費檢測 →',
+      cta_b: '查看定價'
+    },
+    p6: {
+      title_html: 'SSD 基礎：耐久與 <em>散熱</em>。',
+      sub: '為什麼「快」不是唯一指標。',
+      back: '← 回到文章列表',
+      lead: 'SSD 規格常主打峰值速度，但真實體驗常受持續負載、溫度與控制器行為影響。可靠性是設計結果，不是口號。',
+      h1: 'TBW（可寫入總量）代表什麼',
+      p1: 'TBW 是耐久度的保固指標，不是絕對預測，但可作為定位參考。大容量卻搭配異常低耐久通常是風險訊號。',
+      h2: '為什麼 SSD 會降速（而且常見）',
+      p2: '許多 SSD 會用 SLC 快取提升短時間速度。當你長時間寫入（備份、匯出、素材搬移），快取耗盡後速度下滑屬常見現象。',
+      h3: '溫度與降頻',
+      p3: '持續寫入會升溫，溫度過高時 SSD 會降頻保護。好的外殼散熱與合理負載管理，往往比追求峰值數字更實際。',
+      h4: '務實選購清單',
+      p4: '優先看控制器與規格透明度，並參考有持續負載測試的評測。外接 SSD 也建議選散熱設計可靠的外殼。',
+      cta_t: '想建立更穩定的整體配置？',
+      cta_d: '供電、儲存、周邊會一起影響可靠性。先從免費檢測開始。',
+      cta_a: '開始免費檢測 →',
+      cta_b: '查看定價'
     }
   }
 };
-};
-
 function getLang(){
   try{
     const saved = localStorage.getItem(LANG_KEY);
@@ -607,24 +893,28 @@ function rerenderShell(lang){
 
 // Inject logo SVG, nav, footer
 document.addEventListener('DOMContentLoaded',()=>{
-  const lang = getLang();
-  document.documentElement.setAttribute('lang', lang);
-  document.documentElement.setAttribute('data-lang', lang);
-  const active = document.body.dataset.page||'';
-  document.body.insertAdjacentHTML('afterbegin', LOGO_SVG);
-  document.body.insertAdjacentHTML('afterbegin', NAV_HTML(active, lang));
-  document.body.insertAdjacentHTML('beforeend', FOOTER_HTML(lang));
+  try{
+    const lang = getLang();
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('data-lang', lang);
+    const active = document.body.dataset.page||'';
+    document.body.insertAdjacentHTML('afterbegin', LOGO_SVG);
+    document.body.insertAdjacentHTML('afterbegin', NAV_HTML(active, lang));
+    document.body.insertAdjacentHTML('beforeend', FOOTER_HTML(lang));
 
-  // wire language buttons
-  document.querySelectorAll('.lang-sw .lbtn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const next = btn.getAttribute('data-lang');
-      setLang(next);
+    // wire language buttons
+    document.querySelectorAll('.lang-sw .lbtn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const next = btn.getAttribute('data-lang');
+        setLang(next);
+      });
     });
-  });
+  }catch(e){}
 
   // apply page-specific i18n keys (optional)
-  applyI18n(lang);
+  try{
+    applyI18n(getLang());
+  }catch(e){}
 
   // Pageview tracking (safe no-op until configured)
   try{
@@ -656,13 +946,24 @@ document.addEventListener('DOMContentLoaded',()=>{
   }catch(e){}
 
   // Scroll reveal
-  const io=new IntersectionObserver(e=>{
-    e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})
-  },{threshold:0.08});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  try{
+    if(typeof IntersectionObserver === 'function'){
+      const io=new IntersectionObserver(e=>{
+        e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})
+      },{threshold:0.08});
+      document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+    }else{
+      // Fallback: reveal everything immediately on older browsers
+      document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));
+    }
+  }catch(e){
+    document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));
+  }
 
   // FAQ accordion
-  document.querySelectorAll('.faq-item').forEach(item=>{
-    item.addEventListener('click',()=>item.classList.toggle('open'));
-  });
+  try{
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      item.addEventListener('click',()=>item.classList.toggle('open'));
+    });
+  }catch(e){}
 });

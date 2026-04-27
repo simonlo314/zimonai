@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>ZimonAI Diagnostic</title>
@@ -11,7 +11,11 @@ html,body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-syst
 .topbar{background:rgba(0,0,0,0.9);border-bottom:0.5px solid var(--border);padding:0 24px;height:50px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)}
 .logo{font-size:16px;font-weight:600;color:var(--white);display:flex;align-items:center;gap:6px}
 .logo em{font-style:normal;color:var(--cyan)}
+.tb-r{display:flex;align-items:center;gap:10px}
 .step-count{font-size:12px;color:var(--muted)}
+.lang-sw{display:flex;background:rgba(255,255,255,0.06);border:0.5px solid var(--border);border-radius:980px;padding:3px}
+.lbtn{background:transparent;border:none;color:var(--muted);font-size:11px;font-weight:600;padding:4px 10px;border-radius:980px;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:inherit}
+.lbtn.on{background:rgba(255,255,255,0.12);color:var(--white)}
 .prog-wrap{height:2px;background:rgba(255,255,255,0.06)}
 .prog-bar{height:2px;background:var(--cyan);transition:width .5s cubic-bezier(.16,1,.3,1)}
 .layout{display:grid;grid-template-columns:1fr 280px;gap:24px;max-width:900px;margin:0 auto;padding:32px 20px 60px;align-items:start}
@@ -137,7 +141,13 @@ input[type=email]::placeholder{color:var(--muted)}
     <svg width="18" height="22" viewBox="0 0 100 122"><path d="M36,108C85,108,90,72,52,54C10,36,10,12,64,12" stroke="#00E5FF" stroke-width="13" stroke-linecap="round" fill="none"/><rect x="3" y="98" width="34" height="20" rx="6" fill="#00E5FF"/><rect x="63" y="3" width="34" height="18" rx="3" fill="#00E5FF"/></svg>
     Zimon<em>AI</em>
   </a>
-  <div class="step-count" id="stepCount">Free Assessment</div>
+  <div class="tb-r">
+    <div class="lang-sw" role="group" aria-label="Language switch">
+      <button class="lbtn on" type="button" data-lang="en">EN</button>
+      <button class="lbtn" type="button" data-lang="zh-Hant">繁中</button>
+    </div>
+    <div class="step-count" id="stepCount">Free Assessment</div>
+  </div>
 </div>
 <div class="prog-wrap"><div class="prog-bar" id="progBar" style="width:0%"></div></div>
 
@@ -379,13 +389,106 @@ const ans={};
 let curStep=0,consentOn=false;
 const steps=[0,1,null,2,3,4,5,6,7,8,9];
 const totalSteps=8;
+const LANG_KEY='zimonai_lang';
+let diagLang='en';
+
+const DIAG_ZH_TO_EN={
+  'ZimonAI 硬體安全診斷':'ZimonAI Hardware Safety Diagnostic',
+  'AI 將交叉比對您的配置與 4,200+ 份認證硬體資料，並於 24 小時內生成您的專屬 PDF 報告。':'Our AI cross-checks your setup against 4,200+ certified hardware profiles and prepares your PDF report within 24 hours.',
+  '全程免費':'Free',
+  '2 分鐘完成':'2-minute flow',
+  '無需攜帶設備':'No hardware shipment',
+  '資料加密保護':'Encrypted data',
+  '開始診斷 →':'Start Diagnosis →',
+  '第一階段 — 設備識別':'Phase 1 — Device identification',
+  '第一階段 — 設備識別（補充）':'Phase 1 — Device identification (extra)',
+  '第二階段 — 電力來源稽核':'Phase 2 — Power source audit',
+  '第三階段 — 臨床症狀偵測':'Phase 3 — Symptom signals',
+  '第四階段 — 報告交付':'Phase 4 — Report delivery',
+  '您的主要生產力設備？':'What is your primary work device?',
+  '選擇最能代表您主力工作機的類型。':'Choose the option that best matches your main device.',
+  '您的 MacBook Neo 是 2026 最新款？':'Is your MacBook Neo the 2026 model?',
+  '設備年齡與電池健康度':'Device age and battery health',
+  '設備購入時間':'Device age',
+  '目前電池健康度 (Battery Health)':'Current battery health',
+  '您的報告準備就緒':'Your report is almost ready',
+  '分析結果發送至':'Send report to',
+  '（選填）我願意匿名提供此份診斷數據，協助 ZimonAI 擴充硬體相容性資料庫。我了解此資料不包含任何個人識別資訊。':'(Optional) I agree to share this diagnostic data anonymously to help expand ZimonAI compatibility coverage. I understand this does not include personally identifiable information.',
+  '數據已上傳至 ZimonAI 雲端實驗室':'Data uploaded to ZimonAI cloud lab',
+  '正在比對 4,200+ 份硬體指紋資料庫<br/>預計報告將於 24 小時內送達':'Matching against 4,200+ hardware profiles<br/>Expected delivery within 24 hours',
+  '診斷完成，報告排程中':'Diagnosis complete. Report queued.',
+  '風險指數':'Risk score',
+  '偵測到的風險因子':'Detected risk factors',
+  '預計報告交付':'Expected delivery',
+  '診斷類型':'Diagnosis type',
+  '重新診斷另一台設備':'Run another diagnosis',
+  '即時風險評估':'Live risk estimate',
+  '充電器風險':'Charger risk',
+  '線材風險':'Cable risk',
+  '電池健康':'Battery health',
+  '臨床症狀':'Symptoms',
+  '填寫提示':'Input tip',
+  '所有問題均有條件分支——根據您的回答，AI 將聚焦在最相關的風險向量上。':'Each answer guides the next step. AI focuses on the most relevant risk vectors for your setup.',
+  '← 返回':'← Back',
+  '繼續 →':'Continue →',
+  '查看風險預覽 →':'See risk preview →',
+  '發送報告 →':'Send report →',
+  '24h':'24h',
+  'iPhone: 設定 → 電池 → 電池健康度｜Mac: 系統資訊 → 電源':'iPhone: Settings -> Battery -> Battery Health | Mac: System Information -> Power'
+};
+const DIAG_EN_TO_ZH = Object.fromEntries(Object.entries(DIAG_ZH_TO_EN).map(([zh,en])=>[en,zh]));
+
+function replaceTextNodes(map){
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+  const nodes = [];
+  while(walker.nextNode()) nodes.push(walker.currentNode);
+  const keys = Object.keys(map).sort((a,b)=>b.length-a.length);
+  nodes.forEach(node=>{
+    let txt = node.nodeValue;
+    if(!txt || !txt.trim()) return;
+    keys.forEach(k=>{
+      if(txt.includes(k)) txt = txt.split(k).join(map[k]);
+    });
+    node.nodeValue = txt;
+  });
+}
+
+function applyDiagLang(lang){
+  diagLang = lang === 'zh-Hant' ? 'zh-Hant' : 'en';
+  document.documentElement.setAttribute('lang', diagLang);
+  try{ localStorage.setItem(LANG_KEY, diagLang); }catch(e){}
+  document.querySelectorAll('.lang-sw .lbtn').forEach(btn=>{
+    btn.classList.toggle('on', btn.getAttribute('data-lang')===diagLang);
+  });
+
+  // translate static text by map (fast retrofit for existing DOM)
+  if(diagLang==='en') replaceTextNodes(DIAG_ZH_TO_EN);
+  else replaceTextNodes(DIAG_EN_TO_ZH);
+  showStep(curStep);
+}
+
+function initDiagLang(){
+  let saved='en';
+  try{ saved = localStorage.getItem(LANG_KEY) || 'en'; }catch(e){}
+  applyDiagLang(saved);
+  document.querySelectorAll('.lang-sw .lbtn').forEach(btn=>{
+    btn.addEventListener('click',()=>applyDiagLang(btn.getAttribute('data-lang')));
+  });
+}
+
+function t(zh,en){ return diagLang==='zh-Hant' ? zh : en; }
+function stepCountText(n){
+  if(n===0) return t('診斷問卷','Assessment');
+  if(n===8||n===9) return t('完成','Done');
+  return t(`步驟 ${n} / ${totalSteps}`,`Step ${n} / ${totalSteps}`);
+}
 
 function showStep(n){
   document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
   document.getElementById('step'+n).classList.add('active');
   const pct=Math.round((n/totalSteps)*100);
   document.getElementById('progBar').style.width=pct+'%';
-  document.getElementById('stepCount').textContent=n===0?'診斷問卷':n===8||n===9?'完成':`步驟 ${n} / ${totalSteps}`;
+  document.getElementById('stepCount').textContent=stepCountText(n);
   curStep=n;
   updateGauge();
 }
@@ -434,10 +537,10 @@ function updateBat(v){
   const fill=document.getElementById('batFill');
   const hint=document.getElementById('batHint');
   fill.style.width=pct+'%';
-  if(v>=85){fill.style.background='var(--ok)';hint.style.color='var(--ok)';hint.textContent='電池狀態良好，風險較低';}
-  else if(v>=75){fill.style.background='var(--warn)';hint.style.color='var(--warn)';hint.textContent='電池有一定損耗，建議留意充電習慣';}
-  else if(v>=65){fill.style.background='#ff6b35';hint.style.color='#ff6b35';hint.textContent='電池損耗明顯，充電相容性尤為重要';}
-  else{fill.style.background='var(--danger)';hint.style.color='var(--danger)';hint.textContent='電池嚴重老化，建議優先安排換電評估';}
+  if(v>=85){fill.style.background='var(--ok)';hint.style.color='var(--ok)';hint.textContent=t('電池狀態良好，風險較低','Battery is healthy; lower risk');}
+  else if(v>=75){fill.style.background='var(--warn)';hint.style.color='var(--warn)';hint.textContent=t('電池有一定損耗，建議留意充電習慣','Moderate wear; monitor charging habits');}
+  else if(v>=65){fill.style.background='#ff6b35';hint.style.color='#ff6b35';hint.textContent=t('電池損耗明顯，充電相容性尤為重要','Noticeable wear; charger compatibility is critical');}
+  else{fill.style.background='var(--danger)';hint.style.color='var(--danger)';hint.textContent=t('電池嚴重老化，建議優先安排換電評估','Severe battery wear; consider battery service soon');}
   updateGauge();
 }
 
@@ -494,8 +597,12 @@ function updateChargerRisk(){}
 function updateCableRisk(){}
 
 function updateTip(){
-  const tips={q4_nobrand:'<strong>高風險偵測</strong><br/>無認證充電器的電壓紋波通常超出安全閾值 3–8 倍，是邏輯板損壞的首要原因。',q4_apple:'<strong>充電器安全</strong><br/>原廠充電器的主要風險轉移至線材老化。重點檢查線材接頭是否磨損。',q6_random:'<strong>線材風險</strong><br/>劣質 USB-C 線材的導體截面積不足，在高功率充電時產生額外電阻與熱量，進而觸發過熱保護機制反覆啟停。',q7_touch:'<strong>紋波超標診斷</strong><br/>觸控板與螢幕的偶發失靈，是電壓紋波 (Voltage Ripple) 過大的高信度臨床指標，診斷重點將聚焦此向量。',q7_burn:'<strong>緊急：立即停止使用</strong><br/>充電接頭碳化是電弧放電的物理證據，代表線材絕緣層已破壞，存在短路起火風險。'};
-  let tip='<strong>填寫提示</strong><br/>所有問題均有條件分支——根據您的回答，AI 將聚焦在最相關的風險向量上。';
+  const tips=diagLang==='zh-Hant'
+    ?{q4_nobrand:'<strong>高風險偵測</strong><br/>無認證充電器的電壓紋波通常超出安全閾值，是邏輯板損壞的重要原因。',q4_apple:'<strong>充電器安全</strong><br/>原廠充電器風險較低，重點轉向線材老化與接頭磨損。',q6_random:'<strong>線材風險</strong><br/>劣質 USB-C 線材在高功率時更容易產生額外電阻與熱量。',q7_touch:'<strong>紋波超標診斷</strong><br/>觸控異常常是紋波過大的指標之一。',q7_burn:'<strong>緊急：立即停止使用</strong><br/>接頭碳化代表可能存在短路或起火風險。'}
+    :{q4_nobrand:'<strong>High-risk signal</strong><br/>Uncertified chargers are often associated with unstable ripple and hardware stress.',q4_apple:'<strong>Charger appears safer</strong><br/>With OEM chargers, focus usually shifts to cable aging and connector wear.',q6_random:'<strong>Cable risk</strong><br/>Low-quality USB-C cables may add resistance and heat under high power.',q7_touch:'<strong>Ripple concern</strong><br/>Random touch issues during charging may indicate unstable power quality.',q7_burn:'<strong>Urgent: stop using immediately</strong><br/>Burn marks or smell suggest possible arcing and short-circuit risk.'};
+  let tip=diagLang==='zh-Hant'
+    ?'<strong>填寫提示</strong><br/>所有問題均有條件分支——根據您的回答，AI 將聚焦在最相關的風險向量上。'
+    :'<strong>Input tip</strong><br/>Each answer guides branching logic so AI can focus on the most relevant risk vectors.';
   if(ans.q7_burn)tip=tips.q7_burn;
   else if(ans.q7_touch)tip=tips.q7_touch;
   else if(ans.q6==='random')tip=tips.q6_random;
@@ -532,22 +639,22 @@ function goBack(){
 function buildPreview(){
   const{score,factors}=calcRisk();
   let icClass='',emoji='',riskTxt='',riskCol='var(--ok)';
-  if(score>=75){icClass='hi';emoji='⚠';riskTxt='高度風險';riskCol='var(--danger)';}
-  else if(score>=40){icClass='';emoji='◎';riskTxt='中度風險';riskCol='var(--warn)';}
-  else{icClass='lo';emoji='✓';riskTxt='低度風險';riskCol='var(--ok)';}
+  if(score>=75){icClass='hi';emoji='⚠';riskTxt=t('高度風險','High risk');riskCol='var(--danger)';}
+  else if(score>=40){icClass='';emoji='◎';riskTxt=t('中度風險','Moderate risk');riskCol='var(--warn)';}
+  else{icClass='lo';emoji='✓';riskTxt=t('低度風險','Low risk');riskCol='var(--ok)';}
   const isOEM=ans.q4==='apple'||ans.q4==='anker';
   const isNoBrand=ans.q4==='nobrand'||ans.q4==='unknown';
-  const focusTxt=isNoBrand?'報告將聚焦：電壓突波與紋波分析':isOEM?'報告將聚焦：線材老化與接頭退化評估':'報告將聚焦：綜合相容性與熱管理評估';
-  const rfHtml=factors.length?factors.map(f=>`<div class="rf ${f.type}"><div class="rf-ic">${f.type==='danger'?'!':f.type==='warn'?'~':'✓'}</div>${f.txt}</div>`).join(''):'<div class="rf ok"><div class="rf-ic">✓</div>目前未偵測到明顯高風險因子</div>';
+  const focusTxt=isNoBrand?t('報告將聚焦：電壓突波與紋波分析','Focus: ripple and surge analysis'):isOEM?t('報告將聚焦：線材老化與接頭退化評估','Focus: cable aging and connector wear'):t('報告將聚焦：綜合相容性與熱管理評估','Focus: compatibility and thermal management');
+  const rfHtml=factors.length?factors.map(f=>`<div class="rf ${f.type}"><div class="rf-ic">${f.type==='danger'?'!':f.type==='warn'?'~':'✓'}</div>${f.txt}</div>`).join(''):`<div class="rf ok"><div class="rf-ic">✓</div>${t('目前未偵測到明顯高風險因子','No major high-risk factor detected yet')}</div>`;
   document.getElementById('previewScreen').innerHTML=`
     <div class="preview-ic ${icClass}">${emoji}</div>
-    <h2 class="preview-title">偵測到 <span style="color:${riskCol}">${factors.length} 項</span> 風險因子</h2>
-    <p class="preview-sub">風險指數 <strong style="color:${riskCol}">${Math.round(score)}/100</strong>　${riskTxt}<br/><span style="font-size:12px;color:var(--muted)">${focusTxt}</span></p>
+    <h2 class="preview-title">${t('偵測到','Detected')} <span style="color:${riskCol}">${factors.length} ${t('項','')}</span> ${t('風險因子','risk factors')}</h2>
+    <p class="preview-sub">${t('風險指數','Risk index')} <strong style="color:${riskCol}">${Math.round(score)}/100</strong>　${riskTxt}<br/><span style="font-size:12px;color:var(--muted)">${focusTxt}</span></p>
     <div class="rfact-list">${rfHtml}</div>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:24px">填入您的 Email，接收完整 PDF 診斷報告與具體建議</p>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:24px">${t('填入您的 Email，接收完整 PDF 診斷報告與具體建議','Enter your email to receive the full PDF report and actionable recommendations')}</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <button class="btn-next ghost" onclick="goBack()">← 修改答案</button>
-      <button class="btn-next" onclick="goNext()">取得完整報告 →</button>
+      <button class="btn-next ghost" onclick="goBack()">${t('← 修改答案','← Edit answers')}</button>
+      <button class="btn-next" onclick="goNext()">${t('取得完整報告 →','Get full report →')}</button>
     </div>`;
 }
 
@@ -616,11 +723,13 @@ function startProcessing(){
     const{score,factors}=calcRisk();
     let lvl;if(score>=75)lvl='CRITICAL';else if(score>=50)lvl='HIGH';else if(score>=25)lvl='MODERATE';else lvl='LOW';
     document.getElementById('doneScore').textContent=Math.round(score)+'/100';
-    document.getElementById('doneFacts').textContent=factors.length+'項';
+    document.getElementById('doneFacts').textContent=diagLang==='zh-Hant'?(factors.length+'項'):(factors.length+' items');
     const isNoBrand=ans.q4==='nobrand'||ans.q4==='unknown';
     const isOEM=ans.q4==='apple'||ans.q4==='anker';
-    document.getElementById('doneType').textContent=isNoBrand?'紋波分析':isOEM?'線材老化':' 綜合診斷';
-    document.getElementById('doneEmail').textContent=`報告已排入佇列，將於 24 小時內發送至 ${ans.email}。請留意來自 lab@zimonai.com 的郵件。`;
+    document.getElementById('doneType').textContent=isNoBrand?t('紋波分析','Ripple analysis'):isOEM?t('線材老化','Cable aging'):t('綜合診斷','Comprehensive');
+    document.getElementById('doneEmail').textContent=diagLang==='zh-Hant'
+      ?`報告已排入佇列，將於 24 小時內發送至 ${ans.email}。請留意來自 lab@zimonai.com 的郵件。`
+      :`Your report is queued and will be sent to ${ans.email} within 24 hours. Please watch for emails from lab@zimonai.com.`;
     showStep(9);
   },6800);
 }
@@ -642,6 +751,7 @@ function restartQuiz(){
 }
 
 document.getElementById('batSlider').addEventListener('input',e=>updateBat(e.target.value));
+initDiagLang();
 updateBat(87);
 </script>
 </body>
