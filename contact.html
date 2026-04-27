@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Contact — ZimonAI</title>
+<title>聯絡我們 — ZimonAI</title>
 <meta name="description" content="Get in touch with ZimonAI. Questions about your report, enterprise plans, or partnerships."/>
 <link rel="stylesheet" href="style.css"/>
 <style>
@@ -63,7 +63,7 @@
             <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div>
               <div class="ci-label">Email</div>
-              <div class="ci-val"><a href="mailto:lab@zimonai.com" style="color:var(--cyan);text-decoration:none">lab@zimonai.com</a></div>
+              <div class="ci-val"><a href="mailto:slab.stores@gmail.com" style="color:var(--cyan);text-decoration:none">slab.stores@gmail.com</a></div>
             </div>
           </div>
           <div class="ci-item">
@@ -109,23 +109,68 @@
 
 <script src="shared.js"></script>
 <script>
-function submitForm(){
-  const name=document.getElementById('fname').value;
-  const email=document.getElementById('femail').value;
-  const subject=document.getElementById('fsubject').value;
-  const message=document.getElementById('fmessage').value;
-  if(!name||!email||!message){alert('Please fill in your name, email, and message.');return;}
-  // Send to Make webhook (same pattern as diagnostic form)
-  fetch('https://hook.us2.make.com/gksxjh6lj2rgz9tq4fdausx2equkjp4l',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({type:'contact',name,email,subject,message,submitted_at:new Date().toISOString()})
-  }).catch(()=>{});
-  document.getElementById('successMsg').style.display='block';
-  document.getElementById('fname').value='';
-  document.getElementById('femail').value='';
-  document.getElementById('fsubject').value='';
-  document.getElementById('fmessage').value='';
+const CONTACT_ENDPOINT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+async function submitForm(){
+  const successMsgEl = document.getElementById('successMsg');
+  successMsgEl.style.display = 'none';
+
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const subject = document.getElementById('fsubject').value;
+  const message = document.getElementById('fmessage').value.trim();
+
+  if(!name || !email || !message){
+    alert('Please fill in your name, email, and message.');
+    return;
+  }
+  if(!CONTACT_ENDPOINT_URL || CONTACT_ENDPOINT_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')){
+    alert('Contact form endpoint is not configured yet.');
+    return;
+  }
+
+  const submitBtn = document.querySelector('.submit-btn');
+  const oldBtnText = submitBtn ? submitBtn.textContent : '';
+  if(submitBtn){
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+    submitBtn.textContent = 'Sending…';
+  }
+
+  try{
+    const res = await fetch(CONTACT_ENDPOINT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'contact',
+        name,
+        email,
+        subject,
+        message,
+        page: window.location.pathname,
+        user_agent: navigator.userAgent,
+        submitted_at: new Date().toISOString()
+      })
+    });
+
+    if(!res.ok){
+      throw new Error('Request failed');
+    }
+
+    successMsgEl.style.display = 'block';
+    document.getElementById('fname').value = '';
+    document.getElementById('femail').value = '';
+    document.getElementById('fsubject').value = '';
+    document.getElementById('fmessage').value = '';
+  }catch(err){
+    alert('Sorry — failed to send. Please try again, or email us directly.');
+  }finally{
+    if(submitBtn){
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '';
+      submitBtn.textContent = oldBtnText;
+    }
+  }
 }
 </script>
 </body>
