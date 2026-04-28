@@ -1684,6 +1684,18 @@ try{
   window.ZA = Object.assign({}, window.ZA || {}, { trackEvent });
 }catch(e){}
 
+const MOB_NAV_HTML=(active,lang)=>`
+<div class="mob-nav" id="mobNav">
+  <a href="how-it-works.html" ${active==='how'?'class="mob-active"':''}>${t('nav.how',lang)}</a>
+  <a href="lab.html" ${active==='lab'?'class="mob-active"':''}>${t('nav.lab',lang)}</a>
+  <a href="use-cases.html" ${active==='use-cases'?'class="mob-active"':''}>${t('nav.use_cases',lang)}</a>
+  <a href="blog.html" ${active==='blog'?'class="mob-active"':''}>${t('nav.blog',lang)}</a>
+  <a href="pricing.html" ${active==='pricing'?'class="mob-active"':''}>${t('nav.pricing',lang)}</a>
+  <a href="about.html" ${active==='about'?'class="mob-active"':''}>${t('nav.about',lang)}</a>
+  <a href="contact.html" ${active==='contact'?'class="mob-active"':''}>${t('nav.contact',lang)}</a>
+  <div class="mob-nav-cta"><a href="diagnostic.html" class="btn-s">${t('nav.cta',lang)}</a></div>
+</div>`;
+
 const NAV_HTML=(active, lang)=>`
 <nav>
   <a href="index.html" class="logo">
@@ -1701,6 +1713,7 @@ const NAV_HTML=(active, lang)=>`
   <div class="nav-r">
     ${shellLangSwitch(lang)}
     <a href="diagnostic.html" class="nav-cta">${t('nav.cta',lang)}</a>
+    <button class="nav-ham" id="navHam" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>`;
 
@@ -1745,15 +1758,36 @@ const FOOTER_HTML=(lang)=>`
   </div>
 </footer>`;
 
+function wireHam(){
+  const ham = document.getElementById('navHam');
+  const mob = document.getElementById('mobNav');
+  if(!ham || !mob) return;
+  ham.addEventListener('click', ()=>{
+    const open = document.body.classList.toggle('menu-open');
+    ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  // close on overlay tap (outside mob-nav links)
+  mob.addEventListener('click', e=>{
+    if(e.target === mob){ document.body.classList.remove('menu-open'); ham.setAttribute('aria-expanded','false'); }
+  });
+}
+
 function rerenderShell(lang){
-  // remove existing injected nav/footer then re-inject so labels update
+  // close mobile menu if open
+  document.body.classList.remove('menu-open');
+  // remove existing injected nav/footer/mob-nav then re-inject so labels update
   const nav = document.querySelector('nav');
   if(nav) nav.remove();
+  const mobNav = document.getElementById('mobNav');
+  if(mobNav) mobNav.remove();
   const footer = document.querySelector('footer');
   if(footer) footer.remove();
 
   const active = document.body.dataset.page||'';
   document.body.insertAdjacentHTML('afterbegin', NAV_HTML(active, lang));
+  // inject mob-nav right after <nav>
+  const newNav = document.querySelector('nav');
+  if(newNav) newNav.insertAdjacentHTML('afterend', MOB_NAV_HTML(active, lang));
   document.body.insertAdjacentHTML('beforeend', FOOTER_HTML(lang));
 
   // wire language buttons
@@ -1763,6 +1797,7 @@ function rerenderShell(lang){
       setLang(next);
     });
   });
+  wireHam();
 }
 
 // Inject logo SVG, nav, footer
@@ -1827,5 +1862,61 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.addEventListener('click',()=>item.classList.toggle('open'));
     });
+  }catch(e){}
+
+  // Inject mob-nav after <nav>
+  try{
+    const lang2 = getLang();
+    const active2 = document.body.dataset.page||'';
+    const navEl = document.querySelector('nav');
+    if(navEl) navEl.insertAdjacentHTML('afterend', MOB_NAV_HTML(active2, lang2));
+    wireHam();
+  }catch(e){}
+
+  // Scroll progress bar
+  try{
+    const prog = document.createElement('div');
+    prog.id = 'scroll-prog';
+    document.body.prepend(prog);
+    const updateProg = ()=>{
+      const pct = window.scrollY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight) * 100;
+      prog.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', updateProg, { passive:true });
+  }catch(e){}
+
+  // Stats counter animation
+  try{
+    function animateCounter(el){
+      const em = el.querySelector('em');
+      if(!em) return;
+      const suffix = em.textContent;
+      const raw = (el.childNodes[0]?.textContent||'').trim();
+      const target = parseFloat(raw);
+      if(isNaN(target)) return;
+      const decimals = raw.includes('.') ? (raw.split('.')[1]?.length||1) : 0;
+      const duration = 1100;
+      const start = performance.now();
+      function step(now){
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        const val = target * ease;
+        const display = decimals ? val.toFixed(decimals) : Math.round(val);
+        el.innerHTML = display + '<em>' + suffix + '</em>';
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    if(typeof IntersectionObserver === 'function'){
+      document.querySelectorAll('.sbar').forEach(sbar=>{
+        const sio = new IntersectionObserver(entries=>{
+          if(entries[0].isIntersecting){
+            sbar.querySelectorAll('.si-n').forEach(animateCounter);
+            sio.disconnect();
+          }
+        },{threshold:0.5});
+        sio.observe(sbar);
+      });
+    }
   }catch(e){}
 });
