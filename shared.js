@@ -525,7 +525,7 @@ I18N.en.pages = {
   },
   blog: {
     hero_eye: 'Blog',
-    hero_title_html: 'Hardware safety, <em>decoded</em>.',
+    hero_title_html: 'Hardware safety, <em>decoded — by ZimonAI</em>.',
     hero_sub: 'Practical notes on chargers, cables, standards, and failure modes — written for people who care about their devices.',
     latest: 'Latest',
     top_title: 'USB‑C is not a promise.',
@@ -1305,7 +1305,7 @@ I18N['zh-Hant'].pages = {
   },
   blog: {
     hero_eye: '文章專欄',
-    hero_title_html: '數碼科普，<em>講清楚</em>。',
+    hero_title_html: '數碼科普，<em>由 ZimonAI 為你講清楚</em>。',
     hero_sub: '關於充電器、線材、標準、故障模式與日常數碼常識 —— 寫給在意裝備的人。',
     latest: '最新文章',
     top_title: 'USB‑C 不是保證。',
