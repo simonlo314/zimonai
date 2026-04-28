@@ -6,12 +6,26 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_DIR"
 
-# 顯式聲明關鍵環境變量
-export PORT=5000
+# 優先使用 5000，若被系統/其他程序占用則自動降級。
+pick_port() {
+    for port in 5000 5001 5173 8000; do
+        if ! lsof -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1; then
+            echo "$port"
+            return 0
+        fi
+    done
+    return 1
+}
 
-# 清理 5000 端口殘留進程（絕不碰 9000）
-fuser -k 5000/tcp 2>/dev/null || true
-sleep 1
+PORT="$(pick_port)" || {
+    echo "Error: no available port found (tried 5000/5001/5173/8000)"
+    exit 1
+}
+export PORT
+
+if [[ "$PORT" != "5000" ]]; then
+    echo "Port 5000 is busy, fallback to $PORT"
+fi
 
 # 使用 Python http.server 提供靜態文件服務
-exec python3 -m http.server 5000 --bind 0.0.0.0
+exec python3 -m http.server "$PORT" --bind 0.0.0.0

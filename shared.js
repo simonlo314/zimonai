@@ -120,48 +120,6 @@ const I18N = {
       loc1: '深圳',
       loc2: '台北',
       loc3: '全球'
-    p11: {
-      title_html: '5 signs your charger <em>is failing</em>.',
-      sub: 'How to catch problems early — before they damage your device.',
-      meta_date: 'June 12, 2026',
-      meta_read: '5 min read',
-      back: '← Back to Blog',
-      lead: 'Chargers don\'t fail suddenly — they signal distress before they damage your device. Learning to recognize these signs can save you a repair bill or a lost device.',
-      h1: '1. Excessive heat',
-      p1: 'Warm chargers are normal. Hot chargers are not. If your charger becomes uncomfortably warm to the touch during normal use, that\'s a warning sign. Heat accelerates degradation of both the charger and your device\'s battery.',
-      h2: '2. Flickering or intermittent charging',
-      p2: 'If your device keeps disconnecting and reconnecting while plugged in, the cable or charger connector is likely worn. This isn\'t just annoying — the repeated connection/disconnection cycles create power spikes that stress your device.',
-      h3: '3. Burning smell',
-      p3: 'Any burning smell — plastic, electronics, or chemical — means stop immediately. Unplug the charger, disconnect your device. This is a serious safety risk. Replace the charger and inspect your device\'s port.',
-      h4: '4. Visible physical damage',
-      p4: 'Exposed wires, cracked casing, or bent connectors aren\'t cosmetic issues — they\'re safety hazards. A frayed cable can short-circuit, and a cracked charger shell exposes live components.',
-      h5: '5. Charging speed drops suddenly',
-      p5: 'If your device used to charge in 2 hours but now takes 4, the charger may be failing. Reduced output is a common sign of aging capacitors or failing power circuits inside the charger.',
-      cta_t: 'Not sure if your charger is safe?',
-      cta_d: 'Run a quick assessment to check your charging setup\'s health.',
-      cta_a: 'Start Free Assessment →',
-      cta_b: 'View Pricing'
-    p11: {
-      title_html: '5 個跡象表明你的充电器<em>正在故障</em>。',
-      sub: '如何在損壞發生前及早發現問題。',
-      meta_date: '2026 年 6 月 12 日',
-      meta_read: '5 分鐘閱讀',
-      back: '← 返回文章列表',
-      lead: '充电器不會突然故障——它們在損壞設備之前會發出求救信號。學會識別這些跡象可以幫你省下維修費用或挽救設備。',
-      h1: '1. 過度發熱',
-      p1: '溫熱的充电器是正常的。過熱的充电器不是。如果你的充电器在正常使用時變得燙手，這是一個警告信號。高溫會加速充电器和設備電池的老化。',
-      h2: '2. 閃爍或間歇性充電',
-      p2: '如果你的設備在插入時不斷斷開和重新連接，電線或充电器連接器可能已經磨損。這不僅僅是煩人——重複的連接/斷開週期會產生功率突波，給你的設備帶來壓力。',
-      h3: '3. 燃燒異味',
-      p3: '任何燃燒異味——塑料、電子產品或化學物質——意味著立即停止。拔掉充电器插頭，斷開設備連接。這是一個嚴重的安全風險。更換充电器並檢查設備的連接埠。',
-      h4: '4. 可見的物理損壞',
-      p4: '裸露的電線、开裂的外殼或彎曲的連接器不是美觀問題——它們是安全隱患。磨損的電線可能會短路，开裂的充电器外殼會暴露帶電組件。',
-      h5: '5. 充電速度突然下降',
-      p5: '如果你的設備以前 2 小時充滿電但現在需要 4 小時，充电器可能正在故障。輸出降低是充电器內部老化的電容或故障的電源電路的常見跡象。',
-      cta_t: '不確定你的充电器是否安全？',
-      cta_d: '進行快速評估，檢查你的充電設置的健康狀況。',
-      cta_a: '開始免費評估 →',
-      cta_b: '查看方案'
     }
   }
 };
@@ -946,6 +904,28 @@ I18N.en.pages = {
       cta_d: 'Run a pre-travel assessment of your charging setup to identify hidden risks.',
       cta_a: 'Start Free Assessment →',
       cta_b: 'View Pricing'
+    },
+    p11: {
+      title_html: '5 signs your charger <em>is failing</em>.',
+      sub: 'How to catch problems early — before they damage your device.',
+      meta_date: 'June 12, 2026',
+      meta_read: '5 min read',
+      back: '← Back to Blog',
+      lead: 'Chargers don\'t fail suddenly — they signal distress before they damage your device. Learning to recognize these signs can save you a repair bill or a lost device.',
+      h1: '1. Excessive heat',
+      p1: 'Warm chargers are normal. Hot chargers are not. If your charger becomes uncomfortably warm to the touch during normal use, that\'s a warning sign. Heat accelerates degradation of both the charger and your device\'s battery.',
+      h2: '2. Flickering or intermittent charging',
+      p2: 'If your device keeps disconnecting and reconnecting while plugged in, the cable or charger connector is likely worn. This isn\'t just annoying — the repeated connection/disconnection cycles create power spikes that stress your device.',
+      h3: '3. Burning smell',
+      p3: 'Any burning smell — plastic, electronics, or chemical — means stop immediately. Unplug the charger, disconnect your device. This is a serious safety risk. Replace the charger and inspect your device\'s port.',
+      h4: '4. Visible physical damage',
+      p4: 'Exposed wires, cracked casing, or bent connectors aren\'t cosmetic issues — they\'re safety hazards. A frayed cable can short-circuit, and a cracked charger shell exposes live components.',
+      h5: '5. Charging speed drops suddenly',
+      p5: 'If your device used to charge in 2 hours but now takes 4, the charger may be failing. Reduced output is a common sign of aging capacitors or failing power circuits inside the charger.',
+      cta_t: 'Not sure if your charger is safe?',
+      cta_d: 'Run a quick assessment to check your charging setup\'s health.',
+      cta_a: 'Start Free Assessment →',
+      cta_b: 'View Pricing'
     }
   }
 };
@@ -1724,6 +1704,28 @@ I18N['zh-Hant'].pages = {
       p5: '一個好的旅行套件包括：優質 USB 充电器、USB 資料阻斷器、萬用適配器，以及理想情况下的便攜式功率計。',
       cta_t: '計劃出差？',
       cta_d: '在出發前評估你的充電配置，發現隱藏風險。',
+      cta_a: '開始免費評估 →',
+      cta_b: '查看方案'
+    },
+    p11: {
+      title_html: '5 個跡象表明你的充电器<em>正在故障</em>。',
+      sub: '如何在損壞發生前及早發現問題。',
+      meta_date: '2026 年 6 月 12 日',
+      meta_read: '5 分鐘閱讀',
+      back: '← 返回文章列表',
+      lead: '充电器不會突然故障——它們在損壞設備之前會發出求救信號。學會識別這些跡象可以幫你省下維修費用或挽救設備。',
+      h1: '1. 過度發熱',
+      p1: '溫熱的充电器是正常的。過熱的充电器不是。如果你的充电器在正常使用時變得燙手，這是一個警告信號。高溫會加速充电器和設備電池的老化。',
+      h2: '2. 閃爍或間歇性充電',
+      p2: '如果你的設備在插入時不斷斷開和重新連接，電線或充电器連接器可能已經磨損。這不僅僅是煩人——重複的連接/斷開週期會產生功率突波，給你的設備帶來壓力。',
+      h3: '3. 燃燒異味',
+      p3: '任何燃燒異味——塑料、電子產品或化學物質——意味著立即停止。拔掉充电器插頭，斷開設備連接。這是一個嚴重的安全風險。更換充电器並檢查設備的連接埠。',
+      h4: '4. 可見的物理損壞',
+      p4: '裸露的電線、开裂的外殼或彎曲的連接器不是美觀問題——它們是安全隱患。磨損的電線可能會短路，开裂的充电器外殼會暴露帶電組件。',
+      h5: '5. 充電速度突然下降',
+      p5: '如果你的設備以前 2 小時充滿電但現在需要 4 小時，充电器可能正在故障。輸出降低是充电器內部老化的電容或故障的電源電路的常見跡象。',
+      cta_t: '不確定你的充电器是否安全？',
+      cta_d: '進行快速評估，檢查你的充電設置的健康狀況。',
       cta_a: '開始免費評估 →',
       cta_b: '查看方案'
     }
