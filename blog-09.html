@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Thunderbolt 4 & USB4 Guide — ZimonAI Blog</title>
+<meta name="description" content="What Thunderbolt 4 and USB4 mean for power users, and how to avoid compatibility pitfalls."/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body data-page="blog">
+
+<section class="page-hero">
+  <p class="eye" data-i18n="pages.blog.hero_eye">Blog</p>
+  <h1 data-i18n-html="pages.posts.p9.title_html">Thunderbolt 4 & <em>USB4</em> guide.</h1>
+  <p data-i18n="pages.posts.p9.sub">For power users: what these standards actually deliver and what to watch for.</p>
+</section>
+
+<section class="ch">
+  <div class="ch-in">
+    <article class="post rv">
+      <div class="post-head">
+        <div class="post-meta">
+          <span class="tag" data-i18n="pages.blog.tag_standards">Standards</span>
+          <span class="dot"></span>
+          <span data-i18n="pages.posts.p9.meta_date">May 29, 2026</span>
+          <span class="dot"></span>
+          <span data-i18n="pages.posts.p9.meta_read">8 min read</span>
+        </div>
+        <a class="post-back" href="blog.html" data-i18n="pages.posts.p9.back">← Back to Blog</a>
+      </div>
+
+      <p class="post-lead" data-i18n="pages.posts.p9.lead">
+        Thunderbolt 4 and USB4 share the same connector (USB-C) but offer different capabilities. For power users connecting 
+        docks, eGPUs, and high-bandwidth peripherals, understanding the differences prevents costly mistakes.
+      </p>
+
+      <h2 data-i18n="pages.posts.p9.h1">USB4 vs USB 3.x — what's the relationship?</h2>
+      <p data-i18n="pages.posts.p9.p1">
+        USB4 is built on the Thunderbolt 3 protocol foundation. It can tunnel USB data, DisplayPort video, and optionally PCIe. 
+        USB4 Gen 3 supports up to 40 Gbps, but many devices implement USB4 Gen 2 (20 Gbps) at lower cost. Not all USB4 
+        implementations are equal.
+      </p>
+
+      <h2 data-i18n="pages.posts.p9.h2">What Thunderbolt 4 adds over USB4</h2>
+      <p data-i18n="pages.posts.p9.p2">
+        Thunderbolt 4 is Intel's branding for a minimum baseline that exceeds USB4's minimum specs. Key additions: minimum 32 Gbps 
+        PCIe bandwidth (vs optional in USB4), dual display support mandatory, and wake from sleep via connected devices. Thunderbolt 4 
+        ports always support USB Power Delivery, but not all USB4 ports do.
+      </p>
+
+      <h2 data-i18n="pages.posts.p9.h3">Power delivery on TB4 and USB4</h2>
+      <p data-i18n="pages.posts.p9.p3">
+        Thunderbolt 4 requires chargers to provide at least 15W via USB PD, with many docks and laptops supporting 60W-100W. 
+        USB4 specification allows power delivery but doesn't mandate it. This means a USB4 port on one device might charge 
+        your laptop, while another USB4 port on the same device might not. Check the specs carefully.
+      </p>
+
+      <h2 data-i18n="pages.posts.p9.h4">Cable matters more than you think</h2>
+      <p data-i18n="pages.posts.p9.p4">
+        Passive USB4/TB4 cables have length limits (typically 0.8m for 40 Gbps, up to 2m at reduced speeds). Active cables 
+        with built-in repeaters can go longer but cost more. Using the wrong cable can mean no video output, no charging, 
+        or throttled data speeds. Always verify cable ratings match your use case.
+      </p>
+
+      <h2 data-i18n="pages.posts.p9.h5">Docking station gotchas</h2>
+      <p data-i18n="pages.posts.p9.p5">
+        Not all docks work with all hosts. Some docks are TB4-only, some work with USB4 but limit features, and some are 
+        USB 3.x only despite having a USB-C connector. Before buying a dock, confirm it explicitly supports your laptop's 
+        port specification. A dock that "looks compatible" may deliver 50% of the expected capability.
+      </p>
+
+      <div class="post-cta">
+        <div>
+          <div class="post-cta-t" data-i18n="pages.posts.p9.cta_t">Setting up a power workstation?</div>
+          <div class="post-cta-d" data-i18n="pages.posts.p9.cta_d">Get a free assessment of your dock, charger, and cable compatibility.</div>
+        </div>
+        <div class="post-cta-b">
+          <a href="diagnostic.html" class="btn-s" data-i18n="pages.posts.p9.cta_a">Start Free Assessment →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script src="shared.js" defer></script>
+</body>
+</html>

@@ -2,8 +2,54 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#000000"/>
+<meta name="color-scheme" content="dark"/>
 <title>ZimonAI — AI Hardware Safety Diagnostics</title>
 <meta name="description" content="ZimonAI protects your flagship devices with AI-powered charging diagnostics. Get a detailed safety report in 2 minutes, free."/>
+<meta name="keywords" content="AI charging diagnostics, hardware safety, USB-C charger, battery protection, device safety"/>
+<meta name="author" content="ZimonAI"/>
+<meta name="robots" content="index, follow"/>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://zimonai.com/"/>
+<meta property="og:title" content="ZimonAI — AI Hardware Safety Diagnostics"/>
+<meta property="og:description" content="Protect your flagship devices with AI-powered charging diagnostics. Get a detailed safety report in 2 minutes, free."/>
+<meta property="og:image" content="https://zimonai.com/og-image.png"/>
+<meta property="og:site_name" content="ZimonAI"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://zimonai.com/"/>
+<meta name="twitter:title" content="ZimonAI — AI Hardware Safety Diagnostics"/>
+<meta name="twitter:description" content="Protect your flagship devices with AI-powered charging diagnostics."/>
+<meta name="twitter:image" content="https://zimonai.com/og-image.png"/>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://zimonai.com/"/>
+
+<!-- Favicon (inline SVG data URI) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100' rx='20'/><path d='M 36,75 C 60,75 65,55 52,42 C 35,28 35,18 58,18' stroke='%2300E5FF' stroke-width='8' stroke-linecap='round' fill='none'/><rect x='18' y='68' width='22' height='14' rx='4' fill='%2300E5FF'/></svg>"/>
+
+<!-- Preconnect to external resources -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ZimonAI",
+  "description": "AI-powered hardware charging safety diagnostics service",
+  "url": "https://zimonai.com",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free assessment available"},
+  "provider": {"@type": "Organization", "name": "ZimonAI", "url": "https://zimonai.com"}
+}
+</script>
+
 <link rel="stylesheet" href="style.css"/>
 <style>
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
@@ -26,8 +72,14 @@
 </head>
 <body data-page="home">
 
+<!-- Skip Navigation (Accessibility) -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Scroll Progress Indicator -->
+<div id="scroll-prog" role="progressbar" aria-label="Page reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
 <!-- Hero -->
-<section class="hero">
+<section class="hero" role="banner" aria-label="Hero section">
   <div class="hero-grid"></div>
   <p class="h-eye" data-i18n="pages.home.hero_eye">AI-Powered Hardware Safety</p>
   <h1 class="h-title" data-i18n-html="pages.home.hero_title_html">Precision.<br/><em>Protection.</em><br/>Performance.</h1>
@@ -40,7 +92,7 @@
 </section>
 
 <!-- Stats -->
-<div class="sbar rv">
+<div id="main-content" class="sbar rv" role="region" aria-label="Key statistics">
   <div class="sbar-in">
     <div class="si"><div class="si-n">99<em>%</em></div><div class="si-l" data-i18n="pages.home.stat_1">Diagnostic Accuracy</div></div>
     <div class="si"><div class="si-n">12<em>K+</em></div><div class="si-l" data-i18n="pages.home.stat_2">Devices Audited</div></div>
@@ -50,11 +102,11 @@
 </div>
 
 <!-- How It Works -->
-<section class="ch how">
+<section class="ch how" role="region" aria-labelledby="how-title">
   <div class="ch-in">
     <div class="rv">
       <p class="eye" data-i18n="pages.home.how_eye">How It Works</p>
-      <h2 class="dsp" data-i18n="pages.home.how_title">Your report in three steps.</h2>
+      <h2 id="how-title" class="dsp" data-i18n="pages.home.how_title">Your report in three steps.</h2>
       <p class="bc" data-i18n="pages.home.how_sub">Fill out a quick questionnaire — we handle the analysis.</p>
     </div>
     <div class="steps rv d1">
@@ -84,11 +136,11 @@
 </section>
 
 <!-- Why It Matters -->
-<section class="ch why">
+<section class="ch why" role="region" aria-labelledby="why-title">
   <div class="ch-in">
     <div class="rv">
       <p class="eye" data-i18n="pages.home.why_eye">Why It Matters</p>
-      <h2 class="dsp" data-i18n="pages.home.why_title">Charging is the lifeline of your digital legacy.</h2>
+      <h2 id="why-title" class="dsp" data-i18n="pages.home.why_title">Charging is the lifeline of your digital legacy.</h2>
       <p class="bc" data-i18n-html="pages.home.why_sub_html">In an era where work happens on the move, a safe charge is the invisible foundation of productivity. <strong style="color:var(--text);font-weight:500">Don't let a $5 cable be the silent killer of your professional gear.</strong></p>
     </div>
     <div class="feat-g rv d1">
@@ -231,7 +283,7 @@
   </div>
 </div>
 
-<div class="sticky-cta" id="homeStickyCta">
+<div class="sticky-cta" id="homeStickyCta" role="complementary" aria-label="Quick action bar">
   <p id="homeStickyText" data-i18n="pages.home.sticky_default">Protect your setup with a 2-minute assessment.</p>
   <div class="sticky-cta-actions">
     <a href="diagnostic.html" class="btn-s" data-i18n="pages.home.sticky_cta_assess">Start Assessment</a>
@@ -239,32 +291,57 @@
   </div>
 </div>
 
+<!-- Performance: Defer non-critical scripts -->
 <script>
-(()=>{
-  const btn = document.getElementById('homeQuickBtn');
-  const out = document.getElementById('homeQuickResult');
-  const root = ()=>window.I18N?.[document.documentElement.getAttribute('lang') || 'en']?.pages || {};
-  const t = (k)=>k.split('.').reduce((a,b)=>a&&a[b], root()) || k;
-  btn?.addEventListener('click', ()=>{
-    const score =
-      Number(document.getElementById('hqDevice').value) * 13 +
-      Number(document.getElementById('hqCharger').value) * 17 +
-      Number(document.getElementById('hqCable').value) * 15;
-    const band = score >= 90 ? 'high' : score >= 62 ? 'mid' : 'low';
-    const key = band === 'high' ? 'home.quick_result_high' : band === 'mid' ? 'home.quick_result_mid' : 'home.quick_result_low';
-    out.innerHTML = '<span class="badge">'+band.toUpperCase()+'</span><p>'+t(key)+'</p>';
-    localStorage.setItem('za_risk_band', band);
-    try{
-      window.ZA?.trackEvent('home_quick_check', {
-        band,
-        device: document.getElementById('hqDevice').value,
-        charger: document.getElementById('hqCharger').value,
-        cable: document.getElementById('hqCable').value
-      });
-    }catch(e){}
-  });
+/* ── Performance: Scroll Progress & Reveal Animations ── */
+(function(){
+  'use strict';
+  var prog = document.getElementById('scroll-prog');
+  var observer = window.IntersectionObserver ? new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('on');observer.unobserve(e.target);}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px-50px 0px'}) : null;
+
+  // Scroll progress
+  if(prog){
+    window.addEventListener('scroll', function(){
+      var scrolled = window.scrollY;
+      var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = maxScroll > 0 ? (scrolled / maxScroll * 100) : 0;
+      prog.style.width = pct + '%';
+      prog.setAttribute('aria-valuenow', Math.round(pct));
+    }, {passive: true});
+  }
+
+  // Reveal on scroll
+  if(observer){
+    document.querySelectorAll('.rv').forEach(function(el){observer.observe(el);});
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on');});
+  }
+
+  // Quick check calculator
+  var btn = document.getElementById('homeQuickBtn');
+  var out = document.getElementById('homeQuickResult');
+  if(btn && out){
+    var root = function(){return (window.I18N && window.I18N[document.documentElement.lang||'en']||{}).pages||{};};
+    var t = function(k){return k.split('.').reduce(function(a,b){return a&&a[b];},root())||k;};
+    btn.addEventListener('click', function(){
+      var d=document.getElementById('hqDevice').value;
+      var c=document.getElementById('hqCharger').value;
+      var l=document.getElementById('hqCable').value;
+      var score=Number(d)*13+Number(c)*17+Number(l)*15;
+      var band=score>=90?'high':score>=62?'mid':'low';
+      var key='home.quick_result_'+band;
+      out.innerHTML='<span class="badge">'+band.toUpperCase()+'</span><p>'+t(key)+'</p>';
+      out.setAttribute('aria-live','polite');
+      localStorage.setItem('za_risk_band',band);
+      try{if(window.ZA&&window.ZA.trackEvent)window.ZA.trackEvent('home_quick_check',{band:band,device:d,charger:c,cable:l});}catch(e){}
+    },{passive:true});
+  }
 })();
 </script>
-<script src="shared.js"></script>
+<script src="shared.js" defer></script>
 </body>
 </html>
