@@ -562,14 +562,14 @@ I18N.en.pages = {
     range_30d: '30d',
     warn: 'Tip: keep this page unlinked publicly (or protect it) if you don’t want visitors to see traffic numbers.',
     err: 'Analytics endpoint is not configured, or failed to load.',
-    cl_eye: 'Country Leaderboard',
+    cl_eye: 'Country / Region Leaderboard',
     cl_title: 'Where today’s visitors come from',
-    cl_sub: 'Live data from Cloudflare edge — country only, no IP, no fingerprint.',
+    cl_sub: 'Live data from Cloudflare edge — country/region only, no IP, no fingerprint.',
     cl_today: 'Today',
     cl_7d: '7 days',
     cl_30d: '30 days',
     cl_total: 'Total visits',
-    cl_unique: 'Unique countries'
+    cl_unique: 'Unique countries / regions'
   },
   lab: {
     hero_eye: 'Interactive Lab',
@@ -1538,14 +1538,14 @@ I18N['zh-Hant'].pages = {
     range_30d: '近 30 天',
     warn: '提示：若不希望訪客看到流量數字，請不要公開連結此頁。',
     err: '分析服務尚未完成設定，或讀取失敗。',
-    cl_eye: '國家排行榜',
+    cl_eye: '國家/地區排行榜',
     cl_title: '今天的訪客來自哪裡',
-    cl_sub: '由 Cloudflare 邊緣節點即時提供 — 只記錄國家碼，不記錄 IP 或指紋。',
+    cl_sub: '由 Cloudflare 邊緣節點即時提供 — 只記錄國家/地區碼，不記錄 IP 或指紋。',
     cl_today: '今天',
     cl_7d: '近 7 天',
     cl_30d: '近 30 天',
     cl_total: '總瀏覽量',
-    cl_unique: '不重複國家數'
+    cl_unique: '不重複國家/地區數'
   },
   lab: {
     hero_eye: '互動實驗室',
