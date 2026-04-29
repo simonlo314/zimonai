@@ -191,24 +191,24 @@
   };
 
   const DEVICES = [
-    { id:'phone',  cap:18, accept:27,  nameKey:'pages.game.d_phone',  subKey:'pages.game.d_phone_sub'  },
-    { id:'tablet', cap:35, accept:45,  nameKey:'pages.game.d_tablet', subKey:'pages.game.d_tablet_sub' },
-    { id:'laptop', cap:70, accept:100, nameKey:'pages.game.d_laptop', subKey:'pages.game.d_laptop_sub' }
+    { id:'phone',  cap:18, accept:27,  nameKey:'game.d_phone',  subKey:'game.d_phone_sub'  },
+    { id:'tablet', cap:35, accept:45,  nameKey:'game.d_tablet', subKey:'game.d_tablet_sub' },
+    { id:'laptop', cap:70, accept:100, nameKey:'game.d_laptop', subKey:'game.d_laptop_sub' }
   ];
 
   const CHARGERS = [
-    { id:'c5',   w:5,   cert:true,  nameKey:'pages.game.c5_n',   descKey:'pages.game.c5_d'   },
-    { id:'c18',  w:18,  cert:true,  nameKey:'pages.game.c18_n',  descKey:'pages.game.c18_d'  },
-    { id:'c30',  w:30,  cert:true,  nameKey:'pages.game.c30_n',  descKey:'pages.game.c30_d'  },
-    { id:'c65',  w:65,  cert:true,  nameKey:'pages.game.c65_n',  descKey:'pages.game.c65_d'  },
-    { id:'c100', w:100, cert:true,  nameKey:'pages.game.c100_n', descKey:'pages.game.c100_d' }
+    { id:'c5',   w:5,   cert:true,  nameKey:'game.c5_n',   descKey:'game.c5_d'   },
+    { id:'c18',  w:18,  cert:true,  nameKey:'game.c18_n',  descKey:'game.c18_d'  },
+    { id:'c30',  w:30,  cert:true,  nameKey:'game.c30_n',  descKey:'game.c30_d'  },
+    { id:'c65',  w:65,  cert:true,  nameKey:'game.c65_n',  descKey:'game.c65_d'  },
+    { id:'c100', w:100, cert:true,  nameKey:'game.c100_n', descKey:'game.c100_d' }
   ];
 
   // resistance: 1.0 = perfect, > 1 wastes power as heat. cap = max usable W on this cable.
   const CABLES = [
-    { id:'ca', cap:60,  resist:1.04, marker:false, nameKey:'pages.game.ca_n', descKey:'pages.game.ca_d' },
-    { id:'cb', cap:100, resist:1.02, marker:true,  nameKey:'pages.game.cb_n', descKey:'pages.game.cb_d' },
-    { id:'cc', cap:30,  resist:1.35, marker:false, nameKey:'pages.game.cc_n', descKey:'pages.game.cc_d' }
+    { id:'ca', cap:60,  resist:1.04, marker:false, nameKey:'game.ca_n', descKey:'game.ca_d' },
+    { id:'cb', cap:100, resist:1.02, marker:true,  nameKey:'game.cb_n', descKey:'game.cb_d' },
+    { id:'cc', cap:30,  resist:1.35, marker:false, nameKey:'game.cc_n', descKey:'game.cc_d' }
   ];
 
   const TOTAL_ROUNDS = 5;
@@ -320,13 +320,13 @@
   }
 
   function tipFor(eff, charger, cable, device, overheat){
-    if(overheat) return t('pages.game.tip_overheat');
+    if(overheat) return t('game.tip_overheat');
     const minIs = Math.min(charger.w, cable.cap, device.accept);
-    if(cable.resist > 1.2) return t('pages.game.tip_cable_loss');
-    if(minIs === cable.cap && cable.cap < charger.w && cable.cap < device.accept) return t('pages.game.tip_cable_cap');
-    if(minIs === charger.w && charger.w < device.accept) return t('pages.game.tip_low_w');
-    if(minIs === device.accept) return t('pages.game.tip_device_cap');
-    return t('pages.game.tip_balanced');
+    if(cable.resist > 1.2) return t('game.tip_cable_loss');
+    if(minIs === cable.cap && cable.cap < charger.w && cable.cap < device.accept) return t('game.tip_cable_cap');
+    if(minIs === charger.w && charger.w < device.accept) return t('game.tip_low_w');
+    if(minIs === device.accept) return t('game.tip_device_cap');
+    return t('game.tip_balanced');
   }
 
   // Race simulation: run a small fixed-step loop in setInterval.
@@ -338,7 +338,7 @@
     $('startBtn').disabled = true;
     $('nextBtn').style.display = 'none';
     $('resetBtn').style.display = 'none';
-    setStatus('pages.game.status_running');
+    setStatus('game.status_running');
 
     const charger = CHARGERS.find(c=>c.id===state.chargerId);
     const cable   = CABLES.find(c=>c.id===state.cableId);
@@ -379,7 +379,7 @@
       // throttle / cutoff
       if(!throttled && heat >= 80){
         throttled = true;
-        setStatus('pages.game.status_throttled');
+        setStatus('game.status_throttled');
       }
       if(heat >= 100){
         overheat = true;
@@ -409,18 +409,18 @@
     if(overheat){
       score = 0;
       kind = 'bad';
-      msg = t('pages.game.res_overheat');
-      setStatus('pages.game.status_cutoff');
+      msg = t('game.res_overheat');
+      setStatus('game.status_cutoff');
     } else {
       const timeScore = Math.max(0, 1000 - elapsed * 90);
       const heatBonus = Math.max(0, 80 - heat) * 4;
       const safetyBonus = throttled ? 0 : 80;
       score = Math.round(timeScore + heatBonus + safetyBonus);
-      if(score >= 850){ kind = 'ok';   msg = t('pages.game.res_perfect'); }
-      else if(score >= 600){ kind = 'ok'; msg = t('pages.game.res_good'); }
-      else if(heat >= 60){ kind = 'warn'; msg = t('pages.game.res_dangerous'); }
-      else { kind = 'warn'; msg = t('pages.game.res_slow'); }
-      setStatus('pages.game.status_done');
+      if(score >= 850){ kind = 'ok';   msg = t('game.res_perfect'); }
+      else if(score >= 600){ kind = 'ok'; msg = t('game.res_good'); }
+      else if(heat >= 60){ kind = 'warn'; msg = t('game.res_dangerous'); }
+      else { kind = 'warn'; msg = t('game.res_slow'); }
+      setStatus('game.status_done');
     }
 
     const tip = tipFor(0, charger, cable, device, overheat);
@@ -447,7 +447,7 @@
         }
       }catch(e){}
       refreshBest();
-      setStatus('pages.game.status_finished');
+      setStatus('game.status_finished');
     } else {
       $('nextBtn').style.display = 'inline-block';
       $('startBtn').disabled = true;
@@ -461,7 +461,7 @@
     setMeters(0, 0);
     $('timeW').textContent = '0.0';
     $('effW').textContent = '0';
-    setStatus('pages.game.status_idle');
+    setStatus('game.status_idle');
     clearVerdict();
     $('startBtn').disabled = false;
     $('nextBtn').style.display = 'none';
@@ -479,7 +479,7 @@
     $('totalScore').textContent = '0';
     $('grade').textContent = '—';
     $('grade').className = 'grade';
-    setStatus('pages.game.status_idle');
+    setStatus('game.status_idle');
     clearVerdict();
     $('startBtn').disabled = false;
     $('nextBtn').style.display = 'none';
@@ -498,7 +498,7 @@
     renderPickers();
     renderDevice();
     setMeters(0, 0);
-    setStatus('pages.game.status_idle');
+    setStatus('game.status_idle');
     refreshBest();
 
     $('startBtn').addEventListener('click', startRace);
