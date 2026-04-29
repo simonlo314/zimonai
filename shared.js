@@ -63,6 +63,7 @@ const I18N = {
       refund: 'Refund Policy',
       faq: 'FAQ',
       help: 'Help Center',
+      analytics: 'Traffic Analytics',
       copy: '© 2026 ZimonAI Technology. All rights reserved.',
       loc1: 'Shenzhen',
       loc2: 'Taipei',
@@ -124,6 +125,7 @@ const I18N = {
       refund: '退款政策',
       faq: '常見問題',
       help: '客服中心',
+      analytics: '流量排行榜',
       copy: '© 2026 智蒙灣科技 ZimonAI. 保留一切權利。',
       loc1: '深圳',
       loc2: '台北',
@@ -2356,6 +2358,7 @@ const FOOTER_HTML=(lang)=>`
       <h5>${t('footer.support',lang)}</h5>
       <a href="how-it-works.html#faq">${t('footer.faq',lang)}</a>
       <a href="contact.html">${t('footer.help',lang)}</a>
+      <a href="analytics.html">${t('footer.analytics',lang)}</a>
       <a href="mailto:slab.stores@gmail.com">slab.stores@gmail.com</a>
     </div>
   </div>
