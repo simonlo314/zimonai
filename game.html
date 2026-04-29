@@ -3,61 +3,112 @@
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Charge Race — ZimonAI Game</title>
-<meta name="description" content="A mini game about charging speed, wattage, and cable safety. Race to 100% without overheating."/>
+<meta name="description" content="Pick a device, charger, and cable. Race to 100% without melting your cable."/>
 <link rel="stylesheet" href="style.css"/>
 <style>
-  .race-shell{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:860px){.race-shell{grid-template-columns:1fr}}
+/* ── layout ──────────────────────────────────────────── */
+.game-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+@media(max-width:860px){.game-wrap{grid-template-columns:1fr}}
 
-  .pick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:6px}
-  .pick-grid.three{grid-template-columns:repeat(3,1fr)}
-  @media(max-width:520px){.pick-grid,.pick-grid.three{grid-template-columns:1fr 1fr}}
+/* ── picker card ─────────────────────────────────────── */
+.picker-card{background:var(--bg1);border:0.5px solid var(--border);border-radius:20px;padding:22px 20px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,245,247,.42);margin:18px 0 8px}
+.sec-label:first-of-type{margin-top:0}
+.sec-hint{float:right;font-weight:400;letter-spacing:0;text-transform:none;font-size:11px;color:rgba(245,245,247,.32)}
 
-  .pick{background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:14px;padding:12px 12px;cursor:pointer;transition:all .2s;text-align:left;font-family:inherit;color:var(--text)}
-  .pick:hover{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.05)}
-  .pick.on{border-color:rgba(0,229,255,.55);background:rgba(0,229,255,.08);box-shadow:0 0 0 1px rgba(0,229,255,.18) inset}
-  .pick .pn{font-size:14px;font-weight:650;color:var(--white);margin-bottom:4px;letter-spacing:-.01em}
-  .pick .pd{font-size:12px;color:rgba(245,245,247,.55);line-height:1.5}
-  .pick .pw{font-size:11px;color:var(--cyan);font-weight:700;letter-spacing:.06em;margin-bottom:6px;text-transform:uppercase}
+/* device row */
+.dev-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dev-btn{background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:12px;padding:10px 8px;cursor:pointer;font-family:inherit;text-align:center;transition:all .2s;color:var(--text)}
+.dev-btn:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.05)}
+.dev-btn.on{border-color:rgba(0,229,255,.5);background:rgba(0,229,255,.09);box-shadow:0 0 0 1px rgba(0,229,255,.18) inset}
+.dev-btn .di{font-size:22px;line-height:1;margin-bottom:6px}
+.dev-btn .dn{font-size:12px;font-weight:650;color:var(--white);margin-bottom:2px}
+.dev-btn .ds{font-size:10px;color:rgba(245,245,247,.4)}
 
-  .label-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:14px;margin-bottom:6px}
-  .label-row .lbl{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-  .label-row .hint{font-size:11px;color:rgba(245,245,247,.45)}
+/* charger grid */
+.chr-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+@media(max-width:520px){.chr-grid{grid-template-columns:repeat(3,1fr)}}
+.chr-btn{background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:10px;padding:10px 6px;cursor:pointer;font-family:inherit;text-align:center;transition:all .2s;color:var(--text)}
+.chr-btn:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.05)}
+.chr-btn.on{border-color:rgba(0,229,255,.5);background:rgba(0,229,255,.09)}
+.chr-btn .cw{font-size:15px;font-weight:750;color:var(--cyan);letter-spacing:-.02em;margin-bottom:3px}
+.chr-btn .cn{font-size:10px;color:rgba(245,245,247,.55);line-height:1.3}
 
-  .race-stage{background:rgba(0,0,0,.35);border:0.5px solid var(--border);border-radius:16px;padding:18px 18px;display:flex;flex-direction:column;gap:14px;min-height:300px}
-  .stage-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-  .stage-head .device-badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--white);font-weight:600}
-  .stage-head .round-info{font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;font-weight:600}
+/* cable grid */
+.cab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.cab-btn{background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:12px;padding:10px 12px;cursor:pointer;font-family:inherit;text-align:left;transition:all .2s;color:var(--text)}
+.cab-btn:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.05)}
+.cab-btn.on{border-color:rgba(0,229,255,.5);background:rgba(0,229,255,.09)}
+.cab-btn.danger{border-color:rgba(255,90,90,.25)}
+.cab-btn.danger.on{border-color:rgba(255,90,90,.55);background:rgba(255,90,90,.08)}
+.cab-btn .ctag{font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:5px;text-transform:uppercase}
+.cab-btn .ctag.good{color:var(--cyan)}
+.cab-btn .ctag.warn{color:#ffd166}
+.cab-btn .ctag.bad{color:#ff7a7a}
+.cab-btn .cn{font-size:13px;font-weight:650;color:var(--white);margin-bottom:3px}
+.cab-btn .cd{font-size:11px;color:rgba(245,245,247,.48);line-height:1.4}
 
-  .meter{display:flex;flex-direction:column;gap:6px}
-  .meter .mhead{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:rgba(245,245,247,.7)}
-  .meter .mhead strong{color:var(--white);font-size:13px;font-variant-numeric:tabular-nums}
-  .bar{height:10px;border-radius:10px;background:rgba(255,255,255,.06);overflow:hidden;position:relative}
-  .bar > i{display:block;height:100%;width:0%;border-radius:10px;transition:width .25s linear}
-  .bar.charge > i{background:linear-gradient(90deg,#00e5ff,#39ffe9)}
-  .bar.heat > i{background:linear-gradient(90deg,#3eff8a,#ffd166 55%,#ff5d5d)}
+/* start button */
+.start-area{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.combo-preview{flex:1;font-size:12px;color:rgba(245,245,247,.5);line-height:1.6;min-width:140px}
+.combo-preview strong{color:var(--cyan)}
 
-  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-  .stat{background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:12px;padding:10px 12px}
-  .stat .sl{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
-  .stat .sv{font-size:16px;font-weight:700;color:var(--white);font-variant-numeric:tabular-nums}
-  .stat .sv em{font-style:normal;color:var(--cyan);font-size:12px;margin-left:4px;font-weight:600}
+/* ── race card ───────────────────────────────────────── */
+.race-card{background:rgba(0,0,0,.3);border:0.5px solid var(--border);border-radius:20px;padding:20px 18px;display:flex;flex-direction:column;gap:14px}
 
-  .race-action{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .race-action .submit-btn{flex:1;min-width:160px}
+/* round header */
+.race-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.round-badge{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,245,247,.38)}
+.score-inline{display:flex;gap:14px;align-items:center}
+.score-inline .si{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.score-inline .sl{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,245,247,.32)}
+.score-inline .sv{font-size:16px;font-weight:750;color:var(--white);font-variant-numeric:tabular-nums}
+.grade-circle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid;font-size:18px;font-weight:800}
+.grade-circle.s{color:var(--cyan);border-color:rgba(0,229,255,.5);background:rgba(0,229,255,.1)}
+.grade-circle.a{color:#a7f3d0;border-color:rgba(167,243,208,.4);background:rgba(167,243,208,.08)}
+.grade-circle.b{color:#fde68a;border-color:rgba(253,230,138,.4);background:rgba(253,230,138,.08)}
+.grade-circle.c{color:#fca5a5;border-color:rgba(252,165,165,.4);background:rgba(252,165,165,.08)}
+.grade-circle.d{color:rgba(245,245,247,.5);border-color:rgba(245,245,247,.2);background:transparent}
 
-  .verdict{font-size:14px;line-height:1.7;color:rgba(245,245,247,.78)}
-  .verdict.ok{color:#3eff8a}
-  .verdict.warn{color:#ffd166}
-  .verdict.bad{color:#ff7a7a}
+/* combo strip */
+.combo-strip{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12px;background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:10px;padding:8px 12px}
+.combo-strip .ci{font-size:16px}
+.combo-strip .cs{font-weight:600;color:var(--white)}
+.combo-strip .ca{color:rgba(245,245,247,.38)}
+.combo-strip .ce{font-weight:700;color:var(--cyan)}
 
-  .score-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}
-  .score-row .stat .sv{color:var(--cyan)}
+/* meters */
+.meter{display:flex;flex-direction:column;gap:5px}
+.meter .mh{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:rgba(245,245,247,.6)}
+.meter .mh strong{font-size:14px;color:var(--white);font-variant-numeric:tabular-nums}
+.mbar{height:10px;border-radius:10px;background:rgba(255,255,255,.06);overflow:hidden;position:relative}
+.mbar > i{display:block;height:100%;width:0%;border-radius:10px;transition:width .18s linear}
+.mbar.charge > i{background:linear-gradient(90deg,#00c4ff,#00e5ff,#39ffe9)}
+.mbar.heat > i{background:linear-gradient(90deg,#3eff8a,#ffd166 55%,#ff5d5d)}
+.mbar.heat.danger{box-shadow:0 0 0 1.5px rgba(255,80,80,.5);animation:heat-pulse 0.7s infinite}
+@keyframes heat-pulse{0%,100%{box-shadow:0 0 0 1.5px rgba(255,80,80,.4)}50%{box-shadow:0 0 0 3px rgba(255,80,80,.0)}}
 
-  .grade{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:rgba(0,229,255,.12);border:0.5px solid rgba(0,229,255,.32);color:var(--cyan);font-size:24px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-  .grade.b{color:#a7f3d0;background:rgba(167,243,208,.1);border-color:rgba(167,243,208,.3)}
-  .grade.c{color:#fde68a;background:rgba(253,230,138,.1);border-color:rgba(253,230,138,.3)}
-  .grade.d{color:#fca5a5;background:rgba(252,165,165,.1);border-color:rgba(252,165,165,.32)}
+/* stat row */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:rgba(255,255,255,.03);border:0.5px solid var(--border);border-radius:10px;padding:9px 10px}
+.stat .sl{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,245,247,.38);margin-bottom:4px}
+.stat .sv{font-size:15px;font-weight:700;color:var(--white);font-variant-numeric:tabular-nums}
+.stat .sv em{font-style:normal;font-size:11px;color:rgba(245,245,247,.5);margin-left:2px}
+
+/* verdict */
+.verdict{font-size:13px;line-height:1.65;padding:10px 12px;border-radius:10px;display:none}
+.verdict.ok{background:rgba(62,255,138,.06);border:0.5px solid rgba(62,255,138,.25);color:#a7f3d0}
+.verdict.warn{background:rgba(255,209,102,.06);border:0.5px solid rgba(255,209,102,.25);color:#fde68a}
+.verdict.bad{background:rgba(255,90,90,.07);border:0.5px solid rgba(255,90,90,.25);color:#fca5a5}
+
+/* actions */
+.race-actions{display:flex;gap:10px;flex-wrap:wrap}
+.race-actions .submit-btn{flex:1;min-width:120px}
+
+/* time bar */
+.time-bar-wrap{display:flex;flex-direction:column;gap:3px}
+.time-bar{height:3px;border-radius:3px;background:rgba(255,255,255,.06);overflow:hidden}
+.time-bar > i{display:block;height:100%;background:rgba(0,229,255,.5);transition:width .1s linear;border-radius:3px}
 </style>
 </head>
 <body data-page="game">
@@ -65,104 +116,125 @@
 <section class="page-hero">
   <p class="eye" data-i18n="pages.game.hero_eye">Mini Game</p>
   <h1 data-i18n-html="pages.game.hero_title_html">Charge <em>Race</em>.</h1>
-  <p data-i18n="pages.game.hero_sub">Pick a charger and a cable. Race to 100% — without melting the cable.</p>
+  <p data-i18n="pages.game.hero_sub">Pick a device, charger, and cable. Race to 100% — without melting the cable.</p>
 </section>
 
 <section class="ch">
   <div class="ch-in">
-    <div class="race-shell">
-      <!-- Picker side -->
-      <article class="interactive-card rv">
-        <p class="eye" data-i18n="pages.game.intro_eye">How it works</p>
-        <h2 class="interactive-title" data-i18n="pages.game.intro_title">Match power, cable, and device</h2>
-        <p class="interactive-sub" data-i18n="pages.game.intro_sub">Effective wattage = lowest of (charger, cable, device). Cheap cables waste power as heat.</p>
+    <div class="game-wrap">
 
-        <div class="label-row">
-          <span class="lbl" data-i18n="pages.game.charger_lbl">Charger</span>
-          <span class="hint" data-i18n="pages.game.charger_hint">Higher W = faster, more heat</span>
+      <!-- ── Picker ───────────────────────────────────── -->
+      <div class="picker-card rv">
+        <div class="sec-label" id="lbl_device" data-i18n="pages.game.device_lbl">Device<span class="sec-hint" data-i18n="pages.game.device_hint">pick your target</span></div>
+        <div class="dev-row" id="devGrid"></div>
+
+        <div class="sec-label" id="lbl_charger">
+          <span data-i18n="pages.game.charger_lbl">Charger</span>
+          <span class="sec-hint" data-i18n="pages.game.charger_hint">Higher W = faster, more heat</span>
         </div>
-        <div id="chargerGrid" class="pick-grid"></div>
+        <div class="chr-grid" id="chargerGrid"></div>
 
-        <div class="label-row">
-          <span class="lbl" data-i18n="pages.game.cable_lbl">Cable</span>
-          <span class="hint" data-i18n="pages.game.cable_hint">Cable matters more than you think</span>
+        <div class="sec-label">
+          <span data-i18n="pages.game.cable_lbl">Cable</span>
+          <span class="sec-hint" data-i18n="pages.game.cable_hint">Cable matters more than you think</span>
         </div>
-        <div id="cableGrid" class="pick-grid three"></div>
+        <div class="cab-grid" id="cableGrid"></div>
 
-        <div class="race-action" style="margin-top:18px">
+        <div class="start-area">
+          <div class="combo-preview" id="comboPreview"></div>
           <button id="startBtn" class="submit-btn" data-i18n="pages.game.start">Start Race</button>
         </div>
-      </article>
+      </div>
 
-      <!-- Race side -->
-      <article class="interactive-card rv d1">
-        <div class="stage-head">
-          <span class="device-badge">
-            <span class="badge" id="deviceBadge">DEVICE</span>
-            <span id="deviceName">Smartphone</span>
-            <span style="color:rgba(245,245,247,.5);font-weight:500" id="deviceSub">18 Wh · max 27W</span>
-          </span>
-          <span class="round-info">
+      <!-- ── Race ────────────────────────────────────── -->
+      <div class="rv d1">
+        <!-- round + score header -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+          <span class="round-badge">
             <span data-i18n="pages.game.round_lbl">Round</span>
             <span id="roundNo">1</span> / 5
           </span>
+          <div class="score-inline">
+            <div class="si">
+              <span class="sl" data-i18n="pages.game.score_total">Total Score</span>
+              <span class="sv" id="totalScore">0</span>
+            </div>
+            <div class="si">
+              <span class="sl" data-i18n="pages.game.score_best">Best</span>
+              <span class="sv" id="bestScore">—</span>
+            </div>
+            <div class="grade-circle d" id="gradeEl">—</div>
+          </div>
         </div>
 
-        <div class="race-stage">
+        <!-- combo strip -->
+        <div class="combo-strip" id="comboStrip" style="display:none">
+          <span class="ci" id="cs_dev_icon">📱</span>
+          <span class="cs" id="cs_dev_name">Smartphone</span>
+          <span class="ca">→</span>
+          <span class="ci">⚡</span>
+          <span class="cs" id="cs_chr_w">30W</span>
+          <span class="ca">→</span>
+          <span class="ci">🔌</span>
+          <span class="cs" id="cs_cab_name">Standard 60W</span>
+          <span class="ca">=</span>
+          <span class="ce" id="cs_eff">—</span>
+        </div>
+
+        <!-- time progress -->
+        <div class="time-bar-wrap" id="timeBarWrap" style="display:none">
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:rgba(245,245,247,.35)">
+            <span data-i18n="pages.game.race_time">Time</span>
+            <span><span id="timeW">0.0</span>s / 30s</span>
+          </div>
+          <div class="time-bar"><i id="timeBar"></i></div>
+        </div>
+
+        <div class="race-card">
+          <!-- charge meter -->
           <div class="meter">
-            <div class="mhead">
+            <div class="mh">
               <span data-i18n="pages.game.race_progress">Charging</span>
               <strong><span id="chargeVal">0</span>%</strong>
             </div>
-            <div class="bar charge"><i id="chargeBar"></i></div>
+            <div class="mbar charge"><i id="chargeBar"></i></div>
           </div>
 
+          <!-- heat meter -->
           <div class="meter">
-            <div class="mhead">
+            <div class="mh">
               <span data-i18n="pages.game.race_heat">Heat</span>
               <strong><span id="heatVal">0</span>%</strong>
             </div>
-            <div class="bar heat"><i id="heatBar"></i></div>
+            <div class="mbar heat" id="heatBarWrap"><i id="heatBar"></i></div>
           </div>
 
+          <!-- stats -->
           <div class="stat-row">
             <div class="stat">
-              <div class="sl" data-i18n="pages.game.race_eff">Effective Wattage</div>
-              <div class="sv"><span id="effW">0</span><em>W</em></div>
-            </div>
-            <div class="stat">
-              <div class="sl" data-i18n="pages.game.race_time">Time</div>
-              <div class="sv"><span id="timeW">0.0</span><em>s</em></div>
+              <div class="sl" data-i18n="pages.game.race_eff">Effective W</div>
+              <div class="sv"><span id="effW">—</span><em>W</em></div>
             </div>
             <div class="stat">
               <div class="sl" data-i18n="pages.game.race_status">Status</div>
-              <div class="sv" id="statusW" style="font-size:13px"><span data-i18n="pages.game.status_idle">Idle</span></div>
+              <div class="sv" id="statusW" style="font-size:12px">—</div>
+            </div>
+            <div class="stat">
+              <div class="sl" id="roundScoreLbl" data-i18n="pages.game.score_total">Score</div>
+              <div class="sv"><span id="roundScore">—</span></div>
             </div>
           </div>
 
-          <div id="verdict" class="verdict" style="display:none"></div>
+          <!-- verdict -->
+          <div class="verdict" id="verdict"></div>
 
-          <div class="race-action">
+          <!-- actions -->
+          <div class="race-actions">
             <button id="nextBtn" class="submit-btn" style="display:none" data-i18n="pages.game.next">Next Round</button>
             <button id="resetBtn" class="btn-g" style="display:none" data-i18n="pages.game.reset">Restart Game</button>
           </div>
         </div>
-
-        <div class="score-row" style="margin-top:14px">
-          <div class="stat">
-            <div class="sl" data-i18n="pages.game.score_total">Total Score</div>
-            <div class="sv"><span id="totalScore">0</span></div>
-          </div>
-          <div class="stat">
-            <div class="sl" data-i18n="pages.game.score_best">Best</div>
-            <div class="sv"><span id="bestScore">—</span></div>
-          </div>
-          <div class="stat">
-            <div class="sl" data-i18n="pages.game.score_grade">Grade</div>
-            <div class="sv"><span id="grade" class="grade">—</span></div>
-          </div>
-        </div>
-      </article>
+      </div>
     </div>
 
     <div class="banner rv" style="padding:60px 0 0;border-top:none">
@@ -182,342 +254,389 @@
 
 <script>
 (()=>{
-  const $ = (id)=>document.getElementById(id);
-  const lang = ()=>document.documentElement.getAttribute('lang') || 'en';
-  const t = (key)=>{
-    const lib = (window.I18N && window.I18N[lang()] && window.I18N[lang()].pages) || {};
-    const v = key.split('.').reduce((acc, k)=>acc && acc[k], lib);
-    return v == null ? key : v;
+  /* ── i18n helpers ──────────────────────────────────── */
+  const lang  = ()=>document.documentElement.getAttribute('lang')||'en';
+  const isZh  = ()=>lang().startsWith('zh');
+  const t     = (key)=>{
+    const lib=(window.I18N&&window.I18N[lang()]&&window.I18N[lang()].pages)||{};
+    const v=key.split('.').reduce((a,k)=>a&&a[k],lib);
+    return v==null?key:v;
   };
+  const $     = (id)=>document.getElementById(id);
 
-  const DEVICES = [
-    { id:'phone',  cap:18, accept:27,  nameKey:'game.d_phone',  subKey:'game.d_phone_sub'  },
-    { id:'tablet', cap:35, accept:45,  nameKey:'game.d_tablet', subKey:'game.d_tablet_sub' },
-    { id:'laptop', cap:70, accept:100, nameKey:'game.d_laptop', subKey:'game.d_laptop_sub' }
+  /* ── game data ─────────────────────────────────────── */
+  const DEVICES=[
+    {id:'phone',  accept:27,  icon:'📱', nameKey:'game.d_phone',  subKey:'game.d_phone_sub'},
+    {id:'tablet', accept:45,  icon:'📟', nameKey:'game.d_tablet', subKey:'game.d_tablet_sub'},
+    {id:'laptop', accept:100, icon:'💻', nameKey:'game.d_laptop', subKey:'game.d_laptop_sub'},
+  ];
+  const CHARGERS=[
+    {id:'c5',   w:5,   nameKey:'game.c5_n'},
+    {id:'c18',  w:18,  nameKey:'game.c18_n'},
+    {id:'c30',  w:30,  nameKey:'game.c30_n'},
+    {id:'c65',  w:65,  nameKey:'game.c65_n'},
+    {id:'c100', w:100, nameKey:'game.c100_n'},
+  ];
+  /* resist: 1.0 = perfect, higher = more energy wasted as cable heat
+     cap: max W the cable safely passes */
+  const CABLES=[
+    {id:'ca', cap:60,  resist:1.04,  tag:'STD',      tagCls:'good', nameKey:'game.ca_n', descKey:'game.ca_d'},
+    {id:'cb', cap:100, resist:1.02,  tag:'E-MARK',   tagCls:'good', nameKey:'game.cb_n', descKey:'game.cb_d'},
+    {id:'cd', cap:240, resist:1.005, tag:'EPR 240W', tagCls:'good', nameKey:'game.cd_n', descKey:'game.cd_d'},
+    {id:'cc', cap:15,  resist:1.5,   tag:'⚠ CHEAP',  tagCls:'bad',  nameKey:'game.cc_n', descKey:'game.cc_d'},
   ];
 
-  const CHARGERS = [
-    { id:'c5',   w:5,   cert:true,  nameKey:'game.c5_n',   descKey:'game.c5_d'   },
-    { id:'c18',  w:18,  cert:true,  nameKey:'game.c18_n',  descKey:'game.c18_d'  },
-    { id:'c30',  w:30,  cert:true,  nameKey:'game.c30_n',  descKey:'game.c30_d'  },
-    { id:'c65',  w:65,  cert:true,  nameKey:'game.c65_n',  descKey:'game.c65_d'  },
-    { id:'c100', w:100, cert:true,  nameKey:'game.c100_n', descKey:'game.c100_d' }
-  ];
+  /* ── physics constants (tuned for 10-25s game feel) ── */
+  const SPEED   = 6;    // charge rate multiplier
+  const D_HEAT  = 0.5;  // heat from device power draw
+  const C_HEAT  = 0.15; // heat from cable resistance waste
+  const COOLING = 0.5;  // passive cooling per second
+  const STEP_MS = 100;  // simulation tick
+  const MAX_S   = 30;   // seconds per round time limit
+  const MAX_STEPS = MAX_S * 1000 / STEP_MS;
 
-  // resistance: 1.0 = perfect, > 1 wastes power as heat. cap = max usable W on this cable.
-  const CABLES = [
-    { id:'ca', cap:60,  resist:1.04, marker:false, nameKey:'game.ca_n', descKey:'game.ca_d' },
-    { id:'cb', cap:100, resist:1.02, marker:true,  nameKey:'game.cb_n', descKey:'game.cb_d' },
-    { id:'cc', cap:30,  resist:1.35, marker:false, nameKey:'game.cc_n', descKey:'game.cc_d' }
-  ];
-
-  const TOTAL_ROUNDS = 5;
   const BEST_KEY = 'za_charge_race_best';
+  const TOTAL_ROUNDS = 5;
 
-  const state = {
+  /* ── state ─────────────────────────────────────────── */
+  const S = {
+    deviceId:  'phone',
+    chargerId: 'c30',
+    cableId:   'ca',
     round: 1,
     totalScore: 0,
-    chargerId: 'c30',
-    cableId: 'ca',
-    deviceIdx: 0,
     racing: false,
-    finished: false
+    finished: false,
   };
 
-  function pickRandomDevice(){
-    state.deviceIdx = Math.floor(Math.random() * DEVICES.length);
-  }
-
-  function el(html){
-    const tpl = document.createElement('template');
-    tpl.innerHTML = html.trim();
-    return tpl.content.firstElementChild;
-  }
-
+  /* ── render pickers ────────────────────────────────── */
   function renderPickers(){
-    const cg = $('chargerGrid');
-    cg.innerHTML = '';
-    CHARGERS.forEach(c => {
-      const node = el(`
-        <button class="pick" data-id="${c.id}">
-          <div class="pw">${c.w}W</div>
-          <div class="pn">${t(c.nameKey)}</div>
-          <div class="pd">${t(c.descKey)}</div>
-        </button>`);
-      if(c.id === state.chargerId) node.classList.add('on');
-      node.addEventListener('click', ()=>{
-        if(state.racing) return;
-        state.chargerId = c.id;
-        cg.querySelectorAll('.pick').forEach(b=>b.classList.toggle('on', b.dataset.id===c.id));
-      });
-      cg.appendChild(node);
+    /* devices */
+    const dg=$('devGrid');
+    dg.innerHTML='';
+    DEVICES.forEach(d=>{
+      const b=document.createElement('button');
+      b.className='dev-btn'+(S.deviceId===d.id?' on':'');
+      b.dataset.id=d.id;
+      b.innerHTML=`<div class="di">${d.icon}</div>
+        <div class="dn">${t(d.nameKey)}</div>
+        <div class="ds">${t(d.subKey)}</div>`;
+      b.onclick=()=>{
+        if(S.racing) return;
+        S.deviceId=d.id;
+        dg.querySelectorAll('.dev-btn').forEach(x=>x.classList.toggle('on',x.dataset.id===d.id));
+        updateComboPreview();
+      };
+      dg.appendChild(b);
     });
 
-    const kg = $('cableGrid');
-    kg.innerHTML = '';
-    CABLES.forEach(c => {
-      const tag = c.marker ? 'E-marker' : (c.id==='cc' ? '⚠' : 'STD');
-      const node = el(`
-        <button class="pick" data-id="${c.id}">
-          <div class="pw">${tag} · ${c.cap}W</div>
-          <div class="pn">${t(c.nameKey)}</div>
-          <div class="pd">${t(c.descKey)}</div>
-        </button>`);
-      if(c.id === state.cableId) node.classList.add('on');
-      node.addEventListener('click', ()=>{
-        if(state.racing) return;
-        state.cableId = c.id;
-        kg.querySelectorAll('.pick').forEach(b=>b.classList.toggle('on', b.dataset.id===c.id));
-      });
-      kg.appendChild(node);
+    /* chargers */
+    const cg=$('chargerGrid');
+    cg.innerHTML='';
+    CHARGERS.forEach(c=>{
+      const b=document.createElement('button');
+      b.className='chr-btn'+(S.chargerId===c.id?' on':'');
+      b.dataset.id=c.id;
+      b.innerHTML=`<div class="cw">${c.w}W</div>
+        <div class="cn">${t(c.nameKey)}</div>`;
+      b.onclick=()=>{
+        if(S.racing) return;
+        S.chargerId=c.id;
+        cg.querySelectorAll('.chr-btn').forEach(x=>x.classList.toggle('on',x.dataset.id===c.id));
+        updateComboPreview();
+      };
+      cg.appendChild(b);
     });
+
+    /* cables */
+    const kg=$('cableGrid');
+    kg.innerHTML='';
+    CABLES.forEach(c=>{
+      const b=document.createElement('button');
+      b.className='cab-btn'+(c.id==='cc'?' danger':'')+' '+(S.cableId===c.id?' on':'');
+      b.dataset.id=c.id;
+      b.innerHTML=`<div class="ctag ${c.tagCls}">${c.tag}</div>
+        <div class="cn">${t(c.nameKey)}</div>
+        <div class="cd">${t(c.descKey)}</div>`;
+      b.onclick=()=>{
+        if(S.racing) return;
+        S.cableId=c.id;
+        kg.querySelectorAll('.cab-btn').forEach(x=>x.classList.toggle('on',x.dataset.id===c.id));
+        updateComboPreview();
+      };
+      kg.appendChild(b);
+    });
+
+    updateComboPreview();
   }
 
-  function renderDevice(){
-    const d = DEVICES[state.deviceIdx];
-    $('deviceName').textContent = t(d.nameKey);
-    $('deviceSub').textContent = t(d.subKey);
-    $('deviceBadge').textContent = (lang()==='zh-Hant') ? '裝置' : 'DEVICE';
-    $('roundNo').textContent = state.round;
+  function updateComboPreview(){
+    const dev=DEVICES.find(d=>d.id===S.deviceId);
+    const chr=CHARGERS.find(c=>c.id===S.chargerId);
+    const cab=CABLES.find(c=>c.id===S.cableId);
+    const rawEff=Math.min(chr.w,cab.cap,dev.accept);
+    const eff=(rawEff/cab.resist).toFixed(1);
+    const label=isZh()
+      ?`實際功率 <strong>${eff}W</strong>`
+      :`Effective <strong>${eff}W</strong>`;
+    $('comboPreview').innerHTML=label;
   }
 
-  function setMeters(charge, heat){
-    $('chargeVal').textContent = Math.round(charge);
-    $('heatVal').textContent = Math.round(heat);
-    $('chargeBar').style.width = Math.min(100, charge) + '%';
-    $('heatBar').style.width = Math.min(100, heat) + '%';
+  /* ── set meters ────────────────────────────────────── */
+  function setMeters(charge,heat){
+    const c=Math.round(Math.min(100,Math.max(0,charge)));
+    const h=Math.round(Math.min(100,Math.max(0,heat)));
+    $('chargeVal').textContent=c;
+    $('heatVal').textContent=h;
+    $('chargeBar').style.width=c+'%';
+    $('heatBar').style.width=h+'%';
+    const hw=$('heatBarWrap');
+    if(h>=70) hw.classList.add('danger'); else hw.classList.remove('danger');
   }
 
-  function setStatus(key){
-    const span = $('statusW');
-    span.innerHTML = '';
-    const s = document.createElement('span');
-    s.setAttribute('data-i18n', key);
-    s.textContent = t(key);
-    span.appendChild(s);
+  function setStatus(txt){ $('statusW').textContent=txt; }
+  function showVerdict(kind,msg){
+    const v=$('verdict');
+    v.style.display='block';
+    v.className='verdict '+kind;
+    v.textContent=msg;
+  }
+  function clearVerdict(){ const v=$('verdict'); v.style.display='none'; v.className='verdict'; }
+
+  /* ── combo strip ───────────────────────────────────── */
+  function showComboStrip(){
+    const dev=DEVICES.find(d=>d.id===S.deviceId);
+    const chr=CHARGERS.find(c=>c.id===S.chargerId);
+    const cab=CABLES.find(c=>c.id===S.cableId);
+    const rawEff=Math.min(chr.w,cab.cap,dev.accept);
+    const eff=(rawEff/cab.resist).toFixed(1);
+    $('cs_dev_icon').textContent=dev.icon;
+    $('cs_dev_name').textContent=t(dev.nameKey);
+    $('cs_chr_w').textContent=chr.w+'W';
+    $('cs_cab_name').textContent=t(cab.nameKey);
+    $('cs_eff').textContent=eff+'W';
+    $('comboStrip').style.display='flex';
   }
 
-  function gradeOf(score){
-    if(score >= 850) return { g:'S', cls:'' };
-    if(score >= 700) return { g:'A', cls:'' };
-    if(score >= 550) return { g:'B', cls:'b' };
-    if(score >= 380) return { g:'C', cls:'c' };
-    return { g:'D', cls:'d' };
-  }
-
-  function showVerdict(kind, msg){
-    const v = $('verdict');
-    v.style.display = 'block';
-    v.className = 'verdict ' + (kind || '');
-    v.textContent = msg;
-  }
-
-  function clearVerdict(){
-    const v = $('verdict');
-    v.style.display = 'none';
-    v.textContent = '';
-    v.className = 'verdict';
-  }
-
-  function tipFor(eff, charger, cable, device, overheat){
-    if(overheat) return t('game.tip_overheat');
-    const minIs = Math.min(charger.w, cable.cap, device.accept);
-    if(cable.resist > 1.2) return t('game.tip_cable_loss');
-    if(minIs === cable.cap && cable.cap < charger.w && cable.cap < device.accept) return t('game.tip_cable_cap');
-    if(minIs === charger.w && charger.w < device.accept) return t('game.tip_low_w');
-    if(minIs === device.accept) return t('game.tip_device_cap');
-    return t('game.tip_balanced');
-  }
-
-  // Race simulation: run a small fixed-step loop in setInterval.
-  let raceTimer = null;
+  /* ── race ──────────────────────────────────────────── */
+  let raceTimer=null;
   function startRace(){
-    if(state.racing || state.finished) return;
-    state.racing = true;
+    if(S.racing||S.finished) return;
+    S.racing=true;
     clearVerdict();
-    $('startBtn').disabled = true;
-    $('nextBtn').style.display = 'none';
-    $('resetBtn').style.display = 'none';
-    setStatus('game.status_running');
+    $('startBtn').disabled=true;
+    $('nextBtn').style.display='none';
+    $('resetBtn').style.display='none';
+    $('roundScore').textContent='—';
+    $('timeBarWrap').style.display='';
+    showComboStrip();
 
-    const charger = CHARGERS.find(c=>c.id===state.chargerId);
-    const cable   = CABLES.find(c=>c.id===state.cableId);
-    const device  = DEVICES[state.deviceIdx];
+    const dev=DEVICES.find(d=>d.id===S.deviceId);
+    const chr=CHARGERS.find(c=>c.id===S.chargerId);
+    const cab=CABLES.find(c=>c.id===S.cableId);
 
-    const rawEff = Math.min(charger.w, cable.cap, device.accept);
-    const eff = rawEff / cable.resist;
-    $('effW').textContent = eff.toFixed(1);
+    const rawEff=Math.min(chr.w,cab.cap,dev.accept);
+    const eff=rawEff/cab.resist;
+    const waste=rawEff-eff; // power lost in cable as heat
 
-    let charge = 20; // start at 20% to make wattage matter
-    let heat = 0;
-    let elapsed = 0;
-    let throttled = false;
-    let overheat = false;
+    $('effW').textContent=eff.toFixed(1);
+    setStatus(t('game.status_running'));
 
-    setMeters(charge, heat);
-    $('timeW').textContent = '0.0';
+    const stepSec=STEP_MS/1000;
+    let charge=0, heat=0, elapsed=0, steps=0;
+    let throttled=false, overheat=false;
+    setMeters(0,0);
 
-    const STEP_MS = 100;
-    const stepSec = STEP_MS / 1000;
+    raceTimer=setInterval(()=>{
+      steps++;
+      elapsed+=stepSec;
 
-    raceTimer = setInterval(()=>{
-      elapsed += stepSec;
-      $('timeW').textContent = elapsed.toFixed(1);
+      /* time bar */
+      $('timeW').textContent=elapsed.toFixed(1);
+      $('timeBar').style.width=Math.min(100,(elapsed/MAX_S)*100)+'%';
 
-      // charging speed: chargePct/sec ~ eff / capacity * 100 * timeFactor (faster than realtime so race feels snappy)
-      const TIME_BOOST = 14; // shrink real seconds; 1 race ~ 4-9s typical
-      let activeW = eff;
-      if(throttled) activeW *= 0.45;
-      const chargeRate = (activeW / device.cap) * 100 * stepSec * TIME_BOOST;
-      charge = Math.min(100, charge + chargeRate);
+      /* effective W at this tick */
+      const activeW=throttled?eff*0.45:eff;
 
-      // heat: rises with W^2 * resistance; cooling factor when low effective
-      const heatGain = (activeW * activeW) * 0.0008 * cable.resist * stepSec * TIME_BOOST;
-      const heatLoss = 0.6 * stepSec * TIME_BOOST;
-      heat = Math.max(0, heat + heatGain - heatLoss);
+      /* charge: SPEED * (activeW / device_max) per second */
+      const dCharge=SPEED*(activeW/dev.accept)*stepSec;
+      charge=Math.min(100,charge+dCharge);
 
-      // throttle / cutoff
-      if(!throttled && heat >= 80){
-        throttled = true;
-        setStatus('game.status_throttled');
+      /* heat: device draw + cable waste heat */
+      const dHeat=(D_HEAT*Math.sqrt(activeW/dev.accept)+C_HEAT*waste*waste)*stepSec;
+      const dCool=COOLING*stepSec;
+      heat=Math.max(0,heat+dHeat-dCool);
+
+      /* throttle / overheat */
+      if(!throttled&&heat>=75){
+        throttled=true;
+        setStatus(t('game.status_throttled'));
       }
-      if(heat >= 100){
-        overheat = true;
-        heat = 100;
-        finishRace(charge, heat, elapsed, charger, cable, device, overheat, throttled);
+      if(heat>=100){
+        overheat=true;
+        heat=100;
+        finishRace(charge,heat,elapsed,chr,cab,dev,true,throttled,false);
         return;
       }
 
-      setMeters(charge, heat);
+      setMeters(charge,heat);
 
-      if(charge >= 100){
-        finishRace(charge, heat, elapsed, charger, cable, device, overheat, throttled);
+      /* done? */
+      if(charge>=100){
+        finishRace(charge,heat,elapsed,chr,cab,dev,false,throttled,false);
+        return;
       }
-    }, STEP_MS);
+      if(steps>=MAX_STEPS){
+        finishRace(charge,heat,elapsed,chr,cab,dev,false,throttled,true);
+      }
+    },STEP_MS);
   }
 
-  function finishRace(charge, heat, elapsed, charger, cable, device, overheat, throttled){
+  /* ── scoring ───────────────────────────────────────── */
+  function calcScore(charge,heat,elapsed,overheat,timedOut){
+    if(overheat) return 0;
+    const chargeScore=Math.round(charge*3);   // 0-300
+    const timeScore=timedOut?0:Math.max(0,Math.round(300-elapsed*10)); // 0-300
+    const heatBonus=Math.max(0,Math.round(300-heat*3));  // 0-300
+    return chargeScore+timeScore+heatBonus;
+  }
+
+  function gradeOf(avg){
+    if(avg>=800) return {g:'S',cls:'s'};
+    if(avg>=600) return {g:'A',cls:'a'};
+    if(avg>=400) return {g:'B',cls:'b'};
+    if(avg>=200) return {g:'C',cls:'c'};
+    return {g:'D',cls:'d'};
+  }
+
+  function tipFor(chr,cab,dev,overheat,timedOut){
+    if(overheat) return t('game.tip_overheat');
+    if(timedOut) return t('game.tip_timeout');
+    const rawEff=Math.min(chr.w,cab.cap,dev.accept);
+    if(cab.resist>1.3) return t('game.tip_cable_loss');
+    if(rawEff===cab.cap&&cab.cap<chr.w&&cab.cap<dev.accept) return t('game.tip_cable_cap');
+    if(rawEff===chr.w&&chr.w<dev.accept) return t('game.tip_low_w');
+    if(rawEff===dev.accept) return t('game.tip_device_cap');
+    return t('game.tip_balanced');
+  }
+
+  function finishRace(charge,heat,elapsed,chr,cab,dev,overheat,throttled,timedOut){
     clearInterval(raceTimer);
-    raceTimer = null;
-    state.racing = false;
-    setMeters(charge, heat);
+    raceTimer=null;
+    S.racing=false;
+    setMeters(charge,heat);
+    $('timeBarWrap').style.display='none';
 
-    let score;
-    let kind;
-    let msg;
+    const score=calcScore(charge,heat,elapsed,overheat,timedOut);
+    $('roundScore').textContent=score;
 
+    let kind,msg;
     if(overheat){
-      score = 0;
-      kind = 'bad';
-      msg = t('game.res_overheat');
-      setStatus('game.status_cutoff');
+      kind='bad'; msg=t('game.res_overheat');
+      setStatus(t('game.status_cutoff'));
+    } else if(timedOut){
+      kind='warn'; msg=t('game.res_timeout');
+      setStatus(t('game.status_done'));
+    } else if(score>=700){
+      kind='ok'; msg=t('game.res_perfect');
+      setStatus(t('game.status_done'));
+    } else if(score>=450){
+      kind='ok'; msg=t('game.res_good');
+      setStatus(t('game.status_done'));
+    } else if(heat>=60){
+      kind='warn'; msg=t('game.res_dangerous');
+      setStatus(t('game.status_done'));
     } else {
-      const timeScore = Math.max(0, 1000 - elapsed * 90);
-      const heatBonus = Math.max(0, 80 - heat) * 4;
-      const safetyBonus = throttled ? 0 : 80;
-      score = Math.round(timeScore + heatBonus + safetyBonus);
-      if(score >= 850){ kind = 'ok';   msg = t('game.res_perfect'); }
-      else if(score >= 600){ kind = 'ok'; msg = t('game.res_good'); }
-      else if(heat >= 60){ kind = 'warn'; msg = t('game.res_dangerous'); }
-      else { kind = 'warn'; msg = t('game.res_slow'); }
-      setStatus('game.status_done');
+      kind='warn'; msg=t('game.res_slow');
+      setStatus(t('game.status_done'));
     }
 
-    const tip = tipFor(0, charger, cable, device, overheat);
-    showVerdict(kind, msg + ' — ' + tip);
+    const tip=tipFor(chr,cab,dev,overheat,timedOut);
+    showVerdict(kind,msg+' — '+tip);
 
-    state.totalScore += score;
-    $('totalScore').textContent = state.totalScore;
-    const gd = gradeOf(state.totalScore / state.round);
-    const gEl = $('grade');
-    gEl.textContent = gd.g;
-    gEl.className = 'grade ' + gd.cls;
+    S.totalScore+=score;
+    $('totalScore').textContent=S.totalScore;
+    const gd=gradeOf(S.totalScore/S.round);
+    const ge=$('gradeEl');
+    ge.textContent=gd.g;
+    ge.className='grade-circle '+gd.cls;
 
-    try{ window.ZA?.trackEvent('charge_race_round', { round: state.round, score, charger: charger.id, cable: cable.id, device: device.id, overheat: !!overheat }); }catch(e){}
-
-    if(state.round >= TOTAL_ROUNDS){
-      state.finished = true;
-      $('startBtn').disabled = true;
-      $('nextBtn').style.display = 'none';
-      $('resetBtn').style.display = 'inline-block';
-      try{
-        const prev = Number(localStorage.getItem(BEST_KEY) || 0);
-        if(state.totalScore > prev){
-          localStorage.setItem(BEST_KEY, String(state.totalScore));
-        }
-      }catch(e){}
-      refreshBest();
-      setStatus('game.status_finished');
+    if(S.round>=TOTAL_ROUNDS){
+      S.finished=true;
+      $('startBtn').disabled=true;
+      $('nextBtn').style.display='none';
+      $('resetBtn').style.display='inline-block';
+      setStatus(t('game.status_finished'));
+      saveBest();
     } else {
-      $('nextBtn').style.display = 'inline-block';
-      $('startBtn').disabled = true;
+      $('nextBtn').style.display='inline-block';
     }
   }
 
   function nextRound(){
-    state.round += 1;
-    pickRandomDevice();
-    renderDevice();
-    setMeters(0, 0);
-    $('timeW').textContent = '0.0';
-    $('effW').textContent = '0';
-    setStatus('game.status_idle');
+    S.round++;
+    $('roundNo').textContent=S.round;
+    setMeters(0,0);
+    $('effW').textContent='—';
+    $('roundScore').textContent='—';
+    setStatus('—');
     clearVerdict();
-    $('startBtn').disabled = false;
-    $('nextBtn').style.display = 'none';
+    $('comboStrip').style.display='none';
+    $('startBtn').disabled=false;
+    $('nextBtn').style.display='none';
+    updateComboPreview();
   }
 
   function resetGame(){
-    state.round = 1;
-    state.totalScore = 0;
-    state.finished = false;
-    pickRandomDevice();
-    renderDevice();
-    setMeters(0, 0);
-    $('timeW').textContent = '0.0';
-    $('effW').textContent = '0';
-    $('totalScore').textContent = '0';
-    $('grade').textContent = '—';
-    $('grade').className = 'grade';
-    setStatus('game.status_idle');
+    if(raceTimer){ clearInterval(raceTimer); raceTimer=null; }
+    S.round=1; S.totalScore=0; S.racing=false; S.finished=false;
+    $('roundNo').textContent=1;
+    $('totalScore').textContent=0;
+    $('gradeEl').textContent='—';
+    $('gradeEl').className='grade-circle d';
+    $('roundScore').textContent='—';
+    setMeters(0,0);
+    $('effW').textContent='—';
+    setStatus('—');
     clearVerdict();
-    $('startBtn').disabled = false;
-    $('nextBtn').style.display = 'none';
-    $('resetBtn').style.display = 'none';
+    $('comboStrip').style.display='none';
+    $('timeBarWrap').style.display='none';
+    $('startBtn').disabled=false;
+    $('nextBtn').style.display='none';
+    $('resetBtn').style.display='none';
+    updateComboPreview();
   }
 
-  function refreshBest(){
+  function saveBest(){
     try{
-      const prev = Number(localStorage.getItem(BEST_KEY) || 0);
-      $('bestScore').textContent = prev > 0 ? prev : '—';
+      const prev=Number(localStorage.getItem(BEST_KEY)||0);
+      if(S.totalScore>prev) localStorage.setItem(BEST_KEY,String(S.totalScore));
+      $('bestScore').textContent=Math.max(S.totalScore,prev)||'—';
     }catch(e){}
   }
 
+  function loadBest(){
+    try{
+      const v=Number(localStorage.getItem(BEST_KEY)||0);
+      $('bestScore').textContent=v>0?v:'—';
+    }catch(e){}
+  }
+
+  /* ── init ──────────────────────────────────────────── */
   function init(){
-    pickRandomDevice();
     renderPickers();
-    renderDevice();
-    setMeters(0, 0);
-    setStatus('game.status_idle');
-    refreshBest();
+    setStatus('—');
+    loadBest();
+    $('startBtn').addEventListener('click',startRace);
+    $('nextBtn').addEventListener('click',nextRound);
+    $('resetBtn').addEventListener('click',resetGame);
 
-    $('startBtn').addEventListener('click', startRace);
-    $('nextBtn').addEventListener('click', nextRound);
-    $('resetBtn').addEventListener('click', resetGame);
-
-    // re-render texts on language change (shared.js sets data-lang attr)
-    const obs = new MutationObserver(()=>{
-      renderPickers();
-      renderDevice();
-    });
-    obs.observe(document.documentElement, { attributes:true, attributeFilter:['lang','data-lang'] });
+    new MutationObserver(()=>{ renderPickers(); })
+      .observe(document.documentElement,{attributes:true,attributeFilter:['lang','data-lang']});
   }
 
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+  else init();
 })();
 </script>
 <script src="shared.js"></script>
