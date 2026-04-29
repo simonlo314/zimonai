@@ -571,7 +571,9 @@ I18N.en.pages = {
     cl_7d: '7 days',
     cl_30d: '30 days',
     cl_total: 'Total visits',
-    cl_unique: 'Unique countries / regions'
+    cl_unique: 'Unique countries / regions',
+    trend_title: 'Daily Trend',
+    k_peak: 'Peak day'
   },
   lab: {
     hero_eye: 'Interactive Lab',
@@ -1547,7 +1549,9 @@ I18N['zh-Hant'].pages = {
     cl_7d: '近 7 天',
     cl_30d: '近 30 天',
     cl_total: '總瀏覽量',
-    cl_unique: '不重複國家/地區數'
+    cl_unique: '不重複國家/地區數',
+    trend_title: '每日趨勢',
+    k_peak: '單日最高'
   },
   lab: {
     hero_eye: '互動實驗室',
