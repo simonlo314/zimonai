@@ -18,11 +18,40 @@
 .d{font-size:14px;color:rgba(245,245,247,0.8)}
 .n{font-size:14px;color:var(--muted)}
 .tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.mini{background:transparent;border:0.5px solid rgba(255,255,255,.2);color:var(--text);padding:10px 14px;border-radius:980px;font-size:13px;cursor:pointer;font-family:inherit}
+.mini{background:transparent;border:0.5px solid rgba(255,255,255,.2);color:var(--text);padding:10px 14px;border-radius:980px;font-size:13px;cursor:pointer;font-family:inherit;transition:all .2s}
 .mini:hover{border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
+.mini.on{border-color:rgba(0,229,255,.45);background:rgba(0,229,255,.1);color:var(--cyan)}
 .warn{margin-top:14px;font-size:13px;color:rgba(255,255,247,0.55);line-height:1.7}
 .err{display:none;margin-top:14px;background:rgba(255,71,87,0.08);border:0.5px solid rgba(255,71,87,0.35);border-radius:12px;padding:14px 16px;font-size:14px;color:rgba(255,71,87,0.95);text-align:center}
-@media(max-width:860px){.kpis{grid-template-columns:1fr}}
+
+.ldrhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.ldrhead h3{font-size:22px;color:var(--white);margin:0;letter-spacing:-.02em;font-weight:650}
+.ldrhead .ldrsub{font-size:13px;color:rgba(245,245,247,.55);line-height:1.6;margin-top:6px}
+
+.summary{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:14px 0 14px}
+.summary .kpi{padding:18px 18px;border-radius:14px}
+.summary .kpi-v{font-size:28px}
+
+.cl-list{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.cl-row{display:grid;grid-template-columns:32px 28px 1fr auto;align-items:center;gap:12px;padding:10px 4px;border-radius:10px;transition:background .15s}
+.cl-row:hover{background:rgba(255,255,255,.025)}
+.cl-rank{font-size:13px;color:rgba(245,245,247,.42);font-weight:700;font-variant-numeric:tabular-nums;text-align:center}
+.cl-flag{font-size:24px;line-height:1;text-align:center;filter:drop-shadow(0 0 6px rgba(0,0,0,.3))}
+.cl-mid{display:flex;flex-direction:column;gap:6px;min-width:0}
+.cl-name{font-size:14px;color:rgba(245,245,247,.86);font-weight:600;letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cl-meter{height:6px;border-radius:6px;background:rgba(255,255,255,.05);overflow:hidden}
+.cl-meter > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,#00e5ff,rgba(0,229,255,.4));border-radius:6px;transition:width .9s cubic-bezier(.16,1,.3,1)}
+.cl-num{font-size:14px;font-weight:700;color:var(--white);font-variant-numeric:tabular-nums;text-align:right;min-width:80px}
+.cl-num small{font-weight:500;font-size:11px;color:rgba(245,245,247,.42);margin-left:6px;letter-spacing:.05em}
+
+.empty{padding:30px 20px;text-align:center;color:rgba(245,245,247,.5);font-size:13px;line-height:1.7}
+.empty strong{color:rgba(245,245,247,.78);display:block;margin-bottom:6px;font-size:14px}
+.empty code{background:rgba(255,255,255,.06);padding:2px 8px;border-radius:6px;font-size:12px;color:var(--cyan)}
+
+.skeleton{height:14px;background:linear-gradient(90deg,rgba(255,255,255,.04),rgba(255,255,255,.08),rgba(255,255,255,.04));background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:6px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+@media(max-width:860px){.kpis,.summary{grid-template-columns:1fr}.cl-num{min-width:auto}}
 </style>
 </head>
 <body data-page="analytics">
@@ -52,6 +81,35 @@
           <div class="kpi-v" id="k_all">—</div>
           <div class="kpi-s" data-i18n="pages.analytics.k_pageviews">Pageviews</div>
         </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="ldrhead">
+          <div>
+            <p class="eye" style="margin:0" data-i18n="pages.analytics.cl_eye">Country Leaderboard</p>
+            <h3 data-i18n="pages.analytics.cl_title">Where today’s visitors come from</h3>
+            <div class="ldrsub" data-i18n="pages.analytics.cl_sub">Live data from Cloudflare edge — country only, no IP, no fingerprint.</div>
+          </div>
+          <div class="tools" style="margin-top:0">
+            <button class="mini on" id="cl_btn_1" onclick="setCountryRange(1)" data-i18n="pages.analytics.cl_today">Today</button>
+            <button class="mini" id="cl_btn_7" onclick="setCountryRange(7)" data-i18n="pages.analytics.cl_7d">7 days</button>
+            <button class="mini" id="cl_btn_30" onclick="setCountryRange(30)" data-i18n="pages.analytics.cl_30d">30 days</button>
+            <button class="mini" onclick="loadCountries()" data-i18n="pages.analytics.refresh">Refresh</button>
+          </div>
+        </div>
+
+        <div class="summary">
+          <div class="kpi">
+            <div class="kpi-l" data-i18n="pages.analytics.cl_total">Total visits</div>
+            <div class="kpi-v" id="cl_total">—</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-l" data-i18n="pages.analytics.cl_unique">Unique countries</div>
+            <div class="kpi-v" id="cl_unique">—</div>
+          </div>
+        </div>
+
+        <div id="cl_list" class="cl-list"></div>
       </div>
 
       <div class="card" style="margin-top:18px">
@@ -138,7 +196,138 @@ async function loadStats(){
 
 document.addEventListener('DOMContentLoaded',()=>{
   loadStats();
+  loadCountries();
 });
+
+// ─── Country leaderboard (Cloudflare Pages Functions + KV) ───
+let CL_DAYS = 1;
+
+function flagEmoji(cc){
+  if(!cc || cc.length !== 2 || cc === 'XX') return '🌐';
+  const code = cc.toUpperCase();
+  return String.fromCodePoint(...code.split('').map(c => 0x1F1E6 - 65 + c.charCodeAt(0)));
+}
+
+function countryNameOf(cc){
+  if(!cc || cc === 'XX') return cc || 'Unknown';
+  const lng = (document.documentElement.getAttribute('lang') || 'en').toLowerCase();
+  try{
+    const dn = new Intl.DisplayNames([lng], { type: 'region' });
+    return dn.of(cc.toUpperCase()) || cc;
+  }catch(e){ return cc; }
+}
+
+function setCountryRange(days){
+  CL_DAYS = days;
+  ['1','7','30'].forEach(n=>{
+    const b = document.getElementById('cl_btn_'+n);
+    if(b) b.classList.toggle('on', String(days)===n);
+  });
+  loadCountries();
+}
+
+function renderEmptyLeaderboard(reason){
+  const list = document.getElementById('cl_list');
+  document.getElementById('cl_total').textContent = '0';
+  document.getElementById('cl_unique').textContent = '0';
+
+  const lng = (document.documentElement.getAttribute('lang') || 'en');
+  const isZh = lng.startsWith('zh');
+
+  let bodyHtml;
+  if(reason === 'kv_not_bound'){
+    bodyHtml = isZh
+      ? '<strong>尚未綁定 KV</strong>請先到 Cloudflare Dashboard → Pages → <code>zimonai-pages</code> → Settings → Functions，建立並綁定名為 <code>ZA_STATS</code> 的 KV namespace，下次部署後即可開始累積資料。'
+      : '<strong>KV namespace not bound</strong>Bind a KV namespace named <code>ZA_STATS</code> in Cloudflare Dashboard → Pages → <code>zimonai-pages</code> → Settings → Functions. Data will start accumulating after the next deploy.';
+  } else {
+    bodyHtml = isZh
+      ? '<strong>暫無流量資料</strong>有人來訪後資料才會出現在這裡。'
+      : '<strong>No traffic data yet</strong>This will fill up automatically as visitors arrive.';
+  }
+
+  list.innerHTML = '<div class="empty">'+bodyHtml+'</div>';
+}
+
+function renderLeaderboard(data){
+  const list = document.getElementById('cl_list');
+  const ranking = (data.ranking || []).slice(0, 15);
+  const total = data.total || 0;
+
+  document.getElementById('cl_total').textContent = total.toLocaleString();
+  document.getElementById('cl_unique').textContent = (data.uniqueCountries || ranking.length || 0).toLocaleString();
+
+  if(ranking.length === 0){
+    renderEmptyLeaderboard('no_data');
+    return;
+  }
+
+  const top = ranking[0].count || 1;
+  list.innerHTML = '';
+  ranking.forEach((item, idx)=>{
+    const pct = Math.max(1, Math.round((item.count / top) * 100));
+    const sharePct = total > 0 ? ((item.count / total) * 100).toFixed(1) : '0.0';
+    const row = document.createElement('div');
+    row.className = 'cl-row';
+    row.innerHTML = `
+      <div class="cl-rank">${idx+1}</div>
+      <div class="cl-flag">${flagEmoji(item.country)}</div>
+      <div class="cl-mid">
+        <div class="cl-name">${countryNameOf(item.country)}</div>
+        <div class="cl-meter"><i style="width:0%"></i></div>
+      </div>
+      <div class="cl-num">${(item.count||0).toLocaleString()}<small>${sharePct}%</small></div>
+    `;
+    list.appendChild(row);
+    requestAnimationFrame(()=>{
+      const bar = row.querySelector('.cl-meter > i');
+      if(bar) bar.style.width = pct + '%';
+    });
+  });
+}
+
+function showLeaderboardSkeleton(){
+  const list = document.getElementById('cl_list');
+  list.innerHTML = '';
+  for(let i=0;i<5;i++){
+    const row = document.createElement('div');
+    row.className = 'cl-row';
+    row.innerHTML = `
+      <div class="cl-rank">${i+1}</div>
+      <div class="cl-flag" style="opacity:.3">🌐</div>
+      <div class="cl-mid">
+        <div class="skeleton" style="width:60%;height:12px;margin-bottom:8px"></div>
+        <div class="skeleton" style="height:6px"></div>
+      </div>
+      <div class="skeleton" style="width:48px;height:14px"></div>
+    `;
+    list.appendChild(row);
+  }
+}
+
+async function loadCountries(){
+  showLeaderboardSkeleton();
+  try{
+    const res = await fetch('/api/leaderboard?days=' + CL_DAYS, { method:'GET' });
+    const data = await res.json();
+    if(!data.ok && data.reason === 'kv_not_bound'){
+      renderEmptyLeaderboard('kv_not_bound');
+      return;
+    }
+    if(!data.ok){
+      renderEmptyLeaderboard('error');
+      return;
+    }
+    renderLeaderboard(data);
+  }catch(e){
+    renderEmptyLeaderboard('error');
+  }
+}
+
+// Re-render localized country names on language switch.
+new MutationObserver(()=>{
+  // re-fetch if already loaded once; cheap enough for an admin page
+  loadCountries();
+}).observe(document.documentElement, { attributes:true, attributeFilter:['lang','data-lang'] });
 </script>
 </body>
 </html>

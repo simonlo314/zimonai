@@ -561,7 +561,15 @@ I18N.en.pages = {
     range_14d: '14d',
     range_30d: '30d',
     warn: 'Tip: keep this page unlinked publicly (or protect it) if you don’t want visitors to see traffic numbers.',
-    err: 'Analytics endpoint is not configured, or failed to load.'
+    err: 'Analytics endpoint is not configured, or failed to load.',
+    cl_eye: 'Country Leaderboard',
+    cl_title: 'Where today’s visitors come from',
+    cl_sub: 'Live data from Cloudflare edge — country only, no IP, no fingerprint.',
+    cl_today: 'Today',
+    cl_7d: '7 days',
+    cl_30d: '30 days',
+    cl_total: 'Total visits',
+    cl_unique: 'Unique countries'
   },
   lab: {
     hero_eye: 'Interactive Lab',
@@ -1529,7 +1537,15 @@ I18N['zh-Hant'].pages = {
     range_14d: '近 14 天',
     range_30d: '近 30 天',
     warn: '提示：若不希望訪客看到流量數字，請不要公開連結此頁。',
-    err: '分析服務尚未完成設定，或讀取失敗。'
+    err: '分析服務尚未完成設定，或讀取失敗。',
+    cl_eye: '國家排行榜',
+    cl_title: '今天的訪客來自哪裡',
+    cl_sub: '由 Cloudflare 邊緣節點即時提供 — 只記錄國家碼，不記錄 IP 或指紋。',
+    cl_today: '今天',
+    cl_7d: '近 7 天',
+    cl_30d: '近 30 天',
+    cl_total: '總瀏覽量',
+    cl_unique: '不重複國家數'
   },
   lab: {
     hero_eye: '互動實驗室',
@@ -2270,6 +2286,26 @@ try{
   window.ZA = Object.assign({}, window.ZA || {}, { trackEvent });
 }catch(e){}
 
+// ── Country pageview ping (Cloudflare Pages Functions + KV) ────────────────
+// Records ONE counter per (UTC date, CF-IPCountry). No IP, no user agent stored.
+// Endpoint silently returns ok if KV is not yet bound, so this is safe even
+// before the Cloudflare KV namespace is set up.
+function pingCountry(){
+  try{
+    if(typeof window === 'undefined') return;
+    const host = window.location.hostname;
+    if(!host || host === 'localhost' || host === '127.0.0.1') return;
+    if(host.endsWith('.local')) return;
+    const url = '/api/track';
+    if(navigator.sendBeacon){
+      const blob = new Blob([''], { type: 'text/plain' });
+      navigator.sendBeacon(url, blob);
+    }else{
+      fetch(url, { method:'POST', keepalive:true }).catch(()=>{});
+    }
+  }catch(e){}
+}
+
 const NAV_HTML=(active, lang)=>`
 <nav>
   <a href="index.html" class="logo">
@@ -2394,6 +2430,10 @@ document.addEventListener('DOMContentLoaded',()=>{
       ts: new Date().toISOString()
     });
   }catch(e){}
+
+  // Country pageview ping (Cloudflare Pages Functions + KV).
+  // Safe no-op if KV namespace ZA_STATS isn't bound yet.
+  try{ pingCountry(); }catch(e){}
 
   // Scroll reveal
   try{
