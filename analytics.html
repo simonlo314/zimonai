@@ -7,22 +7,14 @@
 <link rel="stylesheet" href="style.css"/>
 <style>
 .a-wrap{max-width:980px;margin:0 auto}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .kpi{background:var(--bg1);border:0.5px solid var(--border);border-radius:20px;padding:28px 26px}
 .kpi-l{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
 .kpi-v{font-size:40px;font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:var(--white)}
-.kpi-s{font-size:13px;color:rgba(245,245,247,0.5);margin-top:10px;line-height:1.6}
 .card{margin-top:20px;background:var(--bg1);border:0.5px solid var(--border);border-radius:20px;padding:24px 22px}
-.row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 6px;border-bottom:0.5px solid var(--border)}
-.row:last-child{border-bottom:none}
-.d{font-size:14px;color:rgba(245,245,247,0.8)}
-.n{font-size:14px;color:var(--muted)}
 .tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .mini{background:transparent;border:0.5px solid rgba(255,255,255,.2);color:var(--text);padding:10px 14px;border-radius:980px;font-size:13px;cursor:pointer;font-family:inherit;transition:all .2s}
 .mini:hover{border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
 .mini.on{border-color:rgba(0,229,255,.45);background:rgba(0,229,255,.1);color:var(--cyan)}
-.warn{margin-top:14px;font-size:13px;color:rgba(255,255,247,0.55);line-height:1.7}
-.err{display:none;margin-top:14px;background:rgba(255,71,87,0.08);border:0.5px solid rgba(255,71,87,0.35);border-radius:12px;padding:14px 16px;font-size:14px;color:rgba(255,71,87,0.95);text-align:center}
 
 .ldrhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px}
 .ldrhead h3{font-size:22px;color:var(--white);margin:0;letter-spacing:-.02em;font-weight:650}
@@ -51,7 +43,7 @@
 .skeleton{height:14px;background:linear-gradient(90deg,rgba(255,255,255,.04),rgba(255,255,255,.08),rgba(255,255,255,.04));background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:6px}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
-@media(max-width:860px){.kpis,.summary{grid-template-columns:1fr}.cl-num{min-width:auto}}
+@media(max-width:860px){.summary{grid-template-columns:1fr}.cl-num{min-width:auto}}
 </style>
 </head>
 <body data-page="analytics">
@@ -65,29 +57,11 @@
 <section class="ch">
   <div class="ch-in">
     <div class="a-wrap rv">
-      <div class="kpis">
-        <div class="kpi">
-          <div class="kpi-l" data-i18n="pages.analytics.k_today">Today</div>
-          <div class="kpi-v" id="k_today">—</div>
-          <div class="kpi-s" id="k_today_s" data-i18n="pages.analytics.k_pageviews">Pageviews</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-l" data-i18n="pages.analytics.k_7d">Last 7 days</div>
-          <div class="kpi-v" id="k_7d">—</div>
-          <div class="kpi-s" data-i18n="pages.analytics.k_pageviews">Pageviews</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-l" data-i18n="pages.analytics.k_all">All-time</div>
-          <div class="kpi-v" id="k_all">—</div>
-          <div class="kpi-s" data-i18n="pages.analytics.k_pageviews">Pageviews</div>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:18px">
+      <div class="card" style="margin-top:0">
         <div class="ldrhead">
           <div>
             <p class="eye" style="margin:0" data-i18n="pages.analytics.cl_eye">Country / Region Leaderboard</p>
-            <h3 data-i18n="pages.analytics.cl_title">Where today’s visitors come from</h3>
+            <h3 data-i18n="pages.analytics.cl_title">Where today's visitors come from</h3>
             <div class="ldrsub" data-i18n="pages.analytics.cl_sub">Live data from Cloudflare edge — country/region only, no IP, no fingerprint.</div>
           </div>
           <div class="tools" style="margin-top:0">
@@ -111,95 +85,12 @@
 
         <div id="cl_list" class="cl-list"></div>
       </div>
-
-      <div class="card" style="margin-top:18px">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-          <p class="eye" style="margin:0" data-i18n="pages.analytics.breakdown">Daily breakdown</p>
-          <div class="tools">
-            <button class="mini" onclick="loadStats()" data-i18n="pages.analytics.refresh">Refresh</button>
-            <button class="mini" onclick="setRange(7)" data-i18n="pages.analytics.range_7d">7d</button>
-            <button class="mini" onclick="setRange(14)" data-i18n="pages.analytics.range_14d">14d</button>
-            <button class="mini" onclick="setRange(30)" data-i18n="pages.analytics.range_30d">30d</button>
-          </div>
-        </div>
-
-        <div id="daily_list" style="margin-top:14px"></div>
-        <div class="err" id="a_err" data-i18n="pages.analytics.err">Analytics endpoint is not configured, or failed to load.</div>
-        <div class="warn" data-i18n="pages.analytics.warn">
-          Tip: keep this page unlinked publicly (or protect it) if you don’t want visitors to see traffic numbers.
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <script src="shared.js"></script>
 <script>
-// Reuse the same Apps Script pattern as contact/delivery.
-const ANALYTICS_STATS_ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbxNyz1_X2eMV-8v-AaYnsCOgtJl8Fd98MOfst21ZefBqTggu4bhdcrd0VZR5EiyqcxB/exec';
-const SITE_ID = 'zimonai.com';
-
-let RANGE_DAYS = 14;
-
-function setRange(days){
-  RANGE_DAYS = days;
-  loadStats();
-}
-
-function fmt(n){
-  if(typeof n !== 'number') return '—';
-  return n.toLocaleString();
-}
-
-function el(tag, cls, html){
-  const x = document.createElement(tag);
-  if(cls) x.className = cls;
-  if(html != null) x.innerHTML = html;
-  return x;
-}
-
-async function loadStats(){
-  const errEl = document.getElementById('a_err');
-  errEl.style.display = 'none';
-
-  if(!ANALYTICS_STATS_ENDPOINT_URL || ANALYTICS_STATS_ENDPOINT_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT_ANALYTICS_WEB_APP_URL_HERE')){
-    errEl.style.display = 'block';
-    return;
-  }
-
-  try{
-    const url = new URL(ANALYTICS_STATS_ENDPOINT_URL);
-    url.searchParams.set('action', 'stats');
-    url.searchParams.set('site_id', SITE_ID);
-    url.searchParams.set('days', String(RANGE_DAYS));
-
-    const res = await fetch(url.toString(), { method: 'GET' });
-    if(!res.ok) throw new Error('Request failed');
-    const data = await res.json();
-
-    document.getElementById('k_today').textContent = fmt(data.today || 0);
-    document.getElementById('k_7d').textContent = fmt(data.last_7_days || 0);
-    document.getElementById('k_all').textContent = fmt(data.all_time || 0);
-
-    const list = document.getElementById('daily_list');
-    list.innerHTML = '';
-    (data.daily || []).forEach(item=>{
-      const row = el('div','row');
-      row.appendChild(el('div','d', item.date || ''));
-      row.appendChild(el('div','n', fmt(item.pageviews || 0)));
-      list.appendChild(row);
-    });
-  }catch(e){
-    errEl.style.display = 'block';
-  }
-}
-
-document.addEventListener('DOMContentLoaded',()=>{
-  loadStats();
-  loadCountries();
-});
-
-// ─── Country leaderboard (Cloudflare Pages Functions + KV) ───
 let CL_DAYS = 1;
 
 function flagEmoji(cc){
@@ -230,21 +121,11 @@ function renderEmptyLeaderboard(reason){
   const list = document.getElementById('cl_list');
   document.getElementById('cl_total').textContent = '0';
   document.getElementById('cl_unique').textContent = '0';
-
   const lng = (document.documentElement.getAttribute('lang') || 'en');
   const isZh = lng.startsWith('zh');
-
-  let bodyHtml;
-  if(reason === 'kv_not_bound'){
-    bodyHtml = isZh
-      ? '<strong>尚未綁定 KV</strong>請先到 Cloudflare Dashboard → Pages → <code>zimonai-pages</code> → Settings → Functions，建立並綁定名為 <code>ZA_STATS</code> 的 KV namespace，下次部署後即可開始累積資料。'
-      : '<strong>KV namespace not bound</strong>Bind a KV namespace named <code>ZA_STATS</code> in Cloudflare Dashboard → Pages → <code>zimonai-pages</code> → Settings → Functions. Data will start accumulating after the next deploy.';
-  } else {
-    bodyHtml = isZh
-      ? '<strong>暫無流量資料</strong>有人來訪後資料才會出現在這裡。'
-      : '<strong>No traffic data yet</strong>This will fill up automatically as visitors arrive.';
-  }
-
+  const bodyHtml = isZh
+    ? '<strong>暫無流量資料</strong>有人來訪後資料才會出現在這裡。'
+    : '<strong>No traffic data yet</strong>This will fill up automatically as visitors arrive.';
   list.innerHTML = '<div class="empty">'+bodyHtml+'</div>';
 }
 
@@ -256,10 +137,7 @@ function renderLeaderboard(data){
   document.getElementById('cl_total').textContent = total.toLocaleString();
   document.getElementById('cl_unique').textContent = (data.uniqueCountries || ranking.length || 0).toLocaleString();
 
-  if(ranking.length === 0){
-    renderEmptyLeaderboard('no_data');
-    return;
-  }
+  if(ranking.length === 0){ renderEmptyLeaderboard('no_data'); return; }
 
   const top = ranking[0].count || 1;
   list.innerHTML = '';
@@ -309,26 +187,17 @@ async function loadCountries(){
   try{
     const res = await fetch('/api/leaderboard?days=' + CL_DAYS, { method:'GET' });
     const data = await res.json();
-    if(!data.ok && data.reason === 'kv_not_bound'){
-      renderEmptyLeaderboard('kv_not_bound');
-      return;
-    }
-    if(!data.ok){
-      renderEmptyLeaderboard('error');
-      return;
-    }
+    if(!data.ok){ renderEmptyLeaderboard('error'); return; }
     renderLeaderboard(data);
   }catch(e){
     renderEmptyLeaderboard('error');
   }
 }
 
-// Re-render localized country names on language switch.
-new MutationObserver(()=>{
-  // re-fetch if already loaded once; cheap enough for an admin page
-  loadCountries();
-}).observe(document.documentElement, { attributes:true, attributeFilter:['lang','data-lang'] });
+document.addEventListener('DOMContentLoaded', loadCountries);
+
+new MutationObserver(()=>{ loadCountries(); })
+  .observe(document.documentElement, { attributes:true, attributeFilter:['lang','data-lang'] });
 </script>
 </body>
 </html>
-
