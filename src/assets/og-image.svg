@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f8f5"/>
+  <rect x="54" y="52" width="1092" height="526" fill="none" stroke="#102228" stroke-width="2"/>
+  <path d="M76 92h310M76 110h185" stroke="#c8d0ce" stroke-width="8"/>
+  <text x="76" y="170" font-family="monospace" font-size="17" letter-spacing="3" fill="#174a5b">CHINA SUPPLIER VERIFICATION</text>
+  <text x="76" y="286" font-family="Georgia, serif" font-size="74" fill="#102228">Verify before</text>
+  <text x="76" y="370" font-family="Georgia, serif" font-size="74" fill="#102228">you send the money.</text>
+  <text x="76" y="456" font-family="Arial, sans-serif" font-size="25" fill="#5d6b6e">Company identity · Certificates · Model scope · Supplier claims</text>
+  <g transform="translate(795 120)">
+    <rect width="290" height="340" fill="#fff" stroke="#c8d0ce" stroke-width="2"/>
+    <text x="24" y="42" font-family="monospace" font-size="13" fill="#b6463a">DEMONSTRATION</text>
+    <path d="M24 68h242M24 122h242M24 176h242M24 230h242" stroke="#c8d0ce"/>
+    <circle cx="248" cy="96" r="7" fill="#147a5a"/>
+    <circle cx="248" cy="150" r="7" fill="#b6463a"/>
+    <circle cx="248" cy="204" r="7" fill="#a06a16"/>
+    <text x="24" y="100" font-family="monospace" font-size="12" fill="#102228">ENTITY MATCH</text>
+    <text x="24" y="154" font-family="monospace" font-size="12" fill="#102228">HOLDER MISMATCH</text>
+    <text x="24" y="208" font-family="monospace" font-size="12" fill="#102228">MODEL NOT FOUND</text>
+    <text x="24" y="305" font-family="Georgia, serif" font-size="33" fill="#102228">Evidence, not</text>
+    <text x="24" y="337" font-family="Georgia, serif" font-size="33" fill="#102228">a black-box score.</text>
+  </g>
+  <text x="76" y="540" font-family="Arial, sans-serif" font-weight="700" font-size="28" fill="#102228">ZimonAI 智蒙灣</text>
+</svg>
