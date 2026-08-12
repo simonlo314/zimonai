@@ -42,12 +42,6 @@ await writeFile(
 );
 
 await writeFile(
-  path.join(dist, '_redirects'),
-  'https://www.zimonai.com/* https://zimonai.com/:splat 301\n',
-  'utf8'
-);
-
-await writeFile(
   path.join(dist, '_headers'),
   `/*
   X-Content-Type-Options: nosniff
