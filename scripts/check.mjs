@@ -97,6 +97,7 @@ for (const file of files) {
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicateIds.length) errors.push(`${label}: duplicate IDs ${[...new Set(duplicateIds)].join(', ')}`);
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    if (/\/assets\//.test(match[1]) && !/\?v=[a-f0-9]{12}$/.test(match[1])) errors.push(`${label}: asset URL is not versioned ${match[1]}`);
     const target = localTarget(match[1]);
     if (!target) continue;
     try { await access(target); } catch { errors.push(`${label}: broken local reference ${match[1]}`); }

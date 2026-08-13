@@ -1,4 +1,5 @@
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { languages, pages } from '../src/content.mjs';
@@ -6,17 +7,44 @@ import { renderPage } from '../src/template.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
+const sourceAssets = path.join(root, 'src', 'assets');
+
+async function collectFiles(directory, relative = '') {
+  const entries = (await readdir(path.join(directory, relative), { withFileTypes: true }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const files = [];
+  for (const entry of entries) {
+    const child = path.join(relative, entry.name);
+    if (entry.isDirectory()) files.push(...await collectFiles(directory, child));
+    else if (entry.isFile()) files.push(child);
+  }
+  return files;
+}
+
+const assetHash = createHash('sha256');
+for (const file of await collectFiles(sourceAssets)) {
+  assetHash.update(file);
+  assetHash.update(await readFile(path.join(sourceAssets, file)));
+}
+const assetVersion = assetHash.digest('hex').slice(0, 12);
+
+function versionAssetUrls(html) {
+  return html.replace(
+    /((?:https:\/\/zimonai\.com)?\/assets\/[^"'?\s<>]+)(?:\?[^"'\s<>]*)?/g,
+    `$1?v=${assetVersion}`
+  );
+}
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(path.join(dist, 'assets'), { recursive: true });
-await cp(path.join(root, 'src', 'assets'), path.join(dist, 'assets'), { recursive: true });
+await cp(sourceAssets, path.join(dist, 'assets'), { recursive: true });
 
 for (const [langKey, lang] of Object.entries(languages)) {
   for (const page of pages) {
     const segments = [lang.prefix, page.slug].filter(Boolean);
     const pageDir = path.join(dist, ...segments);
     await mkdir(pageDir, { recursive: true });
-    await writeFile(path.join(pageDir, 'index.html'), renderPage(langKey, page.id), 'utf8');
+    await writeFile(path.join(pageDir, 'index.html'), versionAssetUrls(renderPage(langKey, page.id)), 'utf8');
   }
 }
 
@@ -56,7 +84,7 @@ await writeFile(
 );
 
 const notFound = await readFile(path.join(root, 'src', '404.html'), 'utf8');
-await writeFile(path.join(dist, '404.html'), notFound, 'utf8');
+await writeFile(path.join(dist, '404.html'), versionAssetUrls(notFound), 'utf8');
 
 const totalHtml = (await readdir(dist, { recursive: true })).filter((file) => file.endsWith('.html')).length;
-console.log(`Built ${totalHtml} HTML pages in ${dist}`);
+console.log(`Built ${totalHtml} HTML pages in ${dist} (assets ${assetVersion})`);
