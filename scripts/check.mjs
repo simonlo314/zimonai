@@ -15,6 +15,9 @@ const sourceContent = await readFile(path.join(root, 'src', 'content.mjs'), 'utf
 const sourceTemplate = await readFile(path.join(root, 'src', 'template.mjs'), 'utf8');
 const sourceCss = await readFile(path.join(root, 'src', 'assets', 'site.css'), 'utf8');
 const sourcePolicy = await readFile(path.join(root, 'CONTENT_AND_LOCALIZATION.md'), 'utf8');
+const sourceJs = await readFile(path.join(root, 'src', 'assets', 'site.js'), 'utf8');
+const analyticsFunction = await readFile(path.join(root, 'functions', 'api', 'analytics.js'), 'utf8');
+const wranglerConfig = await readFile(path.join(root, 'wrangler.jsonc'), 'utf8');
 
 for (const [label, pattern] of [
   ['locale inheritance', /\.\.\.\s*languages\s*\[/],
@@ -127,6 +130,11 @@ for (const contact of ['+86 19575746458', '+886 988307998', 'simon3141229', 'lo1
 for (const phrase of ['One category only', '我們專精充電器與電源電子供應鏈', '我们专注充电器与电源电子供应链', 'Full Managed Sourcing Verification']) {
   if (!joined.includes(phrase)) errors.push(`site output missing approved category or service content: ${phrase}`);
 }
+for (const event of ['page_view', 'session_start', 'contact_click', 'tier_select', 'request_draft']) {
+  if (!sourceJs.includes(`'${event}'`) || !analyticsFunction.includes(`'${event}'`)) errors.push(`analytics event is not wired end to end: ${event}`);
+}
+if (!sourceJs.includes("navigator.doNotTrack !== '1'") || !analyticsFunction.includes("request.headers.get('DNT') === '1'")) errors.push('analytics privacy opt-out is incomplete');
+if (!wranglerConfig.includes('"binding": "ANALYTICS_DB"')) errors.push('Cloudflare analytics database binding is missing');
 
 if (errors.length) {
   console.error(`Checks failed (${errors.length})`);

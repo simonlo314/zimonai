@@ -2,5 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "zimonai",
   "pages_build_output_dir": "./dist",
-  "compatibility_date": "2026-08-12"
+  "compatibility_date": "2026-08-12",
+  "d1_databases": [
+    {
+      "binding": "ANALYTICS_DB",
+      "database_name": "zimonai-analytics",
+      "database_id": "4eac9daf-cb82-4016-a8cf-4d656e8a1100"
+    }
+  ]
 }

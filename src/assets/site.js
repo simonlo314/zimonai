@@ -1,5 +1,39 @@
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const analyticsEnabled = (location.hostname === 'zimonai.com' || location.hostname === 'www.zimonai.com')
+  && navigator.doNotTrack !== '1'
+  && navigator.globalPrivacyControl !== true;
+
+function analyticsDevice() {
+  if (window.matchMedia('(max-width: 640px)').matches) return 'mobile';
+  if (window.matchMedia('(max-width: 1024px)').matches) return 'tablet';
+  return 'desktop';
+}
+
+function trackAnalytics(event, target = '') {
+  if (!analyticsEnabled || !navigator.sendBeacon) return;
+  const payload = JSON.stringify({
+    event,
+    target,
+    page: location.pathname,
+    referrer: document.referrer,
+    device: analyticsDevice()
+  });
+  navigator.sendBeacon('/api/analytics', new Blob([payload], { type: 'application/json' }));
+}
+
+if (analyticsEnabled) {
+  trackAnalytics('page_view');
+  try {
+    if (!sessionStorage.getItem('zimonai_analytics_session')) {
+      sessionStorage.setItem('zimonai_analytics_session', '1');
+      trackAnalytics('session_start');
+    }
+  } catch {
+    // Analytics never blocks the website when storage is unavailable.
+  }
+}
+
 const revealItems = document.querySelectorAll('.reveal');
 if (reducedMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
@@ -84,7 +118,10 @@ async function runDossier() {
   demoHasRun = true;
   demoRunning = false;
 }
-runButton?.addEventListener('click', runDossier);
+runButton?.addEventListener('click', () => {
+  trackAnalytics('demo_run', 'supplier_dossier');
+  runDossier();
+});
 
 if (dossier && !reducedMotion && 'IntersectionObserver' in window) {
   const heroObserver = new IntersectionObserver((entries, observer) => {
@@ -135,6 +172,7 @@ updateComparison();
 const demoTabs = [...document.querySelectorAll('[data-demo-tab]')];
 const demoPanels = [...document.querySelectorAll('[data-demo-panel]')];
 demoTabs.forEach((tab) => tab.addEventListener('click', () => {
+  trackAnalytics('evidence_tab', tab.dataset.demoTab || 'unknown');
   demoTabs.forEach((item) => {
     const active = item === tab;
     item.classList.toggle('is-active', active);
@@ -164,7 +202,10 @@ function selectServiceTier(id, updateUrl = false) {
   });
   if (updateUrl) history.replaceState(null, '', `#${id}`);
 }
-serviceSelectors.forEach((selector) => selector.addEventListener('click', () => selectServiceTier(selector.dataset.serviceSelect, true)));
+serviceSelectors.forEach((selector) => selector.addEventListener('click', () => {
+  trackAnalytics('tier_select', selector.dataset.serviceSelect || 'unknown');
+  selectServiceTier(selector.dataset.serviceSelect, true);
+}));
 if (serviceSelectors.length) {
   const requestedTier = location.hash.slice(1);
   selectServiceTier(serviceSelectors.some((item) => item.dataset.serviceSelect === requestedTier) ? requestedTier : serviceSelectors[0].dataset.serviceSelect);
@@ -236,7 +277,48 @@ mailForm?.addEventListener('submit', (event) => {
     ['', ''], ['Verification question', data.get('question')]
   ];
   const body = lines.map(([label, value]) => label ? `${label}: ${value || '—'}` : '').join('\n');
+  trackAnalytics('request_draft', 'email_draft');
   window.location.href = `mailto:simonlo@zimonai.com?subject=${encodeURIComponent(mailForm.dataset.mailSubject)}&body=${encodeURIComponent(body)}`;
+});
+
+document.addEventListener('click', (event) => {
+  const link = event.target.closest?.('a[href]');
+  if (!link) return;
+  const rawHref = link.getAttribute('href') || '';
+
+  if (link.closest('.lang-switch__menu')) {
+    const target = link.getAttribute('lang') || rawHref.split('/').filter(Boolean)[0] || 'en';
+    trackAnalytics('language_select', target);
+    return;
+  }
+  if (rawHref.startsWith('mailto:')) {
+    trackAnalytics('contact_click', 'email');
+    return;
+  }
+  if (rawHref.startsWith('tel:+8619575746458')) {
+    trackAnalytics('contact_click', 'china_phone');
+    return;
+  }
+  if (rawHref.startsWith('tel:+886988307998')) {
+    trackAnalytics('contact_click', 'taiwan_phone');
+    return;
+  }
+
+  let url;
+  try { url = new URL(link.href, location.href); } catch { return; }
+  const tier = url.hash.match(/^#(t[1-6])$/)?.[1];
+  if (tier && /\/services\/$/.test(url.pathname)) {
+    trackAnalytics('tier_select', tier);
+    return;
+  }
+  if (/\/request-verification\/$/.test(url.pathname)) {
+    trackAnalytics('cta_click', 'discuss_requirement');
+    return;
+  }
+  if (link.closest('[data-nav]')) {
+    const section = url.pathname.split('/').filter(Boolean).pop() || 'home';
+    trackAnalytics('nav_click', section);
+  }
 });
 
 const transition = document.createElement('div');

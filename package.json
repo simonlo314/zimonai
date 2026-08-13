@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
-    "serve": "node scripts/serve.mjs"
+    "serve": "node scripts/serve.mjs",
+    "analytics:weekly": "node scripts/weekly-analytics.mjs"
   }
 }
