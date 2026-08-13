@@ -35,13 +35,14 @@ if (layoutMode('zh-tw') !== 'cjk' || layoutMode('zh-cn') !== 'cjk' || layoutMode
 for (const hook of ['html[lang="zh-Hant"]', 'html[lang="zh-Hans"]', 'html[data-layout="cjk"]']) {
   if (!sourceCss.includes(hook)) errors.push(`CSS missing language layout hook ${hook}`);
 }
+if (/font-size:\s*(?:8|9|10|11)px/.test(sourceCss)) errors.push('CSS contains public text below the 12px readability floor');
 if (!sourcePolicy.includes('Traditional and Simplified Chinese are separate editorial versions')) errors.push('content policy does not preserve independent Chinese writing');
 if (brandProfile.office.address !== brandProfile.registration.registeredAddressZhHans) errors.push('approved reception address differs from registered address');
 if (brandProfile.office.photos.length < 3) errors.push('approved reception-area photo set is incomplete');
 for (const photo of brandProfile.office.photos) {
   if (!distFiles.includes(photo.src.replace(/^\//, ''))) errors.push(`approved reception photo missing: ${photo.src}`);
 }
-if ('creditCode' in brandProfile.registration) errors.push('full registration identifier must not be stored in the public brand profile');
+if (brandProfile.registration.creditCode !== '91440300MAK8J4881W') errors.push('owner-approved public registration identifier is missing or incorrect');
 if (!distFiles.includes('assets/zimonai-business-license-public.jpg')) errors.push('public business licence excerpt missing');
 if (distFiles.some((file) => /\.pdf$/i.test(file))) errors.push('raw PDF must not be included in the public build');
 
@@ -55,7 +56,7 @@ function localTarget(raw) {
 
 const requiredSections = {
   'index.html': ['decision-ledger', 'operating-record', 'source-index'],
-  'services/index.html': ['service-intake', 'tier-sequence', 'deliverable-anatomy'],
+  'services/index.html': ['service-staircase', 'service-tier-select', 'service-tier-panel', 'report-promises'],
   'methodology/index.html': ['source-registry', 'report-anatomy'],
   'scope-limitations/index.html': ['decision-guide', 'accreditation'],
   'about/index.html': ['business-record', 'registration-evidence', 'office-evidence']
@@ -110,12 +111,21 @@ const forbidden = [
   ['local host', /(?:localhost|127\.0\.0\.1)/i],
   ['temporary Cloudflare host', /(?:pages\.dev|workers\.dev)/i],
   ['fake testimonial section', /testimonial|what users say|trusted by pro/i],
-  ['old business positioning', /AI Hardware Safety Diagnostics|Diagnostic Accuracy|Devices Audited|Certified Profiles/i]
+  ['old business positioning', /AI Hardware Safety Diagnostics|Diagnostic Accuracy|Devices Audited|Certified Profiles/i],
+  ['withdrawn sourcing exclusion', /不幫你找廠|不帮你找厂|do not source for you/i],
+  ['withdrawn regional restriction', /現場查核限華南|现场核查限华南|Shenzhen, Dongguan, Huizhou, Guangzhou or/i],
+  ['withdrawn quality exclusion', /不是產品品質檢驗|不是产品质量检验|not a product quality inspection/i]
 ];
 for (const [name, pattern] of forbidden) if (pattern.test(joined)) errors.push(`site output contains ${name}`);
 for (const phrase of ['shared office', '共享辦公', '共享办公']) if (joined.toLowerCase().includes(phrase)) errors.push(`site output contains unapproved public wording: ${phrase}`);
 if (!joined.includes('simonlo@zimonai.com')) errors.push('formal email missing');
 if (!joined.includes('19575746458')) errors.push('formal phone missing');
+for (const contact of ['+86 19575746458', '+886 988307998', 'simon3141229', 'lo17v1']) {
+  if (!joined.includes(contact)) errors.push(`approved contact missing: ${contact}`);
+}
+for (const phrase of ['One category only', '我們專精充電器與電源電子供應鏈', '我们专注充电器与电源电子供应链', 'Full Managed Sourcing Verification']) {
+  if (!joined.includes(phrase)) errors.push(`site output missing approved category or service content: ${phrase}`);
+}
 
 if (errors.length) {
   console.error(`Checks failed (${errors.length})`);

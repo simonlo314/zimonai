@@ -30,6 +30,24 @@ function arrow() {
   return '<svg class="icon-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M3 10h13M11 5l5 5-5 5"/></svg>';
 }
 
+function approvedContacts(t) {
+  return [
+    { label: t.common.email, value: brandProfile.email, href: `mailto:${brandProfile.email}` },
+    { label: t.common.chinaPhone, value: brandProfile.contacts.chinaPhone.display, href: `tel:${brandProfile.contacts.chinaPhone.href}` },
+    { label: t.common.taiwanPhone, value: brandProfile.contacts.taiwanPhone.display, href: `tel:${brandProfile.contacts.taiwanPhone.href}` },
+    { label: t.common.wechat, value: brandProfile.contacts.wechat },
+    { label: t.common.line, value: brandProfile.contacts.line }
+  ];
+}
+
+function requestContactList(t) {
+  return `<div class="contact-list">${approvedContacts(t).map((item) => `<div class="contact-line"><span>${esc(item.label)}</span>${item.href ? `<a href="${esc(item.href)}"><strong>${esc(item.value)}</strong>${arrow()}</a>` : `<strong>${esc(item.value)}</strong>`}</div>`).join('')}</div>`;
+}
+
+function footerContactList(t) {
+  return `<dl class="footer-contact">${approvedContacts(t).map((item) => `<div><dt>${esc(item.label)}</dt><dd>${item.href ? `<a href="${esc(item.href)}">${esc(item.value)}</a>` : esc(item.value)}</dd></div>`).join('')}</dl>`;
+}
+
 function pageHeader(kicker, title, lead) {
   return `<header class="page-hero shell">
     <p class="kicker reveal">${esc(kicker)}</p>
@@ -62,6 +80,7 @@ function home(t) {
       <div class="hero__copy">
         <p class="kicker">${esc(t.home.kicker)}</p>
         <h1 id="hero-title">${esc(t.home.title)}</h1>
+        <p class="hero__category-line">${esc(t.home.categoryLine)}</p>
         <p class="hero__lead">${esc(t.home.lead)}</p>
         <div class="hero__actions">
           <a class="button button--ink magnetic" href="${pathFor(t.__key, 'request')}">${esc(t.home.primary)}${arrow()}</a>
@@ -96,6 +115,16 @@ function home(t) {
           <span class="scan-button__beam" aria-hidden="true"></span><span data-run-label>${esc(t.home.dossier.run)}</span>
         </button>
         <p class="dossier__announcement" data-demo-announcement>${esc(t.home.dossier.running)}</p>
+      </div>
+    </section>
+
+    <section class="category-focus" aria-labelledby="category-focus-title">
+      <div class="shell category-focus__inner reveal">
+        <div class="category-focus__heading"><p class="kicker">${esc(t.home.category.label)}</p><h2 id="category-focus-title">${esc(t.home.category.title)}</h2></div>
+        <div class="category-focus__body">
+          <ul class="category-focus__products">${t.home.category.products.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>
+          <p class="category-focus__statement">${esc(t.home.category.statement)}</p>
+        </div>
       </div>
     </section>
 
@@ -170,12 +199,10 @@ function home(t) {
 
     <section class="services-preview shell" aria-labelledby="services-title">
       <div class="section-heading reveal"><p class="kicker">${esc(t.nav.services)}</p><h2 id="services-title">${esc(t.services.title)}</h2></div>
-      ${[t.home.service1, t.home.service2].map((service, index) => `<article class="service-ledger reveal">
-        <div class="service-ledger__tier"><span>${esc(service.tier)}</span><span>0${index + 1}</span></div>
-        <div><h3>${esc(service.title)}</h3><p>${esc(service.text)}</p><ul class="service-ledger__mini">${service.mini.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></div>
-        <div class="service-ledger__price"><strong>${esc(service.price)}</strong><span>${esc(service.unit)}</span></div>
-        <div class="service-ledger__time">${esc(service.time)}</div>
-      </article>`).join('')}
+      <div class="service-rungs">${t.services.catalog.map((service, index) => `<a class="service-rung reveal" href="${pathFor(t.__key, 'services')}#${service.id}">
+        <span class="service-rung__level">${esc(service.label)}</span><span class="service-rung__step">0${index + 1}</span>
+        <h3>${esc(service.title)}</h3><p>${esc(service.summary)}</p><strong>${esc(service.price)}</strong>
+      </a>`).join('')}</div>
       <a class="text-link reveal" href="${pathFor(t.__key, 'services')}">${esc(t.nav.services)}${arrow()}</a>
     </section>
 
@@ -200,19 +227,27 @@ function home(t) {
 }
 
 function services(t) {
-  const tier = (data, index) => `<article class="tier-detail reveal">
-    <header><span class="tier-detail__index">0${index}</span><p class="kicker">${esc(data.label)}</p><h2>${esc(data.title)}</h2><p class="tier-detail__best">${esc(data.best)}</p></header>
-    <div class="tier-detail__commercial"><strong>${esc(data.price)}</strong><span>${esc(data.time)}</span></div>
-    <div class="tier-detail__list"><span class="file-label">${esc(t.ui.inScope)}</span><ul>${data.includes.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></div>
-    <div class="tier-sequence">${data.sequence.map(([label, text]) => `<div><strong>${esc(label)}</strong><p>${esc(text)}</p></div>`).join('')}</div>
-    <footer><span class="file-label">${esc(t.ui.deliverable)}</span><p>${esc(data.output)}</p></footer>
-  </article>`;
+  const panels = t.services.catalog.map((service, index) => `<article class="service-tier-panel${index === 0 ? ' is-active' : ''}" id="${service.id}" data-service-panel="${service.id}" role="tabpanel" aria-labelledby="select-${service.id}" ${index === 0 ? '' : 'hidden'}>
+    <header class="service-tier-panel__header">
+      <div><p class="kicker">${esc(service.label)} · ${esc(service.englishTitle)}</p><h2>${esc(service.title)}</h2><p>${esc(service.summary)}</p></div>
+      <dl><div><dt>${esc(t.services.labels.price)}</dt><dd>${esc(service.price)}</dd></div><div><dt>${esc(t.services.labels.timing)}</dt><dd>${esc(service.timing)}</dd></div><div><dt>${esc(t.services.labels.mode)}</dt><dd>${esc(service.mode)}</dd></div></dl>
+    </header>
+    ${service.upgrade ? `<p class="service-tier-panel__upgrade"><span>+</span>${esc(service.upgrade)}</p>` : ''}
+    <div class="service-tier-panel__work">${service.groups.map((group) => `<section><h3>${esc(group.title)}</h3><ul>${group.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></section>`).join('')}</div>
+    ${service.note ? `<aside class="service-tier-panel__note"><strong>${esc(t.services.labels.important)}</strong><p>${esc(service.note)}</p></aside>` : ''}
+    <div class="service-tier-panel__boundary">
+      <div><span class="file-label">${esc(t.services.labels.notIncluded)}</span><p>${esc(service.notIncluded)}</p></div>
+      <div><span class="file-label">${esc(t.services.labels.consent)}</span><strong>${esc(service.consent)}</strong></div>
+    </div>
+    <footer><span class="file-label">${esc(t.services.labels.fit)}</span><p>${esc(service.fit)}</p>${service.delivery ? `<div><span class="file-label">${esc(t.ui.deliverable)}</span><p>${esc(service.delivery)}</p></div>` : ''}</footer>
+  </article>`).join('');
   return `<main id="main">${pageHeader(t.services.kicker, t.services.title, t.services.lead)}
-    <section class="service-intake shell reveal"><div><p class="kicker">${esc(t.services.prepare.label)}</p><h2>${esc(t.services.prepare.title)}</h2><p>${esc(t.services.prepare.lead)}</p></div><ul>${t.services.prepare.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></section>
-    <section class="tier-stack shell">${tier(t.services.tier1, 1)}${tier(t.services.tier2, 2)}</section>
-    <section class="deliverable-anatomy shell" aria-labelledby="deliverables-title"><div class="section-heading section-heading--dense reveal"><p class="kicker">${esc(t.services.deliverables.label)}</p><h2 id="deliverables-title">${esc(t.services.deliverables.title)}</h2><p>${esc(t.services.pricingNote)}</p></div><div class="deliverable-anatomy__grid">${t.services.deliverables.items.map(([title, text], index) => `<article class="deliverable-item reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div></section>
-    <section class="custom-scope shell reveal"><p class="kicker">${esc(t.services.custom.label)}</p><h2>${esc(t.services.custom.title)}</h2><p>${esc(t.services.custom.text)}</p></section>
-    <section class="not-included shell reveal"><div><span class="boundary-symbol" aria-hidden="true">×</span><h2>${esc(t.services.notIncluded.title)}</h2></div><ul>${t.services.notIncluded.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></section>
+    <section class="service-staircase shell" data-service-staircase>
+      <div class="service-staircase__intro reveal"><p class="kicker">${esc(t.services.staircase.label)}</p><h2>${esc(t.services.staircase.title)}</h2><p>${esc(t.services.staircase.lead)}</p></div>
+      <div class="service-staircase__selectors" role="tablist" aria-label="${esc(t.services.staircase.title)}">${t.services.catalog.map((service, index) => `<button id="select-${service.id}" type="button" role="tab" aria-controls="${service.id}" aria-selected="${index === 0}" class="service-tier-select${index === 0 ? ' is-active' : ''}" data-service-select="${service.id}"><span>${esc(service.label)}</span><strong>${esc(service.title)}</strong><small>${esc(service.price)}</small></button>`).join('')}</div>
+      <div class="service-staircase__panels">${panels}</div>
+    </section>
+    <section class="report-promises" aria-labelledby="report-promises-title"><div class="shell"><header class="report-promises__header reveal"><p class="kicker">${esc(t.services.promises.label)}</p><h2 id="report-promises-title">${esc(t.services.promises.title)}</h2><p>${esc(t.services.promises.lead)}</p></header><div class="report-promises__grid">${t.services.promises.items.map(([title, text], index) => `<article class="report-promise reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div></div></section>
     ${cta(t, t.services.ctaTitle, t.services.ctaText)}</main>`;
 }
 
@@ -248,7 +283,7 @@ function scope(t) {
     <section class="scope-split shell reveal"><article><span class="scope-split__symbol">+</span><h2>${esc(t.scope.doTitle)}</h2><ul>${t.scope.doItems.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></article><article><span class="scope-split__symbol">−</span><h2>${esc(t.scope.dontTitle)}</h2><ul>${t.scope.dontItems.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></article></section>
     <section class="limit-ledger shell"><div class="section-heading reveal"><p class="kicker">${esc(t.scope.limitsTitle)}</p><h2>${esc(t.scope.limitsTitle)}</h2></div>${t.scope.limits.map(([title, text], index) => `<article class="limit-row reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</section>
     <section class="decision-guide shell" aria-labelledby="decision-guide-title"><div class="section-heading section-heading--dense reveal"><p class="kicker">${esc(t.scope.decisionGuide.label)}</p><h2 id="decision-guide-title">${esc(t.scope.decisionGuide.title)}</h2></div><div class="decision-guide__rows">${t.scope.decisionGuide.items.map(([question, provider]) => `<article class="decision-guide__row reveal"><h3>${esc(question)}</h3><strong>${esc(provider)}</strong></article>`).join('')}</div></section>
-    <section class="accreditation shell reveal"><div class="accreditation__mark">NO<br>SEAL</div><div><p class="kicker">${esc(t.scope.accreditationTitle)}</p><h2>${esc(t.scope.accreditationTitle)}</h2><p>${esc(t.scope.accreditationText)}</p></div></section>
+    <section class="accreditation shell reveal"><div class="accreditation__mark">${esc(t.scope.accreditationMark)}</div><div><p class="kicker">${esc(t.scope.accreditationTitle)}</p><h2>${esc(t.scope.accreditationTitle)}</h2><p>${esc(t.scope.accreditationText)}</p></div></section>
     ${cta(t, t.scope.ctaTitle, t.scope.ctaText)}</main>`;
 }
 
@@ -271,7 +306,7 @@ function about(t) {
       <p class="registration-evidence__disclosure"><span aria-hidden="true">!</span>${esc(t.about.registration.disclosure)}</p>
     </div>
     <figure class="registration-evidence__document reveal">
-      <div class="registration-evidence__frame" data-public-excerpt="${esc(t.about.registration.publicExcerpt)}"><img src="${esc(registration.publicAsset)}" alt="${esc(t.about.registration.imageAlt)}" width="1600" height="766" loading="lazy"></div>
+      <div class="registration-evidence__frame" data-public-excerpt="${esc(t.about.registration.publicExcerpt)}"><img src="${esc(registration.publicAsset)}" alt="${esc(t.about.registration.imageAlt)}" width="1800" height="1273" loading="lazy"></div>
       <figcaption>${esc(t.about.registration.caption)}</figcaption>
     </figure>
   </section>`;
@@ -309,7 +344,7 @@ function request(t) {
         <p class="form-note">${esc(t.request.after)}</p><p class="form-error" data-form-error role="alert"></p>
       </form>
       <aside class="request-aside reveal">
-        <div><p class="kicker">${esc(t.request.directTitle)}</p><h2>${esc(t.request.directTitle)}</h2><p>${esc(t.request.directText)}</p><a class="contact-line" href="mailto:${esc(brandProfile.email)}">${esc(brandProfile.email)}${arrow()}</a><a class="contact-line" href="tel:${esc(brandProfile.phone)}">${esc(brandProfile.phone)}${arrow()}</a></div>
+        <div><p class="kicker">${esc(t.request.directTitle)}</p><h2>${esc(t.request.directTitle)}</h2><p>${esc(t.request.directText)}</p>${requestContactList(t)}</div>
         <div><p class="kicker">${esc(t.request.responseTitle)}</p><ol>${t.request.responseSteps.map((item, index) => `<li><span>0${index + 1}</span>${esc(item)}</li>`).join('')}</ol></div>
       </aside>
     </section>
@@ -326,7 +361,7 @@ function header(t, pageId) {
   const nav = [['services', t.nav.services], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
   return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header" data-header>
     <div class="site-header__inner">
-      <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI home"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M7 9h28L9 33h26"/><circle cx="31" cy="11" r="3"/></svg><span>ZimonAI<small>智蒙灣</small></span></a>
+      <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI home"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M7 9h28L9 33h26"/><circle cx="31" cy="11" r="3"/></svg><span>ZimonAI<small>智蒙灣</small></span><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-nav-toggle><span>${esc(t.nav.menu)}</span><i></i><i></i></button>
       <nav class="site-nav" id="main-nav" data-nav>
         ${nav.map(([id, label]) => `<a href="${pathFor(t.__key, id)}" ${pageId === id ? `aria-current="page"` : ''}>${esc(label)}</a>`).join('')}
@@ -338,7 +373,7 @@ function header(t, pageId) {
 }
 
 function footer(t) {
-  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M7 9h28L9 33h26"/><circle cx="31" cy="11" r="3"/></svg><span>ZimonAI<small>智蒙灣</small></span></a><p>${esc(t.common.footerLine)}</p></div><div class="footer-contact"><a href="mailto:${esc(brandProfile.email)}">${esc(brandProfile.email)}</a><a href="tel:${esc(brandProfile.phone)}">${esc(brandProfile.phone)}</a></div></div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
+  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M7 9h28L9 33h26"/><circle cx="31" cy="11" r="3"/></svg><span>ZimonAI<small>智蒙灣</small></span></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
 }
 
 export function renderPage(langKey, pageId) {
@@ -352,7 +387,8 @@ export function renderPage(langKey, pageId) {
     name: pageId === 'home' ? 'ZimonAI 智蒙灣' : t.meta.titles[pageId],
     url: canonical,
     email: pageId === 'home' ? brandProfile.email : undefined,
-    telephone: pageId === 'home' ? brandProfile.phone : undefined,
+    telephone: pageId === 'home' ? brandProfile.contacts.chinaPhone.display : undefined,
+    contactPoint: pageId === 'home' ? [brandProfile.contacts.chinaPhone, brandProfile.contacts.taiwanPhone].map((phone) => ({ '@type': 'ContactPoint', telephone: phone.display, contactType: 'customer service' })) : undefined,
     description: t.meta.descriptions[pageId],
     areaServed: pageId === 'home' ? brandProfile.operatingBases : undefined
   };
@@ -364,6 +400,7 @@ export function renderPage(langKey, pageId) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(t.meta.titles[pageId])}</title>
   <meta name="description" content="${esc(t.meta.descriptions[pageId])}">
+  <meta name="keywords" content="charger supplier verification, power bank factory audit, GaN charger sourcing, FCC ID verification, UL certificate check, Shenzhen charger manufacturer, power adapter supplier due diligence">
   <link rel="canonical" href="${canonical}">
   ${alternates}
   <link rel="alternate" hreflang="x-default" href="https://zimonai.com${pathFor('en', pageId)}">

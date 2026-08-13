@@ -1,21 +1,28 @@
 // Single source of truth for approved operational facts. Registration details
 // come from the business licence supplied by ZimonAI. The owner has confirmed
 // that the registered address is also the customer-reception address. Do not
-// add an office image, social account or unapproved registration identifier.
+// add an office image, social account or registration identifier unless it is
+// recorded here as owner-approved. The contact channels below were supplied
+// and approved by the owner on 13 August 2026.
 export const brandProfile = {
   name: 'ZimonAI 智蒙灣',
   domain: 'https://zimonai.com',
   email: 'simonlo@zimonai.com',
-  phone: '19575746458',
-  operatingModel: 'Founder-led, buyer-funded supplier verification',
-  operatingBases: ['Taipei', 'Shenzhen / South China'],
-  onSiteAreas: ['Shenzhen', 'Dongguan', 'Huizhou', 'Guangzhou', 'Nearby serviceable areas'],
+  contacts: {
+    chinaPhone: { display: '+86 19575746458', href: '+8619575746458' },
+    taiwanPhone: { display: '+886 988307998', href: '+886988307998' },
+    wechat: 'simon3141229',
+    line: 'lo17v1'
+  },
+  operatingModel: 'Client-paid charger and power electronics supplier services',
+  operatingBases: ['Taipei', 'Shenzhen'],
   registration: {
     legalNameZhHans: '深圳智蒙湾科技有限公司',
     legalRepresentativeZhHant: '羅亦斈',
     legalRepresentativeZhHans: '罗亦斈',
     entityTypeZhHans: '有限责任公司（港澳台自然人独资）',
     established: '2026-03-03',
+    creditCode: '91440300MAK8J4881W',
     registeredAddressZhHans: '深圳市前海深港合作区南山街道怡海大道1167号海运中心口岸楼0701号-A032',
     publicAsset: '/assets/zimonai-business-license-public.jpg'
   },

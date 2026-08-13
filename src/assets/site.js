@@ -147,6 +147,30 @@ demoTabs.forEach((tab) => tab.addEventListener('click', () => {
   });
 }));
 
+const serviceSelectors = [...document.querySelectorAll('[data-service-select]')];
+const servicePanels = [...document.querySelectorAll('[data-service-panel]')];
+function selectServiceTier(id, updateUrl = false) {
+  if (!serviceSelectors.some((item) => item.dataset.serviceSelect === id)) return;
+  serviceSelectors.forEach((item) => {
+    const active = item.dataset.serviceSelect === id;
+    item.classList.toggle('is-active', active);
+    item.setAttribute('aria-selected', String(active));
+    item.tabIndex = active ? 0 : -1;
+  });
+  servicePanels.forEach((panel) => {
+    const active = panel.dataset.servicePanel === id;
+    panel.hidden = !active;
+    panel.classList.toggle('is-active', active);
+  });
+  if (updateUrl) history.replaceState(null, '', `#${id}`);
+}
+serviceSelectors.forEach((selector) => selector.addEventListener('click', () => selectServiceTier(selector.dataset.serviceSelect, true)));
+if (serviceSelectors.length) {
+  const requestedTier = location.hash.slice(1);
+  selectServiceTier(serviceSelectors.some((item) => item.dataset.serviceSelect === requestedTier) ? requestedTier : serviceSelectors[0].dataset.serviceSelect);
+  window.addEventListener('hashchange', () => selectServiceTier(location.hash.slice(1)));
+}
+
 const methodNodes = [...document.querySelectorAll('[data-method-node]')];
 const methodFields = {
   check: document.querySelector('[data-method-check]'),

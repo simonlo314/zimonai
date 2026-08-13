@@ -7,13 +7,22 @@ These rules are part of the website implementation, not optional writing advice.
 - Add operational detail only when it is supported by ZimonAI's real service scope.
 - Never create client counts, testimonials, cases, credentials, partners, team members, office photos, addresses or business registrations.
 - Demonstration records must remain visibly fictional.
-- Registration details may be published only from a supplied, verified source. Public derivatives must omit unnecessary identifiers such as the unified social credit code and QR code.
+- Registration details may be published only from a supplied, verified source. A complete licence image may be published only after the owner explicitly approves full public display; the current ZimonAI licence has that approval.
+- The full unified social credit code may be published only after explicit owner approval. The current code and footer placement have that approval.
 - A registered address may be described as a reception address only after the owner explicitly confirms that use. The current Shenzhen address has that approval.
 - Office address and photographs are published only through `src/brand-profile.mjs` after the owner supplies and approves them. Address approval does not automatically approve photographs.
 
 ## Information density
 
 Every commercial page should answer concrete buyer questions: who the service is for, what the buyer sends, what is checked, what the buyer receives, how long it takes, what it costs and where the conclusion stops. Large headlines and interaction cannot substitute for these answers.
+
+## Approved category and service architecture
+
+- Public positioning is limited to chargers, power adapters, power banks, GaN fast chargers and their upstream components.
+- The service catalogue is a T1–T6 staircase. A higher tier inherits the work named in the lower tier and adds the stated access or execution.
+- Every tier must visibly state what it excludes and whether supplier consent is required.
+- Never invent a business-model exclusion. ZimonAI may search for and recommend suppliers, perform agreed quality work and manage verification across a sourcing process. Exact inclusions are defined by the selected tier and assignment.
+- Taipei and Shenzhen are the operating bases. Do not publish a fixed list of serviceable cities or imply that all work is limited to South China.
 
 ## Chinese is independently written
 
@@ -25,6 +34,7 @@ Every commercial page should answer concrete buyer questions: who the service is
 ## Chinese typography
 
 - CJK pages use language-specific font stacks, tighter title scale, larger paragraph line-height and a shorter reading measure.
+- Public interface text has a 12px minimum. Section eyebrows and field labels use the shared 13–14px type tokens; the evidence aesthetic must come from typeface, weight and rules, not unreadably small text.
 - Do not use negative tracking on Chinese headings.
 - Use `text-autospace`, strict line breaking and natural word breaking where supported.
 - Avoid single-character orphan lines in final visual review.
