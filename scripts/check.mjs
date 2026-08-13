@@ -1,11 +1,49 @@
 import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { languages } from '../src/content.mjs';
+import { brandProfile } from '../src/brand-profile.mjs';
+import { editorialPolicy, layoutMode } from '../src/editorial-policy.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
-const files = (await readdir(dist, { recursive: true })).filter((file) => file.endsWith('.html'));
+const distFiles = await readdir(dist, { recursive: true });
+const files = distFiles.filter((file) => file.endsWith('.html'));
 const errors = [];
+
+const sourceContent = await readFile(path.join(root, 'src', 'content.mjs'), 'utf8');
+const sourceTemplate = await readFile(path.join(root, 'src', 'template.mjs'), 'utf8');
+const sourceCss = await readFile(path.join(root, 'src', 'assets', 'site.css'), 'utf8');
+const sourcePolicy = await readFile(path.join(root, 'CONTENT_AND_LOCALIZATION.md'), 'utf8');
+
+for (const [label, pattern] of [
+  ['locale inheritance', /\.\.\.\s*languages\s*\[/],
+  ['mechanical locale conversion', /\.replaceAll\s*\(/],
+  ['browser translation dependency', /translate\.google|googleTranslateElementInit/i]
+]) {
+  if (pattern.test(sourceContent)) errors.push(`content source uses forbidden ${label}`);
+}
+
+for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
+  const lang = languages[langKey];
+  if (!lang?.ui?.openEvidence || !lang?.common?.skip) errors.push(`${langKey}: incomplete localized interface labels`);
+  if (!lang?.about?.registration?.fields?.registeredAddress) errors.push(`${langKey}: registration copy is incomplete`);
+  if (!editorialPolicy[langKey]?.writingMode) errors.push(`${langKey}: editorial policy missing`);
+}
+
+if (layoutMode('zh-tw') !== 'cjk' || layoutMode('zh-cn') !== 'cjk' || layoutMode('en') !== 'latin') errors.push('language layout modes are incorrect');
+for (const hook of ['html[lang="zh-Hant"]', 'html[lang="zh-Hans"]', 'html[data-layout="cjk"]']) {
+  if (!sourceCss.includes(hook)) errors.push(`CSS missing language layout hook ${hook}`);
+}
+if (!sourcePolicy.includes('Traditional and Simplified Chinese are separate editorial versions')) errors.push('content policy does not preserve independent Chinese writing');
+if (brandProfile.office.address !== brandProfile.registration.registeredAddressZhHans) errors.push('approved reception address differs from registered address');
+if (brandProfile.office.photos.length < 3) errors.push('approved reception-area photo set is incomplete');
+for (const photo of brandProfile.office.photos) {
+  if (!distFiles.includes(photo.src.replace(/^\//, ''))) errors.push(`approved reception photo missing: ${photo.src}`);
+}
+if ('creditCode' in brandProfile.registration) errors.push('full registration identifier must not be stored in the public brand profile');
+if (!distFiles.includes('assets/zimonai-business-license-public.jpg')) errors.push('public business licence excerpt missing');
+if (distFiles.some((file) => /\.pdf$/i.test(file))) errors.push('raw PDF must not be included in the public build');
 
 function localTarget(raw) {
   if (!raw || raw.startsWith('#') || /^(https?:|mailto:|tel:|data:)/.test(raw)) return null;
@@ -13,6 +51,37 @@ function localTarget(raw) {
   if (!pathname.startsWith('/')) return null;
   if (path.extname(pathname)) return path.join(dist, pathname);
   return path.join(dist, pathname, 'index.html');
+}
+
+const requiredSections = {
+  'index.html': ['decision-ledger', 'operating-record', 'source-index'],
+  'services/index.html': ['service-intake', 'tier-sequence', 'deliverable-anatomy'],
+  'methodology/index.html': ['source-registry', 'report-anatomy'],
+  'scope-limitations/index.html': ['decision-guide', 'accreditation'],
+  'about/index.html': ['business-record', 'registration-evidence', 'office-evidence']
+};
+for (const [file, sections] of Object.entries(requiredSections)) {
+  for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
+    const html = await readFile(path.join(dist, prefix, file), 'utf8');
+    for (const section of sections) if (!html.includes(section)) errors.push(`dist/${prefix}${file}: missing required content section ${section}`);
+  }
+}
+
+for (const [prefix, htmlLang, addressLabel, openEvidence] of [
+  ['zh-tw', 'zh-Hant', '註冊暨實際接待地址', '打開證據'],
+  ['zh-cn', 'zh-Hans', '注册及实际接待地址', '查看证据']
+]) {
+  const homeHtml = await readFile(path.join(dist, prefix, 'index.html'), 'utf8');
+  const aboutHtml = await readFile(path.join(dist, prefix, 'about', 'index.html'), 'utf8');
+  if (!homeHtml.includes(`<html lang="${htmlLang}" data-page="home" data-layout="cjk">`)) errors.push(`${prefix}: missing CJK page mode`);
+  if (!homeHtml.includes(`data-cursor="${openEvidence}"`)) errors.push(`${prefix}: evidence interface is not localized`);
+  if (!aboutHtml.includes(addressLabel)) errors.push(`${prefix}: approved reception-address label missing`);
+  if (!aboutHtml.includes(brandProfile.registration.legalNameZhHans)) errors.push(`${prefix}: registered legal name missing`);
+  if (!aboutHtml.includes(brandProfile.registration.registeredAddressZhHans)) errors.push(`${prefix}: registered reception address missing`);
+  if (!aboutHtml.includes(prefix === 'zh-tw' ? '公共接待區' : '公共接待区')) errors.push(`${prefix}: public reception-area disclosure missing`);
+  for (const englishLabel of ['WHAT WE CHECK', 'WHY IT MATTERS', 'SOURCE TYPE', 'POSSIBLE RESULT', 'PUBLIC EXCERPT']) {
+    if (aboutHtml.includes(englishLabel) || homeHtml.includes(englishLabel)) errors.push(`${prefix}: untranslated interface label ${englishLabel}`);
+  }
 }
 
 for (const file of files) {
@@ -33,7 +102,7 @@ for (const file of files) {
   }
 }
 
-const allText = await Promise.all((await readdir(dist, { recursive: true })).filter((file) => /\.(html|js|css|xml|txt)$/.test(file)).map((file) => readFile(path.join(dist, file), 'utf8')));
+const allText = await Promise.all(distFiles.filter((file) => /\.(html|js|css|xml|txt)$/.test(file)).map((file) => readFile(path.join(dist, file), 'utf8')));
 const joined = allText.join('\n');
 const forbidden = [
   ['old Gmail', /slab\.stores@gmail\.com/i],
@@ -44,6 +113,7 @@ const forbidden = [
   ['old business positioning', /AI Hardware Safety Diagnostics|Diagnostic Accuracy|Devices Audited|Certified Profiles/i]
 ];
 for (const [name, pattern] of forbidden) if (pattern.test(joined)) errors.push(`site output contains ${name}`);
+for (const phrase of ['shared office', '共享辦公', '共享办公']) if (joined.toLowerCase().includes(phrase)) errors.push(`site output contains unapproved public wording: ${phrase}`);
 if (!joined.includes('simonlo@zimonai.com')) errors.push('formal email missing');
 if (!joined.includes('19575746458')) errors.push('formal phone missing');
 
@@ -52,4 +122,4 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log(`Checks passed: ${files.length} HTML pages, internal references, metadata, contact details and launch placeholders.`);
+console.log(`Checks passed: ${files.length} HTML pages, trilingual content structure, CJK layout policy, public registration evidence, internal references and launch safeguards.`);

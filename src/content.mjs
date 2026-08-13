@@ -10,101 +10,67 @@ export const pages = [
 
 export const languages = {
   en: {
-    prefix: '',
-    htmlLang: 'en',
-    locale: 'en_US',
-    short: 'EN',
-    name: 'English',
+    prefix: '', htmlLang: 'en', locale: 'en_US', short: 'EN', name: 'English',
     meta: {
-      titles: {
-        home: 'China Supplier Verification for Overseas Buyers | ZimonAI',
-        services: 'Supplier Verification Services & Pricing | ZimonAI',
-        methodology: 'Our Supplier Verification Methodology | ZimonAI',
-        scope: 'Scope & Limitations | ZimonAI',
-        about: 'About ZimonAI | China Supplier Verification',
-        request: 'Request Supplier Verification | ZimonAI',
-        privacy: 'Privacy Notice | ZimonAI'
-      },
-      descriptions: {
-        home: 'Verify a Chinese supplier before you send the money. ZimonAI checks company identities, certificates, models and supplier claims using traceable sources.',
-        services: 'Remote supplier verification from US$99–149 and scheduled on-site verification in South China from US$299–399.',
-        methodology: 'See how ZimonAI checks Chinese company records, certificate holders, model scope and supplier claims using an official-source-first method.',
-        scope: 'Understand what ZimonAI supplier verification can establish, what it cannot establish, and why verification is not a guarantee.',
-        about: 'ZimonAI is an independent supplier verification service operating between Taipei and Shenzhen / South China.',
-        request: 'Tell ZimonAI which Chinese supplier, company record, certificate or product claim you need verified.',
-        privacy: 'How ZimonAI handles information you choose to send when requesting supplier verification.'
-      }
+      titles: { home: 'China Supplier Verification for Overseas Buyers | ZimonAI', services: 'Supplier Verification Services & Pricing | ZimonAI', methodology: 'Our Supplier Verification Methodology | ZimonAI', scope: 'Scope & Limitations | ZimonAI', about: 'About ZimonAI | China Supplier Verification', request: 'Request Supplier Verification | ZimonAI', privacy: 'Privacy Notice | ZimonAI' },
+      descriptions: { home: 'Verify a Chinese supplier before you send the money. ZimonAI checks company identities, certificates, models and supplier claims using traceable sources.', services: 'See what is checked, what to send and what you receive from remote and scheduled on-site supplier verification.', methodology: 'See how ZimonAI checks Chinese company records, certificate holders, model scope and supplier claims using an official-source-first method.', scope: 'Understand what ZimonAI supplier verification can establish, what it cannot establish, and why verification is not a guarantee.', about: 'ZimonAI is a founder-led supplier verification service operating between Taipei and Shenzhen / South China.', request: 'Tell ZimonAI which Chinese supplier, company record, certificate or product claim you need verified.', privacy: 'How ZimonAI handles information you choose to send when requesting supplier verification.' }
     },
-    nav: {
-      services: 'Services', methodology: 'Methodology', scope: 'Scope & limits', about: 'About', request: 'Verify a supplier', menu: 'Menu', close: 'Close'
-    },
-    common: {
-      eyebrow: 'China supplier verification',
-      demo: 'Demonstration · Fictional supplier',
-      verified: 'Verified', unresolved: 'Unable to verify', discrepancy: 'Discrepancy found', pending: 'Pending',
-      source: 'Source', claim: 'Supplier claim', record: 'Official record', result: 'Result', queryDate: 'Query date', reference: 'Reference',
-      email: 'Email', phone: 'Phone', contact: 'Request verification', methodology: 'See how we verify',
-      independent: 'Independent from supplier commissions',
-      footerLine: 'We do not source for you. We verify who you are about to buy from.',
-      footerScope: 'Not a sourcing agent, product quality inspector, or accredited inspection body. No ISO 17020 or CNAS accreditation.',
-      privacy: 'Privacy', language: 'Language', top: 'Back to top', current: 'Current page'
-    },
+    nav: { services: 'Services', methodology: 'Methodology', scope: 'Scope & limits', about: 'About', request: 'Verify a supplier', menu: 'Menu', close: 'Close' },
+    ui: { supplierProfile: 'Supplier profile', claimedSince: 'Claimed since', certification: 'Certification', factory: 'Factory', evidencePath: 'ZM / Evidence path', compare: 'Compare', registryRecord: 'Registry / certificate record', inScope: 'In scope', deliverable: 'What you receive', whatWeCheck: 'What we check', whyItMatters: 'Why it matters', sourceType: 'Source type', possibleResult: 'Possible result', origin: 'Origin', model: 'Business model', footprint: 'Operating footprint', scale: 'Scale disclosure', operatingRecord: 'Operating record', suppliedMaterial: 'What you send', reviewWork: 'What we review', reportField: 'Report field', openEvidence: 'Open evidence' },
+    common: { skip: 'Skip to content', eyebrow: 'China supplier verification', demo: 'Demonstration · Fictional supplier', verified: 'Verified', unresolved: 'Unable to verify', discrepancy: 'Discrepancy found', pending: 'Pending', source: 'Source', claim: 'Supplier claim', record: 'Official record', result: 'Result', queryDate: 'Query date', reference: 'Reference', email: 'Email', phone: 'Phone', contact: 'Request verification', methodology: 'See how we verify', independent: 'Independent from supplier commissions', footerLine: 'We do not source for you. We verify who you are about to buy from.', footerScope: 'Not a sourcing agent, product quality inspector, or accredited inspection body. No ISO 17020 or CNAS accreditation.', privacy: 'Privacy', language: 'Language', top: 'Back to top', current: 'Current page' },
     home: {
-      kicker: 'A traceable answer before a commercial commitment',
-      title: 'Verify your Chinese supplier before you send the money.',
-      lead: 'We check company identities, certificates and supplier claims against traceable records — so you know who you are actually buying from.',
-      primary: 'Verify a supplier', secondary: 'See how we verify',
-      distinction: 'Not sourcing. Not negotiation. Not payment handling. Independent verification for overseas buyers.',
+      kicker: 'A traceable answer before a commercial commitment', title: 'Verify your Chinese supplier before you send the money.', lead: 'We check the legal entity, certificate holder, model scope and supplier claims against traceable records—then show you what matches, what does not and what remains unknown.', primary: 'Verify a supplier', secondary: 'See how we verify', distinction: 'Not sourcing. Not negotiation. Not payment handling. Buyer-funded verification for overseas importers.',
       dossier: { company: 'Lumen Harbor Devices Co., Ltd.', since: '2014', certificate: 'UL certified', factory: 'Shenzhen', run: 'Run demonstration', running: 'Cross-checking records…', done: 'Three claims checked. One discrepancy requires attention.', reset: 'Run again' },
-      checks: [
-        ['Business registration', 'Entity found', 'verified'],
-        ['Certificate holder', 'Holder differs from supplier', 'discrepancy'],
-        ['Product model scope', 'Model not located in record', 'unresolved']
-      ],
-      story: {
-        label: 'An investigation, not a score',
-        title: 'A supplier claim is only the first layer.',
-        intro: 'Scroll through the evidence path. Each step changes what can responsibly be concluded.',
-        steps: [
-          { no: '01', title: 'Start with the claim', text: 'The supplier provides a company name, certificate and product model. We preserve the exact wording instead of normalising away inconsistencies.', stage: 'claim' },
-          { no: '02', title: 'Locate the source record', text: 'We prioritise official company and certificate databases. A third-party listing may guide a search, but it is not treated as final evidence.', stage: 'source' },
-          { no: '03', title: 'Cross-check the relationships', text: 'A certificate can exist and still belong to another legal entity or exclude the quoted model. Holder, address and scope must align.', stage: 'compare' },
-          { no: '04', title: 'Report what the evidence supports', text: 'The conclusion separates verified facts, unresolved points and discrepancies. No invented confidence score hides the gaps.', stage: 'result' }
-        ]
-      },
-      compare: {
-        label: 'Evidence seam', title: 'The claim and the record look similar—until the fields are aligned.',
-        hint: 'Drag to compare the fictional supplier claim with the demonstration record.',
-        leftTitle: 'Supplier claim', rightTitle: 'What the record shows',
-        left: ['Established: 2014', 'Certificate holder: Lumen Harbor Devices', 'Model: LH-65W'],
-        right: ['Registered: 2023', 'Certificate holder: Lumen Harbor Trading', 'Model scope: LH-45W only'],
-        conclusion: 'Discrepancy found: entity history, holder name and model scope do not align.'
-      },
-      why: { label: 'Why ZimonAI', title: 'Transparent verification for buyers without a China research desk.', text: 'Chinese company names, certificate systems and official databases are difficult to navigate across languages. ZimonAI turns that research into an evidence-led report you can review and question.' },
-      service1: { tier: 'Tier 1', title: 'Remote Supplier Verification', price: 'US$99–149', unit: 'per supplier', time: 'About 3 business days', text: 'Company identity, status, certificate holder and model-scope checks using traceable records.' },
-      service2: { tier: 'Tier 2', title: 'On-site Verification', price: 'US$299–399', unit: 'per supplier', time: 'About 5–7 business days', text: 'A scheduled, transparent visit in serviceable parts of South China to confirm address and basic operating presence.' },
-      demoTitle: 'Open a fictional evidence file.', demoLead: 'Choose a claim to see how source, record and result are separated. This is a product demonstration, not a live database search or client case.',
+      checks: [['Business registration', 'Entity found', 'verified'], ['Certificate holder', 'Holder differs from supplier', 'discrepancy'], ['Product model scope', 'Model not located in record', 'unresolved']],
+      decision: { label: 'When buyers use ZimonAI', title: 'The useful moment is before money, inventory or trust is committed.', lead: 'A verification request starts with a real buying decision—not a generic risk score.', items: [
+        ['Before a first order', 'Confirm the Chinese legal entity behind the English trading name and supplier page.', 'Identity, status and registration details'],
+        ['Before paying a deposit', 'Check whether a supplied certificate belongs to the same company and covers the quoted model.', 'Holder, status and model scope'],
+        ['When documents conflict', 'Put company names, dates, addresses and certificate records side by side.', 'A clear discrepancy trail']
+      ] },
+      story: { label: 'An investigation, not a score', title: 'A supplier claim is only the first layer.', intro: 'The work moves from the exact claim to the source record, then through relationship checks before a conclusion is written.', steps: [
+        { no: '01', title: 'Preserve the exact claim', text: 'We keep the company name, certificate number, model and address as supplied. Small differences are evidence; they are not cleaned away.', stage: 'claim' },
+        { no: '02', title: 'Locate a traceable record', text: 'Official registries and issuer-controlled databases come first. Marketplace pages and aggregators may guide a search, but they are not final proof.', stage: 'source' },
+        { no: '03', title: 'Test the relationships', text: 'A certificate can be genuine and still belong to another entity or exclude the quoted model. Holder, address, dates and scope must align.', stage: 'compare' },
+        { no: '04', title: 'Write only what the evidence supports', text: 'The report separates verified facts, unresolved points and discrepancies. No invented confidence score hides a missing record.', stage: 'result' }
+      ] },
+      compare: { label: 'Evidence seam', title: 'The claim and the record look similar—until each field is aligned.', hint: 'Drag to compare a fictional supplier claim with the demonstration record.', leftTitle: 'Supplier claim', rightTitle: 'What the record shows', left: ['Established: 2014', 'Certificate holder: Lumen Harbor Devices', 'Model: LH-65W'], right: ['Registered: 2023', 'Certificate holder: Lumen Harbor Trading', 'Model scope: LH-45W only'], conclusion: 'Discrepancy found: entity history, holder name and model scope do not align.' },
+      why: { label: 'Why ZimonAI', title: 'A China research desk for buyers who do not have one in-house.', text: 'Chinese legal names, registration records and certification systems rarely line up neatly with an English supplier profile. ZimonAI translates that research into a report the buyer can read, question and use in a purchasing decision.' },
+      operating: { label: 'ZimonAI operating record', title: 'Specific by design, small by disclosure.', lead: 'These are operating facts—not invented scale signals.', facts: [
+        ['Client side', 'The overseas buyer is the client; ZimonAI does not represent the supplier.'],
+        ['Payment independence', 'No supplier commission, sourcing fee, kickback or handled purchase funds.'],
+        ['Working footprint', 'Research between Taipei and Shenzhen; scheduled visits in serviceable South China areas.'],
+        ['Conclusion system', 'Every checked claim ends as Verified, Unable to Verify or Discrepancy Found.']
+      ] },
+      service1: { tier: 'Tier 1', title: 'Remote Supplier Verification', price: 'US$99–149', unit: 'per supplier', time: 'About 3 business days', text: 'Legal entity, company status, certificate holder, model scope and cross-record inconsistencies—documented with traceable evidence where available.', mini: ['Company identity', 'Certificate holder', 'Model scope', 'Evidence summary'] },
+      service2: { tier: 'Tier 2', title: 'Scheduled On-site Verification', price: 'US$299–399', unit: 'per supplier', time: 'About 5–7 business days', text: 'A transparent, pre-arranged visit in Shenzhen, Dongguan, Huizhou, Guangzhou or a nearby serviceable area to confirm address and observable operating presence.', mini: ['Appointment', 'Address visit', 'Signage check', 'Factual field notes'] },
+      sources: { label: 'Source index', title: 'The source depends on the claim.', lead: 'We choose sources by the exact company, certificate, model and market claim submitted. Availability and public access vary.', items: [
+        ['Chinese company records', 'Legal name, unified social credit code, status, establishment date and registered address.'],
+        ['CNCA and certification records', 'Certificate existence, status, issuing body and holder where records are available.'],
+        ['Issuer-controlled systems', 'Product and model records such as UL Product iQ when relevant to the submitted claim.'],
+        ['Market-specific official sources', 'FCC, EU NANDO, Japanese or other official systems when the product claim requires them.']
+      ] },
+      demoTitle: 'Open a fictional evidence file.', demoLead: 'Choose a claim to see how source, record and result are separated. This is a product demonstration—not a live database search or client case.',
       demoTabs: [
         { id: 'identity', label: 'Company identity', source: 'Official company registry', claim: 'Lumen Harbor Devices Co., Ltd.', record: 'Legal entity located; registration status active.', result: 'verified', note: 'The submitted Chinese legal name matches the located entity.' },
-        { id: 'registration', label: 'Business registration', source: 'Official company registry', claim: 'Operating since 2014', record: 'Date of establishment: 18 March 2023.', result: 'discrepancy', note: 'The claimed operating history is not supported by the located registration record.' },
+        { id: 'registration', label: 'Business registration', source: 'Official company registry', claim: 'Operating since 2014', record: 'Date of establishment: 18 March 2023.', result: 'discrepancy', note: 'The located registration record does not support the claimed operating history.' },
         { id: 'certificate', label: 'UL certificate', source: 'Certification database', claim: 'Certificate belongs to supplier', record: 'Record located under Lumen Harbor Trading Co., Ltd.', result: 'discrepancy', note: 'A certificate exists, but the holder name does not match the supplier legal entity.' },
         { id: 'model', label: 'Product model', source: 'Certificate model scope', claim: 'LH-65W is covered', record: 'Listed models: LH-30W and LH-45W.', result: 'unresolved', note: 'The submitted model could not be located within the record reviewed.' },
         { id: 'address', label: 'Factory address', source: 'Registration and supplied documents', claim: 'Factory in Shenzhen', record: 'Registered address located; manufacturing activity requires on-site confirmation.', result: 'unresolved', note: 'A registered address alone does not establish factory activity.' }
       ],
-      limitsTitle: 'We also tell you what we cannot verify.', limitsText: 'A valid record does not guarantee future behaviour, product quality, shipment conformity or commercial performance. Clear limits are part of the report—not fine print.',
-      finalTitle: 'Have a supplier claim you need checked?', finalText: 'Send the company name, link, certificate or product model. We will tell you what can be checked and which tier fits before work begins.'
+      limitsTitle: 'We also tell you what we cannot verify.', limitsText: 'A valid record does not guarantee future behaviour, product quality, shipment conformity or commercial performance. Clear limits are part of the report—not fine print.', finalTitle: 'Have a supplier claim you need checked?', finalText: 'Send the company name, link, certificate or product model. We will tell you what can be checked and which tier fits before work begins.'
     },
     services: {
-      kicker: 'Services and pricing', title: 'Two verification tiers. A clear boundary around each.', lead: 'Choose remote evidence research or add a scheduled on-site visit. We confirm the scope before work begins.',
-      tier1: { label: 'Tier 1', title: 'Remote Supplier Verification', price: 'US$99–149 / supplier', time: 'About 3 business days', best: 'Best for buyers who need to check a supplier before a first order, deposit or renewed commercial commitment.', includes: ['Chinese legal entity identity and company status', 'Company registration cross-checks', 'Certificate existence and holder verification', 'Product or model scope checks where records allow', 'Obvious inconsistencies across supplied and official information', 'Evidence links, screenshots or source records where appropriate'], output: 'A concise evidence-led report separating verified facts, unresolved points and discrepancies.' },
-      tier2: { label: 'Tier 2', title: 'On-site Verification', price: 'US$299–399 / supplier', time: 'About 5–7 business days', best: 'Best when a buyer needs basic confirmation that a stated address and operating presence can be observed in person.', includes: ['Scope confirmation and appointment with the supplier', 'Visit to a serviceable supplier address', 'Basic observation of operating presence', 'Cross-check of company name, signage and address', 'Factual notes and agreed visual records where appropriate', 'Remote record checks relevant to the visit'], output: 'A scheduled, transparent verification visit in Shenzhen, Dongguan, Huizhou, Guangzhou and nearby serviceable areas.' },
-      custom: { label: 'Outside the standard tiers', title: 'Custom verification, assessed case by case.', text: 'If your question does not fit Tier 1 or Tier 2, describe it first. We will only accept work that can be delivered responsibly; no unpriced Tier 3–6 capabilities are implied.' },
+      kicker: 'Services and pricing', title: 'Know exactly what goes in, what gets checked and what comes back.', lead: 'Two services cover the work ZimonAI currently sells. Scope, price and delivery timing are confirmed before work begins.',
+      prepare: { label: 'Before we quote', title: 'Send the material already in your buying conversation.', lead: 'You do not need a perfect file. More precise inputs make the scope clearer.', items: ['Supplier trading name and Chinese legal name, if known', 'Supplier website, Alibaba page or other profile link', 'Product name and exact model number', 'Certificate image, number or database link', 'Factory or office address being claimed', 'The decision and deadline the verification needs to support'] },
+      tier1: { label: 'Tier 1', title: 'Remote Supplier Verification', price: 'US$99–149 / supplier', time: 'About 3 business days', best: 'For a buyer preparing a first order, deposit or renewed commitment who needs to identify the counterparty and test specific documentary claims.', includes: ['Locate and match the Chinese legal entity', 'Review company status, establishment date and registered address', 'Check certificate existence, status and holder where records allow', 'Check whether the quoted model appears in available certificate scope', 'Align legal names, dates, addresses, holders and models across records', 'Flag missing evidence and material inconsistencies'], output: 'A structured report with a scope summary, company identity record, evidence matrix, three-state conclusions, source references and explicit limitations.', sequence: [['1 · Intake', 'Freeze the exact names, numbers, links and claims to be checked.'], ['2 · Source search', 'Locate the most authoritative accessible record for each claim.'], ['3 · Cross-check', 'Compare entity, holder, address, dates and product scope.'], ['4 · Report', 'Pair every conclusion with the record and the limit behind it.']] },
+      tier2: { label: 'Tier 2', title: 'Scheduled On-site Verification', price: 'US$299–399 / supplier', time: 'About 5–7 business days', best: 'For a buyer who needs to know whether the stated South China address exists and whether basic operating activity can be observed there.', includes: ['Confirm scope and arrange the visit with the supplier', 'Travel to a serviceable supplier address', 'Compare company name, entrance, signage and stated address', 'Observe basic operating presence visible during the agreed visit', 'Create factual notes and agreed visual records where appropriate', 'Link field observations back to relevant remote records'], output: 'A transparent scheduled visit record for Shenzhen, Dongguan, Huizhou, Guangzhou or a nearby serviceable area. It is not a surprise inspection or product quality audit.', sequence: [['1 · Appointment', 'The supplier knows about and agrees to the visit.'], ['2 · Address check', 'The stated location, company name and visible signage are compared.'], ['3 · Observation', 'Only facts visible within the agreed scope are recorded.'], ['4 · Field record', 'Remote records and on-site observations are separated in the report.']] },
+      deliverables: { label: 'Report structure', title: 'What a verification report is built to contain.', items: [['Scope', 'The exact company, certificate, model, address and question reviewed.'], ['Identity', 'The Chinese legal entity and located company-record fields.'], ['Evidence matrix', 'Supplier claim beside the source record and query date.'], ['Three-state result', 'Verified, Unable to Verify or Discrepancy Found for each claim.'], ['Source appendix', 'Links, screenshots or source records where appropriate and accessible.'], ['Limits and next step', 'What the evidence cannot establish and what further check may be needed.']] },
+      custom: { label: 'Outside the standard tiers', title: 'Custom verification is assessed case by case.', text: 'If the question does not fit Tier 1 or Tier 2, describe it first. ZimonAI accepts only work that can be delivered responsibly; no unpriced Tier 3–6 capability is implied.' },
       notIncluded: { title: 'Not included in either tier', items: ['Supplier sourcing or introductions', 'Negotiation or purchase management', 'Handling deposits or supplier payments', 'Product quality inspection or laboratory testing', 'Guarantees of future behaviour or shipment conformity', 'Secret, undercover or unannounced investigations'] },
-      ctaTitle: 'Not sure which tier fits?', ctaText: 'Send the supplier and the decision you are trying to make. Scope comes before payment.'
+      pricingNote: 'The final price within the published range is confirmed after the submitted claims and available records are reviewed. No work starts before you agree to the scope, price and delivery timing.', ctaTitle: 'Not sure which tier fits?', ctaText: 'Send the supplier and the decision you are trying to make. Scope comes before payment.'
     },
     methodology: {
-      kicker: 'Methodology', title: 'From claim to conclusion, without hiding the gaps.', lead: 'Our method is official-source-first, explainable and limited to what the evidence can support.',
-      mapTitle: 'Explore the verification path', mapLead: 'Select each step to see what is checked, why it matters and what kind of result it can produce.',
+      kicker: 'Methodology', title: 'A conclusion should be traceable back to the claim and the record.', lead: 'ZimonAI uses an official-source-first method and stops the conclusion where the available evidence stops.', mapTitle: 'Explore the verification path', mapLead: 'Select each step to see what is checked, why it matters, which source type is used and what result can follow.',
       nodes: [
         { id: 'intake', label: 'Supplier claim', check: 'Names, links, certificates, models and stated addresses exactly as submitted.', why: 'Small spelling, entity and model differences can change the result.', source: 'Buyer and supplier materials', results: 'Starting point—not a conclusion' },
         { id: 'registry', label: 'Company registry', check: 'Chinese legal name, unified social credit code, status, establishment date and registered address.', why: 'A trading name or English name may not identify the legal counterparty.', source: 'Official Chinese company records', results: 'Verified / unable to verify / discrepancy' },
@@ -114,192 +80,199 @@ export const languages = {
         { id: 'crosscheck', label: 'Cross-check', check: 'Names, dates, addresses and model details aligned across all located records.', why: 'Contradictions often appear only when sources are placed side by side.', source: 'Evidence matrix', results: 'Consistent / unresolved / discrepancy' },
         { id: 'report', label: 'Evidence report', check: 'Each conclusion paired with source, query date, evidence and limitation.', why: 'The buyer should be able to understand and challenge the reasoning.', source: 'ZimonAI analysis', results: 'Verified / unable to verify / discrepancy found' }
       ],
-      sourcesTitle: 'Official-source-first does not mean official-source-only.', sourcesText: 'We prioritise official registries, regulators, accreditation and certification databases. Supplier documents and third-party sources can provide leads or context, but they are labelled according to evidential weight and are not silently upgraded into proof.',
-      statusesTitle: 'Three results, not a black-box score', statusText: ['Verified — the located evidence supports the specific statement reviewed.', 'Unable to verify — available sources do not support a responsible conclusion.', 'Discrepancy found — the supplier claim and located record conflict in a material field.'],
-      handlingTitle: 'Evidence handling', handlingText: 'Reports identify the source type and query date and may include links, screenshots or source records where appropriate. Database availability and access can change, so the report describes what was accessible at the time of review.'
+      sourceRegistry: { label: 'Source families', title: 'Sources are selected by the claim—not by what is easiest to screenshot.', items: [['Company identity', 'Official Chinese enterprise and credit records', 'Legal existence and status do not guarantee performance.'], ['Chinese certification', 'CNCA, accreditation or issuer-controlled records', 'Availability and public detail differ by scheme.'], ['Product listing', 'UL Product iQ or another issuer-controlled product system', 'A listed certificate may cover only named models and ratings.'], ['Market claim', 'FCC, EU NANDO, Japanese or other official sources', 'Used only when relevant to the submitted market claim.']] },
+      sourcesTitle: 'Official-source-first does not mean official-source-only.', sourcesText: 'Supplier documents and third-party sources can provide leads or context. They are labelled according to evidential weight and are never silently upgraded into proof.', statusesTitle: 'Three results, not a black-box score', statusText: ['Verified — located evidence supports the specific statement reviewed.', 'Unable to verify — accessible sources do not support a responsible conclusion.', 'Discrepancy found — the supplier claim and located record conflict in a material field.'], handlingTitle: 'Evidence handling', handlingText: 'Reports identify source type and query date and may include links, screenshots or source records where appropriate. Database access changes, so the report states what was available when the query was made.',
+      reportAnatomy: { label: 'Anatomy of a conclusion', title: 'Every result needs five visible parts.', items: [['Claim', 'The supplier wording or document field being tested.'], ['Source', 'The registry, regulator or issuer-controlled system consulted.'], ['Record', 'The field or entry actually located.'], ['Reasoning', 'Why the record supports, fails to support or conflicts with the claim.'], ['Limit', 'What this check still cannot prove.']] }
     },
     scope: {
-      kicker: 'Scope and limitations', title: 'Verification reduces uncertainty. It does not eliminate risk.', lead: 'A trustworthy verification service should say where its conclusion stops.',
-      doTitle: 'What we do', doItems: ['Check identifiable company and certificate records', 'Cross-check legal names, holders, models and addresses', 'Separate evidence from supplier statements', 'Explain gaps and conflicting records', 'Conduct scheduled on-site verification where serviceable'],
-      dontTitle: 'What we do not do', dontItems: ['Source suppliers or make introductions', 'Negotiate prices or commercial terms', 'Handle orders, deposits or supplier payments', 'Accept supplier commissions or kickbacks', 'Perform product quality inspection or laboratory testing', 'Conduct secret, undercover or unannounced investigations'],
-      limitsTitle: 'Limits of verification', limits: [
-        ['A real company is not a guaranteed supplier', 'Registration can establish legal existence and status; it cannot guarantee future conduct, delivery or solvency.'],
-        ['A genuine certificate is not a blanket product guarantee', 'A record may apply only to a holder, model, rating, site or period. It does not prove every shipped unit conforms.'],
-        ['An address is not automatically a factory', 'A registered or visited address does not by itself establish manufacturing ownership, capacity or product quality.'],
-        ['Records have time and access limits', 'Databases can change, be unavailable or omit information. Conclusions relate to the records accessible at the stated query time.'],
-        ['On-site verification is transparent', 'Visits are scheduled and conducted with the supplier’s knowledge and consent. They are not covert investigations.']
-      ],
-      accreditationTitle: 'Accreditation disclosure', accreditationText: 'ZimonAI is not an accredited inspection body and does not hold ISO 17020 or CNAS accreditation. The service is supplier information verification—not accredited product inspection, certification or conformity assessment.',
-      ctaTitle: 'Need product inspection instead?', ctaText: 'We will say so. If your decision requires sampling, laboratory testing, pre-shipment inspection or accredited conformity assessment, ZimonAI verification is not a substitute.'
+      kicker: 'Scope and limitations', title: 'Verification reduces uncertainty. It does not eliminate risk.', lead: 'A credible service tells the buyer where the conclusion stops, not only what was found.', doTitle: 'What we do', doItems: ['Check identifiable company and certificate records', 'Cross-check legal names, holders, models and addresses', 'Separate evidence from supplier statements', 'Explain gaps and conflicting records', 'Conduct scheduled on-site verification where serviceable'], dontTitle: 'What we do not do', dontItems: ['Source suppliers or make introductions', 'Negotiate prices or commercial terms', 'Handle orders, deposits or supplier payments', 'Accept supplier commissions or kickbacks', 'Perform product quality inspection or laboratory testing', 'Conduct secret, undercover or unannounced investigations'],
+      limitsTitle: 'Limits of verification', limits: [['A real company is not a guaranteed supplier', 'Registration can establish legal existence and status; it cannot guarantee future conduct, delivery or solvency.'], ['A genuine certificate is not a blanket product guarantee', 'A record may apply only to a holder, model, rating, site or period. It does not prove every shipped unit conforms.'], ['An address is not automatically a factory', 'A registered or visited address does not by itself establish manufacturing ownership, capacity or product quality.'], ['Records have time and access limits', 'Databases can change, be unavailable or omit information. Conclusions relate to records accessible at the stated query time.'], ['On-site verification is transparent', 'Visits are scheduled and conducted with the supplier’s knowledge and consent. They are not covert investigations.']],
+      decisionGuide: { label: 'Choose the right check', title: 'Some questions need a different specialist.', items: [['Who is the legal counterparty?', 'ZimonAI remote verification'], ['Does this certificate belong to this entity and model?', 'ZimonAI remote verification'], ['Does the stated South China address show operating activity?', 'ZimonAI scheduled on-site verification'], ['Does the shipment meet specifications?', 'Product inspection provider'], ['Does the product pass laboratory requirements?', 'Qualified laboratory or conformity specialist']] },
+      accreditationTitle: 'Accreditation disclosure', accreditationText: 'ZimonAI is not an accredited inspection body and does not hold ISO 17020 or CNAS accreditation. The service is supplier information verification—not accredited product inspection, certification or conformity assessment.', ctaTitle: 'Need product inspection instead?', ctaText: 'We will say so. If the decision requires sampling, laboratory testing, pre-shipment inspection or accredited conformity assessment, ZimonAI verification is not a substitute.'
     },
     about: {
-      kicker: 'About ZimonAI', title: 'Built for buyers who need evidence—not a sales intermediary.', lead: 'ZimonAI is an independent, founder-led supplier verification service operating between Taipei and Shenzhen / South China.',
-      originTitle: 'Why this service exists', originText: 'Overseas buyers often receive an English company name, a certificate image and a persuasive supplier profile—but lack the Chinese-language context and database familiarity to connect those pieces. ZimonAI exists to make that verification legible.',
-      modelTitle: 'Independent by design', modelText: 'We do not represent Chinese suppliers, earn supplier commissions, negotiate orders or handle payments. The buyer is the client. This separation keeps the verification question distinct from the incentive to close a purchase.',
-      footprintTitle: 'Taipei analysis. South China execution.', footprintText: 'Remote research can be conducted across applicable Chinese company and certificate sources. Scheduled on-site verification is limited to serviceable areas around Shenzhen, Dongguan, Huizhou, Guangzhou and nearby locations.',
-      scaleTitle: 'A focused, founder-led practice', scaleText: 'ZimonAI is currently a one-person company. The website does not imply a global team, inspection network or laboratory. Work is scoped case by case so that accepted assignments can be delivered responsibly.',
-      principles: [['Explain the conclusion', 'Show what was checked, where it was checked and what remains unresolved.'], ['Prefer traceable sources', 'Use official or issuer-controlled records first when they are available.'], ['State the boundary', 'Do not turn absence of evidence into certainty or verification into a guarantee.']],
-      ctaTitle: 'Bring one supplier and one decision.', ctaText: 'We will start by identifying which claims can be checked and which service tier fits.'
+      kicker: 'About ZimonAI', title: 'A focused verification practice built around the buyer’s question.', lead: 'ZimonAI 智蒙灣 is founder-led and works between Taipei and Shenzhen / South China. The buyer—not the supplier—is the client.',
+      originTitle: 'Why this service exists', originText: 'An overseas buyer may receive an English trading name, a certificate image, a factory address and a polished marketplace page. The difficult part is connecting those claims to Chinese legal names and the right official or issuer-controlled record. ZimonAI exists to do that work clearly.',
+      modelTitle: 'Independent by design', modelText: 'ZimonAI does not represent Chinese suppliers, collect supplier commissions, negotiate orders or handle purchase funds. Verification remains separate from the incentive to close a transaction.',
+      footprintTitle: 'Taipei analysis. South China execution.', footprintText: 'Remote research covers applicable Chinese company and certificate sources. Scheduled on-site work is limited to Shenzhen, Dongguan, Huizhou, Guangzhou and nearby serviceable areas.',
+      scaleTitle: 'Founder-led, with no invented scale', scaleText: 'ZimonAI is currently a one-person company. It does not claim a global inspection network, laboratory, large field team or hundreds of clients. Each assignment is accepted only after its scope can be delivered responsibly.',
+      record: { title: 'Operating facts', items: [['Business type', 'Independent supplier information verification'], ['Primary client', 'Overseas small buyers, e-commerce sellers and importers'], ['Commercial independence', 'Buyer-funded; no supplier commission or kickback'], ['Remote work', 'Chinese company, certificate and product-record research'], ['Scheduled field work', 'Serviceable areas in Shenzhen and surrounding South China'], ['Report logic', 'Verified / Unable to Verify / Discrepancy Found']] },
+      registration: { label: 'Business registration', stamp: 'Registered · Shenzhen', publicExcerpt: 'Public excerpt', title: 'A registered Shenzhen entity, shown with the limits intact.', lead: 'The details below are taken from the business licence supplied by ZimonAI. The Chinese legal name is reproduced exactly as registered.', fields: { legalName: 'Registered legal name', legalRepresentative: 'Legal representative', entityType: 'Entity type', established: 'Established', registeredAddress: 'Registered & reception address' }, entityType: 'Limited liability company (solely owned by a Hong Kong, Macao or Taiwan natural person)', established: '3 March 2026', imageAlt: 'Public excerpt of the business licence for Shenzhen ZimonAI legal entity', caption: 'Public website excerpt of the business licence. The unified social credit code and QR code are intentionally omitted.', disclosure: 'ZimonAI has confirmed that the address shown is both its registered address and customer-reception address. Photographs of the public reception areas appear below.' },
+      office: { label: 'Shenzhen reception space', title: 'A real place to meet—not a stock photograph.', lead: 'These photographs show the public reception and meeting areas available to customers at ZimonAI’s registered and reception address.', addressLabel: 'Registered & reception address', disclosure: 'The photographs document the public areas where visitors can be received. They are not presented as private rooms.', photos: { lounge: { alt: 'Public customer lounge at ZimonAI’s Shenzhen reception address', caption: 'Public reception lounge and waiting area' }, meeting: { alt: 'Public meeting area at ZimonAI’s Shenzhen reception address', caption: 'Meeting area available for customer conversations and document review' }, reception: { alt: 'Reception desk at ZimonAI’s Shenzhen reception address', caption: 'Reception desk and entrance area' } } },
+      principles: [['Explain the conclusion', 'Show what was checked, where it was checked and what remains unresolved.'], ['Prefer traceable sources', 'Use official or issuer-controlled records first when available.'], ['State the boundary', 'Do not turn absence of evidence into certainty or verification into a guarantee.']],
+      ctaTitle: 'Bring one supplier and one decision.', ctaText: 'ZimonAI will first identify which claims can be checked and which service tier fits.'
     },
     request: {
-      kicker: 'Request verification', title: 'Tell us who you are about to buy from.', lead: 'Share what you already have. We will review the request and reply with scope, tier and next steps before work begins.',
-      honest: 'This form does not upload data to a server. It opens a prepared email in your mail app so you can review and send it directly to ZimonAI.',
-      fields: { name: 'Your name', email: 'Your email', company: 'Your company (optional)', supplier: 'Supplier name', url: 'Supplier website / Alibaba URL (optional)', chinese: 'Chinese company name, if known (optional)', product: 'Product', question: 'What do you want verified?', consent: 'I understand this opens an email draft and no information is uploaded by this website.', send: 'Open email draft', required: 'Required' },
-      placeholders: { name: 'Alex Morgan', email: 'alex@company.com', company: 'Northline Goods', supplier: 'Supplier trading or legal name', url: 'https://…', chinese: '深圳市…有限公司', product: '65W USB-C charger', question: 'For example: verify the company identity, certificate holder and whether model X is within scope.' },
-      after: 'Attach certificate files or supplier documents in your email app after the draft opens.',
-      directTitle: 'Prefer to write directly?', directText: 'Email the supplier name, link, product and your verification question. Please do not send payment card information or unnecessary identity documents.',
-      responseTitle: 'What happens next', responseSteps: ['We review whether the question can be answered responsibly.', 'We confirm Tier 1, Tier 2 or a case-by-case scope and quote.', 'Work begins only after scope, price and delivery timing are agreed.']
+      kicker: 'Request verification', title: 'Tell us who you are about to buy from.', lead: 'Share the documents and links already in the buying conversation. ZimonAI reviews the request before confirming scope, price or timing.', honest: 'This form does not upload data to a server. It opens a prepared email in your mail app so you can review and send it directly to ZimonAI.', fields: { name: 'Your name', email: 'Your email', company: 'Your company (optional)', supplier: 'Supplier name', url: 'Supplier website / Alibaba URL (optional)', chinese: 'Chinese company name, if known (optional)', product: 'Product', question: 'What do you want verified?', consent: 'I understand this opens an email draft and no information is uploaded by this website.', send: 'Open email draft', required: 'Required' }, placeholders: { name: 'Alex Morgan', email: 'alex@company.com', company: 'Northline Goods', supplier: 'Supplier trading or legal name', url: 'https://…', chinese: '深圳市…有限公司', product: '65W USB-C charger', question: 'For example: verify the company identity, certificate holder and whether model X is within scope.' }, after: 'Attach certificate files or supplier documents in your email app after the draft opens.', directTitle: 'Prefer to write directly?', directText: 'Include the supplier name, link, product, exact model, certificate number and the decision this check needs to support. Do not send payment-card data or unnecessary identity documents.', responseTitle: 'What happens next', responseSteps: ['ZimonAI reviews whether the question can be answered responsibly.', 'You receive a proposed Tier 1, Tier 2 or case-by-case scope and quote.', 'Work begins only after scope, price and delivery timing are agreed.']
     },
-    privacy: {
-      kicker: 'Privacy notice', title: 'A minimal-data website by design.', lead: 'Effective 12 August 2026. This notice explains how information is handled on the ZimonAI website.',
-      sections: [
-        ['Website use', 'The public website does not use advertising cookies, behavioural tracking or account registration. Standard infrastructure logs may be processed by the hosting provider for security and reliable delivery.'],
-        ['Request form', 'The request form creates an email draft on your device. The website does not upload or store the entered fields. Information is transmitted only when you choose to send the email through your email provider.'],
-        ['Information you email', 'If you contact ZimonAI, the message and attachments are used to assess or deliver the requested service, respond to you and maintain necessary business records. Do not send information that is not needed for the verification request.'],
-        ['Sharing', 'Information is not sold. It may be shared only with service providers needed to communicate or deliver an agreed assignment, when you direct us to do so, or when required by law.'],
-        ['Retention and requests', 'Business correspondence is retained only as reasonably needed for the request, service delivery, records and legal obligations. Contact ZimonAI to ask about access, correction or deletion where applicable.'],
-        ['Contact', 'Privacy questions can be sent to simonlo@zimonai.com.']
-      ]
-    }
+    privacy: { kicker: 'Privacy notice', title: 'A minimal-data website by design.', lead: 'Effective 12 August 2026. This notice explains how information is handled on the ZimonAI website.', sections: [['Website use', 'The public website does not use advertising cookies, behavioural tracking or account registration. Standard infrastructure logs may be processed by the hosting provider for security and reliable delivery.'], ['Request form', 'The request form creates an email draft on your device. The website does not upload or store the entered fields. Information is transmitted only when you choose to send the email through your email provider.'], ['Information you email', 'If you contact ZimonAI, the message and attachments are used to assess or deliver the requested service, respond to you and maintain necessary business records. Do not send information that is not needed for the verification request.'], ['Sharing', 'Information is not sold. It may be shared only with service providers needed to communicate or deliver an agreed assignment, when you direct us to do so, or when required by law.'], ['Retention and requests', 'Business correspondence is retained only as reasonably needed for the request, service delivery, records and legal obligations. Contact ZimonAI to ask about access, correction or deletion where applicable.'], ['Contact', 'Privacy questions can be sent to simonlo@zimonai.com.']] }
   },
 
   'zh-tw': {
     prefix: 'zh-tw', htmlLang: 'zh-Hant', locale: 'zh_TW', short: '繁', name: '繁體中文',
     meta: {
-      titles: { home: '中國供應商核查服務｜ZimonAI 智蒙灣', services: '供應商核查服務與價格｜ZimonAI 智蒙灣', methodology: '供應商核查方法｜ZimonAI 智蒙灣', scope: '服務範圍與限制｜ZimonAI 智蒙灣', about: '關於 ZimonAI 智蒙灣', request: '申請供應商核查｜ZimonAI 智蒙灣', privacy: '隱私聲明｜ZimonAI 智蒙灣' },
-      descriptions: { home: '匯款前先查清楚中國供應商。ZimonAI 智蒙灣透過可追溯來源核對公司身分、證書、型號與供應商宣稱。', services: '遠端供應商核查每家 US$99–149；華南預約現場核驗每家 US$299–399。', methodology: '了解 ZimonAI 如何以官方來源優先的方法核對中國公司資料、證書持有人、型號範圍與供應商宣稱。', scope: '了解供應商核查能證實什麼、不能證實什麼，以及為什麼核查不等於保證。', about: 'ZimonAI 智蒙灣是一個往返台北與深圳／華南的獨立供應商核查服務。', request: '告訴 ZimonAI 你需要核查的中國供應商、公司資料、證書或產品宣稱。', privacy: 'ZimonAI 如何處理你在申請供應商核查時選擇提供的資訊。' }
+      titles: { home: '中國供應商查核服務｜ZimonAI 智蒙灣', services: '供應商查核服務與價格｜ZimonAI 智蒙灣', methodology: '供應商查核方法｜ZimonAI 智蒙灣', scope: '服務範圍與限制｜ZimonAI 智蒙灣', about: '關於 ZimonAI 智蒙灣', request: '申請供應商查核｜ZimonAI 智蒙灣', privacy: '隱私聲明｜ZimonAI 智蒙灣' },
+      descriptions: { home: '匯款前，先查清楚中國供應商。ZimonAI 智蒙灣從公司登記、證書持有人與產品型號著手，整理可追溯的查核結果。', services: '了解遠端供應商查核與華南預約現場查核：需要提供什麼、實際查什麼，以及最後會拿到什麼。', methodology: '了解 ZimonAI 如何優先查找官方或發證機構資料，核對中國公司、證書持有人、型號範圍與供應商說法。', scope: '供應商查核能回答哪些問題、不能證明哪些事情，以及何時應改找驗貨或實驗室服務。', about: 'ZimonAI 智蒙灣由創辦人直接負責，工作往返台北與深圳／華南。', request: '把供應商名稱、連結、證書與產品型號寄給 ZimonAI，先確認可查範圍與服務層級。', privacy: 'ZimonAI 如何處理你在申請供應商查核時主動提供的資料。' }
     },
-    nav: { services: '服務', methodology: '核查方法', scope: '範圍與限制', about: '關於', request: '核查供應商', menu: '選單', close: '關閉' },
-    common: { eyebrow: '中國供應商核查', demo: '操作示範・虛構供應商', verified: '已證實', unresolved: '無法證實', discrepancy: '發現不一致', pending: '待核查', source: '來源', claim: '供應商宣稱', record: '官方紀錄', result: '結果', queryDate: '查詢日期', reference: '參考編號', email: 'Email', phone: '電話', contact: '申請核查', methodology: '查看核查方法', independent: '不收供應商佣金，保持獨立', footerLine: '我不幫你買，我幫你查清楚你要跟誰買。', footerScope: '不是採購代理、產品品質檢驗機構或認可檢驗機構；未取得 ISO 17020 或 CNAS 認可。', privacy: '隱私', language: '語言', top: '回到頂端', current: '目前頁面' },
+    nav: { services: '服務', methodology: '查核方法', scope: '範圍與限制', about: '關於', request: '申請查核', menu: '選單', close: '關閉' },
+    ui: { supplierProfile: '供應商資料', claimedSince: '自稱成立年份', certification: '認證說法', factory: '工廠地點', evidencePath: 'ZM／證據路徑', compare: '逐欄比對', registryRecord: '登記／證書紀錄', inScope: '本次查核項目', deliverable: '你會收到什麼', whatWeCheck: '實際查什麼', whyItMatters: '為什麼要查', sourceType: '資料來源', possibleResult: '可能結果', origin: '服務起點', model: '營運模式', footprint: '工作範圍', scale: '規模揭露', operatingRecord: '營運資料', suppliedMaterial: '你提供的資料', reviewWork: '我們進行的查核', reportField: '報告欄位', openEvidence: '打開證據' },
+    common: { skip: '跳到主要內容', eyebrow: '中國供應商查核', demo: '操作示範・以下為虛構供應商', verified: '資料吻合', unresolved: '暫無法查證', discrepancy: '發現資料不符', pending: '等待查核', source: '資料來源', claim: '供應商說法', record: '查到的紀錄', result: '查核結果', queryDate: '查詢日期', reference: '參考編號', email: 'Email', phone: '電話', contact: '提出查核需求', methodology: '查看查核方法', independent: '由買家付費，不收供應商佣金', footerLine: '我不幫你買，我幫你查清楚你要跟誰買。', footerScope: '不是採購代理、產品驗貨機構或認可檢驗機構；未取得 ISO 17020 或 CNAS 認可。', privacy: '隱私', language: '語言', top: '回到頂端', current: '目前頁面' },
     home: {
-      kicker: '在商業承諾之前，先取得可追溯的答案', title: '匯款之前，先查清楚你的中國供應商。', lead: '我們透過可追溯紀錄核對公司身分、證書與供應商宣稱，讓你知道真正要向誰購買。', primary: '核查供應商', secondary: '查看核查方法', distinction: '不代採購、不議價、不經手貨款。為海外買家提供獨立核查。',
-      dossier: { company: 'Lumen Harbor Devices Co., Ltd.', since: '2014', certificate: 'UL 認證', factory: '深圳', run: '執行示範核查', running: '正在交叉比對紀錄…', done: '完成三項宣稱核查，其中一項不一致需要注意。', reset: '再次示範' },
-      checks: [['商業登記', '找到相符公司主體', 'verified'], ['證書持有人', '持有人與供應商不同', 'discrepancy'], ['產品型號範圍', '未在紀錄中找到型號', 'unresolved']],
-      story: { label: '這是一場調查，不是一個分數', title: '供應商宣稱，只是第一層。', intro: '沿著證據路徑往下滑；每一步都會改變我們能負責任下的結論。', steps: [
-        { no: '01', title: '先保留原始宣稱', text: '完整記錄供應商提供的公司名、證書與產品型號，不先把拼法或主體差異修飾掉。', stage: 'claim' },
-        { no: '02', title: '找到可複查來源', text: '優先查找官方公司與證書資料庫。第三方網站可以提供線索，但不能被當作最終證據。', stage: 'source' },
-        { no: '03', title: '交叉核對關係', text: '證書可能真的存在，卻屬於另一個法律主體，或根本不涵蓋報價型號。持有人、地址與範圍必須對得上。', stage: 'compare' },
-        { no: '04', title: '只報告證據支持的內容', text: '結論分開呈現已證實、無法證實與發現不一致；不使用虛構信心分數掩蓋資料缺口。', stage: 'result' }
+      kicker: '在訂金、訂單與信任交出去之前', title: '匯款以前，先弄清楚你要跟誰買。', lead: '我們從中國公司登記、證書持有人、產品型號與地址說法著手，把供應商提供的資料逐項放回可追溯紀錄中核對。結果會清楚標示：哪些吻合、哪些查不到、哪些彼此矛盾。', primary: '提出查核需求', secondary: '先看我們怎麼查', distinction: '不幫你找廠、不替你議價、不經手貨款。ZimonAI 只站在海外買家這一邊做資料查核。',
+      dossier: { company: 'Lumen Harbor Devices Co., Ltd.', since: '2014', certificate: '聲稱通過 UL 認證', factory: '深圳', run: '開始示範查核', running: '正在比對登記與證書紀錄…', done: '三項說法已比對，其中一項出現重要落差。', reset: '重新示範' },
+      checks: [['公司登記', '找到相符法律主體', 'verified'], ['證書持有人', '持有人不是這家供應商', 'discrepancy'], ['產品型號', '現有紀錄找不到該型號', 'unresolved']],
+      decision: { label: '什麼時候值得先查', title: '真正有用的時點，是在你把錢、貨量或信任交出去以前。', lead: '我們不替供應商打一個抽象分數；每次查核都應該對應一個真實的採購決定。', items: [['第一次下單前', '確認英文商號背後究竟是哪一個中國法律主體。', '公司身分、狀態與成立資料'], ['支付訂金前', '確認證書是不是同一家公司持有，報價型號是否真的在證書範圍內。', '證書持有人、有效狀態與型號'], ['文件互相矛盾時', '把公司名稱、日期、地址、證書與型號逐欄排在一起。', '一條看得懂、能追問的差異紀錄']] },
+      story: { label: '查核不是打分，而是把說法拆開', title: '供應商說了什麼，只是第一層。', intro: '先保留原話，再找紀錄、核對關係，最後才寫結論。每一步都要看得見。', steps: [
+        { no: '01', title: '先保留供應商原本的說法', text: '公司名、證書號、型號與地址照原樣留下。拼法不一、主體不同、年份對不上，都可能是重要線索，不能先替它修飾。', stage: 'claim' },
+        { no: '02', title: '回到能複查的資料來源', text: '優先找官方登記或發證機構控制的資料庫。商家頁面和第三方彙整網站可以提供線索，但不能直接當成證明。', stage: 'source' },
+        { no: '03', title: '把公司、證書與型號連起來', text: '證書真的存在，不代表一定屬於報價公司，也不代表涵蓋你要買的型號。持有人、地址、日期與產品範圍必須一一對上。', stage: 'compare' },
+        { no: '04', title: '證據到哪裡，結論就寫到哪裡', text: '每一項結果分成資料吻合、暫無法查證或發現資料不符。找不到的內容就直接說找不到，不用假分數掩蓋。', stage: 'result' }
       ] },
-      compare: { label: '證據接縫', title: '宣稱與紀錄看似接近，直到逐欄對齊。', hint: '拖曳比較虛構供應商宣稱與示範紀錄。', leftTitle: '供應商宣稱', rightTitle: '紀錄顯示', left: ['成立：2014 年', '證書持有人：Lumen Harbor Devices', '型號：LH-65W'], right: ['登記成立：2023 年', '證書持有人：Lumen Harbor Trading', '型號範圍：僅 LH-45W'], conclusion: '發現不一致：公司歷史、持有人名稱與型號範圍未能對齊。' },
-      why: { label: '為什麼是 ZimonAI', title: '讓沒有中國資料研究能力的小型買家，也能取得透明核查。', text: '中文公司名稱、證書系統與官方資料庫往往難以跨語言判讀。ZimonAI 把研究過程整理成你可以檢視、追問的證據報告。' },
-      service1: { tier: 'Tier 1', title: '遠端供應商核查', price: 'US$99–149', unit: '每家供應商', time: '約 3 個工作天', text: '透過可追溯紀錄核對公司身分、狀態、證書持有人與型號範圍。' },
-      service2: { tier: 'Tier 2', title: '現場核驗', price: 'US$299–399', unit: '每家供應商', time: '約 5–7 個工作天', text: '在華南可執行區域進行預約、透明的到訪，確認地址與基本營運存在。' },
-      demoTitle: '打開一份虛構證據檔案。', demoLead: '選擇一項宣稱，查看來源、紀錄與結果如何分開呈現。這是產品示範，不是即時資料庫查詢，也不是客戶案例。',
+      compare: { label: '證據比對線', title: '兩份資料乍看很像，逐欄排在一起才看得出差異。', hint: '拖曳滑桿，比較虛構供應商的說法與示範紀錄。', leftTitle: '供應商提供的說法', rightTitle: '查到的紀錄', left: ['自稱成立：2014 年', '證書持有人：Lumen Harbor Devices', '報價型號：LH-65W'], right: ['登記成立：2023 年', '證書持有人：Lumen Harbor Trading', '證書僅列：LH-45W'], conclusion: '發現資料不符：成立年份、證書持有人與型號範圍都沒有對上。' },
+      why: { label: 'ZimonAI 解決的不是搜尋，而是判讀', title: '給沒有中國資料研究人員的小型海外買家。', text: '英文商號、中文法定名稱、公司登記、證書圖片與產品型號，常常散落在不同系統裡。ZimonAI 把它們整理成一份買家看得懂、能追問，也能拿去做採購判斷的查核報告。' },
+      operating: { label: 'ZimonAI 的營運事實', title: '規模可以小，資訊不能含糊。', lead: '以下都是目前真實的工作方式，不用虛構團隊、客戶數或認證來撐場面。', facts: [['服務誰', '客戶是海外買家，不代表中國供應商，也不替供應商促成交易。'], ['誰付費', '由買家付費；不收供應商佣金、回扣，也不經手採購款項。'], ['在哪裡工作', '資料判讀往返台北與深圳；現場查核限華南可執行地區。'], ['怎麼下結論', '每一項說法只會落在「資料吻合、暫無法查證、發現資料不符」三種結果。']] },
+      service1: { tier: 'Tier 1', title: '遠端供應商查核', price: 'US$99–149', unit: '每家供應商', time: '約 3 個工作天', text: '查公司法律主體與狀態、證書持有人、型號範圍，再把各份資料的名稱、日期與地址交叉比對。', mini: ['公司身分', '證書持有人', '產品型號', '證據摘要'] },
+      service2: { tier: 'Tier 2', title: '預約現場查核', price: 'US$299–399', unit: '每家供應商', time: '約 5–7 個工作天', text: '在供應商知情並預約的情況下，前往深圳、東莞、惠州、廣州或周邊可執行地區，確認地址、招牌與現場可觀察到的基本營運情況。', mini: ['先行預約', '地址到訪', '招牌核對', '現場事實紀錄'] },
+      sources: { label: '資料來源索引', title: '要查哪個資料庫，取決於供應商提出哪一種說法。', lead: '公司、證書、型號與銷售市場不同，能查到的資料也不同。報告會標示實際使用的來源與查詢日期。', items: [['中國企業登記資料', '核對中文法定名稱、統一社會信用代碼、公司狀態、成立日期與登記地址。'], ['CNCA 與相關認證紀錄', '依公開資料查證證書是否存在、狀態、發證機構與持有人。'], ['發證機構控制的產品系統', '例如查核內容涉及 UL 時，視情況查找 UL Product iQ 等產品／型號紀錄。'], ['市場別官方系統', '產品說法涉及特定市場時，才視需要查 FCC、EU NANDO、日本或其他官方資料。']] },
+      demoTitle: '打開一份虛構供應商的證據檔案。', demoLead: '點選任一項目，就能看到「供應商怎麼說、我們去哪裡查、紀錄寫什麼、最後怎麼判斷」。以下只是服務介面示範，不是即時連線，也不是客戶案例。',
       demoTabs: [
-        { id: 'identity', label: '公司身分', source: '官方企業登記', claim: 'Lumen Harbor Devices Co., Ltd.', record: '找到法律主體，登記狀態正常。', result: 'verified', note: '提交的中文法定名稱與找到的公司主體一致。' },
-        { id: 'registration', label: '商業登記', source: '官方企業登記', claim: '自 2014 年起營運', record: '成立日期：2023 年 3 月 18 日。', result: 'discrepancy', note: '所找到的登記紀錄不支持供應商宣稱的營運歷史。' },
-        { id: 'certificate', label: 'UL 證書', source: '認證資料庫', claim: '證書屬於供應商', record: '紀錄持有人為 Lumen Harbor Trading Co., Ltd.', result: 'discrepancy', note: '證書確實存在，但持有人名稱與供應商法律主體不符。' },
-        { id: 'model', label: '產品型號', source: '證書型號範圍', claim: 'LH-65W 在涵蓋範圍內', record: '列出型號：LH-30W、LH-45W。', result: 'unresolved', note: '在已查閱紀錄內未找到提交的型號。' },
-        { id: 'address', label: '工廠地址', source: '登記紀錄與供應商文件', claim: '深圳工廠', record: '找到登記地址；是否實際製造仍需現場確認。', result: 'unresolved', note: '僅有登記地址，不能證實工廠活動。' }
+        { id: 'identity', label: '公司身分', source: '中國官方企業登記資料', claim: 'Lumen Harbor Devices Co., Ltd.', record: '找到對應法律主體，公司狀態正常。', result: 'verified', note: '供應商提供的中文法定名稱與查到的公司主體一致。' },
+        { id: 'registration', label: '成立年份', source: '中國官方企業登記資料', claim: '自 2014 年開始營運', record: '登記成立日期：2023 年 3 月 18 日。', result: 'discrepancy', note: '官方登記日期無法支持「2014 年起營運」這項說法。' },
+        { id: 'certificate', label: 'UL 證書', source: '發證機構控制的認證資料庫', claim: '這張證書屬於供應商', record: '紀錄持有人：Lumen Harbor Trading Co., Ltd.', result: 'discrepancy', note: '證書紀錄存在，但持有人名稱不是供應商的法律主體。' },
+        { id: 'model', label: '產品型號', source: '證書所列產品／型號範圍', claim: 'LH-65W 已列入證書', record: '紀錄只列出 LH-30W 與 LH-45W。', result: 'unresolved', note: '目前查到的紀錄裡沒有 LH-65W，不能把其他型號的證書直接套用。' },
+        { id: 'address', label: '工廠地址', source: '公司登記與供應商文件', claim: '深圳自有工廠', record: '找到登記地址；是否在該處製造，仍要靠現場查核。', result: 'unresolved', note: '有一個登記地址，只能證明地址資料存在，不能直接證明工廠活動。' }
       ],
-      limitsTitle: '我們也會告訴你，哪些事情無法證實。', limitsText: '有效紀錄不能保證未來行為、產品品質、出貨合規或商業履約。清楚標示限制是報告的一部分，不是藏在細則裡。', finalTitle: '手上有需要核查的供應商宣稱？', finalText: '提供公司名稱、連結、證書或產品型號。我們會在開始前告訴你哪些能查，以及適合哪個服務層級。'
+      limitsTitle: '查到真紀錄，也不代表所有風險都消失。', limitsText: '公司存在、證書有效或地址找得到，都不能保證日後履約、產品品質與每批出貨合規。把這些邊界寫清楚，是報告的一部分，不是藏在頁尾的小字。', finalTitle: '手上有一家供應商，卻不知道該先查哪裡？', finalText: '把公司名稱、連結、證書或產品型號寄來。我們會先回覆能查什麼、適合哪個層級，再決定是否開始。'
     },
     services: {
-      kicker: '服務與價格', title: '兩個核查層級，每一個都有清楚邊界。', lead: '選擇遠端證據研究，或加上預約現場到訪；工作開始前會先確認範圍。',
-      tier1: { label: 'Tier 1', title: '遠端供應商核查', price: 'US$99–149／每家供應商', time: '約 3 個工作天', best: '適合準備首張訂單、支付訂金或重新建立合作前，需要先查清楚供應商的小型買家。', includes: ['中國法律主體身分與公司狀態', '企業登記資料交叉核對', '證書存在性與持有人核對', '在紀錄允許時查核產品／型號範圍', '辨識提交資料與官方紀錄的明顯不一致', '在適當情況提供證據連結、截圖或來源紀錄'], output: '一份以證據為核心的精簡報告，分開呈現已證實、無法證實與發現不一致。' },
-      tier2: { label: 'Tier 2', title: '現場核驗', price: 'US$299–399／每家供應商', time: '約 5–7 個工作天', best: '適合需要基本確認供應商所稱地址與營運存在是否能被現場觀察的買家。', includes: ['確認範圍並與供應商預約', '前往可執行的供應商地址', '基本觀察是否存在營運活動', '核對公司名稱、招牌與地址', '在適當且同意的情況下留下事實紀錄', '進行與到訪相關的遠端紀錄核查'], output: '在深圳、東莞、惠州、廣州及周邊可執行區域，進行預約且透明的現場核驗。' },
-      custom: { label: '標準服務以外', title: '客製核查，逐案評估。', text: '如果問題不完全符合 Tier 1 或 Tier 2，請先描述需求。我們只接受能負責任交付的工作，不暗示已存在未標價的 Tier 3–6 能力。' },
-      notIncluded: { title: '兩個層級都不包含', items: ['供應商搜尋或介紹', '議價或採購管理', '經手訂單、訂金或供應商款項', '產品品質檢驗或實驗室測試', '保證未來行為或出貨合規', '秘密、臥底或未預告的調查'] },
-      ctaTitle: '不確定適合哪一個層級？', ctaText: '提供供應商與你正在做的決策；先確認範圍，再談付款。'
+      kicker: '服務與價格', title: '你要交什麼、我們查什麼、最後拿到什麼，先說清楚。', lead: 'ZimonAI 目前正式提供兩個服務層級。查核範圍、價格與交付時間都會在開始前由雙方確認。',
+      prepare: { label: '詢價前可以先準備', title: '把採購對話裡已經出現的資料交給我們。', lead: '資料不必整理得很漂亮，但名稱、號碼與型號越精確，越容易判斷能不能查。', items: ['供應商使用的英文商號與中文法定名稱（如已知）', '官方網站、Alibaba 頁面或其他供應商連結', '產品名稱與完整型號', '證書圖片、證書號碼或資料庫連結', '供應商聲稱的工廠／辦公地址', '這次查核要支援的決定與期限'] },
+      tier1: { label: 'Tier 1', title: '遠端供應商查核', price: 'US$99–149／每家供應商', time: '約 3 個工作天', best: '適合第一次下單、準備付訂金，或隔一段時間重新合作前，想先確認交易主體與文件說法的海外小型買家。', includes: ['找出並核對供應商背後的中國法律主體', '查公司狀態、成立日期與登記地址', '在公開紀錄允許時查證證書、狀態與持有人', '核對報價型號是否出現在證書所列範圍', '把公司名、日期、地址、持有人與型號逐欄比對', '標出找不到的證據與會影響判斷的資料落差'], output: '一份結構化報告：包含本次範圍、公司身分資料、證據比對表、三種查核結果、可提供的來源紀錄，以及本次查核仍無法證明的事情。', sequence: [['1・收件', '先固定這次要查的名稱、號碼、連結與供應商說法。'], ['2・找紀錄', '依每項說法找到當下可取得、可信度最高的資料來源。'], ['3・交叉比對', '核對主體、持有人、地址、日期與產品範圍。'], ['4・寫報告', '每一個結論都要能回到紀錄，也要附上限制。']] },
+      tier2: { label: 'Tier 2', title: '預約現場查核', price: 'US$299–399／每家供應商', time: '約 5–7 個工作天', best: '適合需要確認華南地址是否存在，以及到訪當天能否看見基本營運活動的買家。', includes: ['先確認範圍，並與供應商約定到訪時間', '前往服務範圍內的供應商地址', '核對公司名稱、入口、招牌與對外提供的地址', '記錄約定範圍內可直接觀察到的基本營運情況', '在雙方同意下保留必要的照片或事實紀錄', '把現場看到的內容與遠端公司／地址資料分開整理'], output: '一份深圳、東莞、惠州、廣州或周邊可執行地區的預約到訪紀錄。這不是突擊驗廠、暗訪，也不是產品品質檢驗。', sequence: [['1・預約', '供應商事先知道並同意到訪。'], ['2・核對地址', '比較對外地址、現場位置、公司名稱與招牌。'], ['3・現場觀察', '只記錄約定範圍內當天實際看見的情況。'], ['4・整理紀錄', '遠端資料與現場觀察分開標示，不混成一個保證。']] },
+      deliverables: { label: '報告內容', title: '一份查核報告，至少要讓你看見這六個部分。', items: [['查核範圍', '這次究竟查哪家公司、哪張證書、哪個型號、哪個地址。'], ['公司身分', '查到的中文法律主體，以及公司登記中的重要欄位。'], ['證據比對表', '供應商說法、資料來源、查詢日期與紀錄內容並排。'], ['逐項結果', '每項分別標成資料吻合、暫無法查證或發現資料不符。'], ['來源附件', '在適當且可取得時，附上連結、截圖或來源紀錄。'], ['限制與下一步', '這次仍不能證明什麼，以及是否需要現場查核、驗貨或其他專業服務。']] },
+      custom: { label: '標準服務之外', title: '其他查核需求，先逐案判斷。', text: '不完全符合 Tier 1 或 Tier 2 的問題，可以先描述需求。ZimonAI 只接受確定能負責任交付的案件，不會用尚未存在的 Tier 3–6 包裝能力。' },
+      notIncluded: { title: '兩個服務都不包含', items: ['替你找供應商或介紹工廠', '議價、代採購或管理訂單', '經手訂金、貨款或任何供應商款項', '產品抽驗、品質檢驗或實驗室測試', '保證供應商日後一定履約或每批出貨合規', '暗訪、臥底或未告知供應商的突擊調查'] },
+      pricingNote: '實際報價會落在公開價格區間內，並在看過你要查的項目與現有資料後確認。範圍、價格與交付時間沒有談定以前，不會開始工作。', ctaTitle: '不知道該選哪一個層級？', ctaText: '先提供供應商資料與你正要做的決定。我們先談清楚範圍，再談付款。'
     },
     methodology: {
-      kicker: '核查方法', title: '從宣稱走到結論，不隱藏資料缺口。', lead: '我們採官方來源優先、可解釋的方法，結論只到證據能支持的位置。', mapTitle: '探索核查路徑', mapLead: '選擇每一步，查看我們查什麼、為什麼重要、使用哪類來源，以及可能得到什麼結果。',
+      kicker: '查核方法', title: '每一個結論，都要能沿路回到原始說法與資料來源。', lead: '我們優先找官方或發證機構控制的資料；查不到的地方就停下來，不把推測寫成事實。', mapTitle: '走一遍完整查核路徑', mapLead: '點選每一步，查看實際查什麼、為什麼要查、會用哪類資料，以及最後可能得到什麼結果。',
       nodes: [
-        { id: 'intake', label: '供應商宣稱', check: '完整保留提交的名稱、連結、證書、型號與地址。', why: '細小的拼法、主體或型號差異都可能改變結果。', source: '買家與供應商資料', results: '起點，不是結論' },
-        { id: 'registry', label: '企業登記', check: '中文法定名稱、統一社會信用代碼、狀態、成立日期與登記地址。', why: '英文名稱或商號不一定能辨識真正交易的法律主體。', source: '中國官方企業紀錄', results: '已證實／無法證實／不一致' },
-        { id: 'certificate', label: '證書紀錄', check: '紀錄是否存在、狀態、持有人、發證方與可取得細節。', why: '證書圖片可能遭修改、過期，或其實屬於另一家公司。', source: '官方或發證機構控制的資料庫', results: '已證實／無法證實／不一致' },
-        { id: 'holder', label: '持有人關係', check: '證書持有人、供應商主體與所稱工廠是否相同或有明確關聯。', why: '真實證書不代表一定屬於報價的公司。', source: '跨紀錄比對', results: '關係成立／未解／不符' },
-        { id: 'model', label: '型號範圍', check: '報價產品型號是否出現在可取得的證書涵蓋範圍。', why: '證書可能只涵蓋特定型號、版本或額定規格。', source: '證書附表與產品紀錄', results: '涵蓋／未找到／排除' },
-        { id: 'crosscheck', label: '交叉核對', check: '將所有紀錄中的名稱、日期、地址與型號逐欄對齊。', why: '矛盾往往只有在來源並排時才會出現。', source: '證據矩陣', results: '一致／未解／不一致' },
-        { id: 'report', label: '證據報告', check: '每個結論都附上來源、查詢日期、證據與限制。', why: '買家應該能理解並追問核查邏輯。', source: 'ZimonAI 分析', results: '已證實／無法證實／發現不一致' }
+        { id: 'intake', label: '供應商說法', check: '照原樣保留公司名、連結、證書、型號與地址。', why: '一個字、不同主體或型號尾碼，都可能讓結果完全不同。', source: '買家與供應商提供的資料', results: '只是起點，還不是結論' },
+        { id: 'registry', label: '公司登記', check: '中文法定名稱、統一社會信用代碼、公司狀態、成立日期與登記地址。', why: '英文商號或店鋪名稱，不一定就是實際收款與簽約的法律主體。', source: '中國官方企業登記／信用資料', results: '資料吻合／暫無法查證／資料不符' },
+        { id: 'certificate', label: '證書紀錄', check: '證書是否存在、目前狀態、持有人、發證方與公開細節。', why: '供應商傳來的證書圖片可能已過期、遭修改，或原本就屬於別家公司。', source: '官方或發證機構控制的認證資料庫', results: '資料吻合／暫無法查證／資料不符' },
+        { id: 'holder', label: '持有人關係', check: '證書持有人、供應商主體與聲稱的工廠是不是同一方，或是否有可說明的關係。', why: '證書是真的，不代表報價公司有權使用。', source: '公司與證書紀錄交叉比對', results: '關係成立／關係不明／主體不符' },
+        { id: 'model', label: '產品型號', check: '報價的完整型號是否列在公開可查的證書產品範圍內。', why: '同一張證書通常只涵蓋特定型號、版本或額定規格。', source: '證書附表與產品資料', results: '有列入／目前找不到／明確排除' },
+        { id: 'crosscheck', label: '逐欄比對', check: '把不同紀錄裡的公司名、日期、地址、持有人與型號排在一起。', why: '很多矛盾只有並排之後才看得出來。', source: 'ZimonAI 證據比對表', results: '一致／仍有缺口／發現資料不符' },
+        { id: 'report', label: '查核報告', check: '每項結論都附上資料來源、查詢日期、證據內容與限制。', why: '買家應該看得懂我們為什麼這樣判斷，也能針對某一項追問。', source: 'ZimonAI 查核與判讀', results: '資料吻合／暫無法查證／發現資料不符' }
       ],
-      sourcesTitle: '官方來源優先，不等於只看官方來源。', sourcesText: '我們優先使用官方登記、監管、認可與認證資料庫。供應商文件與第三方來源可以提供線索或背景，但會按證據強度標示，不會被默默包裝成最終證明。', statusesTitle: '三種結果，不做黑箱分數', statusText: ['已證實：找到的證據支持被核查的特定陳述。', '無法證實：可取得來源不足以支持負責任的結論。', '發現不一致：供應商宣稱與找到的紀錄在重要欄位互相衝突。'], handlingTitle: '證據處理', handlingText: '報告會標示來源類型與查詢日期，並在適當情況提供連結、截圖或來源紀錄。資料庫的可用性與存取可能改變，因此結論會說明當時實際可查到的內容。'
+      sourceRegistry: { label: '資料來源類型', title: '不是哪個網站方便就查哪個，而是先看要證明哪一件事。', items: [['公司身分', '中國官方企業登記與信用資料', '能查法律存在與狀態，不能保證履約。'], ['中國認證', 'CNCA、認可資料或發證機構系統', '不同制度公開的欄位與可查程度不同。'], ['產品與型號', 'UL Product iQ 或其他發證方控制的產品系統', '證書可能只適用特定型號與額定規格。'], ['特定市場說法', 'FCC、EU NANDO、日本或其他官方系統', '只有在供應商提出相關市場說法時才查。']] },
+      sourcesTitle: '官方來源優先，不代表只看官方來源。', sourcesText: '供應商文件與第三方資料可以協助找到線索或補充背景，但報告會標示它們的證據分量，不會悄悄把一張網頁截圖升級成官方證明。', statusesTitle: '不用黑箱分數，只保留三種看得懂的結果', statusText: ['資料吻合：查到的證據支持這一項具體說法。', '暫無法查證：目前能取得的資料不足，不能負責任地下結論。', '發現資料不符：供應商說法與查到的紀錄，在重要欄位互相矛盾。'], handlingTitle: '證據怎麼保留', handlingText: '報告會標出資料來源與查詢日期，並在適當情況附上連結、截圖或來源紀錄。資料庫可能改版、暫停或調整公開內容，因此結論只對當次實際查到的資料負責。',
+      reportAnatomy: { label: '一項結論的五個部分', title: '只有結果不夠，還要看得懂它怎麼來。', items: [['供應商說法', '這次要驗證的原話、文件欄位或產品說明。'], ['資料來源', '實際查詢的登記系統、監管機關或發證機構資料庫。'], ['查到的紀錄', '資料庫裡真正出現的公司、日期、持有人或型號。'], ['判讀理由', '為什麼這份紀錄支持、不足以支持，或直接推翻供應商說法。'], ['查核限制', '即使這一項成立，仍然不能證明哪些事情。']] }
     },
     scope: {
-      kicker: '範圍與限制', title: '核查可以降低不確定性，但不能消除風險。', lead: '可信的核查服務，必須清楚說明結論停在哪裡。', doTitle: '我們會做', doItems: ['核對可識別的公司與證書紀錄', '交叉比對法定名稱、持有人、型號與地址', '把證據和供應商陳述分開', '解釋資料缺口與互相衝突的紀錄', '在可執行地區進行預約現場核驗'], dontTitle: '我們不做', dontItems: ['找供應商或介紹供應商', '議價或處理商業條件', '經手訂單、訂金或供應商款項', '收取供應商佣金或回扣', '產品品質檢驗或實驗室測試', '秘密、臥底或未預告的調查'],
-      limitsTitle: '核查限制', limits: [['真實公司不等於可靠供應商', '登記資料可以證實法律存在與狀態，不能保證未來行為、交付或償付能力。'], ['真實證書不是產品的全面保證', '紀錄可能只適用特定持有人、型號、規格、地點或期間，也不能證明每一件出貨品都合規。'], ['地址不自動等於工廠', '登記地址或到訪地址本身，不能證明製造所有權、產能或產品品質。'], ['紀錄受時間與存取限制', '資料庫可能改變、無法使用或省略資訊；結論只針對標示查詢時間可取得的紀錄。'], ['現場核驗是透明的', '到訪會先預約，並在供應商知情同意下進行，不是秘密調查。']],
-      accreditationTitle: '認可資格揭露', accreditationText: 'ZimonAI 不是認可檢驗機構，未取得 ISO 17020 或 CNAS 認可。本服務是供應商資訊核查，不是認可的產品檢驗、認證或符合性評估。', ctaTitle: '其實需要產品驗貨？', ctaText: '我們會直接說明。如果你的決策需要抽樣、實驗室測試、出貨前檢驗或認可符合性評估，ZimonAI 核查不能取代這些服務。'
+      kicker: '範圍與限制', title: '查核能減少不確定，不能替你消滅所有風險。', lead: '可信的服務不只告訴你查到什麼，也會把結論停在哪裡寫清楚。', doTitle: 'ZimonAI 會做', doItems: ['查找可辨識的公司與證書紀錄', '核對法定名稱、證書持有人、型號與地址', '把供應商說法與外部證據分開', '說明資料缺口與互相矛盾的欄位', '在可執行地區安排透明的預約現場查核'], dontTitle: 'ZimonAI 不會做', dontItems: ['替買家找供應商或介紹工廠', '代為議價或處理交易條件', '經手訂單、訂金或貨款', '向供應商收佣金或回扣', '進行產品品質檢驗或實驗室測試', '暗訪、臥底或未告知的突擊調查'],
+      limitsTitle: '查核有這些邊界', limits: [['公司是真的，不等於交易一定可靠', '登記資料能確認法律主體與當下狀態，不能保證未來交付、履約或償付能力。'], ['證書是真的，不等於所有產品都合規', '證書可能只適用特定持有人、型號、額定規格、地點或期間，也不能證明每一件出貨品。'], ['地址存在，不等於一定是自有工廠', '登記地址或到訪地址本身，不能證明工廠所有權、產能與產品品質。'], ['資料庫有時間與存取限制', '公開資料可能改版、暫停或省略欄位；報告只針對標示查詢日期時可取得的內容。'], ['現場查核是公開透明的', '到訪會先預約，並在供應商知情同意下進行；不是秘密調查。']],
+      decisionGuide: { label: '先找對服務', title: '有些問題應該交給別的專業人員。', items: [['實際簽約與收款的是哪一家公司？', 'ZimonAI 遠端供應商查核'], ['這張證書是否屬於該公司並涵蓋這個型號？', 'ZimonAI 遠端供應商查核'], ['華南地址是否存在，現場有沒有基本營運活動？', 'ZimonAI 預約現場查核'], ['這批貨是否符合規格？', '產品驗貨服務商'], ['產品是否通過實驗室測試要求？', '合格實驗室或符合性評估專業機構']] },
+      accreditationTitle: '認可資格揭露', accreditationText: 'ZimonAI 不是認可檢驗機構，也沒有 ISO 17020 或 CNAS 認可。這項服務查的是供應商公司與文件資訊，不是認可的產品檢驗、認證或符合性評估。', ctaTitle: '你真正需要的是驗貨嗎？', ctaText: '如果決策需要抽樣、實驗室測試、出貨前檢驗或認可符合性評估，我們會直接說明 ZimonAI 不能取代這些服務。'
     },
     about: {
-      kicker: '關於 ZimonAI', title: '為需要證據、而不是銷售中間人的買家而設。', lead: 'ZimonAI 智蒙灣是一個由創辦人直接經營、往返台北與深圳／華南的獨立供應商核查服務。', originTitle: '為什麼需要這項服務', originText: '海外買家常收到英文公司名、證書圖片與看似完整的供應商頁面，卻缺少中文脈絡與資料庫經驗把這些資訊連起來。ZimonAI 的工作，就是讓這個核查過程變得清楚。', modelTitle: '刻意保持獨立', modelText: '我們不代表中國供應商、不收供應商佣金、不議價、不經手訂單與貨款。客戶是買家。這種分離，讓核查問題不受促成交易的誘因影響。', footprintTitle: '台北判讀，華南執行', footprintText: '遠端研究可針對適用的中國公司與證書來源進行；預約現場核驗限深圳、東莞、惠州、廣州及周邊可執行區域。', scaleTitle: '由創辦人直接負責的專注服務', scaleText: 'ZimonAI 目前是一人公司。網站不暗示全球團隊、檢驗網絡或實驗室。每個案件逐一確認範圍，確保接受的工作能負責任地交付。', principles: [['解釋結論', '說明查了什麼、在哪裡查，以及哪些仍未解。'], ['優先可追溯來源', '在可取得時，先使用官方或發證機構控制的紀錄。'], ['說清楚邊界', '不把缺乏證據變成確定答案，也不把核查變成保證。']], ctaTitle: '帶來一家供應商與一個決策。', ctaText: '我們會先辨識哪些宣稱能查，以及適合哪個服務層級。'
+      kicker: '關於 ZimonAI', title: '一個把買家問題查清楚的專注服務，不是假裝龐大的中間商。', lead: 'ZimonAI 智蒙灣由創辦人直接負責，工作往返台北與深圳／華南。付費客戶是海外買家，不是被查核的供應商。',
+      originTitle: '為什麼會有這項服務', originText: '海外買家手上常有英文商號、證書圖片、工廠地址與看似完整的供應商頁面。真正困難的是：找出對應的中文法律主體，進入正確的資料庫，再判斷這幾份資料能不能互相對上。ZimonAI 就是把這段工作做清楚。',
+      modelTitle: '刻意和交易佣金分開', modelText: 'ZimonAI 不代表中國供應商、不向供應商收佣金、不替雙方議價，也不經手訂金與貨款。查核服務不必為了促成訂單而美化答案。',
+      footprintTitle: '台北判讀，華南執行', footprintText: '遠端工作以中國公司、認證與產品紀錄為主；預約現場查核目前限深圳、東莞、惠州、廣州與周邊可執行地區。',
+      scaleTitle: '創辦人直接負責，不虛構規模', scaleText: 'ZimonAI 目前是一人公司，沒有對外宣稱全球檢驗網絡、實驗室、大型現場團隊或數百名客戶。每一件需求都會先確認範圍，確定能負責任交付才接受。',
+      record: { title: '目前的營運事實', items: [['業務性質', '獨立的供應商公司與文件資訊查核'], ['主要客戶', '海外小型買家、電商賣家與進口商'], ['商業獨立性', '由買家付費，不收供應商佣金或回扣'], ['遠端工作', '查中國公司、證書與產品／型號紀錄'], ['現場工作', '深圳與華南周邊可執行地區的預約到訪'], ['報告結果', '資料吻合／暫無法查證／發現資料不符']] },
+      registration: { label: '企業登記資料', stamp: '深圳登記主體', publicExcerpt: '官網公開節錄', title: '不只是一個網站品牌：ZimonAI 在深圳有實際登記主體。', lead: '以下內容來自 ZimonAI 提供的營業執照；公司法定名稱與註冊地址照執照原文呈現。', fields: { legalName: '登記法定名稱', legalRepresentative: '法定代表人', entityType: '企業類型', established: '成立日期', registeredAddress: '註冊暨實際接待地址' }, entityType: '有限責任公司（港澳台自然人獨資）', established: '2026 年 3 月 3 日', imageAlt: '深圳智蒙灣登記主體的營業執照官網公開節錄', caption: '營業執照的官網公開節錄。統一社會信用代碼與 QR Code 已主動省略。', disclosure: '經 ZimonAI 確認，執照上的地址同時是公司註冊地址與實際接待地址；下方列出公共接待區實景。' },
+      office: { label: '深圳實際接待空間', title: '是可以坐下來見面的地方，不是素材庫照片。', lead: '以下是 ZimonAI 註冊暨實際接待地址內，顧客可使用的公共接待區與會議區。', addressLabel: '註冊暨實際接待地址', disclosure: '照片只呈現顧客實際可使用的公共接待與會議區域。', photos: { lounge: { alt: 'ZimonAI 深圳接待地址的公共顧客休息區', caption: '公共接待休息區與等候空間' }, meeting: { alt: 'ZimonAI 深圳接待地址的公共會議區', caption: '可進行顧客溝通與文件討論的公共會議區' }, reception: { alt: 'ZimonAI 深圳接待地址的接待前台', caption: '接待前台與出入區域' } } },
+      principles: [['把結論說明白', '交代查了什麼、去哪裡查，以及還有哪些問題沒有答案。'], ['先找可追溯的紀錄', '能查官方或發證機構資料時，不拿第三方彙整頁當最終證明。'], ['邊界也要寫進報告', '缺乏證據就是缺乏證據，查核結果也不等於對未來的保證。']], ctaTitle: '帶來一家供應商，以及你正要做的決定。', ctaText: '我們先確認哪些說法查得到、應該使用哪一個服務層級。'
     },
     request: {
-      kicker: '申請核查', title: '告訴我們，你準備向誰購買。', lead: '提供手上已有的資訊。我們會先回覆工作範圍、服務層級與下一步，再開始核查。', honest: '這個表單不會把資料上傳到伺服器；它會在你的郵件 App 開啟一封已整理好的草稿，讓你檢查後直接寄給 ZimonAI。', fields: { name: '你的姓名', email: '你的 Email', company: '公司（選填）', supplier: '供應商名稱', url: '供應商網站／Alibaba 連結（選填）', chinese: '中文公司名稱，如已知（選填）', product: '產品', question: '你想核查什麼？', consent: '我了解這會開啟郵件草稿，網站不會上傳任何資料。', send: '開啟郵件草稿', required: '必填' }, placeholders: { name: '王小明', email: 'name@company.com', company: 'Northline Goods', supplier: '供應商商號或法定名稱', url: 'https://…', chinese: '深圳市…有限公司', product: '65W USB-C 充電器', question: '例如：核查公司身分、證書持有人，以及型號 X 是否在證書範圍內。' }, after: '草稿開啟後，可以在郵件 App 內附上證書或供應商文件。', directTitle: '想直接寫信？', directText: '請提供供應商名稱、連結、產品與核查問題。不要傳送信用卡資料或不必要的身分文件。', responseTitle: '接下來會發生什麼', responseSteps: ['我們先判斷這個問題能否負責任地核查。', '確認 Tier 1、Tier 2 或逐案範圍與報價。', '只有在範圍、價格與交付時間確認後才開始工作。']
+      kicker: '提出查核需求', title: '告訴我們，你準備跟哪一家供應商交易。', lead: '把採購對話裡已經有的資料寄來。ZimonAI 會先判斷能查什麼，再回覆範圍、價格與時間。', honest: '這份表單不會把資料上傳到網站伺服器。送出時只會在你的郵件 App 開啟一封整理好的草稿，由你檢查後寄給 ZimonAI。', fields: { name: '你的姓名', email: '你的 Email', company: '公司名稱（選填）', supplier: '供應商名稱', url: '供應商網站／Alibaba 連結（選填）', chinese: '中文法定名稱，如已知（選填）', product: '產品與型號', question: '你現在最想查清楚什麼？', consent: '我了解這只會開啟郵件草稿，網站不會上傳表單內容。', send: '開啟郵件草稿', required: '必填' }, placeholders: { name: '林先生', email: 'name@company.com', company: 'Northline Goods', supplier: '英文商號或中文法定名稱', url: 'https://…', chinese: '深圳市…有限公司', product: '65W USB-C 充電器，型號 X65', question: '例如：確認公司法律主體、證書持有人，以及 X65 是否列在證書型號範圍內。' }, after: '草稿開啟後，可在郵件 App 裡附上證書圖片、報價單或供應商文件。', directTitle: '也可以直接寫 Email', directText: '請附上供應商名稱、連結、產品完整型號、證書號碼，以及這次查核要支援的決定。不要傳送信用卡資訊或查核不需要的身分文件。', responseTitle: '寄出後的流程', responseSteps: ['先判斷你的問題是否有足夠資料可以負責任地查。', '回覆適合 Tier 1、Tier 2，或需要逐案確認的範圍與報價。', '你確認範圍、價格與交付時間後，才開始工作。']
     },
-    privacy: { kicker: '隱私聲明', title: '刻意維持最少資料。', lead: '生效日期：2026 年 8 月 12 日。本聲明說明 ZimonAI 網站如何處理資訊。', sections: [['網站使用', '公開網站不使用廣告 Cookie、行為追蹤或帳號註冊。託管服務商可能為了安全與穩定傳輸處理標準基礎設施紀錄。'], ['申請表單', '申請表單只在你的裝置建立郵件草稿，不會由網站上傳或保存欄位內容。只有當你選擇透過自己的郵件服務寄出時，資料才會傳送。'], ['你寄來的資訊', '如果你聯絡 ZimonAI，訊息與附件會用於評估或交付申請的服務、回覆問題與保存必要商業紀錄。請勿提供核查不需要的資訊。'], ['分享', '資訊不會出售。只有在交付已同意工作所需、你指示我們分享，或法律要求時，才可能提供給必要服務商或相關方。'], ['保存與請求', '商業往來只在合理需要的申請、服務交付、紀錄與法律義務期間保存。你可以聯絡 ZimonAI，依法詢問存取、更正或刪除。'], ['聯絡', '隱私問題可寄至 simonlo@zimonai.com。']] }
+    privacy: { kicker: '隱私聲明', title: '網站刻意少收資料。', lead: '生效日期：2026 年 8 月 12 日。以下說明 ZimonAI 網站如何處理你主動提供的資訊。', sections: [['瀏覽網站', '公開網站不使用廣告 Cookie、行為追蹤或會員帳號。託管服務商可能為了資安與穩定傳輸處理基本系統紀錄。'], ['申請表單', '表單只會在你的裝置上建立郵件草稿，網站不會上傳或保存欄位內容。只有你在自己的郵件服務按下寄出後，資料才會傳送。'], ['你寄來的內容', 'ZimonAI 會使用信件與附件評估需求、執行雙方同意的服務、回覆問題，以及保存必要的商業紀錄。請勿提供查核不需要的資料。'], ['資料分享', 'ZimonAI 不會出售你的資料。只有在完成雙方同意的工作確有需要、你指示分享，或法律要求時，才可能提供給必要服務商或相關方。'], ['保存與權利', '商業往來只在處理需求、交付服務、保存紀錄與履行法律義務的合理期間內保存。你可以依法詢問存取、更正或刪除。'], ['聯絡方式', '隱私問題請寄至 simonlo@zimonai.com。']] }
+  },
+
+  'zh-cn': {
+    prefix: 'zh-cn', htmlLang: 'zh-Hans', locale: 'zh_CN', short: '简', name: '简体中文',
+    meta: {
+      titles: { home: '中国供应商核查服务｜ZimonAI 智蒙灣', services: '供应商核查服务与价格｜ZimonAI 智蒙灣', methodology: '供应商核查方法｜ZimonAI 智蒙灣', scope: '服务范围与限制｜ZimonAI 智蒙灣', about: '关于 ZimonAI 智蒙灣', request: '申请供应商核查｜ZimonAI 智蒙灣', privacy: '隐私声明｜ZimonAI 智蒙灣' },
+      descriptions: { home: '付款前，先弄清楚中国供应商。ZimonAI 从企业登记、证书持有人和产品型号入手，给海外买家一份可追溯的核查结果。', services: '了解远程供应商核查和华南预约现场核查：需要提交什么、实际核查什么，以及最终会拿到什么。', methodology: '了解 ZimonAI 如何优先使用官方或发证机构记录，核对中国公司、证书持有人、型号范围和供应商说法。', scope: '供应商核查能回答什么、不能证明什么，以及何时应该选择验货或实验室服务。', about: 'ZimonAI 智蒙灣由创办人直接负责，工作连接台北与深圳／华南。', request: '把供应商名称、链接、证书和产品型号交给 ZimonAI，先确认可查范围与服务层级。', privacy: 'ZimonAI 如何处理你在申请供应商核查时主动提供的信息。' }
+    },
+    nav: { services: '服务', methodology: '核查方法', scope: '范围与限制', about: '关于', request: '申请核查', menu: '菜单', close: '关闭' },
+    ui: { supplierProfile: '供应商资料', claimedSince: '自称成立年份', certification: '认证说法', factory: '工厂地点', evidencePath: 'ZM／证据路径', compare: '逐项比对', registryRecord: '登记／证书记录', inScope: '本次核查内容', deliverable: '你会收到什么', whatWeCheck: '具体核查什么', whyItMatters: '为什么要查', sourceType: '信息来源', possibleResult: '可能结果', origin: '服务起点', model: '业务模式', footprint: '执行范围', scale: '规模说明', operatingRecord: '运营资料', suppliedMaterial: '你提交的资料', reviewWork: '我们进行的核查', reportField: '报告字段', openEvidence: '查看证据' },
+    common: { skip: '跳到主要内容', eyebrow: '中国供应商核查', demo: '操作演示・以下为虚构供应商', verified: '信息一致', unresolved: '暂时无法核实', discrepancy: '发现信息不一致', pending: '等待核查', source: '信息来源', claim: '供应商说法', record: '查到的记录', result: '核查结果', queryDate: '查询日期', reference: '参考编号', email: 'Email', phone: '电话', contact: '提交核查需求', methodology: '查看核查方法', independent: '由买家付费，不收供应商佣金', footerLine: '我不帮你买，我帮你查清楚你要跟谁买。', footerScope: '不是采购代理、产品验货机构或认可检验机构；未取得 ISO 17020 或 CNAS 认可。', privacy: '隐私', language: '语言', top: '返回顶部', current: '当前页面' },
+    home: {
+      kicker: '在订金、订单和信任交出去之前', title: '付款以前，先弄清楚你要跟谁买。', lead: '我们从中国企业登记、证书持有人、产品型号和地址说法入手，把供应商交来的资料逐项放回可追溯记录中核对。最后清楚告诉你：哪些一致、哪些目前查不到、哪些相互冲突。', primary: '提交核查需求', secondary: '先看我们怎么查', distinction: '不帮你找厂、不替你议价、不经手货款。ZimonAI 只站在海外买家一边做信息核查。',
+      dossier: { company: 'Lumen Harbor Devices Co., Ltd.', since: '2014', certificate: '声称通过 UL 认证', factory: '深圳', run: '开始演示核查', running: '正在比对登记与证书记录…', done: '三项说法已完成比对，其中一项存在重要差异。', reset: '重新演示' },
+      checks: [['企业登记', '找到对应法律主体', 'verified'], ['证书持有人', '持有人不是这家供应商', 'discrepancy'], ['产品型号', '现有记录中没有该型号', 'unresolved']],
+      decision: { label: '什么时候值得先查', title: '真正有用的时间点，是在你把钱、货量或信任交出去以前。', lead: '我们不替供应商打一个含糊的风险分数；每次核查都应该对应一个真实的采购决定。', items: [['第一次下单前', '确认英文商号背后究竟是哪一个中国法律主体。', '企业身份、状态和成立信息'], ['支付订金前', '确认所交证书是否属于同一家公司，报价型号是否在证书范围内。', '证书持有人、有效状态和型号'], ['文件互相矛盾时', '把公司名称、日期、地址、证书和型号逐项放在一起比较。', '一条清楚、可以继续追问的差异记录']] },
+      story: { label: '核查不是打分，而是把说法拆开', title: '供应商说了什么，只是第一层。', intro: '先保留原话，再找记录、核对关系，最后才下结论。整个过程应该看得见。', steps: [
+        { no: '01', title: '先保留供应商原本的说法', text: '公司名、证书号、型号和地址按原样留下。拼写不同、主体不同、年份对不上，都可能是重要线索，不能先替供应商修正。', stage: 'claim' },
+        { no: '02', title: '回到能够复查的信息源', text: '优先查官方登记或发证机构控制的数据库。店铺页面和第三方汇总网站可以提供线索，但不能直接当成证明。', stage: 'source' },
+        { no: '03', title: '把公司、证书和型号连起来', text: '证书真实存在，不代表一定属于报价公司，也不代表覆盖你要买的型号。持有人、地址、日期和产品范围需要逐项对上。', stage: 'compare' },
+        { no: '04', title: '证据到哪里，结论就写到哪里', text: '每一项结果分为信息一致、暂时无法核实或发现信息不一致。查不到的内容就直接说查不到，不用假分数掩盖缺口。', stage: 'result' }
+      ] },
+      compare: { label: '证据比对线', title: '两份资料看起来很像，逐项放在一起才看得出差异。', hint: '拖动滑块，对比虚构供应商说法和演示记录。', leftTitle: '供应商提供的说法', rightTitle: '查到的记录', left: ['自称成立：2014 年', '证书持有人：Lumen Harbor Devices', '报价型号：LH-65W'], right: ['登记成立：2023 年', '证书持有人：Lumen Harbor Trading', '证书仅列：LH-45W'], conclusion: '发现信息不一致：成立年份、证书持有人和型号范围均未对应。' },
+      why: { label: 'ZimonAI 解决的不是搜索，而是判断', title: '服务于没有中国信息研究人员的小型海外买家。', text: '英文商号、中文法定名称、企业登记、证书图片和产品型号，往往分散在不同系统里。ZimonAI 把它们整理成一份买家能够看懂、继续追问并用于采购判断的核查报告。' },
+      operating: { label: 'ZimonAI 的运营事实', title: '规模可以小，信息不能含糊。', lead: '以下是目前真实的工作方式，不需要虚构团队、客户数量或认证来装饰。', facts: [['服务对象', '客户是海外买家；ZimonAI 不代表中国供应商，也不替供应商促成交易。'], ['谁来付费', '由买家付费；不收供应商佣金或回扣，也不经手采购款。'], ['在哪里执行', '信息研究连接台北与深圳；现场核查限华南可执行地区。'], ['如何给出结果', '每一项说法只会落在“信息一致、暂时无法核实、发现信息不一致”三种结果。']] },
+      service1: { tier: 'Tier 1', title: '远程供应商核查', price: 'US$99–149', unit: '每家供应商', time: '约 3 个工作日', text: '核对公司法律主体与状态、证书持有人和型号范围，再比较不同记录中的名称、日期和地址。', mini: ['公司身份', '证书持有人', '产品型号', '证据摘要'] },
+      service2: { tier: 'Tier 2', title: '预约现场核查', price: 'US$299–399', unit: '每家供应商', time: '约 5–7 个工作日', text: '在供应商知情并提前预约的情况下，前往深圳、东莞、惠州、广州或周边可执行地区，确认地址、招牌和现场可观察到的基本经营情况。', mini: ['提前预约', '地址到访', '招牌核对', '现场事实记录'] },
+      sources: { label: '信息来源索引', title: '该查哪个数据库，取决于供应商提出的是哪一种说法。', lead: '公司、证书、型号和销售市场不同，可查到的资料也不同。报告会标明实际使用的信息源和查询日期。', items: [['中国企业登记信息', '核对中文法定名称、统一社会信用代码、企业状态、成立日期和登记地址。'], ['CNCA 与相关认证记录', '根据公开资料核实证书是否存在、状态、发证机构和持有人。'], ['发证机构控制的产品系统', '例如核查内容涉及 UL 时，视情况查询 UL Product iQ 等产品／型号记录。'], ['不同市场的官方系统', '产品说法涉及特定市场时，再按需查询 FCC、EU NANDO、日本或其他官方信息。']] },
+      demoTitle: '打开一份虚构供应商的证据档案。', demoLead: '点击任意项目，就能看到“供应商怎么说、我们去哪里查、记录写了什么、最后怎样判断”。以下只是服务界面演示，不是实时连接，也不是客户案例。',
+      demoTabs: [
+        { id: 'identity', label: '公司身份', source: '中国官方企业登记信息', claim: 'Lumen Harbor Devices Co., Ltd.', record: '找到对应法律主体，企业状态正常。', result: 'verified', note: '供应商提交的中文法定名称与查到的公司主体一致。' },
+        { id: 'registration', label: '成立年份', source: '中国官方企业登记信息', claim: '自 2014 年开始经营', record: '登记成立日期：2023 年 3 月 18 日。', result: 'discrepancy', note: '官方登记日期无法支持“2014 年起经营”这一说法。' },
+        { id: 'certificate', label: 'UL 证书', source: '发证机构控制的认证数据库', claim: '这张证书属于供应商', record: '记录持有人：Lumen Harbor Trading Co., Ltd.', result: 'discrepancy', note: '证书记录存在，但持有人名称不是供应商的法律主体。' },
+        { id: 'model', label: '产品型号', source: '证书所列产品／型号范围', claim: 'LH-65W 已列入证书', record: '记录仅列出 LH-30W 和 LH-45W。', result: 'unresolved', note: '目前查到的记录中没有 LH-65W，不能把其他型号的证书直接套用。' },
+        { id: 'address', label: '工厂地址', source: '企业登记和供应商文件', claim: '深圳自有工厂', record: '找到登记地址；是否在这里生产，仍需要现场核查。', result: 'unresolved', note: '登记地址只能说明地址信息存在，不能直接证明工厂活动。' }
+      ],
+      limitsTitle: '查到真实记录，也不代表所有风险都消失。', limitsText: '公司存在、证书有效或地址能够找到，都不能保证以后履约、产品质量和每批出货合规。把这些边界写清楚，是报告正文的一部分，不是藏在页脚的小字。', finalTitle: '手上有一家供应商，却不知道应该先查哪里？', finalText: '把公司名称、链接、证书或产品型号发来。我们会先回复能够核查什么、适合哪个层级，再决定是否开始。'
+    },
+    services: {
+      kicker: '服务与价格', title: '你要提交什么、我们核查什么、最后拿到什么，先说清楚。', lead: 'ZimonAI 目前正式提供两个服务层级。核查范围、价格和交付时间会在开始前由双方确认。',
+      prepare: { label: '询价前可以准备', title: '把采购沟通中已经出现的资料提交给我们。', lead: '资料不必整理得很漂亮，但名称、编号和型号越准确，越容易判断能不能查。', items: ['供应商使用的英文商号和中文法定名称（如已知）', '官方网站、Alibaba 页面或其他供应商链接', '产品名称和完整型号', '证书图片、证书编号或数据库链接', '供应商声称的工厂／办公地址', '这次核查要支持的采购决定与时间要求'] },
+      tier1: { label: 'Tier 1', title: '远程供应商核查', price: 'US$99–149／每家供应商', time: '约 3 个工作日', best: '适合第一次下单、准备支付订金，或中断一段时间后重新合作前，希望先确认交易主体和文件说法的海外小型买家。', includes: ['找到并核对供应商背后的中国法律主体', '核查企业状态、成立日期和登记地址', '在公开记录允许时核实证书、状态和持有人', '核对报价型号是否出现在证书所列范围', '比较公司名、日期、地址、持有人和型号', '标出找不到的证据和影响判断的信息差异'], output: '一份结构化报告：包含本次范围、公司身份资料、证据比对表、三种核查结果、可提供的来源记录，以及本次核查仍然不能证明的事项。', sequence: [['1・收件', '先固定这次要查的名称、编号、链接和供应商说法。'], ['2・找记录', '按每项说法寻找当下可获取、可信度最高的信息源。'], ['3・交叉比对', '核对主体、持有人、地址、日期和产品范围。'], ['4・写报告', '每一个结论都要能够回到记录，同时说明限制。']] },
+      tier2: { label: 'Tier 2', title: '预约现场核查', price: 'US$299–399／每家供应商', time: '约 5–7 个工作日', best: '适合需要确认华南地址是否存在，以及到访当天能否观察到基本经营活动的买家。', includes: ['先确认范围，并与供应商约定到访时间', '前往服务范围内的供应商地址', '核对公司名称、入口、招牌和对外提供的地址', '记录约定范围内能够直接观察到的基本经营情况', '在双方同意下保留必要的照片或事实记录', '把现场看到的内容与远程企业／地址信息分开整理'], output: '一份深圳、东莞、惠州、广州或周边可执行地区的预约到访记录。这不是突击验厂、暗访，也不是产品质量检验。', sequence: [['1・预约', '供应商事先知道并同意到访。'], ['2・核对地址', '比较对外地址、现场位置、公司名称和招牌。'], ['3・现场观察', '只记录约定范围内当天实际看到的情况。'], ['4・整理记录', '远程资料和现场观察分别标注，不混合成一个保证。']] },
+      deliverables: { label: '报告内容', title: '一份核查报告，至少要让你看到以下六个部分。', items: [['核查范围', '本次究竟核查哪家公司、哪张证书、哪个型号、哪个地址。'], ['公司身份', '查到的中文法律主体，以及企业登记中的重要字段。'], ['证据比对表', '把供应商说法、信息来源、查询日期和记录内容并列。'], ['逐项结果', '每项分别标为信息一致、暂时无法核实或发现信息不一致。'], ['来源附件', '在适当并且可以获取时，附上链接、截图或来源记录。'], ['限制与下一步', '说明本次仍不能证明什么，以及是否需要现场核查、验货或其他专业服务。']] },
+      custom: { label: '标准服务之外', title: '其他核查需求，先按个案判断。', text: '不完全符合 Tier 1 或 Tier 2 的问题，可以先描述需求。ZimonAI 只接受确定能够负责交付的项目，不会用尚不存在的 Tier 3–6 包装能力。' },
+      notIncluded: { title: '两个服务都不包括', items: ['替你寻找供应商或介绍工厂', '议价、代采购或管理订单', '经手订金、货款或任何供应商款项', '产品抽验、质量检验或实验室测试', '保证供应商以后一定履约或每批出货合规', '暗访、卧底或未告知供应商的突击调查'] },
+      pricingNote: '实际报价会在公开价格区间内，并在看过你要查的内容和现有资料后确认。范围、价格和交付时间没有谈定之前，不会开始工作。', ctaTitle: '不知道应该选哪个层级？', ctaText: '先提交供应商资料和你正要做的决定。我们先把范围说清楚，再谈付款。'
+    },
+    methodology: {
+      kicker: '核查方法', title: '每一个结论，都应该能够沿路回到原始说法和信息来源。', lead: '我们优先查找官方或发证机构控制的记录；查不到的地方就停下来，不把推测写成事实。', mapTitle: '走一遍完整核查路径', mapLead: '点击每一步，查看具体核查什么、为什么要查、会使用哪类信息，以及最后可能得到什么结果。',
+      nodes: [
+        { id: 'intake', label: '供应商说法', check: '按原样保留公司名、链接、证书、型号和地址。', why: '一个字、不同主体或型号后缀，都可能让结果完全不同。', source: '买家和供应商提交的资料', results: '只是起点，还不是结论' },
+        { id: 'registry', label: '企业登记', check: '中文法定名称、统一社会信用代码、企业状态、成立日期和登记地址。', why: '英文商号或店铺名称，不一定就是实际收款和签约的法律主体。', source: '中国官方企业登记／信用信息', results: '信息一致／暂时无法核实／信息不一致' },
+        { id: 'certificate', label: '证书记录', check: '证书是否存在、当前状态、持有人、发证方和公开细节。', why: '供应商发来的证书图片可能已经过期、被修改，或者原本属于另一家公司。', source: '官方或发证机构控制的认证数据库', results: '信息一致／暂时无法核实／信息不一致' },
+        { id: 'holder', label: '持有人关系', check: '证书持有人、供应商主体和声称的工厂是否为同一方，或者是否存在可以说明的关系。', why: '证书真实，不代表报价公司有权使用。', source: '企业与证书记录交叉比对', results: '关系成立／关系不明／主体不符' },
+        { id: 'model', label: '产品型号', check: '报价的完整型号是否出现在公开可查的证书产品范围内。', why: '同一张证书往往只覆盖特定型号、版本或额定参数。', source: '证书附表和产品记录', results: '已列入／目前未找到／明确排除' },
+        { id: 'crosscheck', label: '逐项比对', check: '把不同记录中的公司名、日期、地址、持有人和型号放在一起。', why: '很多矛盾只有并列之后才看得出来。', source: 'ZimonAI 证据比对表', results: '一致／仍有缺口／发现信息不一致' },
+        { id: 'report', label: '核查报告', check: '每项结论都附上信息来源、查询日期、证据内容和限制。', why: '买家应该看得懂我们为什么这样判断，也能够针对某一项继续追问。', source: 'ZimonAI 核查与判断', results: '信息一致／暂时无法核实／发现信息不一致' }
+      ],
+      sourceRegistry: { label: '信息来源类型', title: '不是哪个网站方便就查哪个，而是先看需要证明哪一件事。', items: [['公司身份', '中国官方企业登记与信用信息', '可以查法律存在和状态，不能保证履约。'], ['中国认证', 'CNCA、认可信息或发证机构系统', '不同制度公开的字段和可查程度不同。'], ['产品与型号', 'UL Product iQ 或其他发证方控制的产品系统', '证书可能只适用于特定型号和额定参数。'], ['特定市场说法', 'FCC、EU NANDO、日本或其他官方系统', '只有供应商提出相关市场说法时才查询。']] },
+      sourcesTitle: '官方信息优先，不等于只看官方信息。', sourcesText: '供应商文件和第三方资料可以帮助寻找线索或补充背景，但报告会说明它们的证据分量，不会悄悄把一张网页截图升级成官方证明。', statusesTitle: '不用黑箱分数，只保留三种容易理解的结果', statusText: ['信息一致：查到的证据支持这一项具体说法。', '暂时无法核实：目前可以获取的资料不足，无法负责地下结论。', '发现信息不一致：供应商说法与查到的记录，在重要字段上相互冲突。'], handlingTitle: '证据如何保留', handlingText: '报告会标出信息来源和查询日期，并在适当情况下附上链接、截图或来源记录。数据库可能改版、暂停或调整公开内容，因此结论只针对本次实际查到的信息。',
+      reportAnatomy: { label: '一项结论的五个部分', title: '只有结果不够，还要看得懂结果是怎么来的。', items: [['供应商说法', '本次要核实的原话、文件字段或产品说明。'], ['信息来源', '实际查询的登记系统、监管机构或发证机构数据库。'], ['查到的记录', '数据库中真正出现的公司、日期、持有人或型号。'], ['判断理由', '为什么这条记录支持、不足以支持，或直接推翻供应商说法。'], ['核查限制', '即使这一项成立，仍然不能证明哪些事情。']] }
+    },
+    scope: {
+      kicker: '范围与限制', title: '核查可以减少不确定性，不能替你消除所有风险。', lead: '可信的服务不只告诉你查到了什么，也会把结论的边界写清楚。', doTitle: 'ZimonAI 会做', doItems: ['查找能够识别的企业与证书记录', '核对法定名称、证书持有人、型号和地址', '把供应商说法与外部证据分开', '说明信息缺口和相互冲突的字段', '在可执行地区安排透明的预约现场核查'], dontTitle: 'ZimonAI 不会做', dontItems: ['替买家寻找供应商或介绍工厂', '代为议价或处理交易条件', '经手订单、订金或货款', '向供应商收取佣金或回扣', '进行产品质量检验或实验室测试', '暗访、卧底或未告知的突击调查'],
+      limitsTitle: '核查有这些边界', limits: [['公司真实，不等于交易一定可靠', '登记信息可以确认法律主体和当前状态，不能保证以后的交付、履约或偿付能力。'], ['证书真实，不等于所有产品都合规', '证书可能只适用于特定持有人、型号、额定参数、地点或期间，也不能证明每一件出货产品。'], ['地址存在，不等于一定是自有工厂', '登记地址或到访地址本身，不能证明工厂所有权、产能和产品质量。'], ['数据库存在时间和访问限制', '公开信息可能改版、暂停或省略字段；报告只针对标明查询日期时可以获取的内容。'], ['现场核查是公开透明的', '到访会提前预约，并在供应商知情同意下进行；不是秘密调查。']],
+      decisionGuide: { label: '先选对服务', title: '有些问题应该交给其他专业机构。', items: [['实际签约和收款的是哪家公司？', 'ZimonAI 远程供应商核查'], ['这张证书是否属于该公司并覆盖这个型号？', 'ZimonAI 远程供应商核查'], ['华南地址是否存在，现场是否有基本经营活动？', 'ZimonAI 预约现场核查'], ['这批货是否符合规格？', '产品验货服务商'], ['产品是否通过实验室测试要求？', '合格实验室或符合性评估专业机构']] },
+      accreditationTitle: '认可资格说明', accreditationText: 'ZimonAI 不是认可检验机构，也没有 ISO 17020 或 CNAS 认可。本服务核查的是供应商公司与文件信息，不是认可的产品检验、认证或符合性评估。', ctaTitle: '你真正需要的是验货吗？', ctaText: '如果决定需要抽样、实验室测试、出货前检验或认可符合性评估，我们会直接说明 ZimonAI 不能替代这些服务。'
+    },
+    about: {
+      kicker: '关于 ZimonAI', title: '专注把买家问题查清楚，不把自己包装成庞大的中间商。', lead: 'ZimonAI 智蒙灣由创办人直接负责，工作连接台北与深圳／华南。付费客户是海外买家，不是被核查的供应商。',
+      originTitle: '为什么会有这项服务', originText: '海外买家手上经常只有英文商号、证书图片、工厂地址和看起来完整的供应商页面。真正困难的是：找到对应的中文法律主体，进入正确的数据库，再判断这些资料能不能相互对应。ZimonAI 就是把这段工作做清楚。',
+      modelTitle: '主动与交易佣金分开', modelText: 'ZimonAI 不代表中国供应商，不向供应商收取佣金，不替双方议价，也不经手订金和货款。核查服务不需要为了促成订单而美化答案。',
+      footprintTitle: '台北判断，华南执行', footprintText: '远程工作以中国公司、认证和产品记录为主；预约现场核查目前限深圳、东莞、惠州、广州及周边可执行地区。',
+      scaleTitle: '创办人直接负责，不虚构规模', scaleText: 'ZimonAI 目前是一人公司，没有对外宣称全球检验网络、实验室、大型现场团队或数百名客户。每项需求都会先确认范围，确定能够负责交付才接受。',
+      record: { title: '目前的运营事实', items: [['业务性质', '独立的供应商公司与文件信息核查'], ['主要客户', '海外小型买家、电商卖家和进口商'], ['商业独立性', '由买家付费，不收供应商佣金或回扣'], ['远程工作', '查询中国公司、证书和产品／型号记录'], ['现场工作', '深圳与华南周边可执行地区的预约到访'], ['报告结果', '信息一致／暂时无法核实／发现信息不一致']] },
+      registration: { label: '企业登记信息', stamp: '深圳登记主体', publicExcerpt: '官网公开节录', title: '不只是一个网站品牌：ZimonAI 在深圳有实际登记主体。', lead: '以下信息来自 ZimonAI 提供的营业执照，公司法定名称和注册地址按执照原文展示。', fields: { legalName: '登记法定名称', legalRepresentative: '法定代表人', entityType: '企业类型', established: '成立日期', registeredAddress: '注册及实际接待地址' }, entityType: '有限责任公司（港澳台自然人独资）', established: '2026 年 3 月 3 日', imageAlt: '深圳智蒙湾登记主体的营业执照官网公开节录', caption: '营业执照的官网公开节录。统一社会信用代码和二维码已主动省略。', disclosure: '经 ZimonAI 确认，执照上的地址同时是公司注册地址和实际接待地址；下方展示公共接待区实景。' },
+      office: { label: '深圳实际接待空间', title: '是可以坐下来见面的地方，不是素材库照片。', lead: '以下是 ZimonAI 注册及实际接待地址内，客户可使用的公共接待区和会议区。', addressLabel: '注册及实际接待地址', disclosure: '照片只展示客户实际可使用的公共接待和会议区域。', photos: { lounge: { alt: 'ZimonAI 深圳接待地址的公共客户休息区', caption: '公共接待休息区和等候空间' }, meeting: { alt: 'ZimonAI 深圳接待地址的公共会议区', caption: '可用于客户沟通和文件讨论的公共会议区' }, reception: { alt: 'ZimonAI 深圳接待地址的接待前台', caption: '接待前台和出入区域' } } },
+      principles: [['把结论说明白', '交代查了什么、去哪里查，还有哪些问题没有答案。'], ['优先查可追溯的记录', '能够查询官方或发证机构资料时，不拿第三方汇总页当最终证明。'], ['边界也要写进报告', '缺少证据就是缺少证据，核查结果也不等于对未来的保证。']], ctaTitle: '带来一家供应商，以及你正要做的决定。', ctaText: '我们先确认哪些说法能够核查，应该使用哪一个服务层级。'
+    },
+    request: {
+      kicker: '提交核查需求', title: '告诉我们，你准备和哪一家供应商交易。', lead: '把采购沟通中已经有的资料发来。ZimonAI 会先判断能够查什么，再回复范围、价格和时间。', honest: '这份表单不会把信息上传到网站服务器。提交时只会在你的邮件 App 中打开一封整理好的草稿，由你检查后发送给 ZimonAI。', fields: { name: '你的姓名', email: '你的 Email', company: '公司名称（选填）', supplier: '供应商名称', url: '供应商网站／Alibaba 链接（选填）', chinese: '中文法定名称，如已知（选填）', product: '产品和型号', question: '你现在最想弄清楚什么？', consent: '我了解这只会打开邮件草稿，网站不会上传表单内容。', send: '打开邮件草稿', required: '必填' }, placeholders: { name: '张先生', email: 'name@company.com', company: 'Northline Goods', supplier: '英文商号或中文法定名称', url: 'https://…', chinese: '深圳市…有限公司', product: '65W USB-C 充电器，型号 X65', question: '例如：确认公司法律主体、证书持有人，以及 X65 是否在证书型号范围内。' }, after: '草稿打开后，可以在邮件 App 中附上证书图片、报价单或供应商文件。', directTitle: '也可以直接发送 Email', directText: '请附上供应商名称、链接、产品完整型号、证书编号，以及这次核查需要支持的决定。不要发送信用卡信息或核查不需要的身份证明。', responseTitle: '发送后的流程', responseSteps: ['先判断你的问题是否有足够资料可以负责地核查。', '回复适合 Tier 1、Tier 2，或者需要按个案确认的范围和报价。', '你确认范围、价格和交付时间后，才开始工作。']
+    },
+    privacy: { kicker: '隐私声明', title: '网站有意少收信息。', lead: '生效日期：2026 年 8 月 12 日。以下说明 ZimonAI 网站如何处理你主动提供的信息。', sections: [['浏览网站', '公开网站不使用广告 Cookie、行为追踪或会员账号。托管服务商可能为了安全和稳定传输处理基本系统记录。'], ['申请表单', '表单只会在你的设备上建立邮件草稿，网站不会上传或保存字段内容。只有你在自己的邮件服务中点击发送后，信息才会传输。'], ['你发送的内容', 'ZimonAI 会使用邮件和附件评估需求、执行双方同意的服务、回复问题，以及保存必要的商业记录。请勿提供核查不需要的信息。'], ['信息分享', 'ZimonAI 不会出售你的信息。只有在完成双方同意的工作确有需要、你要求分享，或者法律要求时，才可能提供给必要服务商或相关方。'], ['保存与权利', '商业往来只在处理需求、交付服务、保存记录和履行法律义务的合理期间内保存。你可以依法询问访问、更正或删除。'], ['联系方式', '隐私问题请发送至 simonlo@zimonai.com。']] }
   }
 };
-
-// Simplified Chinese starts from the Traditional content so structure remains identical;
-// all user-facing strings below are explicitly rewritten, not browser-translated.
-languages['zh-cn'] = {
-  ...languages['zh-tw'],
-  prefix: 'zh-cn', htmlLang: 'zh-Hans', locale: 'zh_CN', short: '简', name: '简体中文',
-  meta: {
-    titles: { home: '中国供应商核查服务｜ZimonAI 智蒙灣', services: '供应商核查服务与价格｜ZimonAI 智蒙灣', methodology: '供应商核查方法｜ZimonAI 智蒙灣', scope: '服务范围与限制｜ZimonAI 智蒙灣', about: '关于 ZimonAI 智蒙灣', request: '申请供应商核查｜ZimonAI 智蒙灣', privacy: '隐私声明｜ZimonAI 智蒙灣' },
-    descriptions: { home: '汇款前先查清楚中国供应商。ZimonAI 智蒙灣通过可追溯来源核对公司身份、证书、型号与供应商说法。', services: '远程供应商核查每家 US$99–149；华南预约现场核验每家 US$299–399。', methodology: '了解 ZimonAI 如何以官方来源优先的方法核对中国公司资料、证书持有人、型号范围与供应商说法。', scope: '了解供应商核查能证实什么、不能证实什么，以及为什么核查不等于保证。', about: 'ZimonAI 智蒙灣是一项往返台北与深圳／华南的独立供应商核查服务。', request: '告诉 ZimonAI 你需要核查的中国供应商、公司资料、证书或产品说法。', privacy: 'ZimonAI 如何处理你在申请供应商核查时选择提供的信息。' }
-  },
-  nav: { services: '服务', methodology: '核查方法', scope: '范围与限制', about: '关于', request: '核查供应商', menu: '菜单', close: '关闭' },
-  common: { eyebrow: '中国供应商核查', demo: '操作演示・虚构供应商', verified: '已证实', unresolved: '无法证实', discrepancy: '发现不一致', pending: '待核查', source: '来源', claim: '供应商说法', record: '官方记录', result: '结果', queryDate: '查询日期', reference: '参考编号', email: 'Email', phone: '电话', contact: '申请核查', methodology: '查看核查方法', independent: '不收供应商佣金，保持独立', footerLine: '我不帮你买，我帮你查清楚你要跟谁买。', footerScope: '不是采购代理、产品质量检验机构或认可检验机构；未取得 ISO 17020 或 CNAS 认可。', privacy: '隐私', language: '语言', top: '回到顶部', current: '当前页面' }
-};
-
-const cn = languages['zh-cn'];
-cn.home = {
-  ...languages['zh-tw'].home,
-  kicker: '在商业承诺之前，先取得可追溯的答案', title: '汇款之前，先查清楚你的中国供应商。', lead: '我们通过可追溯记录核对公司身份、证书与供应商说法，让你知道真正要向谁购买。', primary: '核查供应商', secondary: '查看核查方法', distinction: '不代采购、不议价、不经手货款。为海外买家提供独立核查。',
-  dossier: { company: 'Lumen Harbor Devices Co., Ltd.', since: '2014', certificate: 'UL 认证', factory: '深圳', run: '运行演示核查', running: '正在交叉比对记录…', done: '完成三项说法核查，其中一项不一致需要注意。', reset: '再次演示' },
-  checks: [['商业登记', '找到相符公司主体', 'verified'], ['证书持有人', '持有人与供应商不同', 'discrepancy'], ['产品型号范围', '未在记录中找到型号', 'unresolved']],
-  story: { label: '这是一场调查，不是一个分数', title: '供应商说法，只是第一层。', intro: '沿着证据路径向下滑；每一步都会改变我们能够负责任作出的结论。', steps: [
-    { no: '01', title: '先保留原始说法', text: '完整记录供应商提供的公司名、证书与产品型号，不先把拼法或主体差异修饰掉。', stage: 'claim' },
-    { no: '02', title: '找到可复查来源', text: '优先查询官方公司与证书数据库。第三方网站可以提供线索，但不能被当作最终证据。', stage: 'source' },
-    { no: '03', title: '交叉核对关系', text: '证书可能真实存在，却属于另一个法律主体，或根本不涵盖报价型号。持有人、地址与范围必须对得上。', stage: 'compare' },
-    { no: '04', title: '只报告证据支持的内容', text: '结论分别呈现已证实、无法证实与发现不一致；不使用虚构信心分数掩盖资料缺口。', stage: 'result' }
-  ] },
-  compare: { label: '证据接缝', title: '说法与记录看似接近，直到逐栏对齐。', hint: '拖动比较虚构供应商说法与演示记录。', leftTitle: '供应商说法', rightTitle: '记录显示', left: ['成立：2014 年', '证书持有人：Lumen Harbor Devices', '型号：LH-65W'], right: ['登记成立：2023 年', '证书持有人：Lumen Harbor Trading', '型号范围：仅 LH-45W'], conclusion: '发现不一致：公司历史、持有人名称与型号范围未能对齐。' },
-  why: { label: '为什么是 ZimonAI', title: '让没有中国资料研究能力的小型买家，也能取得透明核查。', text: '中文公司名称、证书系统与官方数据库往往难以跨语言判断。ZimonAI 把研究过程整理成你可以查看、追问的证据报告。' },
-  service1: { tier: 'Tier 1', title: '远程供应商核查', price: 'US$99–149', unit: '每家供应商', time: '约 3 个工作日', text: '通过可追溯记录核对公司身份、状态、证书持有人与型号范围。' },
-  service2: { tier: 'Tier 2', title: '现场核验', price: 'US$299–399', unit: '每家供应商', time: '约 5–7 个工作日', text: '在华南可执行区域进行预约、透明的到访，确认地址与基本运营存在。' },
-  demoTitle: '打开一份虚构证据档案。', demoLead: '选择一项说法，查看来源、记录与结果如何分开呈现。这是产品演示，不是实时数据库查询，也不是客户案例。',
-  demoTabs: languages['zh-tw'].home.demoTabs.map((item, i) => ([
-    { ...item, label: '公司身份', source: '官方企业登记', record: '找到法律主体，登记状态正常。', note: '提交的中文法定名称与找到的公司主体一致。' },
-    { ...item, label: '商业登记', source: '官方企业登记', claim: '自 2014 年起运营', record: '成立日期：2023 年 3 月 18 日。', note: '找到的登记记录不支持供应商所称运营历史。' },
-    { ...item, label: 'UL 证书', source: '认证数据库', claim: '证书属于供应商', record: '记录持有人为 Lumen Harbor Trading Co., Ltd.', note: '证书确实存在，但持有人名称与供应商法律主体不符。' },
-    { ...item, label: '产品型号', source: '证书型号范围', claim: 'LH-65W 在涵盖范围内', record: '列出型号：LH-30W、LH-45W。', note: '在已查阅记录内未找到提交的型号。' },
-    { ...item, label: '工厂地址', source: '登记记录与供应商文件', claim: '深圳工厂', record: '找到登记地址；是否实际制造仍需现场确认。', note: '仅有登记地址，不能证实工厂活动。' }
-  ][i])),
-  limitsTitle: '我们也会告诉你，哪些事情无法证实。', limitsText: '有效记录不能保证未来行为、产品质量、出货合规或商业履约。清楚标示限制是报告的一部分，不是藏在细则里。', finalTitle: '手上有需要核查的供应商说法？', finalText: '提供公司名称、链接、证书或产品型号。我们会在开始前告诉你哪些能查，以及适合哪个服务层级。'
-};
-
-cn.services = {
-  ...languages['zh-tw'].services,
-  kicker: '服务与价格', title: '两个核查层级，每一个都有清楚边界。', lead: '选择远程证据研究，或加上预约现场到访；工作开始前会先确认范围。',
-  tier1: { ...languages['zh-tw'].services.tier1, title: '远程供应商核查', price: 'US$99–149／每家供应商', time: '约 3 个工作日', best: '适合准备首张订单、支付订金或重新建立合作前，需要先查清楚供应商的小型买家。', includes: ['中国法律主体身份与公司状态', '企业登记资料交叉核对', '证书存在性与持有人核对', '在记录允许时核查产品／型号范围', '识别提交资料与官方记录的明显不一致', '在适当情况下提供证据链接、截图或来源记录'], output: '一份以证据为核心的精简报告，分别呈现已证实、无法证实与发现不一致。' },
-  tier2: { ...languages['zh-tw'].services.tier2, title: '现场核验', price: 'US$299–399／每家供应商', time: '约 5–7 个工作日', best: '适合需要基本确认供应商所称地址与运营存在是否能被现场观察的买家。', includes: ['确认范围并与供应商预约', '前往可执行的供应商地址', '基本观察是否存在运营活动', '核对公司名称、招牌与地址', '在适当且同意的情况下留下事实记录', '进行与到访相关的远程记录核查'], output: '在深圳、东莞、惠州、广州及周边可执行区域，进行预约且透明的现场核验。' },
-  custom: { label: '标准服务以外', title: '定制核查，逐案评估。', text: '如果问题不完全符合 Tier 1 或 Tier 2，请先描述需求。我们只接受能负责任交付的工作，不暗示已存在未标价的 Tier 3–6 能力。' },
-  notIncluded: { title: '两个层级都不包含', items: ['供应商搜索或介绍', '议价或采购管理', '经手订单、订金或供应商款项', '产品质量检验或实验室测试', '保证未来行为或出货合规', '秘密、卧底或未预告的调查'] }, ctaTitle: '不确定适合哪一个层级？', ctaText: '提供供应商与你正在做的决策；先确认范围，再谈付款。'
-};
-
-cn.methodology = {
-  ...languages['zh-tw'].methodology,
-  kicker: '核查方法', title: '从说法走到结论，不隐藏资料缺口。', lead: '我们采用官方来源优先、可解释的方法，结论只到证据能够支持的位置。', mapTitle: '探索核查路径', mapLead: '选择每一步，查看我们查什么、为什么重要、使用哪类来源，以及可能得到什么结果。',
-  nodes: languages['zh-tw'].methodology.nodes.map((n) => ({ ...n, label: ({ intake: '供应商说法', registry: '企业登记', certificate: '证书记录', holder: '持有人关系', model: '型号范围', crosscheck: '交叉核对', report: '证据报告' })[n.id], check: n.check.replaceAll('紀錄', '记录').replaceAll('證書', '证书').replaceAll('範圍', '范围').replaceAll('查核', '核查').replaceAll('資料', '资料').replaceAll('關係', '关系').replaceAll('標示', '标示').replaceAll('結論', '结论'), why: n.why.replaceAll('紀錄', '记录').replaceAll('證書', '证书').replaceAll('關係', '关系').replaceAll('報價', '报价').replaceAll('來源', '来源').replaceAll('矛盾', '矛盾'), source: n.source.replaceAll('紀錄', '记录').replaceAll('證書', '证书').replaceAll('資料庫', '数据库').replaceAll('買家', '买家').replaceAll('證據', '证据'), results: n.results.replaceAll('證實', '证实').replaceAll('發現', '发现').replaceAll('關係', '关系').replaceAll('未解', '未解').replaceAll('涵蓋', '涵盖') })),
-  sourcesTitle: '官方来源优先，不等于只看官方来源。', sourcesText: '我们优先使用官方登记、监管、认可与认证数据库。供应商文件与第三方来源可以提供线索或背景，但会按证据强度标示，不会被默默包装成最终证明。', statusesTitle: '三种结果，不做黑箱分数', statusText: ['已证实：找到的证据支持被核查的特定陈述。', '无法证实：可取得来源不足以支持负责任的结论。', '发现不一致：供应商说法与找到的记录在重要字段互相冲突。'], handlingTitle: '证据处理', handlingText: '报告会标示来源类型与查询日期，并在适当情况下提供链接、截图或来源记录。数据库的可用性与访问可能改变，因此结论会说明当时实际可查询到的内容。'
-};
-
-cn.scope = {
-  ...languages['zh-tw'].scope,
-  kicker: '范围与限制', title: '核查可以降低不确定性，但不能消除风险。', lead: '可信的核查服务，必须清楚说明结论停在哪里。', doTitle: '我们会做', doItems: ['核对可识别的公司与证书记录', '交叉比对法定名称、持有人、型号与地址', '把证据和供应商陈述分开', '解释资料缺口与互相冲突的记录', '在可执行地区进行预约现场核验'], dontTitle: '我们不做', dontItems: ['找供应商或介绍供应商', '议价或处理商业条件', '经手订单、订金或供应商款项', '收取供应商佣金或回扣', '产品质量检验或实验室测试', '秘密、卧底或未预告的调查'], limitsTitle: '核查限制', limits: [['真实公司不等于可靠供应商', '登记资料可以证实法律存在与状态，不能保证未来行为、交付或偿付能力。'], ['真实证书不是产品的全面保证', '记录可能只适用特定持有人、型号、规格、地点或期间，也不能证明每一件出货品都合规。'], ['地址不自动等于工厂', '登记地址或到访地址本身，不能证明制造所有权、产能或产品质量。'], ['记录受时间与访问限制', '数据库可能改变、无法使用或省略信息；结论只针对标示查询时间可取得的记录。'], ['现场核验是透明的', '到访会先预约，并在供应商知情同意下进行，不是秘密调查。']], accreditationTitle: '认可资格披露', accreditationText: 'ZimonAI 不是认可检验机构，未取得 ISO 17020 或 CNAS 认可。本服务是供应商信息核查，不是认可的产品检验、认证或符合性评估。', ctaTitle: '其实需要产品验货？', ctaText: '我们会直接说明。如果你的决策需要抽样、实验室测试、出货前检验或认可符合性评估，ZimonAI 核查不能取代这些服务。'
-};
-
-cn.about = {
-  ...languages['zh-tw'].about,
-  kicker: '关于 ZimonAI', title: '为需要证据、而不是销售中间人的买家而设。', lead: 'ZimonAI 智蒙湾是一项由创办人直接经营、往返台北与深圳／华南的独立供应商核查服务。', originTitle: '为什么需要这项服务', originText: '海外买家常收到英文公司名、证书图片与看似完整的供应商页面，却缺少中文语境与数据库经验把这些信息连接起来。ZimonAI 的工作，就是让这个核查过程变得清楚。', modelTitle: '刻意保持独立', modelText: '我们不代表中国供应商、不收供应商佣金、不议价、不经手订单与货款。客户是买家。这种分离，让核查问题不受促成交易的激励影响。', footprintTitle: '台北判断，华南执行', footprintText: '远程研究可针对适用的中国公司与证书来源进行；预约现场核验限深圳、东莞、惠州、广州及周边可执行区域。', scaleTitle: '由创办人直接负责的专注服务', scaleText: 'ZimonAI 目前是一人公司。网站不暗示全球团队、检验网络或实验室。每个项目逐一确认范围，确保接受的工作能负责任地交付。', principles: [['解释结论', '说明查了什么、在哪里查，以及哪些仍未解决。'], ['优先可追溯来源', '在可取得时，先使用官方或发证机构控制的记录。'], ['说清楚边界', '不把缺乏证据变成确定答案，也不把核查变成保证。']], ctaTitle: '带来一家供应商与一个决策。', ctaText: '我们会先识别哪些说法能查，以及适合哪个服务层级。'
-};
-
-cn.request = {
-  ...languages['zh-tw'].request,
-  kicker: '申请核查', title: '告诉我们，你准备向谁购买。', lead: '提供手上已有的信息。我们会先回复工作范围、服务层级与下一步，再开始核查。', honest: '这个表单不会把资料上传到服务器；它会在你的邮件 App 打开一封已整理的草稿，让你检查后直接寄给 ZimonAI。', fields: { name: '你的姓名', email: '你的 Email', company: '公司（选填）', supplier: '供应商名称', url: '供应商网站／Alibaba 链接（选填）', chinese: '中文公司名称，如已知（选填）', product: '产品', question: '你想核查什么？', consent: '我了解这会打开邮件草稿，网站不会上传任何资料。', send: '打开邮件草稿', required: '必填' }, placeholders: { name: '张明', email: 'name@company.com', company: 'Northline Goods', supplier: '供应商商号或法定名称', url: 'https://…', chinese: '深圳市…有限公司', product: '65W USB-C 充电器', question: '例如：核查公司身份、证书持有人，以及型号 X 是否在证书范围内。' }, after: '草稿打开后，可以在邮件 App 内附上证书或供应商文件。', directTitle: '想直接写信？', directText: '请提供供应商名称、链接、产品与核查问题。不要发送信用卡资料或不必要的身份文件。', responseTitle: '接下来会发生什么', responseSteps: ['我们先判断这个问题能否负责任地核查。', '确认 Tier 1、Tier 2 或逐案范围与报价。', '只有在范围、价格与交付时间确认后才开始工作。']
-};
-
-cn.privacy = { kicker: '隐私声明', title: '刻意维持最少资料。', lead: '生效日期：2026 年 8 月 12 日。本声明说明 ZimonAI 网站如何处理信息。', sections: [['网站使用', '公开网站不使用广告 Cookie、行为追踪或账号注册。托管服务商可能为了安全与稳定传输处理标准基础设施记录。'], ['申请表单', '申请表单只在你的设备建立邮件草稿，不会由网站上传或保存字段内容。只有当你选择通过自己的邮件服务寄出时，资料才会传送。'], ['你寄来的信息', '如果你联系 ZimonAI，消息与附件会用于评估或交付申请的服务、回复问题与保存必要商业记录。请勿提供核查不需要的信息。'], ['分享', '信息不会出售。只有在交付已同意工作所需、你指示我们分享，或法律要求时，才可能提供给必要服务商或相关方。'], ['保存与请求', '商业往来只在合理需要的申请、服务交付、记录与法律义务期间保存。你可以联系 ZimonAI，依法询问访问、更正或删除。'], ['联系', '隐私问题可发送至 simonlo@zimonai.com。']] };

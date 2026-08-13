@@ -25,7 +25,7 @@ for (const lang of Object.values(languages)) {
   for (const page of pages) {
     const segments = [lang.prefix, page.slug].filter(Boolean);
     const pathname = segments.length ? `/${segments.join('/')}/` : '/';
-    urls.push(`  <url>\n    <loc>https://zimonai.com${pathname}</loc>\n    <lastmod>2026-08-12</lastmod>\n  </url>`);
+    urls.push(`  <url>\n    <loc>https://zimonai.com${pathname}</loc>\n    <lastmod>2026-08-13</lastmod>\n  </url>`);
   }
 }
 
