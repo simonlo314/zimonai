@@ -48,11 +48,14 @@ function footerContactList(t) {
   return `<dl class="footer-contact">${approvedContacts(t).map((item) => `<div><dt>${esc(item.label)}</dt><dd>${item.href ? `<a href="${esc(item.href)}">${esc(item.value)}</a>` : esc(item.value)}</dd></div>`).join('')}</dl>`;
 }
 
-function pageHeader(kicker, title, lead) {
-  return `<header class="page-hero shell">
-    <p class="kicker reveal">${esc(kicker)}</p>
-    <h1 class="page-title reveal">${esc(title)}</h1>
-    <p class="page-lead reveal">${esc(lead)}</p>
+function pageHeader(kicker, title, lead, brandMark = false) {
+  return `<header class="page-hero shell${brandMark ? ' page-hero--brand' : ''}">
+    <div class="page-hero__copy">
+      <p class="kicker reveal">${esc(kicker)}</p>
+      <h1 class="page-title reveal">${esc(title)}</h1>
+      <p class="page-lead reveal">${esc(lead)}</p>
+    </div>
+    ${brandMark ? '<div class="page-hero__brand-mark" aria-hidden="true"><img src="/assets/zimonai-circular-mark-primary.svg" alt="" width="800" height="800"></div>' : ''}
   </header>`;
 }
 
@@ -316,7 +319,7 @@ function about(t) {
     <div class="office-evidence__gallery">${brandProfile.office.photos.map((photo, index) => { const copy = t.about.office.photos[photo.id]; return `<figure class="reveal"><div class="office-evidence__image"><img src="${esc(photo.src)}" alt="${esc(copy.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy"><span>0${index + 1}</span></div><figcaption>${esc(copy.caption)}</figcaption></figure>`; }).join('')}</div>
     <p class="office-evidence__disclosure reveal"><span aria-hidden="true">—</span>${esc(t.about.office.disclosure)}</p>
   </section>` : '';
-  return `<main id="main">${pageHeader(t.about.kicker, t.about.title, t.about.lead)}
+  return `<main id="main">${pageHeader(t.about.kicker, t.about.title, t.about.lead, true)}
     <section class="about-grid shell">
       <article class="about-lead reveal"><span class="file-label">01 · ${esc(t.ui.origin)}</span><h2>${esc(t.about.originTitle)}</h2><p>${esc(t.about.originText)}</p></article>
       <article class="about-block reveal"><span class="file-label">02 · ${esc(t.ui.model)}</span><h2>${esc(t.about.modelTitle)}</h2><p>${esc(t.about.modelText)}</p></article>

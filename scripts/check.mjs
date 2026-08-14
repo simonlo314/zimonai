@@ -47,7 +47,7 @@ for (const photo of brandProfile.office.photos) {
 }
 if (brandProfile.registration.creditCode !== '91440300MAK8J4881W') errors.push('owner-approved public registration identifier is missing or incorrect');
 if (!distFiles.includes('assets/zimonai-business-license-public.jpg')) errors.push('public business licence excerpt missing');
-for (const logo of ['zimonai-logo-primary.svg', 'zimonai-logo-white.svg', 'zimonai-shield-icon-primary.svg', 'favicon.svg', 'apple-touch-icon.png']) {
+for (const logo of ['zimonai-logo-primary.svg', 'zimonai-logo-white.svg', 'zimonai-shield-icon-primary.svg', 'zimonai-circular-mark-primary.svg', 'favicon.svg', 'apple-touch-icon.png']) {
   if (!distFiles.includes(`assets/${logo}`)) errors.push(`approved ZimonAI logo asset missing: ${logo}`);
 }
 if (distFiles.some((file) => /\.pdf$/i.test(file))) errors.push('raw PDF must not be included in the public build');
@@ -65,7 +65,7 @@ const requiredSections = {
   'services/index.html': ['service-staircase', 'service-tier-select', 'service-tier-panel', 'report-promises'],
   'methodology/index.html': ['source-registry', 'report-anatomy'],
   'scope-limitations/index.html': ['decision-guide', 'accreditation'],
-  'about/index.html': ['business-record', 'registration-evidence', 'office-evidence']
+  'about/index.html': ['page-hero__brand-mark', 'business-record', 'registration-evidence', 'office-evidence']
 };
 for (const [file, sections] of Object.entries(requiredSections)) {
   for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
