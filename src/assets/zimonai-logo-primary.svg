@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="360" viewBox="0 0 1600 360" role="img" aria-label="ZimonAI horizontal shield logo primary">
+    <g transform="translate(55 18) scale(.58)"><defs>
+    <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#293D59"/><stop offset="1" stop-color="#101D33"/></linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2358BD"/><stop offset="1" stop-color="#3192E8"/></linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#navyGrad)" stroke-width="34" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M256 48C202 78 143 100 88 112v137c0 92 58 166 168 215 88-39 144-97 164-167"/>
+  </g>
+  <path d="M159 147h202L174 351c24 36 53 65 91 88" fill="none" stroke="url(#navyGrad)" stroke-width="48" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M214 331l69 63 157-168" fill="none" stroke="url(#blueGrad)" stroke-width="47" stroke-linecap="square" stroke-linejoin="miter"/></g>
+    <g transform="translate(400 112) scale(1.48)"><path d="M0 0h87v17L25 90h65v22H0V95l61-73H0z" fill="#101D33" transform="translate(0 0)"/><path d="M0 0h24v112H0z" fill="#101D33" transform="translate(113 0)"/><path d="M0 112V0h22l28 41L77 0h22v112H75V42L50 78 24 42v70z" fill="#101D33" transform="translate(163 0)"/><path d="M48 0C18 0 0 22 0 56s18 56 48 56 48-22 48-56S78 0 48 0zm0 22c16 0 24 13 24 34s-8 34-24 34-24-13-24-34 8-34 24-34z" fill="#101D33" transform="translate(288 0)"/><path d="M0 112V0h20l47 67V0h24v112H71L24 45v67z" fill="#101D33" transform="translate(410 0)"/><path d="M0 112L36 0h24l36 112H70L60 80H33l-9 32zm40-54h14L47 34z" fill="#2358BD" transform="translate(527 0)"/><path d="M0 0h24v112H0z" fill="#2358BD" transform="translate(644 0)"/></g>
+  </svg>

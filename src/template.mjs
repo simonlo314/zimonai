@@ -91,7 +91,7 @@ function home(t) {
       <div class="dossier" data-hero-dossier>
         <div class="dossier__top">
           <span class="demo-label">${esc(t.common.demo)}</span>
-          <span class="mono">REF · ZM-DEMO-001</span>
+          <span class="dossier__reference"><img src="/assets/zimonai-shield-icon-primary.svg" alt="" width="512" height="512" aria-hidden="true"><span class="mono">REF · ZM-DEMO-001</span></span>
         </div>
         <div class="dossier__identity">
           <span>${esc(t.ui.supplierProfile)}</span>
@@ -361,7 +361,7 @@ function header(t, pageId) {
   const nav = [['services', t.nav.services], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
   return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header" data-header>
     <div class="site-header__inner">
-      <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI home"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M7 9h28L9 33h26"/><circle cx="31" cy="11" r="3"/></svg><span>ZimonAI<small>智蒙灣</small></span><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>
+      <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo" src="/assets/zimonai-logo-primary.svg" alt="ZimonAI" width="1600" height="360"><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-nav-toggle><span>${esc(t.nav.menu)}</span><i></i><i></i></button>
       <nav class="site-nav" id="main-nav" data-nav>
         ${nav.map(([id, label]) => `<a href="${pathFor(t.__key, id)}" ${pageId === id ? `aria-current="page"` : ''}>${esc(label)}</a>`).join('')}
@@ -373,7 +373,7 @@ function header(t, pageId) {
 }
 
 function footer(t) {
-  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M7 9h28L9 33h26"/><circle cx="31" cy="11" r="3"/></svg><span>ZimonAI<small>智蒙灣</small></span></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
+  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
 }
 
 export function renderPage(langKey, pageId) {
@@ -416,8 +416,9 @@ export function renderPage(langKey, pageId) {
   <meta name="twitter:title" content="${esc(t.meta.titles[pageId])}">
   <meta name="twitter:description" content="${esc(t.meta.descriptions[pageId])}">
   <meta name="twitter:image" content="https://zimonai.com/assets/og-image.png">
-  <meta name="theme-color" content="#102228">
+  <meta name="theme-color" content="#101D33">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>
   <script type="module" src="/assets/site.js"></script>

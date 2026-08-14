@@ -47,6 +47,9 @@ for (const photo of brandProfile.office.photos) {
 }
 if (brandProfile.registration.creditCode !== '91440300MAK8J4881W') errors.push('owner-approved public registration identifier is missing or incorrect');
 if (!distFiles.includes('assets/zimonai-business-license-public.jpg')) errors.push('public business licence excerpt missing');
+for (const logo of ['zimonai-logo-primary.svg', 'zimonai-logo-white.svg', 'zimonai-shield-icon-primary.svg', 'favicon.svg', 'apple-touch-icon.png']) {
+  if (!distFiles.includes(`assets/${logo}`)) errors.push(`approved ZimonAI logo asset missing: ${logo}`);
+}
 if (distFiles.some((file) => /\.pdf$/i.test(file))) errors.push('raw PDF must not be included in the public build');
 
 function localTarget(raw) {
@@ -124,6 +127,8 @@ for (const [name, pattern] of forbidden) if (pattern.test(joined)) errors.push(`
 for (const phrase of ['shared office', '共享辦公', '共享办公']) if (joined.toLowerCase().includes(phrase)) errors.push(`site output contains unapproved public wording: ${phrase}`);
 if (!joined.includes('simonlo@zimonai.com')) errors.push('formal email missing');
 if (!joined.includes('19575746458')) errors.push('formal phone missing');
+if (!sourceTemplate.includes('/assets/zimonai-logo-primary.svg') || !sourceTemplate.includes('/assets/zimonai-logo-white.svg')) errors.push('new ZimonAI logo system is not wired into the site chrome');
+if (sourceTemplate.includes('<svg viewBox="0 0 42 42"')) errors.push('retired ZimonAI header mark remains in the template');
 for (const contact of ['+86 19575746458', '+886 988307998', 'simon3141229', 'lo17v1']) {
   if (!joined.includes(contact)) errors.push(`approved contact missing: ${contact}`);
 }
