@@ -79,7 +79,24 @@ function home(t) {
   </article>`).join('');
 
   return `<main id="main">
-    <section class="hero shell" aria-labelledby="hero-title">
+    <section class="hero-cinema" aria-labelledby="hero-title" data-hero-cinema>
+      <div class="hero-cinema__scene" aria-hidden="true">
+        <div class="hero-cinema__grid"></div>
+        <div class="hero-cinema__beam"></div>
+        <div class="hero-cinema__glow hero-cinema__glow--one"></div>
+        <div class="hero-cinema__glow hero-cinema__glow--two"></div>
+        <img class="hero-cinema__shield" src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512">
+        <div class="hero-cinema__sheet hero-cinema__sheet--registry"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="hero-cinema__sheet hero-cinema__sheet--certificate"><i></i><i></i><i></i><i></i></div>
+        <svg class="hero-cinema__trace" viewBox="0 0 1600 900" preserveAspectRatio="none">
+          <path d="M-80 735 C300 610 420 760 680 555 S1110 210 1680 290"></path>
+          <path d="M110 120 C370 260 560 125 800 305 S1220 680 1640 600"></path>
+          <circle cx="680" cy="555" r="6"></circle>
+          <circle cx="800" cy="305" r="5"></circle>
+        </svg>
+        <div class="hero-cinema__scan"></div>
+      </div>
+      <div class="hero shell">
       <div class="hero__copy">
         <p class="kicker">${esc(t.home.kicker)}</p>
         <h1 id="hero-title">${esc(t.home.title)}</h1>
@@ -118,6 +135,7 @@ function home(t) {
           <span class="scan-button__beam" aria-hidden="true"></span><span data-run-label>${esc(t.home.dossier.run)}</span>
         </button>
         <p class="dossier__announcement" data-demo-announcement>${esc(t.home.dossier.running)}</p>
+      </div>
       </div>
     </section>
 
@@ -362,9 +380,10 @@ const renderers = { home, services, methodology, scope, about, request, privacy 
 
 function header(t, pageId) {
   const nav = [['services', t.nav.services], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
-  return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header" data-header>
+  const isHome = pageId === 'home';
+  return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header${isHome ? ' site-header--home' : ''}" data-header>
     <div class="site-header__inner">
-      <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo" src="/assets/zimonai-logo-primary.svg" alt="ZimonAI" width="1600" height="360"><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>
+      <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo" src="${isHome ? '/assets/zimonai-logo-white.svg' : '/assets/zimonai-logo-primary.svg'}" alt="ZimonAI" width="1600" height="360"><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-nav-toggle><span>${esc(t.nav.menu)}</span><i></i><i></i></button>
       <nav class="site-nav" id="main-nav" data-nav>
         ${nav.map(([id, label]) => `<a href="${pathFor(t.__key, id)}" ${pageId === id ? `aria-current="page"` : ''}>${esc(label)}</a>`).join('')}
