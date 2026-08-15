@@ -439,8 +439,9 @@ export function renderPage(langKey, pageId) {
   <meta name="twitter:description" content="${esc(t.meta.descriptions[pageId])}">
   <meta name="twitter:image" content="https://zimonai.com/assets/og-image.png">
   <meta name="theme-color" content="#101D33">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="180x180">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="/assets/site.css">
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>
   <script type="module" src="/assets/site.js"></script>

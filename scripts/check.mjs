@@ -50,6 +50,9 @@ if (!distFiles.includes('assets/zimonai-business-license-public.jpg')) errors.pu
 for (const logo of ['zimonai-logo-primary.svg', 'zimonai-logo-white.svg', 'zimonai-shield-icon-primary.svg', 'zimonai-shield-icon-mono-white.svg', 'zimonai-circular-mark-primary.svg', 'favicon.svg', 'apple-touch-icon.png']) {
   if (!distFiles.includes(`assets/${logo}`)) errors.push(`approved ZimonAI logo asset missing: ${logo}`);
 }
+for (const favicon of ['favicon.png', 'favicon.svg', 'apple-touch-icon.png']) {
+  if (!distFiles.includes(favicon)) errors.push(`stable root favicon asset missing: ${favicon}`);
+}
 if (distFiles.some((file) => /\.pdf$/i.test(file))) errors.push('raw PDF must not be included in the public build');
 
 function localTarget(raw) {
@@ -98,6 +101,8 @@ for (const file of files) {
   if (!/<title>[^<]+<\/title>/.test(html)) errors.push(`${label}: missing title`);
   if (!/<meta name="description" content="[^"]+">/.test(html) && file !== '404.html') errors.push(`${label}: missing description`);
   if (!/<link rel="canonical" href="https:\/\/zimonai\.com\//.test(html) && file !== '404.html') errors.push(`${label}: missing canonical`);
+  if (!html.includes('href="/favicon.png"') || !html.includes('href="/favicon.svg"')) errors.push(`${label}: stable root favicon links missing`);
+  if (/href="\/assets\/favicon\.(?:svg|png)(?:\?|\")/.test(html)) errors.push(`${label}: favicon URL must remain stable for search crawlers`);
   if (file !== '404.html' && (html.match(/hreflang=/g) || []).length !== 4) errors.push(`${label}: expected 4 hreflang links`);
   const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);

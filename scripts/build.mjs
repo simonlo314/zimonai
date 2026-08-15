@@ -38,6 +38,9 @@ function versionAssetUrls(html) {
 await rm(dist, { recursive: true, force: true });
 await mkdir(path.join(dist, 'assets'), { recursive: true });
 await cp(sourceAssets, path.join(dist, 'assets'), { recursive: true });
+await cp(path.join(sourceAssets, 'favicon.svg'), path.join(dist, 'favicon.svg'));
+await cp(path.join(sourceAssets, 'apple-touch-icon.png'), path.join(dist, 'favicon.png'));
+await cp(path.join(sourceAssets, 'apple-touch-icon.png'), path.join(dist, 'apple-touch-icon.png'));
 
 for (const [langKey, lang] of Object.entries(languages)) {
   for (const page of pages) {
