@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="ZimonAI shield Z check icon mono-white">
-  <rect width="512" height="512" fill="#101D33"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="ZimonAI shield Z check icon mono-white"><rect width="512" height="512" fill="#101D33"/><defs>
+    <linearGradient id="navyGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#293D59"/><stop offset="1" stop-color="#101D33"/></linearGradient>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2358BD"/><stop offset="1" stop-color="#3192E8"/></linearGradient>
+  </defs>
   <g fill="none" stroke="#FFFFFF" stroke-width="34" stroke-linecap="square" stroke-linejoin="miter">
     <path d="M256 48C202 78 143 100 88 112v137c0 92 58 166 168 215 88-39 144-97 164-167"/>
   </g>
   <path d="M159 147h202L174 351c24 36 53 65 91 88" fill="none" stroke="#FFFFFF" stroke-width="48" stroke-linecap="square" stroke-linejoin="miter"/>
-  <path d="M214 331l69 63 157-168" fill="none" stroke="#FFFFFF" stroke-width="47" stroke-linecap="square" stroke-linejoin="miter"/>
-</svg>
+  <path d="M214 331l69 63 157-168" fill="none" stroke="#FFFFFF" stroke-width="47" stroke-linecap="square" stroke-linejoin="miter"/></svg>
