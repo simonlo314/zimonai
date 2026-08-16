@@ -2,6 +2,8 @@ import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { languages } from '../src/content.mjs';
+import { paymentContent } from '../src/payment-content.mjs';
+import { STRIPE_PRODUCTS } from '../functions/_lib/stripe.js';
 import { brandProfile } from '../src/brand-profile.mjs';
 import { editorialPolicy, layoutMode } from '../src/editorial-policy.mjs';
 
@@ -17,6 +19,11 @@ const sourceCss = await readFile(path.join(root, 'src', 'assets', 'site.css'), '
 const sourcePolicy = await readFile(path.join(root, 'CONTENT_AND_LOCALIZATION.md'), 'utf8');
 const sourceJs = await readFile(path.join(root, 'src', 'assets', 'site.js'), 'utf8');
 const analyticsFunction = await readFile(path.join(root, 'functions', 'api', 'analytics.js'), 'utf8');
+const checkoutFunction = await readFile(path.join(root, 'functions', 'api', 'create-checkout-session.js'), 'utf8');
+const sessionFunction = await readFile(path.join(root, 'functions', 'api', 'checkout-session.js'), 'utf8');
+const webhookFunction = await readFile(path.join(root, 'functions', 'api', 'stripe-webhook.js'), 'utf8');
+const stripeLibrary = await readFile(path.join(root, 'functions', '_lib', 'stripe.js'), 'utf8');
+const paymentMigration = await readFile(path.join(root, 'migrations', '0002_payments.sql'), 'utf8');
 const wranglerConfig = await readFile(path.join(root, 'wrangler.jsonc'), 'utf8');
 
 for (const [label, pattern] of [
@@ -32,7 +39,14 @@ for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
   if (!lang?.ui?.openEvidence || !lang?.common?.skip) errors.push(`${langKey}: incomplete localized interface labels`);
   if (!lang?.about?.registration?.fields?.registeredAddress) errors.push(`${langKey}: registration copy is incomplete`);
   if (!editorialPolicy[langKey]?.writingMode) errors.push(`${langKey}: editorial policy missing`);
+  if (!paymentContent[langKey]?.payments?.products?.length) errors.push(`${langKey}: payment content missing`);
 }
+
+for (const [key, amount] of Object.entries({ consultation: 9900, t1: 14900, t2: 34900, balance: 1000, 'consultation-extension': 4900 })) {
+  if (STRIPE_PRODUCTS[key]?.amount !== amount) errors.push(`Stripe catalogue amount is incorrect for ${key}`);
+}
+if (STRIPE_PRODUCTS.balance?.max !== 100 || !STRIPE_PRODUCTS.balance?.referenceRequired) errors.push('service balance payment safeguards are incomplete');
+if (!STRIPE_PRODUCTS['consultation-extension']?.referenceRequired) errors.push('consultation extension must require an existing booking reference');
 
 if (layoutMode('zh-tw') !== 'cjk' || layoutMode('zh-cn') !== 'cjk' || layoutMode('en') !== 'latin') errors.push('language layout modes are incorrect');
 for (const hook of ['html[lang="zh-Hant"]', 'html[lang="zh-Hans"]', 'html[data-layout="cjk"]']) {
@@ -68,7 +82,10 @@ const requiredSections = {
   'services/index.html': ['service-staircase', 'service-tier-select', 'service-tier-panel', 'report-promises'],
   'methodology/index.html': ['source-registry', 'report-anatomy'],
   'scope-limitations/index.html': ['decision-guide', 'accreditation'],
-  'about/index.html': ['page-hero__brand-mark', 'business-record', 'registration-evidence', 'office-evidence']
+  'about/index.html': ['page-hero__brand-mark', 'business-record', 'registration-evidence', 'office-evidence'],
+  'payments/index.html': ['payment-desk', 'payment-grid', 'payment-private', 'payment-process', 'checkout-form'],
+  'payment-success/index.html': ['payment-result', 'payment-receipt', 'payment-intake', 'payment-balance-done'],
+  'payment-terms/index.html': ['legal-row', 'support-panel']
 };
 for (const [file, sections] of Object.entries(requiredSections)) {
   for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
@@ -126,7 +143,9 @@ const forbidden = [
   ['old business positioning', /AI Hardware Safety Diagnostics|Diagnostic Accuracy|Devices Audited|Certified Profiles/i],
   ['withdrawn sourcing exclusion', /不幫你找廠|不帮你找厂|do not source for you/i],
   ['withdrawn regional restriction', /現場查核限華南|现场核查限华南|Shenzhen, Dongguan, Huizhou, Guangzhou or/i],
-  ['withdrawn quality exclusion', /不是產品品質檢驗|不是产品质量检验|not a product quality inspection/i]
+  ['withdrawn quality exclusion', /不是產品品質檢驗|不是产品质量检验|not a product quality inspection/i],
+  ['retired T1 price range', /(?:USD|US\$)\s*99\s*[–-]\s*149/i],
+  ['retired T2 price range', /(?:USD|US\$)\s*249\s*[–-]\s*349/i]
 ];
 for (const [name, pattern] of forbidden) if (pattern.test(joined)) errors.push(`site output contains ${name}`);
 for (const phrase of ['shared office', '共享辦公', '共享办公']) if (joined.toLowerCase().includes(phrase)) errors.push(`site output contains unapproved public wording: ${phrase}`);
@@ -140,15 +159,32 @@ for (const contact of ['+86 19575746458', '+886 988307998', 'simon3141229', 'lo1
 for (const phrase of ['One category only', '我們專精充電器與電源電子供應鏈', '我们专注充电器与电源电子供应链', 'Full Managed Sourcing Verification']) {
   if (!joined.includes(phrase)) errors.push(`site output missing approved category or service content: ${phrase}`);
 }
-for (const event of ['page_view', 'session_start', 'contact_click', 'tier_select', 'request_draft']) {
+for (const event of ['page_view', 'session_start', 'contact_click', 'tier_select', 'request_draft', 'support_open', 'checkout_start', 'checkout_error', 'payment_confirmed', 'post_payment_intake']) {
   if (!sourceJs.includes(`'${event}'`) || !analyticsFunction.includes(`'${event}'`)) errors.push(`analytics event is not wired end to end: ${event}`);
 }
 if (!sourceJs.includes("navigator.doNotTrack !== '1'") || !analyticsFunction.includes("request.headers.get('DNT') === '1'")) errors.push('analytics privacy opt-out is incomplete');
 if (!wranglerConfig.includes('"binding": "ANALYTICS_DB"')) errors.push('Cloudflare analytics database binding is missing');
+if (!checkoutFunction.includes('STRIPE_PRODUCTS') || checkoutFunction.includes('payload.amount')) errors.push('checkout amount is not exclusively controlled by the server catalogue');
+if (!checkoutFunction.includes('allowedRequestOrigin') || !checkoutFunction.includes('reference_required')) errors.push('checkout origin or reference safeguards are incomplete');
+if (!sessionFunction.includes('stripeRequest') || !sessionFunction.includes('displayEmail') || !sessionFunction.includes("paymentStatus: session.payment_status")) errors.push('payment confirmation endpoint is incomplete');
+if (!webhookFunction.includes("request.headers.get('Stripe-Signature')") || !webhookFunction.includes("Math.abs(Math.floor(Date.now() / 1000) - Number(timestamp)) > 300")) errors.push('Stripe webhook signature verification is incomplete');
+for (const table of ['stripe_events', 'payment_orders']) if (!paymentMigration.includes(`CREATE TABLE IF NOT EXISTS ${table}`)) errors.push(`payment database migration missing ${table}`);
+if (!webhookFunction.includes('INSERT OR IGNORE INTO stripe_events') || !webhookFunction.includes('ON CONFLICT(stripe_session_id) DO UPDATE')) errors.push('Stripe webhook idempotency is incomplete');
+if (!stripeLibrary.includes('STRIPE_SECRET_KEY') || !webhookFunction.includes('STRIPE_WEBHOOK_SECRET')) errors.push('Stripe secret names are not wired correctly');
+
+const sourceBundle = [sourceContent, sourceTemplate, sourceCss, sourceJs, analyticsFunction, checkoutFunction, sessionFunction, webhookFunction, stripeLibrary].join('\n');
+if (/(?:=|:)\s*['"`](?:sk_(?:test|live)_[A-Za-z0-9]{12,}|whsec_[A-Za-z0-9]{12,})['"`]/.test(sourceBundle)) errors.push('a Stripe secret appears to be hard-coded in source');
+
+const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
+if (sitemap.includes('/payment-success/')) errors.push('payment success page must not appear in the sitemap');
+for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
+  const successHtml = await readFile(path.join(dist, prefix, 'payment-success', 'index.html'), 'utf8');
+  if (!successHtml.includes('<meta name="robots" content="noindex, nofollow">')) errors.push(`dist/${prefix}payment-success/index.html: payment success page must be noindex`);
+}
 
 if (errors.length) {
   console.error(`Checks failed (${errors.length})`);
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log(`Checks passed: ${files.length} HTML pages, trilingual content structure, CJK layout policy, public registration evidence, internal references and launch safeguards.`);
+console.log(`Checks passed: ${files.length} HTML pages, trilingual payment content, server-owned Stripe pricing, webhook safeguards, CJK layout policy, public registration evidence and internal references.`);

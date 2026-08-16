@@ -1,0 +1,29 @@
+# ZimonAI Stripe launch checklist
+
+The website never stores a Stripe password or secret key in public source code. Configure these values only in Cloudflare's encrypted secret settings:
+
+- `STRIPE_SECRET_KEY`
+- `STRIPE_WEBHOOK_SECRET`
+
+## Before the first test payment
+
+1. Keep Stripe in test mode.
+2. Add the test-mode secret key to the Cloudflare Pages project as `STRIPE_SECRET_KEY`.
+3. Apply `migrations/0002_payments.sql` to the existing `ANALYTICS_DB` database.
+4. Create a Stripe webhook endpoint for `https://zimonai.com/api/stripe-webhook`.
+5. Subscribe it to Checkout completion, delayed-payment success or failure, and Checkout expiration events.
+6. Store the webhook signing secret as `STRIPE_WEBHOOK_SECRET`.
+7. Deploy a preview and complete one test payment for each public product type before enabling live mode.
+
+## Launch gate
+
+Do not enable live payments until all of the following are true:
+
+- The displayed price and Stripe Checkout total match.
+- Successful payments return to the correct language version of the confirmation page.
+- A paid order appears once in `payment_orders`, even if Stripe retries the webhook.
+- T1 and T2 show the correct intake fields.
+- Consultation shows scheduling fields.
+- Service balance payments require a case, quote or reason reference.
+- Cancellation returns to the payment page without creating a paid order.
+- Payment, rescheduling, refund, privacy and delivery wording has been approved by ZimonAI.

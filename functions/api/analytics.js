@@ -8,7 +8,12 @@ const ALLOWED_EVENTS = new Set([
   'nav_click',
   'demo_run',
   'evidence_tab',
-  'request_draft'
+  'request_draft',
+  'support_open',
+  'checkout_start',
+  'checkout_error',
+  'payment_confirmed',
+  'post_payment_intake'
 ]);
 
 function taipeiDate() {

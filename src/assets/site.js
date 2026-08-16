@@ -281,6 +281,178 @@ mailForm?.addEventListener('submit', (event) => {
   window.location.href = `mailto:simonlo@zimonai.com?subject=${encodeURIComponent(mailForm.dataset.mailSubject)}&body=${encodeURIComponent(body)}`;
 });
 
+const supportOpen = document.querySelector('[data-support-open]');
+const supportClose = document.querySelector('[data-support-close]');
+const supportPanel = document.querySelector('[data-support-panel]');
+const supportBackdrop = document.querySelector('[data-support-backdrop]');
+function setSupportOpen(open) {
+  if (!supportPanel || !supportOpen || !supportBackdrop) return;
+  supportPanel.classList.toggle('is-open', open);
+  supportPanel.setAttribute('aria-hidden', String(!open));
+  supportOpen.setAttribute('aria-expanded', String(open));
+  supportBackdrop.hidden = !open;
+  if (open) {
+    trackAnalytics('support_open', location.pathname.includes('payment') ? 'payment' : 'site');
+    supportClose?.focus();
+  } else {
+    supportOpen.focus();
+  }
+}
+supportOpen?.addEventListener('click', () => setSupportOpen(supportOpen.getAttribute('aria-expanded') !== 'true'));
+supportClose?.addEventListener('click', () => setSupportOpen(false));
+supportBackdrop?.addEventListener('click', () => setSupportOpen(false));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && supportPanel?.classList.contains('is-open')) setSupportOpen(false);
+});
+document.querySelectorAll('[data-copy-contact]').forEach((button) => button.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(button.dataset.copyContact || '');
+    button.textContent = button.dataset.copiedLabel;
+    window.setTimeout(() => { button.textContent = button.dataset.copyLabel; }, 1600);
+  } catch {
+    button.textContent = button.dataset.copyContact || '';
+  }
+}));
+
+function currentLocale() {
+  if (document.documentElement.lang === 'zh-Hant') return 'zh-tw';
+  if (document.documentElement.lang === 'zh-Hans') return 'zh-cn';
+  return 'en';
+}
+
+const checkoutForms = [...document.querySelectorAll('[data-checkout-form]')];
+const paymentParams = new URLSearchParams(location.search);
+const requestedPaymentItem = paymentParams.get('item');
+const privatePayment = document.querySelector('[data-private-payment]');
+if (requestedPaymentItem === 'consultation-extension' && privatePayment) privatePayment.hidden = false;
+if (paymentParams.get('cancelled') === '1') {
+  const cancelledForm = document.querySelector(`[data-checkout-form][data-product="${CSS.escape(requestedPaymentItem || '')}"]`) || checkoutForms[0];
+  const error = cancelledForm?.querySelector('[data-checkout-error]');
+  if (error) error.textContent = document.documentElement.lang === 'en' ? 'Checkout was cancelled. No payment was taken.' : document.documentElement.lang === 'zh-Hant' ? '付款已取消，這次沒有扣款。' : '付款已取消，本次没有扣款。';
+}
+if (requestedPaymentItem) {
+  window.setTimeout(() => document.querySelector(`[data-payment-card="${CSS.escape(requestedPaymentItem)}"]`)?.scrollIntoView({ block: 'center', behavior: reducedMotion ? 'auto' : 'smooth' }), 250);
+}
+
+checkoutForms.forEach((form) => form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const button = form.querySelector('[data-checkout-button]');
+  const error = form.querySelector('[data-checkout-error]');
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+  if (error) error.textContent = '';
+  button.disabled = true;
+  button.textContent = button.dataset.processingLabel;
+  const data = new FormData(form);
+  const product = form.dataset.product;
+  trackAnalytics('checkout_start', product);
+  try {
+    const response = await fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        product,
+        locale: currentLocale(),
+        quantity: Number(data.get('quantity') || 1),
+        reference: data.get('reference') || ''
+      })
+    });
+    const result = await response.json();
+    if (!response.ok || !result.url) throw new Error(result.error || 'checkout_failed');
+    window.location.assign(result.url);
+  } catch {
+    trackAnalytics('checkout_error', product);
+    if (error) error.textContent = document.documentElement.lang === 'en' ? 'Checkout could not be opened. No payment was taken. Please contact ZimonAI.' : document.documentElement.lang === 'zh-Hant' ? '目前無法開啟付款頁，這次沒有扣款。請聯絡 ZimonAI。' : '目前无法打开付款页面，本次没有扣款。请联系 ZimonAI。';
+    button.disabled = false;
+    button.innerHTML = `${button.dataset.defaultLabel}<svg class="icon-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M3 10h13M11 5l5 5-5 5"/></svg>`;
+  }
+}));
+
+const paymentResult = document.querySelector('[data-payment-result]');
+const receipt = document.querySelector('.payment-receipt');
+const intakeSection = document.querySelector('[data-payment-intake]');
+const intakeForm = document.querySelector('[data-payment-intake-form]');
+const consultationFields = document.querySelector('[data-consultation-fields]');
+const verificationFields = document.querySelector('[data-verification-fields]');
+const balanceDone = document.querySelector('[data-balance-done]');
+let confirmedPayment = null;
+
+function fillPaymentField(selector, value) {
+  const field = document.querySelector(selector);
+  if (field) field.textContent = value || '—';
+}
+
+function setGroupRequired(group, names) {
+  group?.querySelectorAll('input, textarea, select').forEach((field) => { field.required = names.includes(field.name); });
+}
+
+async function loadPaymentResult() {
+  if (!paymentResult) return;
+  const sessionId = new URLSearchParams(location.search).get('session_id') || '';
+  if (!sessionId) {
+    receipt.dataset.state = 'invalid';
+    fillPaymentField('[data-payment-status]', paymentResult.dataset.invalid);
+    return;
+  }
+  try {
+    const response = await fetch(`/api/checkout-session?session_id=${encodeURIComponent(sessionId)}`, { headers: { Accept: 'application/json' } });
+    const result = await response.json();
+    if (!response.ok || !result.id) throw new Error('invalid_session');
+    confirmedPayment = result;
+    const paid = result.paymentStatus === 'paid' || result.paymentStatus === 'no_payment_required';
+    receipt.dataset.state = paid ? 'paid' : 'pending';
+    fillPaymentField('[data-payment-status]', paid ? paymentResult.dataset.verified : paymentResult.dataset.pending);
+    fillPaymentField('[data-payment-item]', result.productName);
+    fillPaymentField('[data-payment-amount]', new Intl.NumberFormat(document.documentElement.lang, { style: 'currency', currency: String(result.currency || 'usd').toUpperCase() }).format(Number(result.amountTotal || 0) / 100));
+    fillPaymentField('[data-payment-email]', result.receiptEmail);
+    fillPaymentField('[data-payment-reference]', result.reference);
+    fillPaymentField('[data-payment-session]', result.id);
+    if (!paid) return;
+    trackAnalytics('payment_confirmed', result.product);
+    if (result.product === 'balance') {
+      balanceDone.hidden = false;
+      return;
+    }
+    intakeSection.hidden = false;
+    intakeForm.dataset.product = result.product;
+    const consultation = result.product === 'consultation' || result.product === 'consultation-extension';
+    consultationFields.hidden = !consultation;
+    verificationFields.hidden = consultation;
+    setGroupRequired(consultationFields, consultation ? ['timezone', 'times', 'format', 'question'] : []);
+    setGroupRequired(verificationFields, consultation ? [] : ['supplier', 'product', 'decision']);
+  } catch {
+    receipt.dataset.state = 'invalid';
+    fillPaymentField('[data-payment-status]', paymentResult.dataset.invalid);
+    fillPaymentField('[data-payment-session]', sessionId);
+  }
+}
+loadPaymentResult();
+
+intakeForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!intakeForm.checkValidity()) {
+    intakeForm.reportValidity();
+    return;
+  }
+  const data = new FormData(intakeForm);
+  const product = intakeForm.dataset.product;
+  const consultation = product === 'consultation' || product === 'consultation-extension';
+  const lines = consultation ? [
+    ['Stripe session', confirmedPayment?.id], ['Service', confirmedPayment?.productName], ['Time zone', data.get('timezone')],
+    ['Preferred times', data.get('times')], ['Format', data.get('format')], ['', ''], ['Questions / documents', data.get('question')]
+  ] : [
+    ['Stripe session', confirmedPayment?.id], ['Service', confirmedPayment?.productName], ['Supplier', data.get('supplier')],
+    ['Supplier URL', data.get('url')], ['Chinese legal name', data.get('chinese')], ['Product and model', data.get('product')],
+    ['Certificate numbers', data.get('certificates')], ['', ''], ['Decision this work should support', data.get('decision')]
+  ];
+  const body = lines.map(([label, value]) => label ? `${label}: ${value || '—'}` : '').join('\n');
+  const subject = `ZimonAI post-payment intake · ${confirmedPayment?.id || product}`;
+  trackAnalytics('post_payment_intake', product);
+  window.location.href = `mailto:simonlo@zimonai.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
 document.addEventListener('click', (event) => {
   const link = event.target.closest?.('a[href]');
   if (!link) return;

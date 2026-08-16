@@ -1,6 +1,7 @@
 import { languages, pages } from './content.mjs';
 import { brandProfile, hasPublishedOfficeEvidence } from './brand-profile.mjs';
 import { layoutMode } from './editorial-policy.mjs';
+import { paymentContent } from './payment-content.mjs';
 
 const pageMap = Object.fromEntries(pages.map((page) => [page.id, page]));
 
@@ -28,6 +29,10 @@ function statusMark(t, status, extra = '') {
 
 function arrow() {
   return '<svg class="icon-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M3 10h13M11 5l5 5-5 5"/></svg>';
+}
+
+function paymentProduct(t, key) {
+  return t.payment.payments.products.find((product) => product.key === key);
 }
 
 function approvedContacts(t) {
@@ -260,7 +265,7 @@ function services(t) {
       <div><span class="file-label">${esc(t.services.labels.notIncluded)}</span><p>${esc(service.notIncluded)}</p></div>
       <div><span class="file-label">${esc(t.services.labels.consent)}</span><strong>${esc(service.consent)}</strong></div>
     </div>
-    <footer><span class="file-label">${esc(t.services.labels.fit)}</span><p>${esc(service.fit)}</p>${service.delivery ? `<div><span class="file-label">${esc(t.ui.deliverable)}</span><p>${esc(service.delivery)}</p></div>` : ''}</footer>
+    <footer><span class="file-label">${esc(t.services.labels.fit)}</span><p>${esc(service.fit)}</p>${service.delivery ? `<div><span class="file-label">${esc(t.ui.deliverable)}</span><p>${esc(service.delivery)}</p></div>` : ''}${service.purchasable ? `<a class="button button--ink service-tier-panel__purchase" href="${pathFor(t.__key, 'payments')}?item=${service.id}">${esc(paymentProduct(t, service.id).button)}${arrow()}</a>` : ''}</footer>
   </article>`).join('');
   return `<main id="main">${pageHeader(t.services.kicker, t.services.title, t.services.lead)}
     <section class="service-staircase shell" data-service-staircase>
@@ -372,14 +377,83 @@ function request(t) {
   </main>`;
 }
 
-function privacy(t) {
-  return `<main id="main">${pageHeader(t.privacy.kicker, t.privacy.title, t.privacy.lead)}<section class="legal shell">${t.privacy.sections.map(([title, text], index) => `<article class="legal-row reveal"><span>0${index + 1}</span><h2>${esc(title)}</h2><p>${esc(text)}</p></article>`).join('')}</section></main>`;
+function checkoutForm(t, product) {
+  const labels = t.payment.payments.labels;
+  const termsHref = pathFor(t.__key, 'paymentTerms');
+  const quantity = product.quantity ? `<label class="checkout-field"><span>${esc(labels.quantity)} <small>${esc(labels.required)}</small></span><input type="number" name="quantity" min="1" max="100" step="1" value="1" inputmode="numeric" required></label>` : '';
+  const reference = product.reference ? `<label class="checkout-field"><span>${esc(labels.reference)} <small>${esc(labels.required)}</small></span><input type="text" name="reference" maxlength="120" autocomplete="off" required></label>` : '';
+  return `<form class="checkout-form" data-checkout-form data-product="${esc(product.key)}" novalidate>
+    ${quantity}${reference}
+    <label class="consent checkout-consent"><input type="checkbox" name="terms" required><span>${esc(labels.terms)} <a href="${termsHref}" target="_blank" rel="noopener">${esc(labels.termsLink)}</a></span></label>
+    <button class="button button--ink" type="submit" data-checkout-button data-default-label="${esc(product.button)}" data-processing-label="${esc(labels.processing)}">${esc(product.button)}${arrow()}</button>
+    <p class="form-error" data-checkout-error role="alert"></p>
+  </form>`;
 }
 
-const renderers = { home, services, methodology, scope, about, request, privacy };
+function paymentCard(t, product) {
+  const labels = t.payment.payments.labels;
+  return `<article class="payment-card reveal" id="pay-${esc(product.key)}" data-payment-card="${esc(product.key)}">
+    <header><span>${esc(product.index)}</span><p class="kicker">${esc(product.label)}</p><h2>${esc(product.title)}</h2><div class="payment-card__price"><strong>${esc(product.price)}</strong><small>${esc(product.unit)}</small></div><p>${esc(product.summary)}</p></header>
+    <div class="payment-card__scope"><section><h3>${esc(labels.includes)}</h3><ul>${product.includes.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></section><section><h3>${esc(labels.notIncluded)}</h3><p>${esc(product.notIncluded)}</p></section></div>
+    <div class="payment-card__timing"><span>${esc(labels.timing)}</span><strong>${esc(product.timing)}</strong></div>
+    ${checkoutForm(t, product)}
+  </article>`;
+}
+
+function payments(t) {
+  const copy = t.payment.payments;
+  const extensionProduct = { key: 'consultation-extension', index: '05', label: copy.extension.title, title: copy.extension.title, price: copy.extension.price, unit: copy.extension.unit, timing: copy.extension.timing, summary: copy.extension.summary, includes: [copy.extension.summary], notIncluded: paymentProduct(t, 'consultation').notIncluded, button: copy.extension.button, reference: true };
+  return `<main id="main"><section class="payment-hero shell">
+      <div class="payment-hero__copy reveal"><p class="kicker">${esc(copy.kicker)}</p><h1>${esc(copy.title)}</h1><p class="payment-hero__lead">${esc(copy.lead)}</p><div class="payment-hero__protocol"><a class="payment-hero__stripe-mark" href="https://stripe.com/payments/checkout" target="_blank" rel="noopener" aria-label="Stripe Checkout"><img src="/assets/stripe-wordmark-slate.svg" alt="Stripe" width="360" height="151"></a><div><strong>Stripe Checkout</strong><p>${esc(copy.stripeNote)}</p></div></div></div>
+      <aside class="payment-hero__index reveal"><img src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="1600" height="1600" aria-hidden="true"><div class="payment-hero__index-copy"><p class="kicker">${esc(copy.catalog.label)}</p><h2>${esc(copy.catalog.title)}</h2><p>${esc(copy.catalog.lead)}</p></div><nav aria-label="${esc(copy.catalog.label)}">${copy.products.map((product) => `<a href="#pay-${esc(product.key)}"><span>${esc(product.label)}</span><strong>${esc(product.price)}</strong>${arrow()}</a>`).join('')}</nav></aside>
+    </section>
+    <section class="payment-desk shell" aria-label="${esc(copy.kicker)}">
+      <div class="payment-grid">${copy.products.map((product) => paymentCard(t, product)).join('')}</div>
+      <div class="payment-private" data-private-payment hidden>${paymentCard(t, extensionProduct)}</div>
+    </section>
+    <section class="payment-process shell"><header class="section-heading reveal"><p class="kicker">${esc(copy.process.label)}</p><h2>${esc(copy.process.title)}</h2></header><ol>${copy.process.steps.map(([title, text], index) => `<li class="reveal"><span>0${index + 1}</span><div><h3>${esc(title)}</h3><p>${esc(text)}</p></div></li>`).join('')}</ol></section>
+    <section class="payment-boundaries shell"><article class="reveal"><span>!</span><h2>${esc(copy.wrongFit.title)}</h2><p>${esc(copy.wrongFit.text)}</p></article><article class="reveal"><span>→</span><h2>${esc(copy.quoted.title)}</h2><p>${esc(copy.quoted.text)}</p><a class="text-link" href="${pathFor(t.__key, 'request')}">${esc(t.nav.request)}${arrow()}</a></article></section>
+  </main>`;
+}
+
+function intakeField(id, label, type = 'text', wide = false) {
+  return `<label class="form-field${wide ? ' form-field--wide' : ''}"><span>${esc(label)}</span>${type === 'textarea' ? `<textarea name="${id}" rows="5"></textarea>` : `<input name="${id}" type="${type}">`}</label>`;
+}
+
+function paymentSuccess(t) {
+  const copy = t.payment.success;
+  const f = copy.fields;
+  return `<main id="main">${pageHeader(copy.kicker, copy.title, copy.lead)}
+    <section class="payment-result shell" data-payment-result data-locale="${esc(t.__key)}" data-loading="${esc(copy.loading)}" data-verified="${esc(copy.verified)}" data-pending="${esc(copy.pending)}" data-invalid="${esc(copy.invalid)}">
+      <article class="payment-receipt reveal" aria-live="polite"><div class="payment-receipt__status"><span data-payment-status-mark></span><strong data-payment-status>${esc(copy.loading)}</strong></div><dl><div><dt>${esc(copy.labels.item)}</dt><dd data-payment-item>—</dd></div><div><dt>${esc(copy.labels.amount)}</dt><dd data-payment-amount>—</dd></div><div><dt>${esc(copy.labels.email)}</dt><dd data-payment-email>—</dd></div><div><dt>${esc(copy.labels.reference)}</dt><dd data-payment-reference>—</dd></div><div><dt>${esc(copy.labels.session)}</dt><dd data-payment-session>—</dd></div></dl></article>
+      <section class="payment-intake reveal" data-payment-intake hidden><header><p class="kicker">${esc(copy.nextTitle)}</p><h2>${esc(copy.nextTitle)}</h2><p>${esc(copy.nextLead)}</p></header>
+        <form class="request-form" data-payment-intake-form novalidate>
+          <div class="form-grid" data-consultation-fields hidden>${intakeField('timezone', f.timezone)}${intakeField('times', f.times, 'textarea', true)}<label class="form-field form-field--wide"><span>${esc(f.format)}</span><select name="format">${copy.formats.map((item) => `<option>${esc(item)}</option>`).join('')}</select></label>${intakeField('question', f.question, 'textarea', true)}</div>
+          <div class="form-grid" data-verification-fields hidden>${intakeField('supplier', f.supplier)}${intakeField('url', f.url, 'url')}${intakeField('chinese', f.chinese)}${intakeField('product', f.product)}${intakeField('certificates', f.certificates, 'textarea', true)}${intakeField('decision', f.decision, 'textarea', true)}</div>
+          <button class="button button--ink" type="submit">${esc(f.send)}${arrow()}</button><p class="form-note">${esc(copy.emailNote)}</p><p class="form-error" data-intake-error role="alert"></p>
+        </form>
+      </section>
+      <aside class="payment-balance-done reveal" data-balance-done hidden><h2>${esc(copy.verified)}</h2><p>${esc(copy.balanceDone)}</p></aside>
+      <p class="payment-support-note">${esc(copy.support)}</p>
+    </section>
+  </main>`;
+}
+
+function paymentTerms(t) {
+  const copy = t.payment.terms;
+  return `<main id="main">${pageHeader(copy.kicker, copy.title, copy.lead)}<section class="legal shell">${copy.sections.map(([title, text], index) => `<article class="legal-row reveal"><span>${String(index + 1).padStart(2, '0')}</span><h2>${esc(title)}</h2><p>${esc(text)}</p></article>`).join('')}</section></main>`;
+}
+
+function privacy(t) {
+  const sections = [...t.privacy.sections];
+  sections.splice(3, 0, t.payment.terms.privacyAddition);
+  return `<main id="main">${pageHeader(t.privacy.kicker, t.privacy.title, t.privacy.lead)}<section class="legal shell">${sections.map(([title, text], index) => `<article class="legal-row reveal"><span>${String(index + 1).padStart(2, '0')}</span><h2>${esc(title)}</h2><p>${esc(text)}</p></article>`).join('')}</section></main>`;
+}
+
+const renderers = { home, services, methodology, scope, about, request, payments, paymentSuccess, paymentTerms, privacy };
 
 function header(t, pageId) {
-  const nav = [['services', t.nav.services], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
+  const nav = [['services', t.nav.services], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about], ['payments', t.payment.nav]];
   const isHome = pageId === 'home';
   return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header${isHome ? ' site-header--home' : ''}" data-header>
     <div class="site-header__inner">
@@ -395,23 +469,30 @@ function header(t, pageId) {
 }
 
 function footer(t) {
-  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
+  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'payments')}">${esc(t.payment.nav)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
+}
+
+function supportPanel(t) {
+  const copy = t.payment.support;
+  return `<button class="support-launch" type="button" aria-expanded="false" aria-controls="support-panel" data-support-open><span aria-hidden="true">?</span><strong>${esc(copy.open)}</strong></button><div class="support-backdrop" data-support-backdrop hidden></div><aside class="support-panel" id="support-panel" aria-hidden="true" aria-labelledby="support-title" data-support-panel><header><div><p class="kicker">ZimonAI</p><h2 id="support-title">${esc(copy.title)}</h2></div><button type="button" aria-label="${esc(copy.close)}" data-support-close>×</button></header><p>${esc(copy.intro)}</p><div class="support-contacts">${approvedContacts(t).map((item) => `<div><span>${esc(item.label)}</span>${item.href ? `<a href="${esc(item.href)}">${esc(item.value)}${arrow()}</a>` : `<strong>${esc(item.value)}</strong><button type="button" data-copy-contact="${esc(item.value)}" data-copy-label="${esc(copy.copy)}" data-copied-label="${esc(copy.copied)}">${esc(copy.copy)}</button>`}</div>`).join('')}</div><a class="button button--ink" href="mailto:${esc(brandProfile.email)}?subject=${encodeURIComponent(t.__key === 'en' ? 'ZimonAI service or payment support' : t.__key === 'zh-tw' ? 'ZimonAI 服務或付款協助' : 'ZimonAI 服务或付款协助')}">${esc(copy.emailAction)}${arrow()}</a><p class="support-panel__note">${esc(copy.paymentHelp)}</p></aside>`;
 }
 
 export function renderPage(langKey, pageId) {
   const original = languages[langKey];
-  const t = { ...original, __key: langKey };
+  const t = { ...original, payment: paymentContent[langKey], __key: langKey };
+  const meta = original.meta.titles[pageId] ? original.meta : paymentContent[langKey].meta;
+  const page = pageMap[pageId];
   const canonical = `https://zimonai.com${pathFor(langKey, pageId)}`;
   const alternates = Object.entries(languages).map(([key, lang]) => `<link rel="alternate" hreflang="${lang.htmlLang}" href="https://zimonai.com${pathFor(key, pageId)}">`).join('\n');
   const schema = {
     '@context': 'https://schema.org',
     '@type': pageId === 'home' ? 'ProfessionalService' : 'WebPage',
-    name: pageId === 'home' ? 'ZimonAI 智蒙灣' : t.meta.titles[pageId],
+    name: pageId === 'home' ? 'ZimonAI 智蒙灣' : meta.titles[pageId],
     url: canonical,
     email: pageId === 'home' ? brandProfile.email : undefined,
     telephone: pageId === 'home' ? brandProfile.contacts.chinaPhone.display : undefined,
     contactPoint: pageId === 'home' ? [brandProfile.contacts.chinaPhone, brandProfile.contacts.taiwanPhone].map((phone) => ({ '@type': 'ContactPoint', telephone: phone.display, contactType: 'customer service' })) : undefined,
-    description: t.meta.descriptions[pageId],
+    description: meta.descriptions[pageId],
     areaServed: pageId === 'home' ? brandProfile.operatingBases : undefined
   };
   Object.keys(schema).forEach((key) => schema[key] === undefined && delete schema[key]);
@@ -420,23 +501,24 @@ export function renderPage(langKey, pageId) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(t.meta.titles[pageId])}</title>
-  <meta name="description" content="${esc(t.meta.descriptions[pageId])}">
+  <title>${esc(meta.titles[pageId])}</title>
+  <meta name="description" content="${esc(meta.descriptions[pageId])}">
+  ${page.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
   <meta name="keywords" content="charger supplier verification, power bank factory audit, GaN charger sourcing, FCC ID verification, UL certificate check, Shenzhen charger manufacturer, power adapter supplier due diligence">
   <link rel="canonical" href="${canonical}">
   ${alternates}
   <link rel="alternate" hreflang="x-default" href="https://zimonai.com${pathFor('en', pageId)}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ZimonAI 智蒙灣">
-  <meta property="og:title" content="${esc(t.meta.titles[pageId])}">
-  <meta property="og:description" content="${esc(t.meta.descriptions[pageId])}">
+  <meta property="og:title" content="${esc(meta.titles[pageId])}">
+  <meta property="og:description" content="${esc(meta.descriptions[pageId])}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:locale" content="${original.locale}">
   <meta property="og:image" content="https://zimonai.com/assets/og-image.png">
   <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${esc(t.meta.titles[pageId])}">
-  <meta name="twitter:description" content="${esc(t.meta.descriptions[pageId])}">
+  <meta name="twitter:title" content="${esc(meta.titles[pageId])}">
+  <meta name="twitter:description" content="${esc(meta.descriptions[pageId])}">
   <meta name="twitter:image" content="https://zimonai.com/assets/og-image.png">
   <meta name="theme-color" content="#101D33">
   <link rel="icon" href="/zimonai-favicon.svg" type="image/svg+xml" sizes="any">
@@ -449,6 +531,7 @@ export function renderPage(langKey, pageId) {
   ${header(t, pageId)}
   ${renderers[pageId](t)}
   ${footer(t)}
+  ${supportPanel(t)}
 </body>
 </html>`;
 }
