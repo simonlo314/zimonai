@@ -75,116 +75,6 @@ document.addEventListener('click', (event) => {
   langButton?.setAttribute('aria-expanded', 'false');
 });
 
-const dossier = document.querySelector('[data-hero-dossier]');
-const runButton = document.querySelector('[data-run-demo]');
-const runLabel = document.querySelector('[data-run-label]');
-const checkRows = [...document.querySelectorAll('[data-check-row]')];
-const demoProgress = document.querySelector('[data-demo-progress]');
-const demoAnnouncement = document.querySelector('[data-demo-announcement]');
-let demoHasRun = false;
-let demoRunning = false;
-
-const wait = (duration) => new Promise((resolve) => window.setTimeout(resolve, duration));
-
-async function runDossier() {
-  if (!dossier || !runButton || demoRunning) return;
-  demoRunning = true;
-  dossier.classList.add('is-running');
-  runButton.disabled = true;
-  runLabel.textContent = runButton.dataset.running;
-  checkRows.forEach((row) => {
-    row.removeAttribute('data-state');
-    row.classList.remove('is-checking');
-    row.querySelector('.check-row__value').textContent = row.querySelector('.check-row__value').dataset.pending;
-  });
-  if (demoProgress) demoProgress.style.width = '0%';
-  const delay = reducedMotion ? 1 : 560;
-  for (const [index, row] of checkRows.entries()) {
-    row.classList.add('is-checking');
-    if (demoProgress) demoProgress.style.width = `${Math.round(((index + .45) / checkRows.length) * 100)}%`;
-    await wait(delay);
-    row.classList.remove('is-checking');
-    row.dataset.state = row.dataset.finalState;
-    row.querySelector('.check-row__value').textContent = row.querySelector('.check-row__value').dataset.final;
-    if (demoProgress) demoProgress.style.width = `${Math.round(((index + 1) / checkRows.length) * 100)}%`;
-  }
-  dossier.classList.remove('is-running');
-  demoAnnouncement.textContent = document.documentElement.lang === 'en'
-    ? 'Demonstration complete.'
-    : document.documentElement.lang === 'zh-Hant' ? '示範核查完成。' : '演示核查完成。';
-  demoAnnouncement.style.opacity = '1';
-  runLabel.textContent = runButton.dataset.reset;
-  runButton.disabled = false;
-  demoHasRun = true;
-  demoRunning = false;
-}
-runButton?.addEventListener('click', () => {
-  trackAnalytics('demo_run', 'supplier_dossier');
-  runDossier();
-});
-
-if (dossier && !reducedMotion && 'IntersectionObserver' in window) {
-  const heroObserver = new IntersectionObserver((entries, observer) => {
-    if (!entries[0].isIntersecting || demoHasRun) return;
-    window.setTimeout(runDossier, 550);
-    observer.disconnect();
-  }, { threshold: .55 });
-  heroObserver.observe(dossier);
-}
-
-const stageFile = document.querySelector('[data-stage-file]');
-const stageTitle = document.querySelector('[data-stage-title]');
-const stageTag = document.querySelector('[data-stage-tag]');
-const stageCounter = document.querySelector('[data-stage-counter]');
-const storySteps = [...document.querySelectorAll('[data-story-step]')];
-const stageNames = {
-  en: { claim: 'SUPPLIER CLAIM', source: 'SOURCE RECORD', compare: 'CROSS-CHECK', result: 'EVIDENCE RESULT' },
-  'zh-Hant': { claim: '供應商宣稱', source: '來源紀錄', compare: '交叉核對', result: '證據結果' },
-  'zh-Hans': { claim: '供应商说法', source: '来源记录', compare: '交叉核对', result: '证据结果' }
-};
-function setStoryStep(step) {
-  if (!stageFile || !step) return;
-  storySteps.forEach((item) => item.classList.toggle('is-active', item === step));
-  stageFile.dataset.stage = step.dataset.stage;
-  stageTitle.textContent = step.querySelector('h3')?.textContent || '';
-  stageTag.textContent = stageNames[document.documentElement.lang]?.[step.dataset.stage] || step.dataset.stage;
-  stageCounter.textContent = `0${Number(step.dataset.index) + 1} / 04`;
-}
-if (storySteps.length && 'IntersectionObserver' in window) {
-  const storyObserver = new IntersectionObserver((entries) => {
-    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (visible) setStoryStep(visible.target);
-  }, { rootMargin: '-32% 0px -42%', threshold: [0, .25, .5, .75] });
-  storySteps.forEach((step) => storyObserver.observe(step));
-}
-
-const comparisonRange = document.querySelector('[data-comparison-range]');
-const comparisonRecord = document.querySelector('[data-comparison-record]');
-const comparisonSeam = document.querySelector('[data-comparison-seam]');
-function updateComparison() {
-  const value = Number(comparisonRange?.value || 50);
-  if (comparisonRecord) comparisonRecord.style.clipPath = `inset(0 0 0 ${value}%)`;
-  if (comparisonSeam) comparisonSeam.style.left = `${value}%`;
-}
-comparisonRange?.addEventListener('input', updateComparison);
-updateComparison();
-
-const demoTabs = [...document.querySelectorAll('[data-demo-tab]')];
-const demoPanels = [...document.querySelectorAll('[data-demo-panel]')];
-demoTabs.forEach((tab) => tab.addEventListener('click', () => {
-  trackAnalytics('evidence_tab', tab.dataset.demoTab || 'unknown');
-  demoTabs.forEach((item) => {
-    const active = item === tab;
-    item.classList.toggle('is-active', active);
-    item.setAttribute('aria-selected', String(active));
-  });
-  demoPanels.forEach((panel) => {
-    const active = panel.dataset.demoPanel === tab.dataset.demoTab;
-    panel.hidden = !active;
-    panel.classList.toggle('is-active', active);
-  });
-}));
-
 const serviceSelectors = [...document.querySelectorAll('[data-service-select]')];
 const servicePanels = [...document.querySelectorAll('[data-service-panel]')];
 function selectServiceTier(id, updateUrl = false) {
@@ -473,6 +363,10 @@ document.addEventListener('click', (event) => {
   }
   if (rawHref.startsWith('tel:+886988307998')) {
     trackAnalytics('contact_click', 'taiwan_phone');
+    return;
+  }
+  if (rawHref.startsWith('https://wa.me/886988307998')) {
+    trackAnalytics('contact_click', 'whatsapp');
     return;
   }
 

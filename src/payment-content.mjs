@@ -2,12 +2,12 @@ export const paymentContent = {
   en: {
     meta: {
       titles: {
-        payments: 'Book and Pay for ZimonAI Services | Secure Stripe Checkout',
+        payments: 'Book Supplier Verification Services | ZimonAI',
         paymentSuccess: 'Payment received | ZimonAI',
         paymentTerms: 'Payment and Service Terms | ZimonAI'
       },
       descriptions: {
-        payments: 'Book a supplier verification consultation, purchase fixed-scope T1 or T2 verification, or pay an agreed service balance through secure Stripe Checkout.',
+        payments: 'Review fixed-scope T1 and T2 supplier verification, professional consultation and confirmed service-balance options before booking with ZimonAI.',
         paymentSuccess: 'Confirm a ZimonAI Stripe payment and complete the information needed to begin the purchased service.',
         paymentTerms: 'The fixed scope, scheduling, refund and payment terms for ZimonAI consultations and supplier verification services.'
       }
@@ -112,8 +112,8 @@ export const paymentContent = {
   },
   'zh-tw': {
     meta: {
-      titles: { payments: '預約與付款｜ZimonAI 智蒙灣', paymentSuccess: '付款確認｜ZimonAI 智蒙灣', paymentTerms: '付款與服務條款｜ZimonAI 智蒙灣' },
-      descriptions: { payments: '透過 Stripe 安全預約供應商查核諮詢、購買固定範圍 T1／T2，或支付已確認的服務差額。', paymentSuccess: '確認 ZimonAI Stripe 付款，並完成諮詢或供應商查核開始前需要的資料。', paymentTerms: 'ZimonAI 專業諮詢、T1／T2 固定範圍服務的付款、排程、退款與交付規則。' }
+      titles: { payments: '供應商查核服務與預約｜ZimonAI 智蒙灣', paymentSuccess: '付款確認｜ZimonAI 智蒙灣', paymentTerms: '付款與服務條款｜ZimonAI 智蒙灣' },
+      descriptions: { payments: '查看 ZimonAI 固定範圍 T1、T2 供應商查核、專業諮詢與已確認服務差額的內容，再決定預約方式。', paymentSuccess: '確認 ZimonAI Stripe 付款，並完成諮詢或供應商查核開始前需要的資料。', paymentTerms: 'ZimonAI 專業諮詢、T1／T2 固定範圍服務的付款、排程、退款與交付規則。' }
     },
     nav: '預約與付款',
     support: {
@@ -195,8 +195,8 @@ export const paymentContent = {
   },
   'zh-cn': {
     meta: {
-      titles: { payments: '预约与付款｜ZimonAI 智蒙灣', paymentSuccess: '付款确认｜ZimonAI 智蒙灣', paymentTerms: '付款与服务条款｜ZimonAI 智蒙灣' },
-      descriptions: { payments: '通过 Stripe 安全预约供应商核查咨询、购买固定范围 T1／T2，或支付已确认的服务差额。', paymentSuccess: '确认 ZimonAI Stripe 付款，并完成咨询或供应商核查开始前需要的资料。', paymentTerms: 'ZimonAI 专业咨询、T1／T2 固定范围服务的付款、安排、退款与交付规则。' }
+      titles: { payments: '供应商核查服务与预约｜ZimonAI 智蒙灣', paymentSuccess: '付款确认｜ZimonAI 智蒙灣', paymentTerms: '付款与服务条款｜ZimonAI 智蒙灣' },
+      descriptions: { payments: '查看 ZimonAI 固定范围 T1、T2 供应商核查、专业咨询与已确认服务差额的内容，再决定预约方式。', paymentSuccess: '确认 ZimonAI Stripe 付款，并完成咨询或供应商核查开始前需要的资料。', paymentTerms: 'ZimonAI 专业咨询、T1／T2 固定范围服务的付款、安排、退款与交付规则。' }
     },
     nav: '预约与付款',
     support: {

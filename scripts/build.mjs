@@ -55,13 +55,23 @@ for (const lang of Object.values(languages)) {
   for (const page of pages.filter((item) => item.sitemap !== false)) {
     const segments = [lang.prefix, page.slug].filter(Boolean);
     const pathname = segments.length ? `/${segments.join('/')}/` : '/';
-    urls.push(`  <url>\n    <loc>https://zimonai.com${pathname}</loc>\n    <lastmod>2026-08-13</lastmod>\n  </url>`);
+    const alternateLinks = Object.entries(languages).map(([langKey, alternate]) => (
+      `    <xhtml:link rel="alternate" hreflang="${alternate.htmlLang}" href="https://zimonai.com${pathForSitemap(langKey, page)}" />`
+    ));
+    alternateLinks.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="https://zimonai.com${pathForSitemap('en', page)}" />`);
+    urls.push(`  <url>\n    <loc>https://zimonai.com${pathname}</loc>\n${alternateLinks.join('\n')}\n  </url>`);
   }
+}
+
+function pathForSitemap(langKey, page) {
+  const language = languages[langKey];
+  const segments = [language.prefix, page.slug].filter(Boolean);
+  return segments.length ? `/${segments.join('/')}/` : '/';
 }
 
 await writeFile(
   path.join(dist, 'sitemap.xml'),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>\n`,
   'utf8'
 );
 

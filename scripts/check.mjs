@@ -6,6 +6,7 @@ import { paymentContent } from '../src/payment-content.mjs';
 import { STRIPE_PRODUCTS } from '../functions/_lib/stripe.js';
 import { brandProfile } from '../src/brand-profile.mjs';
 import { editorialPolicy, layoutMode } from '../src/editorial-policy.mjs';
+import { knowledgeArticleSpecs, knowledgeContent } from '../src/knowledge-content.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -18,6 +19,7 @@ const sourceTemplate = await readFile(path.join(root, 'src', 'template.mjs'), 'u
 const sourceCss = await readFile(path.join(root, 'src', 'assets', 'site.css'), 'utf8');
 const sourcePolicy = await readFile(path.join(root, 'CONTENT_AND_LOCALIZATION.md'), 'utf8');
 const sourceJs = await readFile(path.join(root, 'src', 'assets', 'site.js'), 'utf8');
+const sourceKnowledge = await readFile(path.join(root, 'src', 'knowledge-content.mjs'), 'utf8');
 const analyticsFunction = await readFile(path.join(root, 'functions', 'api', 'analytics.js'), 'utf8');
 const checkoutFunction = await readFile(path.join(root, 'functions', 'api', 'create-checkout-session.js'), 'utf8');
 const sessionFunction = await readFile(path.join(root, 'functions', 'api', 'checkout-session.js'), 'utf8');
@@ -40,7 +42,13 @@ for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
   if (!lang?.about?.registration?.fields?.registeredAddress) errors.push(`${langKey}: registration copy is incomplete`);
   if (!editorialPolicy[langKey]?.writingMode) errors.push(`${langKey}: editorial policy missing`);
   if (!paymentContent[langKey]?.payments?.products?.length) errors.push(`${langKey}: payment content missing`);
+  if (!knowledgeContent[langKey]?.hub?.metaTitle) errors.push(`${langKey}: knowledge hub metadata missing`);
+  for (const spec of knowledgeArticleSpecs) {
+    const article = knowledgeContent[langKey]?.articles?.[spec.key];
+    if (!article?.title || !article?.answer || article.sections?.length !== 3 || !article.checklist?.length) errors.push(`${langKey}: incomplete knowledge article ${spec.key}`);
+  }
 }
+if (/\.replaceAll\s*\(/.test(sourceKnowledge)) errors.push('knowledge source uses mechanical locale conversion');
 
 for (const [key, amount] of Object.entries({ consultation: 9900, t1: 14900, t2: 34900, balance: 1000, 'consultation-extension': 4900 })) {
   if (STRIPE_PRODUCTS[key]?.amount !== amount) errors.push(`Stripe catalogue amount is incorrect for ${key}`);
@@ -67,7 +75,10 @@ for (const logo of ['zimonai-logo-primary.svg', 'zimonai-logo-white.svg', 'zimon
 for (const favicon of ['zimonai-favicon.svg', 'apple-touch-icon.png']) {
   if (!distFiles.includes(favicon)) errors.push(`stable root favicon asset missing: ${favicon}`);
 }
-if (distFiles.some((file) => /\.pdf$/i.test(file))) errors.push('raw PDF must not be included in the public build');
+const approvedPublicPdfs = ['assets/zimonai-t1-sample-report.pdf'];
+const publicPdfs = distFiles.filter((file) => /\.pdf$/i.test(file));
+for (const file of publicPdfs) if (!approvedPublicPdfs.includes(file)) errors.push(`unapproved PDF included in the public build: ${file}`);
+for (const file of approvedPublicPdfs) if (!publicPdfs.includes(file)) errors.push(`approved sample report missing from the public build: ${file}`);
 
 function localTarget(raw) {
   if (!raw || raw.startsWith('#') || /^(https?:|mailto:|tel:|data:)/.test(raw)) return null;
@@ -78,14 +89,15 @@ function localTarget(raw) {
 }
 
 const requiredSections = {
-  'index.html': ['hero-cinema', 'hero-cinema__scene', 'decision-ledger', 'operating-record', 'source-index'],
-  'services/index.html': ['service-staircase', 'service-tier-select', 'service-tier-panel', 'report-promises'],
+  'index.html': ['hero-cinema', 'hero-cinema__scene', 'hero-proof', 'decision-ledger', 'verification-flow', 'operating-record', 'source-index'],
+  'services/index.html': ['service-staircase', 'service-tier-select', 'service-tier-panel', 'service-checkout-protocol', 'checkout-form--inline', 'sample-report', 'report-promises'],
   'methodology/index.html': ['source-registry', 'report-anatomy'],
   'scope-limitations/index.html': ['decision-guide', 'accreditation'],
   'about/index.html': ['page-hero__brand-mark', 'business-record', 'registration-evidence', 'office-evidence'],
   'payments/index.html': ['payment-desk', 'payment-grid', 'payment-private', 'payment-process', 'checkout-form'],
   'payment-success/index.html': ['payment-result', 'payment-receipt', 'payment-intake', 'payment-balance-done'],
-  'payment-terms/index.html': ['legal-row', 'support-panel']
+  'payment-terms/index.html': ['legal-row', 'support-panel'],
+  'knowledge/index.html': ['knowledge-hero', 'knowledge-index', 'knowledge-method']
 };
 for (const [file, sections] of Object.entries(requiredSections)) {
   for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
@@ -94,14 +106,25 @@ for (const [file, sections] of Object.entries(requiredSections)) {
   }
 }
 
-for (const [prefix, htmlLang, addressLabel, openEvidence] of [
-  ['zh-tw', 'zh-Hant', '註冊暨實際接待地址', '打開證據'],
-  ['zh-cn', 'zh-Hans', '注册及实际接待地址', '查看证据']
+for (const spec of knowledgeArticleSpecs) {
+  for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
+    const articleFile = path.join(dist, prefix, spec.slug, 'index.html');
+    const html = await readFile(articleFile, 'utf8');
+    for (const section of ['field-note__hero', 'answer-first', 'buyer-checklist', 'field-note__sources']) {
+      if (!html.includes(section)) errors.push(`${articleFile}: missing article section ${section}`);
+    }
+    if (!html.includes(`https://zimonai.com${spec.image}`)) errors.push(`${articleFile}: article social image missing`);
+  }
+}
+
+for (const [prefix, htmlLang, addressLabel, proofLabel] of [
+  ['zh-tw', 'zh-Hant', '註冊暨實際接待地址', '我們實際核對什麼'],
+  ['zh-cn', 'zh-Hans', '注册及实际接待地址', '我们实际核对什么']
 ]) {
   const homeHtml = await readFile(path.join(dist, prefix, 'index.html'), 'utf8');
   const aboutHtml = await readFile(path.join(dist, prefix, 'about', 'index.html'), 'utf8');
   if (!homeHtml.includes(`<html lang="${htmlLang}" data-page="home" data-layout="cjk">`)) errors.push(`${prefix}: missing CJK page mode`);
-  if (!homeHtml.includes(`data-cursor="${openEvidence}"`)) errors.push(`${prefix}: evidence interface is not localized`);
+  if (!homeHtml.includes(proofLabel)) errors.push(`${prefix}: truthful hero scope is not localized`);
   if (!aboutHtml.includes(addressLabel)) errors.push(`${prefix}: approved reception-address label missing`);
   if (!aboutHtml.includes(brandProfile.registration.legalNameZhHans)) errors.push(`${prefix}: registered legal name missing`);
   if (!aboutHtml.includes(brandProfile.registration.registeredAddressZhHans)) errors.push(`${prefix}: registered reception address missing`);
@@ -118,9 +141,30 @@ for (const file of files) {
   if (!/<title>[^<]+<\/title>/.test(html)) errors.push(`${label}: missing title`);
   if (!/<meta name="description" content="[^"]+">/.test(html) && file !== '404.html') errors.push(`${label}: missing description`);
   if (!/<link rel="canonical" href="https:\/\/zimonai\.com\//.test(html) && file !== '404.html') errors.push(`${label}: missing canonical`);
+  if (/<meta name="keywords"/i.test(html)) errors.push(`${label}: obsolete meta keywords tag remains`);
   if (!html.includes('href="/zimonai-favicon.svg"')) errors.push(`${label}: stable root favicon link missing`);
   if (/rel="icon"[^>]+href="\/(?:assets\/)?favicon\.(?:svg|png)(?:\?|\")/.test(html)) errors.push(`${label}: retired favicon remains linked`);
   if (file !== '404.html' && (html.match(/hreflang=/g) || []).length !== 4) errors.push(`${label}: expected 4 hreflang links`);
+  if (file !== '404.html' && !html.includes('max-image-preview:large') && !html.includes('noindex, nofollow')) errors.push(`${label}: missing explicit index preview directive`);
+  if (file !== '404.html') {
+    const jsonLd = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
+    if (!jsonLd) {
+      errors.push(`${label}: missing JSON-LD`);
+    } else {
+      try {
+        const parsed = JSON.parse(jsonLd);
+        const graph = Array.isArray(parsed['@graph']) ? parsed['@graph'] : [];
+        for (const type of ['Organization', 'WebSite']) {
+          if (!graph.some((node) => node['@type'] === type)) errors.push(`${label}: JSON-LD missing ${type}`);
+        }
+        if (!graph.some((node) => ['WebPage', 'AboutPage', 'ContactPage', 'CollectionPage'].includes(node['@type']))) errors.push(`${label}: JSON-LD missing page entity`);
+        const isKnowledgeArticle = /(?:^|\/)knowledge\/[^/]+\/index\.html$/.test(file);
+        if (isKnowledgeArticle && !graph.some((node) => node['@type'] === 'Article')) errors.push(`${label}: JSON-LD missing Article entity`);
+      } catch {
+        errors.push(`${label}: invalid JSON-LD`);
+      }
+    }
+  }
   const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicateIds.length) errors.push(`${label}: duplicate IDs ${[...new Set(duplicateIds)].join(', ')}`);
@@ -145,7 +189,8 @@ const forbidden = [
   ['withdrawn regional restriction', /現場查核限華南|现场核查限华南|Shenzhen, Dongguan, Huizhou, Guangzhou or/i],
   ['withdrawn quality exclusion', /不是產品品質檢驗|不是产品质量检验|not a product quality inspection/i],
   ['retired T1 price range', /(?:USD|US\$)\s*99\s*[–-]\s*149/i],
-  ['retired T2 price range', /(?:USD|US\$)\s*249\s*[–-]\s*349/i]
+  ['retired T2 price range', /(?:USD|US\$)\s*249\s*[–-]\s*349/i],
+  ['fictional supplier presentation', /Lumen Harbor|ZM-DEMO|fictional supplier|虛構供應商|虚构供应商/i]
 ];
 for (const [name, pattern] of forbidden) if (pattern.test(joined)) errors.push(`site output contains ${name}`);
 for (const phrase of ['shared office', '共享辦公', '共享办公']) if (joined.toLowerCase().includes(phrase)) errors.push(`site output contains unapproved public wording: ${phrase}`);
@@ -156,6 +201,7 @@ if (sourceTemplate.includes('<svg viewBox="0 0 42 42"')) errors.push('retired Zi
 for (const contact of ['+86 19575746458', '+886 988307998', 'simon3141229', 'lo17v1']) {
   if (!joined.includes(contact)) errors.push(`approved contact missing: ${contact}`);
 }
+if (!joined.includes('https://wa.me/886988307998')) errors.push('approved WhatsApp link missing');
 for (const phrase of ['One category only', '我們專精充電器與電源電子供應鏈', '我们专注充电器与电源电子供应链', 'Full Managed Sourcing Verification']) {
   if (!joined.includes(phrase)) errors.push(`site output missing approved category or service content: ${phrase}`);
 }
@@ -177,6 +223,12 @@ if (/(?:=|:)\s*['"`](?:sk_(?:test|live)_[A-Za-z0-9]{12,}|whsec_[A-Za-z0-9]{12,})
 
 const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
 if (sitemap.includes('/payment-success/')) errors.push('payment success page must not appear in the sitemap');
+for (const spec of knowledgeArticleSpecs) if (!sitemap.includes(`/${spec.slug}/`)) errors.push(`sitemap missing knowledge article ${spec.slug}`);
+if (!sitemap.includes('xmlns:xhtml="http://www.w3.org/1999/xhtml"')) errors.push('sitemap is missing the XHTML namespace for language alternates');
+const sitemapUrlCount = (sitemap.match(/<url>/g) || []).length;
+const sitemapAlternateCount = (sitemap.match(/<xhtml:link /g) || []).length;
+if (sitemapAlternateCount !== sitemapUrlCount * 4) errors.push('sitemap language alternates are incomplete');
+if (sitemap.includes('<lastmod>2026-08-13</lastmod>')) errors.push('sitemap contains the retired hard-coded lastmod date');
 for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
   const successHtml = await readFile(path.join(dist, prefix, 'payment-success', 'index.html'), 'utf8');
   if (!successHtml.includes('<meta name="robots" content="noindex, nofollow">')) errors.push(`dist/${prefix}payment-success/index.html: payment success page must be noindex`);

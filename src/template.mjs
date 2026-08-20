@@ -2,6 +2,7 @@ import { languages, pages } from './content.mjs';
 import { brandProfile, hasPublishedOfficeEvidence } from './brand-profile.mjs';
 import { layoutMode } from './editorial-policy.mjs';
 import { paymentContent } from './payment-content.mjs';
+import { knowledgeArticleSpecs, knowledgeContent, knowledgeSpecById } from './knowledge-content.mjs';
 
 const pageMap = Object.fromEntries(pages.map((page) => [page.id, page]));
 
@@ -40,27 +41,32 @@ function approvedContacts(t) {
     { label: t.common.email, value: brandProfile.email, href: `mailto:${brandProfile.email}` },
     { label: t.common.chinaPhone, value: brandProfile.contacts.chinaPhone.display, href: `tel:${brandProfile.contacts.chinaPhone.href}` },
     { label: t.common.taiwanPhone, value: brandProfile.contacts.taiwanPhone.display, href: `tel:${brandProfile.contacts.taiwanPhone.href}` },
+    { label: t.common.whatsapp, value: brandProfile.contacts.whatsapp.display, href: brandProfile.contacts.whatsapp.href, external: true },
     { label: t.common.wechat, value: brandProfile.contacts.wechat },
     { label: t.common.line, value: brandProfile.contacts.line }
   ];
 }
 
 function requestContactList(t) {
-  return `<div class="contact-list">${approvedContacts(t).map((item) => `<div class="contact-line"><span>${esc(item.label)}</span>${item.href ? `<a href="${esc(item.href)}"><strong>${esc(item.value)}</strong>${arrow()}</a>` : `<strong>${esc(item.value)}</strong>`}</div>`).join('')}</div>`;
+  return `<div class="contact-list">${approvedContacts(t).map((item) => `<div class="contact-line"><span>${esc(item.label)}</span>${item.href ? `<a href="${esc(item.href)}"${item.external ? ' target="_blank" rel="noopener noreferrer"' : ''}><strong>${esc(item.value)}</strong>${arrow()}</a>` : `<strong>${esc(item.value)}</strong>`}</div>`).join('')}</div>`;
 }
 
 function footerContactList(t) {
-  return `<dl class="footer-contact">${approvedContacts(t).map((item) => `<div><dt>${esc(item.label)}</dt><dd>${item.href ? `<a href="${esc(item.href)}">${esc(item.value)}</a>` : esc(item.value)}</dd></div>`).join('')}</dl>`;
+  return `<dl class="footer-contact">${approvedContacts(t).map((item) => `<div><dt>${esc(item.label)}</dt><dd>${item.href ? `<a href="${esc(item.href)}"${item.external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(item.value)}</a>` : esc(item.value)}</dd></div>`).join('')}</dl>`;
 }
 
-function pageHeader(kicker, title, lead, brandMark = false) {
-  return `<header class="page-hero shell${brandMark ? ' page-hero--brand' : ''}">
+function pageHeader(kicker, title, lead, options = false) {
+  const config = typeof options === 'object' ? options : { brandMark: options };
+  const brandMark = Boolean(config.brandMark);
+  const media = config.media;
+  return `<header class="page-hero shell${brandMark ? ' page-hero--brand' : ''}${media ? ' page-hero--media' : ''}">
     <div class="page-hero__copy">
       <p class="kicker reveal">${esc(kicker)}</p>
       <h1 class="page-title reveal">${esc(title)}</h1>
       <p class="page-lead reveal">${esc(lead)}</p>
     </div>
     ${brandMark ? '<div class="page-hero__brand-mark" aria-hidden="true"><img src="/assets/zimonai-circular-mark-primary.svg" alt="" width="800" height="800"></div>' : ''}
+    ${media ? `<figure class="page-hero__media page-hero__media--${esc(media.id)} reveal"><img src="${esc(media.src)}" alt="${esc(media.alt)}" width="1600" height="1067" loading="eager" fetchpriority="high"></figure>` : ''}
   </header>`;
 }
 
@@ -73,16 +79,6 @@ function cta(t, title, text) {
 }
 
 function home(t) {
-  const demoPanels = t.home.demoTabs.map((item, index) => `<article class="demo-panel${index === 0 ? ' is-active' : ''}" id="demo-${item.id}" data-demo-panel="${item.id}" ${index === 0 ? '' : 'hidden'}>
-    <div class="evidence-grid">
-      <div><span>${esc(t.common.source)}</span><strong>${esc(item.source)}</strong></div>
-      <div><span>${esc(t.common.claim)}</span><strong>${esc(item.claim)}</strong></div>
-      <div><span>${esc(t.common.record)}</span><strong>${esc(item.record)}</strong></div>
-      <div><span>${esc(t.common.result)}</span>${statusMark(t, item.result)}</div>
-    </div>
-    <p class="demo-panel__note">${esc(item.note)}</p>
-  </article>`).join('');
-
   return `<main id="main">
     <section class="hero-cinema" aria-labelledby="hero-title" data-hero-cinema>
       <div class="hero-cinema__scene" aria-hidden="true">
@@ -91,56 +87,24 @@ function home(t) {
         <div class="hero-cinema__glow hero-cinema__glow--one"></div>
         <div class="hero-cinema__glow hero-cinema__glow--two"></div>
         <img class="hero-cinema__shield" src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512">
-        <div class="hero-cinema__sheet hero-cinema__sheet--registry"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="hero-cinema__sheet hero-cinema__sheet--certificate"><i></i><i></i><i></i><i></i></div>
-        <svg class="hero-cinema__trace" viewBox="0 0 1600 900" preserveAspectRatio="none">
-          <path d="M-80 735 C300 610 420 760 680 555 S1110 210 1680 290"></path>
-          <path d="M110 120 C370 260 560 125 800 305 S1220 680 1640 600"></path>
-          <circle cx="680" cy="555" r="6"></circle>
-          <circle cx="800" cy="305" r="5"></circle>
-        </svg>
-        <div class="hero-cinema__scan"></div>
       </div>
       <div class="hero shell">
-      <div class="hero__copy">
-        <p class="kicker">${esc(t.home.kicker)}</p>
-        <h1 id="hero-title">${esc(t.home.title)}</h1>
-        <p class="hero__category-line">${esc(t.home.categoryLine)}</p>
-        <p class="hero__lead">${esc(t.home.lead)}</p>
-        <div class="hero__actions">
-          <a class="button button--ink magnetic" href="${pathFor(t.__key, 'request')}">${esc(t.home.primary)}${arrow()}</a>
-          <a class="text-link" href="${pathFor(t.__key, 'methodology')}">${esc(t.home.secondary)}${arrow()}</a>
+        <div class="hero__copy">
+          <p class="kicker">${esc(t.home.kicker)}</p>
+          <h1 id="hero-title">${esc(t.home.title)}</h1>
+          <p class="hero__category-line">${esc(t.home.categoryLine)}</p>
+          <p class="hero__lead">${esc(t.home.lead)}</p>
+          <div class="hero__actions">
+            <a class="button button--ink magnetic" href="${pathFor(t.__key, 'request')}">${esc(t.home.primary)}${arrow()}</a>
+            <a class="text-link" href="${pathFor(t.__key, 'methodology')}">${esc(t.home.secondary)}${arrow()}</a>
+          </div>
+          <p class="hero__boundary"><span aria-hidden="true">—</span>${esc(t.home.distinction)}</p>
         </div>
-        <p class="hero__boundary"><span aria-hidden="true">—</span>${esc(t.home.distinction)}</p>
-      </div>
-      <div class="dossier" data-hero-dossier>
-        <div class="dossier__top">
-          <span class="demo-label">${esc(t.common.demo)}</span>
-          <span class="dossier__reference"><img src="/assets/zimonai-shield-icon-primary.svg" alt="" width="512" height="512" aria-hidden="true"><span class="mono">REF · ZM-DEMO-001</span></span>
-        </div>
-        <div class="dossier__identity">
-          <span>${esc(t.ui.supplierProfile)}</span>
-          <strong>${esc(t.home.dossier.company)}</strong>
-        </div>
-        <dl class="dossier__claims">
-          <div><dt>${esc(t.ui.claimedSince)}</dt><dd>${esc(t.home.dossier.since)}</dd></div>
-          <div><dt>${esc(t.ui.certification)}</dt><dd>${esc(t.home.dossier.certificate)}</dd></div>
-          <div><dt>${esc(t.ui.factory)}</dt><dd>${esc(t.home.dossier.factory)}</dd></div>
-        </dl>
-        <div class="dossier__checks" aria-live="polite">
-          ${t.home.checks.map(([label, value, state], index) => `<div class="check-row" data-check-row data-final-state="${state}">
-            <span class="check-row__step">0${index + 1}</span>
-            <span class="check-row__label">${esc(label)}</span>
-            <span class="check-row__value" data-pending="${esc(t.common.pending)}" data-final="${esc(value)}">${esc(t.common.pending)}</span>
-            <span class="check-row__mark" aria-hidden="true"></span>
-          </div>`).join('')}
-        </div>
-        <div class="dossier__progress"><span data-demo-progress></span></div>
-        <button class="scan-button" type="button" data-run-demo data-run="${esc(t.home.dossier.run)}" data-running="${esc(t.home.dossier.running)}" data-reset="${esc(t.home.dossier.reset)}">
-          <span class="scan-button__beam" aria-hidden="true"></span><span data-run-label>${esc(t.home.dossier.run)}</span>
-        </button>
-        <p class="dossier__announcement" data-demo-announcement>${esc(t.home.dossier.running)}</p>
-      </div>
+        <aside class="hero-proof" aria-label="${esc(t.home.proof.label)}">
+          <header><span>${esc(t.home.proof.label)}</span><img src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512" aria-hidden="true"></header>
+          <div class="hero-proof__items">${t.home.proof.items.map(([title, text], index) => `<article><span>0${index + 1}</span><div><h2>${esc(title)}</h2><p>${esc(text)}</p></div></article>`).join('')}</div>
+          <p class="hero-proof__foot">${esc(t.home.proof.foot)}</p>
+        </aside>
       </div>
     </section>
 
@@ -161,56 +125,11 @@ function home(t) {
       </div>
     </section>
 
-    <section class="investigation" data-investigation>
-      <div class="shell investigation__intro reveal">
-        <p class="kicker">${esc(t.home.story.label)}</p>
-        <h2>${esc(t.home.story.title)}</h2>
-        <p>${esc(t.home.story.intro)}</p>
+    <section class="verification-flow" aria-labelledby="verification-flow-title">
+      <div class="shell verification-flow__inner">
+        <header class="verification-flow__intro reveal"><p class="kicker">${esc(t.home.story.label)}</p><h2 id="verification-flow-title">${esc(t.home.story.title)}</h2><p>${esc(t.home.story.intro)}</p></header>
+        <ol class="verification-flow__steps">${t.home.story.steps.map((step) => `<li class="reveal"><span>${esc(step.no)}</span><h3>${esc(step.title)}</h3><p>${esc(step.text)}</p></li>`).join('')}</ol>
       </div>
-      <div class="shell investigation__layout">
-        <div class="investigation__stage" aria-live="polite">
-          <div class="stage-file" data-stage-file>
-            <div class="stage-file__head"><span>${esc(t.ui.evidencePath)}</span><span data-stage-counter>01 / 04</span></div>
-            <div class="stage-file__body">
-              <span class="stage-file__tag" data-stage-tag>${esc(t.common.claim)}</span>
-              <h3 data-stage-title>${esc(t.home.story.steps[0].title)}</h3>
-              <div class="stage-file__record">
-                <span class="mono">LUMEN HARBOR · DEMO</span>
-                <div class="stage-file__line"></div><div class="stage-file__line stage-file__line--short"></div>
-              </div>
-              <div class="stage-file__results">
-                ${statusMark(t, 'verified')} ${statusMark(t, 'unresolved')} ${statusMark(t, 'discrepancy')}
-              </div>
-            </div>
-          </div>
-        </div>
-        <ol class="investigation__steps">
-          ${t.home.story.steps.map((step, index) => `<li class="story-step${index === 0 ? ' is-active' : ''}" data-story-step data-stage="${step.stage}" data-index="${index}">
-            <span class="story-step__no">${step.no}</span><div><h3>${esc(step.title)}</h3><p>${esc(step.text)}</p></div>
-          </li>`).join('')}
-        </ol>
-      </div>
-    </section>
-
-    <section class="comparison shell reveal" aria-labelledby="compare-title">
-      <div class="section-heading">
-        <p class="kicker">${esc(t.home.compare.label)}</p><h2 id="compare-title">${esc(t.home.compare.title)}</h2><p>${esc(t.home.compare.hint)}</p>
-      </div>
-      <div class="comparison__frame" data-comparison>
-        <div class="comparison__claim">
-          <span class="file-label">${esc(t.home.compare.leftTitle)}</span>
-          <strong>LUMEN HARBOR DEVICES</strong>
-          <ul>${t.home.compare.left.map((row) => `<li>${esc(row)}</li>`).join('')}</ul>
-        </div>
-        <div class="comparison__record" data-comparison-record>
-          <span class="file-label">${esc(t.home.compare.rightTitle)}</span>
-          <strong>${esc(t.ui.registryRecord)}</strong>
-          <ul>${t.home.compare.right.map((row) => `<li>${esc(row)}</li>`).join('')}</ul>
-        </div>
-        <div class="comparison__seam" data-comparison-seam aria-hidden="true"><span>${esc(t.ui.compare)}</span></div>
-        <input class="comparison__range" type="range" min="8" max="92" value="50" aria-label="${esc(t.home.compare.hint)}" data-comparison-range>
-      </div>
-      <div class="comparison__result">${statusMark(t, 'discrepancy')}<p>${esc(t.home.compare.conclusion)}</p></div>
     </section>
 
     <section class="why shell reveal">
@@ -237,14 +156,6 @@ function home(t) {
       <div class="source-index__rows">${t.home.sources.items.map(([title, text], index) => `<article class="source-row reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div>
     </section>
 
-    <section class="interactive-demo shell" aria-labelledby="demo-title">
-      <div class="interactive-demo__intro reveal"><span class="demo-label">${esc(t.common.demo)}</span><h2 id="demo-title">${esc(t.home.demoTitle)}</h2><p>${esc(t.home.demoLead)}</p></div>
-      <div class="interactive-demo__tabs reveal" role="tablist" aria-label="${esc(t.home.demoTitle)}">
-        ${t.home.demoTabs.map((item, index) => `<button role="tab" aria-selected="${index === 0}" aria-controls="demo-${item.id}" id="tab-${item.id}" class="evidence-tab${index === 0 ? ' is-active' : ''}" data-demo-tab="${item.id}" data-cursor="${esc(t.ui.openEvidence)}">${esc(item.label)}<span>0${index + 1}</span></button>`).join('')}
-      </div>
-      <div class="interactive-demo__panels reveal">${demoPanels}</div>
-    </section>
-
     <section class="limits-band">
       <div class="shell limits-band__inner reveal"><div class="limits-band__mark">?</div><div><h2>${esc(t.home.limitsTitle)}</h2><p>${esc(t.home.limitsText)}</p><a class="text-link" href="${pathFor(t.__key, 'scope')}">${esc(t.nav.scope)}${arrow()}</a></div></div>
     </section>
@@ -256,8 +167,9 @@ function services(t) {
   const panels = t.services.catalog.map((service, index) => `<article class="service-tier-panel${index === 0 ? ' is-active' : ''}" id="${service.id}" data-service-panel="${service.id}" role="tabpanel" aria-labelledby="select-${service.id}" ${index === 0 ? '' : 'hidden'}>
     <header class="service-tier-panel__header">
       <div><p class="kicker">${esc(service.label)} · ${esc(service.englishTitle)}</p><h2>${esc(service.title)}</h2><p>${esc(service.summary)}</p></div>
-      <dl><div><dt>${esc(t.services.labels.price)}</dt><dd>${esc(service.price)}</dd></div><div><dt>${esc(t.services.labels.timing)}</dt><dd>${esc(service.timing)}</dd></div><div><dt>${esc(t.services.labels.mode)}</dt><dd>${esc(service.mode)}</dd></div></dl>
+      <aside class="service-tier-panel__commercial"><dl><div><dt>${esc(t.services.labels.price)}</dt><dd>${esc(service.price)}</dd></div><div><dt>${esc(t.services.labels.timing)}</dt><dd>${esc(service.timing)}</dd></div><div><dt>${esc(t.services.labels.mode)}</dt><dd>${esc(service.mode)}</dd></div></dl>${service.purchasable ? `${serviceCheckoutProtocol(t)}${checkoutForm(t, paymentProduct(t, service.id), 'checkout-form--inline')}` : ''}</aside>
     </header>
+    ${service.id === 't1' ? sampleReport(t) : ''}
     ${service.upgrade ? `<p class="service-tier-panel__upgrade"><span>+</span>${esc(service.upgrade)}</p>` : ''}
     <div class="service-tier-panel__work">${service.groups.map((group) => `<section><h3>${esc(group.title)}</h3><ul>${group.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></section>`).join('')}</div>
     ${service.note ? `<aside class="service-tier-panel__note"><strong>${esc(t.services.labels.important)}</strong><p>${esc(service.note)}</p></aside>` : ''}
@@ -265,7 +177,7 @@ function services(t) {
       <div><span class="file-label">${esc(t.services.labels.notIncluded)}</span><p>${esc(service.notIncluded)}</p></div>
       <div><span class="file-label">${esc(t.services.labels.consent)}</span><strong>${esc(service.consent)}</strong></div>
     </div>
-    <footer><span class="file-label">${esc(t.services.labels.fit)}</span><p>${esc(service.fit)}</p>${service.delivery ? `<div><span class="file-label">${esc(t.ui.deliverable)}</span><p>${esc(service.delivery)}</p></div>` : ''}${service.purchasable ? `<a class="button button--ink service-tier-panel__purchase" href="${pathFor(t.__key, 'payments')}?item=${service.id}">${esc(paymentProduct(t, service.id).button)}${arrow()}</a>` : ''}</footer>
+    <footer><span class="file-label">${esc(t.services.labels.fit)}</span><p>${esc(service.fit)}</p>${service.delivery ? `<div><span class="file-label">${esc(t.ui.deliverable)}</span><p>${esc(service.delivery)}</p></div>` : ''}</footer>
   </article>`).join('');
   return `<main id="main">${pageHeader(t.services.kicker, t.services.title, t.services.lead)}
     <section class="service-staircase shell" data-service-staircase>
@@ -279,7 +191,7 @@ function services(t) {
 
 function methodology(t) {
   const detail = t.methodology.nodes[0];
-  return `<main id="main">${pageHeader(t.methodology.kicker, t.methodology.title, t.methodology.lead)}
+  return `<main id="main">${pageHeader(t.methodology.kicker, t.methodology.title, t.methodology.lead, { media: { id: 'board', src: '/assets/editorial-power-supply-board.jpg', alt: t.methodology.visualAlt } })}
     <section class="method-map shell" data-method-map>
       <div class="section-heading reveal"><p class="kicker">${esc(t.methodology.mapTitle)}</p><h2>${esc(t.methodology.mapTitle)}</h2><p>${esc(t.methodology.mapLead)}</p></div>
       <div class="method-map__system reveal">
@@ -305,7 +217,7 @@ function methodology(t) {
 }
 
 function scope(t) {
-  return `<main id="main">${pageHeader(t.scope.kicker, t.scope.title, t.scope.lead)}
+  return `<main id="main">${pageHeader(t.scope.kicker, t.scope.title, t.scope.lead, { media: { id: 'adapter', src: '/assets/editorial-multiport-adapter.jpg', alt: t.scope.visualAlt } })}
     <section class="scope-split shell reveal"><article><span class="scope-split__symbol">+</span><h2>${esc(t.scope.doTitle)}</h2><ul>${t.scope.doItems.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></article><article><span class="scope-split__symbol">−</span><h2>${esc(t.scope.dontTitle)}</h2><ul>${t.scope.dontItems.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></article></section>
     <section class="limit-ledger shell"><div class="section-heading reveal"><p class="kicker">${esc(t.scope.limitsTitle)}</p><h2>${esc(t.scope.limitsTitle)}</h2></div>${t.scope.limits.map(([title, text], index) => `<article class="limit-row reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</section>
     <section class="decision-guide shell" aria-labelledby="decision-guide-title"><div class="section-heading section-heading--dense reveal"><p class="kicker">${esc(t.scope.decisionGuide.label)}</p><h2 id="decision-guide-title">${esc(t.scope.decisionGuide.title)}</h2></div><div class="decision-guide__rows">${t.scope.decisionGuide.items.map(([question, provider]) => `<article class="decision-guide__row reveal"><h3>${esc(question)}</h3><strong>${esc(provider)}</strong></article>`).join('')}</div></section>
@@ -360,7 +272,7 @@ function request(t) {
   const f = t.request.fields;
   const p = t.request.placeholders;
   const field = (id, label, placeholder, type = 'text', required = false) => `<label class="form-field"><span>${esc(label)}${required ? ` <small>${esc(f.required)}</small>` : ''}</span><input id="${id}" name="${id}" type="${type}" placeholder="${esc(placeholder)}" ${required ? 'required' : ''}></label>`;
-  return `<main id="main">${pageHeader(t.request.kicker, t.request.title, t.request.lead)}
+  return `<main id="main">${pageHeader(t.request.kicker, t.request.title, t.request.lead, { media: { id: 'power-bank', src: '/assets/editorial-power-bank.jpg', alt: t.request.visualAlt } })}
     <section class="request-layout shell">
       <form class="request-form reveal" data-mail-form data-mail-subject="${esc(t.__key === 'en' ? 'Supplier verification request' : t.__key === 'zh-tw' ? '供應商查核需求' : '供应商核查需求')}" novalidate>
         <div class="form-honesty"><span aria-hidden="true">↗</span><p>${esc(t.request.honest)}</p></div>
@@ -377,17 +289,33 @@ function request(t) {
   </main>`;
 }
 
-function checkoutForm(t, product) {
+function checkoutForm(t, product, modifier = '') {
   const labels = t.payment.payments.labels;
   const termsHref = pathFor(t.__key, 'paymentTerms');
   const quantity = product.quantity ? `<label class="checkout-field"><span>${esc(labels.quantity)} <small>${esc(labels.required)}</small></span><input type="number" name="quantity" min="1" max="100" step="1" value="1" inputmode="numeric" required></label>` : '';
   const reference = product.reference ? `<label class="checkout-field"><span>${esc(labels.reference)} <small>${esc(labels.required)}</small></span><input type="text" name="reference" maxlength="120" autocomplete="off" required></label>` : '';
-  return `<form class="checkout-form" data-checkout-form data-product="${esc(product.key)}" novalidate>
+  return `<form class="checkout-form${modifier ? ` ${modifier}` : ''}" data-checkout-form data-product="${esc(product.key)}" novalidate>
     ${quantity}${reference}
     <label class="consent checkout-consent"><input type="checkbox" name="terms" required><span>${esc(labels.terms)} <a href="${termsHref}" target="_blank" rel="noopener">${esc(labels.termsLink)}</a></span></label>
     <button class="button button--ink" type="submit" data-checkout-button data-default-label="${esc(product.button)}" data-processing-label="${esc(labels.processing)}">${esc(product.button)}${arrow()}</button>
     <p class="form-error" data-checkout-error role="alert"></p>
   </form>`;
+}
+
+function serviceCheckoutProtocol(t) {
+  return `<div class="service-checkout-protocol">
+    <a class="service-checkout-protocol__mark" href="https://stripe.com/payments/checkout" target="_blank" rel="noopener" aria-label="Stripe Checkout"><img src="/assets/stripe-wordmark-slate.svg" alt="Stripe" width="360" height="151"></a>
+    <div><strong>Stripe Checkout</strong><p>${esc(t.payment.payments.stripeNote)}</p></div>
+  </div>`;
+}
+
+function sampleReport(t) {
+  const report = t.services.sampleReport;
+  const href = '/assets/zimonai-t1-sample-report.pdf';
+  return `<section class="sample-report" aria-labelledby="sample-report-title">
+    <div class="sample-report__copy"><p class="kicker">${esc(report.label)}</p><h3 id="sample-report-title">${esc(report.title)}</h3><p>${esc(report.lead)}</p><ul>${report.facts.map((fact) => `<li>${esc(fact)}</li>`).join('')}</ul><div class="sample-report__actions"><a class="button sample-report__open" href="${href}" target="_blank" rel="noopener">${esc(report.open)}${arrow()}</a><a class="sample-report__download" href="${href}" download="ZimonAI-T1-Sample-Report.pdf">${esc(report.download)}</a></div></div>
+    <a class="sample-report__preview" href="${href}" target="_blank" rel="noopener" aria-label="${esc(report.open)}"><img src="/assets/zimonai-t1-sample-report-cover.png" alt="${esc(report.label)}" width="951" height="1345"><span>PDF · 8</span></a>
+  </section>`;
 }
 
 function paymentCard(t, product) {
@@ -450,17 +378,116 @@ function privacy(t) {
   return `<main id="main">${pageHeader(t.privacy.kicker, t.privacy.title, t.privacy.lead)}<section class="legal shell">${sections.map(([title, text], index) => `<article class="legal-row reveal"><span>${String(index + 1).padStart(2, '0')}</span><h2>${esc(title)}</h2><p>${esc(text)}</p></article>`).join('')}</section></main>`;
 }
 
-const renderers = { home, services, methodology, scope, about, request, payments, paymentSuccess, paymentTerms, privacy };
+function knowledgeCard(t, spec, article, featured = false) {
+  return `<article class="knowledge-card${featured ? ' knowledge-card--featured' : ''} reveal">
+    <a class="knowledge-card__media" href="${pathFor(t.__key, spec.id)}" aria-label="${esc(article.title)}">
+      <img src="${esc(spec.image)}" alt="${esc(article.imageAlt)}" width="${spec.imageWidth}" height="${spec.imageHeight}" loading="${featured ? 'eager' : 'lazy'}">
+      <span>${String(knowledgeArticleSpecs.indexOf(spec) + 1).padStart(2, '0')}</span>
+    </a>
+    <div class="knowledge-card__copy">
+      <p class="kicker">${esc(article.topic)}</p>
+      <h2><a href="${pathFor(t.__key, spec.id)}">${esc(article.title)}</a></h2>
+      <p>${esc(article.description)}</p>
+      <div class="knowledge-card__meta"><time datetime="${esc(spec.datePublished)}">${esc(article.published)}</time><span>${esc(article.readTime)}</span></div>
+      <a class="text-link" href="${pathFor(t.__key, spec.id)}">${esc(t.knowledge.ui.read)}${arrow()}</a>
+    </div>
+  </article>`;
+}
+
+function knowledge(t) {
+  const copy = t.knowledge;
+  const records = knowledgeArticleSpecs.map((spec) => ({ spec, article: copy.articles[spec.key] }));
+  const [featured, ...rest] = records;
+  return `<main id="main">
+    <section class="knowledge-hero" aria-labelledby="knowledge-title">
+      <div class="shell knowledge-hero__grid">
+        <div class="knowledge-hero__copy">
+          <p class="kicker">${esc(copy.hub.kicker)}</p>
+          <h1 id="knowledge-title">${esc(copy.hub.title)}</h1>
+          <p>${esc(copy.hub.lead)}</p>
+        </div>
+        <div class="knowledge-hero__folio" aria-hidden="true"><span>FIELD NOTES</span><strong>01—05</strong><img src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512"></div>
+      </div>
+    </section>
+    <section class="knowledge-index shell" aria-labelledby="knowledge-featured-title">
+      <header class="knowledge-index__heading reveal"><p class="kicker">${esc(copy.hub.featured)}</p><h2 id="knowledge-featured-title">${esc(featured.article.topic)}</h2></header>
+      ${knowledgeCard(t, featured.spec, featured.article, true)}
+      <header class="knowledge-index__heading knowledge-index__heading--latest reveal"><p class="kicker">${esc(copy.hub.latest)}</p><span>02—05</span></header>
+      <div class="knowledge-grid">${rest.map(({ spec, article }) => knowledgeCard(t, spec, article)).join('')}</div>
+    </section>
+    <section class="knowledge-method">
+      <div class="shell knowledge-method__inner">
+        <header class="reveal"><p class="kicker">${esc(copy.hub.methodLabel)}</p><h2>${esc(copy.hub.methodTitle)}</h2></header>
+        <div class="knowledge-method__items">${copy.hub.methodItems.map(([title, text], index) => `<article class="reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div>
+      </div>
+    </section>
+    <section class="knowledge-next shell reveal"><div><p class="kicker">${esc(copy.hub.nextLabel)}</p><h2>${esc(copy.hub.nextTitle)}</h2></div><p>${esc(copy.hub.nextText)}</p></section>
+    ${cta(t, t.home.finalTitle, t.home.finalText)}
+  </main>`;
+}
+
+function knowledgeArticle(t, page) {
+  const copy = t.knowledge;
+  const spec = knowledgeSpecById(page.id);
+  const article = copy.articles[spec.key];
+  const related = knowledgeArticleSpecs.filter((item) => item.id !== spec.id).slice(0, 3);
+  return `<main id="main">
+    <article class="field-note">
+      <header class="field-note__hero">
+        <div class="shell field-note__hero-grid">
+          <div class="field-note__headline">
+            <a class="field-note__back" href="${pathFor(t.__key, 'knowledge')}">← ${esc(copy.ui.back)}</a>
+            <p class="kicker">${esc(article.topic)} · ${String(knowledgeArticleSpecs.indexOf(spec) + 1).padStart(2, '0')}</p>
+            <h1>${esc(article.title)}</h1>
+            <p class="field-note__dek">${esc(article.description)}</p>
+            <dl class="field-note__meta">
+              <div><dt>${esc(copy.ui.published)}</dt><dd><time datetime="${esc(spec.datePublished)}">${esc(article.published)}</time></dd></div>
+              <div><dt>${esc(copy.ui.readTime)}</dt><dd>${esc(article.readTime)}</dd></div>
+              <div><dt>${esc(copy.ui.reviewed)}</dt><dd>${esc(article.published)}</dd></div>
+            </dl>
+          </div>
+          <figure class="field-note__image">
+            <img src="${esc(spec.image)}" alt="${esc(article.imageAlt)}" width="${spec.imageWidth}" height="${spec.imageHeight}" loading="eager" fetchpriority="high">
+            <figcaption><span>${esc(article.imageCaption)}</span><a href="${esc(spec.photo.page)}" target="_blank" rel="noopener noreferrer">${esc(copy.ui.photo)} · ${esc(spec.photo.photographer)}</a></figcaption>
+          </figure>
+        </div>
+      </header>
+      <div class="shell field-note__layout">
+        <aside class="field-note__rail">
+          <p class="kicker">${esc(copy.ui.quickAnswer)}</p>
+          <ol>${article.sections.map((section, index) => `<li><a href="#section-${index + 1}"><span>0${index + 1}</span>${esc(section.title)}</a></li>`).join('')}</ol>
+        </aside>
+        <div class="field-note__body">
+          <section class="answer-first reveal" aria-labelledby="answer-title"><p class="kicker" id="answer-title">${esc(copy.ui.quickAnswer)}</p><p>${esc(article.answer)}</p></section>
+          <ul class="field-note__takeaways">${article.takeaways.map((item, index) => `<li class="reveal"><span>${String(index + 1).padStart(2, '0')}</span><p>${esc(item)}</p></li>`).join('')}</ul>
+          ${article.sections.map((section, index) => `<section class="field-note__section reveal" id="section-${index + 1}"><span class="field-note__section-no">${String(index + 1).padStart(2, '0')}</span><h2>${esc(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}${section.items ? `<ul>${section.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
+          <section class="buyer-checklist reveal"><p class="kicker">${esc(copy.ui.buyerChecklist)}</p><h2>${esc(copy.ui.buyerChecklist)}</h2><ul>${article.checklist.map((item) => `<li><span aria-hidden="true">✓</span>${esc(item)}</li>`).join('')}</ul></section>
+          <aside class="evidence-limit reveal"><span>!</span><div><p class="kicker">${esc(copy.ui.limits)}</p><h2>${esc(copy.ui.limits)}</h2><p>${esc(article.limitsText)}</p></div></aside>
+        </div>
+      </div>
+      <section class="field-note__sources">
+        <div class="shell field-note__sources-grid">
+          <header><p class="kicker">${esc(copy.ui.sources)}</p><h2>${esc(copy.ui.sources)}</h2><p>${esc(copy.ui.sourcesLead)}</p></header>
+          <ol>${spec.sources.map((source, index) => `<li><span>${String(index + 1).padStart(2, '0')}</span><div><strong>${esc(source.publisher)}</strong><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)}${arrow()}</a></div></li>`).join('')}</ol>
+        </div>
+      </section>
+      <section class="field-note__related shell"><header><p class="kicker">${esc(copy.ui.related)}</p><h2>${esc(copy.ui.related)}</h2></header><div>${related.map((relatedSpec) => { const relatedArticle = copy.articles[relatedSpec.key]; return `<a href="${pathFor(t.__key, relatedSpec.id)}"><span>${esc(relatedArticle.topic)}</span><strong>${esc(relatedArticle.title)}</strong>${arrow()}</a>`; }).join('')}</div></section>
+    </article>
+    ${cta(t, t.home.finalTitle, t.home.finalText)}
+  </main>`;
+}
+
+const renderers = { home, services, methodology, scope, about, request, payments, paymentSuccess, paymentTerms, privacy, knowledge };
 
 function header(t, pageId) {
-  const nav = [['services', t.nav.services], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about], ['payments', t.payment.nav]];
+  const nav = [['services', t.nav.servicesBooking], ['knowledge', t.nav.knowledge], ['methodology', t.nav.methodology], ['about', t.nav.about], ['scope', t.nav.scope]];
   const isHome = pageId === 'home';
   return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header${isHome ? ' site-header--home' : ''}" data-header>
     <div class="site-header__inner">
       <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo" src="${isHome ? '/assets/zimonai-logo-white.svg' : '/assets/zimonai-logo-primary.svg'}" alt="ZimonAI" width="1600" height="360"><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-nav-toggle><span>${esc(t.nav.menu)}</span><i></i><i></i></button>
       <nav class="site-nav" id="main-nav" data-nav>
-        ${nav.map(([id, label]) => `<a href="${pathFor(t.__key, id)}" ${pageId === id ? `aria-current="page"` : ''}>${esc(label)}</a>`).join('')}
+        ${nav.map(([id, label]) => `<a${id === 'services' ? ' class="nav-services-booking"' : ''} href="${pathFor(t.__key, id)}" ${(pageId === id || (id === 'services' && pageId === 'payments') || (id === 'knowledge' && pageId.startsWith('knowledge-'))) ? `aria-current="page"` : ''}>${esc(label)}</a>`).join('')}
         <div class="lang-switch" data-lang-switch><button type="button" aria-expanded="false" data-lang-button>${esc(t.short)}<span aria-hidden="true">⌄</span></button><div class="lang-switch__menu">${Object.entries(languages).map(([key, lang]) => `<a lang="${lang.htmlLang}" href="${pathFor(key, pageId)}" ${key === t.__key ? 'aria-current="true"' : ''}>${esc(lang.name)}</a>`).join('')}</div></div>
         <a class="nav-cta" href="${pathFor(t.__key, 'request')}">${esc(t.nav.request)}${arrow()}</a>
       </nav>
@@ -469,57 +496,171 @@ function header(t, pageId) {
 }
 
 function footer(t) {
-  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'payments')}">${esc(t.payment.nav)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
+  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'services')}">${esc(t.nav.servicesBooking)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
 }
 
 function supportPanel(t) {
   const copy = t.payment.support;
-  return `<button class="support-launch" type="button" aria-expanded="false" aria-controls="support-panel" data-support-open><span aria-hidden="true">?</span><strong>${esc(copy.open)}</strong></button><div class="support-backdrop" data-support-backdrop hidden></div><aside class="support-panel" id="support-panel" aria-hidden="true" aria-labelledby="support-title" data-support-panel><header><div><p class="kicker">ZimonAI</p><h2 id="support-title">${esc(copy.title)}</h2></div><button type="button" aria-label="${esc(copy.close)}" data-support-close>×</button></header><p>${esc(copy.intro)}</p><div class="support-contacts">${approvedContacts(t).map((item) => `<div><span>${esc(item.label)}</span>${item.href ? `<a href="${esc(item.href)}">${esc(item.value)}${arrow()}</a>` : `<strong>${esc(item.value)}</strong><button type="button" data-copy-contact="${esc(item.value)}" data-copy-label="${esc(copy.copy)}" data-copied-label="${esc(copy.copied)}">${esc(copy.copy)}</button>`}</div>`).join('')}</div><a class="button button--ink" href="mailto:${esc(brandProfile.email)}?subject=${encodeURIComponent(t.__key === 'en' ? 'ZimonAI service or payment support' : t.__key === 'zh-tw' ? 'ZimonAI 服務或付款協助' : 'ZimonAI 服务或付款协助')}">${esc(copy.emailAction)}${arrow()}</a><p class="support-panel__note">${esc(copy.paymentHelp)}</p></aside>`;
+  return `<button class="support-launch" type="button" aria-expanded="false" aria-controls="support-panel" data-support-open><span aria-hidden="true">?</span><strong>${esc(copy.open)}</strong></button><div class="support-backdrop" data-support-backdrop hidden></div><aside class="support-panel" id="support-panel" aria-hidden="true" aria-labelledby="support-title" data-support-panel><header><div><p class="kicker">ZimonAI</p><h2 id="support-title">${esc(copy.title)}</h2></div><button type="button" aria-label="${esc(copy.close)}" data-support-close>×</button></header><p>${esc(copy.intro)}</p><div class="support-contacts">${approvedContacts(t).map((item) => `<div><span>${esc(item.label)}</span>${item.href ? `<a href="${esc(item.href)}"${item.external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(item.value)}${arrow()}</a>` : `<strong>${esc(item.value)}</strong><button type="button" data-copy-contact="${esc(item.value)}" data-copy-label="${esc(copy.copy)}" data-copied-label="${esc(copy.copied)}">${esc(copy.copy)}</button>`}</div>`).join('')}</div><a class="button button--ink" href="mailto:${esc(brandProfile.email)}?subject=${encodeURIComponent(t.__key === 'en' ? 'ZimonAI service or payment support' : t.__key === 'zh-tw' ? 'ZimonAI 服務或付款協助' : 'ZimonAI 服务或付款协助')}">${esc(copy.emailAction)}${arrow()}</a><p class="support-panel__note">${esc(copy.paymentHelp)}</p></aside>`;
 }
 
 export function renderPage(langKey, pageId) {
   const original = languages[langKey];
-  const t = { ...original, payment: paymentContent[langKey], __key: langKey };
-  const meta = original.meta.titles[pageId] ? original.meta : paymentContent[langKey].meta;
   const page = pageMap[pageId];
+  const knowledgeCopy = knowledgeContent[langKey];
+  const t = { ...original, payment: paymentContent[langKey], knowledge: knowledgeCopy, __key: langKey };
+  const articleSpec = page.kind === 'article' ? knowledgeSpecById(pageId) : null;
+  const articleCopy = articleSpec ? knowledgeCopy.articles[articleSpec.key] : null;
+  const baseMeta = original.meta.titles[pageId] ? original.meta : paymentContent[langKey].meta;
+  const metaTitle = pageId === 'knowledge' ? knowledgeCopy.hub.metaTitle : articleCopy ? `${articleCopy.title} | ZimonAI` : baseMeta.titles[pageId];
+  const metaDescription = pageId === 'knowledge' ? knowledgeCopy.hub.metaDescription : articleCopy ? articleCopy.description : baseMeta.descriptions[pageId];
   const canonical = `https://zimonai.com${pathFor(langKey, pageId)}`;
   const alternates = Object.entries(languages).map(([key, lang]) => `<link rel="alternate" hreflang="${lang.htmlLang}" href="https://zimonai.com${pathFor(key, pageId)}">`).join('\n');
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': pageId === 'home' ? 'ProfessionalService' : 'WebPage',
-    name: pageId === 'home' ? 'ZimonAI 智蒙灣' : meta.titles[pageId],
-    url: canonical,
-    email: pageId === 'home' ? brandProfile.email : undefined,
-    telephone: pageId === 'home' ? brandProfile.contacts.chinaPhone.display : undefined,
-    contactPoint: pageId === 'home' ? [brandProfile.contacts.chinaPhone, brandProfile.contacts.taiwanPhone].map((phone) => ({ '@type': 'ContactPoint', telephone: phone.display, contactType: 'customer service' })) : undefined,
-    description: meta.descriptions[pageId],
-    areaServed: pageId === 'home' ? brandProfile.operatingBases : undefined
+  const organizationId = 'https://zimonai.com/#organization';
+  const websiteId = 'https://zimonai.com/#website';
+  const webpageId = `${canonical}#webpage`;
+  const organization = {
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: 'ZimonAI',
+    alternateName: ['ZimonAI 智蒙灣', '智蒙灣'],
+    legalName: brandProfile.registration.legalNameZhHans,
+    url: brandProfile.domain,
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://zimonai.com/apple-touch-icon.png',
+      width: 180,
+      height: 180
+    },
+    email: brandProfile.email,
+    telephone: brandProfile.contacts.chinaPhone.display,
+    foundingDate: brandProfile.registration.established,
+    identifier: {
+      '@type': 'PropertyValue',
+      propertyID: 'Unified Social Credit Code',
+      value: brandProfile.registration.creditCode
+    },
+    contactPoint: [brandProfile.contacts.chinaPhone, brandProfile.contacts.taiwanPhone].map((phone) => ({
+      '@type': 'ContactPoint',
+      telephone: phone.display,
+      contactType: 'customer service'
+    }))
   };
-  Object.keys(schema).forEach((key) => schema[key] === undefined && delete schema[key]);
+  if (pageId === 'about') {
+    organization.address = {
+      '@type': 'PostalAddress',
+      streetAddress: brandProfile.registration.registeredAddressZhHans,
+      addressLocality: '深圳市',
+      addressCountry: 'CN'
+    };
+  }
+  const website = {
+    '@type': 'WebSite',
+    '@id': websiteId,
+    url: brandProfile.domain,
+    name: 'ZimonAI',
+    alternateName: '智蒙灣',
+    publisher: { '@id': organizationId },
+    inLanguage: Object.values(languages).map((language) => language.htmlLang)
+  };
+  const webpage = {
+    '@type': pageId === 'about' ? 'AboutPage' : pageId === 'request' ? 'ContactPage' : 'WebPage',
+    '@id': webpageId,
+    url: canonical,
+    name: metaTitle,
+    description: metaDescription,
+    inLanguage: original.htmlLang,
+    isPartOf: { '@id': websiteId },
+    about: { '@id': organizationId },
+    publisher: { '@id': organizationId }
+  };
+  if (pageId === 'knowledge') webpage['@type'] = 'CollectionPage';
+  const graph = [organization, website, webpage];
+  if (pageId === 'services') {
+    const serviceId = `${canonical}#service`;
+    webpage.mainEntity = { '@id': serviceId };
+    graph.push({
+      '@type': 'Service',
+      '@id': serviceId,
+      name: t.common.footerCategory,
+      serviceType: t.common.footerCategory,
+      url: canonical,
+      provider: { '@id': organizationId }
+    });
+  } else if (pageId === 'home') {
+    webpage.mainEntity = { '@id': organizationId };
+  } else if (pageId === 'knowledge') {
+    const itemListId = `${canonical}#articles`;
+    webpage.mainEntity = { '@id': itemListId };
+    graph.push({
+      '@type': 'ItemList',
+      '@id': itemListId,
+      numberOfItems: knowledgeArticleSpecs.length,
+      itemListElement: knowledgeArticleSpecs.map((spec, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `https://zimonai.com${pathFor(langKey, spec.id)}`,
+        name: knowledgeCopy.articles[spec.key].title
+      }))
+    });
+  } else if (articleSpec) {
+    const articleId = `${canonical}#article`;
+    webpage.mainEntity = { '@id': articleId };
+    graph.push({
+      '@type': 'Article',
+      '@id': articleId,
+      headline: articleCopy.title,
+      description: articleCopy.description,
+      image: `https://zimonai.com${articleSpec.image}`,
+      datePublished: articleSpec.datePublished,
+      dateModified: articleSpec.dateModified,
+      articleSection: articleCopy.topic,
+      inLanguage: original.htmlLang,
+      mainEntityOfPage: { '@id': webpageId },
+      author: { '@id': organizationId },
+      publisher: { '@id': organizationId },
+      citation: articleSpec.sources.map((source) => source.url)
+    });
+  }
+  const schema = { '@context': 'https://schema.org', '@graph': graph };
+  const defaultOgImageAlt = langKey === 'en'
+    ? 'ZimonAI charger and power electronics supplier verification'
+    : langKey === 'zh-tw'
+      ? 'ZimonAI 充電器與電源電子供應商查核'
+      : 'ZimonAI 充电器与电源电子供应商核查';
+  const ogImageAlt = articleCopy ? articleCopy.imageAlt : defaultOgImageAlt;
+  const socialImage = articleSpec ? `https://zimonai.com${articleSpec.image}` : 'https://zimonai.com/assets/og-image.png';
+  const alternateLocales = Object.values(languages)
+    .filter((language) => language.locale !== original.locale)
+    .map((language) => `<meta property="og:locale:alternate" content="${language.locale}">`)
+    .join('\n  ');
   return `<!doctype html>
 <html lang="${original.htmlLang}" data-page="${pageId}" data-layout="${layoutMode(langKey)}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(meta.titles[pageId])}</title>
-  <meta name="description" content="${esc(meta.descriptions[pageId])}">
-  ${page.noindex ? '<meta name="robots" content="noindex, nofollow">' : ''}
-  <meta name="keywords" content="charger supplier verification, power bank factory audit, GaN charger sourcing, FCC ID verification, UL certificate check, Shenzhen charger manufacturer, power adapter supplier due diligence">
+  <title>${esc(metaTitle)}</title>
+  <meta name="description" content="${esc(metaDescription)}">
+  ${page.noindex ? '<meta name="robots" content="noindex, nofollow">' : '<meta name="robots" content="index, follow, max-image-preview:large">'}
   <link rel="canonical" href="${canonical}">
   ${alternates}
   <link rel="alternate" hreflang="x-default" href="https://zimonai.com${pathFor('en', pageId)}">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="${articleSpec ? 'article' : 'website'}">
   <meta property="og:site_name" content="ZimonAI 智蒙灣">
-  <meta property="og:title" content="${esc(meta.titles[pageId])}">
-  <meta property="og:description" content="${esc(meta.descriptions[pageId])}">
+  <meta property="og:title" content="${esc(metaTitle)}">
+  <meta property="og:description" content="${esc(metaDescription)}">
   <meta property="og:url" content="${canonical}">
   <meta property="og:locale" content="${original.locale}">
-  <meta property="og:image" content="https://zimonai.com/assets/og-image.png">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  ${alternateLocales}
+  <meta property="og:image" content="${socialImage}">
+  <meta property="og:image:width" content="${articleSpec ? articleSpec.imageWidth : 1200}"><meta property="og:image:height" content="${articleSpec ? articleSpec.imageHeight : 630}">
+  <meta property="og:image:alt" content="${esc(ogImageAlt)}">
+  ${articleSpec ? `<meta property="article:published_time" content="${articleSpec.datePublished}"><meta property="article:modified_time" content="${articleSpec.dateModified}">` : ''}
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${esc(meta.titles[pageId])}">
-  <meta name="twitter:description" content="${esc(meta.descriptions[pageId])}">
-  <meta name="twitter:image" content="https://zimonai.com/assets/og-image.png">
+  <meta name="twitter:title" content="${esc(metaTitle)}">
+  <meta name="twitter:description" content="${esc(metaDescription)}">
+  <meta name="twitter:image" content="${socialImage}">
+  <meta name="twitter:image:alt" content="${esc(ogImageAlt)}">
   <meta name="theme-color" content="#101D33">
   <link rel="icon" href="/zimonai-favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
@@ -529,7 +670,7 @@ export function renderPage(langKey, pageId) {
 </head>
 <body>
   ${header(t, pageId)}
-  ${renderers[pageId](t)}
+  ${page.kind === 'article' ? knowledgeArticle(t, page) : renderers[pageId](t)}
   ${footer(t)}
   ${supportPanel(t)}
 </body>

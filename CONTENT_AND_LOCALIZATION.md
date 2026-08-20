@@ -6,11 +6,13 @@ These rules are part of the website implementation, not optional writing advice.
 
 - Add operational detail only when it is supported by ZimonAI's real service scope.
 - Never create client counts, testimonials, cases, credentials, partners, team members, office photos, addresses or business registrations.
-- Demonstration records must remain visibly fictional.
+- Do not use a fictional supplier, client or case as homepage proof or visual decoration. A demonstration may be used only when the owner explicitly requests it and it remains unmistakably labelled as a demonstration.
+- A real case may be published only after the owner supplies it, approves publication and defines what may be disclosed.
 - Registration details may be published only from a supplied, verified source. A complete licence image may be published only after the owner explicitly approves full public display; the current ZimonAI licence has that approval.
 - The full unified social credit code may be published only after explicit owner approval. The current code and footer placement have that approval.
 - A registered address may be described as a reception address only after the owner explicitly confirms that use. The current Shenzhen address has that approval.
 - Office address and photographs are published only through `src/brand-profile.mjs` after the owner supplies and approves them. Address approval does not automatically approve photographs.
+- Public contact methods are published only through `src/brand-profile.mjs`. WhatsApp uses the owner-approved Taiwan number and must link to the corresponding `wa.me` address.
 
 ## Information density
 
@@ -40,3 +42,12 @@ Every commercial page should answer concrete buyer questions: who the service is
 - Avoid single-character orphan lines in final visual review.
 
 `npm run check` enforces the structural parts of this policy. A human language review is still required because natural writing cannot be guaranteed by code alone.
+
+## Knowledge desk publishing
+
+- Knowledge articles answer a real pre-purchase question within Chinese supplier verification, chargers, power adapters, power banks, GaN products or their relevant documentation.
+- Every article begins with a concise answer, then separates official-source facts, practical interpretation and evidence limitations.
+- Prefer primary sources: regulators, statutory registries, standards bodies and certification owners. Commercial summaries may help locate a source, but do not become the factual foundation when the original is available.
+- Traditional Chinese, Simplified Chinese and English are three editorial versions. Technical names and legal meanings must remain consistent, while sentence structure and terminology are rewritten for each readership.
+- Editorial photographs must have a traceable commercial-use licence, be stored locally and be recorded in `THIRD_PARTY_ASSETS.md`. They must never be presented as ZimonAI case evidence, client work, personnel or facilities.
+- A scheduled article is not published when its sources, image licence, translated meaning, build checks or production deployment cannot be verified.

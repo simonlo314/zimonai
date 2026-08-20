@@ -11,6 +11,7 @@ export const brandProfile = {
   contacts: {
     chinaPhone: { display: '+86 19575746458', href: '+8619575746458' },
     taiwanPhone: { display: '+886 988307998', href: '+886988307998' },
+    whatsapp: { display: '+886 988307998', href: 'https://wa.me/886988307998' },
     wechat: 'simon3141229',
     line: 'lo17v1'
   },
