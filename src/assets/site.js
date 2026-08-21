@@ -53,7 +53,7 @@ const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
 const navFrame = nav?.querySelector('[data-nav-frame]');
 const navLinks = [...(nav?.querySelectorAll(':scope > .nav-link') || [])];
-const desktopNav = window.matchMedia('(min-width: 761px)');
+const desktopNav = window.matchMedia('(min-width: 1051px)');
 
 function positionNavFrame(target) {
   if (!nav || !navFrame || !target || !desktopNav.matches) return;
@@ -80,6 +80,14 @@ nav?.addEventListener('focusout', (event) => {
   if (!nav.contains(event.relatedTarget)) restoreNavFrame();
 });
 window.addEventListener('resize', restoreNavFrame, { passive: true });
+desktopNav.addEventListener('change', (event) => {
+  if (event.matches) {
+    navToggle?.setAttribute('aria-expanded', 'false');
+    nav?.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  restoreNavFrame();
+});
 requestAnimationFrame(restoreNavFrame);
 
 navToggle?.addEventListener('click', () => {
