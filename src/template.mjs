@@ -164,6 +164,7 @@ function home(t) {
 }
 
 function services(t) {
+  const balanceProduct = paymentProduct(t, 'balance');
   const panels = t.services.catalog.map((service, index) => `<article class="service-tier-panel${index === 0 ? ' is-active' : ''}" id="${service.id}" data-service-panel="${service.id}" role="tabpanel" aria-labelledby="select-${service.id}" ${index === 0 ? '' : 'hidden'}>
     <header class="service-tier-panel__header">
       <div><p class="kicker">${esc(service.label)} · ${esc(service.englishTitle)}</p><h2>${esc(service.title)}</h2><p>${esc(service.summary)}</p></div>
@@ -183,6 +184,12 @@ function services(t) {
     <section class="service-staircase shell" data-service-staircase>
       <div class="service-staircase__intro reveal"><p class="kicker">${esc(t.services.staircase.label)}</p><h2>${esc(t.services.staircase.title)}</h2><p>${esc(t.services.staircase.lead)}</p></div>
       <div class="service-staircase__selectors" role="tablist" aria-label="${esc(t.services.staircase.title)}">${t.services.catalog.map((service, index) => `<button id="select-${service.id}" type="button" role="tab" aria-controls="${service.id}" aria-selected="${index === 0}" class="service-tier-select${index === 0 ? ' is-active' : ''}" data-service-select="${service.id}"><span>${esc(service.label)}</span><strong>${esc(service.title)}</strong><small>${esc(service.price)}</small></button>`).join('')}</div>
+      <aside class="service-balance-entry reveal" aria-labelledby="service-balance-entry-title">
+        <span class="service-balance-entry__label">${esc(balanceProduct.label)}</span>
+        <div><h2 id="service-balance-entry-title">${esc(balanceProduct.title)}</h2><p>${esc(balanceProduct.summary)}</p></div>
+        <strong class="service-balance-entry__price">${esc(balanceProduct.price)}</strong>
+        <a class="service-balance-entry__action" href="${pathFor(t.__key, 'payments')}#pay-balance">${esc(balanceProduct.button)}${arrow()}</a>
+      </aside>
       <div class="service-staircase__panels">${panels}</div>
     </section>
     <section class="report-promises" aria-labelledby="report-promises-title"><div class="shell"><header class="report-promises__header reveal"><p class="kicker">${esc(t.services.promises.label)}</p><h2 id="report-promises-title">${esc(t.services.promises.title)}</h2><p>${esc(t.services.promises.lead)}</p></header><div class="report-promises__grid">${t.services.promises.items.map(([title, text], index) => `<article class="report-promise reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div></div></section>
