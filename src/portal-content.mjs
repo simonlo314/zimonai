@@ -5,7 +5,7 @@ export const portalContent = {
     navLabel: 'Client portal',
     eyebrow: 'Private client workspace',
     title: 'Keep each supplier decision in one evidence file.',
-    lead: 'Sign in to submit supplier and product details, follow the status of your work and keep case references together. This workspace is for ZimonAI clients and prospective clients—not suppliers under review.',
+    lead: 'Sign in to submit supplier and product details, follow the status of your work and keep case references together.',
     assurances: [
       ['Your file, not a public profile', 'Case information is visible only after sign-in and is not added to the public website.'],
       ['Scope before work begins', 'Submitting a case does not create a charge. Scope, price and timing are confirmed before work starts.'],
@@ -102,7 +102,7 @@ export const portalContent = {
     navLabel: '客戶中心',
     eyebrow: '客戶專屬工作區',
     title: '每一個供應商決策，都有一份清楚的案件紀錄。',
-    lead: '登入後，你可以提交供應商與產品資料、查看案件進度，並把相關編號集中保存。這是提供給 ZimonAI 客戶與準客戶的工作區，不提供受查供應商登入。',
+    lead: '登入後，你可以提交供應商與產品資料、查看案件進度，並把相關編號集中保存。',
     assurances: [
       ['案件資料不會公開', '只有登入後才能查看你的案件；內容不會自動出現在公開網站。'],
       ['先確認範圍，再開始工作', '送出案件不會立即產生費用。我們會先確認範圍、價格與時間。'],
@@ -199,7 +199,7 @@ export const portalContent = {
     navLabel: '客户中心',
     eyebrow: '客户专属工作区',
     title: '每一次供应商决策，都有一份清楚的项目记录。',
-    lead: '登录后，你可以提交供应商和产品资料、查看项目进度，并集中保存相关编号。这是面向 ZimonAI 客户与潜在客户的工作区，不向被核查的供应商开放。',
+    lead: '登录后，你可以提交供应商和产品资料、查看项目进度，并集中保存相关编号。',
     assurances: [
       ['项目资料不会公开', '只有登录后才能查看你的项目；内容不会自动出现在公开网站。'],
       ['先确认范围，再开始工作', '提交项目不会立即产生费用。我们会先确认范围、价格和时间。'],
