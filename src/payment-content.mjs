@@ -16,7 +16,7 @@ export const paymentContent = {
     support: {
       open: 'Contact ZimonAI', close: 'Close contact panel', title: 'Contact and payment support',
       intro: 'For service, payment or post-payment questions, use one of the verified ZimonAI contacts below. This panel connects you directly to our official contact channels.',
-      emailAction: 'Email support', copy: 'Copy', copied: 'Copied', paymentHelp: 'Include the Stripe receipt or case reference when asking about a payment.'
+      emailAction: 'Email support', copy: 'Copy', copied: 'Copied', copyFailed: 'Copy failed', paymentHelp: 'Include the Stripe receipt or case reference when asking about a payment.'
     },
     payments: {
       kicker: 'Book and pay',
@@ -119,7 +119,7 @@ export const paymentContent = {
     support: {
       open: '聯絡 ZimonAI', close: '關閉聯絡面板', title: '聯絡與付款協助',
       intro: '服務、付款或付款後有問題，都可以使用以下正式聯絡方式；這裡會直接連到 ZimonAI 的聯絡窗口。',
-      emailAction: '寄信詢問', copy: '複製', copied: '已複製', paymentHelp: '詢問付款時，請附上 Stripe 收據或案件編號。'
+      emailAction: '寄信詢問', copy: '複製', copied: '已複製', copyFailed: '複製失敗', paymentHelp: '詢問付款時，請附上 Stripe 收據或案件編號。'
     },
     payments: {
       kicker: '預約與付款', title: '先選清楚的服務範圍，再進行付款。',
@@ -202,7 +202,7 @@ export const paymentContent = {
     support: {
       open: '联系 ZimonAI', close: '关闭联系面板', title: '联系与付款协助',
       intro: '服务、付款或付款后有问题，都可以使用以下正式联系方式；这里会直接连接到 ZimonAI 的联系窗口。',
-      emailAction: '发送邮件', copy: '复制', copied: '已复制', paymentHelp: '询问付款时，请附上 Stripe 收据或案件编号。'
+      emailAction: '发送邮件', copy: '复制', copied: '已复制', copyFailed: '复制失败', paymentHelp: '询问付款时，请附上 Stripe 收据或案件编号。'
     },
     payments: {
       kicker: '预约与付款', title: '先选清楚服务范围，再进行付款。',

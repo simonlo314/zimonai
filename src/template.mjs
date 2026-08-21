@@ -37,6 +37,37 @@ function paymentProduct(t, key) {
   return t.payment.payments.products.find((product) => product.key === key);
 }
 
+const structuredTierPricing = Object.freeze({
+  t1: { price: 149 },
+  t2: { price: 349 },
+  t3: { minPrice: 449, maxPrice: 599 },
+  t4: { minPrice: 899, maxPrice: 1299 },
+  t5: { minPrice: 1500, maxPrice: 2500, unitText: 'month' },
+  t6: { minPrice: 5000 }
+});
+
+function structuredTierOffer(tier, canonical, organizationId) {
+  const pricing = structuredTierPricing[tier.id];
+  const priceSpecification = {
+    '@type': 'UnitPriceSpecification',
+    priceCurrency: 'USD',
+    ...pricing
+  };
+  return {
+    '@type': 'Offer',
+    url: `${canonical}#${tier.id}`,
+    priceCurrency: 'USD',
+    priceSpecification,
+    itemOffered: {
+      '@type': 'Service',
+      name: `${tier.label} · ${tier.title}`,
+      description: tier.summary,
+      serviceType: tier.englishTitle,
+      provider: { '@id': organizationId }
+    }
+  };
+}
+
 function approvedContacts(t) {
   return [
     { label: t.common.email, value: brandProfile.email, href: `mailto:${brandProfile.email}` },
@@ -559,7 +590,7 @@ function footer(t) {
 
 function supportPanel(t) {
   const copy = t.payment.support;
-  return `<button class="support-launch" type="button" aria-expanded="false" aria-controls="support-panel" data-support-open><span aria-hidden="true">?</span><strong>${esc(copy.open)}</strong></button><div class="support-backdrop" data-support-backdrop hidden></div><aside class="support-panel" id="support-panel" aria-hidden="true" aria-labelledby="support-title" data-support-panel><header><div><p class="kicker">ZimonAI</p><h2 id="support-title">${esc(copy.title)}</h2></div><button type="button" aria-label="${esc(copy.close)}" data-support-close>×</button></header><p>${esc(copy.intro)}</p><div class="support-contacts">${approvedContacts(t).map((item) => `<div><span>${esc(item.label)}</span>${item.href ? `<a href="${esc(item.href)}"${item.external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(item.value)}${arrow()}</a>` : `<strong>${esc(item.value)}</strong><button type="button" data-copy-contact="${esc(item.value)}" data-copy-label="${esc(copy.copy)}" data-copied-label="${esc(copy.copied)}">${esc(copy.copy)}</button>`}</div>`).join('')}</div><a class="button button--ink" href="mailto:${esc(brandProfile.email)}?subject=${encodeURIComponent(t.__key === 'en' ? 'ZimonAI service or payment support' : t.__key === 'zh-tw' ? 'ZimonAI 服務或付款協助' : 'ZimonAI 服务或付款协助')}">${esc(copy.emailAction)}${arrow()}</a><p class="support-panel__note">${esc(copy.paymentHelp)}</p></aside>`;
+  return `<button class="support-launch" type="button" aria-expanded="false" aria-controls="support-panel" data-support-open><span aria-hidden="true">?</span><strong>${esc(copy.open)}</strong></button><div class="support-backdrop" data-support-backdrop hidden></div><aside class="support-panel" id="support-panel" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="support-title" tabindex="-1" inert data-support-panel><header><div><p class="kicker">ZimonAI</p><h2 id="support-title">${esc(copy.title)}</h2></div><button type="button" aria-label="${esc(copy.close)}" data-support-close>×</button></header><p>${esc(copy.intro)}</p><div class="support-contacts">${approvedContacts(t).map((item) => `<div><span>${esc(item.label)}</span>${item.href ? `<a href="${esc(item.href)}"${item.external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(item.value)}${arrow()}</a>` : `<strong>${esc(item.value)}</strong><button type="button" aria-live="polite" data-copy-contact="${esc(item.value)}" data-copy-label="${esc(copy.copy)}" data-copied-label="${esc(copy.copied)}" data-copy-error-label="${esc(copy.copyFailed)}">${esc(copy.copy)}</button>`}</div>`).join('')}</div><a class="button button--ink" href="mailto:${esc(brandProfile.email)}?subject=${encodeURIComponent(t.__key === 'en' ? 'ZimonAI service or payment support' : t.__key === 'zh-tw' ? 'ZimonAI 服務或付款協助' : 'ZimonAI 服务或付款协助')}">${esc(copy.emailAction)}${arrow()}</a><p class="support-panel__note">${esc(copy.paymentHelp)}</p></aside>`;
 }
 
 export function renderPage(langKey, pageId) {
@@ -602,16 +633,14 @@ export function renderPage(langKey, pageId) {
       '@type': 'ContactPoint',
       telephone: phone.display,
       contactType: 'customer service'
-    }))
-  };
-  if (pageId === 'about') {
-    organization.address = {
+    })),
+    address: {
       '@type': 'PostalAddress',
       streetAddress: brandProfile.registration.registeredAddressZhHans,
       addressLocality: '深圳市',
       addressCountry: 'CN'
-    };
-  }
+    }
+  };
   const website = {
     '@type': 'WebSite',
     '@id': websiteId,
@@ -636,6 +665,7 @@ export function renderPage(langKey, pageId) {
   const graph = [organization, website, webpage];
   if (pageId === 'services') {
     const serviceId = `${canonical}#service`;
+    const offerCatalogId = `${canonical}#offer-catalog`;
     webpage.mainEntity = { '@id': serviceId };
     graph.push({
       '@type': 'Service',
@@ -643,7 +673,14 @@ export function renderPage(langKey, pageId) {
       name: t.common.footerCategory,
       serviceType: t.common.footerCategory,
       url: canonical,
-      provider: { '@id': organizationId }
+      provider: { '@id': organizationId },
+      hasOfferCatalog: { '@id': offerCatalogId }
+    }, {
+      '@type': 'OfferCatalog',
+      '@id': offerCatalogId,
+      name: t.services.staircase.title,
+      url: canonical,
+      itemListElement: t.services.catalog.map((tier) => structuredTierOffer(tier, canonical, organizationId))
     });
   } else if (pageId === 'home') {
     webpage.mainEntity = { '@id': organizationId };

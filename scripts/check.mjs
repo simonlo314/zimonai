@@ -172,6 +172,14 @@ for (const file of files) {
           if (!graph.some((node) => node['@type'] === type)) errors.push(`${label}: JSON-LD missing ${type}`);
         }
         if (!graph.some((node) => ['WebPage', 'AboutPage', 'ContactPage', 'CollectionPage'].includes(node['@type']))) errors.push(`${label}: JSON-LD missing page entity`);
+        if (/(?:^|\/)services\/index\.html$/.test(file)) {
+          const service = graph.find((node) => node['@type'] === 'Service');
+          const offerCatalog = graph.find((node) => node['@type'] === 'OfferCatalog');
+          if (!service?.hasOfferCatalog?.['@id']) errors.push(`${label}: Service schema is not linked to an OfferCatalog`);
+          if (offerCatalog?.itemListElement?.length !== 6) errors.push(`${label}: OfferCatalog does not contain all six service tiers`);
+          if (offerCatalog?.itemListElement?.[0]?.priceSpecification?.price !== 149) errors.push(`${label}: T1 structured price is incorrect`);
+          if (offerCatalog?.itemListElement?.[5]?.priceSpecification?.minPrice !== 5000) errors.push(`${label}: T6 structured starting price is incorrect`);
+        }
         const isKnowledgeArticle = /(?:^|\/)knowledge\/[^/]+\/index\.html$/.test(file);
         if (isKnowledgeArticle && !graph.some((node) => node['@type'] === 'Article')) errors.push(`${label}: JSON-LD missing Article entity`);
       } catch {
@@ -216,6 +224,15 @@ for (const contact of ['+86 19575746458', '+886 988307998', 'simon3141229', 'lo1
   if (!joined.includes(contact)) errors.push(`approved contact missing: ${contact}`);
 }
 if (!joined.includes('https://wa.me/886988307998')) errors.push('approved WhatsApp link missing');
+for (const href of ['mailto:simonlo@zimonai.com', 'tel:+8619575746458', 'tel:+886988307998']) {
+  if (!joined.includes(`href="${href}"`)) errors.push(`approved actionable contact link missing: ${href}`);
+}
+for (const dialogAttribute of ['role="dialog"', 'aria-modal="true"', 'aria-labelledby="support-title"', 'data-copy-error-label=']) {
+  if (!sourceTemplate.includes(dialogAttribute)) errors.push(`support dialog accessibility hook missing: ${dialogAttribute}`);
+}
+for (const behavior of ['supportPanel.inert = !open', "event.key !== 'Tab'", "document.execCommand('copy')", "classList.toggle('is-copied'"]) {
+  if (!sourceJs.includes(behavior)) errors.push(`support dialog behavior missing: ${behavior}`);
+}
 for (const address of [brandProfile.registration.registeredAddressZhHans, brandProfile.registration.registeredAddressEn]) {
   if (!joined.includes(address)) errors.push(`approved bilingual footer address missing: ${address}`);
 }

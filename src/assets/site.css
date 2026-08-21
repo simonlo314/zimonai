@@ -718,6 +718,9 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 8.5em; font-size: cl
 .support-contacts a { display: flex; align-items: center; justify-content: space-between; gap: 10px; overflow-wrap: anywhere; font-size: var(--text-caption); }
 .support-contacts strong { overflow-wrap: anywhere; font-size: var(--text-caption); }
 .support-contacts button { padding: 5px 8px; border: 1px solid #536b73; color: var(--paper); background: transparent; font-family: var(--mono); font-size: var(--text-utility); cursor: pointer; }
+.support-contacts button.is-copied { border-color: #75c9a5; color: #c9f3df; background: rgba(45,133,96,.22); }
+.support-contacts button.is-copy-error { border-color: #d28d84; color: #ffd7d1; background: rgba(190,73,59,.2); }
+.support-dialog-open { overflow: hidden; }
 .support-panel > .button { width: 100%; margin-top: 28px; color: var(--ink); border-color: var(--paper); background: var(--paper); }
 .support-panel__note { margin-bottom: 0 !important; font-size: var(--text-label) !important; }
 .footer-legal { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 18px; }

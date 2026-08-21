@@ -206,33 +206,94 @@ const supportOpen = document.querySelector('[data-support-open]');
 const supportClose = document.querySelector('[data-support-close]');
 const supportPanel = document.querySelector('[data-support-panel]');
 const supportBackdrop = document.querySelector('[data-support-backdrop]');
+const supportFocusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+let supportReturnFocus = null;
+
+function supportFocusableItems() {
+  if (!supportPanel) return [];
+  return [...supportPanel.querySelectorAll(supportFocusableSelector)].filter((item) => !item.hidden && item.getClientRects().length);
+}
+
 function setSupportOpen(open) {
   if (!supportPanel || !supportOpen || !supportBackdrop) return;
+  const wasOpen = supportPanel.classList.contains('is-open');
+  if (open === wasOpen) return;
+  if (open) supportReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : supportOpen;
   supportPanel.classList.toggle('is-open', open);
   supportPanel.setAttribute('aria-hidden', String(!open));
+  supportPanel.inert = !open;
   supportOpen.setAttribute('aria-expanded', String(open));
   supportBackdrop.hidden = !open;
+  document.body.classList.toggle('support-dialog-open', open);
   if (open) {
     trackAnalytics('support_open', location.pathname.includes('payment') ? 'payment' : 'site');
-    supportClose?.focus();
+    requestAnimationFrame(() => (supportFocusableItems()[0] || supportPanel).focus());
   } else {
-    supportOpen.focus();
+    const returnTarget = supportReturnFocus?.isConnected ? supportReturnFocus : supportOpen;
+    supportReturnFocus = null;
+    returnTarget.focus();
   }
 }
 supportOpen?.addEventListener('click', () => setSupportOpen(supportOpen.getAttribute('aria-expanded') !== 'true'));
 supportClose?.addEventListener('click', () => setSupportOpen(false));
 supportBackdrop?.addEventListener('click', () => setSupportOpen(false));
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && supportPanel?.classList.contains('is-open')) setSupportOpen(false);
-});
-document.querySelectorAll('[data-copy-contact]').forEach((button) => button.addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(button.dataset.copyContact || '');
-    button.textContent = button.dataset.copiedLabel;
-    window.setTimeout(() => { button.textContent = button.dataset.copyLabel; }, 1600);
-  } catch {
-    button.textContent = button.dataset.copyContact || '';
+  if (!supportPanel?.classList.contains('is-open')) return;
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    setSupportOpen(false);
+    return;
   }
+  if (event.key !== 'Tab') return;
+  const items = supportFocusableItems();
+  if (!items.length) {
+    event.preventDefault();
+    supportPanel.focus();
+    return;
+  }
+  const first = items[0];
+  const last = items.at(-1);
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});
+
+async function copyContactValue(value) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(value);
+      return true;
+    } catch {
+      // Continue to the browser-compatible fallback below.
+    }
+  }
+  const field = document.createElement('textarea');
+  field.value = value;
+  field.setAttribute('readonly', '');
+  field.style.position = 'fixed';
+  field.style.opacity = '0';
+  document.body.append(field);
+  field.select();
+  field.setSelectionRange(0, field.value.length);
+  let copied = false;
+  try { copied = document.execCommand('copy'); } catch { copied = false; }
+  field.remove();
+  return copied;
+}
+
+document.querySelectorAll('[data-copy-contact]').forEach((button) => button.addEventListener('click', async () => {
+  const copied = await copyContactValue(button.dataset.copyContact || '');
+  button.classList.toggle('is-copied', copied);
+  button.classList.toggle('is-copy-error', !copied);
+  button.textContent = copied ? button.dataset.copiedLabel : button.dataset.copyErrorLabel;
+  window.setTimeout(() => {
+    button.classList.remove('is-copied', 'is-copy-error');
+    button.textContent = button.dataset.copyLabel;
+  }, 1800);
 }));
 
 function currentLocale() {
