@@ -39,6 +39,7 @@ function paymentProduct(t, key) {
 function approvedContacts(t) {
   return [
     { label: t.common.email, value: brandProfile.email, href: `mailto:${brandProfile.email}` },
+    { label: t.common.linkedin, value: brandProfile.contacts.linkedin.display, href: brandProfile.contacts.linkedin.href, external: true },
     { label: t.common.chinaPhone, value: brandProfile.contacts.chinaPhone.display, href: `tel:${brandProfile.contacts.chinaPhone.href}` },
     { label: t.common.taiwanPhone, value: brandProfile.contacts.taiwanPhone.display, href: `tel:${brandProfile.contacts.taiwanPhone.href}` },
     { label: t.common.whatsapp, value: brandProfile.contacts.whatsapp.display, href: brandProfile.contacts.whatsapp.href, external: true },
@@ -539,6 +540,7 @@ export function renderPage(langKey, pageId) {
       height: 180
     },
     email: brandProfile.email,
+    sameAs: [brandProfile.contacts.linkedin.href],
     telephone: brandProfile.contacts.chinaPhone.display,
     foundingDate: brandProfile.registration.established,
     identifier: {
