@@ -50,6 +50,37 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
 
 const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
+const navFrame = nav?.querySelector('[data-nav-frame]');
+const navLinks = [...(nav?.querySelectorAll(':scope > .nav-link') || [])];
+const desktopNav = window.matchMedia('(min-width: 761px)');
+
+function positionNavFrame(target) {
+  if (!nav || !navFrame || !target || !desktopNav.matches) return;
+  const navRect = nav.getBoundingClientRect();
+  const targetRect = target.getBoundingClientRect();
+  navFrame.style.width = `${targetRect.width}px`;
+  navFrame.style.height = `${targetRect.height}px`;
+  navFrame.style.transform = `translate3d(${targetRect.left - navRect.left}px, ${targetRect.top - navRect.top}px, 0)`;
+  navFrame.classList.add('is-visible');
+}
+
+function restoreNavFrame() {
+  const currentLink = navLinks.find((link) => link.getAttribute('aria-current') === 'page');
+  if (currentLink) positionNavFrame(currentLink);
+  else navFrame?.classList.remove('is-visible');
+}
+
+navLinks.forEach((link) => {
+  link.addEventListener('pointerenter', () => positionNavFrame(link));
+  link.addEventListener('focus', () => positionNavFrame(link));
+});
+nav?.addEventListener('pointerleave', restoreNavFrame);
+nav?.addEventListener('focusout', (event) => {
+  if (!nav.contains(event.relatedTarget)) restoreNavFrame();
+});
+window.addEventListener('resize', restoreNavFrame, { passive: true });
+requestAnimationFrame(restoreNavFrame);
+
 navToggle?.addEventListener('click', () => {
   const open = navToggle.getAttribute('aria-expanded') === 'true';
   navToggle.setAttribute('aria-expanded', String(!open));
