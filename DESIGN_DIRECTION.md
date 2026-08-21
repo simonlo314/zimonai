@@ -19,9 +19,20 @@ Audience: overseas buyers, FBA and Shopify sellers, importers, and purchasing te
 
 The primary type system is a confident sans serif. CJK pages use language-specific system sans stacks and independent editorial line breaks. Mono type is reserved for real structural labels, dates, references and statuses. Serif is supporting, not the default voice.
 
+### Type hierarchy
+
+The website is an evidence desk, not a campaign poster. Every new page must use the semantic type tokens in `src/assets/site.css` instead of adding viewport-based title sizes to an individual component:
+
+- `--type-home` — homepage thesis only
+- `--type-page` — every internal-page and article title, including pages with media
+- `--type-section` — major section headings
+- `--type-card` — card, panel and supporting headings
+
+Latin and CJK layouts use independent token values, but the hierarchy stays continuous across breakpoints. Do not add a second mobile `clamp()` for a title, do not allow an internal-page title to exceed the homepage title, and do not let a component heading inherit page-title scale. At 760px and 761px, type must change continuously rather than jump between two systems. Mobile body and form text stay at 16px or above, and frequently used touch targets are at least 44px high.
+
 ## Layout concept
 
-The site uses a compact floating navigation, direct headlines, generous but controlled whitespace, and dense factual rows. Rounded surfaces group related actions; they do not turn every sentence into a card.
+The site uses a compact floating navigation, direct headlines, controlled whitespace, and dense factual rows. The first viewport should show more than a slogan: an internal page should normally reveal its lead, media or first decision cue without requiring a full-screen scroll. Rounded surfaces group related actions; they do not turn every sentence into a card.
 
 ```text
 ┌──────────────────────────────────────────────────────────────┐

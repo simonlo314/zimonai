@@ -36,7 +36,8 @@ Every commercial page should answer concrete buyer questions: who the service is
 ## Chinese typography
 
 - CJK pages use language-specific font stacks, tighter title scale, larger paragraph line-height and a shorter reading measure.
-- Public interface text has a 12px minimum. Section eyebrows and field labels use the shared 13–14px type tokens; the evidence aesthetic must come from typeface, weight and rules, not unreadably small text.
+- Public interface text has a 13px minimum. Section eyebrows, field labels and captions use the shared 13–15px type tokens; mobile body and form text stay at 16px or above. The evidence aesthetic must come from typeface, weight and rules, not unreadably small text.
+- Headings use the semantic home, page, section and card tokens defined in `src/assets/site.css`. CJK values are independently scaled through locale tokens; page-specific mobile `clamp()` rules are prohibited because they create breakpoint jumps and inconsistent hierarchy.
 - Do not use negative tracking on Chinese headings.
 - Use `text-autospace`, strict line breaking and natural word breaking where supported.
 - Avoid single-character orphan lines in final visual review.
