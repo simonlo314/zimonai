@@ -220,6 +220,7 @@ if (!joined.includes('simonlo@zimonai.com')) errors.push('formal email missing')
 if (!joined.includes('19575746458')) errors.push('formal phone missing');
 if (!sourceTemplate.includes('/assets/zimonai-logo-primary.svg') || !sourceTemplate.includes('/assets/zimonai-logo-white.svg')) errors.push('new ZimonAI logo system is not wired into the site chrome');
 if (sourceTemplate.includes('<svg viewBox="0 0 42 42"')) errors.push('retired ZimonAI header mark remains in the template');
+if (!sourceTemplate.includes("['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]")) errors.push('navigation order must place scope before about');
 for (const contact of ['+86 19575746458', '+886 988307998', 'simon3141229', 'lo17v1']) {
   if (!joined.includes(contact)) errors.push(`approved contact missing: ${contact}`);
 }

@@ -568,7 +568,7 @@ function knowledgeArticle(t, page) {
 const renderers = { home, services, methodology, scope, about, request, payments, paymentSuccess, paymentTerms, privacy, knowledge };
 
 function header(t, pageId) {
-  const nav = [['services', t.nav.servicesBooking], ['knowledge', t.nav.knowledge], ['methodology', t.nav.methodology], ['about', t.nav.about], ['scope', t.nav.scope]];
+  const nav = [['services', t.nav.servicesBooking], ['knowledge', t.nav.knowledge], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
   const isHome = pageId === 'home';
   return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header${isHome ? ' site-header--home' : ''}" data-header>
     <div class="site-header__inner">
