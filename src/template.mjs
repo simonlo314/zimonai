@@ -143,7 +143,6 @@ function portal(t) {
         <div class="portal-auth__seal" aria-hidden="true"><img src="/assets/zimonai-shield-icon-primary.svg" alt="" width="1600" height="1600"></div>
         <p class="portal-kicker">${esc(p.auth.label)}</p>
         <h2 id="portal-auth-title">${esc(p.auth.title)}</h2>
-        <p>${esc(p.auth.text)}</p>
         <a class="portal-google" href="${esc(loginHref)}" data-google-login>${googleMark()}<span>${esc(p.auth.google)}</span></a>
         <div class="portal-auth__feedback" data-auth-feedback hidden role="alert"></div>
         <div class="portal-auth__notice" data-auth-unavailable hidden role="status">

@@ -14,7 +14,6 @@ export const portalContent = {
     auth: {
       label: 'Secure sign-in',
       title: 'Open your client workspace',
-      text: 'Use a Google account you control. ZimonAI uses the verified email address returned by Google to provide account access; your Google password is never shared with us.',
       google: 'Continue with Google',
       unavailable: 'Google sign-in is not configured in this local version yet.',
       unavailableDetail: 'The client workspace interface and secure data structure are ready for review. Google access will be enabled only after the OAuth credentials are added and the complete sign-in flow passes testing.',
@@ -112,7 +111,6 @@ export const portalContent = {
     auth: {
       label: '安全登入',
       title: '進入你的客戶工作區',
-      text: '請使用你本人可控制的 Google 帳號。ZimonAI 會以 Google 回傳的已驗證 Email 提供帳戶存取；我們不會取得你的 Google 密碼。',
       google: '使用 Google 帳號繼續',
       unavailable: '這個本機版本尚未設定 Google 登入。',
       unavailableDetail: '客戶中心介面與安全資料結構已可供檢查。只有在加入 OAuth 憑證並完成整套登入測試後，才會正式開放 Google 登入。',
@@ -210,7 +208,6 @@ export const portalContent = {
     auth: {
       label: '安全登录',
       title: '进入你的客户工作区',
-      text: '请使用你本人可以控制的 Google 账号。ZimonAI 会使用 Google 返回的已验证邮箱提供账户访问；我们不会取得你的 Google 密码。',
       google: '使用 Google 账号继续',
       unavailable: '这个本地版本尚未配置 Google 登录。',
       unavailableDetail: '客户中心界面与安全数据结构已经可以检查。只有在添加 OAuth 凭据并完成整套登录测试后，才会正式开放 Google 登录。',
