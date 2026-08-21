@@ -63,6 +63,8 @@ test('OAuth start creates a PKCE redirect and rate-limits repeated attempts', as
     assert.equal(response.status, 302);
     const location = new URL(response.headers.get('Location'));
     assert.equal(location.origin, 'https://accounts.google.com');
+    assert.equal(location.searchParams.get('scope'), 'openid email');
+    assert.equal(location.searchParams.get('scope').includes('profile'), false);
     assert.equal(location.searchParams.get('code_challenge_method'), 'S256');
     assert.equal(location.searchParams.get('state')?.length > 30, true);
   }

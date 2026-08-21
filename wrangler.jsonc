@@ -8,6 +8,12 @@
       "binding": "ANALYTICS_DB",
       "database_name": "zimonai-analytics",
       "database_id": "4eac9daf-cb82-4016-a8cf-4d656e8a1100"
+    },
+    {
+      "binding": "PORTAL_DB",
+      "database_name": "zimonai-portal",
+      "database_id": "70a7f3a6-8ba8-4fef-97eb-95bdf34a58c7",
+      "migrations_dir": "migrations-portal"
     }
   ]
 }

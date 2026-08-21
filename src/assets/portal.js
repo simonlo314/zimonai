@@ -65,7 +65,6 @@ if (root) {
   function populateUser(user) {
     setText('[data-portal-user-name]', user.name || user.email);
     setText('[data-portal-user-email]', user.email);
-    setText('[data-account-name]', user.name || '—');
     setText('[data-account-email]', user.email);
     setText('[data-account-id]', accountReference(user.id));
     const localeNames = { en: 'English', 'zh-tw': '繁體中文', 'zh-cn': '简体中文' };

@@ -86,8 +86,7 @@ export const portalContent = {
     account: {
       eyebrow: 'Account',
       title: 'Your sign-in details',
-      lead: 'These details come from the Google account used to sign in. Case files and service communication remain separate from your public Google profile.',
-      name: 'Name',
+      lead: 'This page shows the verified email used to sign in and your ZimonAI workspace reference.',
       email: 'Verified email',
       locale: 'Workspace language',
       accountId: 'Account reference',
@@ -183,8 +182,7 @@ export const portalContent = {
     account: {
       eyebrow: '帳戶',
       title: '你的登入資料',
-      lead: '以下資料來自你用來登入的 Google 帳號。案件內容與服務往來不會公開到你的 Google 個人檔案。',
-      name: '姓名',
+      lead: '這裡只顯示登入使用的已驗證 Email，以及 ZimonAI 客戶中心的帳戶資料。',
       email: '已驗證 Email',
       locale: '工作區語言',
       accountId: '帳戶編號',
@@ -280,8 +278,7 @@ export const portalContent = {
     account: {
       eyebrow: '账户',
       title: '你的登录资料',
-      lead: '以下资料来自你用于登录的 Google 账号。项目内容与服务沟通不会公开到你的 Google 个人资料。',
-      name: '姓名',
+      lead: '这里只显示登录使用的已验证邮箱，以及 ZimonAI 客户中心的账户资料。',
       email: '已验证邮箱',
       locale: '工作区语言',
       accountId: '账户编号',

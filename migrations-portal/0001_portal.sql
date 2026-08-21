@@ -95,4 +95,3 @@ CREATE TABLE IF NOT EXISTS portal_audit_events (
 
 CREATE INDEX IF NOT EXISTS portal_audit_events_case_idx
   ON portal_audit_events(case_id, created_at DESC);
-

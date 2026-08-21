@@ -31,8 +31,8 @@ const paymentMigration = await readFile(path.join(root, 'migrations', '0002_paym
 const customerDetailsMigration = await readFile(path.join(root, 'migrations', '0003_payment_customer_details.sql'), 'utf8');
 const wranglerConfig = await readFile(path.join(root, 'wrangler.jsonc'), 'utf8');
 const gitignore = await readFile(path.join(root, '.gitignore'), 'utf8');
-const portalMigration = await readFile(path.join(root, 'migrations', '0004_portal.sql'), 'utf8');
-const portalRateLimitMigration = await readFile(path.join(root, 'migrations', '0005_portal_oauth_rate_limit.sql'), 'utf8');
+const portalMigration = await readFile(path.join(root, 'migrations-portal', '0001_portal.sql'), 'utf8');
+const portalRateLimitMigration = await readFile(path.join(root, 'migrations-portal', '0002_portal_oauth_rate_limit.sql'), 'utf8');
 const authLibrary = await readFile(path.join(root, 'functions', '_lib', 'auth.js'), 'utf8');
 const portalCasesFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases.js'), 'utf8');
 const headersFile = await readFile(path.join(dist, '_headers'), 'utf8');
@@ -136,6 +136,8 @@ for (const table of ['portal_users', 'portal_identities', 'portal_oauth_attempts
   if (!portalMigration.includes(`CREATE TABLE IF NOT EXISTS ${table}`)) errors.push(`portal migration missing ${table}`);
 }
 if (!portalRateLimitMigration.includes('request_fingerprint_hash')) errors.push('portal OAuth rate-limit migration missing fingerprint column');
+if (!wranglerConfig.includes('"binding": "PORTAL_DB"')) errors.push('wrangler config missing dedicated PORTAL_DB binding');
+if (!wranglerConfig.includes('"migrations_dir": "migrations-portal"')) errors.push('PORTAL_DB does not use the isolated portal migration directory');
 if (!/\.dev\.vars/.test(gitignore)) errors.push('.dev.vars is not ignored');
 if (!authLibrary.includes('HttpOnly') || !authLibrary.includes('SameSite=Lax') || !authLibrary.includes('Secure')) errors.push('portal session cookie safeguards are incomplete');
 if (!authLibrary.includes('env.PORTAL_DB') || !authLibrary.includes("env.ALLOW_LOCAL_PORTAL === 'true'")) errors.push('production portal database is not isolated from analytics');

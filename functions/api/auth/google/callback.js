@@ -106,7 +106,7 @@ export async function onRequestGet({ request, env }) {
 
   const email = String(identity.email).trim();
   const emailNormalized = email.toLowerCase();
-  const displayName = String(identity.name || '').trim().slice(0, 160);
+  const displayName = '';
   const locale = attempt.return_path.startsWith('/zh-tw/') ? 'zh-tw' : attempt.return_path.startsWith('/zh-cn/') ? 'zh-cn' : 'en';
   let existing = await db.prepare(`
     SELECT u.id, u.status

@@ -201,7 +201,6 @@ function portal(t) {
           <section class="portal-view" id="portal-panel-account" role="tabpanel" tabindex="0" aria-labelledby="portal-tab-account" data-portal-panel="account" hidden>
             <header class="portal-section-head"><div><p class="portal-kicker">${esc(p.account.eyebrow)}</p><h2>${esc(p.account.title)}</h2></div><p>${esc(p.account.lead)}</p></header>
             <dl class="portal-account">
-              <div><dt>${esc(p.account.name)}</dt><dd data-account-name></dd></div>
               <div><dt>${esc(p.account.email)}</dt><dd data-account-email></dd></div>
               <div><dt>${esc(p.account.locale)}</dt><dd data-account-locale></dd></div>
               <div><dt>${esc(p.account.accountId)}</dt><dd data-account-id></dd></div>

@@ -69,7 +69,7 @@ export async function onRequestGet({ request, env }) {
   authorization.searchParams.set('client_id', env.GOOGLE_CLIENT_ID);
   authorization.searchParams.set('redirect_uri', callbackUrl);
   authorization.searchParams.set('response_type', 'code');
-  authorization.searchParams.set('scope', 'openid email profile');
+  authorization.searchParams.set('scope', 'openid email');
   authorization.searchParams.set('state', state);
   authorization.searchParams.set('nonce', nonce);
   authorization.searchParams.set('code_challenge', codeChallenge);
