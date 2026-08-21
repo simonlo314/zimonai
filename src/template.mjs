@@ -70,15 +70,18 @@ function pageHeader(kicker, title, lead, options = false) {
   </header>`;
 }
 
-function cta(t, title, text) {
+function cta(t, title, text, options = {}) {
+  const href = options.href || pathFor(t.__key, 'request');
+  const label = options.label || t.common.contact;
   return `<section class="closing shell reveal">
     <div class="closing__index" aria-hidden="true">→</div>
     <div><p class="kicker">${esc(t.common.eyebrow)}</p><h2>${esc(title)}</h2><p>${esc(text)}</p></div>
-    <a class="button button--ink magnetic" data-cursor="${esc(t.common.contact)}" href="${pathFor(t.__key, 'request')}">${esc(t.common.contact)}${arrow()}</a>
+    <a class="button button--ink magnetic" data-cursor="${esc(label)}" href="${esc(href)}">${esc(label)}${arrow()}</a>
   </section>`;
 }
 
 function home(t) {
+  const consultationProduct = paymentProduct(t, 'consultation');
   return `<main id="main">
     <section class="hero-cinema" aria-labelledby="hero-title" data-hero-cinema>
       <div class="hero-cinema__scene" aria-hidden="true">
@@ -148,7 +151,14 @@ function home(t) {
         <span class="service-rung__level">${esc(service.label)}</span><span class="service-rung__step">0${index + 1}</span>
         <h3>${esc(service.title)}</h3><p>${esc(service.summary)}</p><strong>${esc(service.price)}</strong>
       </a>`).join('')}</div>
-      <a class="text-link reveal" href="${pathFor(t.__key, 'services')}">${esc(t.nav.services)}${arrow()}</a>
+      <div class="services-preview__actions reveal">
+        <a class="text-link" href="${pathFor(t.__key, 'services')}">${esc(t.nav.services)}${arrow()}</a>
+        <a class="consultation-quick-link" href="${pathFor(t.__key, 'payments')}#pay-consultation">
+          <span>${esc(consultationProduct.title)}</span>
+          <strong>${esc(consultationProduct.price)} · ${esc(consultationProduct.unit)}</strong>
+          ${arrow()}
+        </a>
+      </div>
     </section>
 
     <section class="source-index shell" aria-labelledby="source-index-title">
@@ -164,6 +174,7 @@ function home(t) {
 }
 
 function services(t) {
+  const consultationProduct = paymentProduct(t, 'consultation');
   const balanceProduct = paymentProduct(t, 'balance');
   const panels = t.services.catalog.map((service, index) => `<article class="service-tier-panel${index === 0 ? ' is-active' : ''}" id="${service.id}" data-service-panel="${service.id}" role="tabpanel" aria-labelledby="select-${service.id}" ${index === 0 ? '' : 'hidden'}>
     <header class="service-tier-panel__header">
@@ -182,13 +193,22 @@ function services(t) {
   </article>`).join('');
   return `<main id="main">${pageHeader(t.services.kicker, t.services.title, t.services.lead)}
     <section class="service-staircase shell" data-service-staircase>
-      <div class="service-staircase__intro reveal"><p class="kicker">${esc(t.services.staircase.label)}</p><h2>${esc(t.services.staircase.title)}</h2><p>${esc(t.services.staircase.lead)}</p></div>
+      <div class="service-staircase__intro reveal">
+        <p class="kicker">${esc(t.services.staircase.label)}</p>
+        <h2>${esc(t.services.staircase.title)}</h2>
+        <p class="service-staircase__lead">${esc(t.services.staircase.lead)}</p>
+        <a class="consultation-inline-entry" href="${pathFor(t.__key, 'payments')}#pay-consultation">
+          <span>${esc(consultationProduct.title)}</span>
+          <strong>${esc(consultationProduct.price)} · ${esc(consultationProduct.unit)}</strong>
+          ${arrow()}
+        </a>
+      </div>
       <div class="service-staircase__selectors" role="tablist" aria-label="${esc(t.services.staircase.title)}">${t.services.catalog.map((service, index) => `<button id="select-${service.id}" type="button" role="tab" aria-controls="${service.id}" aria-selected="${index === 0}" class="service-tier-select${index === 0 ? ' is-active' : ''}" data-service-select="${service.id}"><span>${esc(service.label)}</span><strong>${esc(service.title)}</strong><small>${esc(service.price)}</small></button>`).join('')}</div>
       <a class="service-balance-entry reveal" href="${pathFor(t.__key, 'payments')}#pay-balance"><span>${esc(balanceProduct.title)}</span><strong>${esc(balanceProduct.price)}</strong>${arrow()}</a>
       <div class="service-staircase__panels">${panels}</div>
     </section>
     <section class="report-promises" aria-labelledby="report-promises-title"><div class="shell"><header class="report-promises__header reveal"><p class="kicker">${esc(t.services.promises.label)}</p><h2 id="report-promises-title">${esc(t.services.promises.title)}</h2><p>${esc(t.services.promises.lead)}</p></header><div class="report-promises__grid">${t.services.promises.items.map(([title, text], index) => `<article class="report-promise reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div></div></section>
-    ${cta(t, t.services.ctaTitle, t.services.ctaText)}</main>`;
+    ${cta(t, t.services.ctaTitle, t.services.ctaText, { href: `${pathFor(t.__key, 'payments')}#pay-consultation`, label: consultationProduct.button })}</main>`;
 }
 
 function methodology(t) {

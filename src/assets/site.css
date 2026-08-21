@@ -270,6 +270,12 @@ a:hover .icon-arrow, button:hover .icon-arrow { transform: translateX(4px); }
 .operating-fact h3 { margin: 55px 0 18px; font-family: var(--serif); font-size: 25px; font-weight: 500; }
 .operating-fact p { margin: 0; font-size: 14px; }
 .services-preview { padding-bottom: 150px; }
+.services-preview__actions { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 28px; }
+.consultation-quick-link { min-height: 44px; display: inline-flex; align-items: center; gap: 12px; padding: 10px 14px; border: 1px solid #c9d9ec; border-radius: 999px; color: var(--ink); background: #fff; font-size: var(--text-label); transition: border-color .2s, color .2s, transform .2s; }
+.consultation-quick-link span { font-weight: 700; }
+.consultation-quick-link strong { padding-left: 12px; border-left: 1px solid var(--line); color: var(--blue); font-family: var(--mono); font-size: var(--text-utility); white-space: nowrap; }
+.consultation-quick-link:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+.consultation-quick-link:focus-visible { outline: 3px solid rgba(49,146,232,.35); outline-offset: 3px; }
 .service-ledger { display: grid; grid-template-columns: 120px 1.2fr .55fr .45fr; gap: 40px; align-items: center; padding: 35px 0; border-top: 1px solid var(--ink); }
 .service-ledger__tier { align-self: stretch; display: flex; flex-direction: column; justify-content: space-between; font-family: var(--mono); font-size: var(--text-label); }
 .service-ledger h3 { margin-bottom: 12px; font-family: var(--serif); font-size: clamp(27px, 3vw, 42px); font-weight: 500; }
@@ -358,7 +364,12 @@ a:hover .icon-arrow, button:hover .icon-arrow { transform: translateX(4px); }
 .service-staircase { padding-block: 110px 130px; }
 .service-staircase__intro { display: grid; grid-template-columns: .32fr 1fr; gap: 40px; margin-bottom: 55px; }
 .service-staircase__intro h2 { max-width: 850px; }
-.service-staircase__intro p:last-child { grid-column: 2; max-width: 700px; }
+.service-staircase__lead { grid-column: 2; max-width: 700px; }
+.consultation-inline-entry { grid-column: 2; width: fit-content; display: inline-flex; align-items: center; gap: 14px; margin-top: -18px; padding: 10px 0 8px; border-bottom: 2px solid var(--blue); color: var(--ink); font-size: var(--text-label); }
+.consultation-inline-entry span { font-weight: 700; }
+.consultation-inline-entry strong { color: var(--blue); font-family: var(--mono); font-size: var(--text-utility); white-space: nowrap; }
+.consultation-inline-entry:hover { color: var(--blue); }
+.consultation-inline-entry:focus-visible { outline: 3px solid rgba(49,146,232,.35); outline-offset: 4px; }
 .service-staircase__selectors { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
 .service-tier-select { min-height: 174px; display: grid; align-content: space-between; gap: 16px; padding: 20px 17px; border: 0; background: var(--paper); text-align: left; cursor: pointer; transition: color .2s, background .2s, transform .2s; }
 .service-tier-select span, .service-tier-select small { font-family: var(--mono); font-size: var(--text-utility); }
@@ -882,7 +893,8 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 8.5em; font-size: cl
   .tier-stack { padding-block: 85px; }
   .service-staircase { padding-block: 80px 95px; }
   .service-staircase__intro { display: block; margin-bottom: 36px; }
-  .service-staircase__intro p:last-child { margin-top: 24px; }
+  .service-staircase__lead { margin-top: 24px; }
+  .consultation-inline-entry { margin-top: 16px; }
   .service-staircase__selectors { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
   .service-tier-select { min-width: 165px; min-height: 155px; scroll-snap-align: start; }
   .service-tier-select.is-active { transform: none; }
@@ -1354,6 +1366,8 @@ html[data-layout="cjk"] .field-note__section p { line-height: 2; }
   .page-hero__media::before { top: 20px; bottom: 20px; }
   .service-staircase__selectors { gap: 8px; }
   .service-tier-select { min-width: 176px; }
+  .services-preview__actions { align-items: stretch; flex-direction: column; }
+  .consultation-quick-link { width: 100%; justify-content: space-between; }
   .service-balance-entry { width: 100%; justify-content: space-between; margin-top: 12px; }
   html[data-layout="latin"] .payment-hero__copy h1 { font-size: clamp(2.65rem, 10.2vw, 3.85rem); letter-spacing: -.032em; line-height: 1.1; }
   .knowledge-hero { margin-top: 10px; }

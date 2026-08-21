@@ -90,8 +90,8 @@ function localTarget(raw) {
 }
 
 const requiredSections = {
-  'index.html': ['hero-cinema', 'hero-cinema__scene', 'hero-proof', 'decision-ledger', 'verification-flow', 'operating-record', 'source-index'],
-  'services/index.html': ['service-staircase', 'service-tier-select', 'service-balance-entry', 'service-tier-panel', 'service-checkout-protocol', 'checkout-form--inline', 'sample-report', 'report-promises'],
+  'index.html': ['hero-cinema', 'hero-cinema__scene', 'hero-proof', 'decision-ledger', 'verification-flow', 'operating-record', 'services-preview__actions', 'consultation-quick-link', 'source-index'],
+  'services/index.html': ['service-staircase', 'consultation-inline-entry', 'service-tier-select', 'service-balance-entry', 'service-tier-panel', 'service-checkout-protocol', 'checkout-form--inline', 'sample-report', 'report-promises'],
   'methodology/index.html': ['source-registry', 'report-anatomy'],
   'scope-limitations/index.html': ['decision-guide', 'accreditation'],
   'about/index.html': ['page-hero__brand-mark', 'business-record', 'registration-evidence', 'office-evidence'],
