@@ -97,13 +97,26 @@ const requiredSections = {
   'about/index.html': ['page-hero__brand-mark', 'business-record', 'registration-evidence', 'office-evidence'],
   'payments/index.html': ['payment-desk', 'payment-grid', 'payment-private', 'payment-process', 'checkout-form'],
   'payment-success/index.html': ['payment-result', 'payment-receipt', 'payment-intake', 'payment-balance-done'],
-  'payment-terms/index.html': ['legal-row', 'support-panel'],
+  'payment-terms/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-contact', 'support-panel'],
+  'privacy/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-references', 'legal-contact', 'support-panel'],
   'knowledge/index.html': ['knowledge-hero', 'knowledge-index', 'knowledge-method']
 };
 for (const [file, sections] of Object.entries(requiredSections)) {
   for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
     const html = await readFile(path.join(dist, prefix, file), 'utf8');
     for (const section of sections) if (!html.includes(section)) errors.push(`dist/${prefix}${file}: missing required content section ${section}`);
+  }
+}
+
+for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
+  const privacyHtml = await readFile(path.join(dist, prefix, 'privacy', 'index.html'), 'utf8');
+  const termsHtml = await readFile(path.join(dist, prefix, 'payment-terms', 'index.html'), 'utf8');
+  const privacyArticles = (privacyHtml.match(/class="legal-row reveal"/g) || []).length;
+  const termsArticles = (termsHtml.match(/class="legal-row reveal"/g) || []).length;
+  if (privacyArticles !== 13) errors.push(`dist/${prefix}privacy/index.html: expected 13 privacy articles, found ${privacyArticles}`);
+  if (termsArticles !== 14) errors.push(`dist/${prefix}payment-terms/index.html: expected 14 payment articles, found ${termsArticles}`);
+  for (const href of ['https://stripe.com/privacy', 'https://www.cloudflare.com/privacypolicy/']) {
+    if (!privacyHtml.includes(href)) errors.push(`dist/${prefix}privacy/index.html: missing provider notice ${href}`);
   }
 }
 
@@ -203,6 +216,9 @@ for (const contact of ['+86 19575746458', '+886 988307998', 'simon3141229', 'lo1
   if (!joined.includes(contact)) errors.push(`approved contact missing: ${contact}`);
 }
 if (!joined.includes('https://wa.me/886988307998')) errors.push('approved WhatsApp link missing');
+for (const address of [brandProfile.registration.registeredAddressZhHans, brandProfile.registration.registeredAddressEn]) {
+  if (!joined.includes(address)) errors.push(`approved bilingual footer address missing: ${address}`);
+}
 for (const phrase of ['One category only', '我們專精充電器與電源電子供應鏈', '我们专注充电器与电源电子供应链', 'Full Managed Sourcing Verification']) {
   if (!joined.includes(phrase)) errors.push(`site output missing approved category or service content: ${phrase}`);
 }

@@ -25,6 +25,7 @@ export const brandProfile = {
     established: '2026-03-03',
     creditCode: '91440300MAK8J4881W',
     registeredAddressZhHans: '深圳市前海深港合作区南山街道怡海大道1167号海运中心口岸楼0701号-A032',
+    registeredAddressEn: 'Room A032, No. 0701, Port Building, Shipping Center, 1167 Yihai Avenue, Nanshan Subdistrict, Qianhai Shenzhen–Hong Kong Cooperation Zone, Shenzhen, Guangdong, China',
     publicAsset: '/assets/zimonai-business-license-public.jpg'
   },
   office: {

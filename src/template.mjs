@@ -2,6 +2,7 @@ import { languages, pages } from './content.mjs';
 import { brandProfile, hasPublishedOfficeEvidence } from './brand-profile.mjs';
 import { layoutMode } from './editorial-policy.mjs';
 import { paymentContent } from './payment-content.mjs';
+import { legalContent } from './legal-content.mjs';
 import { knowledgeArticleSpecs, knowledgeContent, knowledgeSpecById } from './knowledge-content.mjs';
 
 const pageMap = Object.fromEntries(pages.map((page) => [page.id, page]));
@@ -59,7 +60,7 @@ function pageHeader(kicker, title, lead, options = false) {
   const config = typeof options === 'object' ? options : { brandMark: options };
   const brandMark = Boolean(config.brandMark);
   const media = config.media;
-  return `<header class="page-hero shell${brandMark ? ' page-hero--brand' : ''}${media ? ' page-hero--media' : ''}">
+  return `<header class="page-hero shell${brandMark ? ' page-hero--brand' : ''}${media ? ' page-hero--media' : ''}${config.legal ? ' page-hero--legal' : ''}">
     <div class="page-hero__copy">
       <p class="kicker reveal">${esc(kicker)}</p>
       <h1 class="page-title reveal">${esc(title)}</h1>
@@ -389,15 +390,49 @@ function paymentSuccess(t) {
   </main>`;
 }
 
+function legalSection(section, index, ui, idPrefix) {
+  const number = String(index + 1).padStart(2, '0');
+  const paragraphs = (section.paragraphs || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join('');
+  const items = section.items?.length ? `<ul>${section.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : '';
+  const note = section.note ? `<aside class="legal-row__note">${esc(section.note)}</aside>` : '';
+  return `<article class="legal-row reveal" id="${esc(idPrefix)}-${number}">
+    <span class="legal-row__index">${esc(ui.article)} ${number}</span>
+    <div class="legal-row__content"><h2>${esc(section.title)}</h2>${paragraphs}${items}${note}</div>
+  </article>`;
+}
+
+function legalDocument(t, copy, idPrefix) {
+  const ui = legalContent[t.__key].ui;
+  const effective = copy.lead.match(/(?:Effective |生效日期：)([^。.]+(?:\.|。)?)/)?.[1] || '21 August 2026';
+  const references = copy.references?.length ? `<section class="legal-references reveal">
+    <header><p class="kicker">${esc(ui.references)}</p><h2>${esc(ui.references)}</h2><p>${esc(ui.referencesLead)}</p></header>
+    <div>${copy.references.map((item) => `<a href="${esc(item.href)}" target="_blank" rel="noopener noreferrer"><span><strong>${esc(item.label)}</strong><small>${esc(item.note)}</small></span>${arrow()}</a>`).join('')}</div>
+  </section>` : '';
+  return `<main id="main" class="legal-page">${pageHeader(copy.kicker, copy.title, copy.lead, { legal: true })}
+    <section class="legal-document shell">
+      <aside class="legal-document__rail reveal">
+        <p class="kicker">${esc(ui.document)}</p>
+        <h2>${esc(copy.summaryTitle)}</h2><p>${esc(copy.summary)}</p>
+        <dl class="legal-document__meta">
+          <div><dt>${esc(ui.effective)}</dt><dd>${esc(effective)}</dd></div>
+          <div><dt>${esc(ui.operator)}</dt><dd lang="zh-Hans">${esc(brandProfile.registration.legalNameZhHans)}</dd></div>
+          <div><dt>${esc(ui.contact)}</dt><dd><a href="mailto:${esc(brandProfile.email)}">${esc(brandProfile.email)}</a></dd></div>
+        </dl>
+        <nav class="legal-toc" aria-label="${esc(ui.contents)}"><strong>${esc(ui.contents)}</strong><ol>${copy.sections.map((section, index) => `<li><a href="#${esc(idPrefix)}-${String(index + 1).padStart(2, '0')}"><span>${String(index + 1).padStart(2, '0')}</span>${esc(section.title)}</a></li>`).join('')}</ol></nav>
+      </aside>
+      <div class="legal">${copy.sections.map((section, index) => legalSection(section, index, ui, idPrefix)).join('')}${references}
+        <section class="legal-contact reveal"><div><p class="kicker">${esc(ui.contactTitle)}</p><h2>${esc(ui.contactTitle)}</h2><p>${esc(ui.contactLead)}</p></div><a class="button button--ink" href="mailto:${esc(brandProfile.email)}">${esc(brandProfile.email)}${arrow()}</a></section>
+      </div>
+    </section>
+  </main>`;
+}
+
 function paymentTerms(t) {
-  const copy = t.payment.terms;
-  return `<main id="main">${pageHeader(copy.kicker, copy.title, copy.lead)}<section class="legal shell">${copy.sections.map(([title, text], index) => `<article class="legal-row reveal"><span>${String(index + 1).padStart(2, '0')}</span><h2>${esc(title)}</h2><p>${esc(text)}</p></article>`).join('')}</section></main>`;
+  return legalDocument(t, legalContent[t.__key].paymentTerms, 'terms');
 }
 
 function privacy(t) {
-  const sections = [...t.privacy.sections];
-  sections.splice(3, 0, t.payment.terms.privacyAddition);
-  return `<main id="main">${pageHeader(t.privacy.kicker, t.privacy.title, t.privacy.lead)}<section class="legal shell">${sections.map(([title, text], index) => `<article class="legal-row reveal"><span>${String(index + 1).padStart(2, '0')}</span><h2>${esc(title)}</h2><p>${esc(text)}</p></article>`).join('')}</section></main>`;
+  return legalDocument(t, legalContent[t.__key].privacy, 'privacy');
 }
 
 function knowledgeCard(t, spec, article, featured = false) {
@@ -519,7 +554,7 @@ function header(t, pageId) {
 }
 
 function footer(t) {
-  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'services')}">${esc(t.nav.servicesBooking)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
+  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span><address class="footer-addresses"><span><b>${esc(t.common.chineseAddressLabel)}</b><i lang="zh-Hans">${esc(brandProfile.registration.registeredAddressZhHans)}</i></span><span><b>${esc(t.common.englishAddressLabel)}</b><i lang="en">${esc(brandProfile.registration.registeredAddressEn)}</i></span></address></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'services')}">${esc(t.nav.servicesBooking)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
 }
 
 function supportPanel(t) {
