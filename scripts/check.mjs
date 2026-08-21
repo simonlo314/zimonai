@@ -78,6 +78,7 @@ for (const photo of brandProfile.office.photos) {
   if (!distFiles.includes(photo.src.replace(/^\//, ''))) errors.push(`approved reception photo missing: ${photo.src}`);
 }
 if (brandProfile.registration.creditCode !== '91440300MAK8J4881W') errors.push('owner-approved public registration identifier is missing or incorrect');
+if (brandProfile.contacts.linkedin?.href !== 'https://www.linkedin.com/in/zimonai') errors.push('owner-approved LinkedIn profile is missing or incorrect');
 if (!distFiles.includes('assets/zimonai-business-license-public.jpg')) errors.push('public business licence excerpt missing');
 for (const logo of ['zimonai-logo-primary.svg', 'zimonai-logo-white.svg', 'zimonai-shield-icon-primary.svg', 'zimonai-shield-icon-mono-white.svg', 'zimonai-circular-mark-primary.svg', 'favicon.svg', 'apple-touch-icon.png']) {
   if (!distFiles.includes(`assets/${logo}`)) errors.push(`approved ZimonAI logo asset missing: ${logo}`);
@@ -193,6 +194,7 @@ for (const file of files) {
   if (!/<link rel="canonical" href="https:\/\/zimonai\.com\//.test(html) && file !== '404.html') errors.push(`${label}: missing canonical`);
   if (/<meta name="keywords"/i.test(html)) errors.push(`${label}: obsolete meta keywords tag remains`);
   if (!html.includes('href="/zimonai-favicon.svg"')) errors.push(`${label}: stable root favicon link missing`);
+  if (file !== '404.html' && !html.includes('https://www.linkedin.com/in/zimonai')) errors.push(`${label}: LinkedIn contact is missing`);
   if (/rel="icon"[^>]+href="\/(?:assets\/)?favicon\.(?:svg|png)(?:\?|\")/.test(html)) errors.push(`${label}: retired favicon remains linked`);
   if (file !== '404.html' && (html.match(/hreflang=/g) || []).length !== 4) errors.push(`${label}: expected 4 hreflang links`);
   if (file !== '404.html' && !html.includes('max-image-preview:large') && !html.includes('noindex, nofollow')) errors.push(`${label}: missing explicit index preview directive`);

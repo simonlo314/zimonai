@@ -3,7 +3,7 @@
 // that the registered address is also the customer-reception address. Do not
 // add an office image, social account or registration identifier unless it is
 // recorded here as owner-approved. The contact channels below were supplied
-// and approved by the owner on 13 August 2026.
+// and approved by the owner on 13 and 21 August 2026.
 export const brandProfile = {
   name: 'ZimonAI 智蒙灣',
   domain: 'https://zimonai.com',
@@ -13,7 +13,8 @@ export const brandProfile = {
     taiwanPhone: { display: '+886 988307998', href: '+886988307998' },
     whatsapp: { display: '+886 988307998', href: 'https://wa.me/886988307998' },
     wechat: 'simon3141229',
-    line: 'lo17v1'
+    line: 'lo17v1',
+    linkedin: { display: 'linkedin.com/in/zimonai', href: 'https://www.linkedin.com/in/zimonai' }
   },
   operatingModel: 'Client-paid charger and power electronics supplier services',
   operatingBases: ['Taipei', 'Shenzhen'],

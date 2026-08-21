@@ -80,7 +80,8 @@ function approvedContacts(t) {
     { label: t.common.taiwanPhone, value: brandProfile.contacts.taiwanPhone.display, href: `tel:${brandProfile.contacts.taiwanPhone.href}` },
     { label: t.common.whatsapp, value: brandProfile.contacts.whatsapp.display, href: brandProfile.contacts.whatsapp.href, external: true },
     { label: t.common.wechat, value: brandProfile.contacts.wechat },
-    { label: t.common.line, value: brandProfile.contacts.line }
+    { label: t.common.line, value: brandProfile.contacts.line },
+    { label: t.common.linkedin, value: brandProfile.contacts.linkedin.display, href: brandProfile.contacts.linkedin.href, external: true }
   ];
 }
 
@@ -727,6 +728,7 @@ export function renderPage(langKey, pageId) {
     },
     email: brandProfile.email,
     telephone: brandProfile.contacts.chinaPhone.display,
+    sameAs: [brandProfile.contacts.linkedin.href],
     foundingDate: brandProfile.registration.established,
     identifier: {
       '@type': 'PropertyValue',
