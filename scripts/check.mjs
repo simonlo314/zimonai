@@ -26,6 +26,7 @@ const sessionFunction = await readFile(path.join(root, 'functions', 'api', 'chec
 const webhookFunction = await readFile(path.join(root, 'functions', 'api', 'stripe-webhook.js'), 'utf8');
 const stripeLibrary = await readFile(path.join(root, 'functions', '_lib', 'stripe.js'), 'utf8');
 const paymentMigration = await readFile(path.join(root, 'migrations', '0002_payments.sql'), 'utf8');
+const customerDetailsMigration = await readFile(path.join(root, 'migrations', '0003_payment_customer_details.sql'), 'utf8');
 const wranglerConfig = await readFile(path.join(root, 'wrangler.jsonc'), 'utf8');
 
 for (const [label, pattern] of [
@@ -212,10 +213,16 @@ if (!sourceJs.includes("navigator.doNotTrack !== '1'") || !analyticsFunction.inc
 if (!wranglerConfig.includes('"binding": "ANALYTICS_DB"')) errors.push('Cloudflare analytics database binding is missing');
 if (!checkoutFunction.includes('STRIPE_PRODUCTS') || checkoutFunction.includes('payload.amount')) errors.push('checkout amount is not exclusively controlled by the server catalogue');
 if (!checkoutFunction.includes('allowedRequestOrigin') || !checkoutFunction.includes('reference_required')) errors.push('checkout origin or reference safeguards are incomplete');
+for (const field of ['name_collection[individual]', 'name_collection[business]', 'phone_number_collection', 'tax_id_collection']) {
+  if (!checkoutFunction.includes(field)) errors.push(`checkout customer collection is missing ${field}`);
+}
 if (!sessionFunction.includes('stripeRequest') || !sessionFunction.includes('displayEmail') || !sessionFunction.includes("paymentStatus: session.payment_status")) errors.push('payment confirmation endpoint is incomplete');
 if (!webhookFunction.includes("request.headers.get('Stripe-Signature')") || !webhookFunction.includes("Math.abs(Math.floor(Date.now() / 1000) - Number(timestamp)) > 300")) errors.push('Stripe webhook signature verification is incomplete');
 for (const table of ['stripe_events', 'payment_orders']) if (!paymentMigration.includes(`CREATE TABLE IF NOT EXISTS ${table}`)) errors.push(`payment database migration missing ${table}`);
 if (!webhookFunction.includes('INSERT OR IGNORE INTO stripe_events') || !webhookFunction.includes('ON CONFLICT(stripe_session_id) DO UPDATE')) errors.push('Stripe webhook idempotency is incomplete');
+for (const field of ['customer_business_name', 'customer_phone', 'customer_tax_ids']) {
+  if (!customerDetailsMigration.includes(field) || !webhookFunction.includes(field)) errors.push(`payment customer detail is not persisted: ${field}`);
+}
 if (!stripeLibrary.includes('STRIPE_SECRET_KEY') || !webhookFunction.includes('STRIPE_WEBHOOK_SECRET')) errors.push('Stripe secret names are not wired correctly');
 
 const sourceBundle = [sourceContent, sourceTemplate, sourceCss, sourceJs, analyticsFunction, checkoutFunction, sessionFunction, webhookFunction, stripeLibrary].join('\n');

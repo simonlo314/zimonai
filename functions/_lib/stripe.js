@@ -38,6 +38,8 @@ export const STRIPE_PRODUCTS = {
   }
 };
 
+export const STRIPE_API_VERSION = '2025-09-30.clover';
+
 export function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
@@ -79,6 +81,7 @@ export async function stripeRequest(env, path, options = {}) {
     ...options,
     headers: {
       Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`,
+      'Stripe-Version': STRIPE_API_VERSION,
       ...(options.headers || {})
     }
   });

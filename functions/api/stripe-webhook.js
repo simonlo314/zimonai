@@ -1,4 +1,4 @@
-import { json } from '../_lib/stripe.js';
+import { json, stripeRequest } from '../_lib/stripe.js';
 
 const RELEVANT_EVENTS = new Set([
   'checkout.session.completed',
@@ -37,6 +37,12 @@ function paymentStatusFor(eventType, session) {
   return session.payment_status || 'unpaid';
 }
 
+function customerTaxIds(session) {
+  const taxIds = session.customer_details?.tax_ids;
+  if (!Array.isArray(taxIds)) return '';
+  return JSON.stringify(taxIds.map(({ type = '', value = '' }) => ({ type, value })));
+}
+
 export async function onRequestPost({ request, env }) {
   if (!env.STRIPE_WEBHOOK_SECRET || !env.ANALYTICS_DB) return json({ error: 'webhook_not_configured' }, 503);
   if (Number(request.headers.get('Content-Length') || 0) > 1048576) return json({ error: 'request_too_large' }, 413);
@@ -53,8 +59,16 @@ export async function onRequestPost({ request, env }) {
   }
 
   if (!RELEVANT_EVENTS.has(event.type)) return json({ received: true });
-  const session = event.data?.object;
-  if (!session?.id) return json({ error: 'missing_session' }, 400);
+  const eventSession = event.data?.object;
+  if (!eventSession?.id) return json({ error: 'missing_session' }, 400);
+
+  let session = eventSession;
+  try {
+    session = await stripeRequest(env, `checkout/sessions/${encodeURIComponent(eventSession.id)}`);
+  } catch {
+    // Keep Stripe's signed event as the fallback so a temporary API read error
+    // does not prevent payment acknowledgement or invite repeated delivery.
+  }
 
   const eventInsert = env.ANALYTICS_DB.prepare(`
     INSERT OR IGNORE INTO stripe_events (event_id, event_type, created_at)
@@ -64,15 +78,18 @@ export async function onRequestPost({ request, env }) {
   const orderUpsert = env.ANALYTICS_DB.prepare(`
     INSERT INTO payment_orders (
       stripe_session_id, payment_intent_id, product_key, amount_total, currency,
-      quantity, customer_email, customer_name, service_reference, payment_status,
-      created_at, updated_at
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'), datetime('now'))
+      quantity, customer_email, customer_name, customer_business_name, customer_phone,
+      customer_tax_ids, service_reference, payment_status, created_at, updated_at
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'), datetime('now'))
     ON CONFLICT(stripe_session_id) DO UPDATE SET
       payment_intent_id = excluded.payment_intent_id,
       amount_total = excluded.amount_total,
       currency = excluded.currency,
       customer_email = excluded.customer_email,
       customer_name = excluded.customer_name,
+      customer_business_name = excluded.customer_business_name,
+      customer_phone = excluded.customer_phone,
+      customer_tax_ids = excluded.customer_tax_ids,
       payment_status = excluded.payment_status,
       updated_at = datetime('now')
   `).bind(
@@ -83,7 +100,10 @@ export async function onRequestPost({ request, env }) {
     session.currency || 'usd',
     Number(session.metadata?.quantity || 1),
     session.customer_details?.email || session.customer_email || '',
-    session.customer_details?.name || '',
+    session.customer_details?.individual_name || session.collected_information?.individual_name || session.customer_details?.name || '',
+    session.customer_details?.business_name || session.collected_information?.business_name || '',
+    session.customer_details?.phone || '',
+    customerTaxIds(session),
     session.metadata?.reference || session.client_reference_id || '',
     paymentStatusFor(event.type, session)
   );

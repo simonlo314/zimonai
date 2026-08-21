@@ -37,6 +37,17 @@ export async function onRequestPost({ request, env }) {
   const body = new URLSearchParams();
   body.set('mode', 'payment');
   body.set('customer_creation', 'always');
+  body.set('name_collection[individual][enabled]', 'true');
+  body.set('name_collection[individual][optional]', 'false');
+
+  const needsFullBuyerContact = ['consultation', 't1', 't2'].includes(productKey);
+  if (needsFullBuyerContact) {
+    body.set('name_collection[business][enabled]', 'true');
+    body.set('name_collection[business][optional]', 'true');
+    body.set('phone_number_collection[enabled]', 'true');
+    body.set('tax_id_collection[enabled]', 'true');
+  }
+
   body.set('line_items[0][price_data][currency]', 'usd');
   body.set('line_items[0][price_data][unit_amount]', String(product.amount));
   body.set('line_items[0][price_data][product_data][name]', product.names[locale]);

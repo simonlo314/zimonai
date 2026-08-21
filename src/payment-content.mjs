@@ -107,7 +107,7 @@ export const paymentContent = {
         ['What a payment does not guarantee', 'Payment does not guarantee a favourable verification result, supplier performance, product quality or a commercial outcome. Reports state the evidence reviewed, the conclusion supported at that time and the limits of the work.'],
         ['Contact', 'Questions about scope, scheduling, payment or refunds can be sent to simonlo@zimonai.com. Include the Stripe receipt or case reference.']
       ],
-      privacyAddition: ['Payments and order records', 'When you pay, Stripe processes payment, contact and billing information. ZimonAI receives the resulting transaction status, receipt contact and service reference needed to confirm payment, deliver the service, respond to disputes and maintain accounting records. ZimonAI does not receive or store full card numbers.']
+      privacyAddition: ['Payments and order records', 'When you pay, Stripe processes payment, contact and billing information. Depending on the service, Checkout asks for your contact name and may also collect a business name, phone number and optional tax ID. ZimonAI receives these details with the transaction status and service reference to confirm payment, deliver the service, respond to disputes and maintain accounting records. ZimonAI does not receive or store full card numbers.']
     }
   },
   'zh-tw': {
@@ -190,7 +190,7 @@ export const paymentContent = {
         ['付款不代表結果保證', '付款不保證查核結果有利、供應商未來表現、產品品質或商業成果。報告只會說明當次查到的證據、可以支持的結論與工作限制。'],
         ['聯絡方式', '服務範圍、預約、付款或退款問題，請寄至 simonlo@zimonai.com，並附上 Stripe 收據或案件編號。']
       ],
-      privacyAddition: ['付款與訂單紀錄', '付款時，Stripe 會處理付款、聯絡與帳單資料。ZimonAI 會收到付款狀態、收據聯絡方式與服務編號，用於確認付款、交付服務、處理爭議與保存會計紀錄；ZimonAI 不會接收或保存完整信用卡號。']
+      privacyAddition: ['付款與訂單紀錄', '付款時，Stripe 會處理付款、聯絡與帳單資料。付款頁會收集聯絡人姓名；依服務項目不同，也可能收集公司名稱、電話與選填稅號。ZimonAI 會收到這些資料、付款狀態與服務編號，用於確認付款、交付服務、處理爭議與保存會計紀錄；ZimonAI 不會接收或保存完整信用卡號。']
     }
   },
   'zh-cn': {
@@ -239,7 +239,7 @@ export const paymentContent = {
         ['付款不代表结果保证', '付款不保证核查结果有利、供应商未来表现、产品质量或商业结果。报告只会说明当次查到的证据、能够支持的结论和工作限制。'],
         ['联系方式', '服务范围、预约、付款或退款问题，请发送至 simonlo@zimonai.com，并附上 Stripe 收据或案件编号。']
       ],
-      privacyAddition: ['付款与订单记录', '付款时，Stripe 会处理付款、联系与账单资料。ZimonAI 会收到付款状态、收据联系方式与服务编号，用于确认付款、交付服务、处理争议与保存会计记录；ZimonAI 不会接收或保存完整银行卡号。']
+      privacyAddition: ['付款与订单记录', '付款时，Stripe 会处理付款、联系与账单资料。付款页面会收集联系人姓名；根据服务项目不同，也可能收集公司名称、电话和选填税号。ZimonAI 会收到这些资料、付款状态和服务编号，用于确认付款、交付服务、处理争议与保存会计记录；ZimonAI 不会接收或保存完整银行卡号。']
     }
   }
 };
