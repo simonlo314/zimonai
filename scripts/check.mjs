@@ -21,6 +21,7 @@ const sourceCss = await readFile(path.join(root, 'src', 'assets', 'site.css'), '
 const sourcePortalCss = await readFile(path.join(root, 'src', 'assets', 'portal.css'), 'utf8');
 const sourcePolicy = await readFile(path.join(root, 'CONTENT_AND_LOCALIZATION.md'), 'utf8');
 const sourceJs = await readFile(path.join(root, 'src', 'assets', 'site.js'), 'utf8');
+const sourcePortalJs = await readFile(path.join(root, 'src', 'assets', 'portal.js'), 'utf8');
 const sourceKnowledge = await readFile(path.join(root, 'src', 'knowledge-content.mjs'), 'utf8');
 const analyticsFunction = await readFile(path.join(root, 'functions', 'api', 'analytics.js'), 'utf8');
 const checkoutFunction = await readFile(path.join(root, 'functions', 'api', 'create-checkout-session.js'), 'utf8');
@@ -269,9 +270,11 @@ for (const href of ['mailto:simonlo@zimonai.com', 'tel:+8619575746458', 'tel:+88
 for (const dialogAttribute of ['role="dialog"', 'aria-modal="true"', 'aria-labelledby="support-title"', 'data-copy-error-label=']) {
   if (!sourceTemplate.includes(dialogAttribute)) errors.push(`support dialog accessibility hook missing: ${dialogAttribute}`);
 }
+if (!sourceTemplate.includes('class="support-launch" type="button" aria-label="${esc(copy.open)}"')) errors.push('support launcher is missing its explicit localized accessible name');
 for (const behavior of ['supportPanel.inert = !open', "event.key !== 'Tab'", "document.execCommand('copy')", "classList.toggle('is-copied'"]) {
   if (!sourceJs.includes(behavior)) errors.push(`support dialog behavior missing: ${behavior}`);
 }
+if (!sourcePortalJs.includes("signedOut.toggleAttribute('data-auth-unavailable-state', showUnavailable)") || !sourcePortalCss.includes('.portal-entry[data-auth-unavailable-state] .portal-auth')) errors.push('disabled Portal sign-in status is not promoted into the first mobile viewport');
 for (const address of [brandProfile.registration.registeredAddressZhHans, brandProfile.registration.registeredAddressEn]) {
   if (!joined.includes(address)) errors.push(`approved bilingual footer address missing: ${address}`);
 }

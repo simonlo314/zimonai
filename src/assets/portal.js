@@ -39,6 +39,7 @@ if (root) {
     loading.hidden = true;
     signedIn.hidden = true;
     signedOut.hidden = false;
+    signedOut.toggleAttribute('data-auth-unavailable-state', showUnavailable);
     googleLogin.hidden = !authAvailable;
     unavailable.hidden = !showUnavailable;
     authFeedback.textContent = message;

@@ -241,6 +241,8 @@ html[data-layout="cjk"] .portal-workspace__header h1 { font-size: 36px; }
   .portal-principles { margin-top: 42px; }
   .portal-principles li { grid-template-columns: 34px 1fr; gap: 10px; }
   .portal-auth { min-height: 0; padding: 46px 22px; }
+  .portal-entry[data-auth-unavailable-state] .portal-auth { order: -1; padding-block: 32px; }
+  .portal-entry[data-auth-unavailable-state] .portal-auth__seal { margin-bottom: 20px; }
   .portal-auth__seal { margin-bottom: 30px; }
   .portal-google { width: 100%; }
   .portal-auth__links { display: grid; gap: 0; }
