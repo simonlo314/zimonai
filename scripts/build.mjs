@@ -35,6 +35,11 @@ function versionAssetUrls(html) {
   );
 }
 
+function inlineScriptHashes(html) {
+  return [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)]
+    .map((match) => `'sha256-${createHash('sha256').update(match[1]).digest('base64')}'`);
+}
+
 await rm(dist, { recursive: true, force: true });
 await mkdir(path.join(dist, 'assets'), { recursive: true });
 await cp(sourceAssets, path.join(dist, 'assets'), { recursive: true });
@@ -81,6 +86,24 @@ await writeFile(
   'utf8'
 );
 
+const portalScriptHashes = new Set();
+for (const lang of Object.values(languages)) {
+  const portalFile = path.join(dist, ...[lang.prefix, 'portal'].filter(Boolean), 'index.html');
+  for (const hash of inlineScriptHashes(await readFile(portalFile, 'utf8'))) portalScriptHashes.add(hash);
+}
+const portalCsp = [
+  "default-src 'self'",
+  `script-src 'self' ${[...portalScriptHashes].join(' ')}`,
+  "style-src 'self'",
+  "img-src 'self' data:",
+  "connect-src 'self'",
+  "font-src 'self'",
+  "base-uri 'none'",
+  "form-action 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'self'"
+].join('; ');
+
 await writeFile(
   path.join(dist, '_headers'),
   `/*
@@ -88,6 +111,21 @@ await writeFile(
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), geolocation=(), microphone=()
   X-Frame-Options: SAMEORIGIN
+
+/portal/*
+  Cache-Control: private, no-store
+  X-Robots-Tag: noindex, nofollow
+  Content-Security-Policy: ${portalCsp}
+
+/zh-tw/portal/*
+  Cache-Control: private, no-store
+  X-Robots-Tag: noindex, nofollow
+  Content-Security-Policy: ${portalCsp}
+
+/zh-cn/portal/*
+  Cache-Control: private, no-store
+  X-Robots-Tag: noindex, nofollow
+  Content-Security-Policy: ${portalCsp}
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

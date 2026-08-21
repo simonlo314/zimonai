@@ -6,6 +6,7 @@ export const pages = [
   { id: 'methodology', slug: 'methodology' },
   { id: 'scope', slug: 'scope-limitations' },
   { id: 'about', slug: 'about' },
+  { id: 'portal', slug: 'portal', sitemap: false, noindex: true },
   { id: 'request', slug: 'request-verification' },
   { id: 'payments', slug: 'payments' },
   { id: 'paymentTerms', slug: 'payment-terms' },

@@ -1,6 +1,7 @@
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const analyticsEnabled = (location.hostname === 'zimonai.com' || location.hostname === 'www.zimonai.com')
+  && document.documentElement.dataset.page !== 'portal'
   && navigator.doNotTrack !== '1'
   && navigator.globalPrivacyControl !== true;
 

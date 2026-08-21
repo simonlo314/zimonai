@@ -5,21 +5,16 @@ import {
   cleanLocale,
   cleanReference,
   json,
+  readJsonRequest,
   stripeRequest
 } from '../_lib/stripe.js';
 
 export async function onRequestPost({ request, env }) {
   const origin = allowedRequestOrigin(request, env);
   if (!origin) return json({ error: 'origin_not_allowed' }, 403);
-  if (!request.headers.get('Content-Type')?.toLowerCase().startsWith('application/json')) return json({ error: 'invalid_content_type' }, 415);
-  if (Number(request.headers.get('Content-Length') || 0) > 4096) return json({ error: 'request_too_large' }, 413);
-
-  let payload;
-  try {
-    payload = await request.json();
-  } catch {
-    return json({ error: 'invalid_json' }, 400);
-  }
+  const parsed = await readJsonRequest(request);
+  if (parsed.error) return parsed.error;
+  const payload = parsed.data || {};
 
   const productKey = String(payload.product || '');
   const product = STRIPE_PRODUCTS[productKey];

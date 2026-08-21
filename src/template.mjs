@@ -4,6 +4,7 @@ import { layoutMode } from './editorial-policy.mjs';
 import { paymentContent } from './payment-content.mjs';
 import { legalContent } from './legal-content.mjs';
 import { knowledgeArticleSpecs, knowledgeContent, knowledgeSpecById } from './knowledge-content.mjs';
+import { portalContent } from './portal-content.mjs';
 
 const pageMap = Object.fromEntries(pages.map((page) => [page.id, page]));
 
@@ -19,6 +20,10 @@ function esc(value = '') {
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;');
+}
+
+function jsonForHtml(value) {
+  return JSON.stringify(value).replaceAll('<', '\\u003c');
 }
 
 function statusLabel(t, status) {
@@ -110,6 +115,106 @@ function cta(t, title, text, options = {}) {
     <div><p class="kicker">${esc(t.common.eyebrow)}</p><h2>${esc(title)}</h2><p>${esc(text)}</p></div>
     <a class="button button--ink magnetic" data-cursor="${esc(label)}" href="${esc(href)}">${esc(label)}${arrow()}</a>
   </section>`;
+}
+
+function googleMark() {
+  return `<svg class="portal-google-mark" aria-hidden="true" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.205c0-.638-.057-1.252-.164-1.841H9v3.482h4.844a4.14 4.14 0 0 1-1.797 2.715v2.258h2.909c1.702-1.567 2.684-3.878 2.684-6.614Z"/><path fill="#34A853" d="M9 18c2.43 0 4.468-.806 5.956-2.181l-2.909-2.258c-.806.54-1.835.859-3.047.859-2.344 0-4.328-1.585-5.037-3.714H.956v2.332A9 9 0 0 0 9 18Z"/><path fill="#FBBC05" d="M3.963 10.706A5.41 5.41 0 0 1 3.682 9c0-.592.102-1.168.281-1.706V4.962H.956A9 9 0 0 0 0 9c0 1.452.347 2.827.956 4.038l3.007-2.332Z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.507.454 3.441 1.346l2.581-2.581C13.464.892 11.427 0 9 0A9 9 0 0 0 .956 4.962l3.007 2.332C4.672 5.165 6.656 3.58 9 3.58Z"/></svg>`;
+}
+
+function portal(t) {
+  const p = t.portal;
+  const loginHref = `/api/auth/google/start?locale=${encodeURIComponent(t.__key)}&returnTo=${encodeURIComponent(pathFor(t.__key, 'portal'))}`;
+  const tierOptions = p.form.tierOptions.map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
+  return `<main id="main" class="portal-page" data-portal data-locale="${esc(t.__key)}" data-state="loading">
+    <section class="portal-loading shell" data-portal-loading aria-live="polite">
+      <span class="portal-loading__mark" aria-hidden="true"></span><p>${esc(p.workspace.loading)}</p>
+    </section>
+
+    <section class="portal-entry shell" data-portal-signed-out hidden>
+      <div class="portal-entry__intro">
+        <p class="portal-kicker">${esc(p.eyebrow)}</p>
+        <h1>${esc(p.title)}</h1>
+        <p class="portal-entry__lead">${esc(p.lead)}</p>
+        <ol class="portal-principles">
+          ${p.assurances.map(([title, text], index) => `<li><span>${String(index + 1).padStart(2, '0')}</span><div><h2>${esc(title)}</h2><p>${esc(text)}</p></div></li>`).join('')}
+        </ol>
+      </div>
+      <aside class="portal-auth" aria-labelledby="portal-auth-title">
+        <div class="portal-auth__seal" aria-hidden="true"><img src="/assets/zimonai-shield-icon-primary.svg" alt="" width="1600" height="1600"></div>
+        <p class="portal-kicker">${esc(p.auth.label)}</p>
+        <h2 id="portal-auth-title">${esc(p.auth.title)}</h2>
+        <p>${esc(p.auth.text)}</p>
+        <a class="portal-google" href="${esc(loginHref)}" data-google-login>${googleMark()}<span>${esc(p.auth.google)}</span></a>
+        <div class="portal-auth__feedback" data-auth-feedback hidden role="alert"></div>
+        <div class="portal-auth__notice" data-auth-unavailable hidden role="status">
+          <strong>${esc(p.auth.unavailable)}</strong><p>${esc(p.auth.unavailableDetail)}</p>
+        </div>
+        <div class="portal-auth__links"><a href="${pathFor(t.__key, 'privacy')}">${esc(p.auth.privacy)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(p.auth.terms)}</a></div>
+      </aside>
+    </section>
+
+    <section class="portal-workspace shell" data-portal-signed-in hidden>
+      <header class="portal-workspace__header">
+        <div><p class="portal-kicker">${esc(p.workspace.eyebrow)}</p><h1>${esc(p.workspace.title)}</h1></div>
+        <div class="portal-identity"><img src="/assets/zimonai-shield-icon-primary.svg" alt="" width="48" height="48"><span><small>${esc(p.workspace.welcome)}</small><strong data-portal-user-name></strong><em data-portal-user-email></em></span></div>
+      </header>
+      <div class="portal-workspace__body">
+        <div class="portal-tabs" role="tablist" aria-label="${esc(p.workspace.title)}">
+          <button id="portal-tab-cases" type="button" role="tab" aria-selected="true" aria-controls="portal-panel-cases" data-portal-view="cases"><span>01</span>${esc(p.workspace.cases)}</button>
+          <button id="portal-tab-new" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-new" tabindex="-1" data-portal-view="new"><span>02</span>${esc(p.workspace.newCase)}</button>
+          <button id="portal-tab-account" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-account" tabindex="-1" data-portal-view="account"><span>03</span>${esc(p.workspace.account)}</button>
+        </div>
+        <div class="portal-stage">
+          <div class="portal-error" data-portal-error hidden role="alert">${esc(p.workspace.loadError)}</div>
+          <section class="portal-view" id="portal-panel-cases" role="tabpanel" tabindex="0" aria-labelledby="portal-tab-cases" data-portal-panel="cases">
+            <header class="portal-section-head"><div><p class="portal-kicker">${esc(p.workspace.casesTitle)}</p><h2>${esc(p.workspace.casesTitle)}</h2></div><p>${esc(p.workspace.casesLead)}</p></header>
+            <div class="portal-cases-state" data-portal-cases-state hidden role="status"></div>
+            <div class="portal-case-list" data-portal-case-list aria-live="polite"></div>
+            <div class="portal-empty" data-portal-empty hidden>
+              <div class="portal-empty__rail" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div><div role="status"><p class="portal-kicker">${esc(p.workspace.emptyLabel)}</p><h3>${esc(p.workspace.emptyTitle)}</h3><p>${esc(p.workspace.emptyText)}</p></div><button class="portal-primary" type="button" data-portal-open-new>${esc(p.workspace.emptyAction)}${arrow()}</button></div>
+            </div>
+          </section>
+
+          <section class="portal-view" id="portal-panel-new" role="tabpanel" tabindex="0" aria-labelledby="portal-tab-new" data-portal-panel="new" hidden>
+            <header class="portal-section-head portal-section-head--form"><div><p class="portal-kicker">${esc(p.form.eyebrow)}</p><h2>${esc(p.form.title)}</h2></div><p>${esc(p.form.lead)}</p></header>
+            <form class="portal-form" data-portal-case-form novalidate>
+              <div class="portal-form__message" data-portal-form-message hidden tabindex="-1" role="alert"></div>
+              <fieldset><legend><span>01</span>${esc(p.form.sections[0])}</legend><div class="portal-fields">
+                <div class="portal-field portal-field--wide"><label for="portal-supplier-name">${esc(p.form.supplierName)} <b>${esc(p.form.required)}</b></label><input id="portal-supplier-name" name="supplierName" type="text" maxlength="240" required autocomplete="organization" aria-describedby="portal-hint-supplier-name"><small id="portal-hint-supplier-name">${esc(p.form.supplierNameHint)}</small></div>
+                <div class="portal-field"><label for="portal-supplier-url">${esc(p.form.supplierUrl)} <b>${esc(p.form.optional)}</b></label><input id="portal-supplier-url" name="supplierUrl" type="url" maxlength="500" inputmode="url" placeholder="https://"></div>
+                <div class="portal-field"><label for="portal-legal-name">${esc(p.form.chineseLegalName)} <b>${esc(p.form.optional)}</b></label><input id="portal-legal-name" name="chineseLegalName" type="text" maxlength="240"></div>
+                <div class="portal-field portal-field--wide"><label for="portal-tier">${esc(p.form.tier)}</label><select id="portal-tier" name="tier">${tierOptions}</select></div>
+              </div></fieldset>
+              <fieldset><legend><span>02</span>${esc(p.form.sections[1])}</legend><div class="portal-fields">
+                <div class="portal-field"><label for="portal-product-category">${esc(p.form.productCategory)} <b>${esc(p.form.required)}</b></label><input id="portal-product-category" name="productCategory" type="text" maxlength="240" required aria-describedby="portal-hint-product-category"><small id="portal-hint-product-category">${esc(p.form.productCategoryHint)}</small></div>
+                <div class="portal-field"><label for="portal-product-model">${esc(p.form.productModel)} <b>${esc(p.form.optional)}</b></label><input id="portal-product-model" name="productModel" type="text" maxlength="300"></div>
+              </div></fieldset>
+              <fieldset><legend><span>03</span>${esc(p.form.sections[2])}</legend><div class="portal-fields">
+                <div class="portal-field portal-field--wide"><label for="portal-decision-context">${esc(p.form.decisionContext)} <b>${esc(p.form.required)}</b></label><textarea id="portal-decision-context" name="decisionContext" maxlength="2000" rows="5" required aria-describedby="portal-hint-decision-context"></textarea><small id="portal-hint-decision-context">${esc(p.form.decisionContextHint)}</small></div>
+                <div class="portal-field portal-field--wide"><label for="portal-requested-checks">${esc(p.form.requestedChecks)} <b>${esc(p.form.optional)}</b></label><textarea id="portal-requested-checks" name="requestedChecks" maxlength="3000" rows="5" aria-describedby="portal-hint-requested-checks"></textarea><small id="portal-hint-requested-checks">${esc(p.form.requestedChecksHint)}</small></div>
+                <label class="portal-consent portal-field--wide"><input name="consent" type="checkbox" required aria-describedby="portal-consent-text"><span id="portal-consent-text">${esc(p.form.consent)}</span></label>
+              </div></fieldset>
+              <div class="portal-form__actions"><button class="portal-secondary" type="button" data-portal-view="cases">${esc(p.form.cancel)}</button><button class="portal-primary" type="submit"><span data-submit-label>${esc(p.form.submit)}</span>${arrow()}</button></div>
+            </form>
+          </section>
+
+          <section class="portal-view" id="portal-panel-account" role="tabpanel" tabindex="0" aria-labelledby="portal-tab-account" data-portal-panel="account" hidden>
+            <header class="portal-section-head"><div><p class="portal-kicker">${esc(p.account.eyebrow)}</p><h2>${esc(p.account.title)}</h2></div><p>${esc(p.account.lead)}</p></header>
+            <dl class="portal-account">
+              <div><dt>${esc(p.account.name)}</dt><dd data-account-name></dd></div>
+              <div><dt>${esc(p.account.email)}</dt><dd data-account-email></dd></div>
+              <div><dt>${esc(p.account.locale)}</dt><dd data-account-locale></dd></div>
+              <div><dt>${esc(p.account.accountId)}</dt><dd data-account-id></dd></div>
+            </dl>
+            <div class="portal-account__links"><a href="${pathFor(t.__key, 'privacy')}">${esc(p.account.privacy)}${arrow()}</a><a href="mailto:${esc(brandProfile.email)}?subject=${encodeURIComponent(p.account.supportSubject)}">${esc(p.account.support)}${arrow()}</a></div>
+            <div class="portal-account__actions"><button class="portal-secondary portal-account__logout" type="button" data-portal-logout>${esc(p.workspace.logout)}</button></div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <script type="application/json" id="portal-copy">${jsonForHtml(p)}</script>
+  </main>`;
 }
 
 function home(t) {
@@ -565,7 +670,7 @@ function knowledgeArticle(t, page) {
   </main>`;
 }
 
-const renderers = { home, services, methodology, scope, about, request, payments, paymentSuccess, paymentTerms, privacy, knowledge };
+const renderers = { home, services, methodology, scope, about, portal, request, payments, paymentSuccess, paymentTerms, privacy, knowledge };
 
 function header(t, pageId) {
   const nav = [['services', t.nav.servicesBooking], ['knowledge', t.nav.knowledge], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
@@ -578,6 +683,7 @@ function header(t, pageId) {
         <span class="nav-hover-frame" aria-hidden="true" data-nav-frame></span>
         ${nav.map(([id, label]) => `<a class="nav-link" href="${pathFor(t.__key, id)}" ${(pageId === id || (id === 'services' && pageId === 'payments') || (id === 'knowledge' && pageId.startsWith('knowledge-'))) ? `aria-current="page"` : ''}>${esc(label)}</a>`).join('')}
         <div class="lang-switch" data-lang-switch><button type="button" aria-expanded="false" data-lang-button>${esc(t.short)}<span aria-hidden="true">⌄</span></button><div class="lang-switch__menu">${Object.entries(languages).map(([key, lang]) => `<a lang="${lang.htmlLang}" href="${pathFor(key, pageId)}" ${key === t.__key ? 'aria-current="true"' : ''}>${esc(lang.name)}</a>`).join('')}</div></div>
+        <a class="nav-portal" href="${pathFor(t.__key, 'portal')}" ${pageId === 'portal' ? 'aria-current="page"' : ''}>${esc(t.portal.navLabel)}</a>
         <a class="nav-cta" href="${pathFor(t.__key, 'request')}">${esc(t.nav.request)}${arrow()}</a>
       </nav>
     </div>
@@ -597,12 +703,12 @@ export function renderPage(langKey, pageId) {
   const original = languages[langKey];
   const page = pageMap[pageId];
   const knowledgeCopy = knowledgeContent[langKey];
-  const t = { ...original, payment: paymentContent[langKey], knowledge: knowledgeCopy, __key: langKey };
+  const t = { ...original, payment: paymentContent[langKey], knowledge: knowledgeCopy, portal: portalContent[langKey], __key: langKey };
   const articleSpec = page.kind === 'article' ? knowledgeSpecById(pageId) : null;
   const articleCopy = articleSpec ? knowledgeCopy.articles[articleSpec.key] : null;
   const baseMeta = original.meta.titles[pageId] ? original.meta : paymentContent[langKey].meta;
-  const metaTitle = pageId === 'knowledge' ? knowledgeCopy.hub.metaTitle : articleCopy ? `${articleCopy.title} | ZimonAI` : baseMeta.titles[pageId];
-  const metaDescription = pageId === 'knowledge' ? knowledgeCopy.hub.metaDescription : articleCopy ? articleCopy.description : baseMeta.descriptions[pageId];
+  const metaTitle = pageId === 'portal' ? t.portal.metaTitle : pageId === 'knowledge' ? knowledgeCopy.hub.metaTitle : articleCopy ? `${articleCopy.title} | ZimonAI` : baseMeta.titles[pageId];
+  const metaDescription = pageId === 'portal' ? t.portal.metaDescription : pageId === 'knowledge' ? knowledgeCopy.hub.metaDescription : articleCopy ? articleCopy.description : baseMeta.descriptions[pageId];
   const canonical = `https://zimonai.com${pathFor(langKey, pageId)}`;
   const alternates = Object.entries(languages).map(([key, lang]) => `<link rel="alternate" hreflang="${lang.htmlLang}" href="https://zimonai.com${pathFor(key, pageId)}">`).join('\n');
   const organizationId = 'https://zimonai.com/#organization';
@@ -760,10 +866,12 @@ export function renderPage(langKey, pageId) {
   <link rel="icon" href="/zimonai-favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="/assets/site.css">
+  ${pageId === 'portal' ? '<link rel="stylesheet" href="/assets/portal.css">' : ''}
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>
   <script type="module" src="/assets/site.js"></script>
+  ${pageId === 'portal' ? '<script type="module" src="/assets/portal.js"></script>' : ''}
 </head>
-<body>
+<body${pageId === 'portal' ? ' class="page-portal"' : ''}>
   ${header(t, pageId)}
   ${page.kind === 'article' ? knowledgeArticle(t, page) : renderers[pageId](t)}
   ${footer(t)}

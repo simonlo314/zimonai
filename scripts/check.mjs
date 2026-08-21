@@ -7,6 +7,7 @@ import { STRIPE_PRODUCTS } from '../functions/_lib/stripe.js';
 import { brandProfile } from '../src/brand-profile.mjs';
 import { editorialPolicy, layoutMode } from '../src/editorial-policy.mjs';
 import { knowledgeArticleSpecs, knowledgeContent } from '../src/knowledge-content.mjs';
+import { portalContent } from '../src/portal-content.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -17,6 +18,7 @@ const errors = [];
 const sourceContent = await readFile(path.join(root, 'src', 'content.mjs'), 'utf8');
 const sourceTemplate = await readFile(path.join(root, 'src', 'template.mjs'), 'utf8');
 const sourceCss = await readFile(path.join(root, 'src', 'assets', 'site.css'), 'utf8');
+const sourcePortalCss = await readFile(path.join(root, 'src', 'assets', 'portal.css'), 'utf8');
 const sourcePolicy = await readFile(path.join(root, 'CONTENT_AND_LOCALIZATION.md'), 'utf8');
 const sourceJs = await readFile(path.join(root, 'src', 'assets', 'site.js'), 'utf8');
 const sourceKnowledge = await readFile(path.join(root, 'src', 'knowledge-content.mjs'), 'utf8');
@@ -28,6 +30,12 @@ const stripeLibrary = await readFile(path.join(root, 'functions', '_lib', 'strip
 const paymentMigration = await readFile(path.join(root, 'migrations', '0002_payments.sql'), 'utf8');
 const customerDetailsMigration = await readFile(path.join(root, 'migrations', '0003_payment_customer_details.sql'), 'utf8');
 const wranglerConfig = await readFile(path.join(root, 'wrangler.jsonc'), 'utf8');
+const gitignore = await readFile(path.join(root, '.gitignore'), 'utf8');
+const portalMigration = await readFile(path.join(root, 'migrations', '0004_portal.sql'), 'utf8');
+const portalRateLimitMigration = await readFile(path.join(root, 'migrations', '0005_portal_oauth_rate_limit.sql'), 'utf8');
+const authLibrary = await readFile(path.join(root, 'functions', '_lib', 'auth.js'), 'utf8');
+const portalCasesFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases.js'), 'utf8');
+const headersFile = await readFile(path.join(dist, '_headers'), 'utf8');
 
 for (const [label, pattern] of [
   ['locale inheritance', /\.\.\.\s*languages\s*\[/],
@@ -44,6 +52,7 @@ for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
   if (!editorialPolicy[langKey]?.writingMode) errors.push(`${langKey}: editorial policy missing`);
   if (!paymentContent[langKey]?.payments?.products?.length) errors.push(`${langKey}: payment content missing`);
   if (!knowledgeContent[langKey]?.hub?.metaTitle) errors.push(`${langKey}: knowledge hub metadata missing`);
+  if (!portalContent[langKey]?.metaTitle || !portalContent[langKey]?.auth?.google || !portalContent[langKey]?.form?.consent) errors.push(`${langKey}: portal content missing`);
   for (const spec of knowledgeArticleSpecs) {
     const article = knowledgeContent[langKey]?.articles?.[spec.key];
     if (!article?.title || !article?.answer || article.sections?.length !== 3 || !article.checklist?.length) errors.push(`${langKey}: incomplete knowledge article ${spec.key}`);
@@ -61,7 +70,7 @@ if (layoutMode('zh-tw') !== 'cjk' || layoutMode('zh-cn') !== 'cjk' || layoutMode
 for (const hook of ['html[lang="zh-Hant"]', 'html[lang="zh-Hans"]', 'html[data-layout="cjk"]']) {
   if (!sourceCss.includes(hook)) errors.push(`CSS missing language layout hook ${hook}`);
 }
-if (/font-size:\s*(?:8|9|10|11)px/.test(sourceCss)) errors.push('CSS contains public text below the 12px readability floor');
+if (/font-size:\s*(?:8|9|10|11)px/.test(`${sourceCss}\n${sourcePortalCss}`)) errors.push('CSS contains public text below the 12px readability floor');
 if (!sourcePolicy.includes('Traditional and Simplified Chinese are separate editorial versions')) errors.push('content policy does not preserve independent Chinese writing');
 if (brandProfile.office.address !== brandProfile.registration.registeredAddressZhHans) errors.push('approved reception address differs from registered address');
 if (brandProfile.office.photos.length < 3) errors.push('approved reception-area photo set is incomplete');
@@ -82,7 +91,7 @@ for (const file of publicPdfs) if (!approvedPublicPdfs.includes(file)) errors.pu
 for (const file of approvedPublicPdfs) if (!publicPdfs.includes(file)) errors.push(`approved sample report missing from the public build: ${file}`);
 
 function localTarget(raw) {
-  if (!raw || raw.startsWith('#') || /^(https?:|mailto:|tel:|data:)/.test(raw)) return null;
+  if (!raw || raw.startsWith('#') || raw.startsWith('/api/') || /^(https?:|mailto:|tel:|data:)/.test(raw)) return null;
   const pathname = raw.split(/[?#]/)[0];
   if (!pathname.startsWith('/')) return null;
   if (path.extname(pathname)) return path.join(dist, pathname);
@@ -99,6 +108,7 @@ const requiredSections = {
   'payment-success/index.html': ['payment-result', 'payment-receipt', 'payment-intake', 'payment-balance-done'],
   'payment-terms/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-contact', 'support-panel'],
   'privacy/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-references', 'legal-contact', 'support-panel'],
+  'portal/index.html': ['portal-page', 'portal-entry', 'portal-auth', 'portal-workspace', 'portal-empty', 'portal-form', 'portal-account'],
   'knowledge/index.html': ['knowledge-hero', 'knowledge-index', 'knowledge-method']
 };
 for (const [file, sections] of Object.entries(requiredSections)) {
@@ -109,13 +119,37 @@ for (const [file, sections] of Object.entries(requiredSections)) {
 }
 
 for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
+  const portalHtml = await readFile(path.join(dist, prefix, 'portal', 'index.html'), 'utf8');
+  if (!portalHtml.includes('<meta name="robots" content="noindex, nofollow">')) errors.push(`dist/${prefix}portal/index.html: portal must be noindex`);
+  if (!portalHtml.includes('/assets/portal.css') || !portalHtml.includes('/assets/portal.js')) errors.push(`dist/${prefix}portal/index.html: portal assets missing`);
+  if (/<(?:section|article)[^>]+(?:fictional|demo-case|sample-customer)/i.test(portalHtml)) errors.push(`dist/${prefix}portal/index.html: fictional portal data found`);
+}
+const portalSitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
+if (/\/portal\//.test(portalSitemap)) errors.push('sitemap must not include private portal routes');
+for (const portalRoute of ['/portal/*', '/zh-tw/portal/*', '/zh-cn/portal/*']) {
+  if (!headersFile.includes(portalRoute)) errors.push(`portal headers missing ${portalRoute}`);
+}
+for (const directive of ["Cache-Control: private, no-store", 'X-Robots-Tag: noindex, nofollow', "default-src 'self'", "object-src 'none'"]) {
+  if (!headersFile.includes(directive)) errors.push(`portal security headers missing ${directive}`);
+}
+for (const table of ['portal_users', 'portal_identities', 'portal_oauth_attempts', 'portal_sessions', 'portal_cases', 'portal_audit_events']) {
+  if (!portalMigration.includes(`CREATE TABLE IF NOT EXISTS ${table}`)) errors.push(`portal migration missing ${table}`);
+}
+if (!portalRateLimitMigration.includes('request_fingerprint_hash')) errors.push('portal OAuth rate-limit migration missing fingerprint column');
+if (!/\.dev\.vars/.test(gitignore)) errors.push('.dev.vars is not ignored');
+if (!authLibrary.includes('HttpOnly') || !authLibrary.includes('SameSite=Lax') || !authLibrary.includes('Secure')) errors.push('portal session cookie safeguards are incomplete');
+if (!authLibrary.includes('env.PORTAL_DB') || !authLibrary.includes("env.ALLOW_LOCAL_PORTAL === 'true'")) errors.push('production portal database is not isolated from analytics');
+if (!portalCasesFunction.includes('WHERE owner_user_id = ?1')) errors.push('portal case list is not owner-scoped');
+if (/GOOGLE_CLIENT_SECRET\s*=\s*[^\n]*[A-Za-z0-9_-]{12}/.test([sourceTemplate, sourceJs, authLibrary, wranglerConfig].join('\n'))) errors.push('hard-coded Google secret found');
+
+for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
   const privacyHtml = await readFile(path.join(dist, prefix, 'privacy', 'index.html'), 'utf8');
   const termsHtml = await readFile(path.join(dist, prefix, 'payment-terms', 'index.html'), 'utf8');
   const privacyArticles = (privacyHtml.match(/class="legal-row reveal"/g) || []).length;
   const termsArticles = (termsHtml.match(/class="legal-row reveal"/g) || []).length;
   if (privacyArticles !== 13) errors.push(`dist/${prefix}privacy/index.html: expected 13 privacy articles, found ${privacyArticles}`);
   if (termsArticles !== 14) errors.push(`dist/${prefix}payment-terms/index.html: expected 14 payment articles, found ${termsArticles}`);
-  for (const href of ['https://stripe.com/privacy', 'https://www.cloudflare.com/privacypolicy/']) {
+  for (const href of ['https://stripe.com/privacy', 'https://www.cloudflare.com/privacypolicy/', 'https://policies.google.com/privacy']) {
     if (!privacyHtml.includes(href)) errors.push(`dist/${prefix}privacy/index.html: missing provider notice ${href}`);
   }
 }

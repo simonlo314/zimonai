@@ -1,15 +1,18 @@
 const providerReferences = {
   en: [
     { label: 'Stripe Privacy Policy', href: 'https://stripe.com/privacy', note: 'How Stripe handles payment and transaction data.' },
-    { label: 'Cloudflare Privacy Policy', href: 'https://www.cloudflare.com/privacypolicy/', note: 'How the hosting and security provider handles network data.' }
+    { label: 'Cloudflare Privacy Policy', href: 'https://www.cloudflare.com/privacypolicy/', note: 'How the hosting and security provider handles network data.' },
+    { label: 'Google Privacy Policy', href: 'https://policies.google.com/privacy', note: 'How Google handles identity data used for account sign-in.' }
   ],
   'zh-tw': [
     { label: 'Stripe 隱私權政策', href: 'https://stripe.com/privacy', note: '了解 Stripe 如何處理付款與交易資料。' },
-    { label: 'Cloudflare 隱私權政策', href: 'https://www.cloudflare.com/privacypolicy/', note: '了解網站託管與安全服務商如何處理網路資料。' }
+    { label: 'Cloudflare 隱私權政策', href: 'https://www.cloudflare.com/privacypolicy/', note: '了解網站託管與安全服務商如何處理網路資料。' },
+    { label: 'Google 隱私權政策', href: 'https://policies.google.com/privacy', note: '了解 Google 如何處理帳戶登入所需的身分資料。' }
   ],
   'zh-cn': [
     { label: 'Stripe 隐私政策', href: 'https://stripe.com/privacy', note: '了解 Stripe 如何处理付款与交易资料。' },
-    { label: 'Cloudflare 隐私政策', href: 'https://www.cloudflare.com/privacypolicy/', note: '了解网站托管与安全服务商如何处理网络资料。' }
+    { label: 'Cloudflare 隐私政策', href: 'https://www.cloudflare.com/privacypolicy/', note: '了解网站托管与安全服务商如何处理网络资料。' },
+    { label: 'Google 隐私政策', href: 'https://policies.google.com/privacy', note: '了解 Google 如何处理账户登录所需的身份资料。' }
   ]
 };
 
@@ -22,14 +25,14 @@ export const legalContent = {
     },
     privacy: {
       kicker: 'Privacy notice', title: 'What enters our systems, why it is used and when it can be removed.',
-      lead: 'Effective 21 August 2026. This notice covers zimonai.com, service enquiries, Stripe payments and the information used to deliver an agreed ZimonAI assignment.',
+      lead: 'Effective 21 August 2026. This notice covers zimonai.com, client-account sign-in, service enquiries, Stripe payments and the information used to deliver an agreed ZimonAI assignment.',
       summaryTitle: 'The short version',
       summary: 'ZimonAI follows a data-minimisation approach: we collect what is needed to understand a request, confirm payment, deliver the agreed work and keep necessary business records. We do not sell personal information or use advertising cookies. The site does use limited first-party, aggregate analytics, described below.',
       sections: [
         {
           title: 'Scope and responsible business',
           paragraphs: [
-            'This notice applies when you browse zimonai.com, prepare or send an enquiry, make a payment, book a consultation, or provide material for a supplier-verification assignment.',
+            'This notice applies when you browse zimonai.com, sign in to the client portal, prepare or send an enquiry, make a payment, book a consultation, or provide material for a supplier-verification assignment.',
             'The website and the ZimonAI service are operated by 深圳智蒙湾科技有限公司 (ZimonAI Technology Co., Ltd.). A supplier, marketplace, certificate issuer, payment provider or other third party has its own responsibility for information processed in its systems.'
           ]
         },
@@ -37,7 +40,7 @@ export const legalContent = {
           title: 'Website delivery and security records',
           paragraphs: [
             'Cloudflare delivers and protects the public website. Like other hosting and security providers, it may process network and system data needed to route traffic, detect abuse and keep the service available, such as IP address, request time, browser or device information and security events.',
-            'ZimonAI does not use those infrastructure records to build advertising profiles. Cloudflare processes its records under its own privacy notice and service arrangements.'
+            'ZimonAI does not use those infrastructure records to build advertising profiles. To limit automated sign-in abuse, the client portal may briefly keep a keyed, pseudonymous request marker; the portal database does not retain the raw IP address for this purpose. Cloudflare processes its records under its own privacy notice and service arrangements.'
           ]
         },
         {
@@ -58,7 +61,8 @@ export const legalContent = {
           title: 'Enquiry forms and direct contact',
           paragraphs: [
             'The request and post-payment intake forms prepare an email draft on your device. The website does not upload or save the text you type into those fields. Information leaves your device only after you review and send the message through your own email provider.',
-            'If you contact ZimonAI by email, telephone, WhatsApp, WeChat, LINE or LinkedIn, we receive the contact details and content you choose to provide. Please send only material relevant to the request and avoid card details, unrelated identity documents or unnecessary personal information.'
+            'If you contact ZimonAI by email, telephone, WhatsApp, WeChat, LINE or LinkedIn, we receive the contact details and content you choose to provide. Please send only material relevant to the request and avoid card details, unrelated identity documents or unnecessary personal information.',
+            'The client portal works differently from the public email-draft forms: information you deliberately submit while signed in is transmitted to ZimonAI and stored as part of the account and case record.'
           ]
         },
         {
@@ -73,7 +77,8 @@ export const legalContent = {
           title: 'Assignment files and supplier information',
           paragraphs: [
             'A verification assignment may require supplier names, company records, quotations, product models, certificate numbers, images, correspondence and the buyer-side question the work is intended to support. Some material may contain names or business contact details.',
-            'ZimonAI uses the material only to assess the request, agree the scope, perform the work, explain the evidence, deliver the report, answer follow-up questions and maintain an auditable business record. The client remains responsible for having authority to share the material.'
+            'ZimonAI uses the material only to assess the request, agree the scope, perform the work, explain the evidence, deliver the report, answer follow-up questions and maintain an auditable business record. The client remains responsible for having authority to share the material.',
+            'A portal account stores the verified email address, display name, preferred language, internal account reference, case references, submitted case fields and status history needed to operate the workspace. Google passwords and Google access tokens are not stored by ZimonAI.'
           ]
         },
         {
@@ -93,7 +98,7 @@ export const legalContent = {
             'ZimonAI does not sell personal information. Information is shared only when needed for the agreed work, when you instruct or authorise the sharing, to operate essential services, or when disclosure is legally required.'
           ],
           items: [
-            'Infrastructure, email, payment, accounting or professional service providers',
+            'Infrastructure, account sign-in, email, payment, accounting or professional service providers',
             'A supplier, certificate issuer, laboratory or scoped specialist when the assignment requires direct confirmation',
             'Authorities, courts or advisers where disclosure is required to comply with law or protect legal rights'
           ],
@@ -110,20 +115,20 @@ export const legalContent = {
           title: 'Retention and deletion',
           paragraphs: [
             'Retention depends on the type of record, whether an assignment proceeds, accounting and tax requirements, the need to answer follow-up questions, and whether a dispute or legal obligation exists. ZimonAI does not keep information merely because storage is available.',
-            'Enquiry and assignment correspondence is reviewed when no longer operationally necessary. Payment and accounting records may need to be kept for the legally required period. Aggregate analytics cannot ordinarily be linked back to a named person and is retained for site trend reporting.'
+            'Enquiry, account and assignment records are reviewed when no longer operationally necessary. Sessions expire and can be revoked at sign-out; deleting a portal account may require a verified request. Payment and accounting records may need to be kept for the legally required period. Aggregate analytics cannot ordinarily be linked back to a named person and is retained for site trend reporting.'
           ]
         },
         {
           title: 'Security and practical limits',
           paragraphs: [
-            'ZimonAI uses access controls, provider-hosted HTTPS, restricted payment credentials and service-specific handling practices intended to reduce unauthorised access, alteration or disclosure. Full card data remains within Stripe-hosted payment systems.',
+            'ZimonAI uses access controls, provider-hosted HTTPS, restricted payment credentials, hashed portal-session identifiers and account-scoped case queries intended to reduce unauthorised access, alteration or disclosure. Full card data remains within Stripe-hosted payment systems.',
             'No email, cloud or internet system is risk-free. If you believe information has been sent to the wrong place or a security issue affects your material, contact ZimonAI promptly with enough detail to identify the record.'
           ]
         },
         {
           title: 'Your choices and requests',
           paragraphs: [
-            'Subject to applicable law and record-keeping duties, you may ask whether ZimonAI holds personal information about you and request access, correction or deletion. You may also ask for processing to be limited or object to a use where the relevant law provides that right.',
+            'Subject to applicable law and record-keeping duties, you may ask whether ZimonAI holds personal information about you and request access, correction, account closure or deletion. You may also ask for processing to be limited or object to a use where the relevant law provides that right.',
             'A request may require reasonable identity verification. ZimonAI may retain information that must be kept for accounting, legal claims, security or regulatory obligations, and will explain the reason where a request cannot be completed in full.'
           ]
         },
@@ -169,22 +174,22 @@ export const legalContent = {
     },
     privacy: {
       kicker: '隱私聲明', title: '哪些資料會進入系統、為何使用，以及何時可以刪除。',
-      lead: '生效日期：2026 年 8 月 21 日。本聲明適用於 zimonai.com、服務詢問、Stripe 付款，以及執行雙方約定之 ZimonAI 服務所需的資料。',
+      lead: '生效日期：2026 年 8 月 21 日。本聲明適用於 zimonai.com、客戶帳戶登入、服務詢問、Stripe 付款，以及執行雙方約定之 ZimonAI 服務所需的資料。',
       summaryTitle: '先說結論',
       summary: 'ZimonAI 採取資料最少化原則：只處理釐清需求、確認付款、完成約定工作與保存必要商業紀錄所需的資料。我們不出售個人資料，也不使用廣告 Cookie；網站會使用有限、第一方且彙總化的流量統計，細節如下。',
       sections: [
-        { title: '適用範圍與營運主體', paragraphs: ['本聲明適用於你瀏覽 zimonai.com、準備或寄出需求信、付款、預約諮詢，或提供供應商查核案件資料時的資訊處理。', '網站與 ZimonAI 服務由深圳智蒙湾科技有限公司（ZimonAI Technology Co., Ltd.）營運。供應商、平台、證書發證單位、付款服務商或其他第三方，會各自對其系統內的資料處理負責。'] },
-        { title: '網站傳輸與安全紀錄', paragraphs: ['公開網站由 Cloudflare 提供傳輸與安全防護。和一般託管及資安服務相同，Cloudflare 可能為了傳送流量、辨識濫用與維持服務可用性，處理 IP 位址、請求時間、瀏覽器或裝置資訊、資安事件等網路與系統資料。', 'ZimonAI 不會拿這些基礎設施紀錄建立廣告受眾。Cloudflare 會依自己的隱私權政策與服務約定處理相關資料。'] },
+        { title: '適用範圍與營運主體', paragraphs: ['本聲明適用於你瀏覽 zimonai.com、登入客戶中心、準備或寄出需求信、付款、預約諮詢，或提供供應商查核案件資料時的資訊處理。', '網站與 ZimonAI 服務由深圳智蒙湾科技有限公司（ZimonAI Technology Co., Ltd.）營運。供應商、平台、證書發證單位、付款服務商或其他第三方，會各自對其系統內的資料處理負責。'] },
+        { title: '網站傳輸與安全紀錄', paragraphs: ['公開網站由 Cloudflare 提供傳輸與安全防護。和一般託管及資安服務相同，Cloudflare 可能為了傳送流量、辨識濫用與維持服務可用性，處理 IP 位址、請求時間、瀏覽器或裝置資訊、資安事件等網路與系統資料。', 'ZimonAI 不會拿這些基礎設施紀錄建立廣告受眾。為了限制自動化登入濫用，客戶中心可能短暫保存由請求訊號產生、並以祕密金鑰處理的匿名化標記；客戶中心資料庫不會為此保存原始 IP 位址。Cloudflare 會依自己的隱私權政策與服務約定處理相關資料。'] },
         { title: '第一方網站統計', paragraphs: ['正式網站會記錄少量事件，用來了解哪些頁面與服務選項真正有用，以及重要功能是否正常。ZimonAI 的統計資料庫保存的是每日彙總次數，不建立具名訪客檔案。'], items: ['事件類型、頁面路徑與語言版本', '導覽、服務選擇、聯絡或開始付款等動作的簡短代碼', '手機、平板或桌面裝置分類', '來源網站的網域分類，不保存完整來源網址', '只存在瀏覽器工作階段內的 session-start 標記'], note: 'ZimonAI 的統計資料庫不會刻意保存姓名、Email、IP 位址、完整網址查詢字串或跨站廣告識別碼。瀏覽器若啟用 Do Not Track 或 Global Privacy Control，網站不會送出這些統計事件。' },
-        { title: '需求表單與直接聯絡', paragraphs: ['需求表單與付款後收件表單只會在你的裝置上準備 Email 草稿；網站不會上傳或保存尚未寄出的欄位內容。只有在你檢查內容並透過自己的郵件服務按下寄出後，資料才會離開裝置。', '若你透過 Email、電話、WhatsApp、WeChat、LINE 或 LinkedIn 聯絡，我們會收到你主動提供的聯絡資料與訊息內容。請只提供與案件有關的資料，不要傳送信用卡資料、無關的身分證件或不必要的個人資訊。'] },
+        { title: '需求表單與直接聯絡', paragraphs: ['需求表單與付款後收件表單只會在你的裝置上準備 Email 草稿；網站不會上傳或保存尚未寄出的欄位內容。只有在你檢查內容並透過自己的郵件服務按下寄出後，資料才會離開裝置。', '若你透過 Email、電話、WhatsApp、WeChat、LINE 或 LinkedIn 聯絡，我們會收到你主動提供的聯絡資料與訊息內容。請只提供與案件有關的資料，不要傳送信用卡資料、無關的身分證件或不必要的個人資訊。', '客戶中心和公開 Email 草稿表單的運作方式不同：你登入後主動送出的資料，會傳送給 ZimonAI，並作為帳戶與案件紀錄保存。'] },
         { title: '付款與訂單紀錄', paragraphs: ['付款頁由 Stripe 提供。Stripe 會依其條款與隱私權政策處理付款方式、聯絡、交易、裝置與防詐資料；ZimonAI 不會接收或保存完整信用卡號與安全碼。', '為了確認與支援訂單，ZimonAI 會收到並保存 Stripe 付款工作階段與交易編號、服務項目、金額、幣別、數量、付款狀態、收據 Email、客戶姓名，以及該次結帳所收集的公司名稱、電話、稅籍編號或服務參考資料。'], note: '請勿在案件收件或 Email 中傳送信用卡號與安全碼。' },
-        { title: '案件文件與供應商資料', paragraphs: ['供應商查核可能需要公司名稱、企業紀錄、報價單、產品型號、證書編號、圖片、往來信件，以及這次查核要支援的買方決策。部分文件可能包含姓名或商務聯絡方式。', 'ZimonAI 只會用這些資料評估需求、確認範圍、執行查核、說明證據、交付報告、回答後續問題，以及保存可追溯的商業紀錄。客戶需確保自己有權提供相關文件與資訊。'] },
+        { title: '案件文件與供應商資料', paragraphs: ['供應商查核可能需要公司名稱、企業紀錄、報價單、產品型號、證書編號、圖片、往來信件，以及這次查核要支援的買方決策。部分文件可能包含姓名或商務聯絡方式。', 'ZimonAI 只會用這些資料評估需求、確認範圍、執行查核、說明證據、交付報告、回答後續問題，以及保存可追溯的商業紀錄。客戶需確保自己有權提供相關文件與資訊。', '客戶中心會保存已驗證的 Email、顯示名稱、偏好語言、內部帳戶編號、案件編號、送出的案件欄位與狀態紀錄。ZimonAI 不會保存你的 Google 密碼或 Google 存取權杖。'] },
         { title: '資料使用目的', items: ['回覆詢問，準備或執行雙方約定的服務', '確認付款、傳送服務訊息與保存會計紀錄', '核對來源、記錄判斷，並處理後續問題或爭議', '保護網站、預防濫用與診斷技術問題', '履行適用的記帳、稅務、法律或監管義務'], note: '未經另外同意，ZimonAI 不會把案件文件改寫成公開案例、客戶評價或行銷宣稱。' },
-        { title: '可能提供資料的情況', paragraphs: ['ZimonAI 不出售個人資料。只有在完成約定工作確有需要、你指示或授權、營運必要服務需要，或法律要求揭露時，才會提供相關資料。'], items: ['網站、Email、付款、會計或專業服務商', '案件需要直接確認時的供應商、發證單位、實驗室或已納入範圍的專業人員', '依法必須揭露或為維護合法權益所需的主管機關、法院或專業顧問'], note: '每次只應提供該目的合理所需的資料。供應商聯絡或現場工作，仍以雙方確認的服務範圍為準。' },
+        { title: '可能提供資料的情況', paragraphs: ['ZimonAI 不出售個人資料。只有在完成約定工作確有需要、你指示或授權、營運必要服務需要，或法律要求揭露時，才會提供相關資料。'], items: ['網站、帳戶登入、Email、付款、會計或專業服務商', '案件需要直接確認時的供應商、發證單位、實驗室或已納入範圍的專業人員', '依法必須揭露或為維護合法權益所需的主管機關、法院或專業顧問'], note: '每次只應提供該目的合理所需的資料。供應商聯絡或現場工作，仍以雙方確認的服務範圍為準。' },
         { title: '跨境處理', paragraphs: ['ZimonAI 採台北 × 深圳協作，並使用跨國網站與付款服務，因此資料可能在不同國家或地區處理；當地的個資規則可能與你所在地不同。', '由外部服務商處理時，會依該服務商的合約與安全安排執行。若個別案件需要新的接收方或非一般性的資料移轉，應在案件範圍中另行確認。'] },
-        { title: '保存期間與刪除', paragraphs: ['保存時間會依紀錄類型、案件是否成立、會計與稅務要求、後續答覆需要，以及是否存在爭議或法律義務決定。ZimonAI 不會只因為儲存空間存在就無限期保留資料。', '詢問與案件往來在不再有營運需要時會接受檢視；付款與會計紀錄可能必須依法保存。彙總流量統計通常無法回連到具名個人，會用於觀察網站長期趨勢。'] },
-        { title: '安全措施與實際限制', paragraphs: ['ZimonAI 使用存取控制、服務商提供的 HTTPS、受限制的付款憑證與按案件處理方式，降低資料被未授權存取、變更或揭露的風險。完整卡片資料留在 Stripe 的付款系統中。', '任何 Email、雲端或網路系統都不可能保證零風險。若你認為資料寄錯地方或可能發生安全問題，請儘快聯絡並提供足以找到紀錄的資訊。'] },
-        { title: '你的選擇與權利', paragraphs: ['在適用法律與保存義務允許的範圍內，你可以詢問 ZimonAI 是否持有你的個人資料，並要求查閱、更正或刪除；若法律賦予相關權利，也可以要求限制處理或提出異議。', '為避免把資料交給錯誤對象，提出請求時可能需要合理的身分確認。若資料因會計、法律主張、資安或監管義務必須保留，我們會說明無法完整執行請求的原因。'] },
+        { title: '保存期間與刪除', paragraphs: ['保存時間會依紀錄類型、案件是否成立、會計與稅務要求、後續答覆需要，以及是否存在爭議或法律義務決定。ZimonAI 不會只因為儲存空間存在就無限期保留資料。', '詢問、帳戶與案件往來在不再有營運需要時會接受檢視；登入工作階段會到期，也會在登出後撤銷。刪除客戶中心帳戶可能需要提出可驗證的申請。付款與會計紀錄則可能必須依法保存。'] },
+        { title: '安全措施與實際限制', paragraphs: ['ZimonAI 使用存取控制、服務商提供的 HTTPS、受限制的付款憑證、雜湊處理的登入工作階段識別碼，以及依帳戶篩選案件的查詢方式，降低資料被未授權存取、變更或揭露的風險。完整卡片資料留在 Stripe 的付款系統中。', '任何 Email、雲端或網路系統都不可能保證零風險。若你認為資料寄錯地方或可能發生安全問題，請儘快聯絡並提供足以找到紀錄的資訊。'] },
+        { title: '你的選擇與權利', paragraphs: ['在適用法律與保存義務允許的範圍內，你可以詢問 ZimonAI 是否持有你的個人資料，並要求查閱、更正、關閉帳戶或刪除；若法律賦予相關權利，也可以要求限制處理或提出異議。', '為避免把資料交給錯誤對象，提出請求時可能需要合理的身分確認。若資料因會計、法律主張、資安或監管義務必須保留，我們會說明無法完整執行請求的原因。'] },
         { title: '未成年人、版本與聯絡', paragraphs: ['網站與服務以商務使用者為對象，並非提供給未成年人。除非確有必要、具備合法依據且事前另行確認，請勿提交未成年人的資料。', '網站、服務商或作業流程改變時，本聲明可能更新；頁首生效日期代表目前公開版本。隱私問題與資料請求請寄至 simonlo@zimonai.com。'] }
       ],
       references: providerReferences['zh-tw']
@@ -221,22 +226,22 @@ export const legalContent = {
     },
     privacy: {
       kicker: '隐私声明', title: '哪些资料会进入系统、为何使用，以及何时可以删除。',
-      lead: '生效日期：2026 年 8 月 21 日。本声明适用于 zimonai.com、服务咨询、Stripe 付款，以及执行双方约定的 ZimonAI 服务所需资料。',
+      lead: '生效日期：2026 年 8 月 21 日。本声明适用于 zimonai.com、客户账户登录、服务咨询、Stripe 付款，以及执行双方约定的 ZimonAI 服务所需资料。',
       summaryTitle: '先说结论',
       summary: 'ZimonAI 采取资料最少化原则：只处理明确需求、确认付款、完成约定工作与保存必要商业记录所需的资料。我们不出售个人信息，也不使用广告 Cookie；网站会使用有限、第一方并且汇总化的流量统计，细节如下。',
       sections: [
-        { title: '适用范围与运营主体', paragraphs: ['本声明适用于你浏览 zimonai.com、准备或发送需求邮件、付款、预约咨询，或提供供应商核查案件资料时的信息处理。', '网站与 ZimonAI 服务由深圳智蒙湾科技有限公司（ZimonAI Technology Co., Ltd.）运营。供应商、平台、证书签发机构、付款服务商或其他第三方，会各自对其系统内的资料处理负责。'] },
-        { title: '网站传输与安全记录', paragraphs: ['公开网站由 Cloudflare 提供传输与安全防护。与一般托管和安全服务相同，Cloudflare 可能为了传送流量、识别滥用和维持服务可用性，处理 IP 地址、请求时间、浏览器或设备信息、安全事件等网络与系统资料。', 'ZimonAI 不会使用这些基础设施记录建立广告受众。Cloudflare 会按照自己的隐私政策与服务约定处理相关资料。'] },
+        { title: '适用范围与运营主体', paragraphs: ['本声明适用于你浏览 zimonai.com、登录客户中心、准备或发送需求邮件、付款、预约咨询，或提供供应商核查案件资料时的信息处理。', '网站与 ZimonAI 服务由深圳智蒙湾科技有限公司（ZimonAI Technology Co., Ltd.）运营。供应商、平台、证书签发机构、付款服务商或其他第三方，会各自对其系统内的资料处理负责。'] },
+        { title: '网站传输与安全记录', paragraphs: ['公开网站由 Cloudflare 提供传输与安全防护。与一般托管和安全服务相同，Cloudflare 可能为了传送流量、识别滥用和维持服务可用性，处理 IP 地址、请求时间、浏览器或设备信息、安全事件等网络与系统资料。', 'ZimonAI 不会使用这些基础设施记录建立广告受众。为了限制自动化登录滥用，客户中心可能短暂保存由请求信号生成、并以密钥处理的匿名化标记；客户中心数据库不会为此保存原始 IP 地址。Cloudflare 会按照自己的隐私政策与服务约定处理相关资料。'] },
         { title: '第一方网站统计', paragraphs: ['正式网站会记录少量事件，用于了解哪些页面和服务选项真正有用，以及重要功能是否正常。ZimonAI 的统计数据库保存每日汇总次数，不建立实名访客档案。'], items: ['事件类型、页面路径与语言版本', '导航、服务选择、联系或开始付款等动作的简短代码', '手机、平板或桌面设备分类', '来源网站的域名分类，不保存完整来源网址', '只存在浏览器会话内的 session-start 标记'], note: 'ZimonAI 的统计数据库不会刻意保存姓名、邮箱、IP 地址、完整网址查询字符串或跨站广告标识符。浏览器如果启用 Do Not Track 或 Global Privacy Control，网站不会发送这些统计事件。' },
-        { title: '需求表单与直接联系', paragraphs: ['需求表单和付款后收件表单只会在你的设备上准备邮件草稿；网站不会上传或保存尚未发送的字段内容。只有在你检查内容并通过自己的邮件服务点击发送后，资料才会离开设备。', '如果你通过邮箱、电话、WhatsApp、WeChat、LINE 或 LinkedIn 联系，我们会收到你主动提供的联系资料与消息内容。请只提供与案件有关的资料，不要发送银行卡资料、无关的身份证件或不必要的个人信息。'] },
+        { title: '需求表单与直接联系', paragraphs: ['需求表单和付款后收件表单只会在你的设备上准备邮件草稿；网站不会上传或保存尚未发送的字段内容。只有在你检查内容并通过自己的邮件服务点击发送后，资料才会离开设备。', '如果你通过邮箱、电话、WhatsApp、WeChat、LINE 或 LinkedIn 联系，我们会收到你主动提供的联系资料与消息内容。请只提供与案件有关的资料，不要发送银行卡资料、无关的身份证件或不必要的个人信息。', '客户中心和公开邮件草稿表单的运行方式不同：你登录后主动提交的资料，会传送给 ZimonAI，并作为账户与项目记录保存。'] },
         { title: '付款与订单记录', paragraphs: ['付款页面由 Stripe 提供。Stripe 会按照其条款与隐私政策处理付款方式、联系、交易、设备与反欺诈资料；ZimonAI 不会接收或保存完整银行卡号与安全码。', '为了确认和支持订单，ZimonAI 会收到并保存 Stripe 付款会话与交易编号、服务项目、金额、币种、数量、付款状态、收据邮箱、客户姓名，以及本次结账所收集的公司名称、电话、税号或服务参考资料。'], note: '请勿在案件收件或邮件中发送银行卡号与安全码。' },
-        { title: '案件文件与供应商资料', paragraphs: ['供应商核查可能需要企业名称、企业记录、报价单、产品型号、证书编号、图片、往来邮件，以及本次核查要支持的买方决策。部分文件可能包含姓名或商务联系方式。', 'ZimonAI 只会使用这些资料评估需求、确认范围、执行核查、说明证据、交付报告、回答后续问题，以及保存可追溯的商业记录。客户需要确保自己有权提供相关文件与信息。'] },
+        { title: '案件文件与供应商资料', paragraphs: ['供应商核查可能需要企业名称、企业记录、报价单、产品型号、证书编号、图片、往来邮件，以及本次核查要支持的买方决策。部分文件可能包含姓名或商务联系方式。', 'ZimonAI 只会使用这些资料评估需求、确认范围、执行核查、说明证据、交付报告、回答后续问题，以及保存可追溯的商业记录。客户需要确保自己有权提供相关文件与信息。', '客户中心会保存已验证的邮箱、显示名称、偏好语言、内部账户编号、项目编号、提交的项目字段与状态记录。ZimonAI 不会保存你的 Google 密码或 Google 访问令牌。'] },
         { title: '资料使用目的', items: ['回复咨询，准备或执行双方约定的服务', '确认付款、发送服务消息与保存会计记录', '核对来源、记录判断，并处理后续问题或争议', '保护网站、预防滥用与诊断技术问题', '履行适用的记账、税务、法律或监管义务'], note: '未经另外同意，ZimonAI 不会把案件文件改写成公开案例、客户评价或营销宣传。' },
-        { title: '可能提供资料的情况', paragraphs: ['ZimonAI 不出售个人信息。只有在完成约定工作确有需要、你指示或授权、运营必要服务需要，或法律要求披露时，才会提供相关资料。'], items: ['网站、邮箱、付款、会计或专业服务商', '案件需要直接确认时的供应商、发证机构、实验室或已经纳入范围的专业人员', '依法必须披露或为了维护合法权益所需的主管机关、法院或专业顾问'], note: '每次只应提供该目的合理所需的资料。供应商联系或现场工作，仍以双方确认的服务范围为准。' },
+        { title: '可能提供资料的情况', paragraphs: ['ZimonAI 不出售个人信息。只有在完成约定工作确有需要、你指示或授权、运营必要服务需要，或法律要求披露时，才会提供相关资料。'], items: ['网站、账户登录、邮箱、付款、会计或专业服务商', '案件需要直接确认时的供应商、发证机构、实验室或已经纳入范围的专业人员', '依法必须披露或为了维护合法权益所需的主管机关、法院或专业顾问'], note: '每次只应提供该目的合理所需的资料。供应商联系或现场工作，仍以双方确认的服务范围为准。' },
         { title: '跨境处理', paragraphs: ['ZimonAI 采用台北 × 深圳协作，并使用跨国网站与付款服务，因此资料可能在不同国家或地区处理；当地的个人信息规则可能与你所在地区不同。', '由外部服务商处理时，会按照该服务商的合同与安全安排执行。如果个别案件需要新的接收方或非常规资料传输，应在案件范围中另行确认。'] },
-        { title: '保存期间与删除', paragraphs: ['保存时间会根据记录类型、案件是否成立、会计与税务要求、后续回复需要，以及是否存在争议或法律义务决定。ZimonAI 不会仅仅因为有存储空间就无限期保留资料。', '咨询与案件往来在不再有运营需要时会接受检查；付款与会计记录可能必须依法保存。汇总流量统计通常无法重新关联到实名个人，会用于观察网站长期趋势。'] },
-        { title: '安全措施与实际限制', paragraphs: ['ZimonAI 使用访问控制、服务商提供的 HTTPS、受限制的付款凭证与按案件处理方式，降低资料被未授权访问、修改或披露的风险。完整银行卡资料保留在 Stripe 的付款系统中。', '任何邮箱、云端或网络系统都不可能保证零风险。如果你认为资料发送错误或可能发生安全问题，请尽快联系并提供足以找到记录的信息。'] },
-        { title: '你的选择与权利', paragraphs: ['在适用法律与保存义务允许的范围内，你可以询问 ZimonAI 是否持有你的个人信息，并要求查阅、更正或删除；如果法律赋予相关权利，也可以要求限制处理或提出异议。', '为了避免把资料交给错误对象，提出请求时可能需要合理的身份确认。如果资料因会计、法律主张、安全或监管义务必须保留，我们会说明无法完整执行请求的原因。'] },
+        { title: '保存期间与删除', paragraphs: ['保存时间会根据记录类型、案件是否成立、会计与税务要求、后续回复需要，以及是否存在争议或法律义务决定。ZimonAI 不会仅仅因为有存储空间就无限期保留资料。', '咨询、账户与项目往来在不再有运营需要时会接受检查；登录会话会到期，也会在退出登录后撤销。删除客户中心账户可能需要提出可以验证的申请。付款与会计记录则可能必须依法保存。'] },
+        { title: '安全措施与实际限制', paragraphs: ['ZimonAI 使用访问控制、服务商提供的 HTTPS、受限制的付款凭证、经过哈希处理的登录会话标识符，以及按账户筛选项目的查询方式，降低资料被未授权访问、修改或披露的风险。完整银行卡资料保留在 Stripe 的付款系统中。', '任何邮箱、云端或网络系统都不可能保证零风险。如果你认为资料发送错误或可能发生安全问题，请尽快联系并提供足以找到记录的信息。'] },
+        { title: '你的选择与权利', paragraphs: ['在适用法律与保存义务允许的范围内，你可以询问 ZimonAI 是否持有你的个人信息，并要求查阅、更正、关闭账户或删除；如果法律赋予相关权利，也可以要求限制处理或提出异议。', '为了避免把资料交给错误对象，提出请求时可能需要合理的身份确认。如果资料因会计、法律主张、安全或监管义务必须保留，我们会说明无法完整执行请求的原因。'] },
         { title: '未成年人、版本与联系', paragraphs: ['网站与服务面向商业用户，并非提供给未成年人。除非确有必要、具备合法依据并且事前另行确认，请勿提交未成年人的资料。', '网站、服务商或工作流程发生变化时，本声明可能更新；页面顶部的生效日期代表当前公开版本。隐私问题与资料请求请发送至 simonlo@zimonai.com。'] }
       ],
       references: providerReferences['zh-cn']

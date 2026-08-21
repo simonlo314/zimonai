@@ -103,6 +103,9 @@ a:hover .icon-arrow, button:hover .icon-arrow { transform: translateX(4px); }
 .lang-switch.is-open .lang-switch__menu { opacity: 1; transform: none; pointer-events: auto; }
 .lang-switch__menu a { display: block; padding: 9px 10px; font-size: 13px; }
 .lang-switch__menu a:hover, .lang-switch__menu a[aria-current] { background: var(--mist); }
+.nav-portal { min-height: 40px; display: inline-flex; align-items: center; padding: 8px 11px !important; border: 1px solid rgba(35,88,189,.24); border-radius: 9px; color: var(--ink); background: rgba(35,88,189,.055); font-weight: 700; }
+.nav-portal:hover, .nav-portal[aria-current="page"] { border-color: rgba(35,88,189,.42); background: rgba(35,88,189,.12); }
+.site-header--home .nav-portal { color: #fff; border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.07); }
 
 .button { min-height: 52px; display: inline-flex; justify-content: center; align-items: center; gap: 22px; padding: 13px 20px; border: 1px solid var(--ink); border-radius: var(--radius); cursor: pointer; font-size: 13px; font-weight: 700; transition: color .25s, background .25s, transform .15s; }
 .button--ink { color: var(--paper); background: var(--ink); }
@@ -762,6 +765,7 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 8.5em; font-size: cl
   .brand__logo { width: 158px; }
   .brand__descriptor { display: none; }
   .site-nav > a:not(.nav-cta) { display: none; }
+  .site-nav > .nav-portal { display: inline-flex; }
   .hero { grid-template-columns: 1fr; padding-top: calc(var(--header) + 76px); padding-bottom: 100px; }
   .hero__copy { max-width: 850px; }
   .dossier { width: min(100%, 700px); justify-self: end; }
@@ -818,6 +822,7 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 8.5em; font-size: cl
   .site-header--home .site-nav > a:not(.nav-cta)::after { background: var(--ink); }
   .site-nav.is-open { transform: none; }
   .site-nav > a:not(.nav-cta) { display: flex; padding: 16px 0; border-bottom: 1px solid var(--line); font-family: var(--serif); font-size: 28px; }
+  .site-nav .nav-portal { min-height: 58px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; color: var(--ink); background: transparent; font-family: var(--sans); font-size: 20px; }
   .lang-switch { order: 5; margin-top: 25px; }
   .lang-switch__menu { position: static; display: flex; gap: 8px; margin-top: 8px; opacity: 1; pointer-events: auto; transform: none; border: 0; box-shadow: none; padding: 0; background: transparent; }
   .lang-switch__menu a { border: 1px solid var(--line); }

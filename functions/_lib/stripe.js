@@ -59,6 +59,51 @@ export function cleanReference(value) {
   return String(value || '').replace(/[<>\r\n]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 120);
 }
 
+export function isJsonContentType(value) {
+  return String(value || '').split(';', 1)[0].trim().toLowerCase() === 'application/json';
+}
+
+export async function readJsonRequest(request, maxBytes = 4096) {
+  if (!isJsonContentType(request.headers.get('Content-Type'))) return { error: json({ error: 'invalid_content_type' }, 415) };
+  const declaredLength = Number(request.headers.get('Content-Length') || 0);
+  if (declaredLength > maxBytes) return { error: json({ error: 'request_too_large' }, 413) };
+  const body = await readBoundedBody(request, maxBytes);
+  if (body === null) return { error: json({ error: 'request_too_large' }, 413) };
+  try {
+    return { data: JSON.parse(new TextDecoder().decode(body)) };
+  } catch {
+    return { error: json({ error: 'invalid_json' }, 400) };
+  }
+}
+
+async function readBoundedBody(request, maxBytes) {
+  if (!request.body) return new Uint8Array();
+  const reader = request.body.getReader();
+  const chunks = [];
+  let total = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > maxBytes) {
+      try {
+        await reader.cancel('request_too_large');
+      } catch {
+        // The size limit has already been enforced; cancellation is best-effort.
+      }
+      return null;
+    }
+    chunks.push(value);
+  }
+  const body = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return body;
+}
+
 export function allowedRequestOrigin(request, env) {
   const origin = request.headers.get('Origin') || '';
   if (origin === 'https://zimonai.com' || origin === 'https://www.zimonai.com') return origin;

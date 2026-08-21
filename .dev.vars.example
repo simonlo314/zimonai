@@ -1,0 +1,13 @@
+# Google OAuth web application credentials. Never commit real values.
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+# A long random value used to bind portal sessions and CSRF tokens.
+PORTAL_SESSION_SECRET=
+
+# Local-only switches. Keep false in production.
+ALLOW_LOCAL_PORTAL=false
+PORTAL_AUTH_ENABLED=false
+
+# Optional canonical OAuth base. Production accepts only this exact value.
+AUTH_BASE_URL=https://zimonai.com
