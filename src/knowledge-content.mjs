@@ -7,7 +7,7 @@ export const knowledgeArticleSpecs = [
     dateModified: '2026-08-22',
     image: '/assets/editorial-chargers-table.jpg',
     imageWidth: 1600,
-    imageHeight: 2400,
+    imageHeight: 1000,
     photo: {
       photographer: "I'm Zion",
       page: 'https://www.pexels.com/photo/chargers-on-table-5948288/',
