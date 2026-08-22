@@ -807,9 +807,9 @@ export function renderPage(langKey, pageId) {
     url: brandProfile.domain,
     logo: {
       '@type': 'ImageObject',
-      url: 'https://zimonai.com/apple-touch-icon.png',
-      width: 180,
-      height: 180
+      url: 'https://zimonai.com/zimonai-shield-favicon.png',
+      width: 192,
+      height: 192
     },
     email: brandProfile.email,
     telephone: brandProfile.contacts.chinaPhone.display,
@@ -948,7 +948,7 @@ export function renderPage(langKey, pageId) {
   <meta name="twitter:image" content="${socialImage}">
   <meta name="twitter:image:alt" content="${esc(ogImageAlt)}">
   <meta name="theme-color" content="#101D33">
-  <link rel="icon" href="/zimonai-favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="/zimonai-shield-favicon.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="/assets/site.css">
   ${pageId === 'portal' || pageId === 'admin' ? '<link rel="stylesheet" href="/assets/portal.css">' : ''}

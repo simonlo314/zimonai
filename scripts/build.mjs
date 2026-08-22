@@ -44,6 +44,8 @@ await rm(dist, { recursive: true, force: true });
 await mkdir(path.join(dist, 'assets'), { recursive: true });
 await cp(sourceAssets, path.join(dist, 'assets'), { recursive: true });
 await cp(path.join(sourceAssets, 'zimonai-shield-icon-mono-white.svg'), path.join(dist, 'zimonai-favicon.svg'));
+await cp(path.join(sourceAssets, 'zimonai-shield-favicon.png'), path.join(dist, 'zimonai-shield-favicon.png'));
+await cp(path.join(sourceAssets, 'favicon.ico'), path.join(dist, 'favicon.ico'));
 await cp(path.join(sourceAssets, 'apple-touch-icon.png'), path.join(dist, 'apple-touch-icon.png'));
 
 for (const [langKey, lang] of Object.entries(languages)) {
