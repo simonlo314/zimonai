@@ -736,9 +736,10 @@ const renderers = { home, services, methodology, scope, about, portal, admin, re
 function header(t, pageId) {
   const nav = [['services', t.nav.servicesBooking], ['knowledge', t.nav.knowledge], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
   const isHome = pageId === 'home';
-  return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header${isHome ? ' site-header--home' : ''}" data-header>
+  const usesNightHeader = pageId !== 'portal' && pageId !== 'admin';
+  return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header${isHome ? ' site-header--home' : ''}${usesNightHeader ? ' site-header--night' : ''}" data-header>
     <div class="site-header__inner">
-      <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo" src="${isHome ? '/assets/zimonai-logo-white.svg' : '/assets/zimonai-logo-primary.svg'}" alt="ZimonAI" width="1600" height="360"><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>
+      <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo" src="${usesNightHeader ? '/assets/zimonai-logo-white.svg' : '/assets/zimonai-logo-primary.svg'}" alt="ZimonAI" width="1600" height="360"><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-nav-toggle><span>${esc(t.nav.menu)}</span><i></i><i></i></button>
       <nav class="site-nav" id="main-nav" data-nav>
         <span class="nav-hover-frame" aria-hidden="true" data-nav-frame></span>
@@ -935,7 +936,7 @@ export function renderPage(langKey, pageId) {
   ${pageId === 'portal' ? '<script type="module" src="/assets/portal.js"></script>' : ''}
   ${pageId === 'admin' ? '<script type="module" src="/assets/admin.js"></script>' : ''}
 </head>
-<body${pageId === 'portal' ? ' class="page-portal"' : pageId === 'admin' ? ' class="page-portal page-admin"' : ''}>
+<body class="${pageId === 'portal' ? 'page-portal' : pageId === 'admin' ? 'page-portal page-admin' : `page-public page-public--${pageId}`}">
   ${header(t, pageId)}
   ${page.kind === 'article' ? knowledgeArticle(t, page) : renderers[pageId](t)}
   ${footer(t)}

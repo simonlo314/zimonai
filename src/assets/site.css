@@ -1707,3 +1707,390 @@ html[data-layout="cjk"] .legal-contact h2 { margin: 0 0 12px; color: #fff; font-
   .reveal { opacity: 1; transform: none; }
   .hero-cinema__beam, .hero-cinema__scan { display: none; }
 }
+
+/* Nightfall interior system
+   The public site now shares the same midnight canvas as the home page. Raised
+   evidence panels carry long-form reading and forms without reverting to white. */
+.site-header--night:not(.site-header--home) {
+  color: #f5f8fd;
+  background: #09172a;
+}
+.site-header--night:not(.site-header--home) .site-header__inner {
+  border-color: rgba(161, 191, 229, .2);
+  background: linear-gradient(112deg, rgba(12, 29, 52, .97), rgba(17, 42, 72, .93));
+  box-shadow: 0 16px 44px rgba(0, 8, 20, .28);
+}
+.site-header--night .brand__descriptor {
+  color: #aebfd3;
+  border-color: rgba(168, 197, 232, .24);
+}
+.site-header--night .site-nav > a:not(.nav-cta)::after { background: #8fbcf5; }
+.site-header--night .nav-hover-frame {
+  border-color: rgba(151, 186, 229, .3);
+  background: rgba(100, 156, 226, .1);
+}
+.site-header--night .nav-portal,
+.site-header--night .nav-cta {
+  color: #f4f8fd;
+  border-color: rgba(139, 180, 232, .3);
+  background: rgba(75, 132, 209, .12);
+}
+.site-header--night .nav-portal:hover,
+.site-header--night .nav-portal[aria-current="page"],
+.site-header--night .nav-cta:hover {
+  border-color: rgba(153, 196, 247, .54);
+  background: rgba(93, 153, 232, .22);
+}
+.site-header--night .lang-switch__menu {
+  color: #eef5fd;
+  border-color: rgba(151, 184, 224, .24);
+  background: #10243d;
+  box-shadow: 0 24px 58px rgba(0, 7, 18, .36);
+}
+.site-header--night .lang-switch__menu a:hover,
+.site-header--night .lang-switch__menu a[aria-current] { background: rgba(105, 160, 229, .14); }
+
+body.page-public:not(.page-public--home) {
+  --night-canvas: #081527;
+  --night-panel: #0d2037;
+  --night-panel-raised: #122a47;
+  --night-panel-soft: #172f4d;
+  --night-text: #eff5fc;
+  --night-copy: #b7c6d8;
+  --night-muted: #91a6bd;
+  --night-accent: #78acf0;
+  --night-line: rgba(150, 184, 225, .2);
+  --night-line-strong: rgba(160, 197, 241, .34);
+  color: var(--night-text);
+  background:
+    radial-gradient(circle at 82% 8%, rgba(45, 106, 185, .18), transparent 25rem),
+    radial-gradient(circle at 8% 48%, rgba(30, 78, 137, .12), transparent 34rem),
+    var(--night-canvas);
+}
+body.page-public:not(.page-public--home)::before { opacity: .045; mix-blend-mode: screen; }
+body.page-public:not(.page-public--home) main {
+  position: relative;
+  color: var(--night-text);
+  background-image:
+    linear-gradient(rgba(156, 188, 227, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(156, 188, 227, .035) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+body.page-public:not(.page-public--home) h1,
+body.page-public:not(.page-public--home) h2,
+body.page-public:not(.page-public--home) h3,
+body.page-public:not(.page-public--home) strong,
+body.page-public:not(.page-public--home) dt,
+body.page-public:not(.page-public--home) dd { color: var(--night-text); }
+body.page-public:not(.page-public--home) p,
+body.page-public:not(.page-public--home) li { color: var(--night-copy); }
+body.page-public:not(.page-public--home) .kicker,
+body.page-public:not(.page-public--home) .file-label { color: var(--night-accent); }
+body.page-public:not(.page-public--home) .text-link { color: #dfeafd; }
+body.page-public:not(.page-public--home) .button {
+  color: #f7faff;
+  border-color: rgba(150, 190, 239, .42);
+}
+body.page-public:not(.page-public--home) .button--ink {
+  color: #fff;
+  border-color: #316bc0;
+  background: linear-gradient(135deg, #285eae, #3478ce);
+  box-shadow: 0 12px 28px rgba(0, 10, 26, .22);
+}
+body.page-public:not(.page-public--home) .button--ink:hover {
+  border-color: #75adf3;
+  background: #397fd5;
+}
+body.page-public:not(.page-public--home) :focus-visible { outline-color: #86baff; }
+
+body.page-public:not(.page-public--home) .page-hero {
+  border-color: var(--night-line-strong);
+  background:
+    radial-gradient(circle at 82% 12%, rgba(80, 151, 235, .23), transparent 30%),
+    linear-gradient(142deg, rgba(19, 43, 72, .96), rgba(9, 24, 43, .98));
+  box-shadow: 0 28px 75px rgba(0, 7, 18, .28);
+}
+body.page-public:not(.page-public--home) .page-hero__brand-mark { opacity: .78; filter: saturate(.8) brightness(1.25); }
+body.page-public:not(.page-public--home) .page-title { color: #f8fbff; }
+body.page-public:not(.page-public--home) .page-lead { color: #b8c8dc; }
+body.page-public:not(.page-public--home) .page-hero__media {
+  border: 1px solid var(--night-line-strong);
+  background: #0c1e35;
+  box-shadow: 0 28px 70px rgba(0, 6, 18, .4);
+}
+
+/* Evidence surfaces */
+body.page-public:not(.page-public--home) :is(
+  .service-tier-select,
+  .service-tier-panel,
+  .service-tier-panel__work section,
+  .report-promise,
+  .tier-sequence > div,
+  .deliverable-item,
+  .method-node,
+  .method-detail,
+  .scope-split article,
+  .about-grid article,
+  .principle,
+  .request-form,
+  .payment-card,
+  .checkout-form,
+  .payment-boundaries article,
+  .payment-receipt,
+  .knowledge-card,
+  .legal-document__rail,
+  .legal-references
+) {
+  color: var(--night-text);
+  border-color: var(--night-line);
+  background: linear-gradient(155deg, rgba(20, 45, 75, .97), rgba(12, 31, 54, .97));
+  box-shadow: 0 18px 46px rgba(0, 6, 18, .18);
+}
+body.page-public:not(.page-public--home) :is(
+  .service-staircase__selectors,
+  .service-tier-panel__work,
+  .report-promises__grid,
+  .tier-sequence,
+  .deliverable-anatomy__grid,
+  .about-grid,
+  .principles
+) { border-color: var(--night-line); background: transparent; }
+body.page-public:not(.page-public--home) :is(
+  .service-tier-select,
+  .service-tier-panel,
+  .report-promise,
+  .tier-sequence > div,
+  .deliverable-item,
+  .method-node,
+  .method-detail,
+  .scope-split,
+  .about-grid,
+  .principle,
+  .payment-card,
+  .payment-boundaries article,
+  .payment-receipt,
+  .knowledge-card
+) { border-color: var(--night-line); }
+body.page-public:not(.page-public--home) :is(
+  .decision-row,
+  .source-row,
+  .service-intake,
+  .service-tier-panel__header,
+  .service-tier-panel__work li,
+  .service-tier-panel__note,
+  .service-tier-panel__boundary,
+  .service-tier-panel__boundary > div,
+  .report-anatomy,
+  .report-anatomy li,
+  .source-registry__row,
+  .limit-row,
+  .decision-guide__row,
+  .office-evidence__address,
+  .contact-list,
+  .contact-line,
+  .request-aside li,
+  .payment-card > header,
+  .payment-card__scope,
+  .payment-card__timing,
+  .checkout-form,
+  .payment-receipt__status,
+  .payment-receipt dl > div,
+  .knowledge-index__heading,
+  .knowledge-card__meta,
+  .knowledge-next,
+  .field-note__rail,
+  .field-note__rail ol,
+  .field-note__rail li,
+  .field-note__takeaways,
+  .field-note__takeaways li,
+  .field-note__section,
+  .field-note__section ul,
+  .field-note__section li,
+  .field-note__related > header,
+  .field-note__related > div > a
+) { border-color: var(--night-line); }
+
+body.page-public:not(.page-public--home) .service-tier-select:hover,
+body.page-public:not(.page-public--home) .service-tier-select.is-active,
+body.page-public:not(.page-public--home) .method-node:hover,
+body.page-public:not(.page-public--home) .method-node.is-active {
+  color: #fff;
+  border-color: rgba(119, 174, 239, .62);
+  background: linear-gradient(145deg, #1d4e88, #15365d);
+}
+body.page-public:not(.page-public--home) .service-tier-select span,
+body.page-public:not(.page-public--home) .report-promise > span,
+body.page-public:not(.page-public--home) .principle > span,
+body.page-public:not(.page-public--home) .payment-card__number,
+body.page-public:not(.page-public--home) .payment-price,
+body.page-public:not(.page-public--home) .field-note__takeaways span,
+body.page-public:not(.page-public--home) .field-note__section-no { color: var(--night-accent); }
+body.page-public:not(.page-public--home) .service-balance-entry {
+  color: #dbe9fb;
+  border-color: var(--night-line-strong);
+  background: rgba(18, 44, 75, .82);
+}
+body.page-public:not(.page-public--home) .service-balance-entry strong { color: #8ab9f6; border-color: var(--night-line); }
+body.page-public:not(.page-public--home) .service-checkout-protocol {
+  border-color: var(--night-line);
+  background: rgba(7, 21, 39, .58);
+}
+body.page-public:not(.page-public--home) :is(.service-checkout-protocol__mark, .payment-hero__stripe-mark) {
+  padding: 7px;
+  border-radius: 8px;
+  background: #eff4fb;
+}
+body.page-public:not(.page-public--home) .service-tier-panel__note {
+  background: rgba(145, 91, 34, .18);
+}
+body.page-public:not(.page-public--home) .service-tier-panel__note p { color: #ddc9af; }
+body.page-public:not(.page-public--home) .service-tier-panel__boundary { background: transparent; }
+body.page-public:not(.page-public--home) .service-tier-panel__boundary > div { background: rgba(11, 28, 49, .82); }
+body.page-public:not(.page-public--home) .service-tier-panel__boundary p { color: var(--night-copy); }
+body.page-public:not(.page-public--home) .service-tier-panel > footer { background: #07182b; }
+body.page-public:not(.page-public--home) .report-promises,
+body.page-public:not(.page-public--home) .field-note__sources {
+  color: var(--night-text);
+  background: linear-gradient(180deg, #102944, #0b1d33);
+}
+
+body.page-public:not(.page-public--home) .method-detail p,
+body.page-public:not(.page-public--home) .field-note__section p,
+body.page-public:not(.page-public--home) .legal-row__content p,
+body.page-public:not(.page-public--home) .legal-row__content li,
+body.page-public:not(.page-public--home) .legal-references header > p:last-child,
+body.page-public:not(.page-public--home) .legal-references small { color: var(--night-copy); }
+body.page-public:not(.page-public--home) .scope-split article + article { background: linear-gradient(155deg, rgba(26, 48, 75, .98), rgba(13, 31, 52, .98)); }
+body.page-public:not(.page-public--home) .about-block--truth,
+body.page-public:not(.page-public--home) .registration-evidence,
+body.page-public:not(.page-public--home) .sample-report,
+body.page-public:not(.page-public--home) .payment-process {
+  border-color: var(--night-line-strong);
+  background: linear-gradient(135deg, #102943, #08182b) !important;
+  box-shadow: 0 28px 70px rgba(0, 5, 16, .27);
+}
+body.page-public:not(.page-public--home) .office-evidence__image { background: #102641; }
+body.page-public:not(.page-public--home) .office-evidence__image::after { box-shadow: inset 0 0 0 1px var(--night-line); }
+
+/* Forms and checkout remain calm, legible work surfaces. */
+body.page-public:not(.page-public--home) :is(
+  .form-field input,
+  .form-field textarea,
+  .form-field select,
+  .checkout-field input
+) {
+  color: #f3f7fd;
+  border-color: var(--night-line-strong);
+  background: rgba(5, 18, 34, .56);
+}
+body.page-public:not(.page-public--home) :is(
+  .form-field input,
+  .form-field textarea,
+  .checkout-field input
+)::placeholder { color: #7f94ac; }
+body.page-public:not(.page-public--home) :is(.form-field input, .form-field textarea, .form-field select, .checkout-field input):focus {
+  border-color: #78acf0;
+  box-shadow: 0 0 0 3px rgba(81, 148, 231, .16);
+}
+body.page-public:not(.page-public--home) .form-honesty,
+body.page-public:not(.page-public--home) .checkout-form--inline { border-color: var(--night-line); }
+body.page-public:not(.page-public--home) .consent { color: var(--night-copy); }
+body.page-public:not(.page-public--home) .checkout-resume-notice {
+  color: #d9e8fb;
+  border-color: rgba(112, 168, 235, .42);
+  background: rgba(46, 102, 174, .16);
+}
+body.page-public:not(.page-public--home) .checkout-resume-notice strong { color: #f2f7fd; }
+body.page-public:not(.page-public--home) .checkout-resume-notice p { color: #b7c9df; }
+body.page-public:not(.page-public--home) .payment-hero { border-color: var(--night-line-strong); }
+body.page-public:not(.page-public--home) .payment-hero__protocol { border-color: var(--night-line); }
+body.page-public:not(.page-public--home) .payment-hero__index,
+body.page-public:not(.page-public--home) .payment-card__timing { background: rgba(7, 24, 43, .78); }
+body.page-public:not(.page-public--home) .payment-card__scope li { color: var(--night-copy); }
+body.page-public:not(.page-public--home) .payment-boundaries article + article { background: linear-gradient(155deg, #132e4d, #091b30); }
+body.page-public:not(.page-public--home) .payment-balance-done {
+  color: var(--night-text);
+  background: rgba(20, 64, 59, .34);
+}
+
+/* Knowledge and legal pages receive quieter long-reading panels. */
+body.page-public:not(.page-public--home) .knowledge-hero,
+body.page-public:not(.page-public--home) .field-note__hero {
+  border-bottom: 1px solid var(--night-line-strong);
+  background: linear-gradient(112deg, #0c1e35, #132f50);
+}
+body.page-public:not(.page-public--home) .knowledge-card__media { background: #102641; }
+body.page-public:not(.page-public--home) .knowledge-card__copy > p,
+body.page-public:not(.page-public--home) .knowledge-card__meta { color: var(--night-copy); }
+body.page-public:not(.page-public--home) .knowledge-method {
+  background: linear-gradient(118deg, #174c86, #1e66ad);
+}
+body.page-public:not(.page-public--home) .field-note__rail a { color: #aebfd2; }
+body.page-public:not(.page-public--home) .field-note__rail a:hover { color: #8fbef7; }
+body.page-public:not(.page-public--home) .field-note__takeaways p,
+body.page-public:not(.page-public--home) .field-note__section li,
+body.page-public:not(.page-public--home) .field-note__sources li strong { color: #e6eef8; }
+body.page-public:not(.page-public--home) .answer-first {
+  color: var(--night-text);
+  border-color: #6ea7ed;
+  background: rgba(47, 104, 177, .17);
+}
+body.page-public:not(.page-public--home) .buyer-checklist { background: linear-gradient(138deg, #205da2, #164578); }
+body.page-public:not(.page-public--home) .field-note__sources ol,
+body.page-public:not(.page-public--home) .field-note__sources li { border-color: var(--night-line); }
+body.page-public:not(.page-public--home) .field-note__sources li a { color: #b9c9dc; }
+body.page-public:not(.page-public--home) .legal-page { --legal-rule: rgba(151, 186, 229, .22); }
+body.page-public:not(.page-public--home) .legal-document__meta dd,
+body.page-public:not(.page-public--home) .legal-toc a,
+body.page-public:not(.page-public--home) .legal-row__note { color: #c4d2e2; }
+body.page-public:not(.page-public--home) .legal-document__rail > p,
+body.page-public:not(.page-public--home) .legal-toc > strong { color: #95a9c0; }
+body.page-public:not(.page-public--home) .legal-row__content ul,
+body.page-public:not(.page-public--home) .legal-row__content li { border-color: var(--night-line); }
+body.page-public:not(.page-public--home) .legal-row__note { background: rgba(51, 108, 178, .16); }
+body.page-public:not(.page-public--home) .legal-contact { border: 1px solid var(--night-line-strong); background: #0b2038; }
+
+body.page-public:not(.page-public--home) .closing {
+  border-color: var(--night-line-strong);
+  background:
+    radial-gradient(circle at 91% 10%, rgba(91, 160, 239, .18), transparent 24%),
+    linear-gradient(140deg, #142d4a, #0a1c31);
+  box-shadow: 0 26px 68px rgba(0, 6, 18, .25);
+}
+body.page-public:not(.page-public--home) .site-footer { border-top: 1px solid var(--night-line-strong); }
+
+@media (max-width: 1199px) {
+  .site-header--night .nav-toggle i { background: #f2f6fc; }
+  .site-header--night .site-nav {
+    color: #eff5fc;
+    background: linear-gradient(145deg, #0c1f36, #081526);
+  }
+  .site-header--night .site-nav > a:not(.nav-cta),
+  .site-header--night .site-nav .nav-portal { border-color: rgba(151, 184, 224, .22); }
+  .site-header--night .site-nav .nav-portal {
+    color: #eff5fc;
+    background: transparent;
+  }
+  .site-header--night .lang-switch__menu { border: 0; background: transparent; box-shadow: none; }
+  .site-header--night .lang-switch__menu a { border-color: rgba(151, 184, 224, .25); }
+  .site-header--night .nav-cta {
+    color: #fff;
+    border-color: #3775c9;
+    background: #2b64b6;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header--night:not(.site-header--home) { background: #09172a; }
+  .site-header--night:not(.site-header--home) .site-header__inner { border-radius: 14px; }
+  body.page-public:not(.page-public--home) main { background-size: 52px 52px; }
+  body.page-public:not(.page-public--home) .page-hero { border-radius: 20px; }
+  body.page-public:not(.page-public--home) :is(
+    .service-tier-select,
+    .report-promise,
+    .method-node,
+    .knowledge-card,
+    .legal-document__rail,
+    .legal-references
+  ) { box-shadow: 0 14px 34px rgba(0, 5, 16, .18); }
+}
