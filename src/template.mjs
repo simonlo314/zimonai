@@ -126,7 +126,6 @@ function googleMark() {
 function portal(t) {
   const p = t.portal;
   const loginHref = `/api/auth/google/start?locale=${encodeURIComponent(t.__key)}&returnTo=${encodeURIComponent(pathFor(t.__key, 'portal'))}`;
-  const tierOptions = p.form.tierOptions.map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
   return `<main id="main" class="portal-page" data-portal data-locale="${esc(t.__key)}" data-state="loading">
     <section class="portal-loading shell" data-portal-loading aria-live="polite">
       <span class="portal-loading__mark" aria-hidden="true"></span><p>${esc(p.workspace.loading)}</p>
@@ -179,7 +178,6 @@ function portal(t) {
         <div class="portal-tabs" role="tablist" aria-label="${esc(p.workspace.title)}">
           <button id="portal-tab-cases" type="button" role="tab" aria-selected="true" aria-controls="portal-panel-cases" data-portal-view="cases">${esc(p.workspace.cases)}</button>
           <button id="portal-tab-orders" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-orders" tabindex="-1" data-portal-view="orders">${esc(p.workspace.orders)}</button>
-          <button id="portal-tab-new" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-new" tabindex="-1" data-portal-view="new">${esc(p.workspace.newCase)}</button>
           <button id="portal-tab-account" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-account" tabindex="-1" data-portal-view="account">${esc(p.workspace.account)}</button>
         </div>
         <div class="portal-stage">
@@ -190,7 +188,7 @@ function portal(t) {
             <div class="portal-case-list" data-portal-case-list aria-live="polite"></div>
             <div class="portal-empty" data-portal-empty hidden>
               <div class="portal-empty__rail" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div><div role="status"><p class="portal-kicker">${esc(p.workspace.emptyLabel)}</p><h3>${esc(p.workspace.emptyTitle)}</h3><p>${esc(p.workspace.emptyText)}</p></div><button class="portal-primary" type="button" data-portal-open-new>${esc(p.workspace.emptyAction)}${arrow()}</button></div>
+              <div><div role="status"><p class="portal-kicker">${esc(p.workspace.emptyLabel)}</p><h3>${esc(p.workspace.emptyTitle)}</h3><p>${esc(p.workspace.emptyText)}</p></div><div class="portal-empty__actions"><a class="portal-primary" href="${pathFor(t.__key, 'services')}">${esc(p.workspace.emptyAction)}${arrow()}</a><a class="portal-secondary" href="mailto:${esc(brandProfile.email)}?subject=${encodeURIComponent(p.workspace.supportSubject)}">${esc(p.workspace.supportAction)}${arrow()}</a></div></div>
             </div>
           </section>
 
@@ -202,29 +200,6 @@ function portal(t) {
               <div class="portal-empty__rail" aria-hidden="true"><span></span><span></span><span></span></div>
               <div role="status"><p class="portal-kicker">${esc(p.workspace.ordersEmptyLabel)}</p><h3>${esc(p.workspace.ordersEmptyTitle)}</h3><p>${esc(p.workspace.ordersEmptyText)}</p></div>
             </div>
-          </section>
-
-          <section class="portal-view" id="portal-panel-new" role="tabpanel" tabindex="0" aria-labelledby="portal-tab-new" data-portal-panel="new" hidden>
-            <header class="portal-section-head portal-section-head--form"><div><p class="portal-kicker">${esc(p.form.eyebrow)}</p><h2>${esc(p.form.title)}</h2></div><p>${esc(p.form.lead)}</p></header>
-            <form class="portal-form" data-portal-case-form novalidate>
-              <div class="portal-form__message" data-portal-form-message hidden tabindex="-1" role="alert"></div>
-              <fieldset><legend><span>01</span>${esc(p.form.sections[0])}</legend><div class="portal-fields">
-                <div class="portal-field portal-field--wide"><label for="portal-supplier-name">${esc(p.form.supplierName)} <b>${esc(p.form.required)}</b></label><input id="portal-supplier-name" name="supplierName" type="text" maxlength="240" required autocomplete="organization" aria-describedby="portal-hint-supplier-name"><small id="portal-hint-supplier-name">${esc(p.form.supplierNameHint)}</small></div>
-                <div class="portal-field"><label for="portal-supplier-url">${esc(p.form.supplierUrl)} <b>${esc(p.form.optional)}</b></label><input id="portal-supplier-url" name="supplierUrl" type="url" maxlength="500" inputmode="url" placeholder="https://"></div>
-                <div class="portal-field"><label for="portal-legal-name">${esc(p.form.chineseLegalName)} <b>${esc(p.form.optional)}</b></label><input id="portal-legal-name" name="chineseLegalName" type="text" maxlength="240"></div>
-                <div class="portal-field portal-field--wide"><label for="portal-tier">${esc(p.form.tier)}</label><select id="portal-tier" name="tier">${tierOptions}</select></div>
-              </div></fieldset>
-              <fieldset><legend><span>02</span>${esc(p.form.sections[1])}</legend><div class="portal-fields">
-                <div class="portal-field"><label for="portal-product-category">${esc(p.form.productCategory)} <b>${esc(p.form.required)}</b></label><input id="portal-product-category" name="productCategory" type="text" maxlength="240" required aria-describedby="portal-hint-product-category"><small id="portal-hint-product-category">${esc(p.form.productCategoryHint)}</small></div>
-                <div class="portal-field"><label for="portal-product-model">${esc(p.form.productModel)} <b>${esc(p.form.optional)}</b></label><input id="portal-product-model" name="productModel" type="text" maxlength="300"></div>
-              </div></fieldset>
-              <fieldset><legend><span>03</span>${esc(p.form.sections[2])}</legend><div class="portal-fields">
-                <div class="portal-field portal-field--wide"><label for="portal-decision-context">${esc(p.form.decisionContext)} <b>${esc(p.form.required)}</b></label><textarea id="portal-decision-context" name="decisionContext" maxlength="2000" rows="5" required aria-describedby="portal-hint-decision-context"></textarea><small id="portal-hint-decision-context">${esc(p.form.decisionContextHint)}</small></div>
-                <div class="portal-field portal-field--wide"><label for="portal-requested-checks">${esc(p.form.requestedChecks)} <b>${esc(p.form.optional)}</b></label><textarea id="portal-requested-checks" name="requestedChecks" maxlength="3000" rows="5" aria-describedby="portal-hint-requested-checks"></textarea><small id="portal-hint-requested-checks">${esc(p.form.requestedChecksHint)}</small></div>
-                <label class="portal-consent portal-field--wide"><input name="consent" type="checkbox" required aria-describedby="portal-consent-text"><span id="portal-consent-text">${esc(p.form.consent)}</span></label>
-              </div></fieldset>
-              <div class="portal-form__actions"><button class="portal-secondary" type="button" data-portal-view="cases">${esc(p.form.cancel)}</button><button class="portal-primary" type="submit"><span data-submit-label>${esc(p.form.submit)}</span>${arrow()}</button></div>
-            </form>
           </section>
 
           <section class="portal-view" id="portal-panel-account" role="tabpanel" tabindex="0" aria-labelledby="portal-tab-account" data-portal-panel="account" hidden>

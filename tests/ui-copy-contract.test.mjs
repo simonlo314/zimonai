@@ -40,6 +40,10 @@ test('portal order and linked-email guidance matches the account workflow in all
   assert.equal(portalContent.en.auth.errorEmailLinkRequired, 'This email address is already linked to an existing account. Sign in with an email verification code instead.');
   assert.equal(portalContent['zh-tw'].auth.errorEmailLinkRequired, '這個 Email 已連結至既有帳戶，請改用 Email 驗證碼登入。');
   assert.equal(portalContent['zh-cn'].auth.errorEmailLinkRequired, '这个邮箱已关联现有账户，请改用邮箱验证码登录。');
+  assert.match(portalContent['zh-tw'].workspace.emptyText, /T1 或 T2 付款後，系統會自動建立案件/);
+  assert.match(portalContent['zh-tw'].workspace.emptyText, /一對一確認範圍後建立/);
+  assert.match(portalContent['zh-cn'].workspace.emptyText, /T1 或 T2 付款后，系统会自动创建项目/);
+  assert.match(portalContent.en.workspace.emptyText, /T1 or T2 payment opens a case automatically/);
 });
 
 test('admin notifications describe provider acceptance rather than inbox delivery', () => {
@@ -84,6 +88,7 @@ test('client and operations workspaces expose safe progress and reversible order
   const portalSource = readFileSync(new URL('../src/assets/portal.js', import.meta.url), 'utf8');
   const adminSource = readFileSync(new URL('../src/assets/admin.js', import.meta.url), 'utf8');
   const caseApiSource = readFileSync(new URL('../functions/api/portal/cases.js', import.meta.url), 'utf8');
+  const stripeWebhookSource = readFileSync(new URL('../functions/api/stripe-webhook.js', import.meta.url), 'utf8');
   const templateSource = readFileSync(new URL('../src/template.mjs', import.meta.url), 'utf8');
 
   assert.match(caseApiSource, /client_status_note/);
@@ -92,6 +97,11 @@ test('client and operations workspaces expose safe progress and reversible order
   assert.match(portalSource, /item\.expectedDeliveryAt/);
   assert.match(portalSource, /item\.reportUrl/);
   assert.doesNotMatch(portalSource, /internalNote/, 'client JavaScript must never render the internal note');
+  assert.doesNotMatch(templateSource, /data-portal-case-form|portal-tab-new|data-portal-open-new/, 'client workspace must not expose direct case creation');
+  assert.doesNotMatch(portalSource, /case_submit_failed|data-portal-open-new|copy\.form/, 'client JavaScript must not submit new cases');
+  assert.match(caseApiSource, /client_case_creation_disabled/);
+  assert.match(stripeWebhookSource, /product_key IN \('t1', 't2'\)/, 'only eligible paid verification products should create case files');
+  assert.match(stripeWebhookSource, /INSERT OR IGNORE INTO portal_cases/);
 
   assert.match(portalSource, /\?includeHidden=1/);
   assert.match(portalSource, /JSON\.stringify\(\{ action \}\)/);

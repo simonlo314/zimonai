@@ -22,8 +22,6 @@ if (root) {
   const ordersState = root.querySelector('[data-portal-orders-state]');
   const ordersEmpty = root.querySelector('[data-portal-orders-empty]');
   const hiddenOrdersToggle = root.querySelector('[data-portal-toggle-hidden]');
-  const caseForm = root.querySelector('[data-portal-case-form]');
-  const formMessage = root.querySelector('[data-portal-form-message]');
   const adminLink = root.querySelector('[data-portal-admin-link]');
   const purchaseIntentKey = 'zimonai_purchase_intent_v1';
   let csrfToken = '';
@@ -126,7 +124,7 @@ if (root) {
     adminLink.hidden = !(user.isAdmin === true || user.role === 'admin');
   }
 
-  function setView(view, { focusForm = false } = {}) {
+  function setView(view) {
     root.querySelectorAll('[data-portal-panel]').forEach((panel) => { panel.hidden = panel.dataset.portalPanel !== view; });
     root.querySelectorAll('.portal-tabs [role="tab"]').forEach((button) => {
       const selected = button.dataset.portalView === view;
@@ -134,7 +132,6 @@ if (root) {
       button.tabIndex = selected ? 0 : -1;
     });
     if (view === 'orders' && !ordersLoaded) loadOrders();
-    if (view === 'new' && focusForm) setTimeout(() => caseForm?.querySelector('input')?.focus(), 0);
   }
 
   function formatDate(value) {
@@ -175,7 +172,7 @@ if (root) {
   function renderCases(cases) {
     caseList.replaceChildren();
     emptyState.hidden = cases.length !== 0;
-    const tiers = Object.fromEntries(copy.form.tierOptions || []);
+    const tiers = Object.fromEntries(copy.workspace.tierOptions || []);
     for (const item of cases) {
       const article = element('article', 'portal-case');
       const body = document.createElement('div');
@@ -422,7 +419,6 @@ if (root) {
     tabs[next].focus();
     setView(tabs[next].dataset.portalView);
   });
-  root.querySelector('[data-portal-open-new]')?.addEventListener('click', () => setView('new', { focusForm: true }));
   hiddenOrdersToggle?.addEventListener('click', async () => {
     hiddenOrdersVisible = !hiddenOrdersVisible;
     hiddenOrdersToggle.setAttribute('aria-pressed', String(hiddenOrdersVisible));
@@ -447,51 +443,6 @@ if (root) {
       workspaceError.hidden = false;
       button.disabled = false;
       button.textContent = original;
-    }
-  });
-
-  caseForm?.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    formMessage.hidden = true;
-    formMessage.classList.remove('is-success');
-    caseForm.querySelectorAll('[aria-invalid="true"]').forEach((field) => field.removeAttribute('aria-invalid'));
-    if (!caseForm.reportValidity()) {
-      const invalidFields = [...caseForm.querySelectorAll(':invalid')];
-      invalidFields.forEach((field) => field.setAttribute('aria-invalid', 'true'));
-      invalidFields[0]?.focus();
-      return;
-    }
-    const submit = caseForm.querySelector('[type="submit"]');
-    const submitLabel = caseForm.querySelector('[data-submit-label]');
-    submit.disabled = true;
-    submitLabel.textContent = copy.form.submitting;
-    const data = new FormData(caseForm);
-    const payload = {
-      supplierName: data.get('supplierName'), supplierUrl: data.get('supplierUrl'), chineseLegalName: data.get('chineseLegalName'),
-      tier: data.get('tier'), productCategory: data.get('productCategory'), productModel: data.get('productModel'),
-      decisionContext: data.get('decisionContext'), requestedChecks: data.get('requestedChecks'), consent: data.get('consent') === 'on'
-    };
-    try {
-      const response = await fetch('/api/portal/cases', {
-        method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken }, body: JSON.stringify(payload)
-      });
-      if (response.status === 401) { startupAuthMessage = copy.auth.sessionEnded; return loadSession(); }
-      const responseData = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(responseData.error || 'case_submit_failed');
-      caseForm.reset();
-      formMessage.textContent = copy.form.success;
-      formMessage.classList.add('is-success');
-      formMessage.hidden = false;
-      formMessage.focus();
-      await loadCases();
-    } catch (error) {
-      formMessage.textContent = error.message === 'case_submission_rate_limited' ? copy.form.rateLimited
-        : error.message === 'open_case_limit_reached' ? copy.form.openLimit : copy.form.error;
-      formMessage.hidden = false;
-      formMessage.focus();
-    } finally {
-      submit.disabled = false;
-      submitLabel.textContent = copy.form.submit;
     }
   });
 

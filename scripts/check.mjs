@@ -59,7 +59,10 @@ for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
   if (!editorialPolicy[langKey]?.writingMode) errors.push(`${langKey}: editorial policy missing`);
   if (!paymentContent[langKey]?.payments?.products?.length) errors.push(`${langKey}: payment content missing`);
   if (!knowledgeContent[langKey]?.hub?.metaTitle) errors.push(`${langKey}: knowledge hub metadata missing`);
-  if (!portalContent[langKey]?.metaTitle || !portalContent[langKey]?.auth?.google || !portalContent[langKey]?.form?.consent) errors.push(`${langKey}: portal content missing`);
+  if (!portalContent[langKey]?.metaTitle
+    || !portalContent[langKey]?.auth?.google
+    || !portalContent[langKey]?.workspace?.supportAction
+    || !portalContent[langKey]?.workspace?.tierOptions) errors.push(`${langKey}: portal content missing`);
   if (!adminContent[langKey]?.metaTitle || !adminContent[langKey]?.nav?.queue || !adminContent[langKey]?.nav?.notifications || !adminContent[langKey]?.notifications?.retry || !adminContent[langKey]?.form?.customerEmail) errors.push(`${langKey}: admin content missing`);
   for (const spec of knowledgeArticleSpecs) {
     const article = knowledgeContent[langKey]?.articles?.[spec.key];
@@ -117,7 +120,7 @@ const requiredSections = {
   'payment-success/index.html': ['payment-result', 'payment-receipt', 'payment-intake', 'payment-balance-done'],
   'payment-terms/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-contact', 'support-panel'],
   'privacy/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-references', 'legal-contact', 'support-panel'],
-  'portal/index.html': ['portal-page', 'portal-entry', 'portal-auth', 'portal-workspace', 'portal-empty', 'portal-form', 'portal-account'],
+  'portal/index.html': ['portal-page', 'portal-entry', 'portal-auth', 'portal-workspace', 'portal-empty', 'portal-empty__actions', 'portal-account'],
   'admin/index.html': ['admin-page', 'admin-access', 'admin-workspace', 'admin-tabs', 'admin-record-list', 'admin-notification-config', 'admin-case-form'],
   'knowledge/index.html': ['knowledge-hero', 'knowledge-index', 'knowledge-method']
 };
@@ -171,6 +174,10 @@ if (!authLibrary.includes('isolateUnsafeVerifiedEmail')
   errors.push('non-authoritative Google identity isolation is incomplete');
 }
 if (!portalCasesFunction.includes('WHERE owner_user_id = ?1')) errors.push('portal case list is not owner-scoped');
+if (!portalCasesFunction.includes('client_case_creation_disabled')
+  || !portalCasesFunction.includes("Allow: 'GET'")) {
+  errors.push('client portal case creation is not disabled');
+}
 if (!portalCaseDetailFunction.includes("existing.status !== 'awaiting_client'")
   || !portalCaseDetailFunction.includes("AND status = 'awaiting_client'")) {
   errors.push('customer case intake is not locked after awaiting-client state');

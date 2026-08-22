@@ -179,11 +179,13 @@ test('case lists are isolated by the authenticated account', async () => {
   assert.deepEqual((await responseB.json()).cases.map((item) => item.id), ['case-b']);
 });
 
-test('case creation ignores forged ownership fields and records the authenticated owner', async () => {
+test('customers cannot create cases directly', async () => {
   const { env, db, tokens } = await fixture();
+  const beforeCases = db.cases.length;
+  const beforeAudits = db.audits.length;
   const payload = {
-    supplierName: 'Injected owner test', productCategory: 'power adapter',
-    decisionContext: 'Whether to sign the contract', consent: true, tier: 't2',
+    supplierName: 'Direct case attempt', productCategory: 'power adapter',
+    decisionContext: 'Whether to sign the contract', consent: true,
     user_id: 'user-b', owner_user_id: 'user-b'
   };
   const request = requestFor(tokens.a, '/api/portal/cases', {
@@ -192,102 +194,11 @@ test('case creation ignores forged ownership fields and records the authenticate
     body: JSON.stringify(payload)
   });
   const response = await createCase({ request, env });
-  assert.equal(response.status, 201);
-  const created = db.cases.find((item) => item.supplier_name === payload.supplierName);
-  assert.equal(created.owner_user_id, 'user-a');
-  assert.equal(db.audits.at(-1).user_id, 'user-a');
-
-  const responseB = await getCases({ request: requestFor(tokens.b), env });
-  assert.equal((await responseB.json()).cases.some((item) => item.id === created.id), false);
-});
-
-test('case creation allows ten submissions per rolling day and isolates the quota by account', async () => {
-  const { env, db, tokens } = await fixture();
-  const now = Date.now();
-  db.cases = db.cases.filter((item) => item.owner_user_id !== 'user-a');
-  for (let index = 0; index < 9; index += 1) {
-    const row = existingCase(`recent-${index}`, 'user-a');
-    row.created_at = new Date(now - index * 60_000).toISOString();
-    row.updated_at = row.created_at;
-    db.cases.push(row);
-  }
-
-  const payload = JSON.stringify({
-    supplierName: 'Quota test supplier', productCategory: 'charger',
-    decisionContext: 'Whether to place a deposit', consent: true
-  });
-  const makeRequest = (token, csrf) => requestFor(token, '/api/portal/cases', {
-    method: 'POST',
-    headers: { Origin: localOrigin, 'Content-Type': 'application/json', 'X-CSRF-Token': csrf },
-    body: payload
-  });
-
-  const tenth = await createCase({ request: makeRequest(tokens.a, 'csrf-a'), env });
-  assert.equal(tenth.status, 201);
-  assert.equal(db.cases.filter((item) => item.owner_user_id === 'user-a').length, 10);
-  assert.equal(db.audits.length, 1);
-
-  const limited = await createCase({ request: makeRequest(tokens.a, 'csrf-a'), env });
-  const limitedBody = await limited.json();
-  assert.equal(limited.status, 429);
-  assert.equal(limitedBody.error, 'case_submission_rate_limited');
-  assert.equal(limitedBody.limit, 10);
-  assert.equal(limitedBody.windowHours, 24);
-  assert.ok(limitedBody.retryAfterSeconds > 0 && limitedBody.retryAfterSeconds <= 86_400);
-  assert.equal(limited.headers.get('Retry-After'), String(limitedBody.retryAfterSeconds));
-  assert.equal(db.cases.filter((item) => item.owner_user_id === 'user-a').length, 10);
-  assert.equal(db.audits.length, 1);
-
-  const otherAccount = await createCase({ request: makeRequest(tokens.b, 'csrf-b'), env });
-  assert.equal(otherAccount.status, 201);
-  assert.equal(db.cases.filter((item) => item.owner_user_id === 'user-b').length, 2);
-  assert.equal(db.audits.length, 2);
-});
-
-test('case creation caps open work at twenty-five and excludes delivered cases', async () => {
-  const { env, db, tokens } = await fixture();
-  const old = new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString();
-  db.cases = db.cases.filter((item) => item.owner_user_id !== 'user-a');
-  for (let index = 0; index < 25; index += 1) {
-    const row = existingCase(`open-${index}`, 'user-a');
-    row.created_at = old;
-    row.updated_at = old;
-    db.cases.push(row);
-  }
-  const makeRequest = () => requestFor(tokens.a, '/api/portal/cases', {
-    method: 'POST',
-    headers: { Origin: localOrigin, 'Content-Type': 'application/json', 'X-CSRF-Token': 'csrf-a' },
-    body: JSON.stringify({
-      supplierName: 'Open limit supplier', productCategory: 'power bank',
-      decisionContext: 'Whether to start sampling', consent: true
-    })
-  });
-
-  const limited = await createCase({ request: makeRequest(), env });
-  assert.equal(limited.status, 429);
-  assert.deepEqual(await limited.json(), { error: 'open_case_limit_reached', limit: 25 });
-  assert.equal(db.audits.length, 0);
-
-  db.cases.find((item) => item.owner_user_id === 'user-a').status = 'delivered';
-  const accepted = await createCase({ request: makeRequest(), env });
-  assert.equal(accepted.status, 201);
-  assert.equal(db.cases.filter((item) => item.owner_user_id === 'user-a' && !['delivered', 'closed'].includes(item.status)).length, 25);
-  assert.equal(db.audits.length, 1);
-});
-
-test('case mutations require exact origin, CSRF and strict JSON media type', async () => {
-  const { env, tokens } = await fixture();
-  const body = JSON.stringify({ supplierName: 'Supplier', productCategory: 'charger', decisionContext: 'Decision', consent: true });
-  const common = { method: 'POST', body };
-
-  const evil = requestFor(tokens.a, '/api/portal/cases', { ...common, headers: { Origin: 'https://zimonai.com.evil.example', 'Content-Type': 'application/json', 'X-CSRF-Token': 'csrf-a' } });
-  assert.equal((await createCase({ request: evil, env })).status, 403);
-
-  const wrongCsrf = requestFor(tokens.a, '/api/portal/cases', { ...common, headers: { Origin: localOrigin, 'Content-Type': 'application/json', 'X-CSRF-Token': 'wrong' } });
-  assert.equal((await createCase({ request: wrongCsrf, env })).status, 403);
-
-  const jsonp = requestFor(tokens.a, '/api/portal/cases', { ...common, headers: { Origin: localOrigin, 'Content-Type': 'application/jsonp', 'X-CSRF-Token': 'csrf-a' } });
-  assert.equal((await createCase({ request: jsonp, env })).status, 415);
+  assert.equal(response.status, 405);
+  assert.equal(response.headers.get('Allow'), 'GET');
+  assert.deepEqual(await response.json(), { error: 'client_case_creation_disabled' });
+  assert.equal(db.cases.length, beforeCases);
+  assert.equal(db.audits.length, beforeAudits);
 });
 
 test('session API returns only public account fields and logout revokes the current session', async () => {
