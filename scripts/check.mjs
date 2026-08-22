@@ -8,6 +8,7 @@ import { brandProfile } from '../src/brand-profile.mjs';
 import { editorialPolicy, layoutMode } from '../src/editorial-policy.mjs';
 import { knowledgeArticleSpecs, knowledgeContent } from '../src/knowledge-content.mjs';
 import { portalContent } from '../src/portal-content.mjs';
+import { adminContent } from '../src/admin-content.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -22,6 +23,8 @@ const sourcePortalCss = await readFile(path.join(root, 'src', 'assets', 'portal.
 const sourcePolicy = await readFile(path.join(root, 'CONTENT_AND_LOCALIZATION.md'), 'utf8');
 const sourceJs = await readFile(path.join(root, 'src', 'assets', 'site.js'), 'utf8');
 const sourcePortalJs = await readFile(path.join(root, 'src', 'assets', 'portal.js'), 'utf8');
+const sourceAdminCss = await readFile(path.join(root, 'src', 'assets', 'admin.css'), 'utf8');
+const sourceAdminJs = await readFile(path.join(root, 'src', 'assets', 'admin.js'), 'utf8');
 const sourceKnowledge = await readFile(path.join(root, 'src', 'knowledge-content.mjs'), 'utf8');
 const analyticsFunction = await readFile(path.join(root, 'functions', 'api', 'analytics.js'), 'utf8');
 const checkoutFunction = await readFile(path.join(root, 'functions', 'api', 'create-checkout-session.js'), 'utf8');
@@ -34,8 +37,10 @@ const wranglerConfig = await readFile(path.join(root, 'wrangler.jsonc'), 'utf8')
 const gitignore = await readFile(path.join(root, '.gitignore'), 'utf8');
 const portalMigration = await readFile(path.join(root, 'migrations-portal', '0001_portal.sql'), 'utf8');
 const portalRateLimitMigration = await readFile(path.join(root, 'migrations-portal', '0002_portal_oauth_rate_limit.sql'), 'utf8');
+const portalIdentityAuthorityMigration = await readFile(path.join(root, 'migrations-portal', '0005_identity_email_authority.sql'), 'utf8');
 const authLibrary = await readFile(path.join(root, 'functions', '_lib', 'auth.js'), 'utf8');
 const portalCasesFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases.js'), 'utf8');
+const portalCaseDetailFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases', '[id].js'), 'utf8');
 const headersFile = await readFile(path.join(dist, '_headers'), 'utf8');
 
 for (const [label, pattern] of [
@@ -54,6 +59,7 @@ for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
   if (!paymentContent[langKey]?.payments?.products?.length) errors.push(`${langKey}: payment content missing`);
   if (!knowledgeContent[langKey]?.hub?.metaTitle) errors.push(`${langKey}: knowledge hub metadata missing`);
   if (!portalContent[langKey]?.metaTitle || !portalContent[langKey]?.auth?.google || !portalContent[langKey]?.form?.consent) errors.push(`${langKey}: portal content missing`);
+  if (!adminContent[langKey]?.metaTitle || !adminContent[langKey]?.nav?.queue || !adminContent[langKey]?.nav?.notifications || !adminContent[langKey]?.notifications?.retry || !adminContent[langKey]?.form?.customerEmail) errors.push(`${langKey}: admin content missing`);
   for (const spec of knowledgeArticleSpecs) {
     const article = knowledgeContent[langKey]?.articles?.[spec.key];
     if (!article?.title || !article?.answer || article.sections?.length !== 3 || !article.checklist?.length) errors.push(`${langKey}: incomplete knowledge article ${spec.key}`);
@@ -71,7 +77,7 @@ if (layoutMode('zh-tw') !== 'cjk' || layoutMode('zh-cn') !== 'cjk' || layoutMode
 for (const hook of ['html[lang="zh-Hant"]', 'html[lang="zh-Hans"]', 'html[data-layout="cjk"]']) {
   if (!sourceCss.includes(hook)) errors.push(`CSS missing language layout hook ${hook}`);
 }
-if (/font-size:\s*(?:8|9|10|11)px/.test(`${sourceCss}\n${sourcePortalCss}`)) errors.push('CSS contains public text below the 12px readability floor');
+if (/font-size:\s*(?:8|9|10|11)px/.test(`${sourceCss}\n${sourcePortalCss}\n${sourceAdminCss}`)) errors.push('CSS contains public text below the 12px readability floor');
 if (!sourcePolicy.includes('Traditional and Simplified Chinese are separate editorial versions')) errors.push('content policy does not preserve independent Chinese writing');
 if (brandProfile.office.address !== brandProfile.registration.registeredAddressZhHans) errors.push('approved reception address differs from registered address');
 if (brandProfile.office.photos.length < 3) errors.push('approved reception-area photo set is incomplete');
@@ -111,6 +117,7 @@ const requiredSections = {
   'payment-terms/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-contact', 'support-panel'],
   'privacy/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-references', 'legal-contact', 'support-panel'],
   'portal/index.html': ['portal-page', 'portal-entry', 'portal-auth', 'portal-workspace', 'portal-empty', 'portal-form', 'portal-account'],
+  'admin/index.html': ['admin-page', 'admin-access', 'admin-workspace', 'admin-tabs', 'admin-record-list', 'admin-notification-config', 'admin-case-form'],
   'knowledge/index.html': ['knowledge-hero', 'knowledge-index', 'knowledge-method']
 };
 for (const [file, sections] of Object.entries(requiredSections)) {
@@ -125,11 +132,16 @@ for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
   if (!portalHtml.includes('<meta name="robots" content="noindex, nofollow">')) errors.push(`dist/${prefix}portal/index.html: portal must be noindex`);
   if (!portalHtml.includes('/assets/portal.css') || !portalHtml.includes('/assets/portal.js')) errors.push(`dist/${prefix}portal/index.html: portal assets missing`);
   if (/<(?:section|article)[^>]+(?:fictional|demo-case|sample-customer)/i.test(portalHtml)) errors.push(`dist/${prefix}portal/index.html: fictional portal data found`);
+  const adminHtml = await readFile(path.join(dist, prefix, 'admin', 'index.html'), 'utf8');
+  if (!adminHtml.includes('<meta name="robots" content="noindex, nofollow">')) errors.push(`dist/${prefix}admin/index.html: admin must be noindex`);
+  if (!adminHtml.includes('/assets/admin.css') || !adminHtml.includes('/assets/admin.js')) errors.push(`dist/${prefix}admin/index.html: admin assets missing`);
+  if (/<(?:section|article)[^>]+(?:fictional|demo-case|sample-customer|sample-kpi)/i.test(adminHtml)) errors.push(`dist/${prefix}admin/index.html: fictional admin data found`);
 }
 const portalSitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
 if (/\/portal\//.test(portalSitemap)) errors.push('sitemap must not include private portal routes');
-for (const portalRoute of ['/portal/*', '/zh-tw/portal/*', '/zh-cn/portal/*']) {
-  if (!headersFile.includes(portalRoute)) errors.push(`portal headers missing ${portalRoute}`);
+if (/\/admin\//.test(portalSitemap)) errors.push('sitemap must not include private admin routes');
+for (const privateRoute of ['/portal/*', '/zh-tw/portal/*', '/zh-cn/portal/*', '/admin/*', '/zh-tw/admin/*', '/zh-cn/admin/*']) {
+  if (!headersFile.includes(privateRoute)) errors.push(`private route headers missing ${privateRoute}`);
 }
 for (const directive of ["Cache-Control: private, no-store", 'X-Robots-Tag: noindex, nofollow', "default-src 'self'", "object-src 'none'"]) {
   if (!headersFile.includes(directive)) errors.push(`portal security headers missing ${directive}`);
@@ -138,13 +150,53 @@ for (const table of ['portal_users', 'portal_identities', 'portal_oauth_attempts
   if (!portalMigration.includes(`CREATE TABLE IF NOT EXISTS ${table}`)) errors.push(`portal migration missing ${table}`);
 }
 if (!portalRateLimitMigration.includes('request_fingerprint_hash')) errors.push('portal OAuth rate-limit migration missing fingerprint column');
+if (!portalIdentityAuthorityMigration.includes('email_authoritative')
+  || !portalIdentityAuthorityMigration.includes('portal_identity_quarantine')) {
+  errors.push('portal identity-authority migration or historical isolation is incomplete');
+}
 if (!wranglerConfig.includes('"binding": "PORTAL_DB"')) errors.push('wrangler config missing dedicated PORTAL_DB binding');
 if (!wranglerConfig.includes('"migrations_dir": "migrations-portal"')) errors.push('PORTAL_DB does not use the isolated portal migration directory');
 if (!/\.dev\.vars/.test(gitignore)) errors.push('.dev.vars is not ignored');
 if (!authLibrary.includes('HttpOnly') || !authLibrary.includes('SameSite=Lax') || !authLibrary.includes('Secure')) errors.push('portal session cookie safeguards are incomplete');
 if (!authLibrary.includes('env.PORTAL_DB') || !authLibrary.includes("env.ALLOW_LOCAL_PORTAL === 'true'")) errors.push('production portal database is not isolated from analytics');
+if (!authLibrary.includes('isolateUnsafeVerifiedEmail')
+  || !authLibrary.includes("i.email_authoritative = 0")
+  || !authLibrary.includes("hostedDomain === emailDomain")) {
+  errors.push('non-authoritative Google identity isolation is incomplete');
+}
 if (!portalCasesFunction.includes('WHERE owner_user_id = ?1')) errors.push('portal case list is not owner-scoped');
+if (!portalCaseDetailFunction.includes("existing.status !== 'awaiting_client'")
+  || !portalCaseDetailFunction.includes("AND status = 'awaiting_client'")) {
+  errors.push('customer case intake is not locked after awaiting-client state');
+}
 if (/GOOGLE_CLIENT_SECRET\s*=\s*[^\n]*[A-Za-z0-9_-]{12}/.test([sourceTemplate, sourceJs, authLibrary, wranglerConfig].join('\n'))) errors.push('hard-coded Google secret found');
+for (const endpoint of ['/api/auth/email/request', '/api/auth/email/verify', '/api/portal/orders']) {
+  if (!sourcePortalJs.includes(endpoint)) errors.push(`portal client is missing ${endpoint}`);
+}
+if (!sourcePortalJs.includes('authCapabilities') || /\{\s*google:\s*true,\s*email:\s*true\s*\}/.test(sourcePortalJs)) errors.push('portal authentication methods must come from server capabilities');
+for (const safeField of ['product', 'locale', 'quantity', 'reference']) {
+  if (!sourceJs.includes(safeField) || !sourcePortalJs.includes(safeField)) errors.push(`purchase intent is missing safe field ${safeField}`);
+}
+if (!sourceJs.includes("sessionResponse.status === 401") || !sourceJs.includes('zimonai_purchase_intent_v1') || !sourcePortalJs.includes('resumePurchaseIfNeeded')) errors.push('checkout login gate or deliberate resume flow is incomplete');
+const checkoutHandlerStart = sourceJs.indexOf('checkoutForms.forEach');
+const checkoutHandlerEnd = sourceJs.indexOf('const paymentResult', checkoutHandlerStart);
+const checkoutHandler = sourceJs.slice(checkoutHandlerStart, checkoutHandlerEnd);
+if (checkoutHandler.indexOf("fetch('/api/portal/me'") < 0 || checkoutHandler.indexOf('form.checkValidity()') < checkoutHandler.indexOf("fetch('/api/portal/me'")) {
+  errors.push('checkout must require sign-in before validating final payment consent');
+}
+if (!sourceJs.includes("fetch('/api/portal/me'") || !sourceJs.includes("'X-CSRF-Token': session.csrfToken") || !sourceJs.includes("credentials: 'same-origin'")) errors.push('authenticated checkout is missing its same-origin session or CSRF token');
+if (!sourceAdminJs.includes("api('/api/admin/notifications'") || !sourceAdminJs.includes('emailConfigured') || !sourceAdminJs.includes('notificationId: item.id')) errors.push('admin notification status or safe retry control is incomplete');
+if (!sourceJs.includes('data-checkout-resume') || !sourceTemplate.includes('data-checkout-resume')) errors.push('checkout resume confirmation is missing');
+for (const endpoint of ['/api/admin/cases', '/api/admin/orders', '/api/admin/customers']) {
+  if (!sourceAdminJs.includes(endpoint)) errors.push(`admin client is missing ${endpoint}`);
+}
+for (const operation of ['expectedDeliveryAt', 'clientStatusNote', 'internalNote', "payload.paymentStatus = data.get('paymentStatus')", 'fulfillmentStatus']) {
+  if (!sourceAdminJs.includes(operation)) errors.push(`admin client is missing operation ${operation}`);
+}
+if (!sourceAdminJs.includes("api('/api/admin/orders'") || !sourceAdminJs.includes('copy.actions.createUnpaid')) errors.push('admin client is missing separate unpaid-order creation');
+if (!sourceAdminJs.includes("item.source !== 'stripe'") || !sourceAdminJs.includes("copy.paymentStatus[item.paymentStatus]")) errors.push('admin client does not preserve server-controlled Stripe status');
+if (!sourceAdminJs.includes("method: 'PATCH'") || !sourceAdminJs.includes("method: 'POST'")) errors.push('admin client mutation methods are incomplete');
+if (!sourceAdminJs.includes("caches.cases = null") || !sourceAdminJs.includes("caches.orders = null")) errors.push('admin client does not invalidate updated ledgers');
 
 for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
   const privacyHtml = await readFile(path.join(dist, prefix, 'privacy', 'index.html'), 'utf8');
@@ -291,8 +343,29 @@ if (!checkoutFunction.includes('allowedRequestOrigin') || !checkoutFunction.incl
 for (const field of ['name_collection[individual]', 'name_collection[business]', 'phone_number_collection', 'tax_id_collection']) {
   if (!checkoutFunction.includes(field)) errors.push(`checkout customer collection is missing ${field}`);
 }
-if (!sessionFunction.includes('stripeRequest') || !sessionFunction.includes('displayEmail') || !sessionFunction.includes("paymentStatus: session.payment_status")) errors.push('payment confirmation endpoint is incomplete');
-if (!webhookFunction.includes("request.headers.get('Stripe-Signature')") || !webhookFunction.includes("Math.abs(Math.floor(Date.now() / 1000) - Number(timestamp)) > 300")) errors.push('Stripe webhook signature verification is incomplete');
+if (!sessionFunction.includes('stripeRequest') || !sessionFunction.includes('displayEmail')
+  || !sessionFunction.includes('paymentStatus: stripeSession.payment_status')
+  || !sessionFunction.includes('owner_user_id = ?2')
+  || !sessionFunction.includes('checkout_session_integrity_failed')) {
+  errors.push('payment confirmation endpoint is incomplete');
+}
+if (!webhookFunction.includes("request.headers.get('Stripe-Signature')")
+  || !webhookFunction.includes('Math.abs(nowSeconds - Number(timestamp)) > 300')
+  || !webhookFunction.includes('verifyStripeSignature(rawBody')) {
+  errors.push('Stripe webhook signature verification is incomplete');
+}
+if (!webhookFunction.includes('STRIPE_EVENT_PROCESSING_LEASE_MS')
+  || !webhookFunction.includes('atomic_payment_transition')
+  || !webhookFunction.includes('last_stripe_event_created')
+  || !webhookFunction.includes('admin_legacy_payment_detected')
+  || !webhookFunction.includes('legacyCatalogueIntegrity')) {
+  errors.push('Stripe webhook lease, atomic transition or legacy cutover safeguards are incomplete');
+}
+if (!webhookFunction.includes("'charge.refunded'")
+  || !webhookFunction.includes('stripe_partial_refund_not_supported')
+  || !webhookFunction.includes('mirrorRefundAnalytics')) {
+  errors.push('Stripe full-refund handling or partial-refund fail-closed safeguards are incomplete');
+}
 for (const table of ['stripe_events', 'payment_orders']) if (!paymentMigration.includes(`CREATE TABLE IF NOT EXISTS ${table}`)) errors.push(`payment database migration missing ${table}`);
 if (!webhookFunction.includes('INSERT OR IGNORE INTO stripe_events') || !webhookFunction.includes('ON CONFLICT(stripe_session_id) DO UPDATE')) errors.push('Stripe webhook idempotency is incomplete');
 for (const field of ['customer_business_name', 'customer_phone', 'customer_tax_ids']) {

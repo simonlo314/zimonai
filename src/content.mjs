@@ -7,6 +7,7 @@ export const pages = [
   { id: 'scope', slug: 'scope-limitations' },
   { id: 'about', slug: 'about' },
   { id: 'portal', slug: 'portal', sitemap: false, noindex: true },
+  { id: 'admin', slug: 'admin', sitemap: false, noindex: true },
   { id: 'request', slug: 'request-verification' },
   { id: 'payments', slug: 'payments' },
   { id: 'paymentTerms', slug: 'payment-terms' },

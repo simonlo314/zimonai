@@ -1,17 +1,25 @@
-import { authEnabled, getPortalSession, portalJson } from '../../_lib/auth.js';
+import { authCapabilities, authEnabled, getPortalSession, portalJson } from '../../_lib/auth.js';
 
 export async function onRequestGet({ request, env }) {
   const session = await getPortalSession(request, env);
-  if (!session) return portalJson({ error: 'authentication_required', authEnabled: authEnabled(env) }, 401);
+  if (!session) {
+    return portalJson({
+      error: 'authentication_required',
+      authEnabled: authEnabled(env),
+      authCapabilities: authCapabilities(env)
+    }, 401);
+  }
   return portalJson({
     authenticated: true,
     authEnabled: authEnabled(env),
+    authCapabilities: authCapabilities(env),
     csrfToken: session.csrf_token,
     user: {
       id: session.user_id,
       email: session.primary_email,
       name: session.display_name,
-      locale: session.locale
+      locale: session.locale,
+      isAdmin: session.role === 'admin' && Number(session.is_admin_principal) === 1
     }
   });
 }

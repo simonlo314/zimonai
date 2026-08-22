@@ -1,6 +1,6 @@
 import {
-  authEnabled,
   cleanPortalLocale,
+  googleAuthEnabled,
   oauthBaseUrl,
   oauthCookieName,
   oauthRequestAllowed,
@@ -24,7 +24,7 @@ async function requestFingerprint(request, env) {
 }
 
 export async function onRequestGet({ request, env }) {
-  if (!authEnabled(env)) return portalJson({ error: 'google_sign_in_not_configured' }, 503);
+  if (!googleAuthEnabled(env)) return portalJson({ error: 'google_sign_in_not_configured' }, 503);
   if (!oauthRequestAllowed(request, env)) return portalJson({ error: 'oauth_host_not_allowed' }, 403);
 
   const url = new URL(request.url);

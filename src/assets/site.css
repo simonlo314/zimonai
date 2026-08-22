@@ -682,6 +682,10 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 9.5em; letter-spacin
 .payment-card__timing span { color: var(--muted); font-family: var(--mono); font-size: var(--text-label); }
 .payment-card__timing strong { text-align: right; font-size: var(--text-caption); }
 .checkout-form { display: grid; grid-template-columns: 1fr auto; gap: 20px 25px; align-items: end; padding: 30px 40px 36px; background: var(--white); }
+.checkout-resume-notice { grid-column: 1 / -1; padding: 16px 18px; border: 1px solid #b9cce7; border-left: 4px solid var(--blue); border-radius: 8px; background: #eef4fd; }
+.checkout-resume-notice strong { display: block; color: var(--ink); font-size: var(--text-caption); }
+.checkout-resume-notice p { margin: 5px 0 0; color: #4f627c; font-size: var(--text-label); line-height: 1.65; }
+.checkout-resume-notice:focus-visible { outline: 3px solid #6da6f0; outline-offset: 3px; }
 .checkout-field { display: grid; gap: 8px; min-width: 0; font-size: var(--text-caption); font-weight: 700; }
 .checkout-field small { color: var(--discrepancy); font-family: var(--mono); font-size: var(--text-utility); text-transform: uppercase; }
 .checkout-field input { width: 100%; min-height: 46px; padding: 9px 11px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); color: var(--ink); }

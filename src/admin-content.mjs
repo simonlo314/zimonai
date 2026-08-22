@@ -1,0 +1,221 @@
+export const adminContent = {
+  en: {
+    metaTitle: 'Operations workspace | ZimonAI',
+    metaDescription: 'Private ZimonAI operations workspace.',
+    eyebrow: 'Private operations workspace',
+    title: 'Move every case from intake to an evidence-backed delivery.',
+    lead: 'This workspace shows recorded cases, orders and client accounts. Blank sections mean no record was returned; they are never filled with demonstration data.',
+    loading: 'Confirming administrator access…',
+    loadError: 'The operations workspace could not be loaded. No records were changed.',
+    accessDeniedTitle: 'Administrator access is required',
+    accessDeniedText: 'This signed-in account does not have permission to open the ZimonAI operations workspace.',
+    signedOutTitle: 'Sign in before opening the workspace',
+    signedOutText: 'Use an authorised administrator account in the client portal, then return here.',
+    portalAction: 'Go to client portal',
+    signedInAs: 'Signed in as',
+    nav: {
+      queue: 'Work queue',
+      cases: 'Cases',
+      orders: 'Orders',
+      customers: 'Customers',
+      notifications: 'Notifications',
+      create: 'Create case'
+    },
+    views: {
+      queue: { title: 'Work queue', lead: 'Cases requiring the next recorded action, ordered by the data returned by the server.', loading: 'Loading the work queue…', empty: 'There are no recorded items in the work queue.', error: 'The work queue could not be loaded.' },
+      cases: { title: 'Case ledger', lead: 'All case records available to this administrator account.', loading: 'Loading case records…', empty: 'No case records were returned.', error: 'Case records could not be loaded.' },
+      orders: { title: 'Order ledger', lead: 'Recorded payments and order references. Payment status remains controlled by the server.', loading: 'Loading order records…', empty: 'No order records were returned.', error: 'Order records could not be loaded.' },
+      customers: { title: 'Clients and invitations', lead: 'Signed-in client accounts and pending Email invitations linked to real case records.', loading: 'Loading client records…', empty: 'No client accounts or invitations were returned.', error: 'Client records could not be loaded.' },
+      notifications: { title: 'Notification dispatch', lead: 'Recorded transactional emails and their dispatch status. “Accepted by mail provider” means the provider accepted the message for sending; it does not prove inbox delivery.', loading: 'Loading notification records…', empty: 'No notification records were returned.', error: 'Notification records could not be loaded.' }
+    },
+    fields: {
+      reference: 'Reference', customer: 'Client', supplier: 'Supplier', product: 'Product', service: 'Service', status: 'Status', amount: 'Amount', updated: 'Updated', created: 'Created', email: 'Email', cases: 'Cases', orders: 'Orders', nextAction: 'Next action', recipient: 'Recipient', notificationType: 'Type', attempts: 'Attempts', lastAttempt: 'Last attempt', sentAt: 'Submitted at', deliveryError: 'Error summary'
+    },
+    status: { submitted: 'Information received', reviewing: 'Scope review', awaiting_client: 'Waiting for information', scoped: 'Scope confirmed', in_progress: 'In progress', delivered: 'Report ready', closed: 'Closed' },
+    paymentStatus: { pending: 'Pending', unpaid: 'Awaiting payment', paid: 'Paid', waived: 'No payment required', failed: 'Failed', expired: 'Expired', refunded: 'Refunded' },
+    fulfillmentStatus: { awaiting_payment: 'Awaiting payment', awaiting_intake: 'Awaiting intake', reviewing: 'Reviewing', in_progress: 'In progress', delivered: 'Delivered', closed: 'Closed' },
+    notificationStatus: { queued: 'Queued', sending: 'Submitting', sent: 'Accepted by mail provider', failed: 'Dispatch failed' },
+    notificationType: { customer_order_paid: 'Client payment receipt', admin_order_paid: 'Paid-order alert', customer_case_invited: 'Case invitation' },
+    notifications: {
+      configured: 'Transactional Email delivery is configured.',
+      unconfigured: 'Email delivery is not configured. Notifications remain recorded here, but no retry will be presented as sent.',
+      retry: 'Retry failed dispatch', retrying: 'Retrying…', retried: 'The mail provider accepted the notification.',
+      retryFailed: 'The retry was not accepted by the mail provider. Its failed status remains visible.',
+      retryUnavailable: 'Email delivery is not configured, so this notification was not submitted.'
+    },
+    actions: {
+      caseDetails: 'Update case', expectedDelivery: 'Expected delivery', clientNote: 'Client-facing status note', internalNote: 'Internal note', saveCase: 'Save case update', saving: 'Saving…', caseSaved: 'Case update saved.',
+      createOrder: 'Create an unpaid order', orderHelp: 'This creates an unpaid order only. Confirming money received or waiving payment is a later, separate action.', orderProduct: 'Product key', orderDescription: 'Order description', orderAmount: 'Amount', orderCurrency: 'Currency', orderQuantity: 'Quantity', serviceReference: 'Service reference', paymentMethodNote: 'Payment method note', createUnpaid: 'Create unpaid order', orderCreated: 'Unpaid order created.',
+      paymentDetails: 'Update order and payment', fulfillment: 'Fulfilment status', saveOrder: 'Save order update', orderSaved: 'Order update saved.', actionError: 'This update could not be saved. No status was changed.', invitation: 'Email invitation pending', verified: 'Verified account'
+    },
+    form: {
+      eyebrow: 'Manual intake',
+      title: 'Create a case from an agreed offline request.',
+      lead: 'Use this only for a real client request received outside the website. For a client who has not signed in, this creates a pending invitation. When email delivery is configured, the system records and attempts the invitation; check Notification dispatch for the result. The client can see the case after verifying the same email address.',
+      customerEmail: 'Client Email',
+      supplierName: 'Supplier or trading name',
+      supplierUrl: 'Supplier link',
+      chineseLegalName: 'Chinese legal name',
+      productCategory: 'Product or category',
+      productModel: 'Model or quoted specification',
+      decisionContext: 'Decision this work should support',
+      requestedChecks: 'Claims or documents to check',
+      tier: 'Service level',
+      tiers: [['unsure', 'Not set'], ['t1', 'T1 · Certificate Verification'], ['t2', 'T2 · Remote Due Diligence'], ['t3', 'T3 · Verified Remote Interview'], ['t4', 'T4 · On-Site Verification'], ['t5', 'T5 · Verification Advisor'], ['t6', 'T6 · Managed Sourcing Verification']],
+      fieldHint: 'Leave details blank when they have not been supplied. The case will be recorded as waiting for client information.',
+      paymentNote: 'Creating a case never confirms a payment. Record and confirm Stripe, transfer or waived-payment details separately in the order record.',
+      submit: 'Create case record',
+      submitting: 'Creating record…',
+      success: 'The case record was created.',
+      error: 'The case record could not be created. Review the fields and try again.',
+      required: 'Required',
+      optional: 'Optional'
+    }
+  },
+  'zh-tw': {
+    metaTitle: '營運工作台｜ZimonAI 智蒙灣',
+    metaDescription: 'ZimonAI 智蒙灣內部營運工作台。',
+    eyebrow: '內部營運工作台',
+    title: '讓每一案從需求進件，走到有憑有據的交付。',
+    lead: '這裡只顯示系統實際回傳的案件、訂單與客戶資料。沒有紀錄時就維持空白，不會以示範數字填充版面。',
+    loading: '正在確認管理員權限…',
+    loadError: '目前無法載入營運工作台；任何資料都沒有被更動。',
+    accessDeniedTitle: '需要管理員權限',
+    accessDeniedText: '目前登入的帳戶沒有權限開啟 ZimonAI 營運工作台。',
+    signedOutTitle: '請先登入再開啟工作台',
+    signedOutText: '請先在客戶中心使用已授權的管理員帳戶登入，再回到這個頁面。',
+    portalAction: '前往客戶中心',
+    signedInAs: '目前登入',
+    nav: {
+      queue: '工作清單',
+      cases: '案件',
+      orders: '訂單',
+      customers: '客戶',
+      notifications: '通知',
+      create: '新增案件'
+    },
+    views: {
+      queue: { title: '工作清單', lead: '依伺服器回傳的資料，集中顯示下一步需要處理的案件。', loading: '正在載入工作清單…', empty: '目前沒有需要處理的紀錄。', error: '目前無法載入工作清單。' },
+      cases: { title: '案件總表', lead: '目前管理員帳戶有權查看的所有案件紀錄。', loading: '正在載入案件紀錄…', empty: '目前沒有案件紀錄。', error: '目前無法載入案件紀錄。' },
+      orders: { title: '訂單紀錄', lead: '顯示系統記錄的付款與訂單編號；付款狀態仍以伺服器判定為準。', loading: '正在載入訂單紀錄…', empty: '目前沒有訂單紀錄。', error: '目前無法載入訂單紀錄。' },
+      customers: { title: '客戶與邀請', lead: '顯示已登入的客戶帳戶，以及與真實案件相連、仍待完成 Email 驗證的邀請。', loading: '正在載入客戶資料…', empty: '目前沒有客戶帳戶或待驗證邀請。', error: '目前無法載入客戶資料。' },
+      notifications: { title: '通知交寄紀錄', lead: '顯示交易通知 Email 的交寄處理狀態；「已交寄件服務」只表示寄件服務已接受，不代表信件已送達收件匣。', loading: '正在載入通知紀錄…', empty: '目前沒有通知紀錄。', error: '目前無法載入通知紀錄。' }
+    },
+    fields: {
+      reference: '編號', customer: '客戶', supplier: '供應商', product: '產品', service: '服務', status: '狀態', amount: '金額', updated: '更新時間', created: '建立時間', email: 'Email', cases: '案件', orders: '訂單', nextAction: '下一步', recipient: '收件者', notificationType: '通知類型', attempts: '嘗試次數', lastAttempt: '最近一次嘗試', sentAt: '交寄時間', deliveryError: '錯誤摘要'
+    },
+    status: { submitted: '資料已收到', reviewing: '確認服務範圍', awaiting_client: '等待資料', scoped: '範圍已確認', in_progress: '查核進行中', delivered: '報告已完成', closed: '已結案' },
+    paymentStatus: { pending: '待確認', unpaid: '等待付款', paid: '已付款', waived: '不需付款', failed: '付款失敗', expired: '已失效', refunded: '已退款' },
+    fulfillmentStatus: { awaiting_payment: '等待付款', awaiting_intake: '等待案件資料', reviewing: '確認中', in_progress: '執行中', delivered: '已交付', closed: '已結束' },
+    notificationStatus: { queued: '等待交寄', sending: '交寄中', sent: '已交寄件服務', failed: '交寄失敗' },
+    notificationType: { customer_order_paid: '客戶付款收據', admin_order_paid: '已付款訂單提醒', customer_case_invited: '案件邀請' },
+    notifications: {
+      configured: '交易通知 Email 寄送服務已設定。',
+      unconfigured: 'Email 寄送服務尚未設定。通知仍會記錄在這裡，但系統不會把未寄出的信件顯示為成功。',
+      retry: '重新交寄', retrying: '正在重新交寄…', retried: '寄件服務已接受這封通知。',
+      retryFailed: '這次交寄仍未被寄件服務接受，失敗狀態會保留。',
+      retryUnavailable: 'Email 寄送服務尚未設定，因此這封通知沒有交寄。'
+    },
+    actions: {
+      caseDetails: '更新案件', expectedDelivery: '預計交付時間', clientNote: '顯示給客戶的進度說明', internalNote: '內部備註', saveCase: '儲存案件更新', saving: '正在儲存…', caseSaved: '案件更新已儲存。',
+      createOrder: '建立未付款訂單', orderHelp: '這一步只會建立「等待付款」訂單；確認已收款或設定不需付款，必須之後再分開操作。', orderProduct: '收費項目', orderDescription: '訂單說明', orderAmount: '金額', orderCurrency: '幣別', orderQuantity: '數量', serviceReference: '服務參考編號', paymentMethodNote: '付款方式備註', createUnpaid: '建立未付款訂單', orderCreated: '未付款訂單已建立。',
+      paymentDetails: '更新訂單與付款', fulfillment: '交付狀態', saveOrder: '儲存訂單更新', orderSaved: '訂單更新已儲存。', actionError: '這次更新未能儲存，任何狀態都沒有被更動。', invitation: '等待完成 Email 驗證', verified: '已驗證帳戶'
+    },
+    form: {
+      eyebrow: '人工進件',
+      title: '為線下已確認的需求建立案件。',
+      lead: '只用於確實收到、但不是透過網站送出的客戶需求。若客戶尚未登入，系統會先建立待驗證邀請。Email 寄送服務啟用時，系統會建立通知並嘗試寄送；結果以「通知交寄紀錄」為準。客戶完成同一個 Email 驗證後，才看得到案件。',
+      customerEmail: '客戶 Email',
+      supplierName: '供應商名稱或對外使用名稱',
+      supplierUrl: '供應商連結',
+      chineseLegalName: '中國公司法定名稱',
+      productCategory: '產品或品類',
+      productModel: '型號或報價規格',
+      decisionContext: '這次案件要協助客戶做什麼決定',
+      requestedChecks: '需要核對的宣稱、文件或疑點',
+      tier: '服務層級',
+      tiers: [['unsure', '尚未確認'], ['t1', 'T1 · 遠端證照查核'], ['t2', 'T2 · 遠端深度盡調'], ['t3', 'T3 · 電話與視訊訪查'], ['t4', 'T4 · 單次實地查核'], ['t5', 'T5 · 供應商查核顧問'], ['t6', 'T6 · 全託管採購把關']],
+      fieldHint: '客戶尚未提供的內容可以留白；案件會先列為「等待資料」。',
+      paymentNote: '建立案件不代表已確認付款。Stripe、轉帳或不需付款等資訊，必須另外在訂單紀錄中建立並確認。',
+      submit: '建立案件紀錄',
+      submitting: '正在建立紀錄…',
+      success: '案件紀錄已建立。',
+      error: '案件紀錄未能建立，請檢查欄位後再試一次。',
+      required: '必填',
+      optional: '選填'
+    }
+  },
+  'zh-cn': {
+    metaTitle: '运营工作台｜ZimonAI 智蒙湾',
+    metaDescription: 'ZimonAI 智蒙湾内部运营工作台。',
+    eyebrow: '内部运营工作台',
+    title: '让每个项目从需求提交，走到有据可查的交付。',
+    lead: '这里只显示系统实际返回的项目、订单与客户资料。没有记录时就保持空白，不会用演示数据填充页面。',
+    loading: '正在确认管理员权限…',
+    loadError: '目前无法加载运营工作台；任何资料都没有被更改。',
+    accessDeniedTitle: '需要管理员权限',
+    accessDeniedText: '当前登录的账户没有权限打开 ZimonAI 运营工作台。',
+    signedOutTitle: '请先登录再打开工作台',
+    signedOutText: '请先在客户中心使用已授权的管理员账户登录，再返回本页面。',
+    portalAction: '前往客户中心',
+    signedInAs: '当前登录',
+    nav: {
+      queue: '工作清单',
+      cases: '项目',
+      orders: '订单',
+      customers: '客户',
+      notifications: '通知',
+      create: '新建项目'
+    },
+    views: {
+      queue: { title: '工作清单', lead: '根据服务器返回的资料，集中显示下一步需要处理的项目。', loading: '正在加载工作清单…', empty: '目前没有需要处理的记录。', error: '目前无法加载工作清单。' },
+      cases: { title: '项目总表', lead: '当前管理员账户有权查看的所有项目记录。', loading: '正在加载项目记录…', empty: '目前没有项目记录。', error: '目前无法加载项目记录。' },
+      orders: { title: '订单记录', lead: '显示系统记录的付款与订单编号；付款状态仍以服务器判断为准。', loading: '正在加载订单记录…', empty: '目前没有订单记录。', error: '目前无法加载订单记录。' },
+      customers: { title: '客户与邀请', lead: '显示已登录的客户账户，以及与真实项目相连、仍待完成邮箱验证的邀请。', loading: '正在加载客户资料…', empty: '目前没有客户账户或待验证邀请。', error: '目前无法加载客户资料。' },
+      notifications: { title: '通知提交记录', lead: '显示交易通知邮件的提交处理状态；“已提交邮件服务”只表示邮件服务已接受，不代表邮件已送达收件箱。', loading: '正在加载通知记录…', empty: '目前没有通知记录。', error: '目前无法加载通知记录。' }
+    },
+    fields: {
+      reference: '编号', customer: '客户', supplier: '供应商', product: '产品', service: '服务', status: '状态', amount: '金额', updated: '更新时间', created: '创建时间', email: '邮箱', cases: '项目', orders: '订单', nextAction: '下一步', recipient: '收件人', notificationType: '通知类型', attempts: '尝试次数', lastAttempt: '最近一次尝试', sentAt: '提交时间', deliveryError: '错误摘要'
+    },
+    status: { submitted: '资料已收到', reviewing: '确认服务范围', awaiting_client: '等待资料', scoped: '范围已确认', in_progress: '核查进行中', delivered: '报告已完成', closed: '已结项' },
+    paymentStatus: { pending: '待确认', unpaid: '等待付款', paid: '已付款', waived: '无需付款', failed: '付款失败', expired: '已失效', refunded: '已退款' },
+    fulfillmentStatus: { awaiting_payment: '等待付款', awaiting_intake: '等待项目资料', reviewing: '确认中', in_progress: '执行中', delivered: '已交付', closed: '已结束' },
+    notificationStatus: { queued: '等待提交', sending: '提交中', sent: '已提交邮件服务', failed: '提交失败' },
+    notificationType: { customer_order_paid: '客户付款收据', admin_order_paid: '已付款订单提醒', customer_case_invited: '项目邀请' },
+    notifications: {
+      configured: '交易通知邮件发送服务已设置。',
+      unconfigured: '邮件发送服务尚未设置。通知仍会记录在这里，但系统不会把尚未发出的邮件显示为成功。',
+      retry: '重新提交', retrying: '正在重新提交…', retried: '邮件服务已接受这封通知。',
+      retryFailed: '本次提交仍未被邮件服务接受，失败状态会保留。',
+      retryUnavailable: '邮件发送服务尚未设置，因此这封通知没有提交。'
+    },
+    actions: {
+      caseDetails: '更新项目', expectedDelivery: '预计交付时间', clientNote: '显示给客户的进度说明', internalNote: '内部备注', saveCase: '保存项目更新', saving: '正在保存…', caseSaved: '项目更新已保存。',
+      createOrder: '创建未付款订单', orderHelp: '这一步只会创建“等待付款”订单；确认已收款或设置无需付款，必须之后再单独操作。', orderProduct: '收费项目', orderDescription: '订单说明', orderAmount: '金额', orderCurrency: '币种', orderQuantity: '数量', serviceReference: '服务参考编号', paymentMethodNote: '付款方式备注', createUnpaid: '创建未付款订单', orderCreated: '未付款订单已创建。',
+      paymentDetails: '更新订单与付款', fulfillment: '交付状态', saveOrder: '保存订单更新', orderSaved: '订单更新已保存。', actionError: '本次更新未能保存，任何状态都没有被更改。', invitation: '等待完成邮箱验证', verified: '已验证账户'
+    },
+    form: {
+      eyebrow: '人工录入',
+      title: '为线下已确认的需求创建项目。',
+      lead: '只用于确实收到、但不是通过网站提交的客户需求。若客户尚未登录，系统会先创建待验证邀请。邮件发送服务启用时，系统会创建通知并尝试发送；结果以“通知提交记录”为准。客户完成同一邮箱验证后，才能看到项目。',
+      customerEmail: '客户邮箱',
+      supplierName: '供应商名称或对外使用名称',
+      supplierUrl: '供应商链接',
+      chineseLegalName: '中国公司法定名称',
+      productCategory: '产品或品类',
+      productModel: '型号或报价规格',
+      decisionContext: '本项目要协助客户做什么决定',
+      requestedChecks: '需要核对的声明、文件或疑点',
+      tier: '服务层级',
+      tiers: [['unsure', '尚未确认'], ['t1', 'T1 · 远程证照核查'], ['t2', 'T2 · 远程深度尽调'], ['t3', 'T3 · 电话与视频访查'], ['t4', 'T4 · 单次实地核查'], ['t5', 'T5 · 供应商核查顾问'], ['t6', 'T6 · 全托管采购把关']],
+      fieldHint: '客户尚未提供的内容可以留空；项目会先记录为“等待资料”。',
+      paymentNote: '创建项目不代表付款已确认。Stripe、转账或无需付款等信息，必须另外在订单记录中创建并确认。',
+      submit: '创建项目记录',
+      submitting: '正在创建记录…',
+      success: '项目记录已创建。',
+      error: '项目记录未能创建，请检查字段后重试。',
+      required: '必填',
+      optional: '选填'
+    }
+  }
+};

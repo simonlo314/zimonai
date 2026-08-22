@@ -5,6 +5,7 @@ import { paymentContent } from './payment-content.mjs';
 import { legalContent } from './legal-content.mjs';
 import { knowledgeArticleSpecs, knowledgeContent, knowledgeSpecById } from './knowledge-content.mjs';
 import { portalContent } from './portal-content.mjs';
+import { adminContent } from './admin-content.mjs';
 
 const pageMap = Object.fromEntries(pages.map((page) => [page.id, page]));
 
@@ -145,6 +146,22 @@ function portal(t) {
         <p class="portal-kicker">${esc(p.auth.label)}</p>
         <h2 id="portal-auth-title">${esc(p.auth.title)}</h2>
         <a class="portal-google" href="${esc(loginHref)}" data-google-login>${googleMark()}<span>${esc(p.auth.google)}</span></a>
+        <div class="portal-auth__divider"><span>${esc(p.auth.divider)}</span></div>
+        <div class="portal-email-auth" data-email-auth>
+          <form class="portal-email-form" data-email-request-form novalidate>
+            <label for="portal-login-email">${esc(p.auth.emailLabel)}</label>
+            <div class="portal-email-form__row"><input id="portal-login-email" name="email" type="email" autocomplete="email" maxlength="320" placeholder="${esc(p.auth.emailPlaceholder)}" required><button type="submit" data-email-request-button>${esc(p.auth.emailSend)}</button></div>
+            <p>${esc(p.auth.emailHelp)}</p>
+          </form>
+          <form class="portal-code-form" data-email-verify-form novalidate hidden>
+            <div><strong>${esc(p.auth.codeTitle)}</strong><p>${esc(p.auth.codeHint)}</p></div>
+            <label for="portal-login-code">${esc(p.auth.codeLabel)}</label>
+            <input id="portal-login-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" required>
+            <button type="submit" data-email-verify-button>${esc(p.auth.codeVerify)}</button>
+            <button class="portal-code-form__back" type="button" data-email-reset>${esc(p.auth.codeResend)}</button>
+          </form>
+          <div class="portal-email-auth__feedback" data-email-feedback hidden role="status" aria-live="polite"></div>
+        </div>
         <div class="portal-auth__feedback" data-auth-feedback hidden role="alert"></div>
         <div class="portal-auth__notice" data-auth-unavailable hidden role="status">
           <strong>${esc(p.auth.unavailable)}</strong><p>${esc(p.auth.unavailableDetail)}</p>
@@ -160,9 +177,10 @@ function portal(t) {
       </header>
       <div class="portal-workspace__body">
         <div class="portal-tabs" role="tablist" aria-label="${esc(p.workspace.title)}">
-          <button id="portal-tab-cases" type="button" role="tab" aria-selected="true" aria-controls="portal-panel-cases" data-portal-view="cases"><span>01</span>${esc(p.workspace.cases)}</button>
-          <button id="portal-tab-new" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-new" tabindex="-1" data-portal-view="new"><span>02</span>${esc(p.workspace.newCase)}</button>
-          <button id="portal-tab-account" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-account" tabindex="-1" data-portal-view="account"><span>03</span>${esc(p.workspace.account)}</button>
+          <button id="portal-tab-cases" type="button" role="tab" aria-selected="true" aria-controls="portal-panel-cases" data-portal-view="cases">${esc(p.workspace.cases)}</button>
+          <button id="portal-tab-orders" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-orders" tabindex="-1" data-portal-view="orders">${esc(p.workspace.orders)}</button>
+          <button id="portal-tab-new" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-new" tabindex="-1" data-portal-view="new">${esc(p.workspace.newCase)}</button>
+          <button id="portal-tab-account" type="button" role="tab" aria-selected="false" aria-controls="portal-panel-account" tabindex="-1" data-portal-view="account">${esc(p.workspace.account)}</button>
         </div>
         <div class="portal-stage">
           <div class="portal-error" data-portal-error hidden role="alert">${esc(p.workspace.loadError)}</div>
@@ -173,6 +191,16 @@ function portal(t) {
             <div class="portal-empty" data-portal-empty hidden>
               <div class="portal-empty__rail" aria-hidden="true"><span></span><span></span><span></span></div>
               <div><div role="status"><p class="portal-kicker">${esc(p.workspace.emptyLabel)}</p><h3>${esc(p.workspace.emptyTitle)}</h3><p>${esc(p.workspace.emptyText)}</p></div><button class="portal-primary" type="button" data-portal-open-new>${esc(p.workspace.emptyAction)}${arrow()}</button></div>
+            </div>
+          </section>
+
+          <section class="portal-view" id="portal-panel-orders" role="tabpanel" tabindex="0" aria-labelledby="portal-tab-orders" data-portal-panel="orders" hidden>
+            <header class="portal-section-head"><div><p class="portal-kicker">${esc(p.workspace.ordersTitle)}</p><h2>${esc(p.workspace.ordersTitle)}</h2></div><p>${esc(p.workspace.ordersLead)}</p></header>
+            <div class="portal-cases-state" data-portal-orders-state hidden role="status"></div>
+            <div class="portal-order-list" data-portal-order-list aria-live="polite"></div>
+            <div class="portal-empty portal-empty--orders" data-portal-orders-empty hidden>
+              <div class="portal-empty__rail" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div role="status"><p class="portal-kicker">${esc(p.workspace.ordersEmptyLabel)}</p><h3>${esc(p.workspace.ordersEmptyTitle)}</h3><p>${esc(p.workspace.ordersEmptyText)}</p></div>
             </div>
           </section>
 
@@ -207,12 +235,68 @@ function portal(t) {
               <div><dt>${esc(p.account.accountId)}</dt><dd data-account-id></dd></div>
             </dl>
             <div class="portal-account__links"><a href="${pathFor(t.__key, 'privacy')}">${esc(p.account.privacy)}${arrow()}</a><a href="mailto:${esc(brandProfile.email)}?subject=${encodeURIComponent(p.account.supportSubject)}">${esc(p.account.support)}${arrow()}</a></div>
+            <a class="portal-admin-entry" href="${pathFor(t.__key, 'admin')}" data-portal-admin-link hidden><span><strong>${esc(p.account.admin)}</strong><small>${esc(p.account.adminLead)}</small></span>${arrow()}</a>
             <div class="portal-account__actions"><button class="portal-secondary portal-account__logout" type="button" data-portal-logout>${esc(p.workspace.logout)}</button></div>
           </section>
         </div>
       </div>
     </section>
     <script type="application/json" id="portal-copy">${jsonForHtml(p)}</script>
+  </main>`;
+}
+
+function admin(t) {
+  const a = t.admin;
+  const options = (items) => items.map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
+  const dataView = (key) => `<section class="admin-view" id="admin-panel-${key}" role="tabpanel" tabindex="0" aria-labelledby="admin-tab-${key}" data-admin-panel="${key}"${key === 'queue' ? '' : ' hidden'}>
+    <header class="admin-section-head"><div><p class="portal-kicker">${esc(a.nav[key])}</p><h2>${esc(a.views[key].title)}</h2></div><p>${esc(a.views[key].lead)}</p></header>
+    ${key === 'notifications' ? '<div class="admin-notification-config" data-admin-email-config hidden role="status"></div>' : ''}
+    <div class="admin-data-state" data-admin-state="${key}" role="status">${esc(a.views[key].loading)}</div>
+    <div class="admin-record-list" data-admin-list="${key}" aria-live="polite"></div>
+  </section>`;
+  return `<main id="main" class="admin-page" data-admin data-locale="${esc(t.__key)}" data-state="loading">
+    <section class="admin-loading shell" data-admin-loading aria-live="polite"><span class="portal-loading__mark" aria-hidden="true"></span><p>${esc(a.loading)}</p></section>
+    <section class="admin-access shell" data-admin-access hidden>
+      <img src="/assets/zimonai-shield-icon-primary.svg" alt="" width="88" height="88" aria-hidden="true">
+      <p class="portal-kicker">ZimonAI</p><h1 data-admin-access-title>${esc(a.signedOutTitle)}</h1><p data-admin-access-text>${esc(a.signedOutText)}</p>
+      <a class="portal-primary" href="${pathFor(t.__key, 'portal')}">${esc(a.portalAction)}${arrow()}</a>
+    </section>
+    <section class="admin-workspace shell" data-admin-workspace hidden>
+      <header class="admin-workspace__header">
+        <div><p class="portal-kicker">${esc(a.eyebrow)}</p><h1>${esc(a.title)}</h1><p>${esc(a.lead)}</p></div>
+        <div class="admin-identity"><small>${esc(a.signedInAs)}</small><strong data-admin-user-name></strong><span data-admin-user-email></span></div>
+      </header>
+      <div class="admin-shell">
+        <nav class="admin-tabs" role="tablist" aria-label="${esc(a.eyebrow)}">
+          ${Object.entries(a.nav).map(([key, label], index) => `<button id="admin-tab-${key}" type="button" role="tab" aria-selected="${index === 0 ? 'true' : 'false'}" aria-controls="admin-panel-${key}" ${index === 0 ? '' : 'tabindex="-1"'} data-admin-view="${key}">${esc(label)}</button>`).join('')}
+        </nav>
+        <div class="admin-stage">
+          <div class="admin-global-error" data-admin-error hidden role="alert">${esc(a.loadError)}</div>
+          ${dataView('queue')}${dataView('cases')}${dataView('orders')}${dataView('customers')}${dataView('notifications')}
+          <section class="admin-view admin-view--form" id="admin-panel-create" role="tabpanel" tabindex="0" aria-labelledby="admin-tab-create" data-admin-panel="create" hidden>
+            <header class="admin-section-head"><div><p class="portal-kicker">${esc(a.form.eyebrow)}</p><h2>${esc(a.form.title)}</h2></div><p>${esc(a.form.lead)}</p></header>
+            <form class="admin-case-form" data-admin-case-form novalidate>
+              <div class="admin-form-message" data-admin-form-message hidden tabindex="-1" role="alert"></div>
+              <div class="admin-fields">
+                <label><span>${esc(a.form.customerEmail)} <b>${esc(a.form.required)}</b></span><input name="customerEmail" type="email" maxlength="320" autocomplete="email" required></label>
+                <label><span>${esc(a.form.tier)} <b>${esc(a.form.optional)}</b></span><select name="tier">${options(a.form.tiers)}</select></label>
+                <label><span>${esc(a.form.supplierName)} <b>${esc(a.form.optional)}</b></span><input name="supplierName" type="text" maxlength="240"></label>
+                <label><span>${esc(a.form.supplierUrl)} <b>${esc(a.form.optional)}</b></span><input name="supplierUrl" type="url" maxlength="500" inputmode="url" placeholder="https://"></label>
+                <label><span>${esc(a.form.chineseLegalName)} <b>${esc(a.form.optional)}</b></span><input name="chineseLegalName" type="text" maxlength="240"></label>
+                <label><span>${esc(a.form.productCategory)} <b>${esc(a.form.optional)}</b></span><input name="productCategory" type="text" maxlength="240"></label>
+                <label><span>${esc(a.form.productModel)} <b>${esc(a.form.optional)}</b></span><input name="productModel" type="text" maxlength="300"></label>
+                <label class="admin-field--wide"><span>${esc(a.form.decisionContext)} <b>${esc(a.form.optional)}</b></span><textarea name="decisionContext" rows="4" maxlength="2000"></textarea></label>
+                <label class="admin-field--wide"><span>${esc(a.form.requestedChecks)} <b>${esc(a.form.optional)}</b></span><textarea name="requestedChecks" rows="4" maxlength="3000"></textarea></label>
+              </div>
+              <p class="admin-field-hint">${esc(a.form.fieldHint)}</p>
+              <p class="admin-payment-note">${esc(a.form.paymentNote)}</p>
+              <div class="admin-form-actions"><button class="portal-primary" type="submit"><span data-admin-submit-label>${esc(a.form.submit)}</span>${arrow()}</button></div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+    <script type="application/json" id="admin-copy">${jsonForHtml(a)}</script>
   </main>`;
 }
 
@@ -452,7 +536,8 @@ function checkoutForm(t, product, modifier = '') {
   const termsHref = pathFor(t.__key, 'paymentTerms');
   const quantity = product.quantity ? `<label class="checkout-field"><span>${esc(labels.quantity)} <small>${esc(labels.required)}</small></span><input type="number" name="quantity" min="1" max="100" step="1" value="1" inputmode="numeric" required></label>` : '';
   const reference = product.reference ? `<label class="checkout-field"><span>${esc(labels.reference)} <small>${esc(labels.required)}</small></span><input type="text" name="reference" maxlength="120" autocomplete="off" required></label>` : '';
-  return `<form class="checkout-form${modifier ? ` ${modifier}` : ''}" data-checkout-form data-product="${esc(product.key)}" novalidate>
+  return `<form class="checkout-form${modifier ? ` ${modifier}` : ''}" data-checkout-form data-product="${esc(product.key)}" data-login-label="${esc(t.payment.authGate.redirecting)}" novalidate>
+    <div class="checkout-resume-notice" data-checkout-resume hidden tabindex="-1"><strong>${esc(t.payment.authGate.resumeTitle)}</strong><p>${esc(t.payment.authGate.resumeText)}</p></div>
     ${quantity}${reference}
     <label class="consent checkout-consent"><input type="checkbox" name="terms" required><span>${esc(labels.terms)} <a href="${termsHref}" target="_blank" rel="noopener">${esc(labels.termsLink)}</a></span></label>
     <button class="button button--ink" type="submit" data-checkout-button data-default-label="${esc(product.button)}" data-processing-label="${esc(labels.processing)}">${esc(product.button)}${arrow()}</button>
@@ -669,7 +754,7 @@ function knowledgeArticle(t, page) {
   </main>`;
 }
 
-const renderers = { home, services, methodology, scope, about, portal, request, payments, paymentSuccess, paymentTerms, privacy, knowledge };
+const renderers = { home, services, methodology, scope, about, portal, admin, request, payments, paymentSuccess, paymentTerms, privacy, knowledge };
 
 function header(t, pageId) {
   const nav = [['services', t.nav.servicesBooking], ['knowledge', t.nav.knowledge], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
@@ -702,12 +787,12 @@ export function renderPage(langKey, pageId) {
   const original = languages[langKey];
   const page = pageMap[pageId];
   const knowledgeCopy = knowledgeContent[langKey];
-  const t = { ...original, payment: paymentContent[langKey], knowledge: knowledgeCopy, portal: portalContent[langKey], __key: langKey };
+  const t = { ...original, payment: paymentContent[langKey], knowledge: knowledgeCopy, portal: portalContent[langKey], admin: adminContent[langKey], __key: langKey };
   const articleSpec = page.kind === 'article' ? knowledgeSpecById(pageId) : null;
   const articleCopy = articleSpec ? knowledgeCopy.articles[articleSpec.key] : null;
   const baseMeta = original.meta.titles[pageId] ? original.meta : paymentContent[langKey].meta;
-  const metaTitle = pageId === 'portal' ? t.portal.metaTitle : pageId === 'knowledge' ? knowledgeCopy.hub.metaTitle : articleCopy ? `${articleCopy.title} | ZimonAI` : baseMeta.titles[pageId];
-  const metaDescription = pageId === 'portal' ? t.portal.metaDescription : pageId === 'knowledge' ? knowledgeCopy.hub.metaDescription : articleCopy ? articleCopy.description : baseMeta.descriptions[pageId];
+  const metaTitle = pageId === 'portal' ? t.portal.metaTitle : pageId === 'admin' ? t.admin.metaTitle : pageId === 'knowledge' ? knowledgeCopy.hub.metaTitle : articleCopy ? `${articleCopy.title} | ZimonAI` : baseMeta.titles[pageId];
+  const metaDescription = pageId === 'portal' ? t.portal.metaDescription : pageId === 'admin' ? t.admin.metaDescription : pageId === 'knowledge' ? knowledgeCopy.hub.metaDescription : articleCopy ? articleCopy.description : baseMeta.descriptions[pageId];
   const canonical = `https://zimonai.com${pathFor(langKey, pageId)}`;
   const alternates = Object.entries(languages).map(([key, lang]) => `<link rel="alternate" hreflang="${lang.htmlLang}" href="https://zimonai.com${pathFor(key, pageId)}">`).join('\n');
   const organizationId = 'https://zimonai.com/#organization';
@@ -866,12 +951,14 @@ export function renderPage(langKey, pageId) {
   <link rel="icon" href="/zimonai-favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="/assets/site.css">
-  ${pageId === 'portal' ? '<link rel="stylesheet" href="/assets/portal.css">' : ''}
+  ${pageId === 'portal' || pageId === 'admin' ? '<link rel="stylesheet" href="/assets/portal.css">' : ''}
+  ${pageId === 'admin' ? '<link rel="stylesheet" href="/assets/admin.css">' : ''}
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>
   <script type="module" src="/assets/site.js"></script>
   ${pageId === 'portal' ? '<script type="module" src="/assets/portal.js"></script>' : ''}
+  ${pageId === 'admin' ? '<script type="module" src="/assets/admin.js"></script>' : ''}
 </head>
-<body${pageId === 'portal' ? ' class="page-portal"' : ''}>
+<body${pageId === 'portal' ? ' class="page-portal"' : pageId === 'admin' ? ' class="page-portal page-admin"' : ''}>
   ${header(t, pageId)}
   ${page.kind === 'article' ? knowledgeArticle(t, page) : renderers[pageId](t)}
   ${footer(t)}

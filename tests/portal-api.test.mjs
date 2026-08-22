@@ -295,7 +295,9 @@ test('session API returns only public account fields and logout revokes the curr
   const me = await getMe({ request: requestFor(tokens.a, '/api/portal/me'), env });
   const payload = await me.json();
   assert.equal(me.status, 200);
-  assert.deepEqual(Object.keys(payload.user).sort(), ['email', 'id', 'locale', 'name']);
+  assert.deepEqual(payload.authCapabilities, { google: false, email: false });
+  assert.deepEqual(Object.keys(payload.user).sort(), ['email', 'id', 'isAdmin', 'locale', 'name']);
+  assert.equal(payload.user.isAdmin, false);
 
   const logoutResponse = await logout({
     request: requestFor(tokens.a, '/api/auth/logout', { method: 'POST', headers: { Origin: localOrigin, 'X-CSRF-Token': 'csrf-a' } }),
@@ -305,5 +307,7 @@ test('session API returns only public account fields and logout revokes the curr
   assert.match(logoutResponse.headers.get('Set-Cookie'), /Max-Age=0/);
   assert.notEqual(db.sessions.find((item) => item.user_id === 'user-a').revoked_at, '');
   assert.equal(db.sessions.find((item) => item.user_id === 'user-b').revoked_at, '');
-  assert.equal((await getMe({ request: requestFor(tokens.a, '/api/portal/me'), env })).status, 401);
+  const signedOut = await getMe({ request: requestFor(tokens.a, '/api/portal/me'), env });
+  assert.equal(signedOut.status, 401);
+  assert.deepEqual((await signedOut.json()).authCapabilities, { google: false, email: false });
 });

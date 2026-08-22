@@ -86,14 +86,16 @@ await writeFile(
   'utf8'
 );
 
-const portalScriptHashes = new Set();
+const privateScriptHashes = new Set();
 for (const lang of Object.values(languages)) {
-  const portalFile = path.join(dist, ...[lang.prefix, 'portal'].filter(Boolean), 'index.html');
-  for (const hash of inlineScriptHashes(await readFile(portalFile, 'utf8'))) portalScriptHashes.add(hash);
+  for (const privatePage of ['portal', 'admin']) {
+    const privateFile = path.join(dist, ...[lang.prefix, privatePage].filter(Boolean), 'index.html');
+    for (const hash of inlineScriptHashes(await readFile(privateFile, 'utf8'))) privateScriptHashes.add(hash);
+  }
 }
-const portalCsp = [
+const privateCsp = [
   "default-src 'self'",
-  `script-src 'self' ${[...portalScriptHashes].join(' ')}`,
+  `script-src 'self' ${[...privateScriptHashes].join(' ')}`,
   "style-src 'self'",
   "img-src 'self' data:",
   "connect-src 'self'",
@@ -115,17 +117,32 @@ await writeFile(
 /portal/*
   Cache-Control: private, no-store
   X-Robots-Tag: noindex, nofollow
-  Content-Security-Policy: ${portalCsp}
+  Content-Security-Policy: ${privateCsp}
 
 /zh-tw/portal/*
   Cache-Control: private, no-store
   X-Robots-Tag: noindex, nofollow
-  Content-Security-Policy: ${portalCsp}
+  Content-Security-Policy: ${privateCsp}
 
 /zh-cn/portal/*
   Cache-Control: private, no-store
   X-Robots-Tag: noindex, nofollow
-  Content-Security-Policy: ${portalCsp}
+  Content-Security-Policy: ${privateCsp}
+
+/admin/*
+  Cache-Control: private, no-store
+  X-Robots-Tag: noindex, nofollow
+  Content-Security-Policy: ${privateCsp}
+
+/zh-tw/admin/*
+  Cache-Control: private, no-store
+  X-Robots-Tag: noindex, nofollow
+  Content-Security-Policy: ${privateCsp}
+
+/zh-cn/admin/*
+  Cache-Control: private, no-store
+  X-Robots-Tag: noindex, nofollow
+  Content-Security-Policy: ${privateCsp}
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

@@ -5,6 +5,23 @@ GOOGLE_CLIENT_SECRET=
 # A long random value used to bind portal sessions and CSRF tokens.
 PORTAL_SESSION_SECRET=
 
+# Optional passwordless email sign-in. The code secret must be a different
+# random value of at least 32 bytes. Resend is the first supported provider.
+PORTAL_EMAIL_AUTH_ENABLED=false
+PORTAL_EMAIL_CODE_SECRET=
+EMAIL_PROVIDER=resend
+RESEND_API_KEY=
+EMAIL_FROM=ZimonAI <simonlo@zimonai.com>
+EMAIL_REPLY_TO=simonlo@zimonai.com
+
+# Comma-separated verified addresses allowed to bootstrap a persisted admin
+# identity. Never use this as a client-side authorization control.
+PORTAL_ADMIN_EMAILS=
+
+# Comma-separated recipients for paid-order and workflow notifications. This
+# is independent of the server-side administrator authorization allowlist.
+PORTAL_ADMIN_NOTIFICATION_EMAILS=simon124376158@gmail.com,simonlo@zimonai.com
+
 # Local-only switches. Never copy ALLOW_LOCAL_PORTAL into production.
 ALLOW_LOCAL_PORTAL=true
 PORTAL_AUTH_ENABLED=true

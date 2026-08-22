@@ -314,6 +314,8 @@ function currentLocale() {
 const checkoutForms = [...document.querySelectorAll('[data-checkout-form]')];
 const paymentParams = new URLSearchParams(location.search);
 const requestedPaymentItem = paymentParams.get('item');
+const resumedPaymentItem = paymentParams.get('resume_purchase');
+const purchaseIntentKey = 'zimonai_purchase_intent_v1';
 const privatePayment = document.querySelector('[data-private-payment]');
 if (requestedPaymentItem === 'consultation-extension' && privatePayment) privatePayment.hidden = false;
 if (paymentParams.get('cancelled') === '1') {
@@ -325,32 +327,110 @@ if (requestedPaymentItem) {
   window.setTimeout(() => document.querySelector(`[data-payment-card="${CSS.escape(requestedPaymentItem)}"]`)?.scrollIntoView({ block: 'center', behavior: reducedMotion ? 'auto' : 'smooth' }), 250);
 }
 
+function portalPathForLocale(locale) {
+  return locale === 'en' ? '/portal/' : `/${locale}/portal/`;
+}
+
+function safeCheckoutIntent(value) {
+  if (!value || typeof value !== 'object') return null;
+  const products = new Set(['t1', 't2', 'consultation', 'consultation-extension', 'balance']);
+  const quantity = Number(value.quantity || 1);
+  if (!products.has(value.product) || !['en', 'zh-tw', 'zh-cn'].includes(value.locale)
+    || !Number.isInteger(quantity) || quantity < 1 || quantity > 100) return null;
+  return { product: value.product, locale: value.locale, quantity, reference: String(value.reference || '').slice(0, 120) };
+}
+
+function readCheckoutIntent() {
+  try { return safeCheckoutIntent(JSON.parse(sessionStorage.getItem(purchaseIntentKey) || 'null')); }
+  catch { return null; }
+}
+
+function saveCheckoutIntent(intent) {
+  try { sessionStorage.setItem(purchaseIntentKey, JSON.stringify(safeCheckoutIntent(intent))); }
+  catch { /* Sign-in can still continue when browser storage is unavailable. */ }
+}
+
+if (resumedPaymentItem) {
+  const intent = readCheckoutIntent();
+  if (intent?.product === resumedPaymentItem && intent.locale === currentLocale()) {
+    const form = document.querySelector(`[data-checkout-form][data-product="${CSS.escape(intent.product)}"]`);
+    if (form) {
+      if (['t1', 't2'].includes(intent.product)) selectServiceTier(intent.product, true);
+      const quantity = form.querySelector('[name="quantity"]');
+      const reference = form.querySelector('[name="reference"]');
+      if (quantity) quantity.value = String(intent.quantity);
+      if (reference) reference.value = intent.reference;
+      const notice = form.querySelector('[data-checkout-resume]');
+      if (notice) {
+        notice.hidden = false;
+        window.setTimeout(() => {
+          notice.scrollIntoView({ block: 'center', behavior: reducedMotion ? 'auto' : 'smooth' });
+          notice.focus({ preventScroll: true });
+        }, 120);
+      }
+      sessionStorage.removeItem(purchaseIntentKey);
+    }
+  }
+}
+
 checkoutForms.forEach((form) => form.addEventListener('submit', async (event) => {
   event.preventDefault();
   const button = form.querySelector('[data-checkout-button]');
   const error = form.querySelector('[data-checkout-error]');
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
   if (error) error.textContent = '';
-  button.disabled = true;
-  button.textContent = button.dataset.processingLabel;
   const data = new FormData(form);
   const product = form.dataset.product;
-  trackAnalytics('checkout_start', product);
+  const intent = safeCheckoutIntent({
+    product,
+    locale: currentLocale(),
+    quantity: Number(data.get('quantity') || 1),
+    reference: data.get('reference') || ''
+  });
+  if (!intent) {
+    if (error) error.textContent = document.documentElement.lang === 'en' ? 'The purchase details are invalid. No payment was taken.' : document.documentElement.lang === 'zh-Hant' ? '購買資料無效，這次沒有扣款。' : '购买资料无效，本次没有扣款。';
+    button.disabled = false;
+    button.innerHTML = `${button.dataset.defaultLabel}<svg class="icon-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M3 10h13M11 5l5 5-5 5"/></svg>`;
+    return;
+  }
   try {
+    const sessionResponse = await fetch('/api/portal/me', {
+      credentials: 'same-origin',
+      headers: { Accept: 'application/json' }
+    });
+    const session = await sessionResponse.json().catch(() => ({}));
+    if (sessionResponse.status === 401 || session.error === 'authentication_required') {
+      saveCheckoutIntent(intent);
+      button.disabled = true;
+      button.textContent = form.dataset.loginLabel;
+      window.location.assign(portalPathForLocale(intent.locale));
+      return;
+    }
+    if (!sessionResponse.ok || !session.csrfToken) throw new Error(session.error || 'checkout_session_unavailable');
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    button.disabled = true;
+    button.textContent = button.dataset.processingLabel;
+    trackAnalytics('checkout_start', product);
     const response = await fetch('/api/create-checkout-session', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': session.csrfToken },
       body: JSON.stringify({
-        product,
-        locale: currentLocale(),
-        quantity: Number(data.get('quantity') || 1),
-        reference: data.get('reference') || ''
+        product: intent.product,
+        locale: intent.locale,
+        quantity: intent.quantity,
+        reference: intent.reference
       })
     });
-    const result = await response.json();
+    const result = await response.json().catch(() => ({}));
+    if (response.status === 401 || result.error === 'authentication_required') {
+      saveCheckoutIntent(intent);
+      button.textContent = form.dataset.loginLabel;
+      window.location.assign(portalPathForLocale(intent.locale));
+      return;
+    }
     if (!response.ok || !result.url) throw new Error(result.error || 'checkout_failed');
     window.location.assign(result.url);
   } catch {
@@ -392,7 +472,7 @@ async function loadPaymentResult() {
     const result = await response.json();
     if (!response.ok || !result.id) throw new Error('invalid_session');
     confirmedPayment = result;
-    const paid = result.paymentStatus === 'paid' || result.paymentStatus === 'no_payment_required';
+    const paid = result.paymentStatus === 'paid' || result.paymentStatus === 'waived';
     receipt.dataset.state = paid ? 'paid' : 'pending';
     fillPaymentField('[data-payment-status]', paid ? paymentResult.dataset.verified : paymentResult.dataset.pending);
     fillPaymentField('[data-payment-item]', result.productName);
