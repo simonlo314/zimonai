@@ -92,7 +92,6 @@ async function setInvitedLifecycle(db, invited, actorUserId, action, now = new D
             order_cancelled_by_user_id = ?2, updated_at = ?1
         WHERE id = ?3 AND status = 'pending' AND order_cancelled_at = ''
           AND order_payment_status IN ('pending', 'unpaid', 'failed', 'expired')
-          AND order_fulfillment_status = 'awaiting_payment'
       `).bind(timestamp, actorUserId, invited.id),
       db.prepare(`
         INSERT INTO portal_audit_events

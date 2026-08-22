@@ -18,8 +18,10 @@ function orderAgeMs(order, now) {
 }
 
 export function orderIsCancellable(order) {
-  return CANCELLABLE_PAYMENT_STATUSES.has(order.payment_status)
-    && order.fulfillment_status === 'awaiting_payment';
+  // Cancellation is a payment-ledger decision. An administrator may already
+  // have closed the operational workflow, but an unsettled Checkout Session
+  // must still be cancellable so it cannot remain payable indefinitely.
+  return CANCELLABLE_PAYMENT_STATUSES.has(order.payment_status);
 }
 
 async function expireStripeCheckout(env, order) {
@@ -75,7 +77,6 @@ export async function cancelPortalOrder({ db, env, order, actorUserId, eventType
       SET payment_status = 'expired', cancelled_at = ?1, cancelled_by_user_id = ?2, updated_at = ?1
       WHERE id = ?3 AND cancelled_at = ''
         AND payment_status IN ('pending', 'unpaid', 'failed', 'expired')
-        AND fulfillment_status = 'awaiting_payment'
     `).bind(timestamp, actorUserId, order.id),
     db.prepare(`
       INSERT INTO portal_audit_events

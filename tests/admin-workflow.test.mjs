@@ -608,6 +608,13 @@ test('customers can safely hide, restore and cancel their own unpaid order witho
       WHERE order_id = ? AND event_type = 'customer_order_restored'
     `).get(order.id).count, 1);
 
+    // Operational status and payment status are separate. An accidentally
+    // opened, still-unpaid order must remain cancellable even if its workflow
+    // was already marked closed.
+    fx.db.raw.prepare(`
+      UPDATE portal_orders SET fulfillment_status = 'closed' WHERE id = ?
+    `).run(order.id);
+
     const cancel = () => customerUpdateOrder({
       request: requestFor(fx.client, `/api/portal/orders/${order.id}`, {
         method: 'PATCH', payload: { action: 'cancel' }
