@@ -74,12 +74,17 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 .admin-workspace__header .portal-kicker { color: #8eb9f4; }
 .admin-workspace__header h1 { max-width: 830px; margin: 14px 0 18px; color: #fff; }
 .admin-workspace__header > div:first-child > p:last-child { max-width: 760px; margin: 0; color: #b6c4d7; font-size: 15px; line-height: 1.75; }
+.admin-workspace__side { min-width: 0; display: grid; align-content: end; gap: 18px; }
 .admin-identity { min-width: 0; padding: 18px 0 4px 20px; border-left: 1px solid rgba(255, 255, 255, .2); }
 .admin-identity small { display: block; margin-bottom: 9px; color: #91a8c7; font-family: var(--mono); font-size: 12px; line-height: 1.4; text-transform: uppercase; }
 .admin-identity strong,
 .admin-identity span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .admin-identity strong { color: #fff; font-size: 16px; }
 .admin-identity span { margin-top: 3px; color: #aebdd0; font-size: 13px; }
+.admin-workspace__links { display: grid; gap: 7px; padding-left: 20px; }
+.admin-workspace__links a { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 7px 10px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 6px; color: #e6eef9; font-size: 12px; font-weight: 700; }
+.admin-workspace__links a:hover { border-color: rgba(142, 185, 244, .65); background: rgba(255, 255, 255, .07); }
+.admin-workspace__links .icon-arrow { width: 15px; height: 15px; }
 
 .admin-shell { min-height: 700px; display: grid; grid-template-columns: 214px minmax(0, 1fr); }
 .admin-tabs { display: flex; flex-direction: column; padding: 22px 16px; border-right: 1px solid #d3dfec; background: #eaf0f7; }
@@ -102,6 +107,10 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 .admin-section-head { display: grid; grid-template-columns: minmax(0, .75fr) minmax(280px, .65fr); gap: 44px; align-items: end; padding-bottom: 27px; border-bottom: 1px solid #bdcad9; }
 .admin-section-head h2 { margin: 10px 0 0; }
 .admin-section-head > p { max-width: 580px; margin: 0; color: #607087; font-size: 15px; line-height: 1.7; }
+.admin-section-head__aside { display: grid; justify-items: start; gap: 14px; }
+.admin-section-head__aside > p { max-width: 580px; margin: 0; color: #607087; font-size: 15px; line-height: 1.7; }
+.admin-list-toggle { min-height: 40px; padding: 8px 12px; border: 1px solid #b8c8da; border-radius: 7px; color: #324a67; background: #f6f9fc; font-size: 13px; font-weight: 700; cursor: pointer; }
+.admin-list-toggle[aria-pressed="true"] { border-color: #7697c5; color: #173e75; background: #eaf2fd; }
 .admin-global-error,
 .admin-form-message,
 .admin-data-state { margin-top: 24px; padding: 16px 18px; border: 1px solid #ccd8e5; color: #42556e; background: #f4f7fb; font-size: 15px; line-height: 1.65; }
@@ -125,6 +134,7 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 .admin-record dt { color: #718098; font-family: var(--mono); font-size: 12px; text-transform: uppercase; }
 .admin-record dd { margin: 7px 0 0; overflow-wrap: anywhere; color: #253750; font-size: 14px; font-weight: 650; line-height: 1.5; }
 .admin-record__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.admin-record__actions--order { align-items: start; }
 .admin-record__details--notification { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .admin-record__details--notification .admin-record__field:nth-child(4),
 .admin-record__details--notification .admin-record__field:nth-child(7) { padding-left: 0; border-left: 0; }
@@ -173,6 +183,13 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 .admin-action-submit { min-height: 44px; margin-top: 14px; padding: 10px 14px; border: 1px solid var(--ink); border-radius: 6px; color: #fff; background: var(--ink); font-size: 13px; font-weight: 700; cursor: pointer; }
 .admin-action-submit:hover { border-color: var(--blue); background: var(--blue); }
 .admin-action-submit:disabled { opacity: .6; cursor: wait; }
+.admin-order-lifecycle { display: grid; gap: 12px; padding: 15px; border: 1px solid #cbd8e6; border-radius: 8px; background: #f7f9fc; }
+.admin-order-lifecycle__buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.admin-order-lifecycle__button { min-height: 40px; padding: 8px 12px; border: 1px solid #aebfd3; border-radius: 6px; color: #294462; background: #fff; font-size: 12px; font-weight: 700; cursor: pointer; }
+.admin-order-lifecycle__button:hover { border-color: #6d8db4; background: #edf3fa; }
+.admin-order-lifecycle__button--danger { color: #7b302b; border-color: #d5aaa7; }
+.admin-order-lifecycle__button:disabled { opacity: .58; cursor: wait; }
+.admin-order-lifecycle .admin-action-feedback { margin-top: 0; }
 
 .admin-case-form { margin-top: 26px; }
 .admin-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 18px; }
@@ -203,7 +220,9 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 
 @media (max-width: 1050px) {
   .admin-workspace__header { grid-template-columns: 1fr; align-items: start; }
+  .admin-workspace__side { max-width: 520px; }
   .admin-identity { max-width: 430px; padding: 17px 0 0; border-top: 1px solid rgba(255, 255, 255, .2); border-left: 0; }
+  .admin-workspace__links { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-left: 0; }
   .admin-shell { grid-template-columns: 1fr; }
   .admin-tabs { position: sticky; top: var(--header); z-index: 5; flex-direction: row; overflow-x: auto; padding: 9px 12px; border-right: 0; border-bottom: 1px solid #d3dfec; }
   .admin-tabs button { min-width: max-content; border: 0; }
@@ -235,6 +254,7 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
   .admin-stage { padding: 30px 18px 42px; }
   .admin-section-head { display: block; padding-bottom: 23px; }
   .admin-section-head > p { margin-top: 17px; }
+  .admin-section-head__aside { margin-top: 17px; }
   .admin-record { padding: 19px 17px; }
   .admin-record__head { align-items: flex-start; display: grid; }
   .admin-record__details { grid-template-columns: 1fr; }
@@ -248,6 +268,7 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
   .admin-notification-action { display: grid; align-items: stretch; }
   .admin-notification-action .admin-action-submit { width: 100%; }
   .admin-record__actions { grid-template-columns: 1fr; }
+  .admin-workspace__links { grid-template-columns: 1fr; }
   .admin-action-fields,
   .admin-fields { grid-template-columns: 1fr; }
   .admin-action-field--wide,

@@ -41,7 +41,8 @@ export class SqliteD1 {
       '0002_portal_oauth_rate_limit.sql',
       '0003_workflow.sql',
       '0004_admin_workflow.sql',
-      '0005_identity_email_authority.sql'
+      '0005_identity_email_authority.sql',
+      '0006_order_lifecycle.sql'
     ]) {
       this.raw.exec(readFileSync(new URL(`../../migrations-portal/${migration}`, import.meta.url), 'utf8'));
     }

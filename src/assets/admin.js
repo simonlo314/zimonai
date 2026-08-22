@@ -9,9 +9,13 @@ if (root) {
   const globalError = root.querySelector('[data-admin-error]');
   const createForm = root.querySelector('[data-admin-case-form]');
   const createMessage = root.querySelector('[data-admin-form-message]');
+  const archivedOrdersToggle = root.querySelector('[data-admin-toggle-archived]');
   const caches = { cases: null, orders: null, customers: null, notifications: null };
+  const tierLabels = Object.fromEntries(copy.form?.tiers || []);
+  const productLabels = Object.fromEntries(copy.actions?.productOptions || []);
   let csrfToken = '';
   let emailConfigured = false;
+  let archivedOrdersVisible = false;
 
   const api = async (path, options = {}) => {
     const response = await fetch(path, {
@@ -172,9 +176,9 @@ if (root) {
     const help = element('p', 'admin-action-help', copy.actions.orderHelp);
     const form = element('form', 'admin-action-form');
     const fields = element('div', 'admin-action-fields');
-    const productChoices = ['consultation', 'consultation-extension', 'balance', 't1', 't2', 't3', 't4', 't5', 't6', 'custom'].map((value) => [value, value.toUpperCase()]);
+    const productChoices = copy.actions.productOptions || [];
     const productField = selectField(copy.actions.orderProduct, 'product', productChoices, item.tier === 'unsure' ? 'custom' : item.tier);
-    const description = inputField(copy.actions.orderDescription, 'description', [item.tier?.toUpperCase(), item.supplierName].filter(Boolean).join(' · '));
+    const description = inputField(copy.actions.orderDescription, 'description', [tierLabels[item.tier], item.supplierName].filter(Boolean).join(' · '));
     description.querySelector('input').required = true;
     const amount = inputField(copy.actions.orderAmount, 'amount', '', 'number');
     amount.querySelector('input').min = '0';
@@ -261,7 +265,7 @@ if (root) {
     const details = element('dl', 'admin-record__details');
     details.append(
       field(copy.fields.customer, item.ownerEmail), field(copy.fields.product, [item.productCategory, item.productModel].filter(Boolean).join(' · ')),
-      field(copy.fields.service, String(item.tier || 'unsure').toUpperCase()), field(copy.fields.updated, formatDate(item.updatedAt))
+      field(copy.fields.service, tierLabels[item.tier || 'unsure'] || '—'), field(copy.fields.updated, formatDate(item.updatedAt))
     );
     if (queue) details.append(field(copy.fields.nextAction, copy.status[item.status] || item.status));
     const actions = element('div', 'admin-record__actions');
@@ -270,16 +274,53 @@ if (root) {
     return card;
   }
 
+  function orderLifecycle(item) {
+    const panel = element('div', 'admin-order-lifecycle');
+    const feedback = feedbackNode();
+    const actions = element('div', 'admin-order-lifecycle__buttons');
+    const lifecycleButton = (label, action, modifier = '') => {
+      const button = element('button', `admin-order-lifecycle__button${modifier ? ` ${modifier}` : ''}`, label);
+      button.type = 'button';
+      button.addEventListener('click', async () => {
+        if (action === 'cancel' && !window.confirm(copy.actions.cancelOrderConfirm)) return;
+        const buttons = [...panel.querySelectorAll('button')];
+        buttons.forEach((candidate) => { candidate.disabled = true; });
+        setFeedback(feedback, copy.actions.orderActionWorking);
+        try {
+          await api(`/api/admin/orders/${encodeURIComponent(item.id)}`, { method: 'PATCH', body: JSON.stringify({ action }) });
+          caches.orders = null;
+          await loadView('orders', { force: true });
+          const state = root.querySelector('[data-admin-state="orders"]');
+          state.textContent = action === 'archive' ? copy.actions.orderArchived : action === 'unarchive' ? copy.actions.orderUnarchived : copy.actions.orderCancelled;
+          state.classList.remove('is-error');
+          state.setAttribute('role', 'status');
+          state.hidden = false;
+        } catch {
+          setFeedback(feedback, copy.actions.actionError, true);
+          buttons.forEach((candidate) => { candidate.disabled = false; });
+        }
+      });
+      return button;
+    };
+    actions.append(item.archivedAt ? lifecycleButton(copy.actions.unarchiveOrder, 'unarchive') : lifecycleButton(copy.actions.archiveOrder, 'archive'));
+    if (!item.cancelledAt && ['pending', 'unpaid'].includes(item.paymentStatus)) actions.append(lifecycleButton(copy.actions.cancelOrder, 'cancel', 'admin-order-lifecycle__button--danger'));
+    panel.append(actions, feedback);
+    return panel;
+  }
+
   function orderCard(item) {
     const card = element('article', 'admin-record');
     const head = element('header', 'admin-record__head');
     head.append(element('span', 'admin-record__reference', item.reference), element('span', 'admin-record__status', copy.paymentStatus[item.paymentStatus] || item.paymentStatus));
     const details = element('dl', 'admin-record__details');
+    const productName = item.description || productLabels[item.product] || item.product;
     details.append(
-      field(copy.fields.customer, item.ownerEmail), field(copy.fields.product, item.description || item.product),
+      field(copy.fields.customer, item.ownerEmail), field(copy.fields.product, productName),
       field(copy.fields.amount, formatAmount(item.amountTotal, item.currency)), field(copy.fields.updated, formatDate(item.updatedAt))
     );
-    card.append(head, element('h3', '', item.description || item.product || '—'), details, orderUpdate(item));
+    const actions = element('div', 'admin-record__actions admin-record__actions--order');
+    actions.append(orderUpdate(item), orderLifecycle(item));
+    card.append(head, element('h3', '', productName || '—'), details, actions);
     return card;
   }
 
@@ -370,7 +411,7 @@ if (root) {
 
   async function fetchOrders(force = false) {
     if (caches.orders && !force) return caches.orders;
-    caches.orders = (await api('/api/admin/orders')).orders || [];
+    caches.orders = (await api(`/api/admin/orders${archivedOrdersVisible ? '?includeArchived=1' : ''}`)).orders || [];
     return caches.orders;
   }
 
@@ -443,6 +484,13 @@ if (root) {
   }
 
   root.querySelectorAll('[data-admin-view]').forEach((button) => button.addEventListener('click', () => setView(button.dataset.adminView)));
+  archivedOrdersToggle?.addEventListener('click', async () => {
+    archivedOrdersVisible = !archivedOrdersVisible;
+    archivedOrdersToggle.setAttribute('aria-pressed', String(archivedOrdersVisible));
+    archivedOrdersToggle.textContent = archivedOrdersVisible ? copy.actions.hideArchivedOrders : copy.actions.showArchivedOrders;
+    caches.orders = null;
+    await loadView('orders', { force: true });
+  });
   const tabs = [...root.querySelectorAll('.admin-tabs [role="tab"]')];
   root.querySelector('.admin-tabs')?.addEventListener('keydown', (event) => {
     const current = tabs.indexOf(document.activeElement);
@@ -486,8 +534,13 @@ if (root) {
       const data = await api('/api/portal/me');
       if (!data.authenticated || data.user?.isAdmin !== true) return showAccess(Boolean(data.authenticated));
       csrfToken = data.csrfToken || '';
-      root.querySelector('[data-admin-user-name]').textContent = data.user.name || data.user.email || '—';
-      root.querySelector('[data-admin-user-email]').textContent = data.user.email || '—';
+      const name = String(data.user.name || '').trim();
+      const email = String(data.user.email || '').trim();
+      const distinctName = name && name.toLowerCase() !== email.toLowerCase();
+      root.querySelector('[data-admin-user-name]').textContent = distinctName ? name : email || '—';
+      const secondaryEmail = root.querySelector('[data-admin-user-email]');
+      secondaryEmail.textContent = email;
+      secondaryEmail.hidden = !distinctName;
       root.dataset.state = 'workspace';
       loading.hidden = true;
       access.hidden = true;

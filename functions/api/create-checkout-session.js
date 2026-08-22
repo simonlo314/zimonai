@@ -102,28 +102,39 @@ export async function onRequestPost({ request, env }) {
   try {
     const stripeSession = await stripeRequest(env, 'checkout/sessions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Idempotency-Key': `portal-checkout-${orderId}`
+      },
       body
     });
-    if (!/^cs_(?:test|live)_[A-Za-z0-9]+$/.test(String(stripeSession.id || ''))
+    const liveMode = String(env.STRIPE_SECRET_KEY || '').startsWith('sk_live_');
+    const expectedPrefix = liveMode ? 'cs_live_' : 'cs_test_';
+    if (!String(stripeSession.id || '').startsWith(expectedPrefix)
+      || Boolean(stripeSession.livemode) !== liveMode
       || !/^https:\/\/checkout\.stripe\.com\//.test(String(stripeSession.url || ''))) {
       throw new Error('stripe_checkout_response_invalid');
     }
-    const attached = await db.prepare(`
-      UPDATE portal_orders
-      SET stripe_session_id = ?1, checkout_error = '', updated_at = ?2
-      WHERE id = ?3 AND owner_user_id = ?4 AND stripe_session_id IS NULL AND payment_status = 'pending'
-    `).bind(stripeSession.id, new Date().toISOString(), orderId, authorization.session.user_id).run();
+    const attachedAt = new Date();
+    const createdAuditId = workflowId('evt');
+    const [attached] = await db.batch([
+      db.prepare(`
+        UPDATE portal_orders
+        SET stripe_session_id = ?1, checkout_error = '', updated_at = ?2
+        WHERE id = ?3 AND owner_user_id = ?4 AND stripe_session_id IS NULL AND payment_status = 'pending'
+      `).bind(stripeSession.id, attachedAt.toISOString(), orderId, authorization.session.user_id),
+      db.prepare(`
+        INSERT INTO portal_audit_events
+          (id, user_id, case_id, event_type, created_at, order_id, target_user_id, detail_json)
+        SELECT ?1, ?2, ?3, 'stripe_checkout_created', ?4, ?5, ?2, ?6
+        WHERE EXISTS (
+          SELECT 1 FROM portal_orders
+          WHERE id = ?5 AND owner_user_id = ?2 AND stripe_session_id = ?7 AND payment_status = 'pending'
+        )
+      `).bind(createdAuditId, authorization.session.user_id, linked?.caseId || null,
+        attachedAt.toISOString(), orderId, JSON.stringify({ stripeSessionId: stripeSession.id }), stripeSession.id)
+    ]);
     if (Number(attached.meta?.changes || 0) !== 1) throw new Error('stripe_checkout_attachment_failed');
-    await auditStatement(db, {
-      actorUserId: authorization.session.user_id,
-      targetUserId: authorization.session.user_id,
-      caseId: linked?.caseId || null,
-      orderId,
-      eventType: 'stripe_checkout_created',
-      details: { stripeSessionId: stripeSession.id },
-      now: new Date()
-    }).run();
     return json({ url: stripeSession.url, id: stripeSession.id, orderReference });
   } catch (error) {
     const message = String(error?.message || 'stripe_request_failed').slice(0, 120);

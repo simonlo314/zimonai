@@ -344,10 +344,11 @@ if (!checkoutFunction.includes('allowedRequestOrigin') || !checkoutFunction.incl
 for (const field of ['name_collection[individual]', 'name_collection[business]', 'phone_number_collection', 'tax_id_collection']) {
   if (!checkoutFunction.includes(field)) errors.push(`checkout customer collection is missing ${field}`);
 }
-if (!sessionFunction.includes('stripeRequest') || !sessionFunction.includes('displayEmail')
-  || !sessionFunction.includes('paymentStatus: stripeSession.payment_status')
-  || !sessionFunction.includes('owner_user_id = ?2')
-  || !sessionFunction.includes('checkout_session_integrity_failed')) {
+if (!sessionFunction.includes('displayEmail')
+  || !sessionFunction.includes('paymentStatus: order.payment_status')
+  || !sessionFunction.includes('o.owner_user_id = ?2')
+  || !sessionFunction.includes('JOIN portal_users')
+  || sessionFunction.includes('stripeRequest')) {
   errors.push('payment confirmation endpoint is incomplete');
 }
 if (!webhookFunction.includes("request.headers.get('Stripe-Signature')")

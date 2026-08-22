@@ -22,6 +22,7 @@ function adminOrder(row) {
     stripeSessionId: row.stripe_session_id || null,
     paymentIntentId: row.payment_intent_id || '',
     paymentMethodNote: row.payment_method_note || '',
+    archivedAt: row.archived_at || '',
     pendingInvitation: row.pending_invitation === 1
   };
 }
@@ -29,14 +30,16 @@ function adminOrder(row) {
 export async function onRequestGet({ request, env }) {
   const authorization = await requireAdmin(request, env, { mutation: false });
   if (authorization.error) return authorization.error;
+  const includeArchived = new URL(request.url).searchParams.get('includeArchived') === '1';
   const db = portalDb(env);
   const current = await db.prepare(`
     SELECT o.*, u.primary_email AS owner_email, 0 AS pending_invitation
     FROM portal_orders o
     JOIN portal_users u ON u.id = o.owner_user_id
+    WHERE (?1 = 1 OR o.archived_at = '')
     ORDER BY o.updated_at DESC
     LIMIT 150
-  `).all();
+  `).bind(includeArchived ? 1 : 0).all();
   const invited = await db.prepare(`
     SELECT d.order_id AS id, d.order_public_reference AS public_reference, NULL AS owner_user_id,
            d.case_id, 'manual' AS source, d.order_product_key AS product_key,
@@ -45,13 +48,16 @@ export async function onRequestGet({ request, env }) {
            '' AS payment_intent_id, d.order_payment_method_note AS payment_method_note,
            d.order_service_reference AS service_reference, d.order_payment_status AS payment_status,
            d.order_fulfillment_status AS fulfillment_status, NULL AS created_by_user_id,
-           d.paid_at, d.created_at, d.updated_at, i.email_display AS owner_email, 1 AS pending_invitation
+           d.paid_at, d.order_cancelled_at AS cancelled_at, '' AS customer_hidden_at,
+           d.order_archived_at AS archived_at, d.created_at, d.updated_at,
+           i.email_display AS owner_email, 1 AS pending_invitation
     FROM portal_invited_cases d
     JOIN portal_customer_invites i ON i.id = d.invite_id
     WHERE d.status = 'pending' AND d.order_id <> ''
+      AND (?1 = 1 OR d.order_archived_at = '')
     ORDER BY d.updated_at DESC
     LIMIT 150
-  `).all();
+  `).bind(includeArchived ? 1 : 0).all();
   return portalJson({
     orders: [...(current.results || []), ...(invited.results || [])]
       .sort((a, b) => String(b.updated_at).localeCompare(String(a.updated_at)))

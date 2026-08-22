@@ -8,6 +8,7 @@ import {
   readPortalJson,
   requireMutation
 } from '../../_lib/auth.js';
+import { publicCase } from '../../_lib/workflow.js';
 
 const TIERS = new Set(['unsure', 't1', 't2', 't3', 't4', 't5', 't6']);
 const SUBMISSION_LIMIT = 10;
@@ -53,30 +54,13 @@ function caseLimitResponse(snapshot, now) {
   return null;
 }
 
-function publicCase(row) {
-  return {
-    id: row.id,
-    reference: row.public_reference,
-    tier: row.service_tier,
-    supplierName: row.supplier_name,
-    supplierUrl: row.supplier_url,
-    chineseLegalName: row.chinese_legal_name,
-    productCategory: row.product_category,
-    productModel: row.product_model,
-    decisionContext: row.decision_context,
-    requestedChecks: row.requested_checks,
-    status: row.status,
-    createdAt: row.created_at,
-    updatedAt: row.updated_at
-  };
-}
-
 export async function onRequestGet({ request, env }) {
   const session = await getPortalSession(request, env);
   if (!session) return portalJson({ error: 'authentication_required' }, 401);
   const rows = await portalDb(env).prepare(`
     SELECT id, public_reference, service_tier, supplier_name, supplier_url, chinese_legal_name,
-           product_category, product_model, decision_context, requested_checks, status, created_at, updated_at
+           product_category, product_model, decision_context, requested_checks, status, expected_delivery_at,
+           client_status_note, report_url, report_published_at, created_at, updated_at
     FROM portal_cases
     WHERE owner_user_id = ?1
     ORDER BY updated_at DESC
@@ -134,7 +118,8 @@ export async function onRequestPost({ request, env }) {
 
   const row = await db.prepare(`
     SELECT id, public_reference, service_tier, supplier_name, supplier_url, chinese_legal_name,
-           product_category, product_model, decision_context, requested_checks, status, created_at, updated_at
+           product_category, product_model, decision_context, requested_checks, status, expected_delivery_at,
+           client_status_note, report_url, report_published_at, created_at, updated_at
     FROM portal_cases WHERE id = ?1 AND owner_user_id = ?2 LIMIT 1
   `).bind(caseId, auth.session.user_id).first();
   if (!row) {

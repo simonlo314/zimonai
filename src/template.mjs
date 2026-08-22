@@ -173,7 +173,7 @@ function portal(t) {
     <section class="portal-workspace shell" data-portal-signed-in hidden>
       <header class="portal-workspace__header">
         <div><p class="portal-kicker">${esc(p.workspace.eyebrow)}</p><h1>${esc(p.workspace.title)}</h1></div>
-        <div class="portal-identity"><img src="/assets/zimonai-shield-icon-primary.svg" alt="" width="48" height="48"><span><small>${esc(p.workspace.welcome)}</small><strong data-portal-user-name></strong><em data-portal-user-email></em></span></div>
+        <div class="portal-identity"><img src="/assets/zimonai-shield-icon-mono-white-transparent.svg" alt="" width="48" height="48" aria-hidden="true"><span><small>${esc(p.workspace.welcome)}</small><strong data-portal-user-name></strong><em data-portal-user-email></em></span></div>
       </header>
       <div class="portal-workspace__body">
         <div class="portal-tabs" role="tablist" aria-label="${esc(p.workspace.title)}">
@@ -185,7 +185,7 @@ function portal(t) {
         <div class="portal-stage">
           <div class="portal-error" data-portal-error hidden role="alert">${esc(p.workspace.loadError)}</div>
           <section class="portal-view" id="portal-panel-cases" role="tabpanel" tabindex="0" aria-labelledby="portal-tab-cases" data-portal-panel="cases">
-            <header class="portal-section-head"><div><p class="portal-kicker">${esc(p.workspace.casesTitle)}</p><h2>${esc(p.workspace.casesTitle)}</h2></div><p>${esc(p.workspace.casesLead)}</p></header>
+            <header class="portal-section-head"><div><p class="portal-kicker">${esc(p.workspace.casesEyebrow)}</p><h2>${esc(p.workspace.casesTitle)}</h2></div><p>${esc(p.workspace.casesLead)}</p></header>
             <div class="portal-cases-state" data-portal-cases-state hidden role="status"></div>
             <div class="portal-case-list" data-portal-case-list aria-live="polite"></div>
             <div class="portal-empty" data-portal-empty hidden>
@@ -195,7 +195,7 @@ function portal(t) {
           </section>
 
           <section class="portal-view" id="portal-panel-orders" role="tabpanel" tabindex="0" aria-labelledby="portal-tab-orders" data-portal-panel="orders" hidden>
-            <header class="portal-section-head"><div><p class="portal-kicker">${esc(p.workspace.ordersTitle)}</p><h2>${esc(p.workspace.ordersTitle)}</h2></div><p>${esc(p.workspace.ordersLead)}</p></header>
+            <header class="portal-section-head"><div><p class="portal-kicker">${esc(p.workspace.ordersEyebrow)}</p><h2>${esc(p.workspace.ordersTitle)}</h2></div><div class="portal-section-head__aside"><p>${esc(p.workspace.ordersLead)}</p><button class="portal-list-toggle" type="button" data-portal-toggle-hidden aria-pressed="false">${esc(p.workspace.showHiddenOrders)}</button></div></header>
             <div class="portal-cases-state" data-portal-orders-state hidden role="status"></div>
             <div class="portal-order-list" data-portal-order-list aria-live="polite"></div>
             <div class="portal-empty portal-empty--orders" data-portal-orders-empty hidden>
@@ -248,8 +248,9 @@ function portal(t) {
 function admin(t) {
   const a = t.admin;
   const options = (items) => items.map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
+  const viewAside = (key) => `<div class="admin-section-head__aside"><p>${esc(a.views[key].lead)}</p>${key === 'orders' ? `<button class="admin-list-toggle" type="button" data-admin-toggle-archived aria-pressed="false">${esc(a.actions.showArchivedOrders)}</button>` : ''}</div>`;
   const dataView = (key) => `<section class="admin-view" id="admin-panel-${key}" role="tabpanel" tabindex="0" aria-labelledby="admin-tab-${key}" data-admin-panel="${key}"${key === 'queue' ? '' : ' hidden'}>
-    <header class="admin-section-head"><div><p class="portal-kicker">${esc(a.nav[key])}</p><h2>${esc(a.views[key].title)}</h2></div><p>${esc(a.views[key].lead)}</p></header>
+    <header class="admin-section-head"><div><p class="portal-kicker">${esc(a.nav[key])}</p><h2>${esc(a.views[key].title)}</h2></div>${viewAside(key)}</header>
     ${key === 'notifications' ? '<div class="admin-notification-config" data-admin-email-config hidden role="status"></div>' : ''}
     <div class="admin-data-state" data-admin-state="${key}" role="status">${esc(a.views[key].loading)}</div>
     <div class="admin-record-list" data-admin-list="${key}" aria-live="polite"></div>
@@ -264,7 +265,7 @@ function admin(t) {
     <section class="admin-workspace shell" data-admin-workspace hidden>
       <header class="admin-workspace__header">
         <div><p class="portal-kicker">${esc(a.eyebrow)}</p><h1>${esc(a.title)}</h1><p>${esc(a.lead)}</p></div>
-        <div class="admin-identity"><small>${esc(a.signedInAs)}</small><strong data-admin-user-name></strong><span data-admin-user-email></span></div>
+        <div class="admin-workspace__side"><div class="admin-identity"><small>${esc(a.signedInAs)}</small><strong data-admin-user-name></strong><span data-admin-user-email></span></div><nav class="admin-workspace__links" aria-label="${esc(a.eyebrow)}"><a href="${pathFor(t.__key, 'portal')}">${esc(a.portalAction)}${arrow()}</a><a href="${pathFor(t.__key, 'home')}">${esc(a.siteAction)}${arrow()}</a></nav></div>
       </header>
       <div class="admin-shell">
         <nav class="admin-tabs" role="tablist" aria-label="${esc(a.eyebrow)}">
@@ -536,7 +537,8 @@ function checkoutForm(t, product, modifier = '') {
   const termsHref = pathFor(t.__key, 'paymentTerms');
   const quantity = product.quantity ? `<label class="checkout-field"><span>${esc(labels.quantity)} <small>${esc(labels.required)}</small></span><input type="number" name="quantity" min="1" max="100" step="1" value="1" inputmode="numeric" required></label>` : '';
   const reference = product.reference ? `<label class="checkout-field"><span>${esc(labels.reference)} <small>${esc(labels.required)}</small></span><input type="text" name="reference" maxlength="120" autocomplete="off" required></label>` : '';
-  return `<form class="checkout-form${modifier ? ` ${modifier}` : ''}" data-checkout-form data-product="${esc(product.key)}" data-login-label="${esc(t.payment.authGate.redirecting)}" novalidate>
+  const referenceError = product.key === 'consultation-extension' ? labels.extensionReferenceError : labels.balanceReferenceError;
+  return `<form class="checkout-form${modifier ? ` ${modifier}` : ''}" data-checkout-form data-product="${esc(product.key)}" data-login-label="${esc(t.payment.authGate.redirecting)}" data-checkout-error="${esc(labels.error)}" data-reference-error="${esc(referenceError)}" novalidate>
     <div class="checkout-resume-notice" data-checkout-resume hidden tabindex="-1"><strong>${esc(t.payment.authGate.resumeTitle)}</strong><p>${esc(t.payment.authGate.resumeText)}</p></div>
     ${quantity}${reference}
     <label class="consent checkout-consent"><input type="checkbox" name="terms" required><span>${esc(labels.terms)} <a href="${termsHref}" target="_blank" rel="noopener">${esc(labels.termsLink)}</a></span></label>

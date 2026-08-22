@@ -673,11 +673,14 @@ export async function claimPendingCustomerInvites(env, user, now = new Date()) {
       INSERT OR IGNORE INTO portal_orders
         (id, public_reference, owner_user_id, case_id, source, product_key, product_description,
          amount_total, currency, quantity, stripe_session_id, payment_intent_id, payment_method_note,
-         service_reference, payment_status, fulfillment_status, created_by_user_id, paid_at, created_at, updated_at)
+         service_reference, payment_status, fulfillment_status, created_by_user_id, paid_at, created_at, updated_at,
+         cancelled_at, cancelled_by_user_id, archived_at, archived_by_user_id)
       SELECT d.order_id, d.order_public_reference, ?1, d.case_id, 'manual', d.order_product_key,
              d.order_product_description, d.order_amount_total, d.order_currency, d.order_quantity,
              NULL, '', d.order_payment_method_note, d.order_service_reference, d.order_payment_status,
-             d.order_fulfillment_status, i.created_by_user_id, d.paid_at, d.created_at, ?2
+             d.order_fulfillment_status, i.created_by_user_id, d.paid_at, d.created_at, ?2,
+             d.order_cancelled_at, d.order_cancelled_by_user_id,
+             d.order_archived_at, d.order_archived_by_user_id
       FROM portal_invited_cases d
       JOIN portal_customer_invites i ON i.id = d.invite_id
       WHERE i.email_normalized = ?3 AND i.status = 'pending'

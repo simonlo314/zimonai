@@ -79,3 +79,26 @@ test('portal, admin and payment copy keep the same key topology across languages
     assert.deepEqual(contentKeys(content['zh-cn']), english);
   }
 });
+
+test('client and operations workspaces expose safe progress and reversible order controls', () => {
+  const portalSource = readFileSync(new URL('../src/assets/portal.js', import.meta.url), 'utf8');
+  const adminSource = readFileSync(new URL('../src/assets/admin.js', import.meta.url), 'utf8');
+  const caseApiSource = readFileSync(new URL('../functions/api/portal/cases.js', import.meta.url), 'utf8');
+  const templateSource = readFileSync(new URL('../src/template.mjs', import.meta.url), 'utf8');
+
+  assert.match(caseApiSource, /client_status_note/);
+  assert.match(caseApiSource, /report_published_at/);
+  assert.match(portalSource, /item\.clientStatusNote/);
+  assert.match(portalSource, /item\.expectedDeliveryAt/);
+  assert.match(portalSource, /item\.reportUrl/);
+  assert.doesNotMatch(portalSource, /internalNote/, 'client JavaScript must never render the internal note');
+
+  assert.match(portalSource, /\?includeHidden=1/);
+  assert.match(portalSource, /JSON\.stringify\(\{ action \}\)/);
+  assert.match(adminSource, /\?includeArchived=1/);
+  assert.match(adminSource, /copy\.actions\.productOptions/);
+  assert.match(adminSource, /tierLabels\[item\.tier \|\| 'unsure'\]/);
+  assert.match(templateSource, /zimonai-shield-icon-mono-white-transparent\.svg/);
+  assert.match(templateSource, /a\.siteAction/);
+  assert.match(templateSource, /data-admin-toggle-archived/);
+});

@@ -67,6 +67,8 @@ export function publicOrder(row) {
     paymentStatus: row.payment_status,
     fulfillmentStatus: row.fulfillment_status,
     paidAt: row.paid_at || '',
+    cancelledAt: row.cancelled_at || '',
+    customerHiddenAt: row.customer_hidden_at || '',
     createdAt: row.created_at,
     updatedAt: row.updated_at
   };
@@ -174,7 +176,16 @@ export async function resolveOwnedServiceReference(db, userId, productKey, refer
     WHERE owner_user_id = ?1 AND lower(public_reference) = lower(?2) AND status <> 'closed'
     LIMIT 1
   `).bind(userId, value).first();
-  return ownedCase ? { kind: 'case', orderId: null, caseId: ownedCase.id, reference: ownedCase.public_reference } : null;
+  if (ownedCase) {
+    return { kind: 'case', orderId: null, caseId: ownedCase.id, reference: ownedCase.public_reference };
+  }
+
+  // A balance can also be matched to an agreed quote number or a short payment
+  // reason that has not yet become a Portal case/order. Never downgrade a
+  // ZimonAI-looking reference to a free-form memo: that could attach a payment
+  // to another customer's internal reference without proving ownership.
+  if (/^(?:ORD|ZM)-\d{4}-[A-Z0-9_-]+$/i.test(value)) return null;
+  return { kind: 'memo', orderId: null, caseId: null, reference: value };
 }
 
 function cleanedCaseInput(payload, existing = {}) {

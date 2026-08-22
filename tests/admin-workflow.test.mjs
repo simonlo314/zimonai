@@ -12,6 +12,7 @@ import {
   onRequestPatch as customerUpdateCase
 } from '../functions/api/portal/cases/[id].js';
 import { onRequestGet as customerOrders } from '../functions/api/portal/orders.js';
+import { onRequestPatch as customerUpdateOrder } from '../functions/api/portal/orders/[id].js';
 import { queueNotification } from '../functions/_lib/notifications.js';
 import { createAdminCase } from '../functions/_lib/workflow.js';
 import { SqliteD1 } from './helpers/sqlite-d1.mjs';
@@ -545,5 +546,282 @@ test('failed email is visible and an exact admin can retry it without silent suc
     const finalRow = fx.db.raw.prepare('SELECT status, provider_message_id FROM notification_outbox WHERE id = ?').get(row.id);
     assert.equal(finalRow.status, 'sent');
     assert.equal(finalRow.provider_message_id, 'provider-message-123');
+  } finally { fx.close(); }
+});
+
+test('customers can safely hide, restore and cancel their own unpaid order without deleting its ledger row', async () => {
+  const fx = await fixture();
+  try {
+    const createdResponse = await adminCreateOrder({
+      request: requestFor(fx.admin, '/api/admin/orders', {
+        method: 'POST',
+        payload: {
+          customerUserId: fx.client.user.id,
+          product: 'consultation', description: 'Lifecycle consultation',
+          amountTotal: 9900, currency: 'usd', quantity: 1
+        }
+      }),
+      env: fx.env
+    });
+    const order = (await createdResponse.json()).order;
+
+    const hide = () => customerUpdateOrder({
+      request: requestFor(fx.client, `/api/portal/orders/${order.id}`, {
+        method: 'PATCH', payload: { action: 'hide' }
+      }),
+      env: fx.env,
+      params: { id: order.id }
+    });
+    assert.equal((await hide()).status, 200);
+    assert.equal((await hide()).status, 200);
+    assert.equal((await (await customerOrders({
+      request: requestFor(fx.client, '/api/portal/orders'), env: fx.env
+    })).json()).orders.some((item) => item.id === order.id), false);
+    const hidden = (await (await customerOrders({
+      request: requestFor(fx.client, '/api/portal/orders?includeHidden=1'), env: fx.env
+    })).json()).orders.find((item) => item.id === order.id);
+    assert.ok(hidden.customerHiddenAt);
+    assert.equal(fx.db.raw.prepare(`
+      SELECT COUNT(*) AS count FROM portal_audit_events
+      WHERE order_id = ? AND event_type = 'customer_order_hidden'
+    `).get(order.id).count, 1);
+
+    const otherRestore = await customerUpdateOrder({
+      request: requestFor(fx.other, `/api/portal/orders/${order.id}`, {
+        method: 'PATCH', payload: { action: 'restore' }
+      }),
+      env: fx.env,
+      params: { id: order.id }
+    });
+    assert.equal(otherRestore.status, 404);
+    const restored = await customerUpdateOrder({
+      request: requestFor(fx.client, `/api/portal/orders/${order.id}`, {
+        method: 'PATCH', payload: { action: 'restore' }
+      }),
+      env: fx.env,
+      params: { id: order.id }
+    });
+    assert.equal(restored.status, 200);
+    assert.equal((await restored.json()).order.customerHiddenAt, '');
+    assert.equal(fx.db.raw.prepare(`
+      SELECT COUNT(*) AS count FROM portal_audit_events
+      WHERE order_id = ? AND event_type = 'customer_order_restored'
+    `).get(order.id).count, 1);
+
+    const cancel = () => customerUpdateOrder({
+      request: requestFor(fx.client, `/api/portal/orders/${order.id}`, {
+        method: 'PATCH', payload: { action: 'cancel' }
+      }),
+      env: fx.env,
+      params: { id: order.id }
+    });
+    const cancelled = await cancel();
+    assert.equal(cancelled.status, 200);
+    const cancelledOrder = (await cancelled.json()).order;
+    assert.equal(cancelledOrder.paymentStatus, 'expired');
+    assert.ok(cancelledOrder.cancelledAt);
+    assert.equal((await cancel()).status, 200);
+    assert.equal(fx.db.raw.prepare('SELECT COUNT(*) AS count FROM portal_orders WHERE id = ?').get(order.id).count, 1);
+    assert.equal(fx.db.raw.prepare(`
+      SELECT COUNT(*) AS count FROM portal_audit_events
+      WHERE order_id = ? AND event_type = 'customer_order_cancelled'
+    `).get(order.id).count, 1);
+  } finally { fx.close(); }
+});
+
+test('paid, refunded and waived orders cannot be cancelled but may be hidden without ledger deletion', async () => {
+  const fx = await fixture();
+  try {
+    const createdResponse = await adminCreateOrder({
+      request: requestFor(fx.admin, '/api/admin/orders', {
+        method: 'POST',
+        payload: {
+          customerUserId: fx.client.user.id,
+          product: 'consultation', description: 'Settled consultation',
+          amountTotal: 9900, currency: 'usd', quantity: 1
+        }
+      }),
+      env: fx.env
+    });
+    const order = (await createdResponse.json()).order;
+    for (const paymentStatus of ['paid', 'refunded', 'waived']) {
+      fx.db.raw.prepare(`
+        UPDATE portal_orders SET payment_status = ?, fulfillment_status = 'reviewing', cancelled_at = '' WHERE id = ?
+      `).run(paymentStatus, order.id);
+      const denied = await customerUpdateOrder({
+        request: requestFor(fx.client, `/api/portal/orders/${order.id}`, {
+          method: 'PATCH', payload: { action: 'cancel' }
+        }),
+        env: fx.env,
+        params: { id: order.id }
+      });
+      assert.equal(denied.status, 409, paymentStatus);
+      assert.equal((await denied.json()).error, 'order_not_cancellable');
+      assert.equal(fx.db.raw.prepare('SELECT COUNT(*) AS count FROM portal_orders WHERE id = ?').get(order.id).count, 1);
+    }
+    const hidden = await customerUpdateOrder({
+      request: requestFor(fx.client, `/api/portal/orders/${order.id}`, {
+        method: 'PATCH', payload: { action: 'hide' }
+      }),
+      env: fx.env,
+      params: { id: order.id }
+    });
+    assert.equal(hidden.status, 200);
+    assert.ok((await hidden.json()).order.customerHiddenAt);
+  } finally { fx.close(); }
+});
+
+test('admin archive is reversible, excluded by default and audited without deleting paid orders', async () => {
+  const fx = await fixture();
+  try {
+    const createdResponse = await adminCreateOrder({
+      request: requestFor(fx.admin, '/api/admin/orders', {
+        method: 'POST',
+        payload: {
+          customerUserId: fx.client.user.id,
+          product: 'consultation', description: 'Archived paid consultation',
+          amountTotal: 9900, currency: 'usd', quantity: 1
+        }
+      }),
+      env: fx.env
+    });
+    const order = (await createdResponse.json()).order;
+    fx.db.raw.prepare(`
+      UPDATE portal_orders SET payment_status = 'paid', fulfillment_status = 'reviewing' WHERE id = ?
+    `).run(order.id);
+    const action = (value) => adminUpdateOrder({
+      request: requestFor(fx.admin, `/api/admin/orders/${order.id}`, {
+        method: 'PATCH', payload: { action: value }
+      }),
+      env: fx.env,
+      params: { id: order.id }
+    });
+    const archived = await action('archive');
+    assert.equal(archived.status, 200);
+    assert.ok((await archived.json()).order.archivedAt);
+    assert.equal((await action('archive')).status, 200);
+    const defaultOrders = (await (await adminOrders({
+      request: requestFor(fx.admin, '/api/admin/orders'), env: fx.env
+    })).json()).orders;
+    assert.equal(defaultOrders.some((item) => item.id === order.id), false);
+    const allOrders = (await (await adminOrders({
+      request: requestFor(fx.admin, '/api/admin/orders?includeArchived=1'), env: fx.env
+    })).json()).orders;
+    assert.ok(allOrders.find((item) => item.id === order.id)?.archivedAt);
+    assert.equal(fx.db.raw.prepare(`
+      SELECT COUNT(*) AS count FROM portal_audit_events
+      WHERE order_id = ? AND event_type = 'admin_order_archived'
+    `).get(order.id).count, 1);
+
+    const unarchived = await action('unarchive');
+    assert.equal(unarchived.status, 200);
+    assert.equal((await unarchived.json()).order.archivedAt, '');
+    assert.equal(fx.db.raw.prepare('SELECT COUNT(*) AS count FROM portal_orders WHERE id = ?').get(order.id).count, 1);
+    assert.equal(fx.db.raw.prepare(`
+      SELECT COUNT(*) AS count FROM portal_audit_events
+      WHERE order_id = ? AND event_type = 'admin_order_unarchived'
+    `).get(order.id).count, 1);
+  } finally { fx.close(); }
+});
+
+test('cancelling an open Stripe order expires its Checkout Session before closing the local ledger', async () => {
+  const fx = await fixture();
+  const previousFetch = globalThis.fetch;
+  try {
+    fx.env.STRIPE_SECRET_KEY = 'sk_test_lifecycle_regression_only';
+    const createdAt = new Date(Date.now() - 10 * 60 * 1000).toISOString();
+    fx.db.raw.prepare(`
+      INSERT INTO portal_orders
+        (id, public_reference, owner_user_id, source, product_key, product_description, amount_total,
+         currency, quantity, stripe_session_id, payment_status, fulfillment_status, created_at, updated_at)
+      VALUES ('ord_stripecancel123', 'ORD-STRIPE-CANCEL', ?, 'stripe', 'consultation', 'Consultation', 9900,
+              'usd', 1, 'cs_test_cancel123', 'pending', 'awaiting_payment', ?, ?)
+    `).run(fx.client.user.id, createdAt, createdAt);
+    const calls = [];
+    globalThis.fetch = async (url, options = {}) => {
+      calls.push({ url: String(url), method: options.method || 'GET' });
+      const expired = String(url).endsWith('/expire');
+      return new Response(JSON.stringify(expired
+        ? { id: 'cs_test_cancel123', status: 'expired', payment_status: 'unpaid' }
+        : { id: 'cs_test_cancel123', status: 'open', payment_status: 'unpaid' }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    };
+    const response = await customerUpdateOrder({
+      request: requestFor(fx.client, '/api/portal/orders/ord_stripecancel123', {
+        method: 'PATCH', payload: { action: 'cancel' }
+      }),
+      env: fx.env,
+      params: { id: 'ord_stripecancel123' }
+    });
+    assert.equal(response.status, 200);
+    assert.deepEqual(calls.map((item) => item.method), ['GET', 'POST']);
+    assert.equal(fx.db.raw.prepare(`
+      SELECT payment_status FROM portal_orders WHERE id = 'ord_stripecancel123'
+    `).get().payment_status, 'expired');
+  } finally {
+    globalThis.fetch = previousFetch;
+    fx.close();
+  }
+});
+
+test('invited manual order cancellation and archive survive verified customer claim', async () => {
+  const fx = await fixture();
+  try {
+    const caseResponse = await adminCreateCase({
+      request: requestFor(fx.admin, '/api/admin/cases', {
+        method: 'POST',
+        payload: { customerEmail: 'lifecycle-invite@example.com', locale: 'en', tier: 't1' }
+      }),
+      env: fx.env
+    });
+    const pendingCase = (await caseResponse.json()).case;
+    const orderResponse = await adminCreateOrder({
+      request: requestFor(fx.admin, '/api/admin/orders', {
+        method: 'POST',
+        payload: {
+          caseId: pendingCase.caseId,
+          product: 't1', description: 'Invited lifecycle order',
+          amountTotal: 14900, currency: 'usd', quantity: 1
+        }
+      }),
+      env: fx.env
+    });
+    const order = (await orderResponse.json()).order;
+    const action = (value) => adminUpdateOrder({
+      request: requestFor(fx.admin, `/api/admin/orders/${order.id}`, {
+        method: 'PATCH', payload: { action: value }
+      }),
+      env: fx.env,
+      params: { id: order.id }
+    });
+    assert.equal((await action('archive')).status, 200);
+    const cancelled = await action('cancel');
+    assert.equal(cancelled.status, 200);
+    assert.equal((await cancelled.json()).order.paymentStatus, 'expired');
+    const invited = fx.db.raw.prepare(`
+      SELECT order_archived_at, order_cancelled_at FROM portal_invited_cases WHERE order_id = ?
+    `).get(order.id);
+    assert.ok(invited.order_archived_at);
+    assert.ok(invited.order_cancelled_at);
+
+    const customer = await account(fx.db, fx.env, 'lifecycle-invite@example.com', 'lifecycle-invite-subject');
+    assert.equal(customer.user.claimedCases, 1);
+    const claimed = fx.db.raw.prepare(`
+      SELECT payment_status, archived_at, cancelled_at FROM portal_orders WHERE id = ?
+    `).get(order.id);
+    assert.equal(claimed.payment_status, 'expired');
+    assert.ok(claimed.archived_at);
+    assert.ok(claimed.cancelled_at);
+    const defaultAdmin = (await (await adminOrders({
+      request: requestFor(fx.admin, '/api/admin/orders'), env: fx.env
+    })).json()).orders;
+    assert.equal(defaultAdmin.some((item) => item.id === order.id), false);
+    const archivedAdmin = (await (await adminOrders({
+      request: requestFor(fx.admin, '/api/admin/orders?includeArchived=1'), env: fx.env
+    })).json()).orders.find((item) => item.id === order.id);
+    assert.equal(archivedAdmin.paymentStatus, 'expired');
+    assert.ok(archivedAdmin.archivedAt);
   } finally { fx.close(); }
 });

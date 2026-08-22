@@ -29,7 +29,7 @@ export const paymentContent = {
       lead: 'Fixed-scope services can be paid securely through Stripe. T3–T6 remain quoted assignments because access, travel and delivery scope must be confirmed first.',
       stripeNote: 'Checkout is hosted by Stripe. ZimonAI does not receive or store your card number.',
       catalog: { label: 'Direct checkout', title: 'Four services with a published price.', lead: 'Open a service file to review its fixed scope, exclusions and timing before paying.' },
-      labels: { includes: 'Fixed scope', notIncluded: 'Not included', timing: 'Timing', quantity: 'Number of USD 10 units', reference: 'Case, booking or quote reference / payment reason', required: 'Required', terms: 'I have read the fixed scope and payment terms.', processing: 'Opening secure checkout…', error: 'Checkout could not be opened. No payment was taken.', termsLink: 'Payment and service terms' },
+      labels: { includes: 'Fixed scope', notIncluded: 'Not included', timing: 'Timing', quantity: 'Number of USD 10 units', reference: 'Case, booking or quote reference / payment reason', required: 'Required', terms: 'I have read the fixed scope and payment terms.', processing: 'Opening secure checkout…', error: 'Checkout could not be opened. No payment was taken. Please contact ZimonAI.', balanceReferenceError: 'That looks like a ZimonAI case or order reference that is not available to this account. Check the reference, or enter the agreed quote number or payment reason.', extensionReferenceError: 'Enter the paid consultation order reference for this account. An extension cannot be purchased without an existing consultation.', termsLink: 'Payment and service terms' },
       products: [
         {
           key: 'consultation', index: '01', label: 'Professional consultation', title: 'Supplier Verification Consultation',
@@ -84,8 +84,8 @@ export const paymentContent = {
     },
     success: {
       kicker: 'Payment follow-up', title: 'Confirm the payment, then give the case what it needs.',
-      lead: 'This page checks the Stripe session before showing the next step. Do not send card information in the intake or by email.',
-      loading: 'Confirming the Stripe payment…', verified: 'Payment confirmed', pending: 'Payment is still processing', invalid: 'This payment could not be confirmed from the supplied link.',
+      lead: 'This page reads the signed-in account\'s payment record before showing the next step. Do not send card information in the intake or by email.',
+      loading: 'Confirming the payment record…', verified: 'Payment confirmed', pending: 'Payment is still processing', invalid: 'This payment could not be confirmed from the supplied link.',
       labels: { item: 'Service', amount: 'Amount paid', email: 'Receipt email', reference: 'Reference', session: 'Stripe reference' },
       nextTitle: 'Complete the post-payment intake',
       nextLead: 'The delivery clock starts after ZimonAI receives the required, complete information.',
@@ -136,7 +136,7 @@ export const paymentContent = {
       lead: '固定範圍的服務可直接透過 Stripe 安全付款。T3–T6 需視供應商配合、差旅與現場執行條件另行報價。',
       stripeNote: '付款頁由 Stripe 提供。ZimonAI 不會接收或保存你的信用卡號。',
       catalog: { label: '可直接付款', title: '四項公開定價的服務', lead: '展開服務項目，確認固定範圍、不包含項目與時間後再付款。' },
-      labels: { includes: '固定範圍', notIncluded: '不包含', timing: '交付／安排時間', quantity: 'USD 10 補款單位數量', reference: '案件、預約或報價編號／付款用途', required: '必填', terms: '我已閱讀固定範圍與付款條款。', processing: '正在開啟安全付款頁⋯', error: '目前無法開啟付款頁，這次沒有扣款。', termsLink: '付款與服務條款' },
+      labels: { includes: '固定範圍', notIncluded: '不包含', timing: '交付／安排時間', quantity: 'USD 10 補款單位數量', reference: '案件、預約或報價編號／付款用途', required: '必填', terms: '我已閱讀固定範圍與付款條款。', processing: '正在開啟安全付款頁⋯', error: '目前無法開啟付款頁，這次沒有扣款。請聯絡 ZimonAI。', balanceReferenceError: '這組資料看起來是 ZimonAI 案件或訂單編號，但不屬於目前帳戶。請核對編號，或改填已確認的報價編號／補款原因。', extensionReferenceError: '請填寫目前帳戶已付款的專業諮詢訂單編號；尚未購買諮詢時，不能單獨購買延長時數。', termsLink: '付款與服務條款' },
       products: [
         {
           key: 'consultation', index: '01', label: '專業諮詢', title: '供應商查核專業諮詢', price: 'USD 99', unit: '60 分鐘', timing: '預約制',
@@ -173,8 +173,8 @@ export const paymentContent = {
     },
     success: {
       kicker: '付款後續', title: '先確認付款，再把案件需要的資料補齊。',
-      lead: '這個頁面會先向 Stripe 確認付款狀態，再顯示對應的下一步。請勿在表單或 Email 傳送信用卡資料。',
-      loading: '正在向 Stripe 確認付款⋯', verified: '付款已確認', pending: '付款仍在處理中', invalid: '目前無法從這個連結確認付款。',
+      lead: '這個頁面會讀取目前登入帳戶的付款紀錄，再顯示對應的下一步。請勿在表單或 Email 傳送信用卡資料。',
+      loading: '正在確認付款紀錄⋯', verified: '付款已確認', pending: '付款仍在處理中', invalid: '目前無法從這個連結確認付款。',
       labels: { item: '服務項目', amount: '實付金額', email: '收據 Email', reference: '案件／補款資料', session: 'Stripe 付款編號' },
       nextTitle: '補齊付款後所需資料', nextLead: 'ZimonAI 收到完整必要資料後，才會開始計算交付時間。',
       fields: {
@@ -224,7 +224,7 @@ export const paymentContent = {
       lead: '固定范围的服务可以直接通过 Stripe 安全付款。T3–T6 需根据供应商配合、差旅与现场执行条件另行报价。',
       stripeNote: '付款页面由 Stripe 提供。ZimonAI 不会接收或保存你的银行卡号。',
       catalog: { label: '可直接付款', title: '四项公开定价的服务', lead: '展开服务详情，确认固定范围、不包括的项目与时间后再付款。' },
-      labels: { includes: '固定范围', notIncluded: '不包括', timing: '交付／安排时间', quantity: 'USD 10 补款单位数量', reference: '案件、预约或报价编号／付款用途', required: '必填', terms: '我已阅读固定范围与付款条款。', processing: '正在打开安全付款页面…', error: '目前无法打开付款页面，本次没有扣款。', termsLink: '付款与服务条款' },
+      labels: { includes: '固定范围', notIncluded: '不包括', timing: '交付／安排时间', quantity: 'USD 10 补款单位数量', reference: '案件、预约或报价编号／付款用途', required: '必填', terms: '我已阅读固定范围与付款条款。', processing: '正在打开安全付款页面…', error: '目前无法打开付款页面，本次没有扣款。请联系 ZimonAI。', balanceReferenceError: '这组资料看起来是 ZimonAI 案件或订单编号，但不属于当前账户。请核对编号，或改填已确认的报价编号／补款原因。', extensionReferenceError: '请填写当前账户已付款的专业咨询订单编号；尚未购买咨询时，不能单独购买延长时数。', termsLink: '付款与服务条款' },
       products: [
         { key: 'consultation', index: '01', label: '专业咨询', title: '供应商核查专业咨询', price: 'USD 99', unit: '60 分钟', timing: '预约制', summary: '帮助海外买家判断供应商说法、证书、产品文件，或明确下一步应从哪一种核查开始。', includes: ['默认提供实时文字咨询', '中文语音或视频可以预约', '英文语音或视频需事先确认', '咨询后提供简短重点摘要'], notIncluded: '数据库正式核查、正式报告、法律或税务意见、现场工作和代替客户作采购决定。', button: '预约咨询' },
         { key: 't1', index: '02', label: '固定范围核查', title: 'T1・远程证照核查', price: 'USD 149', unit: '每个标准案件', timing: '资料完整后 24–48 小时', summary: '针对一家供应商、一个主要法律主体和一个充电或电源电子产品型号进行标准核查。', includes: ['一家供应商与一个主要法律主体', '一个产品完整型号', '最多两项证书或认证主张', '企业登记与证书交叉比对', '3–5 页报告，列出来源与限制'], notIncluded: '电话联系、现场工作、产能判断、质量检测，以及额外公司或型号。', button: '购买 T1' },
@@ -237,7 +237,7 @@ export const paymentContent = {
       quoted: { title: 'T3–T6 维持先报价', text: '访谈、实地工作、月费顾问和全流程项目会受到供应商同意、执行条件、差旅和第三方成本影响，因此仍会先说明需求，再按确认范围付款。' }
     },
     success: {
-      kicker: '付款后续', title: '先确认付款，再把案件需要的资料补齐。', lead: '这个页面会先向 Stripe 确认付款状态，再显示对应的下一步。请勿在表单或邮件中发送银行卡资料。', loading: '正在向 Stripe 确认付款…', verified: '付款已确认', pending: '付款仍在处理中', invalid: '目前无法通过这个链接确认付款。',
+      kicker: '付款后续', title: '先确认付款，再把案件需要的资料补齐。', lead: '这个页面会读取当前登录账户的付款记录，再显示对应的下一步。请勿在表单或邮件中发送银行卡资料。', loading: '正在确认付款记录…', verified: '付款已确认', pending: '付款仍在处理中', invalid: '目前无法通过这个链接确认付款。',
       labels: { item: '服务项目', amount: '实付金额', email: '收据邮箱', reference: '案件／补款资料', session: 'Stripe 付款编号' }, nextTitle: '补齐付款后所需资料', nextLead: 'ZimonAI 收到完整必要资料后，才会开始计算交付时间。',
       fields: { timezone: '你所在的时区', times: '三个方便预约的时间', format: '希望使用的咨询方式', question: '希望讨论的问题或文件', supplier: '供应商名称', url: '供应商网站或平台链接', chinese: '中文法律主体名称，如已知', product: '产品与完整型号', certificates: '证书或认证编号', decision: '这次核查要支持什么决定？', reference: '案件或报价编号', required: '必填', send: '准备收件邮件' },
       formats: ['实时文字咨询', '中文语音或视频', '英文语音或视频・需事先确认'], emailNote: '按钮会在你的邮件应用中建立草稿。请先检查内容，再在邮件中附上相关文件并直接发送给 ZimonAI。', balanceDone: '差额补款不会建立新案件。ZimonAI 会按照付款时填写的案件、报价编号或原因进行匹配。', support: '这笔付款需要协助？请打开联系面板，并附上 Stripe 付款编号。'

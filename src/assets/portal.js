@@ -21,6 +21,7 @@ if (root) {
   const orderList = root.querySelector('[data-portal-order-list]');
   const ordersState = root.querySelector('[data-portal-orders-state]');
   const ordersEmpty = root.querySelector('[data-portal-orders-empty]');
+  const hiddenOrdersToggle = root.querySelector('[data-portal-toggle-hidden]');
   const caseForm = root.querySelector('[data-portal-case-form]');
   const formMessage = root.querySelector('[data-portal-form-message]');
   const adminLink = root.querySelector('[data-portal-admin-link]');
@@ -29,6 +30,7 @@ if (root) {
   let pendingEmail = '';
   let startupAuthMessage = '';
   let ordersLoaded = false;
+  let hiddenOrdersVisible = false;
   let availableMethods = { google: false, email: false };
 
   const portalPath = () => locale === 'en' ? '/portal/' : `/${locale}/portal/`;
@@ -107,8 +109,15 @@ if (root) {
   }
 
   function populateUser(user = {}) {
-    setText('[data-portal-user-name]', user.name || user.email);
-    setText('[data-portal-user-email]', user.email);
+    const name = String(user.name || '').trim();
+    const email = String(user.email || '').trim();
+    const distinctName = name && name.toLowerCase() !== email.toLowerCase();
+    setText('[data-portal-user-name]', distinctName ? name : email);
+    const secondaryEmail = root.querySelector('[data-portal-user-email]');
+    if (secondaryEmail) {
+      secondaryEmail.textContent = email;
+      secondaryEmail.hidden = !distinctName;
+    }
     setText('[data-account-email]', user.email);
     const compact = String(user.id || '').replace(/[^a-z0-9]/gi, '').slice(-8).toUpperCase();
     setText('[data-account-id]', compact ? `ZMA-${compact}` : '—');
@@ -132,6 +141,14 @@ if (root) {
     const date = new Date(value);
     if (Number.isNaN(date.valueOf())) return '—';
     return new Intl.DateTimeFormat(locale === 'en' ? 'en' : locale === 'zh-cn' ? 'zh-CN' : 'zh-TW', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
+  }
+
+  function formatDateTime(value) {
+    const date = new Date(value);
+    if (Number.isNaN(date.valueOf())) return '—';
+    return new Intl.DateTimeFormat(locale === 'en' ? 'en' : locale === 'zh-cn' ? 'zh-CN' : 'zh-TW', {
+      year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+    }).format(date);
   }
 
   function formatAmount(amount, currency) {
@@ -173,7 +190,56 @@ if (root) {
         detailRow(copy.workspace.updated, formatDate(item.updatedAt))
       );
       article.append(element('div', 'portal-case__ref', item.reference), body, details);
+      if (item.clientStatusNote || item.expectedDeliveryAt || item.reportUrl) {
+        const progress = element('section', 'portal-case__progress');
+        progress.setAttribute('aria-label', copy.workspace.progressUpdate);
+        progress.append(element('h4', '', copy.workspace.progressUpdate));
+        if (item.clientStatusNote) progress.append(element('p', '', item.clientStatusNote));
+        const progressMeta = element('div', 'portal-case__progress-meta');
+        if (item.expectedDeliveryAt) {
+          const delivery = element('span', '');
+          delivery.append(element('small', '', copy.workspace.expectedDelivery), document.createTextNode(formatDateTime(item.expectedDeliveryAt)));
+          progressMeta.append(delivery);
+        }
+        if (item.reportUrl) {
+          const report = document.createElement('a');
+          report.href = item.reportUrl;
+          report.target = '_blank';
+          report.rel = 'noopener noreferrer';
+          report.textContent = copy.workspace.openReport;
+          report.setAttribute('aria-label', `${copy.workspace.report}: ${copy.workspace.openReport}`);
+          progressMeta.append(report);
+        }
+        if (progressMeta.childElementCount) progress.append(progressMeta);
+        article.append(progress);
+      }
       caseList.append(article);
+    }
+  }
+
+  async function updateOrderLifecycle(item, action, article, feedback) {
+    if (action === 'cancel' && !window.confirm(copy.workspace.cancelOrderConfirm)) return;
+    const buttons = [...article.querySelectorAll('.portal-order__actions button')];
+    buttons.forEach((button) => { button.disabled = true; });
+    feedback.textContent = copy.workspace.orderActionWorking;
+    feedback.classList.remove('is-error');
+    feedback.setAttribute('role', 'status');
+    feedback.hidden = false;
+    try {
+      const response = await fetch(`/api/portal/orders/${encodeURIComponent(item.id)}`, {
+        method: 'PATCH', credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json', 'X-CSRF-Token': csrfToken },
+        body: JSON.stringify({ action })
+      });
+      if (response.status === 401) { startupAuthMessage = copy.auth.sessionEnded; return loadSession(); }
+      if (!response.ok) throw new Error('order_update_failed');
+      const notice = action === 'cancel' ? copy.workspace.orderCancelled : action === 'hide' ? copy.workspace.orderHidden : copy.workspace.orderRestored;
+      await loadOrders({ notice });
+    } catch {
+      feedback.textContent = copy.workspace.orderActionError;
+      feedback.classList.add('is-error');
+      feedback.setAttribute('role', 'alert');
+      buttons.forEach((button) => { button.disabled = false; });
     }
   }
 
@@ -183,16 +249,28 @@ if (root) {
     for (const item of orders) {
       const article = element('article', 'portal-order');
       const head = element('div', 'portal-order__head');
-      head.append(element('span', 'portal-order__ref', item.reference), element('span', 'portal-status', copy.workspace.orderStatus[item.paymentStatus] || item.paymentStatus));
+      const orderStatus = item.cancelledAt ? copy.workspace.cancelledOrder : copy.workspace.orderStatus[item.paymentStatus] || item.paymentStatus;
+      head.append(element('span', 'portal-order__ref', item.reference), element('span', 'portal-status', orderStatus));
       const body = element('div', 'portal-order__body');
       body.append(element('h3', '', item.description || item.product || '—'));
       const details = document.createElement('dl');
       details.append(
         detailRow(copy.workspace.amount, formatAmount(item.amountTotal, item.currency)),
         detailRow(copy.workspace.ordered, formatDate(item.createdAt)),
-        detailRow(copy.workspace.paymentStatus, copy.workspace.orderStatus[item.paymentStatus] || item.paymentStatus)
+        detailRow(copy.workspace.paymentStatus, orderStatus)
       );
-      article.append(head, body, details);
+      const actions = element('div', 'portal-order__actions');
+      const feedback = element('p', 'portal-order__feedback');
+      feedback.hidden = true;
+      const lifecycleButton = (label, action, modifier = '') => {
+        const button = element('button', `portal-order__action${modifier ? ` ${modifier}` : ''}`, label);
+        button.type = 'button';
+        button.addEventListener('click', () => updateOrderLifecycle(item, action, article, feedback));
+        return button;
+      };
+      if (!item.cancelledAt && ['pending', 'unpaid'].includes(item.paymentStatus)) actions.append(lifecycleButton(copy.workspace.cancelOrder, 'cancel', 'portal-order__action--danger'));
+      actions.append(item.customerHiddenAt ? lifecycleButton(copy.workspace.restoreOrder, 'restore') : lifecycleButton(copy.workspace.hideOrder, 'hide'));
+      article.append(head, body, details, actions, feedback);
       orderList.append(article);
     }
   }
@@ -220,7 +298,7 @@ if (root) {
     } finally { caseList.removeAttribute('aria-busy'); }
   }
 
-  async function loadOrders() {
+  async function loadOrders({ notice = '' } = {}) {
     orderList.setAttribute('aria-busy', 'true');
     ordersState.classList.remove('is-error');
     ordersState.setAttribute('role', 'status');
@@ -228,13 +306,14 @@ if (root) {
     ordersState.hidden = false;
     ordersEmpty.hidden = true;
     try {
-      const response = await fetch('/api/portal/orders', { credentials: 'same-origin', headers: { Accept: 'application/json' } });
+      const response = await fetch(`/api/portal/orders${hiddenOrdersVisible ? '?includeHidden=1' : ''}`, { credentials: 'same-origin', headers: { Accept: 'application/json' } });
       if (response.status === 401) { startupAuthMessage = copy.auth.sessionEnded; return loadSession(); }
       if (!response.ok) throw new Error('orders_unavailable');
       const data = await response.json();
       ordersLoaded = true;
-      ordersState.hidden = true;
       renderOrders(Array.isArray(data.orders) ? data.orders : []);
+      ordersState.textContent = notice;
+      ordersState.hidden = !notice;
     } catch {
       orderList.replaceChildren();
       ordersState.textContent = copy.workspace.ordersError;
@@ -344,6 +423,13 @@ if (root) {
     setView(tabs[next].dataset.portalView);
   });
   root.querySelector('[data-portal-open-new]')?.addEventListener('click', () => setView('new', { focusForm: true }));
+  hiddenOrdersToggle?.addEventListener('click', async () => {
+    hiddenOrdersVisible = !hiddenOrdersVisible;
+    hiddenOrdersToggle.setAttribute('aria-pressed', String(hiddenOrdersVisible));
+    hiddenOrdersToggle.textContent = hiddenOrdersVisible ? copy.workspace.hideHiddenOrders : copy.workspace.showHiddenOrders;
+    ordersLoaded = false;
+    await loadOrders();
+  });
 
   root.querySelector('[data-portal-logout]')?.addEventListener('click', async (event) => {
     const button = event.currentTarget;

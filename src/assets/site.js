@@ -433,9 +433,13 @@ checkoutForms.forEach((form) => form.addEventListener('submit', async (event) =>
     }
     if (!response.ok || !result.url) throw new Error(result.error || 'checkout_failed');
     window.location.assign(result.url);
-  } catch {
+  } catch (failure) {
     trackAnalytics('checkout_error', product);
-    if (error) error.textContent = document.documentElement.lang === 'en' ? 'Checkout could not be opened. No payment was taken. Please contact ZimonAI.' : document.documentElement.lang === 'zh-Hant' ? '目前無法開啟付款頁，這次沒有扣款。請聯絡 ZimonAI。' : '目前无法打开付款页面，本次没有扣款。请联系 ZimonAI。';
+    if (error) {
+      error.textContent = failure?.message === 'owned_service_reference_required'
+        ? form.dataset.referenceError
+        : form.dataset.checkoutError;
+    }
     button.disabled = false;
     button.innerHTML = `${button.dataset.defaultLabel}<svg class="icon-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M3 10h13M11 5l5 5-5 5"/></svg>`;
   }
@@ -468,7 +472,7 @@ async function loadPaymentResult() {
     return;
   }
   try {
-    const response = await fetch(`/api/checkout-session?session_id=${encodeURIComponent(sessionId)}`, { headers: { Accept: 'application/json' } });
+    const response = await fetch(`/api/checkout-session?session_id=${encodeURIComponent(sessionId)}&locale=${encodeURIComponent(currentLocale())}`, { headers: { Accept: 'application/json' } });
     const result = await response.json();
     if (!response.ok || !result.id) throw new Error('invalid_session');
     confirmedPayment = result;

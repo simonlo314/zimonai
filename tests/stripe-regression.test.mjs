@@ -74,11 +74,18 @@ function portalRequest(path, accountInfo) {
 
 function stripeCreateStub(sessionId = 'cs_test_local123') {
   let requestBody;
+  let requestHeaders;
   return {
     get body() { return requestBody; },
+    get headers() { return requestHeaders; },
     fetch: async (_url, options) => {
       requestBody = options.body;
-      return new Response(JSON.stringify({ id: sessionId, url: `https://checkout.stripe.com/c/pay/${sessionId}` }), {
+      requestHeaders = options.headers;
+      return new Response(JSON.stringify({
+        id: sessionId,
+        url: `https://checkout.stripe.com/c/pay/${sessionId}`,
+        livemode: sessionId.startsWith('cs_live_')
+      }), {
         status: 200, headers: { 'Content-Type': 'application/json' }
       });
     }
@@ -103,7 +110,7 @@ async function createOrderWithCheckout(
     const body = await response.json();
     const order = fx.portal.raw.prepare('SELECT * FROM portal_orders WHERE stripe_session_id = ?').get(body.id);
     assert.ok(order);
-    return { body, order, stripeBody: stub.body };
+    return { body, order, stripeBody: stub.body, stripeHeaders: stub.headers };
   } finally {
     globalThis.fetch = previous;
   }
@@ -297,10 +304,33 @@ test('checkout ignores client amount and binds verified owner, order and email t
     assert.equal(created.stripeBody.get('customer_email'), 'owner@example.com');
     assert.equal(created.stripeBody.get('metadata[portal_user_id]'), fx.owner.user.id);
     assert.equal(created.stripeBody.get('metadata[portal_order_id]'), created.order.id);
+    assert.equal(created.stripeBody.get('client_reference_id'), created.order.public_reference);
+    assert.equal(created.stripeHeaders['Idempotency-Key'], `portal-checkout-${created.order.id}`);
     assert.equal(created.order.amount_total, 14900);
     assert.equal(created.order.owner_user_id, fx.owner.user.id);
     assert.equal(created.order.payment_status, 'pending');
   } finally { fx.close(); }
+});
+
+test('checkout refuses a Stripe Session from the wrong test/live mode', async () => {
+  const fx = await fixture();
+  const stub = stripeCreateStub('cs_live_wrongmode123');
+  const previous = globalThis.fetch;
+  globalThis.fetch = stub.fetch;
+  try {
+    const response = await createCheckout({
+      request: checkoutRequest({ product: 't1', locale: 'en', quantity: 1 }, fx.owner),
+      env: fx.env
+    });
+    assert.equal(response.status, 502);
+    assert.equal((await response.json()).error, 'stripe_checkout_response_invalid');
+    const order = fx.portal.raw.prepare('SELECT payment_status, stripe_session_id FROM portal_orders').get();
+    assert.equal(order.payment_status, 'failed');
+    assert.equal(order.stripe_session_id, null);
+  } finally {
+    globalThis.fetch = previous;
+    fx.close();
+  }
 });
 
 test('checkout rejects non-integer and parseable-looking quantities', async () => {
@@ -317,7 +347,7 @@ test('checkout rejects non-integer and parseable-looking quantities', async () =
   } finally { fx.close(); }
 });
 
-test('balance and consultation extension references must belong to the signed-in account', async () => {
+test('balance accepts agreed memos but internal references and extensions remain owner-scoped', async () => {
   const fx = await fixture();
   try {
     const now = new Date().toISOString();
@@ -333,6 +363,11 @@ test('balance and consultation extension references must belong to the signed-in
     });
     assert.equal(foreign.status, 404);
 
+    const memoBalance = await createOrderWithCheckout(
+      fx, 'balance', fx.other, { reference: 'Quote 123 · agreed top-up' }, 'cs_test_balancememo123'
+    );
+    assert.equal(memoBalance.order.service_reference, 'Quote 123 · agreed top-up');
+
     const balance = await createOrderWithCheckout(
       fx, 'balance', fx.owner, { reference: 'ORD-2026-OWNERPAID' }, 'cs_test_balanceowned123'
     );
@@ -345,7 +380,7 @@ test('balance and consultation extension references must belong to the signed-in
   } finally { fx.close(); }
 });
 
-test('checkout summary is owner-only and validates Stripe metadata integrity', async () => {
+test('checkout summary is owner-only and reads the local signed-webhook record without Stripe latency', async () => {
   const fx = await fixture();
   try {
     const created = await createOrderWithCheckout(fx, 'consultation');
@@ -355,23 +390,17 @@ test('checkout summary is owner-only and validates Stripe metadata integrity', a
     assert.equal(denied.status, 404);
 
     const previous = globalThis.fetch;
-    globalThis.fetch = async () => new Response(JSON.stringify({
-      id: created.body.id,
-      status: 'complete', payment_status: 'paid', amount_total: 9900, currency: 'usd',
-      customer_details: { email: 'owner@example.com' },
-      metadata: {
-        portal_user_id: fx.owner.user.id, portal_order_id: created.order.id,
-        product_key: 'consultation', quantity: '1', locale: 'en'
-      }
-    }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    globalThis.fetch = async () => { throw new Error('checkout summary must not call Stripe'); };
     try {
       const allowed = await checkoutSummary({
-        request: portalRequest(`/api/checkout-session?session_id=${created.body.id}`, fx.owner), env: fx.env
+        request: portalRequest(`/api/checkout-session?session_id=${created.body.id}&locale=zh-tw`, fx.owner), env: fx.env
       });
       assert.equal(allowed.status, 200);
       const body = await allowed.json();
       assert.equal(body.order.id, created.order.id);
       assert.equal(body.receiptEmail, 'ow***@example.com');
+      assert.equal(body.productName, '供應商查核專業諮詢');
+      assert.equal(body.paymentStatus, 'pending');
     } finally { globalThis.fetch = previous; }
   } finally { fx.close(); }
 });
