@@ -81,7 +81,8 @@ export function adminCase(row) {
     ownerEmail: row.owner_email || row.email_display || '',
     source: row.case_source || 'admin',
     pendingInvitation: row.pending_invitation === 1 || row.status_source === 'invited',
-    internalNote: row.internal_note || ''
+    internalNote: row.internal_note || '',
+    archivedAt: row.archived_at || ''
   };
 }
 

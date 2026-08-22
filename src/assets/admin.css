@@ -184,6 +184,7 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 .admin-action-submit:hover { border-color: var(--blue); background: var(--blue); }
 .admin-action-submit:disabled { opacity: .6; cursor: wait; }
 .admin-order-lifecycle { display: grid; gap: 12px; padding: 15px; border: 1px solid #cbd8e6; border-radius: 8px; background: #f7f9fc; }
+.admin-case-lifecycle { grid-column: 1 / -1; }
 .admin-order-lifecycle__buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 .admin-order-lifecycle__button { min-height: 40px; padding: 8px 12px; border: 1px solid #aebfd3; border-radius: 6px; color: #294462; background: #fff; font-size: 12px; font-weight: 700; cursor: pointer; }
 .admin-order-lifecycle__button:hover { border-color: #6d8db4; background: #edf3fa; }

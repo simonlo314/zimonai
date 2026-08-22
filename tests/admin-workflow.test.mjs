@@ -391,6 +391,66 @@ test('admin case updates reject unknown states instead of silently keeping the o
   } finally { fx.close(); }
 });
 
+test('closed case archive is reversible, hidden by default and never deletes the case', async () => {
+  const fx = await fixture();
+  try {
+    const createResponse = await adminCreateCase({
+      request: requestFor(fx.admin, '/api/admin/cases', {
+        method: 'POST',
+        payload: {
+          customerUserId: fx.client.user.id, tier: 't1', supplierName: 'Closed supplier',
+          productCategory: 'charger', decisionContext: 'Completed verification'
+        }
+      }),
+      env: fx.env
+    });
+    const id = (await createResponse.json()).case.caseId;
+    const action = (value) => adminUpdateCase({
+      request: requestFor(fx.admin, `/api/admin/cases/${id}`, {
+        method: 'PATCH', payload: { action: value }
+      }),
+      env: fx.env,
+      params: { id }
+    });
+
+    const activeDenied = await action('archive');
+    assert.equal(activeDenied.status, 409);
+    assert.equal((await activeDenied.json()).error, 'case_not_closed');
+
+    fx.db.raw.prepare("UPDATE portal_cases SET status = 'closed' WHERE id = ?").run(id);
+    const archived = await action('archive');
+    assert.equal(archived.status, 200);
+    assert.ok((await archived.json()).case.archivedAt);
+    assert.equal((await action('archive')).status, 200, 'repeat archive is idempotent');
+    assert.equal(fx.db.raw.prepare(`
+      SELECT COUNT(*) AS count FROM portal_audit_events
+      WHERE case_id = ? AND event_type = 'admin_case_archived'
+    `).get(id).count, 1);
+
+    const visibleByDefault = (await (await adminCases({
+      request: requestFor(fx.admin, '/api/admin/cases'), env: fx.env
+    })).json()).cases;
+    assert.equal(visibleByDefault.some((item) => item.id === id), false);
+    const includingArchived = (await (await adminCases({
+      request: requestFor(fx.admin, '/api/admin/cases?includeArchived=1'), env: fx.env
+    })).json()).cases;
+    assert.ok(includingArchived.find((item) => item.id === id)?.archivedAt);
+    assert.equal(fx.db.raw.prepare('SELECT COUNT(*) AS count FROM portal_cases WHERE id = ?').get(id).count, 1);
+
+    const restored = await action('unarchive');
+    assert.equal(restored.status, 200);
+    assert.equal((await restored.json()).case.archivedAt, '');
+    assert.equal(fx.db.raw.prepare(`
+      SELECT COUNT(*) AS count FROM portal_audit_events
+      WHERE case_id = ? AND event_type = 'admin_case_unarchived'
+    `).get(id).count, 1);
+    const visibleAgain = (await (await adminCases({
+      request: requestFor(fx.admin, '/api/admin/cases'), env: fx.env
+    })).json()).cases;
+    assert.equal(visibleAgain.some((item) => item.id === id), true);
+  } finally { fx.close(); }
+});
+
 test('customer intake PATCH is allowed only while awaiting client and closes its status race', async () => {
   const fx = await fixture();
   try {

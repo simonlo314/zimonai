@@ -96,9 +96,13 @@ test('client and operations workspaces expose safe progress and reversible order
   assert.match(portalSource, /\?includeHidden=1/);
   assert.match(portalSource, /JSON\.stringify\(\{ action \}\)/);
   assert.match(adminSource, /\?includeArchived=1/);
+  assert.match(adminSource, /data-admin-toggle-archived-cases/);
+  assert.match(adminSource, /copy\.actions\.archiveCase/);
+  assert.match(adminSource, /copy\.actions\.unarchiveCase/);
   assert.match(adminSource, /copy\.actions\.productOptions/);
   assert.match(adminSource, /tierLabels\[item\.tier \|\| 'unsure'\]/);
   assert.match(templateSource, /zimonai-shield-icon-mono-white-transparent\.svg/);
   assert.match(templateSource, /a\.siteAction/);
   assert.match(templateSource, /data-admin-toggle-archived/);
+  assert.match(templateSource, /data-admin-toggle-archived-cases/);
 });

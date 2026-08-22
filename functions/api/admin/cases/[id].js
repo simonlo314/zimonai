@@ -10,7 +10,8 @@ import {
   CASE_STATUSES,
   adminCase,
   auditStatement,
-  validateCaseInput
+  validateCaseInput,
+  workflowId
 } from '../../../_lib/workflow.js';
 
 function validId(value) {
@@ -53,6 +54,46 @@ function cleanDateTime(value) {
   return Number.isFinite(parsed) ? new Date(parsed).toISOString() : null;
 }
 
+async function setCaseArchive(db, existing, actorUserId, action, now = new Date()) {
+  const archiving = action === 'archive';
+  if (existing.status_source !== 'portal') {
+    return { error: portalJson({ error: 'case_not_archivable' }, 409) };
+  }
+  if (archiving && existing.status !== 'closed') {
+    return { error: portalJson({ error: 'case_not_closed' }, 409) };
+  }
+  if ((archiving && existing.archived_at) || (!archiving && !existing.archived_at)) {
+    return { case: existing };
+  }
+  const timestamp = now.toISOString();
+  const archivedAt = archiving ? timestamp : '';
+  const archivedBy = archiving ? actorUserId : null;
+  const previousArchivedAt = existing.archived_at || '';
+  const eventType = archiving ? 'admin_case_archived' : 'admin_case_unarchived';
+  const result = await db.batch([
+    db.prepare(`
+      UPDATE portal_cases
+      SET archived_at = ?1, archived_by_user_id = ?2, updated_at = ?3
+      WHERE id = ?4 AND archived_at = ?5
+        AND (?6 = 0 OR status = 'closed')
+    `).bind(archivedAt, archivedBy, timestamp, existing.id, previousArchivedAt, archiving ? 1 : 0),
+    db.prepare(`
+      INSERT INTO portal_audit_events
+        (id, user_id, case_id, event_type, created_at, order_id, target_user_id, detail_json)
+      SELECT ?1, ?2, id, ?3, ?4, NULL, owner_user_id, ?5
+      FROM portal_cases
+      WHERE id = ?6 AND archived_at = ?7 AND updated_at = ?4
+    `).bind(
+      workflowId('evt'), actorUserId, eventType, timestamp,
+      JSON.stringify({ archived: archiving }), existing.id, archivedAt
+    )
+  ]);
+  if (Number(result[0]?.meta?.changes || 0) !== 1) {
+    return { error: portalJson({ error: archiving ? 'case_not_closed' : 'case_archive_conflict' }, 409) };
+  }
+  return { case: await findCase(db, existing.id) };
+}
+
 export async function onRequestGet({ request, env, params }) {
   const authorization = await requireAdmin(request, env, { mutation: false });
   if (authorization.error) return authorization.error;
@@ -74,10 +115,15 @@ export async function onRequestPatch({ request, env, params }) {
   const allowed = new Set([
     'tier', 'supplierName', 'supplierUrl', 'chineseLegalName', 'productCategory', 'productModel',
     'decisionContext', 'requestedChecks', 'status', 'expectedDeliveryAt', 'clientStatusNote',
-    'reportUrl', 'publishReport', 'internalNote'
+    'reportUrl', 'publishReport', 'internalNote', 'action'
   ]);
   const fields = Object.keys(payload);
   if (!fields.length || fields.some((key) => !allowed.has(key))) return portalJson({ error: 'validation_failed' }, 400);
+  const lifecycleAction = payload.action;
+  if (Object.hasOwn(payload, 'action')
+    && (fields.length !== 1 || !['archive', 'unarchive'].includes(lifecycleAction))) {
+    return portalJson({ error: 'validation_failed' }, 400);
+  }
   if ((Object.hasOwn(payload, 'status') && !CASE_STATUSES.has(payload.status))
     || (Object.hasOwn(payload, 'publishReport') && typeof payload.publishReport !== 'boolean')) {
     return portalJson({ error: 'validation_failed' }, 400);
@@ -85,6 +131,11 @@ export async function onRequestPatch({ request, env, params }) {
   const db = portalDb(env);
   const existing = await findCase(db, id);
   if (!existing) return portalJson({ error: 'case_not_found' }, 404);
+  if (lifecycleAction) {
+    const result = await setCaseArchive(db, existing, authorization.session.user_id, lifecycleAction);
+    if (result.error) return result.error;
+    return portalJson({ case: adminCase(result.case) });
+  }
   const input = validateCaseInput(payload, existing);
   const status = Object.hasOwn(payload, 'status') ? payload.status : existing.status;
   const expectedDeliveryAt = Object.hasOwn(payload, 'expectedDeliveryAt')

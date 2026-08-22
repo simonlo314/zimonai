@@ -11,6 +11,7 @@ import { deliverQueuedNotifications, queueNotification } from '../../_lib/notifi
 export async function onRequestGet({ request, env }) {
   const authorization = await requireAdmin(request, env, { mutation: false });
   if (authorization.error) return authorization.error;
+  const includeArchived = new URL(request.url).searchParams.get('includeArchived') === '1';
   const db = portalDb(env);
   const current = await db.prepare(`
     SELECT c.*, u.primary_email AS owner_email, n.note AS internal_note,
@@ -18,9 +19,10 @@ export async function onRequestGet({ request, env }) {
     FROM portal_cases c
     JOIN portal_users u ON u.id = c.owner_user_id
     LEFT JOIN portal_case_internal_notes n ON n.case_id = c.id
+    WHERE (?1 = 1 OR c.archived_at = '')
     ORDER BY c.updated_at DESC
     LIMIT 100
-  `).all();
+  `).bind(includeArchived ? 1 : 0).all();
   const invited = await db.prepare(`
     SELECT d.case_id AS id, d.case_public_reference AS public_reference, NULL AS owner_user_id,
            d.service_tier, d.supplier_name, d.supplier_url, d.chinese_legal_name,

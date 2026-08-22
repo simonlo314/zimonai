@@ -248,7 +248,7 @@ function portal(t) {
 function admin(t) {
   const a = t.admin;
   const options = (items) => items.map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
-  const viewAside = (key) => `<div class="admin-section-head__aside"><p>${esc(a.views[key].lead)}</p>${key === 'orders' ? `<button class="admin-list-toggle" type="button" data-admin-toggle-archived aria-pressed="false">${esc(a.actions.showArchivedOrders)}</button>` : ''}</div>`;
+  const viewAside = (key) => `<div class="admin-section-head__aside"><p>${esc(a.views[key].lead)}</p>${key === 'cases' ? `<button class="admin-list-toggle" type="button" data-admin-toggle-archived-cases aria-pressed="false">${esc(a.actions.showArchivedCases)}</button>` : key === 'orders' ? `<button class="admin-list-toggle" type="button" data-admin-toggle-archived aria-pressed="false">${esc(a.actions.showArchivedOrders)}</button>` : ''}</div>`;
   const dataView = (key) => `<section class="admin-view" id="admin-panel-${key}" role="tabpanel" tabindex="0" aria-labelledby="admin-tab-${key}" data-admin-panel="${key}"${key === 'queue' ? '' : ' hidden'}>
     <header class="admin-section-head"><div><p class="portal-kicker">${esc(a.nav[key])}</p><h2>${esc(a.views[key].title)}</h2></div>${viewAside(key)}</header>
     ${key === 'notifications' ? '<div class="admin-notification-config" data-admin-email-config hidden role="status"></div>' : ''}

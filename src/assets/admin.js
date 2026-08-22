@@ -9,12 +9,14 @@ if (root) {
   const globalError = root.querySelector('[data-admin-error]');
   const createForm = root.querySelector('[data-admin-case-form]');
   const createMessage = root.querySelector('[data-admin-form-message]');
+  const archivedCasesToggle = root.querySelector('[data-admin-toggle-archived-cases]');
   const archivedOrdersToggle = root.querySelector('[data-admin-toggle-archived]');
   const caches = { cases: null, orders: null, customers: null, notifications: null };
   const tierLabels = Object.fromEntries(copy.form?.tiers || []);
   const productLabels = Object.fromEntries(copy.actions?.productOptions || []);
   let csrfToken = '';
   let emailConfigured = false;
+  let archivedCasesVisible = false;
   let archivedOrdersVisible = false;
 
   const api = async (path, options = {}) => {
@@ -260,7 +262,10 @@ if (root) {
   function caseCard(item, queue = false) {
     const card = element('article', 'admin-record');
     const head = element('header', 'admin-record__head');
-    head.append(element('span', 'admin-record__reference', item.reference), element('span', 'admin-record__status', copy.status[item.status] || item.status));
+    head.append(
+      element('span', 'admin-record__reference', item.reference),
+      element('span', 'admin-record__status', item.archivedAt ? copy.actions.archivedCase : copy.status[item.status] || item.status)
+    );
     const title = element('h3', '', item.supplierName || item.chineseLegalName || item.ownerEmail || '—');
     const details = element('dl', 'admin-record__details');
     details.append(
@@ -269,9 +274,41 @@ if (root) {
     );
     if (queue) details.append(field(copy.fields.nextAction, copy.status[item.status] || item.status));
     const actions = element('div', 'admin-record__actions');
-    actions.append(caseUpdate(item), manualOrder(item));
+    if (!item.archivedAt) actions.append(caseUpdate(item), manualOrder(item));
+    if (!queue && !item.pendingInvitation && (item.status === 'closed' || item.archivedAt)) actions.append(caseLifecycle(item));
     card.append(head, title, details, actions);
     return card;
+  }
+
+  function caseLifecycle(item) {
+    const panel = element('div', 'admin-order-lifecycle admin-case-lifecycle');
+    const feedback = feedbackNode();
+    const actions = element('div', 'admin-order-lifecycle__buttons');
+    const action = item.archivedAt ? 'unarchive' : 'archive';
+    const button = element('button', 'admin-order-lifecycle__button', item.archivedAt ? copy.actions.unarchiveCase : copy.actions.archiveCase);
+    button.type = 'button';
+    button.addEventListener('click', async () => {
+      button.disabled = true;
+      setFeedback(feedback, copy.actions.caseArchiveWorking);
+      try {
+        await api(`/api/admin/cases/${encodeURIComponent(item.id)}`, {
+          method: 'PATCH', body: JSON.stringify({ action })
+        });
+        caches.cases = null;
+        await loadView('cases', { force: true });
+        const state = root.querySelector('[data-admin-state="cases"]');
+        state.textContent = action === 'archive' ? copy.actions.caseArchived : copy.actions.caseUnarchived;
+        state.classList.remove('is-error');
+        state.setAttribute('role', 'status');
+        state.hidden = false;
+      } catch {
+        setFeedback(feedback, copy.actions.actionError, true);
+        button.disabled = false;
+      }
+    });
+    actions.append(button);
+    panel.append(actions, feedback);
+    return panel;
   }
 
   function orderLifecycle(item) {
@@ -405,7 +442,7 @@ if (root) {
 
   async function fetchCases(force = false) {
     if (caches.cases && !force) return caches.cases;
-    caches.cases = (await api('/api/admin/cases')).cases || [];
+    caches.cases = (await api(`/api/admin/cases${archivedCasesVisible ? '?includeArchived=1' : ''}`)).cases || [];
     return caches.cases;
   }
 
@@ -484,6 +521,13 @@ if (root) {
   }
 
   root.querySelectorAll('[data-admin-view]').forEach((button) => button.addEventListener('click', () => setView(button.dataset.adminView)));
+  archivedCasesToggle?.addEventListener('click', async () => {
+    archivedCasesVisible = !archivedCasesVisible;
+    archivedCasesToggle.setAttribute('aria-pressed', String(archivedCasesVisible));
+    archivedCasesToggle.textContent = archivedCasesVisible ? copy.actions.hideArchivedCases : copy.actions.showArchivedCases;
+    caches.cases = null;
+    await loadView('cases', { force: true });
+  });
   archivedOrdersToggle?.addEventListener('click', async () => {
     archivedOrdersVisible = !archivedOrdersVisible;
     archivedOrdersToggle.setAttribute('aria-pressed', String(archivedOrdersVisible));

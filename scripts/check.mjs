@@ -38,6 +38,7 @@ const gitignore = await readFile(path.join(root, '.gitignore'), 'utf8');
 const portalMigration = await readFile(path.join(root, 'migrations-portal', '0001_portal.sql'), 'utf8');
 const portalRateLimitMigration = await readFile(path.join(root, 'migrations-portal', '0002_portal_oauth_rate_limit.sql'), 'utf8');
 const portalIdentityAuthorityMigration = await readFile(path.join(root, 'migrations-portal', '0005_identity_email_authority.sql'), 'utf8');
+const portalCaseArchiveMigration = await readFile(path.join(root, 'migrations-portal', '0007_case_archive.sql'), 'utf8');
 const authLibrary = await readFile(path.join(root, 'functions', '_lib', 'auth.js'), 'utf8');
 const portalCasesFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases.js'), 'utf8');
 const portalCaseDetailFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases', '[id].js'), 'utf8');
@@ -153,6 +154,11 @@ if (!portalRateLimitMigration.includes('request_fingerprint_hash')) errors.push(
 if (!portalIdentityAuthorityMigration.includes('email_authoritative')
   || !portalIdentityAuthorityMigration.includes('portal_identity_quarantine')) {
   errors.push('portal identity-authority migration or historical isolation is incomplete');
+}
+if (!portalCaseArchiveMigration.includes('archived_at')
+  || !portalCaseArchiveMigration.includes('archived_by_user_id')
+  || !portalCaseArchiveMigration.includes('portal_cases_admin_archive_idx')) {
+  errors.push('portal case archive migration is incomplete');
 }
 if (!wranglerConfig.includes('"binding": "PORTAL_DB"')) errors.push('wrangler config missing dedicated PORTAL_DB binding');
 if (!wranglerConfig.includes('"migrations_dir": "migrations-portal"')) errors.push('PORTAL_DB does not use the isolated portal migration directory');
