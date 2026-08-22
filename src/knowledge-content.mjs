@@ -1,5 +1,37 @@
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-economic-operator',
+    key: 'euEconomicOperator',
+    slug: 'knowledge/eu-economic-operator-charger-label',
+    datePublished: '2026-08-22',
+    dateModified: '2026-08-22',
+    image: '/assets/editorial-chargers-table.jpg',
+    imageWidth: 1600,
+    imageHeight: 2400,
+    photo: {
+      photographer: "I'm Zion",
+      page: 'https://www.pexels.com/photo/chargers-on-table-5948288/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'European Union — EUR-Lex',
+        title: 'Regulation (EU) 2019/1020 — Article 4: tasks of economic operators',
+        url: 'https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32019R1020'
+      },
+      {
+        publisher: 'European Commission',
+        title: 'Importers and distributors',
+        url: 'https://single-market-economy.ec.europa.eu/single-market/goods/ce-marking/importers-and-distributors_en'
+      },
+      {
+        publisher: 'European Union — Your Europe',
+        title: 'General product compliance',
+        url: 'https://europa.eu/youreurope/business/product-rules-compliance/general-product-compliance/index_en.htm'
+      }
+    ]
+  },
+  {
     id: 'knowledge-legal-entity',
     key: 'legalEntity',
     slug: 'knowledge/chinese-supplier-legal-entity',
@@ -180,7 +212,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Five field notes',
+      latest: 'Six field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -207,6 +239,59 @@ export const knowledgeContent = {
       back: 'All knowledge notes'
     },
     articles: {
+      euEconomicOperator: {
+        topic: 'EU market traceability',
+        published: '22 August 2026',
+        readTime: '6 minutes',
+        title: 'Does an EU contact address on a charger prove the Chinese supplier is compliant?',
+        description: 'An EU economic-operator address helps trace the product. It does not, by itself, connect a Chinese seller, the exact model and the required compliance documents.',
+        imageAlt: 'Chargers arranged on a table, used as an editorial illustration for EU product traceability.',
+        imageCaption: 'Editorial photograph of chargers on a table. It is not a ZimonAI supplier, client, inspection or compliance record.',
+        answer: 'No. For chargers within the EU harmonisation rules, an EU-based economic operator must be identifiable, and that operator has defined market-surveillance tasks. But a name and address are traceability evidence, not proof that the Chinese seller is the manufacturer, that the quoted model is covered by an EU Declaration of Conformity, or that every shipment conforms.',
+        takeaways: [
+          'Record the EU contact exactly as it appears on the product, packaging or accompanying document, then identify its legal role.',
+          'Ask separately for the manufacturer, the EU importer or authorised representative, and the documents for the exact quoted model.',
+          'Treat a reachable EU contact as one link in a chain of evidence—not a substitute for model, document and shipment checks.'
+        ],
+        sections: [
+          {
+            title: 'What does an EU economic-operator address establish?',
+            paragraphs: [
+              'Regulation (EU) 2019/1020 requires an economic operator established in the Union for products within its scope before they are placed on the market. The operator’s name, registered trade name or trade mark, and postal contact details must be indicated on the product, packaging, parcel or an accompanying document.',
+              'For a buyer, this makes the address worth preserving: it is an identified contact for the product’s EU market route. It does not establish that the address belongs to the Chinese quotation party, that the party owns the factory, or that the labelled charger is the same electrical version as the offered model.'
+            ]
+          },
+          {
+            title: 'Is the contact a manufacturer, importer or authorised representative?',
+            paragraphs: [
+              'The role changes what should be requested. EU guidance defines an importer as an EU-established person or company placing a product from outside the EU on the EU market. An authorised representative is appointed by the manufacturer for specified tasks; it is not automatically the manufacturer or seller.',
+              'The Commission states that importers must check that the non-EU manufacturer has taken the necessary steps, that required documentation is available on request and that the manufacturer can be contacted. This is why a contact label should trigger a role-and-document question, not a conclusion that the Chinese supplier has been approved.'
+            ],
+            items: [
+              'EU contact name and postal address exactly as labelled',
+              'Declared role: manufacturer, importer or authorised representative',
+              'Chinese manufacturer’s legal name and address',
+              'Written relationship between the Chinese seller and the EU operator, where they differ'
+            ]
+          },
+          {
+            title: 'How do you tie the contact to the charger you are buying?',
+            paragraphs: [
+              'Start with the quoted model, electrical ratings, plug version and brand. Then compare those identifiers with the EU Declaration of Conformity and supporting technical information available from the responsible chain. A brand name or a family description is not enough where the document cannot show that it covers the offered variant.',
+              'ZimonAI’s practical reading is to keep four relationships separate: the Chinese seller to the manufacturer, the manufacturer to the EU operator, the EU operator to the documents, and the documents to the exact model. A break in one relationship is a follow-up item, not automatic proof of a false claim.'
+            ]
+          }
+        ],
+        checklist: [
+          'Photograph or scan of the product, packaging or document showing the EU contact',
+          'Exact charger model, brand, plug version and electrical ratings',
+          'Chinese manufacturer’s legal name and address',
+          'Declared role and written relationship of the EU operator',
+          'EU Declaration of Conformity that identifies the quoted model or defensible model range',
+          'Supporting document availability and the date checked'
+        ],
+        limitsText: 'An EU economic-operator contact supports traceability and may support a document request. It does not by itself prove product safety, CE compliance, factory ownership, seller authority, continued document validity or shipment-by-shipment conformity. Applicable obligations can also vary with the product’s actual functions and the EU rules that apply to it.'
+      },
       legalEntity: {
         topic: 'Supplier identity',
         published: '20 August 2026',
@@ -490,7 +575,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '五篇查核筆記',
+      latest: '六篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -517,6 +602,59 @@ export const knowledgeContent = {
       back: '返回知識庫'
     },
     articles: {
+      euEconomicOperator: {
+        topic: '歐盟市場可追溯性',
+        published: '2026 年 8 月 22 日',
+        readTime: '約 6 分鐘',
+        title: '充電器上的歐盟聯絡地址，能證明中國供應商已合規嗎？',
+        description: '歐盟經濟營運者的地址能幫助追溯產品，但它本身無法把中國賣方、精確型號與必要合規文件連起來。',
+        imageAlt: '桌面上擺放的充電器照片，用於說明歐盟產品可追溯性。',
+        imageCaption: '桌面上的充電器為編輯用圖片；不是 ZimonAI 的供應商、客戶、查核現場或合規紀錄。',
+        answer: '不能。對適用歐盟調和法規的充電器，必須能辨識設立於歐盟境內的經濟營運者，且該營運者負有明定的市場監管配合工作。不過，名稱與地址只是可追溯性的證據；不能單獨證明中國賣方就是製造商、報價型號已被 EU 符合性聲明涵蓋，或每批出貨都符合要求。',
+        takeaways: [
+          '先逐字記下產品、包裝或隨附文件上的歐盟聯絡資料，再確認它扮演的法律角色。',
+          '製造商、歐盟進口商或授權代表要分開問，也要分開索取對應報價型號的文件。',
+          '能聯絡到歐盟窗口，只是證據鏈的一環，不能取代型號、文件與出貨的核對。'
+        ],
+        sections: [
+          {
+            title: '歐盟經濟營運者的地址，能確認什麼？',
+            paragraphs: [
+              '歐盟《2019/1020 號規則》要求，落在其範圍內的產品進入市場前，須有設立於歐盟境內的經濟營運者。該營運者的名稱、註冊商號或商標，以及包含郵寄地址的聯絡資料，必須標示在產品、包裝、包裹或隨附文件上。',
+              '對買家而言，這個地址值得原樣保留：它是產品進入歐盟市場時可被辨識的聯絡點。它卻不能證明該地址就是報價的中國公司、該公司擁有工廠，或標示的充電器與報價產品是完全相同的電氣版本。'
+            ]
+          },
+          {
+            title: '它是製造商、進口商，還是授權代表？',
+            paragraphs: [
+              '角色不同，該追問的資料也不同。歐盟官方說明，進口商是設立於歐盟、把來自非歐盟國家的產品投放到歐盟市場的自然人或法人；授權代表則是由製造商委任、代為處理特定工作的對象，並不當然等於製造商或賣方。',
+              '歐盟委員會指出，進口商須確認非歐盟製造商已完成必要步驟、所需文件可於要求時提供，且製造商能隨時聯絡。因此，看到聯絡地址後，下一步應是問清角色與文件，而不是直接下結論說中國供應商已獲認可。'
+            ],
+            items: [
+              '歐盟聯絡人名稱與郵寄地址（照標示原樣記錄）',
+              '宣告角色：製造商、進口商或授權代表',
+              '中國製造商的完整法律名稱與地址',
+              '中國賣方與歐盟經濟營運者不同時，兩者關係的書面說明'
+            ]
+          },
+          {
+            title: '怎麼把聯絡地址連回正在採購的充電器？',
+            paragraphs: [
+              '先固定報價的型號、額定值、插頭版本與品牌，再與 EU 符合性聲明及責任鏈可提供的技術資料比對。若文件無法顯示涵蓋報價變體，只寫品牌名稱或模糊的系列說明，都還不夠。',
+              'ZimonAI 的實務判讀，會把四段關係分開：中國賣方與製造商、製造商與歐盟營運者、歐盟營運者與文件、文件與精確型號。任何一段連不起來，都應列為待補資料，不能直接當作不實宣稱的定論。'
+            ]
+          }
+        ],
+        checklist: [
+          '顯示歐盟聯絡資料的產品、包裝或文件照片／掃描檔',
+          '精確充電器型號、品牌、插頭版本與電氣額定值',
+          '中國製造商的法律名稱與地址',
+          '歐盟營運者的角色與書面關係說明',
+          '可識別報價型號或可合理支持型號範圍的 EU 符合性聲明',
+          '可提供支持文件的狀態與核對日期'
+        ],
+        limitsText: '歐盟經濟營運者的聯絡資料可支持產品可追溯性，也可能成為索取文件的入口；但它本身不能證明產品安全、CE 合規、工廠所有權、賣方授權、文件持續有效，或每一批出貨都一致。實際義務也會隨產品功能與適用的歐盟規則而異。'
+      },
       legalEntity: {
         topic: '供應商身分',
         published: '2026 年 8 月 20 日',
@@ -800,7 +938,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '五篇核查笔记',
+      latest: '六篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -827,6 +965,59 @@ export const knowledgeContent = {
       back: '返回知识库'
     },
     articles: {
+      euEconomicOperator: {
+        topic: '欧盟市场可追溯性',
+        published: '2026 年 8 月 22 日',
+        readTime: '约 6 分钟',
+        title: '充电器上的欧盟联系地址，能证明中国供应商已合规吗？',
+        description: '欧盟经济运营者的地址可以帮助追溯产品，但它本身无法把中国卖方、精确型号和必要合规文件连起来。',
+        imageAlt: '桌面上摆放的充电器照片，用于说明欧盟产品可追溯性。',
+        imageCaption: '桌面上的充电器为编辑用图片；不是 ZimonAI 的供应商、客户、核查现场或合规记录。',
+        answer: '不能。对适用欧盟协调法规的充电器，必须能识别设立在欧盟境内的经济运营者，该运营者也承担明确的市场监管配合工作。不过，名称和地址只是可追溯性证据；不能单独证明中国卖方就是制造商、报价型号已被 EU 符合性声明覆盖，或每批出货都符合要求。',
+        takeaways: [
+          '先逐字记录产品、包装或随附文件上的欧盟联系资料，再确认它的法律角色。',
+          '制造商、欧盟进口商或授权代表要分别确认，也要分别索取对应报价型号的文件。',
+          '可以联系的欧盟窗口只是证据链中的一环，不能代替型号、文件和出货核对。'
+        ],
+        sections: [
+          {
+            title: '欧盟经济运营者的地址，能确认什么？',
+            paragraphs: [
+              '欧盟《2019/1020 号法规》要求，属于其范围的产品进入市场前，须有设立在欧盟境内的经济运营者。该运营者的名称、注册商号或商标，以及包括邮寄地址的联系资料，必须标注在产品、包装、包裹或随附文件上。',
+              '对买家而言，这个地址值得原样保存：它是产品进入欧盟市场时可以识别的联系点。但它不能证明该地址就是报价中的中国公司、该公司拥有工厂，或标注的充电器与报价产品是完全相同的电气版本。'
+            ]
+          },
+          {
+            title: '它是制造商、进口商，还是授权代表？',
+            paragraphs: [
+              '角色不同，需要追问的资料也不同。欧盟官方说明，进口商是设立在欧盟、把来自非欧盟国家的产品投放到欧盟市场的自然人或法人；授权代表则是由制造商委任、代为处理特定工作的对象，并不当然等于制造商或卖方。',
+              '欧盟委员会指出，进口商须确认非欧盟制造商已完成必要步骤、所需文件可在被要求时提供，并且能够随时联系制造商。因此，看到联系地址后，下一步应是问清角色与文件，而不是直接断定中国供应商已获认可。'
+            ],
+            items: [
+              '欧盟联系人名称和邮寄地址（按标注原样记录）',
+              '声明角色：制造商、进口商或授权代表',
+              '中国制造商的完整法律名称和地址',
+              '中国卖方与欧盟经济运营者不同时，双方关系的书面说明'
+            ]
+          },
+          {
+            title: '怎样把联系地址连回正在采购的充电器？',
+            paragraphs: [
+              '先固定报价的型号、额定值、插头版本和品牌，再与 EU 符合性声明及责任链可以提供的技术资料逐项比对。如果文件不能显示覆盖报价变体，只写品牌名称或模糊的系列说明，都还不够。',
+              'ZimonAI 的实务判断会把四段关系分开：中国卖方与制造商、制造商与欧盟运营者、欧盟运营者与文件、文件与精确型号。任何一段无法连起来，都应列为待补资料，不能直接当作不实宣传的结论。'
+            ]
+          }
+        ],
+        checklist: [
+          '显示欧盟联系资料的产品、包装或文件照片／扫描件',
+          '精确充电器型号、品牌、插头版本和电气额定值',
+          '中国制造商的法律名称和地址',
+          '欧盟运营者的角色和书面关系说明',
+          '能够识别报价型号或合理支持型号范围的 EU 符合性声明',
+          '支持文件可提供的状态和核对日期'
+        ],
+        limitsText: '欧盟经济运营者的联系资料可以支持产品可追溯性，也可能成为索取文件的入口；但它本身不能证明产品安全、CE 合规、工厂所有权、卖方授权、文件持续有效，或每一批出货都一致。实际义务也会随产品功能和适用的欧盟规则而异。'
+      },
       legalEntity: {
         topic: '供应商身份',
         published: '2026 年 8 月 20 日',

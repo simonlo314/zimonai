@@ -683,13 +683,13 @@ function knowledge(t) {
           <h1 id="knowledge-title">${esc(copy.hub.title)}</h1>
           <p>${esc(copy.hub.lead)}</p>
         </div>
-        <div class="knowledge-hero__folio" aria-hidden="true"><span>FIELD NOTES</span><strong>01—05</strong><img src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512"></div>
+        <div class="knowledge-hero__folio" aria-hidden="true"><span>FIELD NOTES</span><strong>01—${String(knowledgeArticleSpecs.length).padStart(2, '0')}</strong><img src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512"></div>
       </div>
     </section>
     <section class="knowledge-index shell" aria-labelledby="knowledge-featured-title">
       <header class="knowledge-index__heading reveal"><p class="kicker">${esc(copy.hub.featured)}</p><h2 id="knowledge-featured-title">${esc(featured.article.topic)}</h2></header>
       ${knowledgeCard(t, featured.spec, featured.article, true)}
-      <header class="knowledge-index__heading knowledge-index__heading--latest reveal"><p class="kicker">${esc(copy.hub.latest)}</p><span>02—05</span></header>
+      <header class="knowledge-index__heading knowledge-index__heading--latest reveal"><p class="kicker">${esc(copy.hub.latest)}</p><span>02—${String(knowledgeArticleSpecs.length).padStart(2, '0')}</span></header>
       <div class="knowledge-grid">${rest.map(({ spec, article }) => knowledgeCard(t, spec, article)).join('')}</div>
     </section>
     <section class="knowledge-method">

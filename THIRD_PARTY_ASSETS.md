@@ -11,6 +11,7 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | `src/assets/editorial-multiport-adapter.jpg` | Pedro Paiva | [Close-up of Multi USB Port Power Adapter](https://www.pexels.com/photo/close-up-of-multi-usb-port-power-adapter-29356607/) | Scope-and-limitations page category image |
 | `src/assets/editorial-contract-document.jpg` | Pixabay | [Black Pen Placed on White Paper](https://www.pexels.com/photo/black-pen-placed-on-white-paper-261679/) | Knowledge article about supplier legal identity |
 | `src/assets/editorial-eu-power-adapter.jpg` | Markus Winkler | [White Adapter on Blue Surface](https://www.pexels.com/photo/white-adapter-on-blue-surface-4097204/) | Knowledge article about CE documentation for power adapters |
+| `src/assets/editorial-chargers-table.jpg` | I'm Zion | [Chargers on Table](https://www.pexels.com/photo/chargers-on-table-5948288/) | Knowledge article about an EU economic-operator contact on a charger; editorial illustration only |
 
 ## Representation boundary
 
