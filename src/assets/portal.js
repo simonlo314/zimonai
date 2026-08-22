@@ -7,6 +7,7 @@ if (root) {
   const signedOut = root.querySelector('[data-portal-signed-out]');
   const signedIn = root.querySelector('[data-portal-signed-in]');
   const googleLogin = root.querySelector('[data-google-login]');
+  const emailAuthDivider = root.querySelector('[data-email-auth-divider]');
   const emailAuth = root.querySelector('[data-email-auth]');
   const emailRequestForm = root.querySelector('[data-email-request-form]');
   const emailVerifyForm = root.querySelector('[data-email-verify-form]');
@@ -86,6 +87,7 @@ if (root) {
     signedOut.hidden = false;
     signedOut.toggleAttribute('data-auth-unavailable-state', showUnavailable);
     googleLogin.hidden = !methods.google;
+    emailAuthDivider.hidden = !methods.email;
     emailAuth.hidden = !methods.email;
     unavailable.hidden = !showUnavailable;
     authFeedback.textContent = message;

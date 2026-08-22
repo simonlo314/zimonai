@@ -146,7 +146,7 @@ function portal(t) {
         <p class="portal-kicker">${esc(p.auth.label)}</p>
         <h2 id="portal-auth-title">${esc(p.auth.title)}</h2>
         <a class="portal-google" href="${esc(loginHref)}" data-google-login>${googleMark()}<span>${esc(p.auth.google)}</span></a>
-        <div class="portal-auth__divider"><span>${esc(p.auth.divider)}</span></div>
+        <div class="portal-auth__divider" data-email-auth-divider><span>${esc(p.auth.divider)}</span></div>
         <div class="portal-email-auth" data-email-auth>
           <form class="portal-email-form" data-email-request-form novalidate>
             <label for="portal-login-email">${esc(p.auth.emailLabel)}</label>
