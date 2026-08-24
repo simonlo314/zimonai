@@ -6,7 +6,12 @@ import { paymentContent } from '../src/payment-content.mjs';
 import { STRIPE_PRODUCTS } from '../functions/_lib/stripe.js';
 import { brandProfile } from '../src/brand-profile.mjs';
 import { editorialPolicy, layoutMode } from '../src/editorial-policy.mjs';
-import { knowledgeArticleSpecs, knowledgeContent } from '../src/knowledge-content.mjs';
+import {
+  knowledgeArticleSpecs,
+  knowledgeCategoryDefinitions,
+  knowledgeContent,
+  knowledgePageDefinitions
+} from '../src/knowledge-content.mjs';
 import { portalContent } from '../src/portal-content.mjs';
 import { adminContent } from '../src/admin-content.mjs';
 
@@ -15,6 +20,10 @@ const dist = path.join(root, 'dist');
 const distFiles = await readdir(dist, { recursive: true });
 const files = distFiles.filter((file) => file.endsWith('.html'));
 const errors = [];
+const knowledgeCategoryPages = knowledgePageDefinitions.filter(({ kind }) => kind === 'knowledge-category');
+const knowledgeArticleOutputFiles = new Set(
+  Object.values(languages).flatMap(({ prefix }) => knowledgeArticleSpecs.map(({ slug }) => [prefix, slug, 'index.html'].filter(Boolean).join('/')))
+);
 
 const sourceContent = await readFile(path.join(root, 'src', 'content.mjs'), 'utf8');
 const sourceTemplate = await readFile(path.join(root, 'src', 'template.mjs'), 'utf8');
@@ -62,6 +71,13 @@ for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
   if (!editorialPolicy[langKey]?.writingMode) errors.push(`${langKey}: editorial policy missing`);
   if (!paymentContent[langKey]?.payments?.products?.length) errors.push(`${langKey}: payment content missing`);
   if (!knowledgeContent[langKey]?.hub?.metaTitle) errors.push(`${langKey}: knowledge hub metadata missing`);
+  const taxonomy = knowledgeContent[langKey]?.taxonomy;
+  if (!taxonomy?.searchLabel || !taxonomy?.searchPlaceholder || !taxonomy?.filtersLabel || !taxonomy?.noResultsTitle) {
+    errors.push(`${langKey}: knowledge search interface copy missing`);
+  }
+  for (const { id } of knowledgeCategoryDefinitions) {
+    if (!taxonomy?.categories?.[id]?.name || !taxonomy?.categories?.[id]?.description) errors.push(`${langKey}: knowledge category copy missing ${id}`);
+  }
   if (!portalContent[langKey]?.metaTitle
     || !portalContent[langKey]?.auth?.google
     || !portalContent[langKey]?.workspace?.supportAction
@@ -74,6 +90,7 @@ for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
   }
 }
 if (/\.replaceAll\s*\(/.test(sourceKnowledge)) errors.push('knowledge source uses mechanical locale conversion');
+if (/\.reveal[^\{]*\{[^}]*opacity\s*:\s*0/i.test(sourceCss)) errors.push('public content must remain visible when JavaScript fails');
 
 for (const [key, amount] of Object.entries({ consultation: 9900, t1: 14900, t2: 34900, balance: 1000, 'consultation-extension': 4900 })) {
   if (STRIPE_PRODUCTS[key]?.amount !== amount) errors.push(`Stripe catalogue amount is incorrect for ${key}`);
@@ -127,12 +144,58 @@ const requiredSections = {
   'privacy/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-references', 'legal-contact', 'support-panel'],
   'portal/index.html': ['portal-page', 'portal-entry', 'portal-auth', 'portal-workspace', 'portal-empty', 'portal-empty__actions', 'portal-account'],
   'admin/index.html': ['admin-page', 'admin-access', 'admin-workspace', 'admin-tabs', 'admin-record-list', 'admin-notification-config', 'admin-case-form'],
-  'knowledge/index.html': ['knowledge-hero', 'knowledge-index', 'knowledge-method']
+  'knowledge/index.html': ['knowledge-hero', 'knowledge-index', 'knowledge-console', 'data-knowledge-index-url', 'data-knowledge-search', 'data-knowledge-product', 'data-knowledge-market', 'data-knowledge-count', 'knowledge-method']
 };
 for (const [file, sections] of Object.entries(requiredSections)) {
   for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
     const html = await readFile(path.join(dist, prefix, file), 'utf8');
     for (const section of sections) if (!html.includes(section)) errors.push(`dist/${prefix}${file}: missing required content section ${section}`);
+  }
+}
+
+for (const [langKey, lang] of Object.entries(languages)) {
+  const prefix = lang.prefix ? `${lang.prefix}/` : '';
+  const indexFile = path.join(dist, 'assets', `knowledge-index-${langKey}.json`);
+  let index;
+  try {
+    index = JSON.parse(await readFile(indexFile, 'utf8'));
+  } catch {
+    errors.push(`${indexFile}: invalid or missing search index`);
+    continue;
+  }
+  if (index.locale !== langKey || !/^[a-f0-9]{12}$/.test(index.generatedFrom || '')) errors.push(`${indexFile}: invalid locale or version`);
+  if (!Array.isArray(index.records) || index.records.length !== knowledgeArticleSpecs.length) errors.push(`${indexFile}: incomplete article records`);
+  const recordIds = new Set();
+  for (const record of index.records || []) {
+    if (recordIds.has(record.id)) errors.push(`${indexFile}: duplicate article ${record.id}`);
+    recordIds.add(record.id);
+    for (const field of ['id', 'url', 'title', 'topic', 'description', 'category', 'datePublished', 'readTime', 'searchText']) {
+      if (typeof record[field] !== 'string' || !record[field].trim()) errors.push(`${indexFile}: ${record.id || 'unknown'} missing ${field}`);
+    }
+    for (const field of ['products', 'markets', 'keywords']) {
+      if (!Array.isArray(record[field]) || !record[field].length) errors.push(`${indexFile}: ${record.id || 'unknown'} missing ${field}`);
+    }
+    if (/[?#]/.test(record.url || '')) errors.push(`${indexFile}: article URL must not contain a query or hash`);
+  }
+
+  for (const page of knowledgeCategoryPages) {
+    const categoryFile = path.join(dist, prefix, page.slug, 'index.html');
+    const html = await readFile(categoryFile, 'utf8');
+    const expectedCount = knowledgeArticleSpecs.filter(({ category }) => category === page.categoryId).length;
+    if (!html.includes(`data-knowledge-fixed-category="${page.categoryId}"`)) errors.push(`${categoryFile}: category scope missing`);
+    if (!html.includes('data-knowledge-index-url=')) errors.push(`${categoryFile}: localized search index missing`);
+    const jsonLd = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
+    try {
+      const graph = JSON.parse(jsonLd || '{}')['@graph'] || [];
+      const collection = graph.find((node) => node['@type'] === 'CollectionPage');
+      const list = graph.find((node) => node['@type'] === 'ItemList');
+      if (!collection || !list || list.numberOfItems !== expectedCount || list.itemListElement?.length !== expectedCount) {
+        errors.push(`${categoryFile}: category CollectionPage or ItemList is incomplete`);
+      }
+      if (graph.some((node) => node['@type'] === 'Article')) errors.push(`${categoryFile}: category archive must not claim to be an Article`);
+    } catch {
+      errors.push(`${categoryFile}: invalid category JSON-LD`);
+    }
   }
 }
 
@@ -312,7 +375,7 @@ for (const file of files) {
           if (offerCatalog?.itemListElement?.[0]?.priceSpecification?.price !== 149) errors.push(`${label}: T1 structured price is incorrect`);
           if (offerCatalog?.itemListElement?.[5]?.priceSpecification?.minPrice !== 5000) errors.push(`${label}: T6 structured starting price is incorrect`);
         }
-        const isKnowledgeArticle = /(?:^|\/)knowledge\/[^/]+\/index\.html$/.test(file);
+        const isKnowledgeArticle = knowledgeArticleOutputFiles.has(file);
         if (isKnowledgeArticle && !graph.some((node) => node['@type'] === 'Article')) errors.push(`${label}: JSON-LD missing Article entity`);
       } catch {
         errors.push(`${label}: invalid JSON-LD`);
@@ -424,6 +487,7 @@ if (/(?:=|:)\s*['"`](?:sk_(?:test|live)_[A-Za-z0-9]{12,}|whsec_[A-Za-z0-9]{12,})
 const sitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
 if (sitemap.includes('/payment-success/')) errors.push('payment success page must not appear in the sitemap');
 for (const spec of knowledgeArticleSpecs) if (!sitemap.includes(`/${spec.slug}/`)) errors.push(`sitemap missing knowledge article ${spec.slug}`);
+for (const page of knowledgeCategoryPages) if (!sitemap.includes(`/${page.slug}/`)) errors.push(`sitemap missing knowledge category ${page.slug}`);
 if (!sitemap.includes('xmlns:xhtml="http://www.w3.org/1999/xhtml"')) errors.push('sitemap is missing the XHTML namespace for language alternates');
 const sitemapUrlCount = (sitemap.match(/<url>/g) || []).length;
 const sitemapAlternateCount = (sitemap.match(/<xhtml:link /g) || []).length;

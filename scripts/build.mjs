@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { languages, pages } from '../src/content.mjs';
+import { knowledgeArticleSpecs, knowledgeContent } from '../src/knowledge-content.mjs';
 import { renderPage } from '../src/template.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -27,11 +28,15 @@ for (const file of await collectFiles(sourceAssets)) {
   assetHash.update(await readFile(path.join(sourceAssets, file)));
 }
 const assetVersion = assetHash.digest('hex').slice(0, 12);
+const knowledgeIndexVersion = createHash('sha256')
+  .update(await readFile(path.join(root, 'src', 'knowledge-content.mjs')))
+  .digest('hex')
+  .slice(0, 12);
 
 function versionAssetUrls(html) {
   return html.replace(
     /((?:https:\/\/zimonai\.com)?\/assets\/[^"'?\s<>]+)(?:\?[^"'\s<>]*)?/g,
-    `$1?v=${assetVersion}`
+    (_match, assetUrl) => `${assetUrl}?v=${assetUrl.includes('/assets/knowledge-index-') ? knowledgeIndexVersion : assetVersion}`
   );
 }
 
@@ -47,6 +52,53 @@ await cp(path.join(sourceAssets, 'zimonai-shield-icon-mono-white.svg'), path.joi
 await cp(path.join(sourceAssets, 'zimonai-shield-favicon.png'), path.join(dist, 'zimonai-shield-favicon.png'));
 await cp(path.join(sourceAssets, 'favicon.ico'), path.join(dist, 'favicon.ico'));
 await cp(path.join(sourceAssets, 'apple-touch-icon.png'), path.join(dist, 'apple-touch-icon.png'));
+
+function searchableStrings(value) {
+  if (typeof value === 'string') return [value];
+  if (Array.isArray(value)) return value.flatMap(searchableStrings);
+  if (value && typeof value === 'object') return Object.values(value).flatMap(searchableStrings);
+  return [];
+}
+
+function normalizeSearchText(value) {
+  return String(value || '')
+    .normalize('NFKC')
+    .toLocaleLowerCase()
+    .replace(/[\p{P}\p{S}]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function knowledgeArticlePath(langKey, spec) {
+  const prefix = languages[langKey].prefix;
+  return `/${[prefix, spec.slug].filter(Boolean).join('/')}/`;
+}
+
+for (const langKey of Object.keys(languages)) {
+  const records = knowledgeArticleSpecs.map((spec) => {
+    const article = knowledgeContent[langKey].articles[spec.key];
+    const keywords = spec.keywords?.[langKey] || [];
+    return {
+      id: spec.id,
+      url: knowledgeArticlePath(langKey, spec),
+      title: article.title,
+      topic: article.topic,
+      description: article.description,
+      category: spec.category,
+      products: spec.products,
+      markets: spec.markets,
+      keywords,
+      datePublished: spec.datePublished,
+      readTime: article.readTime,
+      searchText: normalizeSearchText(searchableStrings({ article, sources: spec.sources, keywords }).join(' '))
+    };
+  });
+  await writeFile(
+    path.join(dist, 'assets', `knowledge-index-${langKey}.json`),
+    JSON.stringify({ locale: langKey, generatedFrom: knowledgeIndexVersion, records }),
+    'utf8'
+  );
+}
 
 for (const [langKey, lang] of Object.entries(languages)) {
   for (const page of pages) {

@@ -3,7 +3,7 @@ import { brandProfile, hasPublishedOfficeEvidence } from './brand-profile.mjs';
 import { layoutMode } from './editorial-policy.mjs';
 import { paymentContent } from './payment-content.mjs';
 import { legalContent } from './legal-content.mjs';
-import { knowledgeArticleSpecs, knowledgeContent, knowledgeSpecById } from './knowledge-content.mjs';
+import { knowledgeArticleSpecs, knowledgeCategoryDefinitions, knowledgeContent, knowledgeSpecById } from './knowledge-content.mjs';
 import { portalContent } from './portal-content.mjs';
 import { adminContent } from './admin-content.mjs';
 
@@ -635,8 +635,17 @@ function privacy(t) {
   return legalDocument(t, legalContent[t.__key].privacy, 'privacy');
 }
 
+function knowledgeRecordAttributes(spec) {
+  return `data-knowledge-record="${esc(spec.id)}" data-knowledge-category="${esc(spec.category)}" data-knowledge-products="${esc((spec.products || []).join(' '))}" data-knowledge-markets="${esc((spec.markets || []).join(' '))}"`;
+}
+
+function knowledgeCategoryPath(langKey, categoryId) {
+  const definition = knowledgeCategoryDefinitions.find((item) => item.id === categoryId);
+  return definition ? pathFor(langKey, `knowledge-category-${definition.id}`) : pathFor(langKey, 'knowledge');
+}
+
 function knowledgeCard(t, spec, article, featured = false) {
-  return `<article class="knowledge-card${featured ? ' knowledge-card--featured' : ''} reveal">
+  return `<article class="knowledge-card${featured ? ' knowledge-card--featured' : ''}" ${knowledgeRecordAttributes(spec)}>
     <a class="knowledge-card__media" href="${pathFor(t.__key, spec.id)}" aria-label="${esc(article.title)}">
       <img src="${esc(spec.image)}" alt="${esc(article.imageAlt)}" width="${spec.imageWidth}" height="${spec.imageHeight}" loading="${featured ? 'eager' : 'lazy'}">
       <span>${String(knowledgeArticleSpecs.indexOf(spec) + 1).padStart(2, '0')}</span>
@@ -651,26 +660,120 @@ function knowledgeCard(t, spec, article, featured = false) {
   </article>`;
 }
 
-function knowledge(t) {
+function knowledgeIndexRow(t, spec, article) {
+  const taxonomy = t.knowledge.taxonomy;
+  const category = taxonomy.categories[spec.category];
+  const tags = [
+    ...(spec.products || []).slice(0, 2).map((id) => taxonomy.products[id]),
+    ...(spec.markets || []).slice(0, 1).map((id) => taxonomy.markets[id])
+  ].filter(Boolean);
+  return `<article class="knowledge-row" ${knowledgeRecordAttributes(spec)}>
+    <span class="knowledge-row__no" aria-hidden="true">${String(knowledgeArticleSpecs.indexOf(spec) + 1).padStart(2, '0')}</span>
+    <div class="knowledge-row__main">
+      <a class="knowledge-row__category" href="${knowledgeCategoryPath(t.__key, spec.category)}">${esc(category?.name || article.topic)}</a>
+      <h3><a href="${pathFor(t.__key, spec.id)}">${esc(article.title)}</a></h3>
+      <p>${esc(article.description)}</p>
+      ${tags.length ? `<ul class="knowledge-row__tags" aria-label="${esc(taxonomy.filtersLabel)}">${tags.map((tag) => `<li>${esc(tag)}</li>`).join('')}</ul>` : ''}
+    </div>
+    <div class="knowledge-row__meta"><time datetime="${esc(spec.datePublished)}">${esc(article.published)}</time><span>${esc(article.readTime)}</span></div>
+    <a class="knowledge-row__open" href="${pathFor(t.__key, spec.id)}" aria-label="${esc(`${t.knowledge.ui.read}: ${article.title}`)}">${arrow()}</a>
+  </article>`;
+}
+
+function knowledgeResultCount(taxonomy, count) {
+  const unit = count === 1 ? taxonomy.resultSingular : taxonomy.resultPlural;
+  return `${taxonomy.resultsLabel} ${count} ${unit}`;
+}
+
+function knowledgeRuntimeCopy(langKey) {
+  if (langKey === 'zh-tw') return {
+    indexError: '搜尋索引暫時無法載入。下方文章仍可閱讀，也可以使用主題分類瀏覽。',
+    noScript: '目前顯示完整文章索引。若要使用全文搜尋與產品、市場篩選，請開啟 JavaScript。',
+    allNotes: '全部查核筆記'
+  };
+  if (langKey === 'zh-cn') return {
+    indexError: '搜索索引暂时无法加载。下方文章仍可阅读，也可以使用主题分类浏览。',
+    noScript: '当前显示完整文章索引。如需使用全文搜索与产品、市场筛选，请启用 JavaScript。',
+    allNotes: '全部核查笔记'
+  };
+  return {
+    indexError: 'The search index is temporarily unavailable. The articles below remain readable, and you can still browse by topic.',
+    noScript: 'The complete article index is shown below. Enable JavaScript to use full-text search and product or market filters.',
+    allNotes: 'All field notes'
+  };
+}
+
+function knowledge(t, page = pageMap.knowledge) {
   const copy = t.knowledge;
-  const records = knowledgeArticleSpecs.map((spec) => ({ spec, article: copy.articles[spec.key] }));
-  const [featured, ...rest] = records;
+  const taxonomy = copy.taxonomy;
+  const fixedCategory = page.kind === 'knowledge-category' ? page.categoryId : '';
+  const categoryCopy = fixedCategory ? taxonomy.categories[fixedCategory] : null;
+  const records = knowledgeArticleSpecs
+    .filter((spec) => !fixedCategory || spec.category === fixedCategory)
+    .map((spec) => ({ spec, article: copy.articles[spec.key] }))
+    .sort((left, right) => right.spec.datePublished.localeCompare(left.spec.datePublished) || left.spec.id.localeCompare(right.spec.id));
+  const featured = records.find(({ spec }) => spec.featured);
+  const rest = featured ? records.filter(({ spec }) => spec.id !== featured.spec.id) : [];
+  if (!featured) rest.push(...records);
+  const runtimeCopy = knowledgeRuntimeCopy(t.__key);
+  const heroTitle = categoryCopy?.name || copy.hub.title;
+  const heroLead = categoryCopy?.description || copy.hub.lead;
+  const heroKicker = categoryCopy ? taxonomy.categoryKicker : copy.hub.kicker;
+  const categoryLinks = [
+    `<a class="knowledge-chip" href="${pathFor(t.__key, 'knowledge')}" data-knowledge-category-filter=""${fixedCategory ? '' : ' aria-current="page"'}>${esc(taxonomy.allCategories)}</a>`,
+    ...knowledgeCategoryDefinitions.filter((definition) => knowledgeArticleSpecs.some((spec) => spec.category === definition.id)).map((definition) => {
+      const category = taxonomy.categories[definition.id];
+      return `<a class="knowledge-chip" href="${pathFor(t.__key, `knowledge-category-${definition.id}`)}" data-knowledge-category-filter="${esc(definition.id)}"${fixedCategory === definition.id ? ' aria-current="page"' : ''}>${esc(category.name)}</a>`;
+    })
+  ].join('');
+  const productOptions = Object.entries(taxonomy.products).map(([id, label]) => `<option value="${esc(id)}">${esc(label)}</option>`).join('');
+  const marketOptions = Object.entries(taxonomy.markets).map(([id, label]) => `<option value="${esc(id)}">${esc(label)}</option>`).join('');
+  const indexUrl = `/assets/knowledge-index-${t.__key}.json`;
   return `<main id="main">
     <section class="knowledge-hero" aria-labelledby="knowledge-title">
       <div class="shell knowledge-hero__grid">
         <div class="knowledge-hero__copy">
-          <p class="kicker">${esc(copy.hub.kicker)}</p>
-          <h1 id="knowledge-title">${esc(copy.hub.title)}</h1>
-          <p>${esc(copy.hub.lead)}</p>
+          <p class="kicker">${esc(heroKicker)}</p>
+          <h1 id="knowledge-title">${esc(heroTitle)}</h1>
+          <p>${esc(heroLead)}</p>
         </div>
-        <div class="knowledge-hero__folio" aria-hidden="true"><span>FIELD NOTES</span><strong>01—${String(knowledgeArticleSpecs.length).padStart(2, '0')}</strong><img src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512"></div>
+        <div class="knowledge-hero__folio" aria-hidden="true"><span>${esc(categoryCopy ? taxonomy.categoryKicker : copy.hub.kicker)}</span><strong>01—${String(records.length).padStart(2, '0')}</strong><img src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512"></div>
       </div>
     </section>
-    <section class="knowledge-index shell" aria-labelledby="knowledge-featured-title">
-      <header class="knowledge-index__heading reveal"><p class="kicker">${esc(copy.hub.featured)}</p><h2 id="knowledge-featured-title">${esc(featured.article.topic)}</h2></header>
-      ${knowledgeCard(t, featured.spec, featured.article, true)}
-      <header class="knowledge-index__heading knowledge-index__heading--latest reveal"><p class="kicker">${esc(copy.hub.latest)}</p><span>02—${String(knowledgeArticleSpecs.length).padStart(2, '0')}</span></header>
-      <div class="knowledge-grid">${rest.map(({ spec, article }) => knowledgeCard(t, spec, article)).join('')}</div>
+    <section class="knowledge-index shell" aria-labelledby="knowledge-index-title" data-knowledge-index data-knowledge-index-url="${esc(indexUrl)}" data-knowledge-fixed-category="${esc(fixedCategory)}" data-knowledge-index-error="${esc(runtimeCopy.indexError)}">
+      <h2 class="sr-only" id="knowledge-index-title">${esc(taxonomy.searchLabel)}</h2>
+      <div class="knowledge-console">
+        <form class="knowledge-search" role="search" action="${pathFor(t.__key, page.id)}" method="get" data-knowledge-search-form>
+          <label for="knowledge-search-input">${esc(taxonomy.searchLabel)}</label>
+          <div class="knowledge-search__field"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg><input id="knowledge-search-input" name="q" type="search" inputmode="search" autocomplete="off" spellcheck="false" placeholder="${esc(taxonomy.searchPlaceholder)}" aria-describedby="knowledge-search-hint" data-knowledge-search></div>
+          <p id="knowledge-search-hint">${esc(taxonomy.searchHint)}</p>
+        </form>
+        <div class="knowledge-filters" aria-labelledby="knowledge-filter-label">
+          <strong id="knowledge-filter-label">${esc(taxonomy.filtersLabel)}</strong>
+          <nav class="knowledge-chips" aria-label="${esc(taxonomy.filtersLabel)}">${categoryLinks}</nav>
+          <div class="knowledge-selects">
+            <label><span>${esc(taxonomy.productsLabel)}</span><select name="product" data-knowledge-product><option value="">${esc(taxonomy.allProducts)}</option>${productOptions}</select></label>
+            <label><span>${esc(taxonomy.marketsLabel)}</span><select name="market" data-knowledge-market><option value="">${esc(taxonomy.allMarkets)}</option>${marketOptions}</select></label>
+            <button type="button" data-knowledge-clear disabled>${esc(taxonomy.clearSearch)}</button>
+          </div>
+        </div>
+        <div class="knowledge-console__status">
+          <p id="knowledge-results-status" role="status" aria-live="polite" aria-atomic="true" data-knowledge-count data-results-label="${esc(taxonomy.resultsLabel)}" data-result-singular="${esc(taxonomy.resultSingular)}" data-result-plural="${esc(taxonomy.resultPlural)}">${esc(knowledgeResultCount(taxonomy, records.length))}</p>
+          <p class="knowledge-index__error" role="status" data-knowledge-index-error-message hidden>${esc(runtimeCopy.indexError)}</p>
+        </div>
+      </div>
+      <noscript><p class="knowledge-noscript">${esc(runtimeCopy.noScript)}</p></noscript>
+      ${featured ? `<div class="knowledge-featured" data-knowledge-featured-region>
+        <header class="knowledge-index__heading"><p class="kicker">${esc(copy.hub.featured)}</p><h2 id="knowledge-featured-title">${esc(featured.article.topic)}</h2></header>
+        ${knowledgeCard(t, featured.spec, featured.article, true)}
+      </div>` : ''}
+      <div class="knowledge-catalog" data-knowledge-catalog-region${rest.length ? '' : ' hidden'}>
+        <header class="knowledge-index__heading knowledge-index__heading--latest"><p class="kicker">${esc(runtimeCopy.allNotes)}</p><span>${featured ? '02' : '01'}—${String(records.length).padStart(2, '0')}</span></header>
+        <div class="knowledge-list">${rest.map(({ spec, article }) => knowledgeIndexRow(t, spec, article)).join('')}</div>
+      </div>
+      <section class="knowledge-empty" data-knowledge-empty hidden aria-labelledby="knowledge-empty-title">
+        <span aria-hidden="true">?</span><div><h2 id="knowledge-empty-title">${esc(taxonomy.noResultsTitle)}</h2><p>${esc(taxonomy.noResultsText)}</p><button type="button" data-knowledge-clear>${esc(taxonomy.clearSearch)}</button></div>
+      </section>
     </section>
     <section class="knowledge-method">
       <div class="shell knowledge-method__inner">
@@ -687,7 +790,21 @@ function knowledgeArticle(t, page) {
   const copy = t.knowledge;
   const spec = knowledgeSpecById(page.id);
   const article = copy.articles[spec.key];
-  const related = knowledgeArticleSpecs.filter((item) => item.id !== spec.id).slice(0, 3);
+  const sharedCount = (left = [], right = []) => left.filter((item) => right.includes(item)).length;
+  const related = knowledgeArticleSpecs
+    .map((item, index) => ({
+      item,
+      index,
+      score: (item.category === spec.category ? 12 : 0)
+        + sharedCount(item.products, spec.products) * 4
+        + sharedCount(item.markets, spec.markets) * 2
+    }))
+    .filter(({ item }) => item.id !== spec.id)
+    .sort((left, right) => right.score - left.score
+      || right.item.datePublished.localeCompare(left.item.datePublished)
+      || left.item.id.localeCompare(right.item.id))
+    .slice(0, 3)
+    .map(({ item }) => item);
   return `<main id="main">
     <article class="field-note">
       <header class="field-note__hero">
@@ -774,9 +891,20 @@ export function renderPage(langKey, pageId) {
   const t = { ...original, payment: paymentContent[langKey], knowledge: knowledgeCopy, portal: portalContent[langKey], admin: adminContent[langKey], __key: langKey };
   const articleSpec = page.kind === 'article' ? knowledgeSpecById(pageId) : null;
   const articleCopy = articleSpec ? knowledgeCopy.articles[articleSpec.key] : null;
+  const categoryCopy = page.kind === 'knowledge-category' ? knowledgeCopy.taxonomy.categories[page.categoryId] : null;
+  const isKnowledgeCollection = page.kind === 'knowledge' || page.kind === 'knowledge-category';
+  const unsortedCollectionSpecs = page.kind === 'knowledge-category'
+    ? knowledgeArticleSpecs.filter((spec) => spec.category === page.categoryId)
+    : knowledgeArticleSpecs;
+  const sortedCollectionSpecs = [...unsortedCollectionSpecs]
+    .sort((left, right) => right.datePublished.localeCompare(left.datePublished) || left.id.localeCompare(right.id));
+  const collectionFeatured = sortedCollectionSpecs.find((spec) => spec.featured);
+  const collectionSpecs = collectionFeatured
+    ? [collectionFeatured, ...sortedCollectionSpecs.filter((spec) => spec.id !== collectionFeatured.id)]
+    : sortedCollectionSpecs;
   const baseMeta = original.meta.titles[pageId] ? original.meta : paymentContent[langKey].meta;
-  const metaTitle = pageId === 'portal' ? t.portal.metaTitle : pageId === 'admin' ? t.admin.metaTitle : pageId === 'knowledge' ? knowledgeCopy.hub.metaTitle : articleCopy ? `${articleCopy.title} | ZimonAI` : baseMeta.titles[pageId];
-  const metaDescription = pageId === 'portal' ? t.portal.metaDescription : pageId === 'admin' ? t.admin.metaDescription : pageId === 'knowledge' ? knowledgeCopy.hub.metaDescription : articleCopy ? articleCopy.description : baseMeta.descriptions[pageId];
+  const metaTitle = pageId === 'portal' ? t.portal.metaTitle : pageId === 'admin' ? t.admin.metaTitle : pageId === 'knowledge' ? knowledgeCopy.hub.metaTitle : categoryCopy ? `${categoryCopy.name} | ZimonAI` : articleCopy ? `${articleCopy.title} | ZimonAI` : baseMeta.titles[pageId];
+  const metaDescription = pageId === 'portal' ? t.portal.metaDescription : pageId === 'admin' ? t.admin.metaDescription : pageId === 'knowledge' ? knowledgeCopy.hub.metaDescription : categoryCopy ? categoryCopy.description : articleCopy ? articleCopy.description : baseMeta.descriptions[pageId];
   const canonical = `https://zimonai.com${pathFor(langKey, pageId)}`;
   const alternates = Object.entries(languages).map(([key, lang]) => `<link rel="alternate" hreflang="${lang.htmlLang}" href="https://zimonai.com${pathFor(key, pageId)}">`).join('\n');
   const organizationId = 'https://zimonai.com/#organization';
@@ -836,7 +964,7 @@ export function renderPage(langKey, pageId) {
     about: { '@id': organizationId },
     publisher: { '@id': organizationId }
   };
-  if (pageId === 'knowledge') webpage['@type'] = 'CollectionPage';
+  if (isKnowledgeCollection) webpage['@type'] = 'CollectionPage';
   const graph = [organization, website, webpage];
   if (pageId === 'services') {
     const serviceId = `${canonical}#service`;
@@ -859,20 +987,32 @@ export function renderPage(langKey, pageId) {
     });
   } else if (pageId === 'home') {
     webpage.mainEntity = { '@id': organizationId };
-  } else if (pageId === 'knowledge') {
+  } else if (isKnowledgeCollection) {
     const itemListId = `${canonical}#articles`;
     webpage.mainEntity = { '@id': itemListId };
     graph.push({
       '@type': 'ItemList',
       '@id': itemListId,
-      numberOfItems: knowledgeArticleSpecs.length,
-      itemListElement: knowledgeArticleSpecs.map((spec, index) => ({
+      numberOfItems: collectionSpecs.length,
+      itemListElement: collectionSpecs.map((spec, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         url: `https://zimonai.com${pathFor(langKey, spec.id)}`,
         name: knowledgeCopy.articles[spec.key].title
       }))
     });
+    if (categoryCopy) {
+      const breadcrumbId = `${canonical}#breadcrumb`;
+      webpage.breadcrumb = { '@id': breadcrumbId };
+      graph.push({
+        '@type': 'BreadcrumbList',
+        '@id': breadcrumbId,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: knowledgeCopy.hub.title, item: `https://zimonai.com${pathFor(langKey, 'knowledge')}` },
+          { '@type': 'ListItem', position: 2, name: categoryCopy.name, item: canonical }
+        ]
+      });
+    }
   } else if (articleSpec) {
     const articleId = `${canonical}#article`;
     webpage.mainEntity = { '@id': articleId };
@@ -884,7 +1024,7 @@ export function renderPage(langKey, pageId) {
       image: `https://zimonai.com${articleSpec.image}`,
       datePublished: articleSpec.datePublished,
       dateModified: articleSpec.dateModified,
-      articleSection: articleCopy.topic,
+      articleSection: knowledgeCopy.taxonomy.categories[articleSpec.category]?.name || articleCopy.topic,
       inLanguage: original.htmlLang,
       mainEntityOfPage: { '@id': webpageId },
       author: { '@id': organizationId },
@@ -942,9 +1082,9 @@ export function renderPage(langKey, pageId) {
   ${pageId === 'portal' ? '<script type="module" src="/assets/portal.js"></script>' : ''}
   ${pageId === 'admin' ? '<script type="module" src="/assets/admin.js"></script>' : ''}
 </head>
-<body class="${pageId === 'portal' ? 'page-portal' : pageId === 'admin' ? 'page-portal page-admin' : `page-public page-public--${pageId}`}">
+<body class="${pageId === 'portal' ? 'page-portal' : pageId === 'admin' ? 'page-portal page-admin' : page.kind === 'knowledge-category' ? 'page-public page-public--knowledge page-public--knowledge-category' : `page-public page-public--${pageId}`}">
   ${header(t, pageId)}
-  ${page.kind === 'article' ? knowledgeArticle(t, page) : renderers[pageId](t)}
+  ${page.kind === 'article' ? knowledgeArticle(t, page) : page.kind === 'knowledge-category' ? knowledge(t, page) : renderers[pageId](t, page)}
   ${footer(t)}
   ${supportPanel(t)}
 </body>

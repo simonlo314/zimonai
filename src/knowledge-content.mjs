@@ -1,8 +1,25 @@
+export const knowledgeCategoryDefinitions = [
+  { id: 'supplier-identity', slug: 'supplier-identity' },
+  { id: 'certification-market-access', slug: 'certification-market-access' },
+  { id: 'product-transport-documents', slug: 'product-transport-documents' },
+  { id: 'factory-onsite', slug: 'factory-onsite' },
+  { id: 'commercial-risk', slug: 'commercial-risk' }
+];
+
 export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-eu-economic-operator',
     key: 'euEconomicOperator',
     slug: 'knowledge/eu-economic-operator-charger-label',
+    featured: true,
+    category: 'certification-market-access',
+    products: ['charger'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['EU economic operator', 'charger label', 'EU importer', 'authorised representative', 'product traceability', 'EU Declaration of Conformity'],
+      'zh-tw': ['歐盟經濟營運者', '充電器標示', '歐盟進口商', '授權代表', '產品可追溯性', 'EU 符合性聲明'],
+      'zh-cn': ['欧盟经济运营者', '充电器标识', '欧盟进口商', '授权代表', '产品可追溯性', 'EU 符合性声明']
+    },
     datePublished: '2026-08-22',
     dateModified: '2026-08-22',
     image: '/assets/editorial-chargers-table.jpg',
@@ -35,6 +52,14 @@ export const knowledgeArticleSpecs = [
     id: 'knowledge-legal-entity',
     key: 'legalEntity',
     slug: 'knowledge/chinese-supplier-legal-entity',
+    category: 'supplier-identity',
+    products: ['general'],
+    markets: ['china'],
+    keywords: {
+      en: ['Chinese supplier legal entity', 'Chinese company name', 'Unified Social Credit Code', 'business licence', 'contract party', 'bank beneficiary'],
+      'zh-tw': ['中國供應商法律主體', '中文企業名稱', '統一社會信用代碼', '營業執照', '合約簽約方', '銀行收款人'],
+      'zh-cn': ['中国供应商法律主体', '中文企业名称', '统一社会信用代码', '营业执照', '合同签约方', '银行收款人']
+    },
     datePublished: '2026-08-20',
     dateModified: '2026-08-20',
     image: '/assets/editorial-contract-document.jpg',
@@ -67,6 +92,14 @@ export const knowledgeArticleSpecs = [
     id: 'knowledge-fcc-id',
     key: 'fccId',
     slug: 'knowledge/fcc-id-charger-verification',
+    category: 'certification-market-access',
+    products: ['charger'],
+    markets: ['united-states'],
+    keywords: {
+      en: ['FCC ID', 'FCC equipment authorization', 'charger compliance', 'Supplier’s Declaration of Conformity', 'SDoC', 'FCC grant'],
+      'zh-tw': ['FCC ID', 'FCC 設備授權', '充電器合規', '供應商符合性聲明', 'SDoC', 'FCC 授權紀錄'],
+      'zh-cn': ['FCC ID', 'FCC 设备授权', '充电器合规', '供应商符合性声明', 'SDoC', 'FCC 授权记录']
+    },
     datePublished: '2026-08-20',
     dateModified: '2026-08-20',
     image: '/assets/editorial-power-supply-board.jpg',
@@ -99,6 +132,14 @@ export const knowledgeArticleSpecs = [
     id: 'knowledge-ul-file',
     key: 'ulFile',
     slug: 'knowledge/ul-file-number-product-iq',
+    category: 'certification-market-access',
+    products: ['charger'],
+    markets: ['united-states'],
+    keywords: {
+      en: ['UL file number', 'UL Product iQ', 'UL certification', 'power adapter', 'model coverage', 'certification holder'],
+      'zh-tw': ['UL 檔案號', 'UL Product iQ', 'UL 認證', '電源適配器', '型號涵蓋範圍', '認證持有人'],
+      'zh-cn': ['UL 档案号', 'UL Product iQ', 'UL 认证', '电源适配器', '型号覆盖范围', '认证持有人']
+    },
     datePublished: '2026-08-20',
     dateModified: '2026-08-20',
     image: '/assets/editorial-multiport-adapter.jpg',
@@ -126,6 +167,14 @@ export const knowledgeArticleSpecs = [
     id: 'knowledge-ce-marking',
     key: 'ceMarking',
     slug: 'knowledge/ce-marking-power-adapter-documents',
+    category: 'certification-market-access',
+    products: ['power-adapter'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['CE marking', 'EU Declaration of Conformity', 'power adapter', 'technical documentation', 'Low Voltage Directive', 'model verification'],
+      'zh-tw': ['CE 標示', 'EU 符合性聲明', '電源適配器', '技術文件', '低電壓指令', '型號核對'],
+      'zh-cn': ['CE 标志', 'EU 符合性声明', '电源适配器', '技术文件', '低电压指令', '型号核对']
+    },
     datePublished: '2026-08-20',
     dateModified: '2026-08-20',
     image: '/assets/editorial-eu-power-adapter.jpg',
@@ -158,6 +207,14 @@ export const knowledgeArticleSpecs = [
     id: 'knowledge-un38-3',
     key: 'un383',
     slug: 'knowledge/un38-3-power-bank-test-summary',
+    category: 'product-transport-documents',
+    products: ['power-bank'],
+    markets: ['international'],
+    keywords: {
+      en: ['UN 38.3', 'power bank test summary', 'lithium battery transport', 'test report', 'battery configuration', 'dangerous goods'],
+      'zh-tw': ['UN 38.3', '行動電源測試摘要', '鋰電池運輸', '測試報告', '電池配置', '危險品運輸'],
+      'zh-cn': ['UN 38.3', '移动电源测试概要', '锂电池运输', '测试报告', '电池配置', '危险品运输']
+    },
     datePublished: '2026-08-20',
     dateModified: '2026-08-20',
     image: '/assets/editorial-power-bank.jpg',
@@ -188,8 +245,18 @@ export const knowledgeArticleSpecs = [
   }
 ];
 
+const activeKnowledgeCategoryIds = new Set(knowledgeArticleSpecs.map((article) => article.category));
+
 export const knowledgePageDefinitions = [
   { id: 'knowledge', slug: 'knowledge', kind: 'knowledge' },
+  ...knowledgeCategoryDefinitions
+    .filter((category) => activeKnowledgeCategoryIds.has(category.id))
+    .map((category) => ({
+      id: `knowledge-category-${category.id}`,
+      slug: `knowledge/${category.slug}`,
+      kind: 'knowledge-category',
+      categoryId: category.id
+    })),
   ...knowledgeArticleSpecs.map((article) => ({
     id: article.id,
     slug: article.slug,
@@ -223,6 +290,60 @@ export const knowledgeContent = {
       nextLabel: 'Ongoing research',
       nextTitle: 'A new field note is scheduled every two days.',
       nextText: 'Future notes will stay within Chinese supplier verification and charger or power-electronics documentation. Topics are selected for purchase relevance, not publishing volume.'
+    },
+    taxonomy: {
+      searchLabel: 'Search the knowledge desk',
+      searchPlaceholder: 'Search certificates, products, documents or buyer questions',
+      searchHint: 'Search titles, summaries and terms such as FCC ID, UL file number or UN 38.3.',
+      clearSearch: 'Clear search',
+      filtersLabel: 'Browse by topic',
+      allCategories: 'All topics',
+      productsLabel: 'Product',
+      allProducts: 'All products',
+      marketsLabel: 'Market',
+      allMarkets: 'All markets',
+      resultsLabel: 'Results:',
+      resultSingular: 'article',
+      resultPlural: 'articles',
+      noResultsTitle: 'No field notes match these filters.',
+      noResultsText: 'Try a broader term, remove a filter or browse all topics.',
+      categoryKicker: 'Knowledge topic',
+      browseAll: 'View all field notes',
+      categories: {
+        'supplier-identity': {
+          name: 'Supplier identity and registry records',
+          description: 'Connect trading names, registered entities, contract parties and payment recipients before relying on a supplier claim.'
+        },
+        'certification-market-access': {
+          name: 'Certification and market access',
+          description: 'Identify the applicable route, then check whether official records and documents cover the quoted model and destination market.'
+        },
+        'product-transport-documents': {
+          name: 'Product and transport documents',
+          description: 'Match test summaries, declarations and shipment documents to the product and battery configuration being purchased.'
+        },
+        'factory-onsite': {
+          name: 'Factory and on-site checks',
+          description: 'Plan and interpret factory, production-line and on-site evidence without overstating what a visit can prove.'
+        },
+        'commercial-risk': {
+          name: 'Purchasing, contract and payment risk',
+          description: 'Examine contracts, payment instructions and counterparty relationships before funds move.'
+        }
+      },
+      products: {
+        general: 'General products',
+        charger: 'Chargers',
+        'power-adapter': 'Power adapters',
+        'power-bank': 'Power banks',
+        'gan-charger': 'GaN chargers'
+      },
+      markets: {
+        china: 'China',
+        'united-states': 'United States',
+        'european-union': 'European Union',
+        international: 'International transport'
+      }
     },
     ui: {
       read: 'Read field note',
@@ -587,6 +708,60 @@ export const knowledgeContent = {
       nextTitle: '之後每兩天新增一篇查核筆記。',
       nextText: '後續題目會維持在中國供應商查核、充電器與電源電子文件。是否值得幫助採購判斷，比固定湊篇數更重要。'
     },
+    taxonomy: {
+      searchLabel: '搜尋查核文章',
+      searchPlaceholder: '輸入認證、產品、文件或採購問題',
+      searchHint: '可搜尋標題、摘要與關鍵詞，例如 FCC ID、UL 檔案號或 UN 38.3。',
+      clearSearch: '清除搜尋',
+      filtersLabel: '依主題瀏覽',
+      allCategories: '全部主題',
+      productsLabel: '產品',
+      allProducts: '全部產品',
+      marketsLabel: '市場',
+      allMarkets: '全部市場',
+      resultsLabel: '搜尋結果：',
+      resultSingular: '篇查核筆記',
+      resultPlural: '篇查核筆記',
+      noResultsTitle: '目前沒有符合條件的文章。',
+      noResultsText: '可以換一個較廣的關鍵詞、取消篩選，或瀏覽全部主題。',
+      categoryKicker: '知識分類',
+      browseAll: '查看全部查核筆記',
+      categories: {
+        'supplier-identity': {
+          name: '供應商身分與工商資料',
+          description: '在採信供應商說法前，先把商號、登記主體、合約簽約方與實際收款人連起來。'
+        },
+        'certification-market-access': {
+          name: '認證與市場准入',
+          description: '先判斷適用的認證或符合性程序，再核對官方紀錄與文件是否涵蓋報價型號及目標市場。'
+        },
+        'product-transport-documents': {
+          name: '產品文件與運輸要求',
+          description: '把測試摘要、聲明與運輸文件，連回實際採購的產品及電池配置。'
+        },
+        'factory-onsite': {
+          name: '工廠與現場查核',
+          description: '規劃並判讀工廠、產線與現場證據，同時保留一次到訪本身不能證明的範圍。'
+        },
+        'commercial-risk': {
+          name: '採購、合約與付款風險',
+          description: '付款前核對合約條件、付款指示與各交易主體之間的關係。'
+        }
+      },
+      products: {
+        general: '通用品類',
+        charger: '充電器',
+        'power-adapter': '電源適配器',
+        'power-bank': '行動電源',
+        'gan-charger': 'GaN 充電器'
+      },
+      markets: {
+        china: '中國',
+        'united-states': '美國',
+        'european-union': '歐盟',
+        international: '國際運輸'
+      }
+    },
     ui: {
       read: '閱讀查核筆記',
       published: '發布日期',
@@ -949,6 +1124,60 @@ export const knowledgeContent = {
       nextLabel: '持续更新',
       nextTitle: '后续每两天新增一篇核查笔记。',
       nextText: '选题会保持在中国供应商核查、充电器和电源电子文件范围内。能否帮助采购判断，比固定凑篇数更重要。'
+    },
+    taxonomy: {
+      searchLabel: '搜索核查文章',
+      searchPlaceholder: '输入认证、产品、文件或采购问题',
+      searchHint: '可搜索标题、摘要和关键词，例如 FCC ID、UL 档案号或 UN 38.3。',
+      clearSearch: '清除搜索',
+      filtersLabel: '按主题浏览',
+      allCategories: '全部主题',
+      productsLabel: '产品',
+      allProducts: '全部产品',
+      marketsLabel: '市场',
+      allMarkets: '全部市场',
+      resultsLabel: '搜索结果：',
+      resultSingular: '篇核查笔记',
+      resultPlural: '篇核查笔记',
+      noResultsTitle: '目前没有符合条件的文章。',
+      noResultsText: '可以换一个更宽泛的关键词、取消筛选，或浏览全部主题。',
+      categoryKicker: '知识分类',
+      browseAll: '查看全部核查笔记',
+      categories: {
+        'supplier-identity': {
+          name: '供应商身份与工商资料',
+          description: '在采信供应商说法前，先把商号、登记主体、合同签约方和实际收款人连起来。'
+        },
+        'certification-market-access': {
+          name: '认证与市场准入',
+          description: '先判断适用的认证或符合性程序，再核对官方记录和文件是否覆盖报价型号及目标市场。'
+        },
+        'product-transport-documents': {
+          name: '产品文件与运输要求',
+          description: '把测试概要、声明和运输文件，连回实际采购的产品及电池配置。'
+        },
+        'factory-onsite': {
+          name: '工厂与现场核查',
+          description: '规划并判断工厂、产线和现场证据，同时保留一次到访本身不能证明的范围。'
+        },
+        'commercial-risk': {
+          name: '采购、合同与付款风险',
+          description: '付款前核对合同条件、付款指示和各交易主体之间的关系。'
+        }
+      },
+      products: {
+        general: '通用品类',
+        charger: '充电器',
+        'power-adapter': '电源适配器',
+        'power-bank': '移动电源',
+        'gan-charger': 'GaN 充电器'
+      },
+      markets: {
+        china: '中国',
+        'united-states': '美国',
+        'european-union': '欧盟',
+        international: '国际运输'
+      }
     },
     ui: {
       read: '阅读核查笔记',

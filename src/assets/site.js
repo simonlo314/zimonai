@@ -97,13 +97,23 @@ function analyticsDevice() {
   return 'desktop';
 }
 
+function analyticsReferrer() {
+  if (!document.referrer) return '';
+  try {
+    const url = new URL(document.referrer, location.href);
+    return `${url.origin}${url.pathname}`;
+  } catch {
+    return '';
+  }
+}
+
 function trackAnalytics(event, target = '') {
   if (!analyticsEnabled || !navigator.sendBeacon) return;
   const payload = JSON.stringify({
     event,
     target,
     page: location.pathname,
-    referrer: document.referrer,
+    referrer: analyticsReferrer(),
     device: analyticsDevice()
   });
   navigator.sendBeacon('/api/analytics', new Blob([payload], { type: 'application/json' }));
@@ -166,6 +176,7 @@ if (document.readyState === 'complete') {
   window.addEventListener('load', reportNavigationPerformance, { once: true });
 }
 
+document.documentElement.classList.add('reveal-ready');
 const revealItems = document.querySelectorAll('.reveal');
 if (reducedMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
@@ -179,6 +190,207 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   }, { rootMargin: '0px 0px -8%', threshold: .08 });
   revealItems.forEach((item) => revealObserver.observe(item));
 }
+
+function normalizeKnowledgeSearchText(value) {
+  return String(value || '')
+    .normalize('NFKC')
+    .toLocaleLowerCase()
+    .replace(/[\p{P}\p{S}]+/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function compactKnowledgeSearchText(value) {
+  return normalizeKnowledgeSearchText(value).replace(/\s+/g, '');
+}
+
+function knowledgeQueryGroups(value) {
+  const chunks = String(value || '').normalize('NFKC').trim().split(/\s+/).filter(Boolean);
+  const tokens = chunks.map(compactKnowledgeSearchText).filter(Boolean);
+  const language = document.documentElement.lang;
+  const aliasGroups = language === 'zh-Hant'
+    ? [['充電寶', '行動電源', '移動電源']]
+    : language === 'zh-Hans'
+      ? [['充电宝', '移动电源', '行动电源']]
+      : [['powerbank', 'portablecharger']];
+  const normalizedAliases = aliasGroups.map((group) => group.map(compactKnowledgeSearchText));
+  return tokens.map((token) => normalizedAliases.find((group) => group.includes(token)) || [token]);
+}
+
+function knowledgeRecordHaystack(record) {
+  return compactKnowledgeSearchText([
+    record.searchText,
+    record.title,
+    record.topic,
+    record.description,
+    ...(Array.isArray(record.keywords) ? record.keywords : [])
+  ].filter(Boolean).join(' '));
+}
+
+async function initializeKnowledgeIndex(container) {
+  const searchForm = container.querySelector('[data-knowledge-search-form]');
+  const searchInput = container.querySelector('[data-knowledge-search]');
+  const productSelect = container.querySelector('[data-knowledge-product]');
+  const marketSelect = container.querySelector('[data-knowledge-market]');
+  const clearButtons = [...container.querySelectorAll('[data-knowledge-clear]')];
+  const categoryLinks = [...container.querySelectorAll('[data-knowledge-category-filter]')];
+  const recordNodes = [...container.querySelectorAll('[data-knowledge-record]')];
+  const countNode = container.querySelector('[data-knowledge-count]');
+  const emptyNode = container.querySelector('[data-knowledge-empty]');
+  const featuredRegion = container.querySelector('[data-knowledge-featured-region]');
+  const catalogRegion = container.querySelector('[data-knowledge-catalog-region]');
+  const errorNode = container.querySelector('[data-knowledge-index-error-message]');
+  const fixedCategory = container.dataset.knowledgeFixedCategory || '';
+  if (!searchForm || !searchInput || !productSelect || !marketSelect || !countNode || !recordNodes.length) return;
+
+  container.setAttribute('aria-busy', 'true');
+  let payload;
+  try {
+    const response = await fetch(container.dataset.knowledgeIndexUrl, {
+      headers: { Accept: 'application/json' },
+      credentials: 'same-origin',
+      cache: 'force-cache'
+    });
+    if (!response.ok) throw new Error('knowledge_index_unavailable');
+    payload = await response.json();
+  } catch {
+    container.removeAttribute('aria-busy');
+    if (errorNode) {
+      errorNode.textContent = container.dataset.knowledgeIndexError || errorNode.textContent;
+      errorNode.hidden = false;
+    }
+    return;
+  }
+
+  const records = Array.isArray(payload) ? payload : payload?.records;
+  if (!Array.isArray(records)) {
+    container.removeAttribute('aria-busy');
+    if (errorNode) errorNode.hidden = false;
+    return;
+  }
+  const recordsById = new Map(records.filter((record) => record?.id).map((record) => [record.id, {
+    ...record,
+    products: Array.isArray(record.products) ? record.products : [],
+    markets: Array.isArray(record.markets) ? record.markets : [],
+    haystack: knowledgeRecordHaystack(record)
+  }]));
+  if (recordNodes.some((node) => !recordsById.has(node.dataset.knowledgeRecord))) {
+    container.removeAttribute('aria-busy');
+    if (errorNode) errorNode.hidden = false;
+    return;
+  }
+
+  const allowedCategories = new Set(categoryLinks.map((link) => link.dataset.knowledgeCategoryFilter).filter(Boolean));
+  const allowedProducts = new Set([...productSelect.options].map((option) => option.value).filter(Boolean));
+  const allowedMarkets = new Set([...marketSelect.options].map((option) => option.value).filter(Boolean));
+  const params = new URLSearchParams(location.search);
+  const state = {
+    query: '',
+    category: fixedCategory || (allowedCategories.has(params.get('category')) ? params.get('category') : ''),
+    product: allowedProducts.has(params.get('product')) ? params.get('product') : '',
+    market: allowedMarkets.has(params.get('market')) ? params.get('market') : ''
+  };
+
+  function updateUrl() {
+    const next = new URL(location.href);
+    next.searchParams.delete('q');
+    if (!fixedCategory && state.category) next.searchParams.set('category', state.category);
+    else next.searchParams.delete('category');
+    if (state.product) next.searchParams.set('product', state.product);
+    else next.searchParams.delete('product');
+    if (state.market) next.searchParams.set('market', state.market);
+    else next.searchParams.delete('market');
+    history.replaceState(null, '', `${next.pathname}${next.search}${next.hash}`);
+  }
+
+  function setResultCount(count) {
+    const singular = countNode.dataset.resultSingular || '';
+    const plural = countNode.dataset.resultPlural || singular;
+    countNode.textContent = `${countNode.dataset.resultsLabel || ''} ${count} ${count === 1 ? singular : plural}`.trim();
+  }
+
+  function applyFilters({ syncUrl = true } = {}) {
+    const queryGroups = knowledgeQueryGroups(state.query);
+    let visibleCount = 0;
+    recordNodes.forEach((node) => {
+      const record = recordsById.get(node.dataset.knowledgeRecord);
+      const matchesQuery = queryGroups.every((group) => group.some((token) => record.haystack.includes(token)));
+      const matchesCategory = !state.category || record.category === state.category;
+      const matchesProduct = !state.product || record.products.includes(state.product);
+      const matchesMarket = !state.market || record.markets.includes(state.market);
+      const visible = matchesQuery && matchesCategory && matchesProduct && matchesMarket;
+      node.hidden = !visible;
+      if (visible) visibleCount += 1;
+    });
+
+    if (featuredRegion) {
+      const featuredRecord = featuredRegion.querySelector('[data-knowledge-record]');
+      featuredRegion.hidden = !featuredRecord || featuredRecord.hidden;
+    }
+    if (catalogRegion) {
+      const catalogRecords = [...catalogRegion.querySelectorAll('[data-knowledge-record]')];
+      catalogRegion.hidden = !catalogRecords.some((node) => !node.hidden);
+    }
+    if (emptyNode) emptyNode.hidden = visibleCount !== 0;
+    setResultCount(visibleCount);
+    const hasMutableFilter = Boolean(state.query || state.product || state.market || (!fixedCategory && state.category));
+    clearButtons.forEach((button) => { button.disabled = !hasMutableFilter; });
+    categoryLinks.forEach((link) => {
+      const selected = (link.dataset.knowledgeCategoryFilter || '') === state.category;
+      if (selected) link.setAttribute('aria-current', fixedCategory ? 'page' : 'true');
+      else link.removeAttribute('aria-current');
+    });
+    if (syncUrl) updateUrl();
+  }
+
+  function clearFilters() {
+    state.query = '';
+    state.category = fixedCategory;
+    state.product = '';
+    state.market = '';
+    searchInput.value = '';
+    productSelect.value = '';
+    marketSelect.value = '';
+    applyFilters();
+    searchInput.focus();
+  }
+
+  searchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    state.query = searchInput.value.trim();
+    applyFilters();
+  });
+  searchInput.addEventListener('input', () => {
+    state.query = searchInput.value.trim();
+    applyFilters();
+  });
+  productSelect.addEventListener('change', () => {
+    state.product = productSelect.value;
+    applyFilters();
+  });
+  marketSelect.addEventListener('change', () => {
+    state.market = marketSelect.value;
+    applyFilters();
+  });
+  clearButtons.forEach((button) => button.addEventListener('click', clearFilters));
+  if (!fixedCategory) {
+    categoryLinks.forEach((link) => link.addEventListener('click', (event) => {
+      event.preventDefault();
+      state.category = link.dataset.knowledgeCategoryFilter || '';
+      applyFilters();
+    }));
+  }
+
+  productSelect.value = state.product;
+  marketSelect.value = state.market;
+  container.classList.add('is-search-ready');
+  container.removeAttribute('aria-busy');
+  applyFilters({ syncUrl: false });
+  updateUrl();
+}
+
+const knowledgeIndex = document.querySelector('[data-knowledge-index]');
+if (knowledgeIndex) void initializeKnowledgeIndex(knowledgeIndex);
 
 const navToggle = document.querySelector('[data-nav-toggle]');
 const nav = document.querySelector('[data-nav]');
