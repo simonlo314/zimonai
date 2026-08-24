@@ -248,7 +248,7 @@ function admin(t) {
         </nav>
         <div class="admin-stage">
           <div class="admin-global-error" data-admin-error hidden role="alert">${esc(a.loadError)}</div>
-          ${dataView('queue')}${dataView('cases')}${dataView('orders')}${dataView('customers')}${dataView('notifications')}
+          ${dataView('queue')}${dataView('inquiries')}${dataView('cases')}${dataView('orders')}${dataView('customers')}${dataView('notifications')}
           <section class="admin-view admin-view--form" id="admin-panel-create" role="tabpanel" tabindex="0" aria-labelledby="admin-tab-create" data-admin-panel="create" hidden>
             <header class="admin-section-head"><div><p class="portal-kicker">${esc(a.form.eyebrow)}</p><h2>${esc(a.form.title)}</h2></div><p>${esc(a.form.lead)}</p></header>
             <form class="admin-case-form" data-admin-case-form novalidate>
@@ -489,15 +489,18 @@ function about(t) {
 function request(t) {
   const f = t.request.fields;
   const p = t.request.placeholders;
-  const field = (id, label, placeholder, type = 'text', required = false) => `<label class="form-field"><span>${esc(label)}${required ? ` <small>${esc(f.required)}</small>` : ''}</span><input id="${id}" name="${id}" type="${type}" placeholder="${esc(placeholder)}" ${required ? 'required' : ''}></label>`;
+  const field = (id, label, placeholder, type = 'text', required = false, maxLength = 240, autocomplete = '') => `<label class="form-field"><span>${esc(label)}${required ? ` <small>${esc(f.required)}</small>` : ''}</span><input id="${id}" name="${id}" type="${type}" placeholder="${esc(placeholder)}" maxlength="${maxLength}"${autocomplete ? ` autocomplete="${autocomplete}"` : ''} ${required ? 'required' : ''}></label>`;
+  const status = t.request.status;
   return `<main id="main">${pageHeader(t.request.kicker, t.request.title, t.request.lead, { media: { id: 'power-bank', src: '/assets/editorial-power-bank.jpg', alt: t.request.visualAlt } })}
     <section class="request-layout shell">
-      <form class="request-form reveal" data-mail-form data-mail-subject="${esc(t.__key === 'en' ? 'Supplier verification request' : t.__key === 'zh-tw' ? '供應商查核需求' : '供应商核查需求')}" novalidate>
+      <form class="request-form reveal" data-inquiry-form data-inquiry-locale="${esc(t.__key)}" data-validation-message="${esc(status.validation)}" data-submitting-message="${esc(status.submitting)}" data-success-title="${esc(status.successTitle)}" data-success-body="${esc(status.successBody)}" data-error-message="${esc(status.error)}" data-rate-limit-message="${esc(status.rateLimit)}" novalidate>
         <div class="form-honesty"><span aria-hidden="true">↗</span><p>${esc(t.request.honest)}</p></div>
-        <div class="form-grid">${field('name', f.name, p.name, 'text', true)}${field('email', f.email, p.email, 'email', true)}${field('company', f.company, p.company)}${field('supplier', f.supplier, p.supplier, 'text', true)}${field('url', f.url, p.url, 'url')}${field('chinese', f.chinese, p.chinese)}${field('product', f.product, p.product, 'text', true)}<label class="form-field form-field--wide"><span>${esc(f.question)} <small>${esc(f.required)}</small></span><textarea id="question" name="question" placeholder="${esc(p.question)}" rows="6" required></textarea></label></div>
+        <div class="form-grid">${field('name', f.name, p.name, 'text', true, 120, 'name')}${field('email', f.email, p.email, 'email', true, 254, 'email')}${field('company', f.company, p.company, 'text', false, 180, 'organization')}${field('supplier', f.supplier, p.supplier, 'text', true, 240)}${field('url', f.url, p.url, 'url', false, 500, 'url')}${field('chinese', f.chinese, p.chinese, 'text', false, 240)}${field('product', f.product, p.product, 'text', true, 240)}<label class="form-field form-field--wide"><span>${esc(f.question)} <small>${esc(f.required)}</small></span><textarea id="question" name="question" placeholder="${esc(p.question)}" rows="6" maxlength="4000" required></textarea></label></div>
+        <label class="form-trap" aria-hidden="true" inert>Website<input name="website" type="text" tabindex="-1" autocomplete="off" maxlength="200"></label>
         <label class="consent"><input type="checkbox" name="consent" required><span>${esc(f.consent)}</span></label>
-        <button class="button button--ink magnetic" type="submit">${esc(f.send)}${arrow()}</button>
+        <button class="button button--ink magnetic" type="submit" data-inquiry-submit><span data-inquiry-submit-label>${esc(f.send)}</span>${arrow()}</button>
         <p class="form-note">${esc(t.request.after)}</p><p class="form-error" data-form-error role="alert"></p>
+        <div class="inquiry-status" data-inquiry-status role="status" aria-live="polite" tabindex="-1" hidden><strong data-inquiry-status-title></strong><p data-inquiry-status-message></p></div>
       </form>
       <aside class="request-aside reveal">
         <div><p class="kicker">${esc(t.request.directTitle)}</p><h2>${esc(t.request.directTitle)}</h2><p>${esc(t.request.directText)}</p>${requestContactList(t)}</div>
@@ -736,7 +739,7 @@ const renderers = { home, services, methodology, scope, about, portal, admin, re
 function header(t, pageId) {
   const nav = [['services', t.nav.servicesBooking], ['knowledge', t.nav.knowledge], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
   const isHome = pageId === 'home';
-  const usesNightHeader = pageId !== 'portal' && pageId !== 'admin';
+  const usesNightHeader = isHome;
   return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header${isHome ? ' site-header--home' : ''}${usesNightHeader ? ' site-header--night' : ''}" data-header>
     <div class="site-header__inner">
       <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo" src="${usesNightHeader ? '/assets/zimonai-logo-white.svg' : '/assets/zimonai-logo-primary.svg'}" alt="ZimonAI" width="1600" height="360"><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>

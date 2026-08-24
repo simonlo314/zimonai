@@ -9,12 +9,33 @@ const ALLOWED_EVENTS = new Set([
   'demo_run',
   'evidence_tab',
   'request_draft',
+  'request_submit',
   'support_open',
   'checkout_start',
   'checkout_error',
   'payment_confirmed',
-  'post_payment_intake'
+  'post_payment_intake',
+  'navigation_performance'
 ]);
+
+const NAVIGATION_PERFORMANCE_TARGETS = new Set([
+  'ttfb:0000-0199',
+  'ttfb:0200-0499',
+  'ttfb:0500-0999',
+  'ttfb:1000-1999',
+  'ttfb:2000-4999',
+  'ttfb:5000-14999',
+  'ttfb:15000-plus',
+  'duration:0000-0199',
+  'duration:0200-0499',
+  'duration:0500-0999',
+  'duration:1000-1999',
+  'duration:2000-4999',
+  'duration:5000-14999',
+  'duration:15000-plus'
+]);
+const ANALYTICS_FIELDS = new Set(['event', 'target', 'page', 'referrer', 'device']);
+const MAX_BODY_BYTES = 2048;
 
 function taipeiDate() {
   const parts = new Intl.DateTimeFormat('en-CA', {
@@ -66,26 +87,76 @@ function emptyResponse(status = 204) {
   });
 }
 
+async function readBoundedJson(request) {
+  const mediaType = String(request.headers.get('Content-Type') || '')
+    .split(';', 1)[0]
+    .trim()
+    .toLowerCase();
+  if (mediaType !== 'application/json') return { error: emptyResponse(415) };
+
+  const declaredLength = Number(request.headers.get('Content-Length') || 0);
+  if (declaredLength > MAX_BODY_BYTES) return { error: emptyResponse(413) };
+  if (!request.body) return { error: emptyResponse(400) };
+
+  const reader = request.body.getReader();
+  const chunks = [];
+  let total = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > MAX_BODY_BYTES) {
+      try {
+        await reader.cancel('request_too_large');
+      } catch {
+        // The byte limit has already been enforced; cancellation is best-effort.
+      }
+      return { error: emptyResponse(413) };
+    }
+    chunks.push(value);
+  }
+
+  const body = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  try {
+    return { data: JSON.parse(new TextDecoder().decode(body)) };
+  } catch {
+    return { error: emptyResponse(400) };
+  }
+}
+
+function validAnalyticsPayload(payload) {
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return false;
+  const keys = Object.keys(payload);
+  return keys.length === ANALYTICS_FIELDS.size
+    && keys.every((key) => ANALYTICS_FIELDS.has(key))
+    && keys.every((key) => typeof payload[key] === 'string');
+}
+
 export async function onRequestPost({ request, env }) {
   if (request.headers.get('DNT') === '1' || request.headers.get('Sec-GPC') === '1') return emptyResponse();
 
   const origin = request.headers.get('Origin');
   if (origin !== 'https://zimonai.com' && origin !== 'https://www.zimonai.com') return emptyResponse(403);
-  if (Number(request.headers.get('Content-Length') || 0) > 2048) return emptyResponse(413);
   if (!env.ANALYTICS_DB) return emptyResponse(503);
 
-  let payload;
-  try {
-    payload = await request.json();
-  } catch {
-    return emptyResponse(400);
-  }
+  const parsed = await readBoundedJson(request);
+  if (parsed.error) return parsed.error;
+  const payload = parsed.data;
+  if (!validAnalyticsPayload(payload)) return emptyResponse(400);
 
   const eventName = cleanToken(payload.event, 40);
   if (!ALLOWED_EVENTS.has(eventName)) return emptyResponse(400);
 
   const pagePath = cleanPath(payload.page);
   const target = cleanToken(payload.target, 80);
+  if (eventName === 'navigation_performance' && !NAVIGATION_PERFORMANCE_TARGETS.has(target)) {
+    return emptyResponse(400);
+  }
   const device = ['mobile', 'tablet', 'desktop'].includes(payload.device) ? payload.device : 'desktop';
   const referrer = referrerGroup(payload.referrer);
 

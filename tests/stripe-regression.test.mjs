@@ -2,7 +2,15 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { issuePortalSession, upsertVerifiedIdentity } from '../functions/_lib/auth.js';
-import { STRIPE_PRODUCTS, isJsonContentType, readJsonRequest } from '../functions/_lib/stripe.js';
+import {
+  STRIPE_PRODUCTS,
+  checkoutBaseUrl,
+  expectedStripeModeForOrigin,
+  isJsonContentType,
+  readJsonRequest,
+  stripeModeError,
+  stripeRequest
+} from '../functions/_lib/stripe.js';
 import { onRequestGet as checkoutSummary } from '../functions/api/checkout-session.js';
 import { onRequest, onRequestPost as createCheckout } from '../functions/api/create-checkout-session.js';
 import { onRequestPost as stripeWebhook } from '../functions/api/stripe-webhook.js';
@@ -312,6 +320,100 @@ test('checkout ignores client amount and binds verified owner, order and email t
   } finally { fx.close(); }
 });
 
+test('checkout return URLs are canonical in production and stay on the current Pages preview', async () => {
+  assert.equal(checkoutBaseUrl('https://www.zimonai.com'), 'https://zimonai.com');
+  assert.equal(checkoutBaseUrl('https://abc-123.zimonai.pages.dev'), 'https://abc-123.zimonai.pages.dev');
+  assert.equal(expectedStripeModeForOrigin('https://zimonai.com'), 'live');
+  assert.equal(expectedStripeModeForOrigin('https://abc-123.zimonai.pages.dev'), 'test');
+
+  const fx = await fixture();
+  fx.env.STRIPE_SECRET_KEY = 'sk_live_production_callback_regression';
+  const stub = stripeCreateStub('cs_live_productioncallback123');
+  const previous = globalThis.fetch;
+  globalThis.fetch = stub.fetch;
+  try {
+    const response = await createCheckout({
+      request: checkoutRequest({ product: 'consultation', locale: 'zh-tw' }, fx.owner, {
+        requestOrigin: 'https://www.zimonai.com'
+      }),
+      env: fx.env
+    });
+    assert.equal(response.status, 200);
+    assert.equal(
+      stub.body.get('success_url'),
+      'https://zimonai.com/zh-tw/payment-success/?session_id={CHECKOUT_SESSION_ID}'
+    );
+    assert.equal(
+      stub.body.get('cancel_url'),
+      'https://zimonai.com/zh-tw/services/?cancelled=1&item=consultation'
+    );
+  } finally {
+    globalThis.fetch = previous;
+    fx.close();
+  }
+});
+
+test('production/test and preview/live secret mismatches fail closed before order creation or Stripe fetch', async () => {
+  const fx = await fixture();
+  fx.env.STRIPE_SECRET_KEY = 'sk_test_wrong_for_production';
+  let fetchCalls = 0;
+  const previous = globalThis.fetch;
+  globalThis.fetch = async () => {
+    fetchCalls += 1;
+    throw new Error('Stripe must not be called for a mode mismatch');
+  };
+  try {
+    const response = await createCheckout({
+      request: checkoutRequest({ product: 't1' }, fx.owner, { requestOrigin: 'https://zimonai.com' }),
+      env: fx.env
+    });
+    const body = await response.json();
+    assert.equal(response.status, 409);
+    assert.equal(body.error, 'stripe_mode_mismatch');
+    assert.match(body.requestId, /^[0-9a-f-]{36}$/);
+    assert.equal(response.headers.get('Request-Id'), body.requestId);
+    assert.match(response.headers.get('Server-Timing'), /^app;dur=\d+$/);
+    assert.equal(fetchCalls, 0);
+    assert.equal(fx.portal.raw.prepare('SELECT COUNT(*) AS count FROM portal_orders').get().count, 0);
+    assert.equal(
+      stripeModeError(
+        { STRIPE_SECRET_KEY: 'sk_live_wrong_for_preview' },
+        'https://abc-123.zimonai.pages.dev'
+      ),
+      'stripe_mode_mismatch'
+    );
+  } finally {
+    globalThis.fetch = previous;
+    fx.close();
+  }
+});
+
+test('Stripe request helper rejects a wrong-mode Checkout ID without sending a network request', async () => {
+  let fetchCalls = 0;
+  const previous = globalThis.fetch;
+  globalThis.fetch = async () => {
+    fetchCalls += 1;
+    throw new Error('network call must not happen');
+  };
+  try {
+    await assert.rejects(
+      stripeRequest({ STRIPE_SECRET_KEY: 'sk_live_regression' }, 'checkout/sessions/cs_test_wrongmode123'),
+      (error) => error.code === 'stripe_mode_mismatch' && error.status === 409
+    );
+    assert.equal(fetchCalls, 0);
+    assert.equal(
+      stripeModeError(
+        { STRIPE_SECRET_KEY: 'sk_test_regression' },
+        'http://127.0.0.1:8788',
+        'cs_live_wrongmode123'
+      ),
+      'stripe_mode_mismatch'
+    );
+  } finally {
+    globalThis.fetch = previous;
+  }
+});
+
 test('checkout refuses a Stripe Session from the wrong test/live mode', async () => {
   const fx = await fixture();
   const stub = stripeCreateStub('cs_live_wrongmode123');
@@ -322,8 +424,8 @@ test('checkout refuses a Stripe Session from the wrong test/live mode', async ()
       request: checkoutRequest({ product: 't1', locale: 'en', quantity: 1 }, fx.owner),
       env: fx.env
     });
-    assert.equal(response.status, 502);
-    assert.equal((await response.json()).error, 'stripe_checkout_response_invalid');
+    assert.equal(response.status, 409);
+    assert.equal((await response.json()).error, 'stripe_mode_mismatch');
     const order = fx.portal.raw.prepare('SELECT payment_status, stripe_session_id FROM portal_orders').get();
     assert.equal(order.payment_status, 'failed');
     assert.equal(order.stripe_session_id, null);
@@ -380,7 +482,7 @@ test('balance accepts agreed memos but internal references and extensions remain
   } finally { fx.close(); }
 });
 
-test('checkout summary is owner-only and reads the local signed-webhook record without Stripe latency', async () => {
+test('checkout summary is owner-only and keeps a safe local result if the bounded pending fallback fails', async () => {
   const fx = await fixture();
   try {
     const created = await createOrderWithCheckout(fx, 'consultation');
@@ -401,8 +503,110 @@ test('checkout summary is owner-only and reads the local signed-webhook record w
       assert.equal(body.receiptEmail, 'ow***@example.com');
       assert.equal(body.productName, '供應商查核專業諮詢');
       assert.equal(body.paymentStatus, 'pending');
+      assert.equal(body.stateSource, 'portal');
+      assert.match(body.requestId, /^[0-9a-f-]{36}$/);
+      assert.equal(allowed.headers.get('Request-Id'), body.requestId);
+      assert.match(allowed.headers.get('Server-Timing'), /db;dur=\d+, stripe;dur=\d+, app;dur=\d+/);
     } finally { globalThis.fetch = previous; }
   } finally { fx.close(); }
+});
+
+test('checkout summary calls Stripe only for an owner-scoped pending order and bridges webhook latency', async () => {
+  const fx = await fixture();
+  try {
+    const created = await createOrderWithCheckout(fx, 't1');
+    let fetchCalls = 0;
+    const previous = globalThis.fetch;
+    globalThis.fetch = async (_url, options) => {
+      fetchCalls += 1;
+      assert.ok(options.signal);
+      return new Response(JSON.stringify({
+        object: 'checkout.session',
+        id: created.body.id,
+        mode: 'payment',
+        livemode: false,
+        status: 'complete',
+        payment_status: 'paid',
+        client_reference_id: created.order.public_reference,
+        amount_total: created.order.amount_total,
+        currency: created.order.currency,
+        metadata: {
+          portal_order_id: created.order.id,
+          portal_user_id: created.order.owner_user_id
+        }
+      }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    };
+    try {
+      const response = await checkoutSummary({
+        request: portalRequest(`/api/checkout-session?session_id=${created.body.id}&locale=en`, fx.owner),
+        env: fx.env
+      });
+      const body = await response.json();
+      assert.equal(response.status, 200);
+      assert.equal(fetchCalls, 1);
+      assert.equal(body.paymentStatus, 'paid');
+      assert.equal(body.order.paymentStatus, 'paid');
+      assert.equal(body.stateSource, 'stripe');
+
+      fx.portal.raw.prepare("UPDATE portal_orders SET payment_status = 'paid' WHERE id = ?").run(created.order.id);
+      globalThis.fetch = async () => { throw new Error('terminal D1 state must not call Stripe'); };
+      const fast = await checkoutSummary({
+        request: portalRequest(`/api/checkout-session?session_id=${created.body.id}&locale=en`, fx.owner),
+        env: fx.env
+      });
+      assert.equal(fast.status, 200);
+      assert.equal((await fast.json()).stateSource, 'portal');
+    } finally { globalThis.fetch = previous; }
+  } finally { fx.close(); }
+});
+
+test('checkout summary rejects a secret/session mode mismatch before Stripe fetch', async () => {
+  const fx = await fixture();
+  let fetchCalls = 0;
+  const previous = globalThis.fetch;
+  try {
+    const created = await createOrderWithCheckout(fx, 'consultation');
+    const liveSessionId = 'cs_live_wrongmode123';
+    fx.portal.raw.prepare('UPDATE portal_orders SET stripe_session_id = ? WHERE id = ?')
+      .run(liveSessionId, created.order.id);
+    globalThis.fetch = async () => {
+      fetchCalls += 1;
+      throw new Error('mode mismatch must not call Stripe');
+    };
+    const response = await checkoutSummary({
+      request: portalRequest(`/api/checkout-session?session_id=${liveSessionId}`, fx.owner), env: fx.env
+    });
+    assert.equal(response.status, 409);
+    assert.equal((await response.json()).error, 'stripe_mode_mismatch');
+    assert.equal(fetchCalls, 0);
+  } finally {
+    globalThis.fetch = previous;
+    fx.close();
+  }
+});
+
+test('checkout summary returns a stable conflict for an inconsistent Stripe livemode response', async () => {
+  const fx = await fixture();
+  const previous = globalThis.fetch;
+  try {
+    const created = await createOrderWithCheckout(fx, 'consultation');
+    globalThis.fetch = async () => new Response(JSON.stringify({
+      object: 'checkout.session',
+      id: created.body.id,
+      mode: 'payment',
+      livemode: true,
+      status: 'complete',
+      payment_status: 'paid'
+    }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    const response = await checkoutSummary({
+      request: portalRequest(`/api/checkout-session?session_id=${created.body.id}`, fx.owner), env: fx.env
+    });
+    assert.equal(response.status, 409);
+    assert.equal((await response.json()).error, 'stripe_mode_mismatch');
+  } finally {
+    globalThis.fetch = previous;
+    fx.close();
+  }
 });
 
 test('webhook rejects amount mismatch without changing the operational order', async () => {

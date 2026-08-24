@@ -11,7 +11,7 @@ if (root) {
   const createMessage = root.querySelector('[data-admin-form-message]');
   const archivedCasesToggle = root.querySelector('[data-admin-toggle-archived-cases]');
   const archivedOrdersToggle = root.querySelector('[data-admin-toggle-archived]');
-  const caches = { cases: null, orders: null, customers: null, notifications: null };
+  const caches = { cases: null, orders: null, customers: null, notifications: null, inquiries: null };
   const tierLabels = Object.fromEntries(copy.form?.tiers || []);
   const productLabels = Object.fromEntries(copy.actions?.productOptions || []);
   let csrfToken = '';
@@ -71,6 +71,24 @@ if (root) {
   function field(label, value) {
     const row = element('div', 'admin-record__field');
     row.append(element('dt', '', label), element('dd', '', value || '—'));
+    return row;
+  }
+
+  function linkedField(label, value, href, { external = false } = {}) {
+    const row = element('div', 'admin-record__field');
+    const description = element('dd');
+    if (value && href) {
+      const link = element('a', '', value);
+      link.href = href;
+      if (external) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
+      description.append(link);
+    } else {
+      description.textContent = '—';
+    }
+    row.append(element('dt', '', label), description);
     return row;
   }
 
@@ -371,6 +389,66 @@ if (root) {
     return card;
   }
 
+  function inquiryCard(item) {
+    const card = element('article', 'admin-record admin-record--inquiry');
+    const head = element('header', 'admin-record__head');
+    const status = element('span', 'admin-record__status', copy.inquiryStatus[item.status] || item.status);
+    head.append(element('span', 'admin-record__reference', item.reference), status);
+    const title = element('h3', '', item.supplier || item.company || item.name || '—');
+    const details = element('dl', 'admin-record__details admin-record__details--inquiry');
+    let supplierHref = '';
+    try {
+      const parsed = new URL(item.url || '');
+      if (['http:', 'https:'].includes(parsed.protocol)) supplierHref = parsed.href;
+    } catch {
+      supplierHref = '';
+    }
+    details.append(
+      field(copy.fields.name, item.name),
+      linkedField(copy.fields.email, item.email, item.email ? `mailto:${item.email}` : ''),
+      field(copy.fields.company, item.company),
+      field(copy.fields.supplier, item.supplier),
+      field(copy.fields.chineseLegalName, item.chinese),
+      field(copy.fields.product, item.product),
+      linkedField(copy.fields.supplierLink, item.url, supplierHref, { external: true }),
+      field(copy.fields.created, formatDateTime(item.createdAt)),
+      field(copy.fields.question, item.question)
+    );
+    const actions = element('div', 'admin-record__actions');
+    const update = actionDetails(copy.inquiries.update);
+    const form = element('form', 'admin-action-form');
+    const fields = element('div', 'admin-action-fields');
+    fields.append(selectField(copy.fields.status, 'status', Object.entries(copy.inquiryStatus || {}), item.status));
+    const feedback = feedbackNode();
+    const button = element('button', 'admin-action-submit', copy.inquiries.save);
+    button.type = 'submit';
+    form.append(fields, feedback, button);
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const nextStatus = new FormData(form).get('status');
+      button.disabled = true;
+      button.textContent = copy.inquiries.saving;
+      try {
+        const result = await api('/api/admin/inquiries', {
+          method: 'PATCH', body: JSON.stringify({ id: item.id, status: nextStatus })
+        });
+        item.status = result.inquiry?.status || nextStatus;
+        status.textContent = copy.inquiryStatus[item.status] || item.status;
+        caches.inquiries = null;
+        setFeedback(feedback, copy.inquiries.saved);
+      } catch {
+        setFeedback(feedback, copy.inquiries.error, true);
+      } finally {
+        button.disabled = false;
+        button.textContent = copy.inquiries.save;
+      }
+    });
+    update.append(form);
+    actions.append(update);
+    card.append(head, title, details, actions);
+    return card;
+  }
+
   function updateEmailConfiguration(configured) {
     emailConfigured = configured === true;
     const banner = root.querySelector('[data-admin-email-config]');
@@ -470,6 +548,12 @@ if (root) {
     return caches.notifications;
   }
 
+  async function fetchInquiries(force = false) {
+    if (caches.inquiries && !force) return caches.inquiries;
+    caches.inquiries = (await api('/api/admin/inquiries')).inquiries || [];
+    return caches.inquiries;
+  }
+
   async function loadView(view, { force = false } = {}) {
     if (view === 'create') return;
     const state = root.querySelector(`[data-admin-state="${view}"]`);
@@ -484,6 +568,7 @@ if (root) {
       let records;
       if (view === 'cases') records = await fetchCases(force);
       else if (view === 'queue') records = (await fetchCases(force)).filter((item) => !['delivered', 'closed'].includes(item.status));
+      else if (view === 'inquiries') records = await fetchInquiries(force);
       else if (view === 'orders') records = await fetchOrders(force);
       else if (view === 'customers') records = await fetchCustomers(force);
       else records = await fetchNotifications(force);
@@ -492,7 +577,7 @@ if (root) {
         return;
       }
       state.hidden = true;
-      for (const item of records) list.append(view === 'orders' ? orderCard(item) : view === 'customers' ? customerCard(item) : view === 'notifications' ? notificationCard(item) : caseCard(item, view === 'queue'));
+      for (const item of records) list.append(view === 'orders' ? orderCard(item) : view === 'customers' ? customerCard(item) : view === 'notifications' ? notificationCard(item) : view === 'inquiries' ? inquiryCard(item) : caseCard(item, view === 'queue'));
     } catch (error) {
       if (error.status === 401 || error.status === 403) return showAccess(error.status === 403);
       state.textContent = copy.views[view].error;

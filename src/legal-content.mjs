@@ -25,7 +25,7 @@ export const legalContent = {
     },
     privacy: {
       kicker: 'Privacy notice', title: 'What enters our systems, why it is used and when it can be removed.',
-      lead: 'Effective 21 August 2026. This notice covers zimonai.com, client-account sign-in, service enquiries, Stripe payments and the information used to deliver an agreed ZimonAI assignment.',
+      lead: 'Effective 24 August 2026. This notice covers zimonai.com, client-account sign-in, service enquiries, Stripe payments and the information used to deliver an agreed ZimonAI assignment.',
       summaryTitle: 'The short version',
       summary: 'ZimonAI follows a data-minimisation approach: we collect what is needed to understand a request, confirm payment, deliver the agreed work and keep necessary business records. We do not sell personal information or use advertising cookies. The site does use limited first-party, aggregate analytics, described below.',
       sections: [
@@ -46,7 +46,8 @@ export const legalContent = {
         {
           title: 'First-party website analytics',
           paragraphs: [
-            'On the production website, ZimonAI records limited events so we can understand which pages and service choices are useful and whether important actions work. The analytics database stores daily aggregate counts rather than named visitor profiles.'
+            'On the production website, ZimonAI records limited events so we can understand which pages and service choices are useful and whether important actions work. The analytics database stores daily aggregate counts rather than named visitor profiles.',
+            'The site also records low-detail technical categories for JavaScript, rejected-promise or static-resource failures, together with fixed navigation-speed ranges. These records are used to diagnose reliability; they do not include the error message, stack trace, form text, account identifiers or URL query string.'
           ],
           items: [
             'Event type, page path and language version',
@@ -60,9 +61,10 @@ export const legalContent = {
         {
           title: 'Enquiry forms and direct contact',
           paragraphs: [
-            'The request and post-payment intake forms prepare an email draft on your device. The website does not upload or save the text you type into those fields. Information leaves your device only after you review and send the message through your own email provider.',
+            'The public requirement form transmits the contact and business fields you submit to ZimonAI over HTTPS. The operational database saves the request with a reference number before the page confirms receipt, so a failed email alert does not erase the submitted requirement.',
+            'The post-payment intake form currently prepares an email draft on your device. Its text is not uploaded by that form and leaves your device only after you review and send the message through your own email provider.',
             'If you contact ZimonAI by email, telephone, WhatsApp, WeChat, LINE or LinkedIn, we receive the contact details and content you choose to provide. Please send only material relevant to the request and avoid card details, unrelated identity documents or unnecessary personal information.',
-            'The client portal works differently from the public email-draft forms: information you deliberately submit while signed in is transmitted to ZimonAI and stored as part of the account and case record.'
+            'Information you deliberately submit while signed in to the client portal is transmitted to ZimonAI and stored as part of the account and case record.'
           ]
         },
         {
@@ -174,14 +176,14 @@ export const legalContent = {
     },
     privacy: {
       kicker: '隱私聲明', title: '哪些資料會進入系統、為何使用，以及何時可以刪除。',
-      lead: '生效日期：2026 年 8 月 21 日。本聲明適用於 zimonai.com、客戶帳戶登入、服務詢問、Stripe 付款，以及執行雙方約定之 ZimonAI 服務所需的資料。',
+      lead: '生效日期：2026 年 8 月 24 日。本聲明適用於 zimonai.com、客戶帳戶登入、服務詢問、Stripe 付款，以及執行雙方約定之 ZimonAI 服務所需的資料。',
       summaryTitle: '先說結論',
       summary: 'ZimonAI 採取資料最少化原則：只處理釐清需求、確認付款、完成約定工作與保存必要商業紀錄所需的資料。我們不出售個人資料，也不使用廣告 Cookie；網站會使用有限、第一方且彙總化的流量統計，細節如下。',
       sections: [
         { title: '適用範圍與營運主體', paragraphs: ['本聲明適用於你瀏覽 zimonai.com、登入客戶中心、準備或寄出需求信、付款、預約諮詢，或提供供應商查核案件資料時的資訊處理。', '網站與 ZimonAI 服務由深圳智蒙湾科技有限公司（ZimonAI Technology Co., Ltd.）營運。供應商、平台、證書發證單位、付款服務商或其他第三方，會各自對其系統內的資料處理負責。'] },
         { title: '網站傳輸與安全紀錄', paragraphs: ['公開網站由 Cloudflare 提供傳輸與安全防護。和一般託管及資安服務相同，Cloudflare 可能為了傳送流量、辨識濫用與維持服務可用性，處理 IP 位址、請求時間、瀏覽器或裝置資訊、資安事件等網路與系統資料。', 'ZimonAI 不會拿這些基礎設施紀錄建立廣告受眾。為了限制自動化登入濫用，客戶中心可能短暫保存由請求訊號產生、並以祕密金鑰處理的匿名化標記；客戶中心資料庫不會為此保存原始 IP 位址。Cloudflare 會依自己的隱私權政策與服務約定處理相關資料。'] },
-        { title: '第一方網站統計', paragraphs: ['正式網站會記錄少量事件，用來了解哪些頁面與服務選項真正有用，以及重要功能是否正常。ZimonAI 的統計資料庫保存的是每日彙總次數，不建立具名訪客檔案。'], items: ['事件類型、頁面路徑與語言版本', '導覽、服務選擇、聯絡或開始付款等動作的簡短代碼', '手機、平板或桌面裝置分類', '來源網站的網域分類，不保存完整來源網址', '只存在瀏覽器工作階段內的 session-start 標記'], note: 'ZimonAI 的統計資料庫不會刻意保存姓名、Email、IP 位址、完整網址查詢字串或跨站廣告識別碼。瀏覽器若啟用 Do Not Track 或 Global Privacy Control，網站不會送出這些統計事件。' },
-        { title: '需求表單與直接聯絡', paragraphs: ['需求表單與付款後收件表單只會在你的裝置上準備 Email 草稿；網站不會上傳或保存尚未寄出的欄位內容。只有在你檢查內容並透過自己的郵件服務按下寄出後，資料才會離開裝置。', '若你透過 Email、電話、WhatsApp、WeChat、LINE 或 LinkedIn 聯絡，我們會收到你主動提供的聯絡資料與訊息內容。請只提供與案件有關的資料，不要傳送信用卡資料、無關的身分證件或不必要的個人資訊。', '客戶中心和公開 Email 草稿表單的運作方式不同：你登入後主動送出的資料，會傳送給 ZimonAI，並作為帳戶與案件紀錄保存。'] },
+        { title: '第一方網站統計', paragraphs: ['正式網站會記錄少量事件，用來了解哪些頁面與服務選項真正有用，以及重要功能是否正常。ZimonAI 的統計資料庫保存的是每日彙總次數，不建立具名訪客檔案。', '網站也會記錄 JavaScript、未處理 Promise 或靜態資源載入失敗的低細節分類，以及固定區間的導覽速度。這些資料只用來診斷可靠性，不包含錯誤原文、程式堆疊、表單內容、帳戶識別碼或網址查詢字串。'], items: ['事件類型、頁面路徑與語言版本', '導覽、服務選擇、聯絡或開始付款等動作的簡短代碼', '手機、平板或桌面裝置分類', '來源網站的網域分類，不保存完整來源網址', '只存在瀏覽器工作階段內的 session-start 標記'], note: 'ZimonAI 的統計資料庫不會刻意保存姓名、Email、IP 位址、完整網址查詢字串或跨站廣告識別碼。瀏覽器若啟用 Do Not Track 或 Global Privacy Control，網站不會送出這些統計與技術事件。' },
+        { title: '需求表單與直接聯絡', paragraphs: ['公開需求表單會將你送出的聯絡與業務欄位透過 HTTPS 傳送給 ZimonAI。頁面確認收到以前，系統會先把需求連同需求編號存入營運資料庫，因此通知 Email 交寄失敗不會讓需求消失。', '付款後收件表單目前只會在你的裝置上準備 Email 草稿；該表單不會上傳草稿文字，只有在你檢查內容並透過自己的郵件服務按下寄出後，資料才會離開裝置。', '若你透過 Email、電話、WhatsApp、WeChat、LINE 或 LinkedIn 聯絡，我們會收到你主動提供的聯絡資料與訊息內容。請只提供與案件有關的資料，不要傳送信用卡資料、無關的身分證件或不必要的個人資訊。', '你登入客戶中心後主動送出的資料，會傳送給 ZimonAI，並作為帳戶與案件紀錄保存。'] },
         { title: '付款與訂單紀錄', paragraphs: ['付款頁由 Stripe 提供。Stripe 會依其條款與隱私權政策處理付款方式、聯絡、交易、裝置與防詐資料；ZimonAI 不會接收或保存完整信用卡號與安全碼。', '為了確認與支援訂單，ZimonAI 會收到並保存 Stripe 付款工作階段與交易編號、服務項目、金額、幣別、數量、付款狀態、收據 Email、客戶姓名，以及該次結帳所收集的公司名稱、電話、稅籍編號或服務參考資料。'], note: '請勿在案件收件或 Email 中傳送信用卡號與安全碼。' },
         { title: '案件文件與供應商資料', paragraphs: ['供應商查核可能需要公司名稱、企業紀錄、報價單、產品型號、證書編號、圖片、往來信件，以及這次查核要支援的買方決策。部分文件可能包含姓名或商務聯絡方式。', 'ZimonAI 只會用這些資料評估需求、確認範圍、執行查核、說明證據、交付報告、回答後續問題，以及保存可追溯的商業紀錄。客戶需確保自己有權提供相關文件與資訊。', '客戶中心會保存已驗證的 Email、偏好語言、內部帳戶編號、相連的案件與訂單編號、送出的案件欄位、狀態紀錄，以及必要帳戶、訂單與服務通知的寄送紀錄。登入可使用 Google，或使用寄到 Email、短時間有效的一次性驗證碼。ZimonAI 不會保存你的 Google 密碼或 Google 存取權杖，驗證完成後也不會保留可直接讀取的一次性驗證碼。'] },
         { title: '資料使用目的', items: ['回覆詢問，準備或執行雙方約定的服務', '確認付款、傳送服務訊息與保存會計紀錄', '核對來源、記錄判斷，並處理後續問題或爭議', '保護網站、預防濫用與診斷技術問題', '履行適用的記帳、稅務、法律或監管義務'], note: '未經另外同意，ZimonAI 不會把案件文件改寫成公開案例、客戶評價或行銷宣稱。' },
@@ -226,14 +228,14 @@ export const legalContent = {
     },
     privacy: {
       kicker: '隐私声明', title: '哪些资料会进入系统、为何使用，以及何时可以删除。',
-      lead: '生效日期：2026 年 8 月 21 日。本声明适用于 zimonai.com、客户账户登录、服务咨询、Stripe 付款，以及执行双方约定的 ZimonAI 服务所需资料。',
+      lead: '生效日期：2026 年 8 月 24 日。本声明适用于 zimonai.com、客户账户登录、服务咨询、Stripe 付款，以及执行双方约定的 ZimonAI 服务所需资料。',
       summaryTitle: '先说结论',
       summary: 'ZimonAI 采取资料最少化原则：只处理明确需求、确认付款、完成约定工作与保存必要商业记录所需的资料。我们不出售个人信息，也不使用广告 Cookie；网站会使用有限、第一方并且汇总化的流量统计，细节如下。',
       sections: [
         { title: '适用范围与运营主体', paragraphs: ['本声明适用于你浏览 zimonai.com、登录客户中心、准备或发送需求邮件、付款、预约咨询，或提供供应商核查案件资料时的信息处理。', '网站与 ZimonAI 服务由深圳智蒙湾科技有限公司（ZimonAI Technology Co., Ltd.）运营。供应商、平台、证书签发机构、付款服务商或其他第三方，会各自对其系统内的资料处理负责。'] },
         { title: '网站传输与安全记录', paragraphs: ['公开网站由 Cloudflare 提供传输与安全防护。与一般托管和安全服务相同，Cloudflare 可能为了传送流量、识别滥用和维持服务可用性，处理 IP 地址、请求时间、浏览器或设备信息、安全事件等网络与系统资料。', 'ZimonAI 不会使用这些基础设施记录建立广告受众。为了限制自动化登录滥用，客户中心可能短暂保存由请求信号生成、并以密钥处理的匿名化标记；客户中心数据库不会为此保存原始 IP 地址。Cloudflare 会按照自己的隐私政策与服务约定处理相关资料。'] },
-        { title: '第一方网站统计', paragraphs: ['正式网站会记录少量事件，用于了解哪些页面和服务选项真正有用，以及重要功能是否正常。ZimonAI 的统计数据库保存每日汇总次数，不建立实名访客档案。'], items: ['事件类型、页面路径与语言版本', '导航、服务选择、联系或开始付款等动作的简短代码', '手机、平板或桌面设备分类', '来源网站的域名分类，不保存完整来源网址', '只存在浏览器会话内的 session-start 标记'], note: 'ZimonAI 的统计数据库不会刻意保存姓名、邮箱、IP 地址、完整网址查询字符串或跨站广告标识符。浏览器如果启用 Do Not Track 或 Global Privacy Control，网站不会发送这些统计事件。' },
-        { title: '需求表单与直接联系', paragraphs: ['需求表单和付款后收件表单只会在你的设备上准备邮件草稿；网站不会上传或保存尚未发送的字段内容。只有在你检查内容并通过自己的邮件服务点击发送后，资料才会离开设备。', '如果你通过邮箱、电话、WhatsApp、WeChat、LINE 或 LinkedIn 联系，我们会收到你主动提供的联系资料与消息内容。请只提供与案件有关的资料，不要发送银行卡资料、无关的身份证件或不必要的个人信息。', '客户中心和公开邮件草稿表单的运行方式不同：你登录后主动提交的资料，会传送给 ZimonAI，并作为账户与项目记录保存。'] },
+        { title: '第一方网站统计', paragraphs: ['正式网站会记录少量事件，用于了解哪些页面和服务选项真正有用，以及重要功能是否正常。ZimonAI 的统计数据库保存每日汇总次数，不建立实名访客档案。', '网站也会记录 JavaScript、未处理 Promise 或静态资源加载失败的低细节分类，以及固定区间的导航速度。这些资料只用于诊断可靠性，不包括错误原文、程序堆栈、表单内容、账户标识或网址查询字符串。'], items: ['事件类型、页面路径与语言版本', '导航、服务选择、联系或开始付款等动作的简短代码', '手机、平板或桌面设备分类', '来源网站的域名分类，不保存完整来源网址', '只存在浏览器会话内的 session-start 标记'], note: 'ZimonAI 的统计数据库不会刻意保存姓名、邮箱、IP 地址、完整网址查询字符串或跨站广告标识符。浏览器如果启用 Do Not Track 或 Global Privacy Control，网站不会发送这些统计与技术事件。' },
+        { title: '需求表单与直接联系', paragraphs: ['公开需求表单会将你提交的联系与业务字段通过 HTTPS 发送给 ZimonAI。页面确认收到以前，系统会先把需求连同需求编号存入运营数据库，因此通知 Email 提交失败不会让需求丢失。', '付款后收件表单目前只会在你的设备上准备邮件草稿；该表单不会上传草稿文字，只有在你检查内容并通过自己的邮件服务点击发送后，资料才会离开设备。', '如果你通过邮箱、电话、WhatsApp、WeChat、LINE 或 LinkedIn 联系，我们会收到你主动提供的联系资料与消息内容。请只提供与案件有关的资料，不要发送银行卡资料、无关的身份证件或不必要的个人信息。', '你登录客户中心后主动提交的资料，会传送给 ZimonAI，并作为账户与项目记录保存。'] },
         { title: '付款与订单记录', paragraphs: ['付款页面由 Stripe 提供。Stripe 会按照其条款与隐私政策处理付款方式、联系、交易、设备与反欺诈资料；ZimonAI 不会接收或保存完整银行卡号与安全码。', '为了确认和支持订单，ZimonAI 会收到并保存 Stripe 付款会话与交易编号、服务项目、金额、币种、数量、付款状态、收据邮箱、客户姓名，以及本次结账所收集的公司名称、电话、税号或服务参考资料。'], note: '请勿在案件收件或邮件中发送银行卡号与安全码。' },
         { title: '案件文件与供应商资料', paragraphs: ['供应商核查可能需要企业名称、企业记录、报价单、产品型号、证书编号、图片、往来邮件，以及本次核查要支持的买方决策。部分文件可能包含姓名或商务联系方式。', 'ZimonAI 只会使用这些资料评估需求、确认范围、执行核查、说明证据、交付报告、回答后续问题，以及保存可追溯的商业记录。客户需要确保自己有权提供相关文件与信息。', '客户中心会保存已验证的邮箱、偏好语言、内部账户编号、相连的项目与订单编号、提交的项目字段、状态记录，以及必要账户、订单与服务通知的发送记录。登录可以使用 Google，也可以使用发送到邮箱、短时间有效的一次性验证码。ZimonAI 不会保存你的 Google 密码或 Google 访问令牌，验证完成后也不会保留可以直接读取的一次性验证码。'] },
         { title: '资料使用目的', items: ['回复咨询，准备或执行双方约定的服务', '确认付款、发送服务消息与保存会计记录', '核对来源、记录判断，并处理后续问题或争议', '保护网站、预防滥用与诊断技术问题', '履行适用的记账、税务、法律或监管义务'], note: '未经另外同意，ZimonAI 不会把案件文件改写成公开案例、客户评价或营销宣传。' },

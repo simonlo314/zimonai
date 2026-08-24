@@ -1,7 +1,93 @@
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const clientErrorEnabled = (location.hostname === 'zimonai.com' || location.hostname === 'www.zimonai.com')
+  && !['portal', 'admin'].includes(document.documentElement.dataset.page)
+  && navigator.doNotTrack !== '1'
+  && navigator.globalPrivacyControl !== true;
+const reportedClientErrors = new Set();
+let clientErrorReportCount = 0;
+
+function browserFamily() {
+  const userAgent = navigator.userAgent || '';
+  if (/Edg\//.test(userAgent)) return 'edge';
+  if (/Firefox\//.test(userAgent)) return 'firefox';
+  if (/(?:Chrome|CriOS)\//.test(userAgent)) return 'chrome';
+  if (/Safari\//.test(userAgent)) return 'safari';
+  return 'other';
+}
+
+function clientErrorCategory(value) {
+  const categories = {
+    TypeError: 'type',
+    ReferenceError: 'reference',
+    SyntaxError: 'syntax',
+    RangeError: 'range',
+    SecurityError: 'security',
+    NetworkError: 'network',
+    AbortError: 'abort',
+    AggregateError: 'aggregate'
+  };
+  return categories[value?.name] || 'unknown';
+}
+
+function failedResourceType(target) {
+  const tagName = String(target?.tagName || '').toLowerCase();
+  if (tagName === 'script') return 'script';
+  if (tagName === 'link' && String(target?.rel || '').toLowerCase() === 'stylesheet') return 'stylesheet';
+  if (tagName === 'img' || tagName === 'picture' || tagName === 'source') return 'image';
+  if (tagName === 'audio' || tagName === 'video' || tagName === 'track') return 'media';
+  if (tagName === 'iframe') return 'iframe';
+  return 'other';
+}
+
+function reportClientError({ kind, category = 'unknown', resourceType = 'none' }) {
+  if (!clientErrorEnabled || clientErrorReportCount >= 5) return;
+  const signature = `${kind}:${category}:${resourceType}`;
+  if (reportedClientErrors.has(signature)) return;
+  reportedClientErrors.add(signature);
+  clientErrorReportCount += 1;
+
+  const payload = JSON.stringify({
+    kind,
+    category,
+    resourceType,
+    browser: browserFamily(),
+    page: location.pathname
+  });
+  const body = new Blob([payload], { type: 'application/json' });
+  let queued = false;
+  try {
+    queued = typeof navigator.sendBeacon === 'function'
+      && navigator.sendBeacon('/api/client-errors', body);
+  } catch {
+    queued = false;
+  }
+  if (!queued) {
+    void fetch('/api/client-errors', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: payload,
+      credentials: 'omit',
+      keepalive: true
+    }).catch(() => {});
+  }
+}
+
+window.addEventListener('error', (event) => {
+  const target = event.target;
+  if (target && target !== window && target.tagName) {
+    reportClientError({ kind: 'resource', category: 'load', resourceType: failedResourceType(target) });
+    return;
+  }
+  reportClientError({ kind: 'runtime', category: clientErrorCategory(event.error) });
+}, true);
+
+window.addEventListener('unhandledrejection', (event) => {
+  reportClientError({ kind: 'promise', category: clientErrorCategory(event.reason) });
+});
+
 const analyticsEnabled = (location.hostname === 'zimonai.com' || location.hostname === 'www.zimonai.com')
-  && document.documentElement.dataset.page !== 'portal'
+  && !['portal', 'admin'].includes(document.documentElement.dataset.page)
   && navigator.doNotTrack !== '1'
   && navigator.globalPrivacyControl !== true;
 
@@ -33,6 +119,51 @@ if (analyticsEnabled) {
   } catch {
     // Analytics never blocks the website when storage is unavailable.
   }
+}
+
+function navigationPerformanceBucket(milliseconds) {
+  if (milliseconds < 200) return '0000-0199';
+  if (milliseconds < 500) return '0200-0499';
+  if (milliseconds < 1000) return '0500-0999';
+  if (milliseconds < 2000) return '1000-1999';
+  if (milliseconds < 5000) return '2000-4999';
+  if (milliseconds < 15000) return '5000-14999';
+  return '15000-plus';
+}
+
+function navigationPerformanceSampled() {
+  try {
+    if (sessionStorage.getItem('zimonai_navigation_performance_reported') === '1') return false;
+    let sampled = sessionStorage.getItem('zimonai_navigation_performance_sample');
+    if (sampled === null) {
+      const value = new Uint8Array(1);
+      crypto.getRandomValues(value);
+      sampled = value[0] < 38 ? '1' : '0';
+      sessionStorage.setItem('zimonai_navigation_performance_sample', sampled);
+    }
+    if (sampled !== '1') return false;
+    sessionStorage.setItem('zimonai_navigation_performance_reported', '1');
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function reportNavigationPerformance() {
+  if (!analyticsEnabled || !navigationPerformanceSampled()) return;
+  const navigation = performance.getEntriesByType?.('navigation')?.[0];
+  if (!navigation) return;
+  const ttfb = Math.max(0, navigation.responseStart - navigation.startTime);
+  const duration = Math.max(0, navigation.duration);
+  if (!Number.isFinite(ttfb) || !Number.isFinite(duration)) return;
+  trackAnalytics('navigation_performance', `ttfb:${navigationPerformanceBucket(ttfb)}`);
+  trackAnalytics('navigation_performance', `duration:${navigationPerformanceBucket(duration)}`);
+}
+
+if (document.readyState === 'complete') {
+  queueMicrotask(reportNavigationPerformance);
+} else {
+  window.addEventListener('load', reportNavigationPerformance, { once: true });
 }
 
 const revealItems = document.querySelectorAll('.reveal');
@@ -189,26 +320,70 @@ if (!reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').ma
   });
 }
 
-const mailForm = document.querySelector('[data-mail-form]');
-mailForm?.addEventListener('submit', (event) => {
+const inquiryForm = document.querySelector('[data-inquiry-form]');
+inquiryForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  const error = mailForm.querySelector('[data-form-error]');
-  if (!mailForm.checkValidity()) {
-    mailForm.reportValidity();
-    if (error) error.textContent = document.documentElement.lang === 'en' ? 'Complete the required fields and acknowledgement.' : document.documentElement.lang === 'zh-Hant' ? '請完成必填欄位並勾選確認。' : '请完成必填字段并勾选确认。';
+  const error = inquiryForm.querySelector('[data-form-error]');
+  const status = inquiryForm.querySelector('[data-inquiry-status]');
+  const statusTitle = inquiryForm.querySelector('[data-inquiry-status-title]');
+  const statusMessage = inquiryForm.querySelector('[data-inquiry-status-message]');
+  const submit = inquiryForm.querySelector('[data-inquiry-submit]');
+  const submitLabel = inquiryForm.querySelector('[data-inquiry-submit-label]');
+  const defaultLabel = submitLabel?.textContent || '';
+  if (error) error.textContent = '';
+  if (status) status.hidden = true;
+  if (!inquiryForm.checkValidity()) {
+    inquiryForm.reportValidity();
+    if (error) error.textContent = inquiryForm.dataset.validationMessage || '';
     return;
   }
-  if (error) error.textContent = '';
-  const data = new FormData(mailForm);
-  const lines = [
-    ['Name', data.get('name')], ['Email', data.get('email')], ['Company', data.get('company')],
-    ['Supplier', data.get('supplier')], ['Supplier URL', data.get('url')],
-    ['Chinese company name', data.get('chinese')], ['Product', data.get('product')],
-    ['', ''], ['Verification question', data.get('question')]
-  ];
-  const body = lines.map(([label, value]) => label ? `${label}: ${value || '—'}` : '').join('\n');
-  trackAnalytics('request_draft', 'email_draft');
-  window.location.href = `mailto:simonlo@zimonai.com?subject=${encodeURIComponent(mailForm.dataset.mailSubject)}&body=${encodeURIComponent(body)}`;
+  const formData = new FormData(inquiryForm);
+  const value = (name) => String(formData.get(name) || '').trim();
+  const payload = {
+    locale: inquiryForm.dataset.inquiryLocale || 'en',
+    name: value('name'),
+    email: value('email'),
+    company: value('company'),
+    supplier: value('supplier'),
+    url: value('url'),
+    chinese: value('chinese'),
+    product: value('product'),
+    question: value('question'),
+    consent: formData.get('consent') === 'on',
+    website: value('website')
+  };
+  inquiryForm.setAttribute('aria-busy', 'true');
+  if (submit) submit.disabled = true;
+  if (submitLabel) submitLabel.textContent = inquiryForm.dataset.submittingMessage || defaultLabel;
+  try {
+    const response = await fetch('/api/inquiries', {
+      method: 'POST',
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || result.accepted !== true || !result.reference) {
+      if (error) error.textContent = response.status === 429
+        ? inquiryForm.dataset.rateLimitMessage || inquiryForm.dataset.errorMessage || ''
+        : inquiryForm.dataset.errorMessage || '';
+      return;
+    }
+    inquiryForm.reset();
+    if (statusTitle) statusTitle.textContent = inquiryForm.dataset.successTitle || '';
+    if (statusMessage) statusMessage.textContent = `${inquiryForm.dataset.successBody || ''} ${result.reference}`.trim();
+    if (status) {
+      status.hidden = false;
+      status.focus();
+    }
+    trackAnalytics('request_submit', 'accepted');
+  } catch {
+    if (error) error.textContent = inquiryForm.dataset.errorMessage || '';
+  } finally {
+    inquiryForm.removeAttribute('aria-busy');
+    if (submit) submit.disabled = false;
+    if (submitLabel) submitLabel.textContent = defaultLabel;
+  }
 });
 
 const supportOpen = document.querySelector('[data-support-open]');
@@ -571,17 +746,3 @@ document.addEventListener('click', (event) => {
     trackAnalytics('nav_click', section);
   }
 });
-
-const transition = document.createElement('div');
-transition.className = 'page-transition';
-transition.setAttribute('aria-hidden', 'true');
-document.body.append(transition);
-requestAnimationFrame(() => transition.classList.add('is-ready'));
-document.querySelectorAll('a[href]').forEach((link) => link.addEventListener('click', (event) => {
-  const url = new URL(link.href, window.location.href);
-  const samePageHash = url.pathname === location.pathname && url.hash;
-  if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target || url.origin !== location.origin || url.protocol === 'mailto:' || url.protocol === 'tel:' || samePageHash || reducedMotion) return;
-  event.preventDefault();
-  transition.classList.add('is-leaving');
-  window.setTimeout(() => { window.location.href = url.href; }, 180);
-}));

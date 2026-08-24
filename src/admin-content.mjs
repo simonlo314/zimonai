@@ -16,6 +16,7 @@ export const adminContent = {
     signedInAs: 'Signed in as',
     nav: {
       queue: 'Work queue',
+      inquiries: 'Requirements',
       cases: 'Cases',
       orders: 'Orders',
       customers: 'Customers',
@@ -24,18 +25,21 @@ export const adminContent = {
     },
     views: {
       queue: { title: 'Work queue', lead: 'Cases requiring the next recorded action, ordered by the data returned by the server.', loading: 'Loading the work queue…', empty: 'There are no recorded items in the work queue.', error: 'The work queue could not be loaded.' },
+      inquiries: { title: 'Public requirements', lead: 'Requirements saved by the public website form. They remain separate from client accounts, orders and cases until you decide how to respond.', loading: 'Loading requirement records…', empty: 'No public requirements were returned.', error: 'Requirement records could not be loaded.' },
       cases: { title: 'Case ledger', lead: 'All case records available to this administrator account.', loading: 'Loading case records…', empty: 'No case records were returned.', error: 'Case records could not be loaded.' },
       orders: { title: 'Order ledger', lead: 'Recorded payments and order references. Payment status remains controlled by the server.', loading: 'Loading order records…', empty: 'No order records were returned.', error: 'Order records could not be loaded.' },
       customers: { title: 'Clients and invitations', lead: 'Signed-in client accounts and pending Email invitations linked to real case records.', loading: 'Loading client records…', empty: 'No client accounts or invitations were returned.', error: 'Client records could not be loaded.' },
       notifications: { title: 'Notification dispatch', lead: 'Recorded transactional emails and their dispatch status. “Accepted by mail provider” means the provider accepted the message for sending; it does not prove inbox delivery.', loading: 'Loading notification records…', empty: 'No notification records were returned.', error: 'Notification records could not be loaded.' }
     },
     fields: {
-      reference: 'Reference', customer: 'Client', supplier: 'Supplier', product: 'Product', service: 'Service', status: 'Status', amount: 'Amount', updated: 'Updated', created: 'Created', email: 'Email', cases: 'Cases', orders: 'Orders', nextAction: 'Next action', recipient: 'Recipient', notificationType: 'Type', attempts: 'Attempts', lastAttempt: 'Last attempt', sentAt: 'Submitted at', deliveryError: 'Error summary'
+      reference: 'Reference', customer: 'Client', name: 'Name', company: 'Company', supplier: 'Supplier', chineseLegalName: 'Chinese legal name', supplierLink: 'Supplier link', question: 'Requirement', product: 'Product', service: 'Service', status: 'Status', amount: 'Amount', updated: 'Updated', created: 'Created', email: 'Email', cases: 'Cases', orders: 'Orders', nextAction: 'Next action', recipient: 'Recipient', notificationType: 'Type', attempts: 'Attempts', lastAttempt: 'Last attempt', sentAt: 'Submitted at', deliveryError: 'Error summary'
     },
     status: { submitted: 'Information received', reviewing: 'Scope review', awaiting_client: 'Waiting for information', scoped: 'Scope confirmed', in_progress: 'In progress', delivered: 'Report ready', closed: 'Closed' },
     paymentStatus: { pending: 'Pending', unpaid: 'Awaiting payment', paid: 'Paid', waived: 'No payment required', failed: 'Failed', expired: 'Expired', refunded: 'Refunded' },
     fulfillmentStatus: { awaiting_payment: 'Awaiting payment', awaiting_intake: 'Awaiting intake', reviewing: 'Reviewing', in_progress: 'In progress', delivered: 'Delivered', closed: 'Closed' },
     notificationStatus: { queued: 'Queued', sending: 'Submitting', sent: 'Accepted by mail provider', failed: 'Dispatch failed' },
+    inquiryStatus: { new: 'New', contacted: 'Contacted', qualified: 'Scope fit', closed: 'Closed', spam: 'Spam' },
+    inquiries: { update: 'Update requirement', save: 'Save status', saving: 'Saving…', saved: 'Requirement status saved.', error: 'The status was not changed.' },
     notificationType: { customer_order_paid: 'Client payment receipt', admin_order_paid: 'Paid-order alert', customer_case_invited: 'Case invitation' },
     notifications: {
       configured: 'Transactional Email delivery is configured.',
@@ -93,6 +97,7 @@ export const adminContent = {
     signedInAs: '目前登入',
     nav: {
       queue: '工作清單',
+      inquiries: '網站需求',
       cases: '案件',
       orders: '訂單',
       customers: '客戶',
@@ -101,18 +106,21 @@ export const adminContent = {
     },
     views: {
       queue: { title: '工作清單', lead: '依伺服器回傳的資料，集中顯示下一步需要處理的案件。', loading: '正在載入工作清單…', empty: '目前沒有需要處理的紀錄。', error: '目前無法載入工作清單。' },
+      inquiries: { title: '網站需求紀錄', lead: '顯示公開網站表單已保存的需求。在你決定如何回覆以前，不會自動建立客戶帳戶、訂單或案件。', loading: '正在載入網站需求…', empty: '目前沒有網站需求紀錄。', error: '目前無法載入網站需求。' },
       cases: { title: '案件總表', lead: '目前管理員帳戶有權查看的所有案件紀錄。', loading: '正在載入案件紀錄…', empty: '目前沒有案件紀錄。', error: '目前無法載入案件紀錄。' },
       orders: { title: '訂單紀錄', lead: '顯示系統記錄的付款與訂單編號；付款狀態仍以伺服器判定為準。', loading: '正在載入訂單紀錄…', empty: '目前沒有訂單紀錄。', error: '目前無法載入訂單紀錄。' },
       customers: { title: '客戶與邀請', lead: '顯示已登入的客戶帳戶，以及與真實案件相連、仍待完成 Email 驗證的邀請。', loading: '正在載入客戶資料…', empty: '目前沒有客戶帳戶或待驗證邀請。', error: '目前無法載入客戶資料。' },
       notifications: { title: '通知交寄紀錄', lead: '顯示交易通知 Email 的交寄處理狀態；「已交寄件服務」只表示寄件服務已接受，不代表信件已送達收件匣。', loading: '正在載入通知紀錄…', empty: '目前沒有通知紀錄。', error: '目前無法載入通知紀錄。' }
     },
     fields: {
-      reference: '編號', customer: '客戶', supplier: '供應商', product: '產品', service: '服務', status: '狀態', amount: '金額', updated: '更新時間', created: '建立時間', email: 'Email', cases: '案件', orders: '訂單', nextAction: '下一步', recipient: '收件者', notificationType: '通知類型', attempts: '嘗試次數', lastAttempt: '最近一次嘗試', sentAt: '交寄時間', deliveryError: '錯誤摘要'
+      reference: '編號', customer: '客戶', name: '姓名', company: '公司', supplier: '供應商', chineseLegalName: '中文法定名稱', supplierLink: '供應商連結', question: '需求內容', product: '產品', service: '服務', status: '狀態', amount: '金額', updated: '更新時間', created: '建立時間', email: 'Email', cases: '案件', orders: '訂單', nextAction: '下一步', recipient: '收件者', notificationType: '通知類型', attempts: '嘗試次數', lastAttempt: '最近一次嘗試', sentAt: '交寄時間', deliveryError: '錯誤摘要'
     },
     status: { submitted: '資料已收到', reviewing: '確認服務範圍', awaiting_client: '等待資料', scoped: '範圍已確認', in_progress: '查核進行中', delivered: '報告已完成', closed: '已結案' },
     paymentStatus: { pending: '待確認', unpaid: '等待付款', paid: '已付款', waived: '不需付款', failed: '付款失敗', expired: '已失效', refunded: '已退款' },
     fulfillmentStatus: { awaiting_payment: '等待付款', awaiting_intake: '等待案件資料', reviewing: '確認中', in_progress: '執行中', delivered: '已交付', closed: '已結束' },
     notificationStatus: { queued: '等待交寄', sending: '交寄中', sent: '已交寄件服務', failed: '交寄失敗' },
+    inquiryStatus: { new: '新需求', contacted: '已聯絡', qualified: '符合服務範圍', closed: '已結束', spam: '垃圾訊息' },
+    inquiries: { update: '更新需求狀態', save: '儲存狀態', saving: '正在儲存…', saved: '需求狀態已儲存。', error: '這次沒有更動狀態。' },
     notificationType: { customer_order_paid: '客戶付款收據', admin_order_paid: '已付款訂單提醒', customer_case_invited: '案件邀請' },
     notifications: {
       configured: '交易通知 Email 寄送服務已設定。',
@@ -170,6 +178,7 @@ export const adminContent = {
     signedInAs: '当前登录',
     nav: {
       queue: '工作清单',
+      inquiries: '网站需求',
       cases: '项目',
       orders: '订单',
       customers: '客户',
@@ -178,18 +187,21 @@ export const adminContent = {
     },
     views: {
       queue: { title: '工作清单', lead: '根据服务器返回的资料，集中显示下一步需要处理的项目。', loading: '正在加载工作清单…', empty: '目前没有需要处理的记录。', error: '目前无法加载工作清单。' },
+      inquiries: { title: '网站需求记录', lead: '显示公开网站表单已经保存的需求。在你决定如何回复以前，不会自动创建客户账户、订单或项目。', loading: '正在加载网站需求…', empty: '目前没有网站需求记录。', error: '目前无法加载网站需求。' },
       cases: { title: '项目总表', lead: '当前管理员账户有权查看的所有项目记录。', loading: '正在加载项目记录…', empty: '目前没有项目记录。', error: '目前无法加载项目记录。' },
       orders: { title: '订单记录', lead: '显示系统记录的付款与订单编号；付款状态仍以服务器判断为准。', loading: '正在加载订单记录…', empty: '目前没有订单记录。', error: '目前无法加载订单记录。' },
       customers: { title: '客户与邀请', lead: '显示已登录的客户账户，以及与真实项目相连、仍待完成邮箱验证的邀请。', loading: '正在加载客户资料…', empty: '目前没有客户账户或待验证邀请。', error: '目前无法加载客户资料。' },
       notifications: { title: '通知提交记录', lead: '显示交易通知邮件的提交处理状态；“已提交邮件服务”只表示邮件服务已接受，不代表邮件已送达收件箱。', loading: '正在加载通知记录…', empty: '目前没有通知记录。', error: '目前无法加载通知记录。' }
     },
     fields: {
-      reference: '编号', customer: '客户', supplier: '供应商', product: '产品', service: '服务', status: '状态', amount: '金额', updated: '更新时间', created: '创建时间', email: '邮箱', cases: '项目', orders: '订单', nextAction: '下一步', recipient: '收件人', notificationType: '通知类型', attempts: '尝试次数', lastAttempt: '最近一次尝试', sentAt: '提交时间', deliveryError: '错误摘要'
+      reference: '编号', customer: '客户', name: '姓名', company: '公司', supplier: '供应商', chineseLegalName: '中文法定名称', supplierLink: '供应商链接', question: '需求内容', product: '产品', service: '服务', status: '状态', amount: '金额', updated: '更新时间', created: '创建时间', email: '邮箱', cases: '项目', orders: '订单', nextAction: '下一步', recipient: '收件人', notificationType: '通知类型', attempts: '尝试次数', lastAttempt: '最近一次尝试', sentAt: '提交时间', deliveryError: '错误摘要'
     },
     status: { submitted: '资料已收到', reviewing: '确认服务范围', awaiting_client: '等待资料', scoped: '范围已确认', in_progress: '核查进行中', delivered: '报告已完成', closed: '已结项' },
     paymentStatus: { pending: '待确认', unpaid: '等待付款', paid: '已付款', waived: '无需付款', failed: '付款失败', expired: '已失效', refunded: '已退款' },
     fulfillmentStatus: { awaiting_payment: '等待付款', awaiting_intake: '等待项目资料', reviewing: '确认中', in_progress: '执行中', delivered: '已交付', closed: '已结束' },
     notificationStatus: { queued: '等待提交', sending: '提交中', sent: '已提交邮件服务', failed: '提交失败' },
+    inquiryStatus: { new: '新需求', contacted: '已联系', qualified: '符合服务范围', closed: '已结束', spam: '垃圾信息' },
+    inquiries: { update: '更新需求状态', save: '保存状态', saving: '正在保存…', saved: '需求状态已保存。', error: '这次没有更改状态。' },
     notificationType: { customer_order_paid: '客户付款收据', admin_order_paid: '已付款订单提醒', customer_case_invited: '项目邀请' },
     notifications: {
       configured: '交易通知邮件发送服务已设置。',

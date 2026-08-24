@@ -11,7 +11,11 @@
     "db:migrate:local": "wrangler d1 migrations apply zimonai-analytics --local",
     "db:migrate:portal:local": "wrangler d1 migrations apply PORTAL_DB --local",
     "serve": "node scripts/serve.mjs",
-    "analytics:weekly": "node scripts/weekly-analytics.mjs"
+    "analytics:weekly": "node scripts/weekly-analytics.mjs",
+    "release:verify": "npm run build && npm run check && npm test",
+    "release:preflight": "node scripts/release-production.mjs preflight",
+    "db:repair:analytics-ledger": "node scripts/release-production.mjs repair-analytics-ledger",
+    "deploy:production": "node scripts/release-production.mjs release"
   },
   "dependencies": {
     "jose": "^6.2.9"

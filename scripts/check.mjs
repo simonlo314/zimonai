@@ -39,7 +39,10 @@ const portalMigration = await readFile(path.join(root, 'migrations-portal', '000
 const portalRateLimitMigration = await readFile(path.join(root, 'migrations-portal', '0002_portal_oauth_rate_limit.sql'), 'utf8');
 const portalIdentityAuthorityMigration = await readFile(path.join(root, 'migrations-portal', '0005_identity_email_authority.sql'), 'utf8');
 const portalCaseArchiveMigration = await readFile(path.join(root, 'migrations-portal', '0007_case_archive.sql'), 'utf8');
+const publicInquiryMigration = await readFile(path.join(root, 'migrations-portal', '0008_public_inquiries.sql'), 'utf8');
 const authLibrary = await readFile(path.join(root, 'functions', '_lib', 'auth.js'), 'utf8');
+const publicInquiryFunction = await readFile(path.join(root, 'functions', 'api', 'inquiries.js'), 'utf8');
+const adminInquiryFunction = await readFile(path.join(root, 'functions', 'api', 'admin', 'inquiries.js'), 'utf8');
 const portalCasesFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases.js'), 'utf8');
 const portalCaseDetailFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases', '[id].js'), 'utf8');
 const headersFile = await readFile(path.join(dist, '_headers'), 'utf8');
@@ -63,7 +66,8 @@ for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
     || !portalContent[langKey]?.auth?.google
     || !portalContent[langKey]?.workspace?.supportAction
     || !portalContent[langKey]?.workspace?.tierOptions) errors.push(`${langKey}: portal content missing`);
-  if (!adminContent[langKey]?.metaTitle || !adminContent[langKey]?.nav?.queue || !adminContent[langKey]?.nav?.notifications || !adminContent[langKey]?.notifications?.retry || !adminContent[langKey]?.form?.customerEmail) errors.push(`${langKey}: admin content missing`);
+  if (!adminContent[langKey]?.metaTitle || !adminContent[langKey]?.nav?.queue || !adminContent[langKey]?.nav?.inquiries || !adminContent[langKey]?.views?.inquiries || !adminContent[langKey]?.notifications?.retry || !adminContent[langKey]?.form?.customerEmail) errors.push(`${langKey}: admin content missing`);
+  if (!lang?.request?.status?.validation || !lang?.request?.status?.submitting || !lang?.request?.status?.successTitle || !lang?.request?.status?.error || !lang?.request?.status?.rateLimit) errors.push(`${langKey}: public inquiry status copy missing`);
   for (const spec of knowledgeArticleSpecs) {
     const article = knowledgeContent[langKey]?.articles?.[spec.key];
     if (!article?.title || !article?.answer || article.sections?.length !== 3 || !article.checklist?.length) errors.push(`${langKey}: incomplete knowledge article ${spec.key}`);
@@ -116,6 +120,7 @@ const requiredSections = {
   'methodology/index.html': ['source-registry', 'report-anatomy'],
   'scope-limitations/index.html': ['decision-guide', 'accreditation'],
   'about/index.html': ['page-hero__brand-mark', 'business-record', 'registration-evidence', 'office-evidence'],
+  'request-verification/index.html': ['request-layout', 'data-inquiry-form', 'data-inquiry-status', 'form-trap'],
   'payments/index.html': ['payment-desk', 'payment-grid', 'payment-private', 'payment-process', 'checkout-form'],
   'payment-success/index.html': ['payment-result', 'payment-receipt', 'payment-intake', 'payment-balance-done'],
   'payment-terms/index.html': ['legal-page', 'legal-document__rail', 'legal-toc', 'legal-row', 'legal-contact', 'support-panel'],
@@ -139,6 +144,7 @@ for (const prefix of ['', 'zh-tw/', 'zh-cn/']) {
   const adminHtml = await readFile(path.join(dist, prefix, 'admin', 'index.html'), 'utf8');
   if (!adminHtml.includes('<meta name="robots" content="noindex, nofollow">')) errors.push(`dist/${prefix}admin/index.html: admin must be noindex`);
   if (!adminHtml.includes('/assets/admin.css') || !adminHtml.includes('/assets/admin.js')) errors.push(`dist/${prefix}admin/index.html: admin assets missing`);
+  if (!adminHtml.includes('data-admin-panel="inquiries"') || !adminHtml.includes('data-admin-list="inquiries"')) errors.push(`dist/${prefix}admin/index.html: inquiry inbox missing`);
   if (/<(?:section|article)[^>]+(?:fictional|demo-case|sample-customer|sample-kpi)/i.test(adminHtml)) errors.push(`dist/${prefix}admin/index.html: fictional admin data found`);
 }
 const portalSitemap = await readFile(path.join(dist, 'sitemap.xml'), 'utf8');
@@ -162,6 +168,27 @@ if (!portalCaseArchiveMigration.includes('archived_at')
   || !portalCaseArchiveMigration.includes('archived_by_user_id')
   || !portalCaseArchiveMigration.includes('portal_cases_admin_archive_idx')) {
   errors.push('portal case archive migration is incomplete');
+}
+if (!publicInquiryMigration.includes('CREATE TABLE IF NOT EXISTS public_inquiries')
+  || !publicInquiryMigration.includes('CREATE TABLE IF NOT EXISTS public_inquiry_rate_limits')
+  || /\b(?:ip_address|user_agent|request_query)\b/i.test(publicInquiryMigration)) {
+  errors.push('durable public inquiry storage or privacy-safe rate limiting is incomplete');
+}
+for (const required of ['requestOriginAllowed', 'readPortalJson', 'admitInquiry', 'notificationStatement', 'db.batch(statements)']) {
+  if (!publicInquiryFunction.includes(required)) errors.push(`public inquiry endpoint is missing ${required}`);
+}
+if (/portal_(?:users|cases|orders)/.test(publicInquiryFunction)) {
+  errors.push('public inquiry endpoint must not create portal users, cases or orders');
+}
+if (!adminInquiryFunction.includes('requireAdmin')
+  || !adminInquiryFunction.includes('public_inquiries')) {
+  errors.push('public inquiry administration is not admin-isolated');
+}
+for (const hook of ['data-inquiry-form', "fetch('/api/inquiries'", 'data-inquiry-status', "trackAnalytics('request_submit'"]) {
+  if (!`${sourceTemplate}\n${sourceJs}`.includes(hook)) errors.push(`public inquiry frontend is missing ${hook}`);
+}
+if (sourceTemplate.includes('data-mail-form') || sourceJs.includes("window.location.href = `mailto:simonlo@zimonai.com?subject=${encodeURIComponent(mailForm")) {
+  errors.push('public inquiry form still depends on a local email application');
 }
 if (!wranglerConfig.includes('"binding": "PORTAL_DB"')) errors.push('wrangler config missing dedicated PORTAL_DB binding');
 if (!wranglerConfig.includes('"migrations_dir": "migrations-portal"')) errors.push('PORTAL_DB does not use the isolated portal migration directory');
@@ -200,7 +227,7 @@ if (checkoutHandler.indexOf("fetch('/api/portal/me'") < 0 || checkoutHandler.ind
 if (!sourceJs.includes("fetch('/api/portal/me'") || !sourceJs.includes("'X-CSRF-Token': session.csrfToken") || !sourceJs.includes("credentials: 'same-origin'")) errors.push('authenticated checkout is missing its same-origin session or CSRF token');
 if (!sourceAdminJs.includes("api('/api/admin/notifications'") || !sourceAdminJs.includes('emailConfigured') || !sourceAdminJs.includes('notificationId: item.id')) errors.push('admin notification status or safe retry control is incomplete');
 if (!sourceJs.includes('data-checkout-resume') || !sourceTemplate.includes('data-checkout-resume')) errors.push('checkout resume confirmation is missing');
-for (const endpoint of ['/api/admin/cases', '/api/admin/orders', '/api/admin/customers']) {
+for (const endpoint of ['/api/admin/cases', '/api/admin/orders', '/api/admin/customers', '/api/admin/inquiries']) {
   if (!sourceAdminJs.includes(endpoint)) errors.push(`admin client is missing ${endpoint}`);
 }
 for (const operation of ['expectedDeliveryAt', 'clientStatusNote', 'internalNote', "payload.paymentStatus = data.get('paymentStatus')", 'fulfillmentStatus']) {
@@ -347,7 +374,7 @@ for (const address of [brandProfile.registration.registeredAddressZhHans, brandP
 for (const phrase of ['One category only', '我們專精充電器與電源電子供應鏈', '我们专注充电器与电源电子供应链', 'Full Managed Sourcing Verification']) {
   if (!joined.includes(phrase)) errors.push(`site output missing approved category or service content: ${phrase}`);
 }
-for (const event of ['page_view', 'session_start', 'contact_click', 'tier_select', 'request_draft', 'support_open', 'checkout_start', 'checkout_error', 'payment_confirmed', 'post_payment_intake']) {
+for (const event of ['page_view', 'session_start', 'contact_click', 'tier_select', 'request_submit', 'support_open', 'checkout_start', 'checkout_error', 'payment_confirmed', 'post_payment_intake']) {
   if (!sourceJs.includes(`'${event}'`) || !analyticsFunction.includes(`'${event}'`)) errors.push(`analytics event is not wired end to end: ${event}`);
 }
 if (!sourceJs.includes("navigator.doNotTrack !== '1'") || !analyticsFunction.includes("request.headers.get('DNT') === '1'")) errors.push('analytics privacy opt-out is incomplete');
@@ -358,10 +385,13 @@ for (const field of ['name_collection[individual]', 'name_collection[business]',
   if (!checkoutFunction.includes(field)) errors.push(`checkout customer collection is missing ${field}`);
 }
 if (!sessionFunction.includes('displayEmail')
-  || !sessionFunction.includes('paymentStatus: order.payment_status')
+  || !sessionFunction.includes('summaryPayload')
   || !sessionFunction.includes('o.owner_user_id = ?2')
   || !sessionFunction.includes('JOIN portal_users')
-  || sessionFunction.includes('stripeRequest')) {
+  || !sessionFunction.includes("order.payment_status !== 'pending'")
+  || !sessionFunction.includes('STRIPE_FALLBACK_TIMEOUT_MS')
+  || !sessionFunction.includes('stripeModeError')
+  || !sessionFunction.includes('stripeSessionMatchesOrder')) {
   errors.push('payment confirmation endpoint is incomplete');
 }
 if (!webhookFunction.includes("request.headers.get('Stripe-Signature')")

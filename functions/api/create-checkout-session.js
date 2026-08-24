@@ -7,6 +7,9 @@ import {
   cleanReference,
   json,
   readJsonRequest,
+  stripeModeError,
+  stripeSecretMode,
+  stripeSessionMode,
   stripeRequest
 } from '../_lib/stripe.js';
 import {
@@ -17,10 +20,20 @@ import {
 } from '../_lib/workflow.js';
 
 export async function onRequestPost({ request, env }) {
+  const requestStarted = Date.now();
+  const requestId = crypto.randomUUID();
+  const respond = (data, status = 200) => json(data, status, {
+    'Request-Id': requestId,
+    'Server-Timing': `app;dur=${Math.max(0, Date.now() - requestStarted)}`
+  });
   const authorization = await requireMutation(request, env);
   if (authorization.error) return authorization.error;
   const origin = allowedRequestOrigin(request, env);
-  if (!origin) return json({ error: 'origin_not_allowed' }, 403);
+  if (!origin) return respond({ error: 'origin_not_allowed', requestId }, 403);
+  const modeError = stripeModeError(env, origin);
+  if (modeError) {
+    return respond({ error: modeError, requestId }, modeError === 'stripe_not_configured' ? 503 : 409);
+  }
   const parsed = await readJsonRequest(request);
   if (parsed.error) return parsed.error;
   const payload = parsed.data || {};
@@ -71,7 +84,7 @@ export async function onRequestPost({ request, env }) {
   ]);
 
   const prefix = locale === 'en' ? '' : `/${locale}`;
-  const baseUrl = checkoutBaseUrl(origin, env);
+  const baseUrl = checkoutBaseUrl(origin);
   const body = new URLSearchParams();
   body.set('mode', 'payment');
   body.set('customer_creation', 'always');
@@ -108,11 +121,14 @@ export async function onRequestPost({ request, env }) {
       },
       body
     });
-    const liveMode = String(env.STRIPE_SECRET_KEY || '').startsWith('sk_live_');
-    const expectedPrefix = liveMode ? 'cs_live_' : 'cs_test_';
-    if (!String(stripeSession.id || '').startsWith(expectedPrefix)
-      || Boolean(stripeSession.livemode) !== liveMode
-      || !/^https:\/\/checkout\.stripe\.com\//.test(String(stripeSession.url || ''))) {
+    const secretMode = stripeSecretMode(env);
+    if (stripeSessionMode(stripeSession.id) !== secretMode || stripeSession.livemode !== (secretMode === 'live')) {
+      const error = new Error('stripe_mode_mismatch');
+      error.code = 'stripe_mode_mismatch';
+      error.status = 409;
+      throw error;
+    }
+    if (!/^https:\/\/checkout\.stripe\.com\//.test(String(stripeSession.url || ''))) {
       throw new Error('stripe_checkout_response_invalid');
     }
     const attachedAt = new Date();
@@ -135,28 +151,31 @@ export async function onRequestPost({ request, env }) {
         attachedAt.toISOString(), orderId, JSON.stringify({ stripeSessionId: stripeSession.id }), stripeSession.id)
     ]);
     if (Number(attached.meta?.changes || 0) !== 1) throw new Error('stripe_checkout_attachment_failed');
-    return json({ url: stripeSession.url, id: stripeSession.id, orderReference });
+    return respond({ url: stripeSession.url, id: stripeSession.id, orderReference, requestId });
   } catch (error) {
-    const message = String(error?.message || 'stripe_request_failed').slice(0, 120);
+    const errorCode = ['stripe_not_configured', 'stripe_mode_mismatch', 'stripe_request_failed',
+      'stripe_checkout_response_invalid', 'stripe_checkout_attachment_failed'].includes(error?.code || error?.message)
+      ? (error.code || error.message)
+      : 'stripe_request_failed';
     const failedAt = new Date();
     await db.batch([
       db.prepare(`
         UPDATE portal_orders
         SET payment_status = 'failed', checkout_error = ?1, updated_at = ?2
         WHERE id = ?3 AND owner_user_id = ?4 AND payment_status = 'pending'
-      `).bind(message, failedAt.toISOString(), orderId, authorization.session.user_id),
+      `).bind(errorCode, failedAt.toISOString(), orderId, authorization.session.user_id),
       auditStatement(db, {
         actorUserId: authorization.session.user_id,
         targetUserId: authorization.session.user_id,
         caseId: linked?.caseId || null,
         orderId,
         eventType: 'stripe_checkout_failed',
-        details: { error: message },
+        details: { error: errorCode, requestId },
         now: failedAt
       })
     ]);
-    const status = message === 'stripe_not_configured' ? 503 : 502;
-    return json({ error: message }, status);
+    const status = errorCode === 'stripe_not_configured' ? 503 : errorCode === 'stripe_mode_mismatch' ? 409 : 502;
+    return respond({ error: errorCode, requestId }, status);
   }
 }
 

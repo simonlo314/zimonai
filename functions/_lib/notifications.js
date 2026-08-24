@@ -65,7 +65,11 @@ function messageFor(row) {
       legacyBody: `Stripe session ${payload.sessionId || 'unknown'} paid ${payment} for ${payload.productKey || 'an unknown product'}${payload.customerEmail ? ` (reported email: ${payload.customerEmail})` : ''}. No portal owner or case was assigned automatically.`,
       manualSubject: `ZimonAI case update — ${payload.caseReference || ''}`,
       manualHeading: 'Your ZimonAI case is ready',
-      manualBody: `A case has been prepared for ${payload.caseReference || 'your request'}. Sign in to provide or review the intake details.`
+      manualBody: `A case has been prepared for ${payload.caseReference || 'your request'}. Sign in to provide or review the intake details.`,
+      inquirySubject: `ZimonAI new verification inquiry — ${payload.inquiryReference || ''}`,
+      inquiryHeading: 'New verification inquiry',
+      inquiryBody: `${payload.inquiryReference || 'A new inquiry'} was submitted by ${payload.contactName || 'an unnamed contact'}${payload.contactEmail ? ` (${payload.contactEmail})` : ''}. Supplier: ${payload.supplierName || 'not provided'}. Product: ${payload.productCategory || 'not provided'}. The full request is saved in the admin workspace.`,
+      inquiryAction: 'Open admin workspace'
     },
     'zh-tw': {
       customerSubject: `ZimonAI 已收到付款｜${payload.orderReference || ''}`,
@@ -79,7 +83,11 @@ function messageFor(row) {
       legacyBody: `Stripe Session ${payload.sessionId || '未知'} 已支付 ${payment}，項目為 ${payload.productKey || '未知'}${payload.customerEmail ? `，Stripe 回報 Email 為 ${payload.customerEmail}` : ''}。系統未自動指定客戶或建立案件。`,
       manualSubject: `ZimonAI 案件更新｜${payload.caseReference || ''}`,
       manualHeading: '你的 ZimonAI 案件已建立',
-      manualBody: `我們已準備 ${payload.caseReference || '你的案件'}。請登入工作區補充或確認案件資料。`
+      manualBody: `我們已準備 ${payload.caseReference || '你的案件'}。請登入工作區補充或確認案件資料。`,
+      inquirySubject: `ZimonAI 新查核需求｜${payload.inquiryReference || ''}`,
+      inquiryHeading: '收到一筆新的查核需求',
+      inquiryBody: `${payload.inquiryReference || '一筆新需求'} 由 ${payload.contactName || '未署名聯絡人'}${payload.contactEmail ? `（${payload.contactEmail}）` : ''}送出。供應商：${payload.supplierName || '未提供'}；產品：${payload.productCategory || '未提供'}。完整需求已保存於管理工作台。`,
+      inquiryAction: '開啟管理工作台'
     },
     'zh-cn': {
       customerSubject: `ZimonAI 已收到付款｜${payload.orderReference || ''}`,
@@ -93,19 +101,28 @@ function messageFor(row) {
       legacyBody: `Stripe Session ${payload.sessionId || '未知'} 已支付 ${payment}，项目为 ${payload.productKey || '未知'}${payload.customerEmail ? `，Stripe 返回邮箱为 ${payload.customerEmail}` : ''}。系统未自动指定客户或创建项目。`,
       manualSubject: `ZimonAI 案件更新｜${payload.caseReference || ''}`,
       manualHeading: '你的 ZimonAI 案件已创建',
-      manualBody: `我们已准备 ${payload.caseReference || '你的案件'}。请登录工作区补充或确认案件资料。`
+      manualBody: `我们已准备 ${payload.caseReference || '你的案件'}。请登录工作区补充或确认案件资料。`,
+      inquirySubject: `ZimonAI 新核查需求｜${payload.inquiryReference || ''}`,
+      inquiryHeading: '收到一笔新的核查需求',
+      inquiryBody: `${payload.inquiryReference || '一笔新需求'} 由 ${payload.contactName || '未署名联系人'}${payload.contactEmail ? `（${payload.contactEmail}）` : ''}提交。供应商：${payload.supplierName || '未提供'}；产品：${payload.productCategory || '未提供'}。完整需求已保存至管理工作台。`,
+      inquiryAction: '打开管理工作台'
     }
   }[locale];
   const isAdmin = row.notification_type === 'admin_order_paid';
   const isLegacy = row.notification_type === 'admin_legacy_payment_detected';
   const isManual = row.notification_type === 'customer_case_invited';
-  const subject = isLegacy ? copy.legacySubject : isAdmin ? copy.adminSubject : isManual ? copy.manualSubject : copy.customerSubject;
-  const heading = isLegacy ? copy.legacyHeading : isAdmin ? copy.adminHeading : isManual ? copy.manualHeading : copy.customerHeading;
-  const body = isLegacy ? copy.legacyBody : isAdmin ? copy.adminBody : isManual ? copy.manualBody : copy.customerBody;
+  const isInquiry = row.notification_type === 'admin_public_inquiry_received';
+  const subject = isInquiry ? copy.inquirySubject : isLegacy ? copy.legacySubject : isAdmin ? copy.adminSubject : isManual ? copy.manualSubject : copy.customerSubject;
+  const heading = isInquiry ? copy.inquiryHeading : isLegacy ? copy.legacyHeading : isAdmin ? copy.adminHeading : isManual ? copy.manualHeading : copy.customerHeading;
+  const body = isInquiry ? copy.inquiryBody : isLegacy ? copy.legacyBody : isAdmin ? copy.adminBody : isManual ? copy.manualBody : copy.customerBody;
   const portalUrl = `https://zimonai.com${locale === 'en' ? '' : `/${locale}`}/portal/`;
-  const text = `${heading}\n\n${body}\n\n${portalUrl}`;
+  const actionUrl = isInquiry
+    ? `https://zimonai.com${locale === 'en' ? '' : `/${locale}`}/admin/`
+    : portalUrl;
+  const actionLabel = isInquiry ? copy.inquiryAction : 'ZimonAI Portal';
+  const text = `${heading}\n\n${body}\n\n${actionUrl}`;
   const escape = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
-  const html = `<!doctype html><html><body style="margin:0;background:#f3f6fb;color:#10213a;font-family:Arial,sans-serif"><div style="max-width:600px;margin:0 auto;padding:28px 18px"><div style="background:#fff;border:1px solid #dbe3ef;border-radius:16px;padding:28px"><div style="font-size:13px;font-weight:700;letter-spacing:.14em;color:#285fc5">ZIMONAI</div><h1 style="font-size:24px;line-height:1.35;margin:20px 0 12px">${escape(heading)}</h1><p style="font-size:16px;line-height:1.7;margin:0 0 24px">${escape(body)}</p><a href="${portalUrl}" style="display:inline-block;background:#10213a;color:#fff;text-decoration:none;border-radius:10px;padding:13px 18px;font-weight:700">ZimonAI Portal</a></div></div></body></html>`;
+  const html = `<!doctype html><html><body style="margin:0;background:#f3f6fb;color:#10213a;font-family:Arial,sans-serif"><div style="max-width:600px;margin:0 auto;padding:28px 18px"><div style="background:#fff;border:1px solid #dbe3ef;border-radius:16px;padding:28px"><div style="font-size:13px;font-weight:700;letter-spacing:.14em;color:#285fc5">ZIMONAI</div><h1 style="font-size:24px;line-height:1.35;margin:20px 0 12px">${escape(heading)}</h1><p style="font-size:16px;line-height:1.7;margin:0 0 24px">${escape(body)}</p><a href="${actionUrl}" style="display:inline-block;background:#10213a;color:#fff;text-decoration:none;border-radius:10px;padding:13px 18px;font-weight:700">${escape(actionLabel)}</a></div></div></body></html>`;
   return { subject, text, html };
 }
 

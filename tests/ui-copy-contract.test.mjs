@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
+import { languages } from '../src/content.mjs';
 import { adminContent } from '../src/admin-content.mjs';
 import { paymentContent } from '../src/payment-content.mjs';
 import { portalContent } from '../src/portal-content.mjs';
@@ -59,6 +60,38 @@ test('admin notifications describe provider acceptance rather than inbox deliver
   assert.doesNotMatch(adminContent.en.views.notifications.lead, /actual delivery status/i);
   assert.doesNotMatch(adminContent['zh-tw'].views.notifications.lead, /實際寄送狀態/);
   assert.doesNotMatch(adminContent['zh-cn'].views.notifications.lead, /实际发送状态/);
+});
+
+test('public requirements are saved by the API and available in the trilingual admin inbox', () => {
+  const siteSource = readFileSync(new URL('../src/assets/site.js', import.meta.url), 'utf8');
+  const adminSource = readFileSync(new URL('../src/assets/admin.js', import.meta.url), 'utf8');
+  const templateSource = readFileSync(new URL('../src/template.mjs', import.meta.url), 'utf8');
+  const analyticsSource = readFileSync(new URL('../functions/api/analytics.js', import.meta.url), 'utf8');
+  const weeklySource = readFileSync(new URL('../scripts/weekly-analytics.mjs', import.meta.url), 'utf8');
+
+  assert.match(templateSource, /data-inquiry-form/);
+  assert.match(templateSource, /data-inquiry-status/);
+  assert.match(templateSource, /dataView\('inquiries'\)/);
+  assert.doesNotMatch(templateSource, /data-mail-form/);
+  assert.match(siteSource, /fetch\('\/api\/inquiries'/);
+  assert.match(siteSource, /trackAnalytics\('request_submit', 'accepted'\)/);
+  assert.match(siteSource, /response\.status === 429/);
+  assert.doesNotMatch(siteSource, /const mailForm/);
+  assert.match(adminSource, /api\('\/api\/admin\/inquiries'/);
+  assert.match(analyticsSource, /'request_submit'/);
+  assert.match(weeklySource, /requestSubmissions/);
+
+  for (const locale of ['en', 'zh-tw', 'zh-cn']) {
+    const request = languages[locale].request;
+    assert.ok(request.status.validation);
+    assert.ok(request.status.submitting);
+    assert.ok(request.status.successTitle);
+    assert.ok(request.status.successBody);
+    assert.ok(request.status.error);
+    assert.ok(request.status.rateLimit);
+    assert.ok(adminContent[locale].nav.inquiries);
+    assert.ok(adminContent[locale].views.inquiries.title);
+  }
 });
 
 test('payment guidance uses natural Chinese intake and balance wording', () => {

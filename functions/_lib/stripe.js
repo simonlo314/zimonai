@@ -40,13 +40,14 @@ export const STRIPE_PRODUCTS = {
 
 export const STRIPE_API_VERSION = '2025-09-30.clover';
 
-export function json(data, status = 200) {
+export function json(data, status = 200, headers = {}) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'no-store',
-      'X-Robots-Tag': 'noindex'
+      'X-Robots-Tag': 'noindex',
+      ...headers
     }
   });
 }
@@ -112,15 +113,76 @@ export function allowedRequestOrigin(request, env) {
   return '';
 }
 
-export function checkoutBaseUrl(origin, env) {
-  if (env.SITE_URL && /^https?:\/\//.test(env.SITE_URL)) return env.SITE_URL.replace(/\/$/, '');
-  if (origin.startsWith('http://')) return origin;
+export function stripeSecretMode(env) {
+  const secret = String(env?.STRIPE_SECRET_KEY || '');
+  if (/^sk_live_/.test(secret)) return 'live';
+  if (/^sk_test_/.test(secret)) return 'test';
+  return '';
+}
+
+export function stripeSessionMode(sessionId) {
+  const value = String(sessionId || '');
+  if (/^cs_live_[A-Za-z0-9]+$/.test(value)) return 'live';
+  if (/^cs_test_[A-Za-z0-9]+$/.test(value)) return 'test';
+  return '';
+}
+
+export function expectedStripeModeForOrigin(origin) {
+  let url;
+  try {
+    url = new URL(origin);
+  } catch {
+    return '';
+  }
+  if (url.protocol === 'https:' && (url.hostname === 'zimonai.com' || url.hostname === 'www.zimonai.com')) {
+    return 'live';
+  }
+  if (url.protocol === 'https:' && /^[a-z0-9-]+\.zimonai\.pages\.dev$/.test(url.hostname)) return 'test';
+  if (url.protocol === 'http:' && (url.hostname === '127.0.0.1' || url.hostname === 'localhost')) return 'test';
+  return '';
+}
+
+export function stripeModeError(env, origin, sessionId = '') {
+  const secretMode = stripeSecretMode(env);
+  const expectedMode = expectedStripeModeForOrigin(origin);
+  if (!secretMode) return 'stripe_not_configured';
+  if (!expectedMode || secretMode !== expectedMode) return 'stripe_mode_mismatch';
+  if (sessionId) {
+    const sessionMode = stripeSessionMode(sessionId);
+    if (!sessionMode || sessionMode !== secretMode) return 'stripe_mode_mismatch';
+  }
+  return '';
+}
+
+export function checkoutBaseUrl(origin) {
+  let url;
+  try {
+    url = new URL(origin);
+  } catch {
+    return 'https://zimonai.com';
+  }
+  if (url.protocol === 'https:' && (url.hostname === 'zimonai.com' || url.hostname === 'www.zimonai.com')) {
+    return 'https://zimonai.com';
+  }
+  if (url.protocol === 'https:' && /^[a-z0-9-]+\.zimonai\.pages\.dev$/.test(url.hostname)) return url.origin;
+  if (url.protocol === 'http:' && (url.hostname === '127.0.0.1' || url.hostname === 'localhost')) return url.origin;
   return 'https://zimonai.com';
 }
 
 export async function stripeRequest(env, path, options = {}) {
-  if (!env.STRIPE_SECRET_KEY || !/^sk_(?:test|live)_/.test(env.STRIPE_SECRET_KEY)) {
-    throw new Error('stripe_not_configured');
+  const secretMode = stripeSecretMode(env);
+  if (!secretMode) {
+    const error = new Error('stripe_not_configured');
+    error.code = 'stripe_not_configured';
+    error.status = 503;
+    throw error;
+  }
+  const sessionPath = String(path || '').match(/^checkout\/sessions\/(cs_(?:test|live)_[A-Za-z0-9]+)(?:\/expire)?$/);
+  if (sessionPath && stripeSessionMode(sessionPath[1]) !== secretMode) {
+    const error = new Error('stripe_mode_mismatch');
+    error.code = 'stripe_mode_mismatch';
+    error.status = 409;
+    throw error;
   }
   const response = await fetch(`https://api.stripe.com/v1/${path}`, {
     ...options,
@@ -133,8 +195,8 @@ export async function stripeRequest(env, path, options = {}) {
   const data = await response.json();
   if (!response.ok) {
     const error = new Error('stripe_request_failed');
+    error.code = 'stripe_request_failed';
     error.status = response.status;
-    error.stripeType = data?.error?.type;
     throw error;
   }
   return data;
