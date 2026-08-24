@@ -5,6 +5,8 @@ import { languages } from '../src/content.mjs';
 import { adminContent } from '../src/admin-content.mjs';
 import { paymentContent } from '../src/payment-content.mjs';
 import { portalContent } from '../src/portal-content.mjs';
+import { brandProfile } from '../src/brand-profile.mjs';
+import { renderPage } from '../src/template.mjs';
 
 function contentKeys(value, prefix = '') {
   return Object.entries(value || {}).flatMap(([key, nested]) => {
@@ -148,4 +150,21 @@ test('client and operations workspaces expose safe progress and reversible order
   assert.match(templateSource, /a\.siteAction/);
   assert.match(templateSource, /data-admin-toggle-archived/);
   assert.match(templateSource, /data-admin-toggle-archived-cases/);
+});
+
+test('the footer shows only the address language selected by the visitor', () => {
+  const footerOf = (locale) => {
+    const html = renderPage(locale, 'home');
+    return html.slice(html.indexOf('<footer class="site-footer">'), html.indexOf('</footer>') + 9);
+  };
+  const english = footerOf('en');
+  const traditional = footerOf('zh-tw');
+  const simplified = footerOf('zh-cn');
+
+  assert.match(english, new RegExp(brandProfile.registration.registeredAddressEn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.doesNotMatch(english, new RegExp(brandProfile.registration.registeredAddressZhHans));
+  for (const chinese of [traditional, simplified]) {
+    assert.match(chinese, new RegExp(brandProfile.registration.registeredAddressZhHans));
+    assert.doesNotMatch(chinese, new RegExp(brandProfile.registration.registeredAddressEn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
 });
