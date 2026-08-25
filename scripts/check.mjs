@@ -57,6 +57,7 @@ const portalCaseDetailFunction = await readFile(path.join(root, 'functions', 'ap
 const headersFile = await readFile(path.join(dist, '_headers'), 'utf8');
 const securityText = await readFile(path.join(dist, '.well-known', 'security.txt'), 'utf8');
 const rootSecurityText = await readFile(path.join(dist, 'security.txt'), 'utf8');
+if (!headersFile.includes('Strict-Transport-Security: max-age=2592000')) errors.push('global HSTS header is missing');
 
 for (const directive of [
   'Contact: mailto:simonlo@zimonai.com',
