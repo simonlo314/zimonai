@@ -288,7 +288,7 @@ export const knowledgeContent = {
         ['Limits stay visible', 'A registry hit, file number or test summary is never presented as a guarantee of future delivery or product quality.']
       ],
       nextLabel: 'Ongoing research',
-      nextTitle: 'A new field note is scheduled every two days.',
+      nextTitle: 'New field notes are published regularly.',
       nextText: 'Future notes will stay within Chinese supplier verification and charger or power-electronics documentation. Topics are selected for purchase relevance, not publishing volume.'
     },
     taxonomy: {
@@ -705,7 +705,7 @@ export const knowledgeContent = {
         ['證據邊界不藏起來', '查到企業、檔案號或測試摘要，不會被寫成對交貨與品質的保證。']
       ],
       nextLabel: '持續更新',
-      nextTitle: '之後每兩天新增一篇查核筆記。',
+      nextTitle: '我們會定期發布新的查核文章。',
       nextText: '後續題目會維持在中國供應商查核、充電器與電源電子文件。是否值得幫助採購判斷，比固定湊篇數更重要。'
     },
     taxonomy: {
@@ -1122,7 +1122,7 @@ export const knowledgeContent = {
         ['证据边界始终可见', '查到企业、档案号或测试摘要，不会被写成对交付和质量的保证。']
       ],
       nextLabel: '持续更新',
-      nextTitle: '后续每两天新增一篇核查笔记。',
+      nextTitle: '我们会定期发布新的核查文章。',
       nextText: '选题会保持在中国供应商核查、充电器和电源电子文件范围内。能否帮助采购判断，比固定凑篇数更重要。'
     },
     taxonomy: {

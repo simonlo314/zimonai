@@ -766,7 +766,7 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 9.5em; letter-spacin
 .support-panel > header { display: grid; grid-template-columns: 1fr auto; gap: 20px; border-bottom: 1px solid #3a5058; padding-bottom: 22px; }
 .support-panel .kicker { margin-bottom: 10px; color: #94b6c0; }
 .support-panel h2 { margin: 0; font-size: 32px; }
-.support-panel > header button { align-self: start; width: 38px; height: 38px; border: 1px solid #536b73; border-radius: 50%; color: var(--paper); background: transparent; font-size: 25px; cursor: pointer; }
+.support-panel > header button { align-self: center; width: 38px; height: 38px; border: 1px solid #536b73; border-radius: 50%; color: var(--paper); background: transparent; font-size: 25px; cursor: pointer; }
 .support-panel > p { margin: 24px 0; color: #b6c4c7; font-size: var(--text-caption); }
 .support-contacts { border-top: 1px solid #3a5058; }
 .support-contacts > div { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 12px; align-items: center; min-height: 58px; border-bottom: 1px solid #3a5058; }
