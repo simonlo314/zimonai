@@ -55,6 +55,19 @@ const adminInquiryFunction = await readFile(path.join(root, 'functions', 'api', 
 const portalCasesFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases.js'), 'utf8');
 const portalCaseDetailFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases', '[id].js'), 'utf8');
 const headersFile = await readFile(path.join(dist, '_headers'), 'utf8');
+const securityText = await readFile(path.join(dist, '.well-known', 'security.txt'), 'utf8');
+const rootSecurityText = await readFile(path.join(dist, 'security.txt'), 'utf8');
+
+for (const directive of [
+  'Contact: mailto:simonlo@zimonai.com',
+  'Expires: 2027-08-26T00:00:00.000Z',
+  'Preferred-Languages: zh-TW, en, zh-CN',
+  'Canonical: https://zimonai.com/.well-known/security.txt',
+  'Policy: https://zimonai.com/privacy/'
+]) {
+  if (!securityText.includes(directive)) errors.push(`security.txt missing ${directive}`);
+}
+if (rootSecurityText !== securityText) errors.push('root security.txt must match /.well-known/security.txt');
 
 for (const [label, pattern] of [
   ['locale inheritance', /\.\.\.\s*languages\s*\[/],

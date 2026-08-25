@@ -140,6 +140,18 @@ await writeFile(
   'utf8'
 );
 
+const securityText = [
+  'Contact: mailto:simonlo@zimonai.com',
+  'Expires: 2027-08-26T00:00:00.000Z',
+  'Preferred-Languages: zh-TW, en, zh-CN',
+  'Canonical: https://zimonai.com/.well-known/security.txt',
+  'Policy: https://zimonai.com/privacy/',
+  ''
+].join('\n');
+await mkdir(path.join(dist, '.well-known'), { recursive: true });
+await writeFile(path.join(dist, '.well-known', 'security.txt'), securityText, 'utf8');
+await writeFile(path.join(dist, 'security.txt'), securityText, 'utf8');
+
 const privateScriptHashes = new Set();
 for (const lang of Object.values(languages)) {
   for (const privatePage of ['portal', 'admin']) {
