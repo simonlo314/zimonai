@@ -82,8 +82,13 @@ test('exactly one published article is the explicit Start here selection', () =>
   assert.equal(featuredArticles.length, 1);
 });
 
-test('the six published notes retain their evidence-led classifications', () => {
+test('the seven published notes retain their evidence-led classifications', () => {
   const baseline = {
+    'knowledge-usb-if-certification': {
+      category: 'certification-market-access',
+      products: ['gan-charger', 'charger'],
+      markets: ['global']
+    },
     'knowledge-eu-economic-operator': {
       category: 'certification-market-access',
       products: ['charger'],

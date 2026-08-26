@@ -68,6 +68,11 @@ test('knowledge hub and category pages expose progressive, crawlable collection 
 });
 
 test('knowledge search normalizes codes, full-width forms and power-bank aliases', () => {
+  for (const query of ['USBIF', 'USB-IF', 'ＵＳＢ－ＩＦ']) {
+    assert.ok(matchingIds('zh-tw', 'zh-Hant', query).includes('knowledge-usb-if-certification'), query);
+  }
+  assert.ok(matchingIds('zh-tw', 'zh-Hant', 'GaN 充電器').includes('knowledge-usb-if-certification'));
+  assert.ok(matchingIds('zh-cn', 'zh-Hans', 'USB PD 充电器').includes('knowledge-usb-if-certification'));
   for (const query of ['FCCID', 'FCC-ID', 'ＦＣＣ　ＩＤ']) {
     assert.ok(matchingIds('zh-tw', 'zh-Hant', query).includes('knowledge-fcc-id'), query);
   }

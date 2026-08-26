@@ -8,6 +8,51 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-usb-if-certification',
+    key: 'usbIfCertification',
+    slug: 'knowledge/usb-if-certification-gan-charger',
+    category: 'certification-market-access',
+    products: ['gan-charger', 'charger'],
+    markets: ['global'],
+    keywords: {
+      en: ['USB-IF certification', 'USB PD charger', 'GaN charger', 'USB-IF Product Search', 'Test ID', 'TID', 'Certified USB Charger'],
+      'zh-tw': ['USB-IF 認證', 'USB PD 充電器', 'GaN 充電器', 'USB-IF 產品查詢', 'Test ID', 'TID', 'Certified USB Charger'],
+      'zh-cn': ['USB-IF 认证', 'USB PD 充电器', 'GaN 充电器', 'USB-IF 产品查询', 'Test ID', 'TID', 'Certified USB Charger']
+    },
+    datePublished: '2026-08-26',
+    dateModified: '2026-08-26',
+    image: '/assets/editorial-usb-c-charger.jpg',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    photo: {
+      photographer: 'ready made',
+      page: 'https://www.pexels.com/photo/photo-of-adopter-near-cord-3921632/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB-IF Compliance Program',
+        url: 'https://www.usb.org/compliance'
+      },
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB-IF Product Search',
+        url: 'https://www.usb.org/products'
+      },
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB Logo Usage Guidelines — Certified USB Charger Logos',
+        url: 'https://www.usb.org/sites/default/files/usb-if_original_logo_usage_guidelines_final_2024.02.8.pdf'
+      },
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB-IF Compliance Updates — model-number and Qualification by Similarity policies',
+        url: 'https://compliance.usb.org/index.asp?Format=Standard&UpdateFile=Policies'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-economic-operator',
     key: 'euEconomicOperator',
     slug: 'knowledge/eu-economic-operator-charger-label',
@@ -274,12 +319,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, FCC IDs, UL files, CE marking and UN 38.3 documents for charger and power electronics buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-electronics buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Six field notes',
+      latest: 'Seven field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -342,6 +387,7 @@ export const knowledgeContent = {
         china: 'China',
         'united-states': 'United States',
         'european-union': 'European Union',
+        global: 'Global standards',
         international: 'International transport'
       }
     },
@@ -360,6 +406,62 @@ export const knowledgeContent = {
       back: 'All knowledge notes'
     },
     articles: {
+      usbIfCertification: {
+        topic: 'USB charger certification',
+        published: '26 August 2026',
+        readTime: '7 minutes',
+        title: 'Does a “USB PD” claim prove a GaN charger is USB-IF certified?',
+        description: 'USB PD wording describes a claimed technology. Certification requires an exact product record, completed USB-IF testing and a defensible model relationship.',
+        imageAlt: 'USB-C cable beside power adapters, used as an editorial illustration for USB-IF charger-record checks.',
+        imageCaption: 'Editorial photograph of adapters and a USB-C cable. It is not ZimonAI supplier, client, test-lab or certification evidence.',
+        answer: 'No. “USB PD,” “USB-C” or “GaN” in a quotation does not by itself prove USB-IF certification. USB-IF says certified products pass its Compliance Program and are added to the Integrators List; certified charger logos may be used only with products that passed the applicable procedures and were posted to that list. The buyer still needs to match the supplier’s exact model, company, Test ID (TID), certification date and charger category to the official record.',
+        takeaways: [
+          'Ask whether the supplier is making a specification claim or a USB-IF certification claim; they require different evidence.',
+          'Search the exact product and company in USB-IF Product Search, then preserve the TID, model, category and certification date.',
+          'Treat OEM names, extra model suffixes and different port or wattage configurations as relationships to prove—not details to assume.'
+        ],
+        sections: [
+          {
+            title: 'What separates a USB PD claim from USB-IF certification?',
+            paragraphs: [
+              'USB-IF describes its Compliance Program as a set of test specifications tracked through a Test ID. Products that pass are considered USB-IF certified, are added to the Integrators List and may qualify to license USB-IF logos. A quotation that only states “USB PD” or “USB-C” has not shown those steps.',
+              'The official logo guidelines are more specific for chargers: Certified USB Charger and Certified USB Fast Charger logos may be used only with a product that passed the appropriate USB-IF test procedures and was posted to the Integrators List. The wattage is part of the logo artwork. A copied logo image, a USB Power Delivery test report or a chip-level claim is therefore not a substitute for the exact product record.'
+            ]
+          },
+          {
+            title: 'Which fields should match in the official product record?',
+            paragraphs: [
+              'USB-IF Product Search is limited to products certified to bear a USB-IF logo. Its public view defaults to certifications from the last two years, so an older product may require a wider date filter. USB-IF also warns that products certified more than two years ago may not meet the current iteration of its Compliance Program; an old listing should therefore be dated and read in context.',
+              'ZimonAI’s practical reading is to compare the quotation, product label, packaging and official result side by side. A match should be explained at the product level, not inferred from a company membership, a component certificate or another charger with the same enclosure.'
+            ],
+            items: [
+              'Listed company and its relationship to the Chinese seller',
+              'Exact product or model name, including suffixes and revision',
+              'Test ID (TID), product category and certification date',
+              'Single-port or multi-port charger category',
+              'Certified-logo wattage versus the quoted port and total output',
+              'Quotation, label and packaging captured with the check date'
+            ]
+          },
+          {
+            title: 'Can an OEM or similar model rely on another certified charger?',
+            paragraphs: [
+              'Possibly, but the relationship must come through a USB-IF-recognised route. USB-IF lists OEM arrangements and Qualification by Similarity among its certification avenues. Its similarity policy says only USB-IF’s compliance committee and certification review board can grant Qualification by Similarity; a granted product receives a new TID and is added to the Integrators List.',
+              'USB-IF’s model-number policy allows multiple names or model numbers under one TID when the differences are cosmetic, while changes that affect USB compliance cannot be hidden behind wildcards. For a multi-port GaN charger, differences in port arrangement, power sharing, firmware or advertised wattage should therefore be documented rather than treated as a colour-only variant. This is ZimonAI’s evidence-handling interpretation, not a USB-IF finding about any supplier.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact brand, product name, model, revision and port layout',
+          'Claim type: USB specification support or USB-IF certification',
+          'USB-IF Product Search result and query date',
+          'Listed company, TID, category and certification date',
+          'Certified-logo and wattage usage matched to the offered product',
+          'OEM or Qualification by Similarity relationship where names differ',
+          'Separate safety, market-access and shipment-conformity evidence'
+        ],
+        limitsText: 'A USB-IF record addresses the USB compliance scope represented by that listing. It does not prove the use of GaN components, electrical-safety certification, legal market access, factory ownership, supplier authority, continuous production conformity, advertised performance under every port combination or shipment quality. A missing public result is a follow-up item—especially when the date filter or model name may differ—not automatic proof of a false claim.'
+      },
       euEconomicOperator: {
         topic: 'EU market traceability',
         published: '22 August 2026',
@@ -691,12 +793,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、FCC ID、UL 檔案、CE 標示與 UN 38.3 文件。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '六篇查核筆記',
+      latest: '七篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -759,6 +861,7 @@ export const knowledgeContent = {
         china: '中國',
         'united-states': '美國',
         'european-union': '歐盟',
+        global: '全球標準',
         international: '國際運輸'
       }
     },
@@ -777,6 +880,62 @@ export const knowledgeContent = {
       back: '返回知識庫'
     },
     articles: {
+      usbIfCertification: {
+        topic: 'USB 充電器認證',
+        published: '2026 年 8 月 26 日',
+        readTime: '約 7 分鐘',
+        title: '報價寫著「USB PD」，就能證明 GaN 充電器通過 USB-IF 認證嗎？',
+        description: 'USB PD 是供應商宣稱支援的技術；要證明 USB-IF 認證，還要找到精確產品紀錄，並把公司、型號與 TID 對起來。',
+        imageAlt: '電源適配器旁的 USB-C 線材照片，用於說明 USB-IF 充電器紀錄核對。',
+        imageCaption: '電源適配器與 USB-C 線材為編輯用圖片；不是 ZimonAI 的供應商、客戶、實驗室或認證證據。',
+        answer: '不能。報價上的「USB PD」、「USB-C」或「GaN」字樣，本身都不能證明 USB-IF 認證。USB-IF 說明，認證產品須通過 Compliance Program 並列入 Integrators List；Certified USB Charger 標誌也只能用於已完成適用測試、且已列入該清單的產品。買家仍要把報價的精確型號、公司、Test ID（TID）、認證日期與充電器類別，逐項對回官方紀錄。',
+        takeaways: [
+          '先問清楚供應商是在宣稱支援 USB 規格，還是在宣稱取得 USB-IF 認證；兩者需要的證據不同。',
+          '用精確產品與公司名稱查 USB-IF Product Search，並保存 TID、型號、類別、認證日期與查詢日期。',
+          'OEM 名稱、額外型號尾碼、連接埠或瓦數配置不同時，都要補出關係，不能因外殼相同就自行連結。'
+        ],
+        sections: [
+          {
+            title: 'USB PD 宣稱與 USB-IF 認證差在哪裡？',
+            paragraphs: [
+              'USB-IF 將 Compliance Program 說明為一套使用 Test ID 追蹤的測試規範。產品通過後，才會被視為 USB-IF certified、加入 Integrators List，並有機會取得 USB-IF 標誌的授權。報價只寫「USB PD」或「USB-C」，還沒有呈現這些步驟。',
+              '官方標誌指引對充電器說得更明確：Certified USB Charger 與 Certified USB Fast Charger 標誌，只能用在通過適用 USB-IF 測試程序、並已列入 Integrators List 的產品；瓦數也是標誌圖稿的一部分。因此，貼上一張標誌圖片、提供 USB Power Delivery 測試報告，或只證明控制晶片支援功能，都不能取代精確產品紀錄。'
+            ]
+          },
+          {
+            title: '官方產品紀錄要核對哪些欄位？',
+            paragraphs: [
+              'USB-IF Product Search 只收錄已獲准使用 USB-IF 標誌的認證產品。公開頁面預設顯示近兩年的紀錄，查較舊產品時要調整日期範圍。USB-IF 也提醒，認證日期超過兩年的產品未必符合目前版本的 Compliance Program；所以找到舊紀錄後，仍要保留日期並交代它的時效背景。',
+              'ZimonAI 的實務判讀，是把報價、產品標籤、包裝與官方結果並排。連結關係必須落到產品層級，不能從企業會員身分、元件認證，或另一款共用外殼的充電器直接推論。'
+            ],
+            items: [
+              '列名公司，以及它與中國賣方的關係',
+              '完整產品名或型號，包括尾碼與修訂版',
+              'Test ID（TID）、產品類別與認證日期',
+              '單孔或多孔充電器類別',
+              '認證標誌瓦數與報價的單孔／總輸出',
+              '附查詢日期的報價、標籤、包裝與官方結果'
+            ]
+          },
+          {
+            title: 'OEM 或相似型號，可以沿用另一款充電器的認證嗎？',
+            paragraphs: [
+              '有可能，但必須走 USB-IF 承認的程序。USB-IF 把 OEM arrangements 與 Qualification by Similarity 列為認證途徑；相似性政策也明定，只有 USB-IF 的 compliance committee 與 certification review board 能核准 Qualification by Similarity。獲准後，新產品會取得新的 TID，並加入 Integrators List。',
+              'USB-IF 的型號政策允許只有外觀差異的多個產品名或型號共用一個 TID，但會影響 USB 相容性的差異不能藏在萬用字元後面。針對多孔 GaN 充電器，連接埠配置、功率分配、韌體或標示瓦數不同時，應請供應商提出文件說明，不能當成只有顏色不同。這是 ZimonAI 的證據判讀方式，不是 USB-IF 對個別供應商作出的認定。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、產品名、型號、修訂版與連接埠配置',
+          '宣稱類型：支援 USB 規格，或已取得 USB-IF 認證',
+          'USB-IF Product Search 結果與查詢日期',
+          '列名公司、TID、產品類別與認證日期',
+          '標誌與瓦數用法是否對應報價產品',
+          '名稱不同時的 OEM 或 Qualification by Similarity 關係',
+          '另行確認的安全、市場准入與出貨一致性證據'
+        ],
+        limitsText: 'USB-IF 紀錄處理的是該列名所代表的 USB 相容性範圍；不能證明產品真的採用 GaN 元件、取得電氣安全認證、符合特定市場法規、自有工廠、賣方有銷售授權、量產持續一致、每一種連接埠組合都達到廣告效能，或這批出貨品質合格。公開查不到結果時，尤其要先排除日期篩選與型號差異；它是待補資料，不是可以直接寫成不實宣稱的證據。'
+      },
       euEconomicOperator: {
         topic: '歐盟市場可追溯性',
         published: '2026 年 8 月 22 日',
@@ -1108,12 +1267,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、FCC ID、UL 档案、CE 标志和 UN 38.3 文件。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '六篇核查笔记',
+      latest: '七篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -1176,6 +1335,7 @@ export const knowledgeContent = {
         china: '中国',
         'united-states': '美国',
         'european-union': '欧盟',
+        global: '全球标准',
         international: '国际运输'
       }
     },
@@ -1194,6 +1354,62 @@ export const knowledgeContent = {
       back: '返回知识库'
     },
     articles: {
+      usbIfCertification: {
+        topic: 'USB 充电器认证',
+        published: '2026 年 8 月 26 日',
+        readTime: '约 7 分钟',
+        title: '报价写着“USB PD”，就能证明 GaN 充电器通过 USB-IF 认证吗？',
+        description: 'USB PD 是供应商声称支持的技术；要证明 USB-IF 认证，还要找到精确产品记录，并对应公司、型号与 TID。',
+        imageAlt: '电源适配器旁的 USB-C 线材照片，用于说明 USB-IF 充电器记录核对。',
+        imageCaption: '电源适配器和 USB-C 线材为编辑用图片；不是 ZimonAI 的供应商、客户、实验室或认证证据。',
+        answer: '不能。报价中的“USB PD”“USB-C”或“GaN”字样，本身都不能证明 USB-IF 认证。USB-IF 说明，认证产品须通过 Compliance Program 并列入 Integrators List；Certified USB Charger 标志也只能用于完成适用测试且已列入该清单的产品。买家仍要把报价中的精确型号、公司、Test ID（TID）、认证日期和充电器类别逐项对应官方记录。',
+        takeaways: [
+          '先确认供应商是在声称支持 USB 规范，还是声称取得 USB-IF 认证；两种说法需要不同证据。',
+          '用精确产品和公司名称查询 USB-IF Product Search，并保存 TID、型号、类别、认证日期和查询日期。',
+          'OEM 名称、额外型号后缀、接口或功率配置不同时，都要补充关系证据，不能因外壳相同就自行对应。'
+        ],
+        sections: [
+          {
+            title: 'USB PD 声明与 USB-IF 认证有什么区别？',
+            paragraphs: [
+              'USB-IF 将 Compliance Program 说明为一套通过 Test ID 追踪的测试规范。产品通过后，才会被视为 USB-IF certified、加入 Integrators List，并可能获得 USB-IF 标志授权。报价只写“USB PD”或“USB-C”，并没有体现这些步骤。',
+              '官方标志指南对充电器的要求更明确：Certified USB Charger 与 Certified USB Fast Charger 标志，只能用于通过适用 USB-IF 测试程序并已列入 Integrators List 的产品，瓦数也是标志图稿的一部分。因此，粘贴一张标志图片、提供 USB Power Delivery 测试报告，或只证明控制芯片支持相关功能，都不能替代精确产品记录。'
+            ]
+          },
+          {
+            title: '官方产品记录需要核对哪些字段？',
+            paragraphs: [
+              'USB-IF Product Search 只收录获准使用 USB-IF 标志的认证产品。公开页面默认显示近两年的记录，查询较旧产品时要调整日期范围。USB-IF 还提醒，认证日期超过两年的产品不一定符合当前版本的 Compliance Program；找到旧记录后，仍要保存日期并说明它的时效背景。',
+              'ZimonAI 的实务判断，是把报价、产品标签、包装与官方结果并列比对。对应关系必须落实到产品层级，不能从企业会员身份、元器件认证，或另一款共用外壳的充电器直接推断。'
+            ],
+            items: [
+              '列名公司及其与中国卖方的关系',
+              '完整产品名或型号，包括后缀与修订版本',
+              'Test ID（TID）、产品类别和认证日期',
+              '单口或多口充电器类别',
+              '认证标志功率与报价的单口／总输出',
+              '带查询日期的报价、标签、包装和官方结果'
+            ]
+          },
+          {
+            title: 'OEM 或相似型号可以沿用另一款充电器的认证吗？',
+            paragraphs: [
+              '有可能，但必须采用 USB-IF 认可的程序。USB-IF 将 OEM arrangements 与 Qualification by Similarity 列为认证途径；其相似性政策明确，只有 USB-IF 的 compliance committee 与 certification review board 可以批准 Qualification by Similarity。获得批准后，新产品会取得新的 TID 并加入 Integrators List。',
+              'USB-IF 的型号政策允许只有外观差异的多个产品名或型号共用一个 TID，但会影响 USB 兼容性的差异不能隐藏在通配符后。对于多口 GaN 充电器，如果接口配置、功率分配、固件或标称功率不同，应要求供应商提供文件说明，不能把它当成只有颜色差异。这是 ZimonAI 的证据处理判断，不是 USB-IF 对具体供应商作出的认定。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、产品名、型号、修订版本和接口配置',
+          '声明类型：支持 USB 规范，或已取得 USB-IF 认证',
+          'USB-IF Product Search 结果与查询日期',
+          '列名公司、TID、产品类别和认证日期',
+          '标志与功率用法是否对应报价产品',
+          '名称不同时的 OEM 或 Qualification by Similarity 关系',
+          '另行确认的安全、市场准入和出货一致性证据'
+        ],
+        limitsText: 'USB-IF 记录针对该列名所代表的 USB 兼容性范围；不能证明产品确实采用 GaN 元器件、取得电气安全认证、符合特定市场法规、自有工厂、卖方拥有销售授权、量产持续一致、每种接口组合都达到广告性能，或本批出货质量合格。公开查询不到结果时，应先排除日期筛选和型号差异；它属于待补资料，不能直接作为虚假声明的证据。'
+      },
       euEconomicOperator: {
         topic: '欧盟市场可追溯性',
         published: '2026 年 8 月 22 日',
