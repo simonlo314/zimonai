@@ -24,6 +24,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-cb-charger.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
+    imageCrop: {
+      card: '58% 52%',
+      article: '56% 50%',
+      mobile: '58% 52%'
+    },
     photo: {
       photographer: 'Fortal Fototeca',
       page: 'https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/',
@@ -69,6 +74,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-usb-c-charger.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
+    imageCrop: {
+      card: '57% 48%',
+      article: '58% 48%',
+      mobile: '58% 48%'
+    },
     photo: {
       photographer: 'ready made',
       page: 'https://www.pexels.com/photo/photo-of-adopter-near-cord-3921632/',
@@ -115,6 +125,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-chargers-table.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
+    imageCrop: {
+      card: '53% 36%',
+      article: '53% 38%',
+      mobile: '52% 38%'
+    },
     photo: {
       photographer: "I'm Zion",
       page: 'https://www.pexels.com/photo/chargers-on-table-5948288/',
@@ -155,6 +170,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-contract-document.jpg',
     imageWidth: 1200,
     imageHeight: 900,
+    imageCrop: {
+      card: '58% 54%',
+      article: '58% 54%',
+      mobile: '56% 54%'
+    },
     photo: {
       photographer: 'Pixabay',
       page: 'https://www.pexels.com/photo/black-pen-placed-on-white-paper-261679/',
@@ -195,6 +215,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-power-supply-board.jpg',
     imageWidth: 1600,
     imageHeight: 954,
+    imageCrop: {
+      card: '58% 62%',
+      article: '58% 60%',
+      mobile: '56% 60%'
+    },
     photo: {
       photographer: 'Abolfazl Pahlavan',
       page: 'https://www.pexels.com/photo/electronic-circuit-board-with-various-components-33813265/',
@@ -235,6 +260,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-multiport-adapter.jpg',
     imageWidth: 1600,
     imageHeight: 1066,
+    imageCrop: {
+      card: '55% 48%',
+      article: '55% 48%',
+      mobile: '54% 48%'
+    },
     photo: {
       photographer: 'Pedro Paiva',
       page: 'https://www.pexels.com/photo/close-up-of-multi-usb-port-power-adapter-29356607/',
@@ -270,6 +300,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-eu-power-adapter.jpg',
     imageWidth: 1350,
     imageHeight: 900,
+    imageCrop: {
+      card: '78% 50%',
+      article: '79% 50%',
+      mobile: '78% 52%'
+    },
     photo: {
       photographer: 'Markus Winkler',
       page: 'https://www.pexels.com/photo/white-adapter-on-blue-surface-4097204/',
@@ -310,6 +345,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-power-bank.jpg',
     imageWidth: 1600,
     imageHeight: 1066,
+    imageCrop: {
+      card: '43% 60%',
+      article: '44% 60%',
+      mobile: '44% 58%'
+    },
     photo: {
       photographer: 'Markus Winkler',
       page: 'https://www.pexels.com/photo/white-power-bank-and-blue-coated-wires-4072683/',

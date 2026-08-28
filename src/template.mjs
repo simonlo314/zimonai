@@ -645,8 +645,10 @@ function knowledgeCategoryPath(langKey, categoryId) {
 }
 
 function knowledgeCard(t, spec, article, featured = false) {
+  const crop = spec.imageCrop || {};
+  const cropStyle = `--knowledge-card-image-position:${esc(crop.card || '50% 50%')};--knowledge-card-image-position-mobile:${esc(crop.mobile || crop.card || '50% 50%')}`;
   return `<article class="knowledge-card${featured ? ' knowledge-card--featured' : ''}" ${knowledgeRecordAttributes(spec)}>
-    <a class="knowledge-card__media" href="${pathFor(t.__key, spec.id)}" aria-label="${esc(article.title)}">
+    <a class="knowledge-card__media" href="${pathFor(t.__key, spec.id)}" aria-label="${esc(article.title)}" style="${cropStyle}">
       <img src="${esc(spec.image)}" alt="${esc(article.imageAlt)}" width="${spec.imageWidth}" height="${spec.imageHeight}" loading="${featured ? 'eager' : 'lazy'}">
       <span>${String(knowledgeArticleSpecs.indexOf(spec) + 1).padStart(2, '0')}</span>
     </a>
@@ -790,6 +792,8 @@ function knowledgeArticle(t, page) {
   const copy = t.knowledge;
   const spec = knowledgeSpecById(page.id);
   const article = copy.articles[spec.key];
+  const imageCrop = spec.imageCrop || {};
+  const imageCropStyle = `--field-note-image-position:${esc(imageCrop.article || '50% 50%')};--field-note-image-position-mobile:${esc(imageCrop.mobile || imageCrop.article || '50% 50%')}`;
   const sharedCount = (left = [], right = []) => left.filter((item) => right.includes(item)).length;
   const related = knowledgeArticleSpecs
     .map((item, index) => ({
@@ -820,7 +824,7 @@ function knowledgeArticle(t, page) {
               <div><dt>${esc(copy.ui.reviewed)}</dt><dd>${esc(article.published)}</dd></div>
             </dl>
           </div>
-          <figure class="field-note__image">
+          <figure class="field-note__image" style="${imageCropStyle}">
             <img src="${esc(spec.image)}" alt="${esc(article.imageAlt)}" width="${spec.imageWidth}" height="${spec.imageHeight}" loading="eager" fetchpriority="high">
             <figcaption><span>${esc(article.imageCaption)}</span><a href="${esc(spec.photo.page)}" target="_blank" rel="noopener noreferrer">${esc(copy.ui.photo)} · ${esc(spec.photo.photographer)}</a></figcaption>
           </figure>

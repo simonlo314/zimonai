@@ -51,6 +51,12 @@ When a new controlled product or market ID is genuinely needed, add its label in
 
 Use a locally stored image with a licence that permits commercial website use. Record the photographer, source page, licence and website use in `THIRD_PARTY_ASSETS.md`. Do not use a supplier logo, certification mark or third-party factory photograph as decoration. Editorial images are not ZimonAI evidence and must remain labelled accordingly.
 
+Every article specification must also define `imageCrop.card`, `imageCrop.article` and `imageCrop.mobile` as percentage-based focal positions. Choose each position by visually reviewing the knowledge-card crop, desktop article hero and mobile article hero separately. Do not default every image to the centre, stretch an image, or accept a crop that removes the product's identifying form, plug, ports or other subject-defining detail. If one photograph cannot support all three contexts, select another photograph before publication.
+
+Browser review must reuse a small number of named Playwright sessions: normally one for local review and one for production review. Switch locale, route and viewport inside those sessions instead of launching a separate headed browser for every check. Close every session created by the run in both success and failure paths, verify that no run-owned browser remains, and never close the user's personal Chrome or a session belonging to another task.
+
+Visual acceptance is a hard publication gate, not a screenshot-generation task. The reviewer must actually open and inspect the rendered English, Traditional Chinese and Simplified Chinese article in desktop and mobile viewports, plus the knowledge-card presentation. Confirm that the intended subject remains recognisable, focal details are not cut off, the mobile image is not stretched by intrinsic dimensions, and text, navigation, captions and page rhythm remain usable. A saved screenshot, an automated dimension check or a passing build does not by itself count as visual approval. If any inspected view is materially wrong, adjust the focal position, ratio or image and repeat the review; do not deploy or report success until every required view passes.
+
 ## Publication checklist
 
 1. Confirm the topic does not duplicate an existing article.

@@ -53,6 +53,10 @@ test('every knowledge article has valid locale-independent filters and trilingua
     assert.ok(Array.isArray(article.products) && article.products.length > 0, `${article.id} needs products`);
     assert.ok(Array.isArray(article.markets) && article.markets.length > 0, `${article.id} needs markets`);
     assert.deepEqual(Object.keys(article.keywords), locales, `${article.id} needs all keyword locales`);
+    assert.deepEqual(Object.keys(article.imageCrop), ['card', 'article', 'mobile'], `${article.id} needs card, article and mobile image crops`);
+    for (const [context, position] of Object.entries(article.imageCrop)) {
+      assert.match(position, /^(?:100|\d{1,2})% (?:100|\d{1,2})%$/, `${article.id} has an invalid ${context} crop`);
+    }
 
     for (const locale of locales) {
       const keywords = article.keywords[locale];
