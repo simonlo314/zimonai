@@ -13,6 +13,7 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | `src/assets/editorial-eu-power-adapter.jpg` | Markus Winkler | [White Adapter on Blue Surface](https://www.pexels.com/photo/white-adapter-on-blue-surface-4097204/) | Knowledge article about CE documentation for power adapters |
 | `src/assets/editorial-chargers-table.jpg` | I'm Zion | [Chargers on Table](https://www.pexels.com/photo/chargers-on-table-5948288/) | Knowledge article about an EU economic-operator contact on a charger; editorial illustration only |
 | `src/assets/editorial-usb-c-charger.jpg` | ready made | [Photo Of Adopter Near Cord](https://www.pexels.com/photo/photo-of-adopter-near-cord-3921632/) | Knowledge article about checking USB-IF certification claims for GaN chargers; editorial illustration only |
+| `src/assets/editorial-cb-charger.jpg` | Fortal Fototeca | [Close-Up Photo of White Adaptor](https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/) | Knowledge article about checking IECEE CB Test Certificates for chargers; editorial illustration only |
 
 ## Representation boundary
 

@@ -8,6 +8,51 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-iecee-cb-certificate',
+    key: 'ieceeCbCertificate',
+    slug: 'knowledge/iecee-cb-certificate-charger',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['global'],
+    keywords: {
+      en: ['IECEE CB Test Certificate', 'CB certificate verification', 'charger certification', 'power adapter CB certificate', 'National Certification Body', 'CB Scheme'],
+      'zh-tw': ['IECEE CB 測試證書', 'CB 證書查核', '充電器認證', '電源適配器 CB 證書', '國家認證機構', 'CB Scheme'],
+      'zh-cn': ['IECEE CB 测试证书', 'CB 证书核查', '充电器认证', '电源适配器 CB 证书', '国家认证机构', 'CB Scheme']
+    },
+    datePublished: '2026-08-28',
+    dateModified: '2026-08-28',
+    image: '/assets/editorial-cb-charger.jpg',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    photo: {
+      photographer: 'Fortal Fototeca',
+      page: 'https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'IECEE',
+        title: 'IECEE Certificates — public CB Test Certificate database',
+        url: 'https://certificates.iecee.org/'
+      },
+      {
+        publisher: 'International Electrotechnical Commission',
+        title: 'IECEE 01-S — Supplement to Basic Rules IEC CA 01',
+        url: 'https://assets.iec.ch/public/cab/iecee01-s_ed5.1.pdf'
+      },
+      {
+        publisher: 'International Electrotechnical Commission — TC 56',
+        title: 'Assessing conformity — IECEE and national differences',
+        url: 'https://tc56.iec.ch/assessing-conformity/'
+      },
+      {
+        publisher: 'International Electrotechnical Commission',
+        title: 'Copyright for conformity-assessment documents — validity of CB Test Reports',
+        url: 'https://webstore.iec.ch/en/copyright'
+      }
+    ]
+  },
+  {
     id: 'knowledge-usb-if-certification',
     key: 'usbIfCertification',
     slug: 'knowledge/usb-if-certification-gan-charger',
@@ -319,12 +364,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-electronics buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-electronics buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Seven field notes',
+      latest: 'Eight field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -406,6 +451,62 @@ export const knowledgeContent = {
       back: 'All knowledge notes'
     },
     articles: {
+      ieceeCbCertificate: {
+        topic: 'International safety certification',
+        published: '28 August 2026',
+        readTime: '7 minutes',
+        title: 'Does an IECEE CB Test Certificate mean a charger is approved in every market?',
+        description: 'A CB certificate can support national certification, but buyers still need to verify the exact charger record, issuing body, model scope and destination-country requirements.',
+        imageAlt: 'White power adapter against a yellow background, used as an editorial illustration for IECEE CB certificate checks.',
+        imageCaption: 'Editorial photograph of a power adapter. It is not ZimonAI supplier, client, laboratory, certificate or market-approval evidence.',
+        answer: 'No. A valid IECEE CB Test Certificate shows that selected samples represented by the certificate were assessed to the stated standard through the CB Scheme. It can facilitate national certification, but it is not automatic approval for every country. The buyer must still verify the official record, exact model and ratings, issuing National Certification Body (NCB), stated national differences and the destination market’s own requirements.',
+        takeaways: [
+          'Search the certificate reference in the official IECEE database; do not rely on the supplier’s PDF or logo alone.',
+          'Match the model or type reference, ratings, brand, manufacturer, standard edition and any national differences to the quoted charger.',
+          'Ask the destination-country NCB or regulator what national certification, marking, registration or factory-surveillance step remains.'
+        ],
+        sections: [
+          {
+            title: 'What does a “Valid” CB record actually establish?',
+            paragraphs: [
+              'The IECEE public certificate portal describes itself as a platform for finding certificates from participating NCBs and warns that its display is only an extract; the certificate owner holds the full information. The same official disclaimer says the CB Scheme tests selected samples under an ISO/IEC 17067 type 1a process and does not include ongoing factory surveillance. A “Valid” status therefore supports a specific certificate record, not continuous approval of every production unit.',
+              'The IEC also states that a Test Report Form is not a valid CB Test Report unless it is signed by an approved CB Testing Laboratory and appended to a CB Test Certificate issued by an NCB. For a buyer, a stand-alone test-report PDF, a laboratory logo or an IEC standard number is not equivalent to the complete CB deliverable.'
+            ]
+          },
+          {
+            title: 'Which fields connect the certificate to the quoted charger?',
+            paragraphs: [
+              'The official IECEE result exposes decision-relevant fields including certificate status and reference, product, manufacturer, ratings and principal characteristics, trademark, model or type reference, standards used, national differences, issue date and issuing NCB. Compare those fields with the quotation, label, packaging, sample and technical specification without shortening suffixes or combining wattage variants.',
+              'ZimonAI’s practical reading is to resolve every name or model difference before relying on the record. An OEM brand, trading company or additional model can be legitimate, but the supplier should show the written relationship and model coverage. If the record is absent, IECEE instructs users to contact the certificate owner or issuing NCB; absence is a verification gap, not automatic proof that the document is fraudulent.'
+            ],
+            items: [
+              'Certificate reference, status and issue date',
+              'Product description and exact model or type reference',
+              'Input, output, wattage, class and port configuration',
+              'Manufacturer, applicant or brand relationships',
+              'IEC standard and edition shown in the record',
+              'National differences and issuing NCB'
+            ]
+          },
+          {
+            title: 'Does the CB certificate replace destination-country approval?',
+            paragraphs: [
+              'No. The current IECEE basic rules describe member recognition of IECEE deliverables as a mechanism used for granting a National Mark or another form of national recognition. IEC guidance likewise says national approval is facilitated when the relevant national differences have been taken into account. “Facilitated” is not the same as automatically granted.',
+              'Before purchase, identify the country where the charger will be sold and ask the relevant regulator or NCB which national deviations, plug requirements, certification marks, registrations or factory-surveillance obligations apply. This is ZimonAI’s evidence-handling conclusion from the official scheme boundaries; it is not an NCB decision on a specific product or market.'
+            ]
+          }
+        ],
+        checklist: [
+          'Official IECEE search result saved with query date',
+          'Certificate reference, status, issue date and issuing NCB',
+          'Exact brand, manufacturer, model and type reference',
+          'Input/output ratings, wattage, protection class and port layout',
+          'IEC standard, edition and listed national differences',
+          'CB Test Report linked to the certificate and signed by an approved CBTL',
+          'Destination-country approval and surveillance requirements confirmed separately'
+        ],
+        limitsText: 'A CB Test Certificate addresses the standard, sample and scope represented by that certificate. It does not prove that the Chinese seller is the manufacturer or authorised distributor, that the factory owns the certificate, that every shipment matches the tested sample, or that the product satisfies every national rule. EMC, radio, energy-efficiency, chemical-substance, plug, labelling, registration, transport and contractual requirements may need separate evidence. The public database is an extract, so unclear status or missing details should be confirmed with the certificate owner or issuing NCB.'
+      },
       usbIfCertification: {
         topic: 'USB charger certification',
         published: '26 August 2026',
@@ -793,12 +894,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '七篇查核筆記',
+      latest: '八篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -880,6 +981,62 @@ export const knowledgeContent = {
       back: '返回知識庫'
     },
     articles: {
+      ieceeCbCertificate: {
+        topic: '國際安全認證',
+        published: '2026 年 8 月 28 日',
+        readTime: '約 7 分鐘',
+        title: '供應商拿出 IECEE CB 測試證書，這款充電器就能銷往所有市場嗎？',
+        description: 'CB 證書有助於申請各國認證，但買家仍要核對官方紀錄、精確型號、簽發機構與目的國要求。',
+        imageAlt: '黃色背景上的白色電源適配器，用於說明 IECEE CB 證書查核。',
+        imageCaption: '電源適配器為編輯用圖片；不是 ZimonAI 的供應商、客戶、實驗室、證書或市場准入證據。',
+        answer: '不能。有效的 IECEE CB Test Certificate，表示證書所代表的選定樣品已依列明標準走過 CB Scheme 評估；它可以協助後續申請國家認證，但不等於所有國家自動放行。買家仍要查官方紀錄、精確型號與額定值、簽發的國家認證機構（NCB）、National Differences，以及目的市場另外要求的程序。',
+        takeaways: [
+          '用證書編號回到 IECEE 官方資料庫查詢，不要只看供應商寄來的 PDF、標誌或報告封面。',
+          '逐項比對型號、額定值、品牌、製造商、標準版本與 National Differences，不能把同外殼或同系列直接視為受涵蓋。',
+          '向目的國主管機關或 NCB 確認還需要哪些國家認證、標誌、登錄或工廠監督。'
+        ],
+        sections: [
+          {
+            title: '官方紀錄顯示「Valid」，究竟能確認什麼？',
+            paragraphs: [
+              'IECEE 公開證書平台明確說明，它是查找各 NCB 證書的平台，頁面顯示的只是證書與報告摘要，完整資料仍由證書持有人提供。平台同時交代，CB Scheme 依 ISO/IEC 17067 type 1a 對選定樣品進行測試並簽發證書，沒有持續性的工廠監督。因此，「Valid」能支持一筆特定證書紀錄，不能延伸成每一件量產品持續受認可。',
+              'IEC 也說明，Test Report Form 只有在經核准的 CB Testing Laboratory 簽署，並附於 NCB 簽發的 CB Test Certificate 時，才構成有效的 CB Test Report。單獨一份測試報告、實驗室標誌或 IEC 標準編號，都不能代替完整的 CB 文件組合。'
+            ]
+          },
+          {
+            title: '證書要怎麼對回報價的充電器？',
+            paragraphs: [
+              'IECEE 官方結果會呈現證書狀態與編號、產品、製造商、主要額定值、品牌、Model／Type Ref.、採用標準、National Differences、簽發日期與 NCB。買家應把這些欄位與報價單、產品標籤、包裝、樣品及規格書並排，包含型號尾碼、瓦數與連接埠配置都照原文比對。',
+              'ZimonAI 的實務判讀，是先釐清每一個公司名與型號差異，再決定是否能依賴該紀錄。OEM 品牌、貿易公司或新增型號不必然有問題，但供應商要提出書面關係與型號涵蓋證據。若官方資料庫查不到，IECEE 要求使用者聯絡證書持有人或簽發 NCB；查無紀錄是待確認，不是可以直接寫成偽造的結論。'
+            ],
+            items: [
+              '證書編號、狀態與簽發日期',
+              '產品描述與完整 Model／Type Ref.',
+              '輸入、輸出、瓦數、保護等級與連接埠配置',
+              '製造商、申請人、品牌與賣方之間的關係',
+              '紀錄列明的 IEC 標準與版本',
+              'National Differences 與簽發 NCB'
+            ]
+          },
+          {
+            title: '有 CB 證書，還要辦目的國的認證嗎？',
+            paragraphs: [
+              '通常仍要確認。現行 IECEE 基本規則把會員對 IECEE 文件的承認，放在授予 National Mark 或其他國家認可的機制下；IEC 官方說明也指出，在納入相關國家差異後，產品的國家層級核准與認證會更容易。這代表 CB 文件能協助申請，並不等於目的國已自動核准。',
+              '付款前先固定銷售國家，再向該國主管機關或 NCB 確認國家差異、插頭要求、認證標誌、登錄及工廠監督。這是 ZimonAI 依官方制度邊界作出的證據判讀，不是任何 NCB 對特定產品或市場作出的准入決定。'
+            ]
+          }
+        ],
+        checklist: [
+          '附查詢日期的 IECEE 官方結果',
+          '證書編號、狀態、簽發日期與 NCB',
+          '完整品牌、製造商、型號與 Type Ref.',
+          '輸入／輸出額定值、瓦數、保護等級與連接埠配置',
+          'IEC 標準、版本與列明的 National Differences',
+          '與證書相連、由核准 CBTL 簽署的 CB Test Report',
+          '另外確認目的國的准入與工廠監督要求'
+        ],
+        limitsText: 'CB Test Certificate 只能支持證書所列標準、選定樣品與涵蓋範圍；不能證明中國賣方就是製造商或授權經銷商、工廠擁有該證書、每批出貨都與送測樣品一致，或產品已滿足所有國家規則。EMC、無線、能效、限用物質、插頭、標示、登錄、運輸與合約要求，可能各自需要證據。公開資料庫只是摘要；狀態或細節不清時，應向證書持有人或簽發 NCB 確認。'
+      },
       usbIfCertification: {
         topic: 'USB 充電器認證',
         published: '2026 年 8 月 26 日',
@@ -1267,12 +1424,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '七篇核查笔记',
+      latest: '八篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -1354,6 +1511,62 @@ export const knowledgeContent = {
       back: '返回知识库'
     },
     articles: {
+      ieceeCbCertificate: {
+        topic: '国际安全认证',
+        published: '2026 年 8 月 28 日',
+        readTime: '约 7 分钟',
+        title: '供应商提供 IECEE CB 测试证书，就代表这款充电器能进入所有市场吗？',
+        description: 'CB 证书可以为各国认证提供基础，但采购方仍需核对官方记录、具体型号、签发机构和目的国规则。',
+        imageAlt: '黄色背景上的白色电源适配器，用于说明 IECEE CB 证书核查。',
+        imageCaption: '电源适配器为编辑用图片；不是 ZimonAI 的供应商、客户、实验室、证书或市场准入证据。',
+        answer: '不能。有效的 IECEE CB Test Certificate 说明证书所代表的选定样品，已经按照列明标准完成 CB Scheme 评估；它可以减少申请国家认证时的重复工作，却不是所有国家的自动准入许可。采购方仍要核实官方记录、准确型号与额定值、签发证书的国家认证机构（NCB）、National Differences，以及销售目的地另行规定的步骤。',
+        takeaways: [
+          '用证书编号查询 IECEE 官方数据库，不要把供应商发送的 PDF、标志或报告封面当成最终验证。',
+          '将型号、额定值、品牌、制造商、标准版本和 National Differences 与报价产品逐项对应。',
+          '针对具体销售国家，向主管部门或 NCB 确认认证标志、注册、国家差异和工厂监督要求。'
+        ],
+        sections: [
+          {
+            title: '数据库显示“Valid”，这项状态证明到哪里？',
+            paragraphs: [
+              'IECEE 公开证书平台说明，该数据库用于查找各 NCB 的证书，但页面内容只是证书和报告的摘录，完整资料由证书持有人提供。平台还明确指出，CB Scheme 按照 ISO/IEC 17067 type 1a 对选定样品进行测试并签发证书，不包含持续工厂监督。因此，“Valid”支持的是一项具体证书记录，而不是对后续每批量产的持续批准。',
+              '根据 IEC 的说明，Test Report Form 必须由获认可的 CB Testing Laboratory 签署，并作为 NCB 签发的 CB Test Certificate 附件，才能成为有效 CB Test Report。只有测试报告文件、实验室名称或 IEC 标准编号，不足以构成完整的 CB 证据。'
+            ]
+          },
+          {
+            title: '怎样确认报价型号确实在证书范围内？',
+            paragraphs: [
+              'IECEE 官方结果列出证书状态和编号、产品、制造商、额定值及主要特性、品牌、Model／Type Ref.、采用标准、National Differences、签发日期和 NCB。核查时应把这些字段与报价单、铭牌、包装、样品和技术规格并列，包括型号后缀、功率和接口配置都不能省略。',
+              'ZimonAI 的实务判断是，先让供应商解释清楚公司名称和型号之间的每一处差异。OEM 品牌、贸易公司销售或系列型号可能存在合理关系，但需要书面关系和覆盖范围作为支持。若数据库中没有记录，IECEE 建议联系证书持有人或签发 NCB；公开查不到属于待补证据，不能直接等同于伪造。'
+            ],
+            items: [
+              '证书编号、状态和签发日期',
+              '产品描述及完整 Model／Type Ref.',
+              '输入、输出、功率、防护类别和接口配置',
+              '制造商、申请人、品牌与卖方的关系',
+              '记录中的 IEC 标准及版本',
+              'National Differences 和签发 NCB'
+            ]
+          },
+          {
+            title: '取得 CB 证书后，还需要目的国认证吗？',
+            paragraphs: [
+              '需要单独确认。现行 IECEE 基本规则把成员对 IECEE 文件的认可，与授予 National Mark 或其他国家认可机制联系起来；IEC 的官方说明则强调，考虑相关国家差异后，国家层级的批准和认证会得到便利。也就是说，CB 文件是国家认证的基础之一，并不代表准入已经自动完成。',
+              '下单前应先明确销售国家，再向当地主管部门或 NCB 核实国家差异、插头、认证标志、注册和工厂监督。这是 ZimonAI 根据官方制度边界作出的证据处理结论，不是某个 NCB 对具体产品作出的批准。'
+            ]
+          }
+        ],
+        checklist: [
+          '带查询日期的 IECEE 官方搜索结果',
+          '证书编号、状态、签发日期和 NCB',
+          '完整品牌、制造商、型号和 Type Ref.',
+          '输入／输出额定值、功率、防护类别和接口布局',
+          'IEC 标准、版本及列明的 National Differences',
+          '与证书相连、由认可 CBTL 签署的 CB Test Report',
+          '单独确认目的国准入和工厂监督要求'
+        ],
+        limitsText: 'CB Test Certificate 只针对证书所列标准、选定样品和覆盖范围；不能证明中国卖方就是制造商或授权经销商、工厂拥有证书、每批出货都与送测样品一致，也不能代替所有国家规则。EMC、无线、能效、限用物质、插头、标签、注册、运输和合同要求可能需要不同证据。公开数据库只是摘录；状态或细节不清时，应向证书持有人或签发 NCB 确认。'
+      },
       usbIfCertification: {
         topic: 'USB 充电器认证',
         published: '2026 年 8 月 26 日',
