@@ -391,6 +391,7 @@ for (const file of files) {
         }
         const isKnowledgeArticle = knowledgeArticleOutputFiles.has(file);
         if (isKnowledgeArticle && !graph.some((node) => node['@type'] === 'Article')) errors.push(`${label}: JSON-LD missing Article entity`);
+        if (isKnowledgeArticle && !graph.some((node) => node['@type'] === 'BreadcrumbList')) errors.push(`${label}: JSON-LD missing BreadcrumbList entity`);
       } catch {
         errors.push(`${label}: invalid JSON-LD`);
       }

@@ -8,6 +8,56 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-safety-gate',
+    key: 'euSafetyGate',
+    slug: 'knowledge/eu-safety-gate-charger-alert',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['EU Safety Gate', 'charger recall', 'dangerous charger alert', 'Safety Gate product search', 'power adapter safety', 'EU product safety'],
+      'zh-tw': ['歐盟 Safety Gate', '充電器召回', '危險充電器通報', 'Safety Gate 產品查詢', '電源適配器安全', '歐盟產品安全'],
+      'zh-cn': ['欧盟 Safety Gate', '充电器召回', '危险充电器预警', 'Safety Gate 产品查询', '电源适配器安全', '欧盟产品安全']
+    },
+    datePublished: '2026-08-30',
+    dateModified: '2026-08-30',
+    image: '/assets/editorial-safety-gate-charger.jpg',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageCrop: {
+      card: '60% 50%',
+      article: '58% 50%',
+      mobile: '62% 50%'
+    },
+    photo: {
+      photographer: 'ready made',
+      page: 'https://www.pexels.com/photo/photo-of-cord-near-socket-3921702/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'European Commission',
+        title: 'Safety Gate — the EU rapid alert system for dangerous non-food products',
+        url: 'https://ec.europa.eu/safety-gate/'
+      },
+      {
+        publisher: 'European Union — EUR-Lex',
+        title: 'Regulation (EU) 2023/988 — consolidated text, Articles 25 and 26',
+        url: 'https://eur-lex.europa.eu/eli/reg/2023/988/2026-05-29/eng'
+      },
+      {
+        publisher: 'European Commission — Directorate-General for Justice and Consumers',
+        title: 'Safety Gate 2025 — how the rapid alert system and public portal work',
+        url: 'https://op.europa.eu/webpub/just/safety-gate-2025-report/en/'
+      },
+      {
+        publisher: 'European Commission',
+        title: 'Product safety — EU rules and Safety Gate access',
+        url: 'https://commission.europa.eu/topics/business-and-industry/product-safety_en'
+      }
+    ]
+  },
+  {
     id: 'knowledge-iecee-cb-certificate',
     key: 'ieceeCbCertificate',
     slug: 'knowledge/iecee-cb-certificate-charger',
@@ -404,12 +454,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-electronics buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, EU Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-electronics buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Eight field notes',
+      latest: 'Nine field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -491,6 +541,62 @@ export const knowledgeContent = {
       back: 'All knowledge notes'
     },
     articles: {
+      euSafetyGate: {
+        topic: 'EU market surveillance',
+        published: '30 August 2026',
+        readTime: '7 minutes',
+        title: 'No EU Safety Gate alert for a charger: does that mean the product is safe?',
+        description: 'Safety Gate records notified dangerous products and corrective measures. A search with no match is not a safety approval for the charger, supplier or shipment.',
+        imageAlt: 'Power adapters and a USB-C cable on a marble surface, used as an editorial illustration for EU Safety Gate checks.',
+        imageCaption: 'Editorial photograph of adapters and a cable. It is not ZimonAI supplier, client, inspection, recall or product-safety evidence.',
+        answer: 'No. The EU Safety Gate is a rapid alert system for dangerous products and corrective measures found through market surveillance; it is not a pre-market approval list or a complete register of safe chargers. A search with no match means only that the buyer did not find a published alert under the identifiers and filters used at that time. The exact model still needs product, compliance, supplier and shipment evidence.',
+        takeaways: [
+          'Treat a Safety Gate match as official post-market risk evidence that requires immediate model and batch comparison—not as a verdict on every product from the supplier.',
+          'Search more than one identifier and compare the alert reference, product description, brand, model or type, images, risk and corrective measure with the quoted charger.',
+          'Treat “no result” as one completed database check; continue with model-specific declarations, reports, labels, traceability and production-conformity evidence.'
+        ],
+        sections: [
+          {
+            title: 'What does a Safety Gate alert actually establish?',
+            paragraphs: [
+              'Articles 25 and 26 of Regulation (EU) 2023/988 define Safety Gate as the rapid alert system for exchanging information on corrective measures concerning dangerous products. Member States notify measures taken by authorities or economic operators, and the European Commission checks and circulates qualifying notifications. An alert therefore records a market-surveillance finding and action; it is not a certificate issued before sale.',
+              'The European Commission’s Safety Gate 2025 report explains the sequence: a national authority identifies a dangerous product, notifies the measure, the Commission circulates the information, other authorities check their markets, and a summary is published on the public portal. This supports a specific product-risk record and its stated measures. It does not establish that every visually similar charger, every output variant or every product from the same seller has the same defect.'
+            ]
+          },
+          {
+            title: 'How should a buyer match an alert to the quoted charger?',
+            paragraphs: [
+              'The Commission says the public portal lets users search dangerous products by different criteria, open alert details and export results. Start with the exact brand and model or type, then repeat the search with meaningful model fragments, product category and other identifiers shown on the quotation, label, packaging or product. Save the query date and alert reference so the result can be reproduced.',
+              'ZimonAI’s practical reading is to compare the alert and quotation side by side. Use every field that is available: product description, brand, model or type, barcode or other code, photographs, country of origin, notified risk, cited non-compliance, affected batch and corrective measure. A shared enclosure or generic description such as “USB charger” is not enough to connect two products.'
+            ],
+            items: [
+              'Safety Gate alert reference and query date',
+              'Exact brand, model or type and every visible suffix',
+              'Product image, plug, ports, wattage and label layout',
+              'Barcode, batch or other product code where shown',
+              'Country of origin and named economic operator where available',
+              'Risk description, cited requirement and corrective measure'
+            ]
+          },
+          {
+            title: 'What should you do after a match—or after no match?',
+            paragraphs: [
+              'If the identifiers plausibly match, pause reliance on the supplier’s safety claim and determine whether the offered model, revision or batch is within the alert. Ask for the manufacturer’s corrective action, updated model evidence and the destination-market authority’s current position. A withdrawal, recall, sales ban or online-listing removal should be read exactly as described in the alert rather than softened into a generic “old issue.”',
+              'If there is no match, continue the purchase review. For a charger this normally means connecting the exact manufacturer and model to the applicable declaration, safety and EMC evidence, label and ratings, EU economic operator, sample construction and agreed production controls. This is ZimonAI’s evidence-handling recommendation, not an official Commission finding that a particular product is unsafe or safe.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact brand, model, revision, plug, ports and rated power',
+          'Safety Gate searches using full and meaningful partial identifiers',
+          'Saved query date, filters, alert reference and exported result where relevant',
+          'Field-by-field comparison of alert images, codes, risk and measures',
+          'Written supplier explanation and corrective-action evidence for a plausible match',
+          'Model-specific declaration, test evidence, label and EU traceability checked separately',
+          'Shipment or production-conformity controls appropriate to the order'
+        ],
+        limitsText: 'A Safety Gate alert is evidence about the product, risk and corrective measure described in that notification. It does not automatically identify the Chinese factory behind every brand, prove that all products from a supplier are dangerous, or establish that a visually similar charger is the notified model. Conversely, no public match does not prove safety, legal market access, genuine certificates, factory ownership, seller authority, current production conformity or shipment quality. Alerts can be updated or withdrawn by national authorities, and search results depend on the identifiers, filters, language and query date used.'
+      },
       ieceeCbCertificate: {
         topic: 'International safety certification',
         published: '28 August 2026',
@@ -934,12 +1040,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、歐盟 Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '八篇查核筆記',
+      latest: '九篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1021,6 +1127,62 @@ export const knowledgeContent = {
       back: '返回知識庫'
     },
     articles: {
+      euSafetyGate: {
+        topic: '歐盟市場監管',
+        published: '2026 年 8 月 30 日',
+        readTime: '約 7 分鐘',
+        title: '歐盟 Safety Gate 查不到這款充電器，就能把它視為安全嗎？',
+        description: 'Safety Gate 收錄主管機關通報的危險產品與矯正措施；查無結果，不是對充電器、供應商或出貨批次的安全核准。',
+        imageAlt: '大理石桌面上的電源適配器與 USB-C 線材，用於說明歐盟 Safety Gate 查核。',
+        imageCaption: '電源適配器與線材為編輯用圖片；不是 ZimonAI 的供應商、客戶、查核、召回或產品安全證據。',
+        answer: '不能。歐盟 Safety Gate 是市場監管發現危險產品後，用來交換通報與矯正措施的快速預警系統；它不是上市前核准名單，也不是「安全充電器」的完整資料庫。查無結果只能表示：在當次使用的名稱、型號與篩選條件下，沒有找到公開通報。買家仍須另外核對精確型號的產品、合規、供應商與出貨證據。',
+        takeaways: [
+          '查到相符通報時，把它視為必須立即核對型號與批次的官方市場後風險證據；不能直接延伸成該供應商所有產品都有同一問題。',
+          '不要只輸入一種名稱；應比對通報編號、產品描述、品牌、Model／Type、照片、風險與採取措施。',
+          '查無通報只是完成一項資料庫檢查；型號聲明、測試報告、標籤、可追溯性與量產一致性仍要繼續查。'
+        ],
+        sections: [
+          {
+            title: 'Safety Gate 的一筆通報，實際能確認什麼？',
+            paragraphs: [
+              '歐盟《2023/988 號規則》第 25、26 條把 Safety Gate 定義為交換危險產品矯正措施資訊的快速預警系統。會員國通報主管機關或經濟營運者已採取的措施，再由歐盟執委會檢查並傳送符合要求的通報。因此，一筆紀錄支持的是市場監管發現與後續措施，不是產品上市前取得的證書。',
+              '歐盟執委會《Safety Gate 2025》報告把流程寫得很清楚：國家主管機關先在市場上辨識危險產品，接著通報措施，執委會傳送資訊，其他主管機關再查自己的市場，最後由公開入口發布摘要。這能支持特定產品、風險與措施之間的關係，不能證明外觀相似、輸出不同或同一賣方的其他產品都有相同缺陷。'
+            ]
+          },
+          {
+            title: '買家要怎麼把通報對回報價型號？',
+            paragraphs: [
+              '歐盟執委會說明，公開入口可以依不同條件搜尋危險產品、打開通報細節並匯出結果。先用完整品牌與 Model／Type 查一次，再依報價單、標籤、包裝與產品上的有效識別資料，換用具辨識力的型號片段、產品類別或其他欄位重查。查詢日期、篩選條件與通報編號都應保存，讓他人可以重做。',
+              'ZimonAI 的實務判讀，是把通報與報價資料並排，逐欄使用當頁可見資訊：產品描述、品牌、Model／Type、條碼或其他代碼、照片、原產國、通報風險、被指出的不符合事項、受影響批次與矯正措施。只有共用外殼，或都被稱為「USB 充電器」，不足以把兩款產品連在一起。'
+            ],
+            items: [
+              'Safety Gate 通報編號與查詢日期',
+              '完整品牌、Model／Type 與所有尾碼',
+              '產品照片、插頭、連接埠、瓦數與標籤版面',
+              '頁面有列明時的條碼、批次或其他產品代碼',
+              '原產國，以及可取得時的經濟營運者名稱',
+              '風險內容、被引用要求與矯正措施'
+            ]
+          },
+          {
+            title: '查到或查不到之後，採購決策怎麼走？',
+            paragraphs: [
+              '若重要識別資料合理相符，先暫停採信供應商的安全說法，確認報價型號、修訂版或批次是否真的落入通報。要求製造商提出矯正措施、更新後的型號證據，並向目的市場主管機關確認當下狀態。撤市、召回、禁售或移除網路商品頁等措施，都應照通報原文判讀，不能淡化成一句「以前的小問題」。',
+              '若查無相符通報，採購審查仍要繼續。充電器通常還要把精確製造商與型號，連到適用的符合性聲明、安全與 EMC 證據、標籤與額定值、歐盟經濟營運者、樣品結構及約定的量產管制。這是 ZimonAI 的證據處理建議，不是歐盟執委會對某一款產品作出的安全或不安全認定。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、型號、修訂版、插頭、連接埠與額定功率',
+          '使用完整識別資料與有效型號片段進行 Safety Gate 搜尋',
+          '保存查詢日期、篩選條件、通報編號與必要的匯出結果',
+          '逐欄比對通報照片、代碼、風險與矯正措施',
+          '合理相符時，取得供應商書面說明與矯正措施證據',
+          '另行核對精確型號的聲明、測試證據、標籤與歐盟可追溯資料',
+          '依訂單風險安排出貨或量產一致性管制'
+        ],
+        limitsText: 'Safety Gate 通報只能支持該筆紀錄所描述的產品、風險與矯正措施；不能自動找出每一個品牌背後的中國工廠、證明供應商所有產品都有危險，也不能因外觀相似就認定是同一款。反過來，公開查無結果也不能證明產品安全、已取得市場准入、證書真實、工廠所有權、賣方授權、量產持續一致或本批出貨品質。國家主管機關可以更新或撤回通報，搜尋結果也會受識別資料、篩選條件、語言與查詢日期影響。'
+      },
       ieceeCbCertificate: {
         topic: '國際安全認證',
         published: '2026 年 8 月 28 日',
@@ -1464,12 +1626,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、欧盟 Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '八篇核查笔记',
+      latest: '九篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -1551,6 +1713,62 @@ export const knowledgeContent = {
       back: '返回知识库'
     },
     articles: {
+      euSafetyGate: {
+        topic: '欧盟市场监管',
+        published: '2026 年 8 月 30 日',
+        readTime: '约 7 分钟',
+        title: '欧盟 Safety Gate 没有这款充电器的记录，就能认为产品安全吗？',
+        description: 'Safety Gate 发布主管部门通报的危险产品与纠正措施；搜索无结果，不等于充电器、供应商或本批货物获得安全认可。',
+        imageAlt: '大理石台面上的电源适配器和 USB-C 线缆，用于说明欧盟 Safety Gate 核查。',
+        imageCaption: '电源适配器和线缆为编辑配图；不是 ZimonAI 的供应商、客户、核查、召回或产品安全证据。',
+        answer: '不能。欧盟 Safety Gate 是市场监管发现危险产品后，用于交换预警和纠正措施的快速通报系统；它不是上市前审批清单，也不是一份完整的“安全充电器”名录。搜索无结果只能说明，在本次使用的名称、型号和筛选条件下没有找到公开预警。采购方仍需单独核实精确型号的产品合规、供应商关系和出货一致性。',
+        takeaways: [
+          '发现疑似匹配记录时，应把它视为需要立即核对型号和批次的官方市场后风险信息，不能直接推断该供应商的全部产品都有相同问题。',
+          '不要只查一个名称；还要比较预警编号、产品描述、品牌、Model／Type、图片、风险和已采取的措施。',
+          '没有搜索结果只代表完成了一项数据库核查；型号声明、测试报告、标签、追溯信息和量产一致性仍需继续验证。'
+        ],
+        sections: [
+          {
+            title: '一条 Safety Gate 预警记录究竟证明什么？',
+            paragraphs: [
+              '欧盟《2023/988 号法规》第 25 和 26 条把 Safety Gate 定义为交换危险产品纠正措施信息的快速预警系统。成员国将主管部门或经济运营者采取的措施提交系统，再由欧盟委员会检查并传递符合要求的通报。因此，这类记录反映的是市场监管发现和后续行动，并不是产品上市前获得的证书。',
+              '欧盟委员会《Safety Gate 2025》报告给出了完整流程：国家主管部门在市场上识别危险产品，提交已采取的措施，欧盟委员会共享信息，其他主管部门检查本国市场，最后在公开门户发布摘要。记录可以支持特定产品、风险与措施的对应关系，却不能证明外观相似、输出配置不同或同一卖方的其他产品存在同样缺陷。'
+            ]
+          },
+          {
+            title: '采购方怎样把预警记录对应到报价型号？',
+            paragraphs: [
+              '欧盟委员会说明，公众可以在 Safety Gate 门户按不同条件搜索危险产品、查看预警详情并导出结果。先用完整品牌和 Model／Type 搜索，再根据报价单、铭牌、包装和实物上的有效识别信息，改用具有区分度的型号片段、产品类别或其他字段复查。应保存查询日期、筛选条件和预警编号，方便之后复现。',
+              'ZimonAI 的实务判断是，把预警页与报价资料并列，逐项使用页面实际提供的字段：产品描述、品牌、Model／Type、条码或其他编码、图片、原产国、风险说明、被指出的不符合事项、涉及批次和纠正措施。共用外壳，或都被笼统称为“USB 充电器”，不足以证明是同一产品。'
+            ],
+            items: [
+              'Safety Gate 预警编号和查询日期',
+              '完整品牌、Model／Type 及全部型号后缀',
+              '产品图片、插头、接口、功率和标签布局',
+              '页面列出时的条码、批次或其他产品编码',
+              '原产国，以及可获取时的经济运营者名称',
+              '风险说明、引用要求和纠正措施'
+            ]
+          },
+          {
+            title: '查到或查不到记录后，采购应怎样处理？',
+            paragraphs: [
+              '如果关键识别信息合理匹配，应先暂停采信供应商的安全声明，确认报价型号、版本或批次是否落入预警范围。要求制造商提供纠正措施、更新后的型号证据，并向销售目的地主管部门确认当前状态。撤市、召回、禁售或删除网络商品等措施，应按预警原文理解，不能被弱化成一句“以前的小问题”。',
+              '如果没有匹配记录，采购审核仍不能结束。针对充电器，通常还要把精确制造商和型号对应到适用的符合性声明、安全与 EMC 证据、铭牌和额定值、欧盟经济运营者、样品结构以及约定的量产控制。这是 ZimonAI 的证据处理建议，不是欧盟委员会对某一产品作出的安全结论。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、型号、版本、插头、接口和额定功率',
+          '使用完整识别信息和有效型号片段搜索 Safety Gate',
+          '保存查询日期、筛选条件、预警编号和必要的导出结果',
+          '逐项比较预警图片、编码、风险和纠正措施',
+          '疑似匹配时取得供应商书面说明和纠正措施证据',
+          '另行核实精确型号的声明、测试证据、标签和欧盟追溯信息',
+          '根据订单风险安排出货或量产一致性控制'
+        ],
+        limitsText: 'Safety Gate 预警只能支持该条记录所描述的产品、风险和纠正措施；不能自动识别每个品牌背后的中国工厂、证明供应商所有产品都危险，也不能因为外观相似就认定属于同一型号。反过来，公开搜索无结果也不能证明产品安全、已经获得市场准入、证书真实、工厂所有权、卖方授权、量产持续一致或本批货物质量。国家主管部门可以更新或撤回预警，搜索结果也会受到识别信息、筛选条件、语言和查询日期影响。'
+      },
       ieceeCbCertificate: {
         topic: '国际安全认证',
         published: '2026 年 8 月 28 日',

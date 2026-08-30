@@ -1019,8 +1019,17 @@ export function renderPage(langKey, pageId) {
     }
   } else if (articleSpec) {
     const articleId = `${canonical}#article`;
+    const breadcrumbId = `${canonical}#breadcrumb`;
     webpage.mainEntity = { '@id': articleId };
+    webpage.breadcrumb = { '@id': breadcrumbId };
     graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': breadcrumbId,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: knowledgeCopy.hub.title, item: `https://zimonai.com${pathFor(langKey, 'knowledge')}` },
+        { '@type': 'ListItem', position: 2, name: articleCopy.title, item: canonical }
+      ]
+    }, {
       '@type': 'Article',
       '@id': articleId,
       headline: articleCopy.title,
