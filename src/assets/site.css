@@ -472,6 +472,14 @@ html[data-layout="cjk"] .sample-report h3 { max-width: 12em; line-height: 1.18; 
 .service-tier-panel__work ul { margin: 0; padding: 0; list-style: none; }
 .service-tier-panel__work li { position: relative; padding: 13px 0 13px 24px; border-bottom: 1px solid var(--line); }
 .service-tier-panel__work li::before { content: "+"; position: absolute; left: 0; color: var(--verified); }
+.service-market-reference { display: grid; grid-template-columns: minmax(220px, .34fr) 1fr; gap: clamp(28px, 5vw, 72px); padding: clamp(30px, 4vw, 48px) clamp(30px, 5vw, 68px); border-top: 1px solid var(--line); background: #eef2f0; }
+.service-market-reference__heading .file-label { color: var(--blue); }
+.service-market-reference__heading h3 { max-width: 15em; margin: 15px 0 0; font-family: var(--serif); font-size: clamp(22px, 2vw, 30px); font-weight: 500; line-height: 1.25; }
+.service-market-reference__body > p { margin: 0; color: var(--ink); }
+.service-market-reference__body .service-market-reference__limits { margin-top: 14px; color: var(--muted); font-size: var(--text-caption); line-height: 1.7; }
+.service-market-reference__sources { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+.service-market-reference__sources a { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-family: var(--mono); font-size: var(--text-label); font-weight: 700; }
+.service-market-reference__sources .icon-arrow { width: 14px; height: 14px; }
 .service-tier-panel__note { display: grid; grid-template-columns: .28fr 1fr; gap: 35px; padding: 28px clamp(30px, 5vw, 68px); border-top: 1px solid var(--line); background: #f4e9df; }
 .service-tier-panel__note strong { font-family: var(--mono); font-size: var(--text-utility); color: var(--discrepancy); }
 .service-tier-panel__note p { margin: 0; color: var(--ink); }
@@ -706,6 +714,8 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 9.5em; letter-spacin
 .checkout-field input { width: 100%; min-height: 46px; padding: 9px 11px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); color: var(--ink); }
 .checkout-consent { grid-column: 1 / -1; margin: 0; }
 .checkout-consent a { text-decoration: underline; text-underline-offset: 3px; }
+.checkout-login-note { grid-column: 1 / -1; display: grid; grid-template-columns: 24px 1fr; gap: 10px; margin: 0; padding: 14px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: var(--text-label); line-height: 1.65; }
+.checkout-login-note > span:first-child { color: var(--blue); font-family: var(--mono); font-weight: 700; }
 .checkout-form > .button { grid-column: 1 / -1; width: 100%; min-height: 58px; }
 .checkout-form .form-error { grid-column: 1 / -1; margin: 0; }
 .checkout-form--inline { grid-template-columns: 1fr; gap: 16px; margin-top: 22px; padding: 22px 0 0; border-top: 1px solid var(--line); background: transparent; }
@@ -993,6 +1003,9 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 9.5em; letter-spacin
   .sample-report__preview { justify-self: center; width: min(78vw, 245px); transform: none; }
   .service-tier-panel__work { grid-template-columns: 1fr; }
   .service-tier-panel__work section { padding: 32px 22px; }
+  .service-market-reference { grid-template-columns: 1fr; gap: 22px; padding: 32px 22px; }
+  .service-market-reference__heading h3 { max-width: none; }
+  .service-market-reference__sources { display: grid; }
   .service-tier-panel__note, .service-tier-panel__boundary, .service-tier-panel > footer { display: block; }
   .service-tier-panel__note strong, .service-tier-panel > footer .file-label { display: block; margin-bottom: 12px; }
   .service-tier-panel__boundary > div + div { border-top: 1px solid var(--ink); }

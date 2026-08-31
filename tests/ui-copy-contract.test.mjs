@@ -16,7 +16,7 @@ function contentKeys(value, prefix = '') {
   }).sort();
 }
 
-test('checkout asks anonymous visitors to sign in before validating final consent', () => {
+test('checkout validates required consent before asking anonymous visitors to sign in', () => {
   const source = readFileSync(new URL('../src/assets/site.js', import.meta.url), 'utf8');
   const handlerStart = source.indexOf('checkoutForms.forEach');
   const handlerEnd = source.indexOf('const paymentResult', handlerStart);
@@ -24,7 +24,7 @@ test('checkout asks anonymous visitors to sign in before validating final consen
   const sessionCheck = handler.indexOf("fetch('/api/portal/me'");
   const finalValidation = handler.indexOf('form.checkValidity()');
   assert.ok(sessionCheck >= 0, 'checkout must check the signed-in session');
-  assert.ok(finalValidation > sessionCheck, 'final form consent must be checked only after sign-in is confirmed');
+  assert.ok(finalValidation >= 0 && finalValidation < sessionCheck, 'required checkout fields must be validated before the sign-in redirect');
 
   const intentStart = source.indexOf('function safeCheckoutIntent');
   const intentEnd = source.indexOf('function readCheckoutIntent', intentStart);
@@ -34,6 +34,24 @@ test('checkout asks anonymous visitors to sign in before validating final consen
   const resumeStart = source.indexOf('if (resumedPaymentItem)');
   const resumeEnd = source.indexOf('checkoutForms.forEach', resumeStart);
   assert.doesNotMatch(source.slice(resumeStart, resumeEnd), /create-checkout-session/, 'returning from sign-in must not start checkout automatically');
+});
+
+test('checkout sign-in guidance and the dated 65W GaN quote observation are complete in all three languages', () => {
+  for (const locale of ['en', 'zh-tw', 'zh-cn']) {
+    assert.ok(paymentContent[locale].authGate.validationError);
+    assert.match(paymentContent[locale].authGate.purchaseNote, /Google/);
+    assert.match(paymentContent[locale].authGate.purchaseNote, locale === 'zh-cn' ? /邮箱验证码/ : /Email/);
+
+    const t1 = languages[locale].services.catalog.find((service) => service.id === 't1');
+    assert.ok(t1?.marketReference, `${locale} T1 must expose the market-reference limits`);
+    assert.match(t1.marketReference.text, /USD 5\.20–10\.70/);
+    assert.equal(t1.marketReference.sources.length, 3);
+    assert.doesNotMatch(JSON.stringify(t1), /USD 25–40|manufacturing cost far below/i);
+
+    const html = renderPage(locale, 'services');
+    assert.match(html, /service-market-reference/);
+    assert.match(html, /checkout-login-note/);
+  }
 });
 
 test('portal order and linked-email guidance matches the account workflow in all three languages', () => {

@@ -77,8 +77,18 @@ export const languages = {
       catalog: [
         { id: 't1', label: 'T1', title: 'Certificate Verification', englishTitle: 'Certificate Verification', summary: 'Remote identity, business-registration and charger-specific certificate checks.', price: 'USD 149', timing: '24–48 hours after complete intake', mode: 'Remote', purchasable: true, groups: [
           { title: 'Supplier identity and legal status', items: ['Business licence authenticity and unified social credit code', 'Registered capital, establishment date and legal representative', 'Whether the registered business scope genuinely includes manufacturing', 'Current status: active, abnormal, cancelled or revoked', 'Dishonest judgment-debtor records', 'Administrative penalty records'] },
-          { title: 'Charger-specific certification review', items: ['Whether the FCC ID exists and matches the quoted model and wattage', 'Whether the UL file is valid in UL Product iQ', 'Whether the issuing laboratory appears on an FCC excluded or transition-period list', 'Reasonableness review of the marked specification and quotation; for example, a quoted 65W GaN manufacturing cost far below the stated USD 25–40 reference is flagged for follow-up'] }
-        ], delivery: 'A 3–5 page report with a risk rating, issue list and questions to ask before signing.', notIncluded: 'On-site work, telephone interview, capacity assessment or quality inspection.', consent: 'Not required', fit: 'Overseas buyers contacting a Chinese supplier for the first time; typical order value USD 5,000–30,000.' },
+          { title: 'Charger-specific certification review', items: ['Whether the FCC ID exists and matches the quoted model and wattage', 'Whether the UL file is valid in UL Product iQ', 'Whether the issuing laboratory appears on an FCC excluded or transition-period list', 'Reasonableness review of the marked specification and quotation against a dated, like-for-like market sample; unusual prices are questions to investigate, not proof of a false quotation'] }
+        ], marketReference: {
+          label: 'Public supplier quote observation · checked 31 Aug 2026',
+          title: 'A selected current quote sample—not audited manufacturing cost.',
+          text: 'Across selected Alibaba, Made-in-China and Global Sources listings, advertised unit prices for non-identical 65W GaN wall chargers were about USD 5.20–10.70 at listed MOQs of 50–500 pieces.',
+          limits: 'Freight, tax, Incoterms, custom packaging and evidence behind certification claims were not consistently included or disclosed. Compare port count, plug, protocol, components, certification evidence, packaging, warranty, customisation, volume and delivery terms before treating a quotation as high or low.',
+          sources: [
+            { label: 'Alibaba · 100+ pieces', href: 'https://www.alibaba.com/product-detail/2025-GaN-Customizing-ETL-FCC-Certificated_1601213471100.html' },
+            { label: 'Made-in-China · 500 pieces', href: 'https://langbone.en.made-in-china.com/' },
+            { label: 'Global Sources · 50+ pieces', href: 'https://www.globalsources.com/manufacturers/330w-dc-usb-c-gan-charger.html?pageNum=282' }
+          ]
+        }, delivery: 'A 3–5 page report with a risk rating, issue list and questions to ask before signing.', notIncluded: 'On-site work, telephone interview, capacity assessment or quality inspection.', consent: 'Not required', fit: 'Overseas buyers contacting a Chinese supplier for the first time; typical order value USD 5,000–30,000.' },
         { id: 't2', label: 'T2', title: 'Remote Due Diligence', englishTitle: 'Remote Due Diligence', summary: 'T1 plus ownership, litigation, address and manufacturer-versus-trader analysis.', price: 'USD 349', timing: '3–5 business days after complete intake', mode: 'Remote', purchasable: true, upgrade: 'Everything in T1, plus deeper corporate and public-record research.', groups: [
           { title: 'Added at T2', items: ['Classify the registered address as industrial, commercial or residential', 'Related entities and ownership structure', 'Litigation records in China Judgments Online', 'Import and export record search', 'Assess whether the supplier is a manufacturer or a trader presenting itself as one', 'Compare claims across 1688, Alibaba and the supplier website with registered facts'] }
         ], notIncluded: 'On-site work, direct supplier communication or quality inspection.', consent: 'Not required', fit: 'Buyers who have selected a supplier but still question its authenticity; typical order value USD 30,000–100,000.' },
@@ -190,8 +200,18 @@ export const languages = {
       catalog: [
         { id: 't1', label: 'T1', title: '遠端證照查核', englishTitle: 'Certificate Verification', summary: '先查供應商身分、合法性，以及充電類產品最重要的認證資料。', price: 'USD 149', timing: '資料完整後 24–48 小時', mode: '純遠端', purchasable: true, groups: [
           { title: '供應商身分與合法性', items: ['營業執照真偽與統一社會信用代碼', '註冊資本、成立日期與法定代表人', '經營範圍是否確實包含「製造」', '經營狀態：存續、異常、註銷或吊銷', '失信被執行人紀錄', '行政處罰紀錄'] },
-          { title: '充電類專屬認證比對', items: ['FCC ID 是否存在，是否對應報價型號與瓦數', 'UL 檔案號是否仍有效（UL Product iQ）', '發證實驗室是否出現在 FCC 除名或過渡期名單', '判斷標示規格與報價是否合理；例如 65W GaN 充電器若明顯低於所列 USD 25–40 製造成本參考區間，會列為追查項目'] }
-        ], delivery: '3–5 頁報告，包含風險評級、疑點清單與簽約前追問清單。', notIncluded: '實地查核、電話訪談、產能判斷、品質檢驗。', consent: '不需要', fit: '首次接觸中國供應商的海外買家；常見單筆採購金額 USD 5,000–30,000。' },
+          { title: '充電類專屬認證比對', items: ['FCC ID 是否存在，是否對應報價型號與瓦數', 'UL 檔案號是否仍有效（UL Product iQ）', '發證實驗室是否出現在 FCC 除名或過渡期名單', '以有日期、同規格的市場樣本判斷標示規格與報價是否合理；異常價格是需要追查的線索，不等於虛假報價的證明'] }
+        ], marketReference: {
+          label: '公開供應商報價觀察 · 2026 年 8 月 31 日查詢',
+          title: '這是當期公開報價樣本，不是經審計的製造成本。',
+          text: '本次選取 Alibaba、Made-in-China 與 Global Sources 的非完全同規格 65W GaN 壁插式充電器；公開單價約為 USD 5.20–10.70，頁面所列 MOQ 約為 50–500 件。',
+          limits: '頁面未一致包含或揭露運費、稅費、Incoterms、客製包裝與認證主張的佐證。判斷報價高低前，仍須逐項比對埠數、插腳、協議、用料、認證證據、包裝、保固、客製、數量與交付條件。',
+          sources: [
+            { label: 'Alibaba · 100 件起', href: 'https://www.alibaba.com/product-detail/2025-GaN-Customizing-ETL-FCC-Certificated_1601213471100.html' },
+            { label: 'Made-in-China · 500 件', href: 'https://langbone.en.made-in-china.com/' },
+            { label: 'Global Sources · 50 件起', href: 'https://www.globalsources.com/manufacturers/330w-dc-usb-c-gan-charger.html?pageNum=282' }
+          ]
+        }, delivery: '3–5 頁報告，包含風險評級、疑點清單與簽約前追問清單。', notIncluded: '實地查核、電話訪談、產能判斷、品質檢驗。', consent: '不需要', fit: '首次接觸中國供應商的海外買家；常見單筆採購金額 USD 5,000–30,000。' },
         { id: 't2', label: 'T2', title: '遠端深度盡調', englishTitle: 'Remote Due Diligence', summary: '在 T1 基礎上，再查地址性質、股權、訴訟與真實製造身分。', price: 'USD 349', timing: '資料完整後 3–5 個工作日', mode: '純遠端', purchasable: true, upgrade: '包含 T1 全部項目，再增加企業關係與公開紀錄的深度查核。', groups: [
           { title: 'T2 新增項目', items: ['判斷註冊地址屬於工業區、商業區或住宅', '關聯企業與股權結構', '裁判文書網可查的法律訴訟紀錄', '進出口紀錄查詢', '判斷對方是製造商，還是把自己包裝成製造商的貿易商', '比對 1688、阿里巴巴與官網說法是否符合登記事實'] }
         ], notIncluded: '實地查核、直接與供應商溝通、品質檢驗。', consent: '不需要', fit: '已鎖定供應商、但仍對其真實性存疑的買家；常見單筆採購金額 USD 30,000–100,000。' },
@@ -302,8 +322,18 @@ export const languages = {
       catalog: [
         { id: 't1', label: 'T1', title: '远程证照核查', englishTitle: 'Certificate Verification', summary: '先查供应商身份、合法性，以及充电类产品最重要的认证资料。', price: 'USD 149', timing: '资料完整后 24–48 小时', mode: '纯远程', purchasable: true, groups: [
           { title: '供应商身份与合法性', items: ['营业执照真伪与统一社会信用代码', '注册资本、成立日期与法定代表人', '经营范围是否确实包含“制造”', '经营状态：存续、异常、注销或吊销', '失信被执行人记录', '行政处罚记录'] },
-          { title: '充电类专属认证比对', items: ['FCC ID 是否存在，是否对应报价型号与瓦数', 'UL 档案号是否仍然有效（UL Product iQ）', '发证实验室是否出现在 FCC 除名或过渡期名单', '判断标示规格与报价是否合理；例如 65W GaN 充电器若明显低于所列 USD 25–40 制造成本参考区间，会列为追查项目'] }
-        ], delivery: '3–5 页报告，包括风险评级、疑点清单与签约前追问清单。', notIncluded: '实地核查、电话访谈、产能判断、质量检验。', consent: '不需要', fit: '首次接触中国供应商的海外买家；常见单笔采购金额 USD 5,000–30,000。' },
+          { title: '充电类专属认证比对', items: ['FCC ID 是否存在，是否对应报价型号与瓦数', 'UL 档案号是否仍然有效（UL Product iQ）', '发证实验室是否出现在 FCC 除名或过渡期名单', '以有日期、同规格的市场样本判断标示规格与报价是否合理；异常价格是需要追查的线索，不等于虚假报价的证明'] }
+        ], marketReference: {
+          label: '公开供应商报价观察 · 2026 年 8 月 31 日查询',
+          title: '这是当期公开报价样本，不是经审计的制造成本。',
+          text: '本次选取 Alibaba、Made-in-China 与 Global Sources 的非完全同规格 65W GaN 壁插式充电器；公开单价约为 USD 5.20–10.70，页面所列 MOQ 约为 50–500 件。',
+          limits: '页面未一致包含或披露运费、税费、Incoterms、定制包装与认证主张的佐证。判断报价高低前，仍须逐项比对端口数、插头、协议、用料、认证证据、包装、保修、定制、数量与交付条件。',
+          sources: [
+            { label: 'Alibaba · 100 件起', href: 'https://www.alibaba.com/product-detail/2025-GaN-Customizing-ETL-FCC-Certificated_1601213471100.html' },
+            { label: 'Made-in-China · 500 件', href: 'https://langbone.en.made-in-china.com/' },
+            { label: 'Global Sources · 50 件起', href: 'https://www.globalsources.com/manufacturers/330w-dc-usb-c-gan-charger.html?pageNum=282' }
+          ]
+        }, delivery: '3–5 页报告，包括风险评级、疑点清单与签约前追问清单。', notIncluded: '实地核查、电话访谈、产能判断、质量检验。', consent: '不需要', fit: '首次接触中国供应商的海外买家；常见单笔采购金额 USD 5,000–30,000。' },
         { id: 't2', label: 'T2', title: '远程深度尽调', englishTitle: 'Remote Due Diligence', summary: '在 T1 基础上，再查地址性质、股权、诉讼与真实制造身份。', price: 'USD 349', timing: '资料完整后 3–5 个工作日', mode: '纯远程', purchasable: true, upgrade: '包括 T1 全部项目，再增加企业关系与公开记录的深度核查。', groups: [
           { title: 'T2 新增项目', items: ['判断注册地址属于工业区、商业区还是住宅', '关联企业与股权结构', '裁判文书网可查的法律诉讼记录', '进出口记录查询', '判断对方是制造商，还是把自己包装成制造商的贸易商', '比对 1688、阿里巴巴与官网说法是否符合登记事实'] }
         ], notIncluded: '实地核查、直接与供应商沟通、质量检验。', consent: '不需要', fit: '已经锁定供应商、但仍对其真实性存疑的买家；常见单笔采购金额 USD 30,000–100,000。' },
