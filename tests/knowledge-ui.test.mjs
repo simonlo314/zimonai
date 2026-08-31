@@ -68,6 +68,11 @@ test('knowledge hub and category pages expose progressive, crawlable collection 
 });
 
 test('knowledge search normalizes codes, full-width forms and power-bank aliases', () => {
+  for (const query of ['USBIF', 'USB-IF', 'ＵＳＢ－ＩＦ']) {
+    assert.ok(matchingIds('zh-tw', 'zh-Hant', query).includes('knowledge-usb-if-certification'), query);
+  }
+  assert.ok(matchingIds('zh-tw', 'zh-Hant', 'GaN 充電器').includes('knowledge-usb-if-certification'));
+  assert.ok(matchingIds('zh-cn', 'zh-Hans', 'USB PD 充电器').includes('knowledge-usb-if-certification'));
   for (const query of ['FCCID', 'FCC-ID', 'ＦＣＣ　ＩＤ']) {
     assert.ok(matchingIds('zh-tw', 'zh-Hant', query).includes('knowledge-fcc-id'), query);
   }
@@ -92,4 +97,15 @@ test('knowledge enhancement fails open and analytics never sends query-bearing r
   assert.match(siteJs, /return `\$\{url\.origin\}\$\{url\.pathname\}`/);
   assert.match(siteJs, /searchParams\.delete\('q'\)/);
   assert.doesNotMatch(siteJs, /searchParams\.set\('q'/);
+});
+
+test('knowledge images expose art-directed crop positions for cards and article viewports', () => {
+  const hub = renderPage('zh-tw', 'knowledge');
+  const article = renderPage('zh-tw', 'knowledge-iecee-cb-certificate');
+
+  assert.match(hub, /--knowledge-card-image-position:53% 36%;--knowledge-card-image-position-mobile:52% 38%/);
+  assert.match(article, /--field-note-image-position:56% 50%;--field-note-image-position-mobile:58% 52%/);
+  assert.match(siteCss, /object-position: var\(--knowledge-card-image-position,50% 50%\)/);
+  assert.match(siteCss, /\.field-note__image img \{[^}]*height: auto;[^}]*aspect-ratio: 16 \/ 10;/);
+  assert.match(siteCss, /object-position: var\(--field-note-image-position-mobile,var\(--field-note-image-position,50% 50%\)\)/);
 });

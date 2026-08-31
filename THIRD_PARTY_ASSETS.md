@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-08-20
+Last reviewed: 2026-08-30
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -12,6 +12,9 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | `src/assets/editorial-contract-document.jpg` | Pixabay | [Black Pen Placed on White Paper](https://www.pexels.com/photo/black-pen-placed-on-white-paper-261679/) | Knowledge article about supplier legal identity |
 | `src/assets/editorial-eu-power-adapter.jpg` | Markus Winkler | [White Adapter on Blue Surface](https://www.pexels.com/photo/white-adapter-on-blue-surface-4097204/) | Knowledge article about CE documentation for power adapters |
 | `src/assets/editorial-chargers-table.jpg` | I'm Zion | [Chargers on Table](https://www.pexels.com/photo/chargers-on-table-5948288/) | Knowledge article about an EU economic-operator contact on a charger; editorial illustration only |
+| `src/assets/editorial-usb-c-charger.jpg` | ready made | [Photo Of Adopter Near Cord](https://www.pexels.com/photo/photo-of-adopter-near-cord-3921632/) | Knowledge article about checking USB-IF certification claims for GaN chargers; editorial illustration only |
+| `src/assets/editorial-cb-charger.jpg` | Fortal Fototeca | [Close-Up Photo of White Adaptor](https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/) | Knowledge article about checking IECEE CB Test Certificates for chargers; editorial illustration only |
+| `src/assets/editorial-safety-gate-charger.jpg` | ready made | [Photo Of Cord Near Socket](https://www.pexels.com/photo/photo-of-cord-near-socket-3921702/) | Knowledge article about checking EU Safety Gate alerts for chargers; editorial illustration only |
 
 ## Representation boundary
 

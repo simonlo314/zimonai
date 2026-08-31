@@ -8,6 +8,156 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-safety-gate',
+    key: 'euSafetyGate',
+    slug: 'knowledge/eu-safety-gate-charger-alert',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['EU Safety Gate', 'charger recall', 'dangerous charger alert', 'Safety Gate product search', 'power adapter safety', 'EU product safety'],
+      'zh-tw': ['歐盟 Safety Gate', '充電器召回', '危險充電器通報', 'Safety Gate 產品查詢', '電源適配器安全', '歐盟產品安全'],
+      'zh-cn': ['欧盟 Safety Gate', '充电器召回', '危险充电器预警', 'Safety Gate 产品查询', '电源适配器安全', '欧盟产品安全']
+    },
+    datePublished: '2026-08-30',
+    dateModified: '2026-08-30',
+    image: '/assets/editorial-safety-gate-charger.jpg',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageCrop: {
+      card: '60% 50%',
+      article: '58% 50%',
+      mobile: '62% 50%'
+    },
+    photo: {
+      photographer: 'ready made',
+      page: 'https://www.pexels.com/photo/photo-of-cord-near-socket-3921702/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'European Commission',
+        title: 'Safety Gate — the EU rapid alert system for dangerous non-food products',
+        url: 'https://ec.europa.eu/safety-gate/'
+      },
+      {
+        publisher: 'European Union — EUR-Lex',
+        title: 'Regulation (EU) 2023/988 — consolidated text, Articles 25 and 26',
+        url: 'https://eur-lex.europa.eu/eli/reg/2023/988/2026-05-29/eng'
+      },
+      {
+        publisher: 'European Commission — Directorate-General for Justice and Consumers',
+        title: 'Safety Gate 2025 — how the rapid alert system and public portal work',
+        url: 'https://op.europa.eu/webpub/just/safety-gate-2025-report/en/'
+      },
+      {
+        publisher: 'European Commission',
+        title: 'Product safety — EU rules and Safety Gate access',
+        url: 'https://commission.europa.eu/topics/business-and-industry/product-safety_en'
+      }
+    ]
+  },
+  {
+    id: 'knowledge-iecee-cb-certificate',
+    key: 'ieceeCbCertificate',
+    slug: 'knowledge/iecee-cb-certificate-charger',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['global'],
+    keywords: {
+      en: ['IECEE CB Test Certificate', 'CB certificate verification', 'charger certification', 'power adapter CB certificate', 'National Certification Body', 'CB Scheme'],
+      'zh-tw': ['IECEE CB 測試證書', 'CB 證書查核', '充電器認證', '電源適配器 CB 證書', '國家認證機構', 'CB Scheme'],
+      'zh-cn': ['IECEE CB 测试证书', 'CB 证书核查', '充电器认证', '电源适配器 CB 证书', '国家认证机构', 'CB Scheme']
+    },
+    datePublished: '2026-08-28',
+    dateModified: '2026-08-28',
+    image: '/assets/editorial-cb-charger.jpg',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageCrop: {
+      card: '58% 52%',
+      article: '56% 50%',
+      mobile: '58% 52%'
+    },
+    photo: {
+      photographer: 'Fortal Fototeca',
+      page: 'https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'IECEE',
+        title: 'IECEE Certificates — public CB Test Certificate database',
+        url: 'https://certificates.iecee.org/'
+      },
+      {
+        publisher: 'International Electrotechnical Commission',
+        title: 'IECEE 01-S — Supplement to Basic Rules IEC CA 01',
+        url: 'https://assets.iec.ch/public/cab/iecee01-s_ed5.1.pdf'
+      },
+      {
+        publisher: 'International Electrotechnical Commission — TC 56',
+        title: 'Assessing conformity — IECEE and national differences',
+        url: 'https://tc56.iec.ch/assessing-conformity/'
+      },
+      {
+        publisher: 'International Electrotechnical Commission',
+        title: 'Copyright for conformity-assessment documents — validity of CB Test Reports',
+        url: 'https://webstore.iec.ch/en/copyright'
+      }
+    ]
+  },
+  {
+    id: 'knowledge-usb-if-certification',
+    key: 'usbIfCertification',
+    slug: 'knowledge/usb-if-certification-gan-charger',
+    category: 'certification-market-access',
+    products: ['gan-charger', 'charger'],
+    markets: ['global'],
+    keywords: {
+      en: ['USB-IF certification', 'USB PD charger', 'GaN charger', 'USB-IF Product Search', 'Test ID', 'TID', 'Certified USB Charger'],
+      'zh-tw': ['USB-IF 認證', 'USB PD 充電器', 'GaN 充電器', 'USB-IF 產品查詢', 'Test ID', 'TID', 'Certified USB Charger'],
+      'zh-cn': ['USB-IF 认证', 'USB PD 充电器', 'GaN 充电器', 'USB-IF 产品查询', 'Test ID', 'TID', 'Certified USB Charger']
+    },
+    datePublished: '2026-08-26',
+    dateModified: '2026-08-26',
+    image: '/assets/editorial-usb-c-charger.jpg',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageCrop: {
+      card: '57% 48%',
+      article: '58% 48%',
+      mobile: '58% 48%'
+    },
+    photo: {
+      photographer: 'ready made',
+      page: 'https://www.pexels.com/photo/photo-of-adopter-near-cord-3921632/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB-IF Compliance Program',
+        url: 'https://www.usb.org/compliance'
+      },
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB-IF Product Search',
+        url: 'https://www.usb.org/products'
+      },
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB Logo Usage Guidelines — Certified USB Charger Logos',
+        url: 'https://www.usb.org/sites/default/files/usb-if_original_logo_usage_guidelines_final_2024.02.8.pdf'
+      },
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB-IF Compliance Updates — model-number and Qualification by Similarity policies',
+        url: 'https://compliance.usb.org/index.asp?Format=Standard&UpdateFile=Policies'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-economic-operator',
     key: 'euEconomicOperator',
     slug: 'knowledge/eu-economic-operator-charger-label',
@@ -25,6 +175,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-chargers-table.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
+    imageCrop: {
+      card: '53% 36%',
+      article: '53% 38%',
+      mobile: '52% 38%'
+    },
     photo: {
       photographer: "I'm Zion",
       page: 'https://www.pexels.com/photo/chargers-on-table-5948288/',
@@ -65,6 +220,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-contract-document.jpg',
     imageWidth: 1200,
     imageHeight: 900,
+    imageCrop: {
+      card: '58% 54%',
+      article: '58% 54%',
+      mobile: '56% 54%'
+    },
     photo: {
       photographer: 'Pixabay',
       page: 'https://www.pexels.com/photo/black-pen-placed-on-white-paper-261679/',
@@ -105,6 +265,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-power-supply-board.jpg',
     imageWidth: 1600,
     imageHeight: 954,
+    imageCrop: {
+      card: '58% 62%',
+      article: '58% 60%',
+      mobile: '56% 60%'
+    },
     photo: {
       photographer: 'Abolfazl Pahlavan',
       page: 'https://www.pexels.com/photo/electronic-circuit-board-with-various-components-33813265/',
@@ -145,6 +310,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-multiport-adapter.jpg',
     imageWidth: 1600,
     imageHeight: 1066,
+    imageCrop: {
+      card: '55% 48%',
+      article: '55% 48%',
+      mobile: '54% 48%'
+    },
     photo: {
       photographer: 'Pedro Paiva',
       page: 'https://www.pexels.com/photo/close-up-of-multi-usb-port-power-adapter-29356607/',
@@ -180,6 +350,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-eu-power-adapter.jpg',
     imageWidth: 1350,
     imageHeight: 900,
+    imageCrop: {
+      card: '78% 50%',
+      article: '79% 50%',
+      mobile: '78% 52%'
+    },
     photo: {
       photographer: 'Markus Winkler',
       page: 'https://www.pexels.com/photo/white-adapter-on-blue-surface-4097204/',
@@ -220,6 +395,11 @@ export const knowledgeArticleSpecs = [
     image: '/assets/editorial-power-bank.jpg',
     imageWidth: 1600,
     imageHeight: 1066,
+    imageCrop: {
+      card: '43% 60%',
+      article: '44% 60%',
+      mobile: '44% 58%'
+    },
     photo: {
       photographer: 'Markus Winkler',
       page: 'https://www.pexels.com/photo/white-power-bank-and-blue-coated-wires-4072683/',
@@ -274,12 +454,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, FCC IDs, UL files, CE marking and UN 38.3 documents for charger and power electronics buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, EU Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-electronics buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Six field notes',
+      latest: 'Nine field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -342,6 +522,7 @@ export const knowledgeContent = {
         china: 'China',
         'united-states': 'United States',
         'european-union': 'European Union',
+        global: 'Global standards',
         international: 'International transport'
       }
     },
@@ -360,6 +541,174 @@ export const knowledgeContent = {
       back: 'All knowledge notes'
     },
     articles: {
+      euSafetyGate: {
+        topic: 'EU market surveillance',
+        published: '30 August 2026',
+        readTime: '7 minutes',
+        title: 'No EU Safety Gate alert for a charger: does that mean the product is safe?',
+        description: 'Safety Gate records notified dangerous products and corrective measures. A search with no match is not a safety approval for the charger, supplier or shipment.',
+        imageAlt: 'Power adapters and a USB-C cable on a marble surface, used as an editorial illustration for EU Safety Gate checks.',
+        imageCaption: 'Editorial photograph of adapters and a cable. It is not ZimonAI supplier, client, inspection, recall or product-safety evidence.',
+        answer: 'No. The EU Safety Gate is a rapid alert system for dangerous products and corrective measures found through market surveillance; it is not a pre-market approval list or a complete register of safe chargers. A search with no match means only that the buyer did not find a published alert under the identifiers and filters used at that time. The exact model still needs product, compliance, supplier and shipment evidence.',
+        takeaways: [
+          'Treat a Safety Gate match as official post-market risk evidence that requires immediate model and batch comparison—not as a verdict on every product from the supplier.',
+          'Search more than one identifier and compare the alert reference, product description, brand, model or type, images, risk and corrective measure with the quoted charger.',
+          'Treat “no result” as one completed database check; continue with model-specific declarations, reports, labels, traceability and production-conformity evidence.'
+        ],
+        sections: [
+          {
+            title: 'What does a Safety Gate alert actually establish?',
+            paragraphs: [
+              'Articles 25 and 26 of Regulation (EU) 2023/988 define Safety Gate as the rapid alert system for exchanging information on corrective measures concerning dangerous products. Member States notify measures taken by authorities or economic operators, and the European Commission checks and circulates qualifying notifications. An alert therefore records a market-surveillance finding and action; it is not a certificate issued before sale.',
+              'The European Commission’s Safety Gate 2025 report explains the sequence: a national authority identifies a dangerous product, notifies the measure, the Commission circulates the information, other authorities check their markets, and a summary is published on the public portal. This supports a specific product-risk record and its stated measures. It does not establish that every visually similar charger, every output variant or every product from the same seller has the same defect.'
+            ]
+          },
+          {
+            title: 'How should a buyer match an alert to the quoted charger?',
+            paragraphs: [
+              'The Commission says the public portal lets users search dangerous products by different criteria, open alert details and export results. Start with the exact brand and model or type, then repeat the search with meaningful model fragments, product category and other identifiers shown on the quotation, label, packaging or product. Save the query date and alert reference so the result can be reproduced.',
+              'ZimonAI’s practical reading is to compare the alert and quotation side by side. Use every field that is available: product description, brand, model or type, barcode or other code, photographs, country of origin, notified risk, cited non-compliance, affected batch and corrective measure. A shared enclosure or generic description such as “USB charger” is not enough to connect two products.'
+            ],
+            items: [
+              'Safety Gate alert reference and query date',
+              'Exact brand, model or type and every visible suffix',
+              'Product image, plug, ports, wattage and label layout',
+              'Barcode, batch or other product code where shown',
+              'Country of origin and named economic operator where available',
+              'Risk description, cited requirement and corrective measure'
+            ]
+          },
+          {
+            title: 'What should you do after a match—or after no match?',
+            paragraphs: [
+              'If the identifiers plausibly match, pause reliance on the supplier’s safety claim and determine whether the offered model, revision or batch is within the alert. Ask for the manufacturer’s corrective action, updated model evidence and the destination-market authority’s current position. A withdrawal, recall, sales ban or online-listing removal should be read exactly as described in the alert rather than softened into a generic “old issue.”',
+              'If there is no match, continue the purchase review. For a charger this normally means connecting the exact manufacturer and model to the applicable declaration, safety and EMC evidence, label and ratings, EU economic operator, sample construction and agreed production controls. This is ZimonAI’s evidence-handling recommendation, not an official Commission finding that a particular product is unsafe or safe.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact brand, model, revision, plug, ports and rated power',
+          'Safety Gate searches using full and meaningful partial identifiers',
+          'Saved query date, filters, alert reference and exported result where relevant',
+          'Field-by-field comparison of alert images, codes, risk and measures',
+          'Written supplier explanation and corrective-action evidence for a plausible match',
+          'Model-specific declaration, test evidence, label and EU traceability checked separately',
+          'Shipment or production-conformity controls appropriate to the order'
+        ],
+        limitsText: 'A Safety Gate alert is evidence about the product, risk and corrective measure described in that notification. It does not automatically identify the Chinese factory behind every brand, prove that all products from a supplier are dangerous, or establish that a visually similar charger is the notified model. Conversely, no public match does not prove safety, legal market access, genuine certificates, factory ownership, seller authority, current production conformity or shipment quality. Alerts can be updated or withdrawn by national authorities, and search results depend on the identifiers, filters, language and query date used.'
+      },
+      ieceeCbCertificate: {
+        topic: 'International safety certification',
+        published: '28 August 2026',
+        readTime: '7 minutes',
+        title: 'Does an IECEE CB Test Certificate mean a charger is approved in every market?',
+        description: 'A CB certificate can support national certification, but buyers still need to verify the exact charger record, issuing body, model scope and destination-country requirements.',
+        imageAlt: 'White power adapter against a yellow background, used as an editorial illustration for IECEE CB certificate checks.',
+        imageCaption: 'Editorial photograph of a power adapter. It is not ZimonAI supplier, client, laboratory, certificate or market-approval evidence.',
+        answer: 'No. A valid IECEE CB Test Certificate shows that selected samples represented by the certificate were assessed to the stated standard through the CB Scheme. It can facilitate national certification, but it is not automatic approval for every country. The buyer must still verify the official record, exact model and ratings, issuing National Certification Body (NCB), stated national differences and the destination market’s own requirements.',
+        takeaways: [
+          'Search the certificate reference in the official IECEE database; do not rely on the supplier’s PDF or logo alone.',
+          'Match the model or type reference, ratings, brand, manufacturer, standard edition and any national differences to the quoted charger.',
+          'Ask the destination-country NCB or regulator what national certification, marking, registration or factory-surveillance step remains.'
+        ],
+        sections: [
+          {
+            title: 'What does a “Valid” CB record actually establish?',
+            paragraphs: [
+              'The IECEE public certificate portal describes itself as a platform for finding certificates from participating NCBs and warns that its display is only an extract; the certificate owner holds the full information. The same official disclaimer says the CB Scheme tests selected samples under an ISO/IEC 17067 type 1a process and does not include ongoing factory surveillance. A “Valid” status therefore supports a specific certificate record, not continuous approval of every production unit.',
+              'The IEC also states that a Test Report Form is not a valid CB Test Report unless it is signed by an approved CB Testing Laboratory and appended to a CB Test Certificate issued by an NCB. For a buyer, a stand-alone test-report PDF, a laboratory logo or an IEC standard number is not equivalent to the complete CB deliverable.'
+            ]
+          },
+          {
+            title: 'Which fields connect the certificate to the quoted charger?',
+            paragraphs: [
+              'The official IECEE result exposes decision-relevant fields including certificate status and reference, product, manufacturer, ratings and principal characteristics, trademark, model or type reference, standards used, national differences, issue date and issuing NCB. Compare those fields with the quotation, label, packaging, sample and technical specification without shortening suffixes or combining wattage variants.',
+              'ZimonAI’s practical reading is to resolve every name or model difference before relying on the record. An OEM brand, trading company or additional model can be legitimate, but the supplier should show the written relationship and model coverage. If the record is absent, IECEE instructs users to contact the certificate owner or issuing NCB; absence is a verification gap, not automatic proof that the document is fraudulent.'
+            ],
+            items: [
+              'Certificate reference, status and issue date',
+              'Product description and exact model or type reference',
+              'Input, output, wattage, class and port configuration',
+              'Manufacturer, applicant or brand relationships',
+              'IEC standard and edition shown in the record',
+              'National differences and issuing NCB'
+            ]
+          },
+          {
+            title: 'Does the CB certificate replace destination-country approval?',
+            paragraphs: [
+              'No. The current IECEE basic rules describe member recognition of IECEE deliverables as a mechanism used for granting a National Mark or another form of national recognition. IEC guidance likewise says national approval is facilitated when the relevant national differences have been taken into account. “Facilitated” is not the same as automatically granted.',
+              'Before purchase, identify the country where the charger will be sold and ask the relevant regulator or NCB which national deviations, plug requirements, certification marks, registrations or factory-surveillance obligations apply. This is ZimonAI’s evidence-handling conclusion from the official scheme boundaries; it is not an NCB decision on a specific product or market.'
+            ]
+          }
+        ],
+        checklist: [
+          'Official IECEE search result saved with query date',
+          'Certificate reference, status, issue date and issuing NCB',
+          'Exact brand, manufacturer, model and type reference',
+          'Input/output ratings, wattage, protection class and port layout',
+          'IEC standard, edition and listed national differences',
+          'CB Test Report linked to the certificate and signed by an approved CBTL',
+          'Destination-country approval and surveillance requirements confirmed separately'
+        ],
+        limitsText: 'A CB Test Certificate addresses the standard, sample and scope represented by that certificate. It does not prove that the Chinese seller is the manufacturer or authorised distributor, that the factory owns the certificate, that every shipment matches the tested sample, or that the product satisfies every national rule. EMC, radio, energy-efficiency, chemical-substance, plug, labelling, registration, transport and contractual requirements may need separate evidence. The public database is an extract, so unclear status or missing details should be confirmed with the certificate owner or issuing NCB.'
+      },
+      usbIfCertification: {
+        topic: 'USB charger certification',
+        published: '26 August 2026',
+        readTime: '7 minutes',
+        title: 'Does a “USB PD” claim prove a GaN charger is USB-IF certified?',
+        description: 'USB PD wording describes a claimed technology. Certification requires an exact product record, completed USB-IF testing and a defensible model relationship.',
+        imageAlt: 'USB-C cable beside power adapters, used as an editorial illustration for USB-IF charger-record checks.',
+        imageCaption: 'Editorial photograph of adapters and a USB-C cable. It is not ZimonAI supplier, client, test-lab or certification evidence.',
+        answer: 'No. “USB PD,” “USB-C” or “GaN” in a quotation does not by itself prove USB-IF certification. USB-IF says certified products pass its Compliance Program and are added to the Integrators List; certified charger logos may be used only with products that passed the applicable procedures and were posted to that list. The buyer still needs to match the supplier’s exact model, company, Test ID (TID), certification date and charger category to the official record.',
+        takeaways: [
+          'Ask whether the supplier is making a specification claim or a USB-IF certification claim; they require different evidence.',
+          'Search the exact product and company in USB-IF Product Search, then preserve the TID, model, category and certification date.',
+          'Treat OEM names, extra model suffixes and different port or wattage configurations as relationships to prove—not details to assume.'
+        ],
+        sections: [
+          {
+            title: 'What separates a USB PD claim from USB-IF certification?',
+            paragraphs: [
+              'USB-IF describes its Compliance Program as a set of test specifications tracked through a Test ID. Products that pass are considered USB-IF certified, are added to the Integrators List and may qualify to license USB-IF logos. A quotation that only states “USB PD” or “USB-C” has not shown those steps.',
+              'The official logo guidelines are more specific for chargers: Certified USB Charger and Certified USB Fast Charger logos may be used only with a product that passed the appropriate USB-IF test procedures and was posted to the Integrators List. The wattage is part of the logo artwork. A copied logo image, a USB Power Delivery test report or a chip-level claim is therefore not a substitute for the exact product record.'
+            ]
+          },
+          {
+            title: 'Which fields should match in the official product record?',
+            paragraphs: [
+              'USB-IF Product Search is limited to products certified to bear a USB-IF logo. Its public view defaults to certifications from the last two years, so an older product may require a wider date filter. USB-IF also warns that products certified more than two years ago may not meet the current iteration of its Compliance Program; an old listing should therefore be dated and read in context.',
+              'ZimonAI’s practical reading is to compare the quotation, product label, packaging and official result side by side. A match should be explained at the product level, not inferred from a company membership, a component certificate or another charger with the same enclosure.'
+            ],
+            items: [
+              'Listed company and its relationship to the Chinese seller',
+              'Exact product or model name, including suffixes and revision',
+              'Test ID (TID), product category and certification date',
+              'Single-port or multi-port charger category',
+              'Certified-logo wattage versus the quoted port and total output',
+              'Quotation, label and packaging captured with the check date'
+            ]
+          },
+          {
+            title: 'Can an OEM or similar model rely on another certified charger?',
+            paragraphs: [
+              'Possibly, but the relationship must come through a USB-IF-recognised route. USB-IF lists OEM arrangements and Qualification by Similarity among its certification avenues. Its similarity policy says only USB-IF’s compliance committee and certification review board can grant Qualification by Similarity; a granted product receives a new TID and is added to the Integrators List.',
+              'USB-IF’s model-number policy allows multiple names or model numbers under one TID when the differences are cosmetic, while changes that affect USB compliance cannot be hidden behind wildcards. For a multi-port GaN charger, differences in port arrangement, power sharing, firmware or advertised wattage should therefore be documented rather than treated as a colour-only variant. This is ZimonAI’s evidence-handling interpretation, not a USB-IF finding about any supplier.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact brand, product name, model, revision and port layout',
+          'Claim type: USB specification support or USB-IF certification',
+          'USB-IF Product Search result and query date',
+          'Listed company, TID, category and certification date',
+          'Certified-logo and wattage usage matched to the offered product',
+          'OEM or Qualification by Similarity relationship where names differ',
+          'Separate safety, market-access and shipment-conformity evidence'
+        ],
+        limitsText: 'A USB-IF record addresses the USB compliance scope represented by that listing. It does not prove the use of GaN components, electrical-safety certification, legal market access, factory ownership, supplier authority, continuous production conformity, advertised performance under every port combination or shipment quality. A missing public result is a follow-up item—especially when the date filter or model name may differ—not automatic proof of a false claim.'
+      },
       euEconomicOperator: {
         topic: 'EU market traceability',
         published: '22 August 2026',
@@ -691,12 +1040,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、FCC ID、UL 檔案、CE 標示與 UN 38.3 文件。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、歐盟 Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '六篇查核筆記',
+      latest: '九篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -759,6 +1108,7 @@ export const knowledgeContent = {
         china: '中國',
         'united-states': '美國',
         'european-union': '歐盟',
+        global: '全球標準',
         international: '國際運輸'
       }
     },
@@ -777,6 +1127,174 @@ export const knowledgeContent = {
       back: '返回知識庫'
     },
     articles: {
+      euSafetyGate: {
+        topic: '歐盟市場監管',
+        published: '2026 年 8 月 30 日',
+        readTime: '約 7 分鐘',
+        title: '歐盟 Safety Gate 查不到這款充電器，就能把它視為安全嗎？',
+        description: 'Safety Gate 收錄主管機關通報的危險產品與矯正措施；查無結果，不是對充電器、供應商或出貨批次的安全核准。',
+        imageAlt: '大理石桌面上的電源適配器與 USB-C 線材，用於說明歐盟 Safety Gate 查核。',
+        imageCaption: '電源適配器與線材為編輯用圖片；不是 ZimonAI 的供應商、客戶、查核、召回或產品安全證據。',
+        answer: '不能。歐盟 Safety Gate 是市場監管發現危險產品後，用來交換通報與矯正措施的快速預警系統；它不是上市前核准名單，也不是「安全充電器」的完整資料庫。查無結果只能表示：在當次使用的名稱、型號與篩選條件下，沒有找到公開通報。買家仍須另外核對精確型號的產品、合規、供應商與出貨證據。',
+        takeaways: [
+          '查到相符通報時，把它視為必須立即核對型號與批次的官方市場後風險證據；不能直接延伸成該供應商所有產品都有同一問題。',
+          '不要只輸入一種名稱；應比對通報編號、產品描述、品牌、Model／Type、照片、風險與採取措施。',
+          '查無通報只是完成一項資料庫檢查；型號聲明、測試報告、標籤、可追溯性與量產一致性仍要繼續查。'
+        ],
+        sections: [
+          {
+            title: 'Safety Gate 的一筆通報，實際能確認什麼？',
+            paragraphs: [
+              '歐盟《2023/988 號規則》第 25、26 條把 Safety Gate 定義為交換危險產品矯正措施資訊的快速預警系統。會員國通報主管機關或經濟營運者已採取的措施，再由歐盟執委會檢查並傳送符合要求的通報。因此，一筆紀錄支持的是市場監管發現與後續措施，不是產品上市前取得的證書。',
+              '歐盟執委會《Safety Gate 2025》報告把流程寫得很清楚：國家主管機關先在市場上辨識危險產品，接著通報措施，執委會傳送資訊，其他主管機關再查自己的市場，最後由公開入口發布摘要。這能支持特定產品、風險與措施之間的關係，不能證明外觀相似、輸出不同或同一賣方的其他產品都有相同缺陷。'
+            ]
+          },
+          {
+            title: '買家要怎麼把通報對回報價型號？',
+            paragraphs: [
+              '歐盟執委會說明，公開入口可以依不同條件搜尋危險產品、打開通報細節並匯出結果。先用完整品牌與 Model／Type 查一次，再依報價單、標籤、包裝與產品上的有效識別資料，換用具辨識力的型號片段、產品類別或其他欄位重查。查詢日期、篩選條件與通報編號都應保存，讓他人可以重做。',
+              'ZimonAI 的實務判讀，是把通報與報價資料並排，逐欄使用當頁可見資訊：產品描述、品牌、Model／Type、條碼或其他代碼、照片、原產國、通報風險、被指出的不符合事項、受影響批次與矯正措施。只有共用外殼，或都被稱為「USB 充電器」，不足以把兩款產品連在一起。'
+            ],
+            items: [
+              'Safety Gate 通報編號與查詢日期',
+              '完整品牌、Model／Type 與所有尾碼',
+              '產品照片、插頭、連接埠、瓦數與標籤版面',
+              '頁面有列明時的條碼、批次或其他產品代碼',
+              '原產國，以及可取得時的經濟營運者名稱',
+              '風險內容、被引用要求與矯正措施'
+            ]
+          },
+          {
+            title: '查到或查不到之後，採購決策怎麼走？',
+            paragraphs: [
+              '若重要識別資料合理相符，先暫停採信供應商的安全說法，確認報價型號、修訂版或批次是否真的落入通報。要求製造商提出矯正措施、更新後的型號證據，並向目的市場主管機關確認當下狀態。撤市、召回、禁售或移除網路商品頁等措施，都應照通報原文判讀，不能淡化成一句「以前的小問題」。',
+              '若查無相符通報，採購審查仍要繼續。充電器通常還要把精確製造商與型號，連到適用的符合性聲明、安全與 EMC 證據、標籤與額定值、歐盟經濟營運者、樣品結構及約定的量產管制。這是 ZimonAI 的證據處理建議，不是歐盟執委會對某一款產品作出的安全或不安全認定。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、型號、修訂版、插頭、連接埠與額定功率',
+          '使用完整識別資料與有效型號片段進行 Safety Gate 搜尋',
+          '保存查詢日期、篩選條件、通報編號與必要的匯出結果',
+          '逐欄比對通報照片、代碼、風險與矯正措施',
+          '合理相符時，取得供應商書面說明與矯正措施證據',
+          '另行核對精確型號的聲明、測試證據、標籤與歐盟可追溯資料',
+          '依訂單風險安排出貨或量產一致性管制'
+        ],
+        limitsText: 'Safety Gate 通報只能支持該筆紀錄所描述的產品、風險與矯正措施；不能自動找出每一個品牌背後的中國工廠、證明供應商所有產品都有危險，也不能因外觀相似就認定是同一款。反過來，公開查無結果也不能證明產品安全、已取得市場准入、證書真實、工廠所有權、賣方授權、量產持續一致或本批出貨品質。國家主管機關可以更新或撤回通報，搜尋結果也會受識別資料、篩選條件、語言與查詢日期影響。'
+      },
+      ieceeCbCertificate: {
+        topic: '國際安全認證',
+        published: '2026 年 8 月 28 日',
+        readTime: '約 7 分鐘',
+        title: '供應商拿出 IECEE CB 測試證書，這款充電器就能銷往所有市場嗎？',
+        description: 'CB 證書有助於申請各國認證，但買家仍要核對官方紀錄、精確型號、簽發機構與目的國要求。',
+        imageAlt: '黃色背景上的白色電源適配器，用於說明 IECEE CB 證書查核。',
+        imageCaption: '電源適配器為編輯用圖片；不是 ZimonAI 的供應商、客戶、實驗室、證書或市場准入證據。',
+        answer: '不能。有效的 IECEE CB Test Certificate，表示證書所代表的選定樣品已依列明標準走過 CB Scheme 評估；它可以協助後續申請國家認證，但不等於所有國家自動放行。買家仍要查官方紀錄、精確型號與額定值、簽發的國家認證機構（NCB）、National Differences，以及目的市場另外要求的程序。',
+        takeaways: [
+          '用證書編號回到 IECEE 官方資料庫查詢，不要只看供應商寄來的 PDF、標誌或報告封面。',
+          '逐項比對型號、額定值、品牌、製造商、標準版本與 National Differences，不能把同外殼或同系列直接視為受涵蓋。',
+          '向目的國主管機關或 NCB 確認還需要哪些國家認證、標誌、登錄或工廠監督。'
+        ],
+        sections: [
+          {
+            title: '官方紀錄顯示「Valid」，究竟能確認什麼？',
+            paragraphs: [
+              'IECEE 公開證書平台明確說明，它是查找各 NCB 證書的平台，頁面顯示的只是證書與報告摘要，完整資料仍由證書持有人提供。平台同時交代，CB Scheme 依 ISO/IEC 17067 type 1a 對選定樣品進行測試並簽發證書，沒有持續性的工廠監督。因此，「Valid」能支持一筆特定證書紀錄，不能延伸成每一件量產品持續受認可。',
+              'IEC 也說明，Test Report Form 只有在經核准的 CB Testing Laboratory 簽署，並附於 NCB 簽發的 CB Test Certificate 時，才構成有效的 CB Test Report。單獨一份測試報告、實驗室標誌或 IEC 標準編號，都不能代替完整的 CB 文件組合。'
+            ]
+          },
+          {
+            title: '證書要怎麼對回報價的充電器？',
+            paragraphs: [
+              'IECEE 官方結果會呈現證書狀態與編號、產品、製造商、主要額定值、品牌、Model／Type Ref.、採用標準、National Differences、簽發日期與 NCB。買家應把這些欄位與報價單、產品標籤、包裝、樣品及規格書並排，包含型號尾碼、瓦數與連接埠配置都照原文比對。',
+              'ZimonAI 的實務判讀，是先釐清每一個公司名與型號差異，再決定是否能依賴該紀錄。OEM 品牌、貿易公司或新增型號不必然有問題，但供應商要提出書面關係與型號涵蓋證據。若官方資料庫查不到，IECEE 要求使用者聯絡證書持有人或簽發 NCB；查無紀錄是待確認，不是可以直接寫成偽造的結論。'
+            ],
+            items: [
+              '證書編號、狀態與簽發日期',
+              '產品描述與完整 Model／Type Ref.',
+              '輸入、輸出、瓦數、保護等級與連接埠配置',
+              '製造商、申請人、品牌與賣方之間的關係',
+              '紀錄列明的 IEC 標準與版本',
+              'National Differences 與簽發 NCB'
+            ]
+          },
+          {
+            title: '有 CB 證書，還要辦目的國的認證嗎？',
+            paragraphs: [
+              '通常仍要確認。現行 IECEE 基本規則把會員對 IECEE 文件的承認，放在授予 National Mark 或其他國家認可的機制下；IEC 官方說明也指出，在納入相關國家差異後，產品的國家層級核准與認證會更容易。這代表 CB 文件能協助申請，並不等於目的國已自動核准。',
+              '付款前先固定銷售國家，再向該國主管機關或 NCB 確認國家差異、插頭要求、認證標誌、登錄及工廠監督。這是 ZimonAI 依官方制度邊界作出的證據判讀，不是任何 NCB 對特定產品或市場作出的准入決定。'
+            ]
+          }
+        ],
+        checklist: [
+          '附查詢日期的 IECEE 官方結果',
+          '證書編號、狀態、簽發日期與 NCB',
+          '完整品牌、製造商、型號與 Type Ref.',
+          '輸入／輸出額定值、瓦數、保護等級與連接埠配置',
+          'IEC 標準、版本與列明的 National Differences',
+          '與證書相連、由核准 CBTL 簽署的 CB Test Report',
+          '另外確認目的國的准入與工廠監督要求'
+        ],
+        limitsText: 'CB Test Certificate 只能支持證書所列標準、選定樣品與涵蓋範圍；不能證明中國賣方就是製造商或授權經銷商、工廠擁有該證書、每批出貨都與送測樣品一致，或產品已滿足所有國家規則。EMC、無線、能效、限用物質、插頭、標示、登錄、運輸與合約要求，可能各自需要證據。公開資料庫只是摘要；狀態或細節不清時，應向證書持有人或簽發 NCB 確認。'
+      },
+      usbIfCertification: {
+        topic: 'USB 充電器認證',
+        published: '2026 年 8 月 26 日',
+        readTime: '約 7 分鐘',
+        title: '報價寫著「USB PD」，就能證明 GaN 充電器通過 USB-IF 認證嗎？',
+        description: 'USB PD 是供應商宣稱支援的技術；要證明 USB-IF 認證，還要找到精確產品紀錄，並把公司、型號與 TID 對起來。',
+        imageAlt: '電源適配器旁的 USB-C 線材照片，用於說明 USB-IF 充電器紀錄核對。',
+        imageCaption: '電源適配器與 USB-C 線材為編輯用圖片；不是 ZimonAI 的供應商、客戶、實驗室或認證證據。',
+        answer: '不能。報價上的「USB PD」、「USB-C」或「GaN」字樣，本身都不能證明 USB-IF 認證。USB-IF 說明，認證產品須通過 Compliance Program 並列入 Integrators List；Certified USB Charger 標誌也只能用於已完成適用測試、且已列入該清單的產品。買家仍要把報價的精確型號、公司、Test ID（TID）、認證日期與充電器類別，逐項對回官方紀錄。',
+        takeaways: [
+          '先問清楚供應商是在宣稱支援 USB 規格，還是在宣稱取得 USB-IF 認證；兩者需要的證據不同。',
+          '用精確產品與公司名稱查 USB-IF Product Search，並保存 TID、型號、類別、認證日期與查詢日期。',
+          'OEM 名稱、額外型號尾碼、連接埠或瓦數配置不同時，都要補出關係，不能因外殼相同就自行連結。'
+        ],
+        sections: [
+          {
+            title: 'USB PD 宣稱與 USB-IF 認證差在哪裡？',
+            paragraphs: [
+              'USB-IF 將 Compliance Program 說明為一套使用 Test ID 追蹤的測試規範。產品通過後，才會被視為 USB-IF certified、加入 Integrators List，並有機會取得 USB-IF 標誌的授權。報價只寫「USB PD」或「USB-C」，還沒有呈現這些步驟。',
+              '官方標誌指引對充電器說得更明確：Certified USB Charger 與 Certified USB Fast Charger 標誌，只能用在通過適用 USB-IF 測試程序、並已列入 Integrators List 的產品；瓦數也是標誌圖稿的一部分。因此，貼上一張標誌圖片、提供 USB Power Delivery 測試報告，或只證明控制晶片支援功能，都不能取代精確產品紀錄。'
+            ]
+          },
+          {
+            title: '官方產品紀錄要核對哪些欄位？',
+            paragraphs: [
+              'USB-IF Product Search 只收錄已獲准使用 USB-IF 標誌的認證產品。公開頁面預設顯示近兩年的紀錄，查較舊產品時要調整日期範圍。USB-IF 也提醒，認證日期超過兩年的產品未必符合目前版本的 Compliance Program；所以找到舊紀錄後，仍要保留日期並交代它的時效背景。',
+              'ZimonAI 的實務判讀，是把報價、產品標籤、包裝與官方結果並排。連結關係必須落到產品層級，不能從企業會員身分、元件認證，或另一款共用外殼的充電器直接推論。'
+            ],
+            items: [
+              '列名公司，以及它與中國賣方的關係',
+              '完整產品名或型號，包括尾碼與修訂版',
+              'Test ID（TID）、產品類別與認證日期',
+              '單孔或多孔充電器類別',
+              '認證標誌瓦數與報價的單孔／總輸出',
+              '附查詢日期的報價、標籤、包裝與官方結果'
+            ]
+          },
+          {
+            title: 'OEM 或相似型號，可以沿用另一款充電器的認證嗎？',
+            paragraphs: [
+              '有可能，但必須走 USB-IF 承認的程序。USB-IF 把 OEM arrangements 與 Qualification by Similarity 列為認證途徑；相似性政策也明定，只有 USB-IF 的 compliance committee 與 certification review board 能核准 Qualification by Similarity。獲准後，新產品會取得新的 TID，並加入 Integrators List。',
+              'USB-IF 的型號政策允許只有外觀差異的多個產品名或型號共用一個 TID，但會影響 USB 相容性的差異不能藏在萬用字元後面。針對多孔 GaN 充電器，連接埠配置、功率分配、韌體或標示瓦數不同時，應請供應商提出文件說明，不能當成只有顏色不同。這是 ZimonAI 的證據判讀方式，不是 USB-IF 對個別供應商作出的認定。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、產品名、型號、修訂版與連接埠配置',
+          '宣稱類型：支援 USB 規格，或已取得 USB-IF 認證',
+          'USB-IF Product Search 結果與查詢日期',
+          '列名公司、TID、產品類別與認證日期',
+          '標誌與瓦數用法是否對應報價產品',
+          '名稱不同時的 OEM 或 Qualification by Similarity 關係',
+          '另行確認的安全、市場准入與出貨一致性證據'
+        ],
+        limitsText: 'USB-IF 紀錄處理的是該列名所代表的 USB 相容性範圍；不能證明產品真的採用 GaN 元件、取得電氣安全認證、符合特定市場法規、自有工廠、賣方有銷售授權、量產持續一致、每一種連接埠組合都達到廣告效能，或這批出貨品質合格。公開查不到結果時，尤其要先排除日期篩選與型號差異；它是待補資料，不是可以直接寫成不實宣稱的證據。'
+      },
       euEconomicOperator: {
         topic: '歐盟市場可追溯性',
         published: '2026 年 8 月 22 日',
@@ -1108,12 +1626,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、FCC ID、UL 档案、CE 标志和 UN 38.3 文件。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、欧盟 Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '六篇核查笔记',
+      latest: '九篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -1176,6 +1694,7 @@ export const knowledgeContent = {
         china: '中国',
         'united-states': '美国',
         'european-union': '欧盟',
+        global: '全球标准',
         international: '国际运输'
       }
     },
@@ -1194,6 +1713,174 @@ export const knowledgeContent = {
       back: '返回知识库'
     },
     articles: {
+      euSafetyGate: {
+        topic: '欧盟市场监管',
+        published: '2026 年 8 月 30 日',
+        readTime: '约 7 分钟',
+        title: '欧盟 Safety Gate 没有这款充电器的记录，就能认为产品安全吗？',
+        description: 'Safety Gate 发布主管部门通报的危险产品与纠正措施；搜索无结果，不等于充电器、供应商或本批货物获得安全认可。',
+        imageAlt: '大理石台面上的电源适配器和 USB-C 线缆，用于说明欧盟 Safety Gate 核查。',
+        imageCaption: '电源适配器和线缆为编辑配图；不是 ZimonAI 的供应商、客户、核查、召回或产品安全证据。',
+        answer: '不能。欧盟 Safety Gate 是市场监管发现危险产品后，用于交换预警和纠正措施的快速通报系统；它不是上市前审批清单，也不是一份完整的“安全充电器”名录。搜索无结果只能说明，在本次使用的名称、型号和筛选条件下没有找到公开预警。采购方仍需单独核实精确型号的产品合规、供应商关系和出货一致性。',
+        takeaways: [
+          '发现疑似匹配记录时，应把它视为需要立即核对型号和批次的官方市场后风险信息，不能直接推断该供应商的全部产品都有相同问题。',
+          '不要只查一个名称；还要比较预警编号、产品描述、品牌、Model／Type、图片、风险和已采取的措施。',
+          '没有搜索结果只代表完成了一项数据库核查；型号声明、测试报告、标签、追溯信息和量产一致性仍需继续验证。'
+        ],
+        sections: [
+          {
+            title: '一条 Safety Gate 预警记录究竟证明什么？',
+            paragraphs: [
+              '欧盟《2023/988 号法规》第 25 和 26 条把 Safety Gate 定义为交换危险产品纠正措施信息的快速预警系统。成员国将主管部门或经济运营者采取的措施提交系统，再由欧盟委员会检查并传递符合要求的通报。因此，这类记录反映的是市场监管发现和后续行动，并不是产品上市前获得的证书。',
+              '欧盟委员会《Safety Gate 2025》报告给出了完整流程：国家主管部门在市场上识别危险产品，提交已采取的措施，欧盟委员会共享信息，其他主管部门检查本国市场，最后在公开门户发布摘要。记录可以支持特定产品、风险与措施的对应关系，却不能证明外观相似、输出配置不同或同一卖方的其他产品存在同样缺陷。'
+            ]
+          },
+          {
+            title: '采购方怎样把预警记录对应到报价型号？',
+            paragraphs: [
+              '欧盟委员会说明，公众可以在 Safety Gate 门户按不同条件搜索危险产品、查看预警详情并导出结果。先用完整品牌和 Model／Type 搜索，再根据报价单、铭牌、包装和实物上的有效识别信息，改用具有区分度的型号片段、产品类别或其他字段复查。应保存查询日期、筛选条件和预警编号，方便之后复现。',
+              'ZimonAI 的实务判断是，把预警页与报价资料并列，逐项使用页面实际提供的字段：产品描述、品牌、Model／Type、条码或其他编码、图片、原产国、风险说明、被指出的不符合事项、涉及批次和纠正措施。共用外壳，或都被笼统称为“USB 充电器”，不足以证明是同一产品。'
+            ],
+            items: [
+              'Safety Gate 预警编号和查询日期',
+              '完整品牌、Model／Type 及全部型号后缀',
+              '产品图片、插头、接口、功率和标签布局',
+              '页面列出时的条码、批次或其他产品编码',
+              '原产国，以及可获取时的经济运营者名称',
+              '风险说明、引用要求和纠正措施'
+            ]
+          },
+          {
+            title: '查到或查不到记录后，采购应怎样处理？',
+            paragraphs: [
+              '如果关键识别信息合理匹配，应先暂停采信供应商的安全声明，确认报价型号、版本或批次是否落入预警范围。要求制造商提供纠正措施、更新后的型号证据，并向销售目的地主管部门确认当前状态。撤市、召回、禁售或删除网络商品等措施，应按预警原文理解，不能被弱化成一句“以前的小问题”。',
+              '如果没有匹配记录，采购审核仍不能结束。针对充电器，通常还要把精确制造商和型号对应到适用的符合性声明、安全与 EMC 证据、铭牌和额定值、欧盟经济运营者、样品结构以及约定的量产控制。这是 ZimonAI 的证据处理建议，不是欧盟委员会对某一产品作出的安全结论。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、型号、版本、插头、接口和额定功率',
+          '使用完整识别信息和有效型号片段搜索 Safety Gate',
+          '保存查询日期、筛选条件、预警编号和必要的导出结果',
+          '逐项比较预警图片、编码、风险和纠正措施',
+          '疑似匹配时取得供应商书面说明和纠正措施证据',
+          '另行核实精确型号的声明、测试证据、标签和欧盟追溯信息',
+          '根据订单风险安排出货或量产一致性控制'
+        ],
+        limitsText: 'Safety Gate 预警只能支持该条记录所描述的产品、风险和纠正措施；不能自动识别每个品牌背后的中国工厂、证明供应商所有产品都危险，也不能因为外观相似就认定属于同一型号。反过来，公开搜索无结果也不能证明产品安全、已经获得市场准入、证书真实、工厂所有权、卖方授权、量产持续一致或本批货物质量。国家主管部门可以更新或撤回预警，搜索结果也会受到识别信息、筛选条件、语言和查询日期影响。'
+      },
+      ieceeCbCertificate: {
+        topic: '国际安全认证',
+        published: '2026 年 8 月 28 日',
+        readTime: '约 7 分钟',
+        title: '供应商提供 IECEE CB 测试证书，就代表这款充电器能进入所有市场吗？',
+        description: 'CB 证书可以为各国认证提供基础，但采购方仍需核对官方记录、具体型号、签发机构和目的国规则。',
+        imageAlt: '黄色背景上的白色电源适配器，用于说明 IECEE CB 证书核查。',
+        imageCaption: '电源适配器为编辑用图片；不是 ZimonAI 的供应商、客户、实验室、证书或市场准入证据。',
+        answer: '不能。有效的 IECEE CB Test Certificate 说明证书所代表的选定样品，已经按照列明标准完成 CB Scheme 评估；它可以减少申请国家认证时的重复工作，却不是所有国家的自动准入许可。采购方仍要核实官方记录、准确型号与额定值、签发证书的国家认证机构（NCB）、National Differences，以及销售目的地另行规定的步骤。',
+        takeaways: [
+          '用证书编号查询 IECEE 官方数据库，不要把供应商发送的 PDF、标志或报告封面当成最终验证。',
+          '将型号、额定值、品牌、制造商、标准版本和 National Differences 与报价产品逐项对应。',
+          '针对具体销售国家，向主管部门或 NCB 确认认证标志、注册、国家差异和工厂监督要求。'
+        ],
+        sections: [
+          {
+            title: '数据库显示“Valid”，这项状态证明到哪里？',
+            paragraphs: [
+              'IECEE 公开证书平台说明，该数据库用于查找各 NCB 的证书，但页面内容只是证书和报告的摘录，完整资料由证书持有人提供。平台还明确指出，CB Scheme 按照 ISO/IEC 17067 type 1a 对选定样品进行测试并签发证书，不包含持续工厂监督。因此，“Valid”支持的是一项具体证书记录，而不是对后续每批量产的持续批准。',
+              '根据 IEC 的说明，Test Report Form 必须由获认可的 CB Testing Laboratory 签署，并作为 NCB 签发的 CB Test Certificate 附件，才能成为有效 CB Test Report。只有测试报告文件、实验室名称或 IEC 标准编号，不足以构成完整的 CB 证据。'
+            ]
+          },
+          {
+            title: '怎样确认报价型号确实在证书范围内？',
+            paragraphs: [
+              'IECEE 官方结果列出证书状态和编号、产品、制造商、额定值及主要特性、品牌、Model／Type Ref.、采用标准、National Differences、签发日期和 NCB。核查时应把这些字段与报价单、铭牌、包装、样品和技术规格并列，包括型号后缀、功率和接口配置都不能省略。',
+              'ZimonAI 的实务判断是，先让供应商解释清楚公司名称和型号之间的每一处差异。OEM 品牌、贸易公司销售或系列型号可能存在合理关系，但需要书面关系和覆盖范围作为支持。若数据库中没有记录，IECEE 建议联系证书持有人或签发 NCB；公开查不到属于待补证据，不能直接等同于伪造。'
+            ],
+            items: [
+              '证书编号、状态和签发日期',
+              '产品描述及完整 Model／Type Ref.',
+              '输入、输出、功率、防护类别和接口配置',
+              '制造商、申请人、品牌与卖方的关系',
+              '记录中的 IEC 标准及版本',
+              'National Differences 和签发 NCB'
+            ]
+          },
+          {
+            title: '取得 CB 证书后，还需要目的国认证吗？',
+            paragraphs: [
+              '需要单独确认。现行 IECEE 基本规则把成员对 IECEE 文件的认可，与授予 National Mark 或其他国家认可机制联系起来；IEC 的官方说明则强调，考虑相关国家差异后，国家层级的批准和认证会得到便利。也就是说，CB 文件是国家认证的基础之一，并不代表准入已经自动完成。',
+              '下单前应先明确销售国家，再向当地主管部门或 NCB 核实国家差异、插头、认证标志、注册和工厂监督。这是 ZimonAI 根据官方制度边界作出的证据处理结论，不是某个 NCB 对具体产品作出的批准。'
+            ]
+          }
+        ],
+        checklist: [
+          '带查询日期的 IECEE 官方搜索结果',
+          '证书编号、状态、签发日期和 NCB',
+          '完整品牌、制造商、型号和 Type Ref.',
+          '输入／输出额定值、功率、防护类别和接口布局',
+          'IEC 标准、版本及列明的 National Differences',
+          '与证书相连、由认可 CBTL 签署的 CB Test Report',
+          '单独确认目的国准入和工厂监督要求'
+        ],
+        limitsText: 'CB Test Certificate 只针对证书所列标准、选定样品和覆盖范围；不能证明中国卖方就是制造商或授权经销商、工厂拥有证书、每批出货都与送测样品一致，也不能代替所有国家规则。EMC、无线、能效、限用物质、插头、标签、注册、运输和合同要求可能需要不同证据。公开数据库只是摘录；状态或细节不清时，应向证书持有人或签发 NCB 确认。'
+      },
+      usbIfCertification: {
+        topic: 'USB 充电器认证',
+        published: '2026 年 8 月 26 日',
+        readTime: '约 7 分钟',
+        title: '报价写着“USB PD”，就能证明 GaN 充电器通过 USB-IF 认证吗？',
+        description: 'USB PD 是供应商声称支持的技术；要证明 USB-IF 认证，还要找到精确产品记录，并对应公司、型号与 TID。',
+        imageAlt: '电源适配器旁的 USB-C 线材照片，用于说明 USB-IF 充电器记录核对。',
+        imageCaption: '电源适配器和 USB-C 线材为编辑用图片；不是 ZimonAI 的供应商、客户、实验室或认证证据。',
+        answer: '不能。报价中的“USB PD”“USB-C”或“GaN”字样，本身都不能证明 USB-IF 认证。USB-IF 说明，认证产品须通过 Compliance Program 并列入 Integrators List；Certified USB Charger 标志也只能用于完成适用测试且已列入该清单的产品。买家仍要把报价中的精确型号、公司、Test ID（TID）、认证日期和充电器类别逐项对应官方记录。',
+        takeaways: [
+          '先确认供应商是在声称支持 USB 规范，还是声称取得 USB-IF 认证；两种说法需要不同证据。',
+          '用精确产品和公司名称查询 USB-IF Product Search，并保存 TID、型号、类别、认证日期和查询日期。',
+          'OEM 名称、额外型号后缀、接口或功率配置不同时，都要补充关系证据，不能因外壳相同就自行对应。'
+        ],
+        sections: [
+          {
+            title: 'USB PD 声明与 USB-IF 认证有什么区别？',
+            paragraphs: [
+              'USB-IF 将 Compliance Program 说明为一套通过 Test ID 追踪的测试规范。产品通过后，才会被视为 USB-IF certified、加入 Integrators List，并可能获得 USB-IF 标志授权。报价只写“USB PD”或“USB-C”，并没有体现这些步骤。',
+              '官方标志指南对充电器的要求更明确：Certified USB Charger 与 Certified USB Fast Charger 标志，只能用于通过适用 USB-IF 测试程序并已列入 Integrators List 的产品，瓦数也是标志图稿的一部分。因此，粘贴一张标志图片、提供 USB Power Delivery 测试报告，或只证明控制芯片支持相关功能，都不能替代精确产品记录。'
+            ]
+          },
+          {
+            title: '官方产品记录需要核对哪些字段？',
+            paragraphs: [
+              'USB-IF Product Search 只收录获准使用 USB-IF 标志的认证产品。公开页面默认显示近两年的记录，查询较旧产品时要调整日期范围。USB-IF 还提醒，认证日期超过两年的产品不一定符合当前版本的 Compliance Program；找到旧记录后，仍要保存日期并说明它的时效背景。',
+              'ZimonAI 的实务判断，是把报价、产品标签、包装与官方结果并列比对。对应关系必须落实到产品层级，不能从企业会员身份、元器件认证，或另一款共用外壳的充电器直接推断。'
+            ],
+            items: [
+              '列名公司及其与中国卖方的关系',
+              '完整产品名或型号，包括后缀与修订版本',
+              'Test ID（TID）、产品类别和认证日期',
+              '单口或多口充电器类别',
+              '认证标志功率与报价的单口／总输出',
+              '带查询日期的报价、标签、包装和官方结果'
+            ]
+          },
+          {
+            title: 'OEM 或相似型号可以沿用另一款充电器的认证吗？',
+            paragraphs: [
+              '有可能，但必须采用 USB-IF 认可的程序。USB-IF 将 OEM arrangements 与 Qualification by Similarity 列为认证途径；其相似性政策明确，只有 USB-IF 的 compliance committee 与 certification review board 可以批准 Qualification by Similarity。获得批准后，新产品会取得新的 TID 并加入 Integrators List。',
+              'USB-IF 的型号政策允许只有外观差异的多个产品名或型号共用一个 TID，但会影响 USB 兼容性的差异不能隐藏在通配符后。对于多口 GaN 充电器，如果接口配置、功率分配、固件或标称功率不同，应要求供应商提供文件说明，不能把它当成只有颜色差异。这是 ZimonAI 的证据处理判断，不是 USB-IF 对具体供应商作出的认定。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、产品名、型号、修订版本和接口配置',
+          '声明类型：支持 USB 规范，或已取得 USB-IF 认证',
+          'USB-IF Product Search 结果与查询日期',
+          '列名公司、TID、产品类别和认证日期',
+          '标志与功率用法是否对应报价产品',
+          '名称不同时的 OEM 或 Qualification by Similarity 关系',
+          '另行确认的安全、市场准入和出货一致性证据'
+        ],
+        limitsText: 'USB-IF 记录针对该列名所代表的 USB 兼容性范围；不能证明产品确实采用 GaN 元器件、取得电气安全认证、符合特定市场法规、自有工厂、卖方拥有销售授权、量产持续一致、每种接口组合都达到广告性能，或本批出货质量合格。公开查询不到结果时，应先排除日期筛选和型号差异；它属于待补资料，不能直接作为虚假声明的证据。'
+      },
       euEconomicOperator: {
         topic: '欧盟市场可追溯性',
         published: '2026 年 8 月 22 日',
