@@ -369,6 +369,14 @@ function home(t) {
   </main>`;
 }
 
+function serviceMarketReference(reference) {
+  if (!reference) return '';
+  return `<aside class="service-market-reference" aria-label="${esc(reference.label)}">
+    <div class="service-market-reference__heading"><p class="file-label">${esc(reference.label)}</p><h3>${esc(reference.title)}</h3></div>
+    <div class="service-market-reference__body"><p>${esc(reference.text)}</p><p class="service-market-reference__limits">${esc(reference.limits)}</p><div class="service-market-reference__sources">${reference.sources.map((source) => `<a href="${esc(source.href)}" target="_blank" rel="noopener noreferrer">${esc(source.label)}${arrow()}</a>`).join('')}</div></div>
+  </aside>`;
+}
+
 function services(t) {
   const consultationProduct = paymentProduct(t, 'consultation');
   const balanceProduct = paymentProduct(t, 'balance');
@@ -380,6 +388,7 @@ function services(t) {
     ${service.id === 't1' ? sampleReport(t) : ''}
     ${service.upgrade ? `<p class="service-tier-panel__upgrade"><span>+</span>${esc(service.upgrade)}</p>` : ''}
     <div class="service-tier-panel__work">${service.groups.map((group) => `<section><h3>${esc(group.title)}</h3><ul>${group.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></section>`).join('')}</div>
+    ${serviceMarketReference(service.marketReference)}
     ${service.note ? `<aside class="service-tier-panel__note"><strong>${esc(t.services.labels.important)}</strong><p>${esc(service.note)}</p></aside>` : ''}
     <div class="service-tier-panel__boundary">
       <div><span class="file-label">${esc(t.services.labels.notIncluded)}</span><p>${esc(service.notIncluded)}</p></div>
@@ -516,10 +525,11 @@ function checkoutForm(t, product, modifier = '') {
   const quantity = product.quantity ? `<label class="checkout-field"><span>${esc(labels.quantity)} <small>${esc(labels.required)}</small></span><input type="number" name="quantity" min="1" max="100" step="1" value="1" inputmode="numeric" required></label>` : '';
   const reference = product.reference ? `<label class="checkout-field"><span>${esc(labels.reference)} <small>${esc(labels.required)}</small></span><input type="text" name="reference" maxlength="120" autocomplete="off" required></label>` : '';
   const referenceError = product.key === 'consultation-extension' ? labels.extensionReferenceError : labels.balanceReferenceError;
-  return `<form class="checkout-form${modifier ? ` ${modifier}` : ''}" data-checkout-form data-product="${esc(product.key)}" data-login-label="${esc(t.payment.authGate.redirecting)}" data-checkout-error="${esc(labels.error)}" data-reference-error="${esc(referenceError)}" novalidate>
+  return `<form class="checkout-form${modifier ? ` ${modifier}` : ''}" data-checkout-form data-product="${esc(product.key)}" data-login-label="${esc(t.payment.authGate.redirecting)}" data-validation-error="${esc(t.payment.authGate.validationError)}" data-checkout-error="${esc(labels.error)}" data-reference-error="${esc(referenceError)}" novalidate>
     <div class="checkout-resume-notice" data-checkout-resume hidden tabindex="-1"><strong>${esc(t.payment.authGate.resumeTitle)}</strong><p>${esc(t.payment.authGate.resumeText)}</p></div>
     ${quantity}${reference}
     <label class="consent checkout-consent"><input type="checkbox" name="terms" required><span>${esc(labels.terms)} <a href="${termsHref}" target="_blank" rel="noopener">${esc(labels.termsLink)}</a></span></label>
+    <p class="checkout-login-note"><span aria-hidden="true">→</span><span>${esc(t.payment.authGate.purchaseNote)}</span></p>
     <button class="button button--ink" type="submit" data-checkout-button data-default-label="${esc(product.button)}" data-processing-label="${esc(labels.processing)}">${esc(product.button)}${arrow()}</button>
     <p class="form-error" data-checkout-error role="alert"></p>
   </form>`;

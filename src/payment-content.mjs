@@ -20,6 +20,8 @@ export const paymentContent = {
     },
     authGate: {
       redirecting: 'Sign in to continue…',
+      validationError: 'Complete the required fields and accept the payment terms before signing in.',
+      purchaseNote: 'Next step: if you are not signed in, we will take you to the client portal. Use Google or an Email verification code, then return to this service and confirm checkout again. No payment starts automatically.',
       resumeTitle: 'You are signed in. Review the service once more.',
       resumeText: 'Click the purchase button again when the scope and details are correct. Checkout will open only after that confirmation; no payment has been made yet.'
     },
@@ -128,6 +130,8 @@ export const paymentContent = {
     },
     authGate: {
       redirecting: '請先登入再繼續…',
+      validationError: '請先完成必填欄位並勾選付款條款，再進行登入。',
+      purchaseNote: '下一步：若尚未登入，我們會先帶你到客戶中心。可使用 Google 或 Email 驗證碼；登入後會返回這項服務，再由你確認開啟付款頁，不會自動扣款。',
       resumeTitle: '你已登入，請再確認一次服務內容。',
       resumeText: '範圍與資料都正確時，再按一次購買按鈕。付款頁只會在你再次確認後開啟，目前尚未產生任何扣款。'
     },
@@ -216,6 +220,8 @@ export const paymentContent = {
     },
     authGate: {
       redirecting: '请先登录再继续…',
+      validationError: '请先完成必填字段并勾选付款条款，再进行登录。',
+      purchaseNote: '下一步：如尚未登录，我们会先带你到客户中心。可使用 Google 或邮箱验证码；登录后会返回这项服务，再由你确认打开付款页面，不会自动扣款。',
       resumeTitle: '你已登录，请再确认一次服务内容。',
       resumeText: '范围与资料都正确时，再按一次购买按钮。付款页面只会在你再次确认后打开，目前尚未产生任何扣款。'
     },

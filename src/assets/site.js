@@ -765,6 +765,13 @@ checkoutForms.forEach((form) => form.addEventListener('submit', async (event) =>
   const button = form.querySelector('[data-checkout-button]');
   const error = form.querySelector('[data-checkout-error]');
   if (error) error.textContent = '';
+  if (!form.checkValidity()) {
+    if (error) error.textContent = form.dataset.validationError || '';
+    const invalidField = form.querySelector(':invalid');
+    invalidField?.focus({ preventScroll: true });
+    form.reportValidity();
+    return;
+  }
   const data = new FormData(form);
   const product = form.dataset.product;
   const intent = safeCheckoutIntent({
@@ -793,10 +800,6 @@ checkoutForms.forEach((form) => form.addEventListener('submit', async (event) =>
       return;
     }
     if (!sessionResponse.ok || !session.csrfToken) throw new Error(session.error || 'checkout_session_unavailable');
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
     button.disabled = true;
     button.textContent = button.dataset.processingLabel;
     trackAnalytics('checkout_start', product);

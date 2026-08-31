@@ -298,8 +298,8 @@ if (!sourceJs.includes("sessionResponse.status === 401") || !sourceJs.includes('
 const checkoutHandlerStart = sourceJs.indexOf('checkoutForms.forEach');
 const checkoutHandlerEnd = sourceJs.indexOf('const paymentResult', checkoutHandlerStart);
 const checkoutHandler = sourceJs.slice(checkoutHandlerStart, checkoutHandlerEnd);
-if (checkoutHandler.indexOf("fetch('/api/portal/me'") < 0 || checkoutHandler.indexOf('form.checkValidity()') < checkoutHandler.indexOf("fetch('/api/portal/me'")) {
-  errors.push('checkout must require sign-in before validating final payment consent');
+if (checkoutHandler.indexOf("fetch('/api/portal/me'") < 0 || checkoutHandler.indexOf('form.checkValidity()') < 0 || checkoutHandler.indexOf('form.checkValidity()') > checkoutHandler.indexOf("fetch('/api/portal/me'")) {
+  errors.push('checkout must validate required fields before requiring sign-in');
 }
 if (!sourceJs.includes("fetch('/api/portal/me'") || !sourceJs.includes("'X-CSRF-Token': session.csrfToken") || !sourceJs.includes("credentials: 'same-origin'")) errors.push('authenticated checkout is missing its same-origin session or CSRF token');
 if (!sourceAdminJs.includes("api('/api/admin/notifications'") || !sourceAdminJs.includes('emailConfigured') || !sourceAdminJs.includes('notificationId: item.id')) errors.push('admin notification status or safe retry control is incomplete');
