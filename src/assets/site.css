@@ -585,6 +585,17 @@ html[data-layout="cjk"] .sample-report h3 { max-width: 12em; line-height: 1.18; 
 .business-record dl > div { display: grid; grid-template-columns: .55fr 1.45fr; gap: 25px; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .business-record dt { font-family: var(--mono); font-size: var(--text-utility); color: var(--muted); }
 .business-record dd { margin: 0; }
+.operating-locations { padding-block: 110px 120px; }
+.operating-locations__header { display: grid; grid-template-columns: .7fr 1.3fr; gap: 80px; align-items: end; margin-bottom: 44px; }
+.operating-locations__header h2 { max-width: 650px; margin: 0; font-size: var(--type-section-title); }
+.operating-locations__header > p { max-width: 620px; margin: 0 0 8px; color: var(--muted); }
+.operating-locations__list { border-top: 1px solid var(--ink); }
+.operating-location { display: grid; grid-template-columns: .7fr 1.3fr; gap: 80px; padding: 28px 0; border-bottom: 1px solid var(--line); font-style: normal; }
+.operating-location > div { display: grid; align-content: start; gap: 7px; }
+.operating-location strong { font-size: 23px; }
+.operating-location span { color: var(--muted); }
+.operating-location small { width: fit-content; color: var(--blue); font-family: var(--mono); font-size: var(--text-label); }
+.operating-location > p { max-width: 620px; margin: 2px 0 0; font-size: 17px; line-height: 1.65; }
 .registration-evidence { position: relative; display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(45px, 6vw, 90px); margin-block: 120px; padding: clamp(44px, 6vw, 82px); overflow: hidden; color: var(--paper); background: var(--navy); border: 1px solid var(--navy); }
 .registration-evidence::before { content: attr(data-registration-stamp); position: absolute; top: 21px; right: 24px; color: rgba(247, 248, 245, .48); font-family: var(--mono); font-size: var(--text-utility); letter-spacing: .08em; }
 .registration-evidence h2 { max-width: 690px; margin-bottom: 25px; font-size: var(--type-section-title); }
@@ -799,10 +810,12 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 9.5em; letter-spacin
 .site-footer__top p { max-width: 550px; margin: 30px 0 0; color: #b5c3c5; font-family: var(--serif); font-size: 28px; }
 .footer-identity { display: grid; gap: 6px; margin-top: 34px; color: #a3b1b4; font-family: var(--mono); font-size: var(--text-label); }
 .footer-identity strong { color: #c8d3d4; font-weight: 500; }
-.footer-addresses { display: grid; gap: 8px; max-width: 760px; margin-top: 12px; padding-top: 13px; border-top: 1px solid #385057; font-size: 14px; font-style: normal; }
-.footer-addresses > span { display: grid; grid-template-columns: 86px minmax(0,1fr); gap: 12px; align-items: start; }
+.footer-addresses { display: grid; max-width: 760px; margin-top: 16px; border-top: 1px solid #385057; font-size: 14px; font-style: normal; }
+.footer-addresses > span { display: grid; grid-template-columns: 165px minmax(0,1fr); gap: 18px; align-items: start; padding: 14px 0; border-bottom: 1px solid #2c454e; }
 .footer-addresses b { color: #c8d3d4; font-weight: 500; }
-.footer-addresses i { color: #a3b1b4; font-style: normal; line-height: 1.6; }
+.footer-addresses i { display: grid; gap: 4px; color: #a3b1b4; font-style: normal; line-height: 1.55; }
+.footer-addresses em { color: #c8d3d4; font-style: normal; }
+.footer-addresses small { color: #9bbcff; font-size: var(--text-utility); }
 .footer-contact { display: grid; align-content: end; gap: 9px; min-width: 330px; margin: 0; }
 .footer-contact > div { display: grid; grid-template-columns: 105px 1fr; gap: 18px; align-items: baseline; }
 .footer-contact dt { color: #8fa4a8; font-family: var(--mono); font-size: var(--text-label); }
@@ -1052,6 +1065,11 @@ html[data-layout="cjk"] .payment-hero__copy h1 { max-width: 9.5em; letter-spacin
   .about-grid article { min-height: auto; }
   .about-lead { grid-row: auto; }
   .business-record dl > div { grid-template-columns: 1fr; gap: 8px; }
+  .operating-locations { padding-block: 80px 90px; }
+  .operating-locations__header, .operating-location { grid-template-columns: 1fr; gap: 22px; }
+  .operating-locations__header { margin-bottom: 34px; }
+  .operating-location { padding: 24px 0; }
+  .operating-location > p { font-size: 16px; }
   .registration-evidence { grid-template-columns: 1fr; margin-block: 85px; padding: 54px 28px 32px; }
   .registration-evidence::before { right: 28px; }
   .registration-evidence dl > div { grid-template-columns: 1fr; gap: 6px; }

@@ -170,7 +170,7 @@ test('client and operations workspaces expose safe progress and reversible order
   assert.match(templateSource, /data-admin-toggle-archived-cases/);
 });
 
-test('the footer shows only the address language selected by the visitor', () => {
+test('the footer shows both offices only in the address language selected by the visitor', () => {
   const footerOf = (locale) => {
     const html = renderPage(locale, 'home');
     return html.slice(html.indexOf('<footer class="site-footer">'), html.indexOf('</footer>') + 9);
@@ -181,8 +181,21 @@ test('the footer shows only the address language selected by the visitor', () =>
 
   assert.match(english, new RegExp(brandProfile.registration.registeredAddressEn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   assert.doesNotMatch(english, new RegExp(brandProfile.registration.registeredAddressZhHans));
-  for (const chinese of [traditional, simplified]) {
-    assert.match(chinese, new RegExp(brandProfile.registration.registeredAddressZhHans));
-    assert.doesNotMatch(chinese, new RegExp(brandProfile.registration.registeredAddressEn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-  }
+  assert.match(english, new RegExp(brandProfile.taiwanOffice.addressEn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.doesNotMatch(english, new RegExp(brandProfile.taiwanOffice.addressZhHant));
+  assert.doesNotMatch(english, new RegExp(brandProfile.taiwanOffice.addressZhHans));
+
+  assert.match(traditional, new RegExp(brandProfile.registration.registeredAddressZhHans));
+  assert.match(traditional, new RegExp(brandProfile.taiwanOffice.addressZhHant));
+  assert.doesNotMatch(traditional, new RegExp(brandProfile.taiwanOffice.addressEn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.doesNotMatch(traditional, new RegExp(brandProfile.taiwanOffice.addressZhHans));
+
+  assert.match(simplified, new RegExp(brandProfile.registration.registeredAddressZhHans));
+  assert.match(simplified, new RegExp(brandProfile.taiwanOffice.addressZhHans));
+  assert.doesNotMatch(simplified, new RegExp(brandProfile.taiwanOffice.addressEn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  assert.doesNotMatch(simplified, new RegExp(brandProfile.taiwanOffice.addressZhHant));
+
+  assert.match(traditional, /台灣辦公室｜新北/);
+  assert.match(traditional, /客戶聯絡與專案協調/);
+  assert.match(traditional, /會面採預約制/);
 });

@@ -3,7 +3,8 @@
 // that the registered address is also the customer-reception address. Do not
 // add an office image, social account or registration identifier unless it is
 // recorded here as owner-approved. The contact channels below were supplied
-// and approved by the owner on 13 and 21 August 2026.
+// and approved by the owner on 13 and 21 August 2026. The New Taipei office
+// address and appointment-only presentation were approved on 2 September 2026.
 export const brandProfile = {
   name: 'ZimonAI 智蒙灣',
   domain: 'https://zimonai.com',
@@ -17,7 +18,7 @@ export const brandProfile = {
     linkedin: { display: 'linkedin.com/in/zimonai', href: 'https://www.linkedin.com/in/zimonai' }
   },
   operatingModel: 'Client-paid charger and power electronics supplier services',
-  operatingBases: ['Taipei', 'Shenzhen'],
+  operatingBases: ['New Taipei', 'Shenzhen'],
   registration: {
     legalNameZhHans: '深圳智蒙湾科技有限公司',
     legalRepresentativeZhHant: '羅亦斈',
@@ -36,6 +37,11 @@ export const brandProfile = {
       { id: 'meeting', src: '/assets/zimonai-shenzhen-public-meeting-area.png', width: 571, height: 425 },
       { id: 'reception', src: '/assets/zimonai-shenzhen-reception-desk.png', width: 567, height: 417 }
     ]
+  },
+  taiwanOffice: {
+    addressZhHant: '235060 台灣新北市中和區板南路100號7樓之3',
+    addressZhHans: '235060 台湾新北市中和区板南路100号7楼之3',
+    addressEn: '7F.-3, No. 100, Bannan Rd., Zhonghe Dist., New Taipei City 235060, Taiwan'
   }
 };
 
