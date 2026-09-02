@@ -452,8 +452,33 @@ function scope(t) {
     ${cta(t, t.scope.ctaTitle, t.scope.ctaText)}</main>`;
 }
 
+function localizedOfficeLocations(t) {
+  const isEnglish = t.__key === 'en';
+  const isTraditional = t.__key === 'zh-tw';
+  return [
+    {
+      label: t.common.shenzhenOffice,
+      role: t.common.shenzhenOfficeRole,
+      address: isEnglish ? brandProfile.registration.registeredAddressEn : brandProfile.registration.registeredAddressZhHans,
+      lang: isEnglish ? 'en' : 'zh-Hans'
+    },
+    {
+      label: t.common.taiwanOffice,
+      role: t.common.taiwanOfficeRole,
+      address: isEnglish
+        ? brandProfile.taiwanOffice.addressEn
+        : isTraditional
+          ? brandProfile.taiwanOffice.addressZhHant
+          : brandProfile.taiwanOffice.addressZhHans,
+      lang: isEnglish ? 'en' : isTraditional ? 'zh-Hant' : 'zh-Hans',
+      note: t.common.appointmentOnly
+    }
+  ];
+}
+
 function about(t) {
   const registration = brandProfile.registration;
+  const officeLocations = localizedOfficeLocations(t);
   const legalRepresentative = t.__key === 'zh-cn' ? registration.legalRepresentativeZhHans : registration.legalRepresentativeZhHant;
   const registrationFields = [
     [t.about.registration.fields.legalName, registration.legalNameZhHans, 'zh-Hans'],
@@ -489,6 +514,10 @@ function about(t) {
       <article class="about-block about-block--truth reveal"><span class="file-label">04 · ${esc(t.ui.scale)}</span><h2>${esc(t.about.scaleTitle)}</h2><p>${esc(t.about.scaleText)}</p></article>
     </section>
     <section class="business-record shell reveal"><div><p class="kicker">${esc(t.ui.operatingRecord)}</p><h2>${esc(t.about.record.title)}</h2></div><dl>${t.about.record.items.map(([term, description]) => `<div><dt>${esc(term)}</dt><dd>${esc(description)}</dd></div>`).join('')}</dl></section>
+    <section class="operating-locations shell" aria-labelledby="operating-locations-title">
+      <header class="operating-locations__header reveal"><div><p class="kicker">${esc(t.common.officesLabel)}</p><h2 id="operating-locations-title">${esc(t.about.locationsTitle)}</h2></div><p>${esc(t.about.locationsLead)}</p></header>
+      <div class="operating-locations__list">${officeLocations.map((office) => `<address class="operating-location reveal"><div><strong>${esc(office.label)}</strong><span>${esc(office.role)}</span>${office.note ? `<small>${esc(office.note)}</small>` : ''}</div><p lang="${office.lang}">${esc(office.address)}</p></address>`).join('')}</div>
+    </section>
     ${registrationEvidence}
     ${officeEvidence}
     <section class="principles shell">${t.about.principles.map(([title, text], index) => `<article class="principle reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</section>
@@ -887,10 +916,8 @@ function header(t, pageId) {
 }
 
 function footer(t) {
-  const address = t.__key === 'en'
-    ? { label: t.common.englishAddressLabel, lang: 'en', value: brandProfile.registration.registeredAddressEn }
-    : { label: t.common.chineseAddressLabel, lang: 'zh-Hans', value: brandProfile.registration.registeredAddressZhHans };
-  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span><address class="footer-addresses"><span><b>${esc(address.label)}</b><i lang="${address.lang}">${esc(address.value)}</i></span></address></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'services')}">${esc(t.nav.servicesBooking)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
+  const officeLocations = localizedOfficeLocations(t);
+  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span><address class="footer-addresses" aria-label="${esc(t.common.officesLabel)}">${officeLocations.map((office) => `<span class="footer-office"><b>${esc(office.label)}</b><i><em>${esc(office.role)}</em><span lang="${office.lang}">${esc(office.address)}</span>${office.note ? `<small>${esc(office.note)}</small>` : ''}</i></span>`).join('')}</address></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'services')}">${esc(t.nav.servicesBooking)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
 }
 
 function supportPanel(t) {

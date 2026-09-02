@@ -446,8 +446,14 @@ for (const behavior of ['supportPanel.inert = !open', "event.key !== 'Tab'", "do
   if (!sourceJs.includes(behavior)) errors.push(`support dialog behavior missing: ${behavior}`);
 }
 if (!sourcePortalJs.includes("signedOut.toggleAttribute('data-auth-unavailable-state', showUnavailable)") || !sourcePortalCss.includes('.portal-entry[data-auth-unavailable-state] .portal-auth')) errors.push('disabled Portal sign-in status is not promoted into the first mobile viewport');
-for (const address of [brandProfile.registration.registeredAddressZhHans, brandProfile.registration.registeredAddressEn]) {
-  if (!joined.includes(address)) errors.push(`approved bilingual footer address missing: ${address}`);
+for (const address of [
+  brandProfile.registration.registeredAddressZhHans,
+  brandProfile.registration.registeredAddressEn,
+  brandProfile.taiwanOffice.addressZhHant,
+  brandProfile.taiwanOffice.addressZhHans,
+  brandProfile.taiwanOffice.addressEn
+]) {
+  if (!joined.includes(address)) errors.push(`approved localized office address missing: ${address}`);
 }
 for (const phrase of ['One category only', '我們專精充電器與電源電子供應鏈', '我们专注充电器与电源电子供应链', 'Full Managed Sourcing Verification']) {
   if (!joined.includes(phrase)) errors.push(`site output missing approved category or service content: ${phrase}`);

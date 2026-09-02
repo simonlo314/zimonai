@@ -8,6 +8,66 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-rohs-test-report',
+    key: 'rohsTestReport',
+    slug: 'knowledge/rohs-test-report-charger',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['RoHS test report', 'charger RoHS compliance', 'RoHS homogeneous material', 'EN IEC 63000', 'RoHS declaration', 'charger material compliance'],
+      'zh-tw': ['RoHS 測試報告', '充電器 RoHS 合規', 'RoHS 均質材料', 'EN IEC 63000', 'RoHS 符合性聲明', '充電器限用物質'],
+      'zh-cn': ['RoHS 测试报告', '充电器 RoHS 合规', 'RoHS 均质材料', 'EN IEC 63000', 'RoHS 符合性声明', '充电器限用物质']
+    },
+    datePublished: '2026-09-01',
+    dateModified: '2026-09-01',
+    image: '/assets/editorial-rohs-circuit-board.jpg',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageCrop: {
+      card: '56% 52%',
+      article: '53% 50%',
+      mobile: '59% 52%'
+    },
+    photo: {
+      photographer: 'Ivan Chumak',
+      page: 'https://www.pexels.com/photo/close-up-of-electronic-circuit-board-with-components-34924858/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'European Union — EUR-Lex',
+        title: 'Directive 2011/65/EU — consolidated text as of 1 July 2026',
+        url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02011L0065-20260701'
+      },
+      {
+        publisher: 'European Commission — Directorate-General for Environment',
+        title: 'Restriction of Hazardous Substances in Electrical and Electronic Equipment (RoHS)',
+        url: 'https://environment.ec.europa.eu/topics/waste-and-recycling/rohs-directive_en'
+      },
+      {
+        publisher: 'European Commission — Directorate-General for Environment',
+        title: 'RoHS Directive implementation — exemptions procedure and status',
+        url: 'https://environment.ec.europa.eu/topics/waste-and-recycling/rohs-directive/rohs-directive-implementation_en'
+      },
+      {
+        publisher: 'European Union — EUR-Lex',
+        title: 'Commission Implementing Decision (EU) 2020/659 — EN IEC 63000:2018',
+        url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32020D0659'
+      },
+      {
+        publisher: 'International Electrotechnical Commission',
+        title: 'IEC 63000:2016+A1:2022 — technical documentation for substance restrictions',
+        url: 'https://webstore.iec.ch/en/publication/73587'
+      },
+      {
+        publisher: 'International Electrotechnical Commission',
+        title: 'IEC 62321-2:2021 — disassembly, disjointment and sample preparation',
+        url: 'https://webstore.iec.ch/en/publication/64226'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-safety-gate',
     key: 'euSafetyGate',
     slug: 'knowledge/eu-safety-gate-charger-alert',
@@ -454,12 +514,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, EU Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-electronics buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, RoHS, EU Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Nine field notes',
+      latest: 'Ten field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -541,6 +601,63 @@ export const knowledgeContent = {
       back: 'All knowledge notes'
     },
     articles: {
+      rohsTestReport: {
+        topic: 'EU hazardous-substance compliance',
+        published: '1 September 2026',
+        readTime: '7 minutes',
+        title: 'Does a RoHS test report prove this charger is EU compliant?',
+        description: 'A test report can support specific samples and materials. It does not replace the exact product’s technical documentation, EU declaration or production controls.',
+        imageAlt: 'Macro view of components and soldered parts on a circuit board, used as an editorial illustration for RoHS evidence checks.',
+        imageCaption: 'Editorial photograph of a circuit board. It is not a ZimonAI supplier, client, factory, charger, test sample or compliance record.',
+        answer: 'No. A RoHS test report can support the substances, samples, methods and results that it actually identifies, but it does not by itself prove that every homogeneous material in the exact charger complies, that an exemption is valid, or that the manufacturer has completed the technical documentation, EU declaration of conformity and series-production controls required by Directive 2011/65/EU.',
+        takeaways: [
+          'Read the report at sample level: product or material identity, model, component, colour, test method, substances, result and reporting limit must all be visible.',
+          'Connect the tested samples to the quoted charger’s current bill of materials and every relevant homogeneous material; do not extend one passing result to untested variants.',
+          'Request the manufacturer’s current RoHS technical file and EU declaration, then check exemptions and production changes separately from the laboratory report.'
+        ],
+        sections: [
+          {
+            title: 'What does a passing RoHS test report actually establish?',
+            paragraphs: [
+              'The European Commission says RoHS currently restricts ten substances in electrical and electronic equipment. Article 4 and Annex II of the Directive apply the concentration limits by weight in each homogeneous material: 0.1% for nine listed substances and 0.01% for cadmium, subject to the Directive’s exclusions and application-specific exemptions. A whole-product marketing label such as “RoHS compliant” therefore does not explain which materials were assessed.',
+              'IEC 62321-2 provides strategies for disassembly, disjointment and sample preparation before analytical testing. A laboratory result should be read against the exact sample description and preparation shown in the report. ZimonAI’s practical interpretation is that a passing sample supports only the material or component represented by that sample; it does not silently cover unlisted plastics, coatings, solders, cables, connectors or supplier substitutions elsewhere in the charger.'
+            ]
+          },
+          {
+            title: 'Why is the report only one part of the RoHS evidence file?',
+            paragraphs: [
+              'Article 7 of the current consolidated Directive requires manufacturers to prepare technical documentation, carry out internal production control, draw up an EU declaration of conformity, affix CE marking, retain the file for ten years and maintain procedures so series production remains in conformity. Article 13 states that the manufacturer assumes responsibility by drawing up the declaration. None of those responsibilities is transferred to a laboratory merely because it issued a report.',
+              'Commission Implementing Decision (EU) 2020/659 published EN IEC 63000:2018 as the harmonised technical-documentation standard for RoHS. IEC describes IEC 63000 as specifying the technical documentation a manufacturer compiles to declare compliance with substance restrictions. It is a documentation framework, not a central EU approval certificate. In practical review, the report should sit inside an evidence chain that explains the product structure, material and supplier evidence, assessment choices, exemptions and model-specific declaration.'
+            ],
+            items: [
+              'Manufacturer and exact product or model identification',
+              'Current bill of materials, component and material revisions',
+              'Supplier material declarations and supporting test evidence',
+              'Assessment of homogeneous materials and identified risk gaps',
+              'Any Annex III or IV exemption, application and validity status',
+              'Updated EU declaration of conformity and change-control records'
+            ]
+          },
+          {
+            title: 'How should a buyer match the report to the charger before purchase?',
+            paragraphs: [
+              'Place the quotation, product label, sample, bill of materials and report side by side. Match the report number and date, applicant, manufacturer, model, sample photographs, material or component name, colour, laboratory, method, tested substances and results. If the report covers only a cable, enclosure resin, PCB sample or selected components, ask how the remaining homogeneous materials are supported. If several wattages, plug versions or colours share a report, require a written material-and-model mapping rather than assuming the enclosure proves equivalence.',
+              'Exemptions require a current check. The Commission says RoHS exemptions are limited in time and regularly reassessed; a renewal request can affect the status after a printed expiry date. Save the exemption wording and query date, and confirm it fits the product category and application. Article 7 also requires product, characteristic, standard and specification changes to be taken into account. ZimonAI therefore treats a material, component supplier, PCB or cable change as a reason to review the evidence set—not as an automatic failure and not as something an old report can automatically cover.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact charger brand, model, revision, plug, ports, wattage and colour',
+          'Report number, issue date, applicant, manufacturer and laboratory',
+          'Sample photographs and descriptions tied to material or component identifiers',
+          'Test methods, substances, results, units and reporting limits',
+          'Current bill of materials and mapping from each report or declaration to the product',
+          'Any claimed Annex III or IV exemption checked for application and current status',
+          'Manufacturer’s technical documentation and signed EU declaration of conformity',
+          'Change control and risk-based production or shipment verification'
+        ],
+        limitsText: 'A RoHS report supports only the identified samples, methods and results. It does not prove the Chinese seller’s legal identity, factory ownership, authorisation to use another company’s evidence, electrical safety, EMC, REACH compliance, performance, capacity or shipment quality. It also cannot establish that untested materials, later substitutions or every production unit match the samples. Whether a charger falls within scope, uses a valid exemption or has sufficient technical documentation depends on the exact product and current law; unresolved cases should be confirmed with the responsible economic operator or competent Member State authority.'
+      },
       euSafetyGate: {
         topic: 'EU market surveillance',
         published: '30 August 2026',
@@ -1040,12 +1157,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、歐盟 Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '九篇查核筆記',
+      latest: '十篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1127,6 +1244,63 @@ export const knowledgeContent = {
       back: '返回知識庫'
     },
     articles: {
+      rohsTestReport: {
+        topic: '歐盟限用物質合規',
+        published: '2026 年 9 月 1 日',
+        readTime: '約 7 分鐘',
+        title: '供應商給了 RoHS 測試報告，就能證明這款充電器符合歐盟要求嗎？',
+        description: '測試報告可以支持列明樣品與材料的結果，但不能取代精確產品的技術文件、EU 符合性聲明與量產管制。',
+        imageAlt: '電路板上電子元件與焊接部位的近景照片，用於說明 RoHS 證據查核。',
+        imageCaption: '電路板為編輯用圖片；不是 ZimonAI 的供應商、客戶、工廠、充電器、送測樣品或合規紀錄。',
+        answer: '不能。RoHS 測試報告只能支持報告明確列出的物質、樣品、方法與結果；它本身不能證明精確充電器的每一種均質材料都合格、引用的豁免仍有效，也不能代替《2011/65/EU 指令》要求製造商建立的技術文件、EU 符合性聲明與量產一致性程序。',
+        takeaways: [
+          '先看送測樣品，而不是先看封面上的 Passed：產品／材料身分、型號、零件、顏色、方法、物質、結果與限值都要讀得到。',
+          '把每個樣品連回報價型號當下的 BOM 與均質材料；一項材料通過，不能自行延伸到沒有送測的變體。',
+          '另外索取製造商現行的 RoHS 技術文件與 EU 符合性聲明，豁免狀態與量產變更也要分開查。'
+        ],
+        sections: [
+          {
+            title: '報告寫著 Passed，實際能確認到哪裡？',
+            paragraphs: [
+              '歐盟執委會目前列出十項 RoHS 限用物質。《2011/65/EU 指令》第 4 條與附錄 II 採「均質材料」計算濃度：鎘的最高容許濃度為 0.01%，其餘九項為 0.1%，並須再考慮指令的排除範圍與特定用途豁免。所以，成品頁面只寫「RoHS compliant」，還沒有回答哪些材料實際受到評估。',
+              'IEC 62321-2 處理分析前的拆解、分離與樣品製備策略。閱讀實驗室報告時，必須回到實際樣品描述與製備方式。ZimonAI 的實務判讀是：某一個樣品通過，只能支持該樣品所代表的材料或零件；報告沒有列出的塑膠、塗層、焊料、線材、連接器或後來換用的供應來源，不會因此自動受到涵蓋。'
+            ]
+          },
+          {
+            title: '為什麼不能用一份報告取代整套 RoHS 文件？',
+            paragraphs: [
+              '現行指令第 7 條要求製造商建立技術文件、執行內部生產管制、簽署 EU 符合性聲明、加貼 CE 標誌、保存文件十年，並維持量產持續符合的程序；第 13 條則明定，製造商簽署聲明時承擔產品符合 RoHS 的責任。實驗室出具報告，不會接手這些法律責任。',
+              '歐盟《2020/659 號執行決定》將 EN IEC 63000:2018 列為 RoHS 調和標準；IEC 對 IEC 63000 的說明，是規範製造商為宣告限用物質符合性所彙整的技術文件。它是一套文件評估架構，不是歐盟中央機構核發的「RoHS 證書」。就採購查核而言，測試報告應被放進產品結構、材料／供應商證據、風險判斷、豁免與型號聲明可以彼此連結的證據鏈。'
+            ],
+            items: [
+              '製造商，以及精確產品／型號的識別資料',
+              '現行 BOM、零件版本與材料版本',
+              '上游材料聲明及相應測試證據',
+              '均質材料評估與尚未補齊的風險項目',
+              '附錄 III／IV 豁免的用途、範圍與有效狀態',
+              '更新後的 EU 符合性聲明與變更紀錄'
+            ]
+          },
+          {
+            title: '付款前，買家要怎麼把報告對回報價充電器？',
+            paragraphs: [
+              '把報價單、產品銘牌、樣品、BOM 與測試報告並排。逐項核對報告編號與日期、申請單位、製造商、型號、樣品照片、材料或零件名稱、顏色、實驗室、測試方法、受測物質與結果。若報告只涵蓋線材、外殼樹脂、PCB 樣品或部分零件，就要追問剩餘均質材料由什麼證據支持；多瓦數、不同插頭或不同顏色共用報告時，也要有材料與型號的書面對照。',
+              '豁免必須查當下狀態。歐盟執委會說明，RoHS 豁免有期限且會定期重審，續期申請也可能影響紙面到期日後的狀態。保存實際豁免文字與查詢日期，並確認產品類別和用途吻合。第 7 條同時要求把設計、特性、標準及技術規範的變更納入考量；因此，ZimonAI 會把材料、零件供應商、PCB 或線材更換視為重新檢視證據的觸發點，而不是直接判定不合格，也不是讓舊報告一概沿用。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、型號、修訂版、插頭、連接埠、瓦數與顏色',
+          '報告編號、日期、申請單位、製造商與實驗室',
+          '可連到材料／零件識別碼的樣品照片與描述',
+          '測試方法、物質、結果、單位與報告限值',
+          '現行 BOM，以及每份報告／聲明與產品的對照',
+          '附錄 III／IV 豁免的用途與現行狀態',
+          '製造商技術文件與已簽署的 EU 符合性聲明',
+          '變更管制，以及依風險安排的量產或出貨驗證'
+        ],
+        limitsText: 'RoHS 報告只能支持其列明的樣品、方法與結果；不能證明中國賣方的法律主體、工廠所有權、使用他人文件的授權、電氣安全、EMC、REACH、產品效能、產能或本批貨物品質，也不能證明未送測材料、後續替代料或每一件量產品都與樣品一致。精確充電器是否落入指令範圍、能否使用某項豁免，以及技術文件是否充分，都要依實際產品與當下有效規則判斷；仍有疑義時，應向負責的經濟營運者或會員國主管機關確認。'
+      },
       euSafetyGate: {
         topic: '歐盟市場監管',
         published: '2026 年 8 月 30 日',
@@ -1626,12 +1800,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、欧盟 Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '九篇核查笔记',
+      latest: '十篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -1713,6 +1887,63 @@ export const knowledgeContent = {
       back: '返回知识库'
     },
     articles: {
+      rohsTestReport: {
+        topic: '欧盟限用物质合规',
+        published: '2026 年 9 月 1 日',
+        readTime: '约 7 分钟',
+        title: '供应商提供了 RoHS 测试报告，能证明这款充电器符合欧盟要求吗？',
+        description: '报告只能支持实际列出的样品和材料，不能替代具体产品的技术文件、EU 符合性声明和量产控制。',
+        imageAlt: '电路板上电子元器件和焊接部位的微距照片，用于说明 RoHS 证据核查。',
+        imageCaption: '电路板为编辑配图；不是 ZimonAI 的供应商、客户、工厂、充电器、送检样品或合规记录。',
+        answer: '不能。RoHS 测试报告能够支持文件中明确识别的物质、样品、方法和结果，但不能单独证明具体充电器的每一种均质材料均符合限值、所引用豁免仍然适用，也不能代替《2011/65/EU 指令》要求制造商完成的技术文件、EU 符合性声明和批量生产控制。',
+        takeaways: [
+          '不要只看“PASS”结论，应逐项确认产品或材料身份、型号、部件、颜色、测试方法、物质、结果和报告限值。',
+          '用当前物料清单把送检样品对应到报价充电器的均质材料，未检测的型号或材料不能依靠相似外观自动获得覆盖。',
+          '向制造商索取现行 RoHS 技术资料和 EU 符合性声明，并单独核实豁免状态及后续物料变更。'
+        ],
+        sections: [
+          {
+            title: '一份合格报告到底证明了什么？',
+            paragraphs: [
+              '欧盟委员会目前列出十种 RoHS 限用物质。《2011/65/EU 指令》第 4 条和附件 II 按均质材料重量设定最高浓度：镉为 0.01%，其余九种物质为 0.1%，同时还要判断产品是否属于排除范围或特定用途豁免。因此，供应商在规格书上写“RoHS compliant”，并没有说明哪些材料被评价。',
+              'IEC 62321-2 给出分析测试前的拆解、分离和样品制备策略。采购方需要根据报告中的样品描述和制备信息理解结果。ZimonAI 的实务判断是，合格结论只能支持送检样品所代表的材料或部件；没有列入报告的塑料、涂层、焊料、线缆、连接器，以及后来更换的物料来源，都不能被默认包含。'
+            ]
+          },
+          {
+            title: '为什么 RoHS 合规不等于积累更多测试报告？',
+            paragraphs: [
+              '现行指令第 7 条要求制造商编制技术文件、实施内部生产控制、签署 EU 符合性声明、加贴 CE 标志、将资料保存十年，并建立程序保证批量生产持续符合；第 13 条说明，制造商通过签署声明承担产品符合指令的责任。检测机构出具报告，并不会取代制造商的责任。',
+              '欧盟《2020/659 号实施决定》公布 EN IEC 63000:2018 为 RoHS 协调标准。IEC 对 IEC 63000 的定位是：规定制造商为了声明限用物质合规而编制的技术文件。它不是欧盟颁发的产品批准证书。采购核查应关注证据能否形成闭环，包括产品结构、物料及上游资料、风险判断、测试结果、豁免依据和具体型号声明。'
+            ],
+            items: [
+              '制造商及具体产品／型号的识别信息',
+              '最新物料清单、元器件和材料版本',
+              '上游材料声明及相应测试支持',
+              '均质材料评价和未解决的风险缺口',
+              '附件 III／IV 豁免的用途、范围和有效状态',
+              '更新后的 EU 符合性声明与变更记录'
+            ]
+          },
+          {
+            title: '下单前怎样确认报告属于当前报价型号？',
+            paragraphs: [
+              '将报价单、铭牌、实物样品、物料清单和报告放在一起核对。需要一致的字段包括报告编号和日期、申请方、制造商、型号、样品照片、材料或部件名称、颜色、实验室、方法、受测物质和结果。若报告只涉及外壳树脂、线缆、PCB 样品或部分元器件，应追问其他均质材料由哪些资料支持；不同功率、插脚或颜色共用报告，也应提供书面的物料和型号对应关系。',
+              '豁免状态不能只看旧 PDF。欧盟委员会说明，RoHS 豁免有期限并会定期重新评估，已经提交的续期申请也可能影响纸面到期日之后的状态。保存所依据的豁免原文和查询日期，并确认产品类别及具体用途相符。第 7 条还要求考虑产品设计、特性、协调标准和技术规范的变化；因此，ZimonAI 会在更换材料、元器件供应商、PCB 或线缆时重新评估证据，但不会在缺少核实前直接认定产品不合格。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整品牌、型号、版本、插头、接口、功率和颜色',
+          '报告编号、日期、申请方、制造商和检测机构',
+          '能够对应材料／部件编码的样品照片与描述',
+          '测试方法、物质、结果、单位和报告限值',
+          '最新物料清单及每份报告／声明与产品的对应关系',
+          '附件 III／IV 豁免的用途和当前状态',
+          '制造商技术文件及已签署的 EU 符合性声明',
+          '变更控制和按风险安排的量产或出货验证'
+        ],
+        limitsText: 'RoHS 报告只支持其中列明的样品、方法和结果；不能证明中国卖方的法律主体、工厂所有权、使用其他公司资料的授权、电气安全、EMC、REACH、产品性能、产能或本批货物质量，也不能证明未送检材料、后续替代料和每件量产品都与样品一致。具体充电器是否属于适用范围、能否使用某项豁免以及技术文件是否充分，需要结合实际产品和当时有效规则判断；仍有疑问时，应向负责的经济运营者或成员国主管部门确认。'
+      },
       euSafetyGate: {
         topic: '欧盟市场监管',
         published: '2026 年 8 月 30 日',
