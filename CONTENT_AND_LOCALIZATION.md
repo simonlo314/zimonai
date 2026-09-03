@@ -47,7 +47,12 @@ Every commercial page should answer concrete buyer questions: who the service is
 
 - Knowledge articles answer a real pre-purchase question within Chinese supplier verification, chargers, power adapters, power banks, GaN products or their relevant documentation.
 - Every article begins with a concise answer, then separates official-source facts, practical interpretation and evidence limitations.
+- Current-affairs articles are a different editorial format: the opening is a real news summary, not a buyer-verification verdict. Tell readers what happened and why it matters before adding ZIMONAI's supply-chain or buyer interpretation.
+- The business objective of current affairs is qualified organic traffic and brand exposure through useful reporting. Do not force a sales message into the headline, opening or every section; strong, readable reporting is itself the marketing.
+- Current-affairs headlines and descriptions must be specific, timely and inviting without clickbait. The body follows a news rhythm—confirmed event, context, significance, implications, what to watch and what remains unknown—instead of repeating “what this proves” throughout.
 - Prefer primary sources: regulators, statutory registries, standards bodies and certification owners. Commercial summaries may help locate a source, but do not become the factual foundation when the original is available.
 - Traditional Chinese, Simplified Chinese and English are three editorial versions. Technical names and legal meanings must remain consistent, while sentence structure and terminology are rewritten for each readership.
 - Editorial photographs must have a traceable commercial-use licence, be stored locally and be recorded in `THIRD_PARTY_ASSETS.md`. They must never be presented as ZimonAI case evidence, client work, personnel or facilities.
+- Current-affairs imagery must be directly related to the reported subject whenever rights-cleared event-specific material exists. Prefer a traceable official press-kit image or a licensed real photograph over a generic category image; unclear rights, AI generation or a misleading look-alike are publication blockers.
+- Every article ends with the shared, visible locale-specific ZIMONAI／智蒙灣科技 editorial credit. Do not omit it or invent a personal author identity.
 - A scheduled article is not published when its sources, image licence, translated meaning, build checks or production deployment cannot be verified.

@@ -831,6 +831,9 @@ function knowledgeArticle(t, page) {
   const copy = t.knowledge;
   const spec = knowledgeSpecById(page.id);
   const article = copy.articles[spec.key];
+  const summaryLabel = article.labels?.summary || copy.ui.quickAnswer;
+  const checklistLabel = article.labels?.checklist || copy.ui.buyerChecklist;
+  const limitsLabel = article.labels?.limits || copy.ui.limits;
   const imageCrop = spec.imageCrop || {};
   const imageCropStyle = `--field-note-image-position:${esc(imageCrop.article || '50% 50%')};--field-note-image-position-mobile:${esc(imageCrop.mobile || imageCrop.article || '50% 50%')}`;
   const sharedCount = (left = [], right = []) => left.filter((item) => right.includes(item)).length;
@@ -871,15 +874,15 @@ function knowledgeArticle(t, page) {
       </header>
       <div class="shell field-note__layout">
         <aside class="field-note__rail">
-          <p class="kicker">${esc(copy.ui.quickAnswer)}</p>
+          <p class="kicker">${esc(summaryLabel)}</p>
           <ol>${article.sections.map((section, index) => `<li><a href="#section-${index + 1}"><span>0${index + 1}</span>${esc(section.title)}</a></li>`).join('')}</ol>
         </aside>
         <div class="field-note__body">
-          <section class="answer-first reveal" aria-labelledby="answer-title"><p class="kicker" id="answer-title">${esc(copy.ui.quickAnswer)}</p><p>${esc(article.answer)}</p></section>
+          <section class="answer-first reveal" aria-labelledby="answer-title"><p class="kicker" id="answer-title">${esc(summaryLabel)}</p><p>${esc(article.answer)}</p></section>
           <ul class="field-note__takeaways">${article.takeaways.map((item, index) => `<li class="reveal"><span>${String(index + 1).padStart(2, '0')}</span><p>${esc(item)}</p></li>`).join('')}</ul>
           ${article.sections.map((section, index) => `<section class="field-note__section reveal" id="section-${index + 1}"><span class="field-note__section-no">${String(index + 1).padStart(2, '0')}</span><h2>${esc(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}${section.items ? `<ul>${section.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
-          <section class="buyer-checklist reveal"><p class="kicker">${esc(copy.ui.buyerChecklist)}</p><h2>${esc(copy.ui.buyerChecklist)}</h2><ul>${article.checklist.map((item) => `<li><span aria-hidden="true">✓</span>${esc(item)}</li>`).join('')}</ul></section>
-          <aside class="evidence-limit reveal"><span>!</span><div><p class="kicker">${esc(copy.ui.limits)}</p><h2>${esc(copy.ui.limits)}</h2><p>${esc(article.limitsText)}</p></div></aside>
+          <section class="buyer-checklist reveal"><p class="kicker">${esc(checklistLabel)}</p><h2>${esc(checklistLabel)}</h2><ul>${article.checklist.map((item) => `<li><span aria-hidden="true">✓</span>${esc(item)}</li>`).join('')}</ul></section>
+          <aside class="evidence-limit reveal"><span>!</span><div><p class="kicker">${esc(limitsLabel)}</p><h2>${esc(limitsLabel)}</h2><p>${esc(article.limitsText)}</p></div></aside>
         </div>
       </div>
       <section class="field-note__sources">
@@ -889,6 +892,7 @@ function knowledgeArticle(t, page) {
         </div>
       </section>
       <section class="field-note__related shell"><header><p class="kicker">${esc(copy.ui.related)}</p><h2>${esc(copy.ui.related)}</h2></header><div>${related.map((relatedSpec) => { const relatedArticle = copy.articles[relatedSpec.key]; return `<a href="${pathFor(t.__key, relatedSpec.id)}"><span>${esc(relatedArticle.topic)}</span><strong>${esc(relatedArticle.title)}</strong>${arrow()}</a>`; }).join('')}</div></section>
+      <footer class="field-note__credit shell"><p>${esc(copy.ui.editorialCredit)}</p></footer>
     </article>
     ${cta(t, t.home.finalTitle, t.home.finalText)}
   </main>`;

@@ -4,9 +4,30 @@ This file defines the repeatable publishing contract for the ZimonAI knowledge d
 
 ## Purpose and scope
 
-Publish one useful, source-backed field note for overseas buyers of chargers, power adapters, power banks, GaN fast chargers and relevant upstream components. Topics must help a buyer verify a supplier, document, model, claim or pre-payment decision.
+Publish useful, source-backed content for overseas buyers and readers following chargers, power adapters, power banks, GaN fast chargers and relevant upstream components. The desk carries two distinct formats: buyer-focused industry knowledge and readable current-affairs reporting.
 
 Do not publish generic SEO filler, broad consumer advice, invented cases, client stories, customer numbers, credentials, partners, laboratories, teams or field capabilities.
+
+## Two content formats
+
+### Industry knowledge
+
+Industry-knowledge articles answer one concrete buyer question. They should lead with a direct answer, explain the evidence chain and end with a practical checklist and clear limits. A decisive opening such as “No” or “Not by itself” is appropriate when it directly answers the reader's question.
+
+### Current affairs
+
+Current-affairs articles are written first as credible, readable news analysis. Their audience goal is legitimate organic discovery and brand exposure: earn the click with a timely, accurate headline, then keep the reader with a clear account of what happened and why it matters. Do not turn the opening into a verification lecture, a service pitch or a disguised sales page.
+
+Every current-affairs article must:
+
+- open with a self-contained news summary covering what happened, who announced it, when, and the central significance;
+- use a news-led sequence: event summary, confirmed details, why the development matters, likely industry or supply-chain implications, what to watch next, and what remains unknown;
+- keep sentences concrete and readable, with enough context for a non-specialist reader;
+- place ZIMONAI's buyer, manufacturing or supply-chain interpretation after the event is clear, as added value rather than the premise of every paragraph;
+- distinguish company claims from independent records and editorial inference without repeatedly interrupting the story;
+- avoid forced marketing. The article should build familiarity with ZIMONAI by being useful and trustworthy, not by repeatedly promoting its services.
+
+In `knowledgeArticleSpecs`, set `contentType` to `industry-knowledge` or `current-affairs`. Current-affairs locale objects must also provide independent labels for the summary, follow-up list and unknowns so the page never mislabels a news summary as a buyer-verification conclusion.
 
 ## Source standard
 
@@ -27,6 +48,8 @@ Every locale must include:
 - a visible limitations statement;
 - links to all primary sources;
 - one licensed editorial photograph with meaningful alternative text and a truthful caption.
+
+The visible end of every article must carry the approved editorial credit for its locale. Use the shared `knowledge.ui.editorialCredit` value so every existing and future article displays the same ZIMONAI／智蒙灣科技 editorial ownership line without copy drift.
 
 ## Language standard
 
@@ -49,7 +72,9 @@ When a new controlled product or market ID is genuinely needed, add its label in
 
 ## Image standard
 
-Use a locally stored image with a licence that permits commercial website use. Record the photographer, source page, licence and website use in `THIRD_PARTY_ASSETS.md`. Do not use a supplier logo, certification mark or third-party factory photograph as decoration. Editorial images are not ZimonAI evidence and must remain labelled accordingly.
+Use a locally stored image with a licence that permits commercial website use. Record the photographer or issuing organisation, source page, licence or official media-use basis, download date and website use in `THIRD_PARTY_ASSETS.md`. Do not use a supplier logo, certification mark or third-party factory photograph as decoration. Editorial images are not ZimonAI evidence and must remain labelled accordingly.
+
+Image relevance is a publication gate. For current affairs, the image should show the actual company, product, event, person or regulated subject whenever a suitable licensed photograph or official press-kit asset exists. A generic stock image is a fallback, not the default; it must not replace an available, rights-cleared event-specific asset merely because it is easier to source. Never lift an image from a product page, retailer, news story, search result or social post. An official press-kit asset must be traceable to a manufacturer- or organiser-issued media release or media library, and the caption must identify it as official media material without implying sponsorship, testing or a ZIMONAI relationship.
 
 Every article specification must also define `imageCrop.card`, `imageCrop.article` and `imageCrop.mobile` as percentage-based focal positions. Choose each position by visually reviewing the knowledge-card crop, desktop article hero and mobile article hero separately. Do not default every image to the centre, stretch an image, or accept a crop that removes the product's identifying form, plug, ports or other subject-defining detail. If one photograph cannot support all three contexts, select another photograph before publication.
 

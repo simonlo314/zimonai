@@ -17,7 +17,12 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | `src/assets/editorial-safety-gate-charger.jpg` | ready made | [Photo Of Cord Near Socket](https://www.pexels.com/photo/photo-of-cord-near-socket-3921702/) | Knowledge article about checking EU Safety Gate alerts for chargers; editorial illustration only |
 | `src/assets/editorial-rohs-circuit-board.jpg` | Ivan Chumak | [Detailed macro shot of a circuit board highlighting electronic components and traces](https://www.pexels.com/photo/close-up-of-electronic-circuit-board-with-components-34924858/) | Knowledge article about checking RoHS test-report evidence for chargers; editorial illustration only |
 | `src/assets/editorial-iso-9001-checklist.jpg` | MART PRODUCTION | [A To Do List on a Clipboard](https://www.pexels.com/photo/a-to-do-list-on-a-clipboard-7718755/) | Knowledge article about testing ISO 9001 claims against a Chinese charger factory; editorial illustration only |
-| `src/assets/editorial-qi2-power-bank.jpg` | Towfiqu barbhuiya | [A Smartphone Charging With a Power Bank](https://www.pexels.com/photo/a-smartphone-charging-with-a-power-bank-14706040/) | Current-affairs knowledge article about sourcing evidence for Qi2 25W active-cooled power banks; editorial illustration only |
+
+## Official press-kit assets
+
+| Local asset | Issuing organisation | Source and editorial-use basis | Retrieved | Website use |
+| --- | --- | --- | --- | --- |
+| `src/assets/editorial-anker-maggo-2-pro.jpg` | Anker Innovations | [A110RH11_RI_TD06_EN_V1](https://www.dropbox.com/scl/fo/xo6ymq0rpxcak9ijbl21e/AFc7V47c6qJtFf1A59bIPfE/Anker%20Charging/110R-Anker%20MagGo%20Power%20Bank%20Pro%202/A110RH11_RI_TD06_EN_V1%20%281%29.jpg?rlkey=v5lytb6qesicevy3tgxmmz19k&dl=0), supplied inside the [official IFA 2026 Anker Press Kit linked as “product photos and additional assets” in Anker Innovations' issued release](https://www.einpresswire.com/article/939305437/anker-unveils-2026-charging-lineup-at-ifa-adding-intelligence-to-a-category-built-on-speed) | 2026-09-03 | Current-affairs article about the Anker MagGo Power Bank 2 Pro; official editorial media image, not sponsored content or ZIMONAI evidence |
 
 ## Representation boundary
 
