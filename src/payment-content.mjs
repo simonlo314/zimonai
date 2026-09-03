@@ -136,7 +136,7 @@ export const paymentContent = {
       resumeText: '範圍與資料都正確時，再按一次購買按鈕。付款頁只會在你再次確認後開啟，目前尚未產生任何扣款。'
     },
     payments: {
-      kicker: '預約與付款', title: '先選清楚的服務範圍，再進行付款。',
+      kicker: '預約與付款', title: '先確認服務範圍，再進行付款。',
       lead: '固定範圍的服務可直接透過 Stripe 安全付款。T3–T6 需視供應商配合、差旅與現場執行條件另行報價。',
       stripeNote: '付款頁由 Stripe 提供。ZimonAI 不會接收或保存你的信用卡號。',
       catalog: { label: '可直接付款', title: '四項公開定價的服務', lead: '展開服務項目，確認固定範圍、不包含項目與時間後再付款。' },
@@ -226,7 +226,7 @@ export const paymentContent = {
       resumeText: '范围与资料都正确时，再按一次购买按钮。付款页面只会在你再次确认后打开，目前尚未产生任何扣款。'
     },
     payments: {
-      kicker: '预约与付款', title: '先选清楚服务范围，再进行付款。',
+      kicker: '预约与付款', title: '先确认服务范围，再进行付款。',
       lead: '固定范围的服务可以直接通过 Stripe 安全付款。T3–T6 需根据供应商配合、差旅与现场执行条件另行报价。',
       stripeNote: '付款页面由 Stripe 提供。ZimonAI 不会接收或保存你的银行卡号。',
       catalog: { label: '可直接付款', title: '四项公开定价的服务', lead: '展开服务详情，确认固定范围、不包括的项目与时间后再付款。' },

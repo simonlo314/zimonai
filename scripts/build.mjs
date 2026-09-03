@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { languages, pages } from '../src/content.mjs';
 import { knowledgeArticleSpecs, knowledgeContent } from '../src/knowledge-content.mjs';
+import { cjkProtectedTerms } from '../src/cjk-linebreak.mjs';
 import { renderPage } from '../src/template.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -27,6 +28,7 @@ for (const file of await collectFiles(sourceAssets)) {
   assetHash.update(file);
   assetHash.update(await readFile(path.join(sourceAssets, file)));
 }
+assetHash.update(await readFile(path.join(root, 'src', 'cjk-linebreak.mjs')));
 const assetVersion = assetHash.digest('hex').slice(0, 12);
 const knowledgeIndexVersion = createHash('sha256')
   .update(await readFile(path.join(root, 'src', 'knowledge-content.mjs')))
@@ -48,6 +50,19 @@ function inlineScriptHashes(html) {
 await rm(dist, { recursive: true, force: true });
 await mkdir(path.join(dist, 'assets'), { recursive: true });
 await cp(sourceAssets, path.join(dist, 'assets'), { recursive: true });
+await writeFile(
+  path.join(dist, 'assets', 'cjk-terms.js'),
+  `export const cjkProtectedTerms = ${JSON.stringify(cjkProtectedTerms)};\n`,
+  'utf8'
+);
+for (const [file, dependency] of [
+  ['site.js', 'cjk-runtime.js'],
+  ['cjk-runtime.js', 'cjk-terms.js']
+]) {
+  const target = path.join(dist, 'assets', file);
+  const source = await readFile(target, 'utf8');
+  await writeFile(target, source.replace(`./${dependency}`, `./${dependency}?v=${assetVersion}`), 'utf8');
+}
 await cp(path.join(sourceAssets, 'zimonai-shield-icon-mono-white.svg'), path.join(dist, 'zimonai-favicon.svg'));
 await cp(path.join(sourceAssets, 'zimonai-shield-favicon.png'), path.join(dist, 'zimonai-shield-favicon.png'));
 await cp(path.join(sourceAssets, 'favicon.ico'), path.join(dist, 'favicon.ico'));

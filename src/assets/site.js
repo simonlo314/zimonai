@@ -1,4 +1,7 @@
+import { observeDynamicCjkText } from './cjk-runtime.js';
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+observeDynamicCjkText();
 
 const clientErrorEnabled = (location.hostname === 'zimonai.com' || location.hostname === 'www.zimonai.com')
   && !['portal', 'admin'].includes(document.documentElement.dataset.page)
