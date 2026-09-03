@@ -38,11 +38,6 @@ export const knowledgeArticleSpecs = [
     sources: [
       {
         publisher: 'Anker Innovations',
-        title: 'Anker at IFA 2026 — global launch event and MagGo 2 Pro highlight',
-        url: 'https://www.anker-in.com/ifa'
-      },
-      {
-        publisher: 'Anker Innovations',
         title: 'Anker unveils its 2026 charging lineup at IFA — product details, availability and official press kit',
         url: 'https://www.einpresswire.com/article/939305437/anker-unveils-2026-charging-lineup-at-ifa-adding-intelligence-to-a-category-built-on-speed'
       },
