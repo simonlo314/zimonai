@@ -8,6 +8,66 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-anker-maggo-2-pro-qi2',
+    key: 'ankerMagGo2Pro',
+    slug: 'knowledge/anker-maggo-2-pro-qi2-25w-sourcing',
+    category: 'certification-market-access',
+    products: ['power-bank'],
+    markets: ['global', 'international'],
+    keywords: {
+      en: ['Anker MagGo 2 Pro', 'Qi2 25W power bank', 'Qi2 supplier verification', 'active cooling power bank', 'WPC Qi certificate', 'power bank sourcing'],
+      'zh-tw': ['Anker MagGo 2 Pro', 'Qi2 25W 行動電源', 'Qi2 供應商查核', '主動散熱行動電源', 'WPC Qi 認證', '行動電源採購'],
+      'zh-cn': ['Anker MagGo 2 Pro', 'Qi2 25W 移动电源', 'Qi2 供应商核查', '主动散热移动电源', 'WPC Qi 认证', '移动电源采购']
+    },
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    image: '/assets/editorial-qi2-power-bank.jpg',
+    imageWidth: 1600,
+    imageHeight: 1066,
+    imageCrop: {
+      card: '85% 57%',
+      article: '72% 56%',
+      mobile: '100% 58%'
+    },
+    photo: {
+      photographer: 'Towfiqu barbhuiya',
+      page: 'https://www.pexels.com/photo/a-smartphone-charging-with-a-power-bank-14706040/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'Anker Innovations',
+        title: 'Anker at IFA 2026 — global launch event and MagGo 2 Pro highlight',
+        url: 'https://www.anker-in.com/ifa'
+      },
+      {
+        publisher: 'Anker',
+        title: 'Anker MagGo 2 Pro — Qi2 25W, 10K and active-cooling product information',
+        url: 'https://www.anker.com/a110r-maggo-2-pro-qi2-magnetic-power-bank-cooling'
+      },
+      {
+        publisher: 'Wireless Power Consortium',
+        title: 'Qi-24417 — Anker MagGo Power Bank 2 Pro, part number A110R',
+        url: 'https://jpsapi.wirelesspowerconsortium.com/products/qi/24417'
+      },
+      {
+        publisher: 'Wireless Power Consortium',
+        title: 'How professional buyers verify a Qi Certified product and its certificate',
+        url: 'https://www.wirelesspowerconsortium.com/knowledge-base/testing-and-certification/qi-certified-products/'
+      },
+      {
+        publisher: 'Wireless Power Consortium',
+        title: 'Qi components and subsystems — why parts and prior designs do not automatically cover a product',
+        url: 'https://www.wirelesspowerconsortium.com/knowledge-base/testing-and-certification/qi-components-and-subsystems/'
+      },
+      {
+        publisher: 'United Nations Economic Commission for Europe',
+        title: 'UN Manual of Tests and Criteria, Revision 8 and Amendment 1',
+        url: 'https://unece.org/transport/standards/transport/dangerous-goods/un-manual-tests-and-criteria-rev8-2023'
+      }
+    ]
+  },
+  {
     id: 'knowledge-iso-9001-factory',
     key: 'iso9001Factory',
     slug: 'knowledge/iso-9001-charger-factory',
@@ -569,12 +629,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, ISO 9001 factory claims, RoHS, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, factory claims, Qi2, RoHS, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-bank buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Eleven field notes',
+      latest: 'Twelve field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -656,6 +716,64 @@ export const knowledgeContent = {
       back: 'All knowledge notes'
     },
     articles: {
+      ankerMagGo2Pro: {
+        topic: 'IFA 2026 charging market watch',
+        published: '3 September 2026',
+        readTime: '8 minutes',
+        title: 'Anker launched a fan-cooled Qi2 25W power bank: what should buyers verify before sourcing similar products?',
+        description: 'The launch confirms a new product direction, not that a look-alike supplier model is certified, transport-ready or consistent in mass production. Here is the evidence chain buyers should request.',
+        imageAlt: 'A smartphone connected to a black power bank on a desk, used as an editorial illustration for Qi2 power-bank sourcing checks.',
+        imageCaption: 'Editorial photograph of a phone and power bank. It does not show the Anker MagGo 2 Pro, a ZimonAI client or supplier, a factory, an inspection, or tested evidence.',
+        answer: 'No. Anker’s 3 September launch and the Wireless Power Consortium record confirm that Anker introduced the MagGo Power Bank 2 Pro and that the exact A110R product is registered as Qi-24417 with a 25 W MPP25 profile. They do not prove that another supplier’s similar-looking product is Qi Certified, safe for the destination market, eligible for a particular shipment, or stable in mass production. A buyer must match the quoted model to its own Qi record, battery transport evidence, market documents, bill of materials and production-representative tests.',
+        takeaways: [
+          'Separate confirmed records from launch claims: Anker publishes the cooling and charging-performance claims, while the WPC database independently identifies Qi-24417, model A110R and its registered power profile.',
+          'Do not let an OEM or trader reuse Anker’s listing, a certified IC or an earlier design as proof for a different brand, housing, coil layout, firmware or type number.',
+          'Treat active cooling as a new verification branch: fan control, air paths, blocked vents, acoustics, thermal performance, battery configuration and change control all need product-specific evidence.'
+        ],
+        sections: [
+          {
+            title: 'What did Anker launch—and which details are independently confirmed?',
+            paragraphs: [
+              'Anker Innovations’ official IFA page lists a global launch event on 3 September 2026 and names “Anker MagGo 2 Pro” as its IFA charging highlight. Anker’s product page describes a 10,000 mAh magnetic power bank with Qi2 25 W wireless output, active cooling using a fan and dual air channels, 45 W recharging, a display and a stand. Charging-time and temperature statements on that page are manufacturer claims under Anker’s stated test conditions; this article does not treat them as independent laboratory findings.',
+              'The Wireless Power Consortium’s public product record provides a separate, narrower fact set. It identifies “Anker MagGo Power Bank 2 Pro,” manufacturer part number A110R, as Qi-24417; the record shows Qi version 2.2.1, power profile MPP25, potential load power 25.0 and certification date 21 August 2026. It also identifies the entry as a complete PTx product rather than a subsystem or evaluation module. That supports the exact product’s Qi registration—it does not verify Anker’s cooling, battery-life, durability or production-consistency claims.'
+            ]
+          },
+          {
+            title: 'Can a supplier use this Qi record for a similar OEM or private-label model?',
+            paragraphs: [
+              'No. WPC tells professional buyers to obtain the Qi Certificate of Registration and follow its URL to a record showing the same visually identical product, brand, product name and type number. WPC also says that coils, shielding and ICs cannot be certified as standalone components, and that using parts from another Qi Certified product does not make a new product automatically compliant. Housing materials, coil and shielding positions, and firmware can all affect wireless power transfer.',
+              'ZimonAI’s practical interpretation is that a supplier quoting its own brand, model or modified ODM design must show the certification route that actually covers that sellable configuration. A reference to Anker A110R, a Qi-ready chipset, a laboratory evaluation board or a “same solution” statement is not a substitute. Before paying for tooling or a large order, freeze and compare the evidence fields below.'
+            ],
+            items: [
+              'Brand, product name and type number on the certificate, database record, sample and label',
+              'Qi ID, specification version, power profile and certified product type',
+              'Coil, shielding, magnets, housing materials and coil-to-surface distance',
+              'Firmware version, foreign-object detection and thermal-control settings',
+              'Rebranding or subsystem route, where claimed, with the applicable WPC record',
+              'Written change-control rule for any hardware, material, cell or firmware substitution'
+            ]
+          },
+          {
+            title: 'What extra checks does an actively cooled power bank require?',
+            paragraphs: [
+              'This is a ZimonAI engineering-risk interpretation, not a WPC or regulator conclusion: adding a fan, ducts, sensors and control logic creates more parts and more failure modes than a passive enclosure. Ask for tests on production-representative samples at defined ambient temperatures and phone states, including sustained wireless output, surface and cell temperatures, fan speed and noise, blocked or dusty air paths, stand positions, charge-while-recharging behaviour and safe fallback if the fan or sensor fails. Record the sample, firmware and test setup so a favourable prototype result cannot be silently extended to a changed production build.',
+              'Qi registration is not the whole evidence package. WPC expressly states that Qi certification does not guarantee overall product safety or endorse the product, and that manufacturers remain responsible for applicable safety regulations. A power bank also contains a lithium battery: the UNECE Manual of Tests and Criteria addresses lithium-cell and battery testing under subsection 38.3, while the shipment still needs the correct mode-, route- and carrier-specific documents. Buyers should therefore match the exact cell and assembled-battery configuration to the UN 38.3 test summary, then assess destination-market electrical safety, EMC, radio or labelling duties separately.'
+            ]
+          }
+        ],
+        checklist: [
+          'Quoted brand, model, type number, capacity, wireless output and wired input/output',
+          'WPC certificate URL and product-database record matched to the physical sample and label',
+          'Qi version, power profile and product type—not only a Qi logo or “compatible” claim',
+          'Current hardware, firmware, coil, shielding, magnet, enclosure and thermal-system versions',
+          'Cell maker and model, assembled-battery model, BMS version and bill-of-materials revision',
+          'UN 38.3 test summary matched to the exact cell and battery configuration',
+          'Destination-market safety, EMC, radio, chemical and labelling evidence that actually applies',
+          'Production-representative charging, thermal, fan-failure, blocked-airflow and acoustic results',
+          'Written change control plus pre-shipment checks against the approved golden sample'
+        ],
+        limitsText: 'The public records confirm Anker’s launch information and the WPC registration fields for Qi-24417/A110R as checked on 3 September 2026. They do not independently establish every performance statement, disclose the internal cell or BMS supplier, prove all destination-market approvals, cover another supplier’s product, or predict mass-production and shipment quality. The suggested cooling and production checks are ZimonAI’s practical risk interpretation, not a regulatory determination. Obtain the quoted supplier’s exact documents and qualified technical or legal advice for the destination and transport route before making a compliance decision.'
+      },
       iso9001Factory: {
         topic: 'China factory verification',
         published: '3 September 2026',
@@ -1269,12 +1387,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、ISO 9001 工廠聲明、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、工廠聲明、Qi2、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '十一篇查核筆記',
+      latest: '十二篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1356,6 +1474,64 @@ export const knowledgeContent = {
       back: '返回知識庫'
     },
     articles: {
+      ankerMagGo2Pro: {
+        topic: 'IFA 2026 充電產業時事',
+        published: '2026 年 9 月 3 日',
+        readTime: '約 8 分鐘',
+        title: 'Anker 發表風冷 Qi2 25W 行動電源：買家跟進同類產品前要查什麼？',
+        description: '新品發表確認了一個產品方向，不代表外觀相似的供應商型號已取得認證、可以出貨或能穩定量產。本文整理買家應要求的證據鏈。',
+        imageAlt: '桌面上一支手機連接黑色行動電源，用於說明 Qi2 行動電源採購查核的編輯圖片。',
+        imageCaption: '手機與行動電源為編輯用圖片；並非 Anker MagGo 2 Pro，也不是 ZimonAI 客戶、供應商、工廠、查核現場或受測證據。',
+        answer: '不能直接這樣判定。Anker 於 9 月 3 日的發表資訊，以及 Wireless Power Consortium（WPC）的公開紀錄，分別確認 MagGo Power Bank 2 Pro 已亮相，且精確型號 A110R 以 Qi-24417 登錄為 25 W MPP25 產品；這些資料不能證明另一家供應商外觀相似的產品也有 Qi 認證、符合目的市場要求、適用本次運輸，或已能穩定量產。買家仍須把報價型號逐一對上它自己的 Qi 紀錄、電池運輸證據、市場文件、物料清單與量產代表性測試。',
+        takeaways: [
+          '把正式紀錄與品牌宣稱分開：風扇、散熱與充電效能來自 Anker 產品資訊；WPC 資料庫獨立確認的範圍是 Qi-24417、A110R 與其登錄功率規格。',
+          '不得讓 OEM 或貿易商以 Anker 紀錄、已認證晶片或舊款方案，替代另一品牌、外殼、線圈位置、韌體或型號的產品證據。',
+          '主動散熱要另開一條查核線：風扇控制、風道堵塞、噪音、熱表現、電池配置及變更管理，都需要產品專屬資料。'
+        ],
+        sections: [
+          {
+            title: 'Anker 這次發表了什麼，哪些內容已有獨立紀錄？',
+            paragraphs: [
+              'Anker Innovations 的 IFA 官方頁面列出 2026 年 9 月 3 日全球發表活動，並把「Anker MagGo 2 Pro」列為 IFA 充電產品亮點。Anker 產品頁說明這是一款 10,000 mAh 磁吸行動電源，具備 Qi2 25 W 無線輸出、風扇與雙風道主動散熱、45 W 回充、顯示器及支架。頁面所列充電時間與溫度表現屬 Anker 在指定條件下的品牌測試宣稱，本文不把它們寫成獨立實驗室結論。',
+              'WPC 公開產品紀錄提供另一組較窄、可獨立核對的事實：產品名稱為「Anker MagGo Power Bank 2 Pro」、製造商料號 A110R、Qi ID 24417、版本 2.2.1、功率規格 MPP25、potential load power 25.0，認證日期為 2026 年 8 月 21 日；紀錄並將它標示為完整 PTx 產品，而非子系統或評估模組。這可以支持精確產品的 Qi 登錄，但不能替 Anker 的散熱、耐用度、電池壽命或量產一致性宣稱背書。'
+            ]
+          },
+          {
+            title: '供應商能拿這筆 Qi 紀錄證明相似的 OEM 或自有品牌型號嗎？',
+            paragraphs: [
+              '不能。WPC 建議專業買家索取 Qi Certificate of Registration，並沿著證書網址核對資料庫中的產品，確認外觀、品牌、產品名稱及型號一致。WPC 也明確說明，線圈、屏蔽材料與 IC 不能單獨取得產品認證；採用曾出現在其他 Qi 認證產品中的零件，也不會讓新產品自動符合。外殼材料、線圈及屏蔽位置，甚至韌體差異，都可能影響無線電力傳輸。',
+              'ZimonAI 的實務判讀是：供應商若報價自己的品牌、型號或修改過的 ODM 設計，必須提出真正涵蓋該銷售配置的認證路徑。只出示 Anker A110R、標榜 Qi-ready 的晶片、實驗室評估板，或一句「同方案」，都不能取代型號證據。付開模費或大貨款前，應先凍結並比對以下欄位。'
+            ],
+            items: [
+              '證書、資料庫、樣品與標籤上的品牌、產品名稱及型號',
+              'Qi ID、規格版本、功率規格與認證產品類型',
+              '線圈、屏蔽、磁鐵、外殼材料及線圈到表面的距離',
+              '韌體版本、異物偵測及溫控設定',
+              '若主張重新貼牌或採用子系統，對應的 WPC 登錄路徑',
+              '硬體、材料、電芯或韌體替換時的書面變更規則'
+            ]
+          },
+          {
+            title: '加入主動散熱後，行動電源要多查哪些風險？',
+            paragraphs: [
+              '以下是 ZimonAI 的工程風險判讀，不是 WPC 或主管機關結論：風扇、風道、感測器與控制邏輯會讓被動式外殼多出零件與失效模式。買家應在明確的環境溫度與手機狀態下，用量產代表性樣品測試持續無線輸出、表面與電芯溫度、風扇轉速與噪音、風道受阻或積塵、不同支架角度、邊回充邊供電，以及風扇或感測器失效時是否安全降載。測試應記錄樣品、韌體與設備條件，避免把表現良好的原型結果直接延伸到已變更的量產品。',
+              'Qi 登錄也不是完整文件包。WPC 明確提醒，Qi 認證不保證產品整體安全，也不是對產品的推薦；製造商仍須負責適用的產品安全規定。行動電源另含鋰電池，UNECE《試驗和標準手冊》第 38.3 節處理鋰電芯及電池測試，而實際出貨仍要依運輸方式、路線及承運人準備正確文件。因此，買家應先把電芯與組裝電池的精確配置對上 UN 38.3 測試摘要，再分別判斷目的市場的電氣安全、EMC、無線功能或標示義務。'
+            ]
+          }
+        ],
+        checklist: [
+          '報價品牌、型號、容量、無線輸出及有線輸入／輸出完整規格',
+          'WPC 證書網址與產品資料庫紀錄能對上實物樣品及標籤',
+          'Qi 版本、功率規格與產品類型，而不只是一個 Qi 標誌或「相容」說法',
+          '目前硬體、韌體、線圈、屏蔽、磁鐵、外殼及散熱系統版本',
+          '電芯廠牌與型號、組裝電池型號、BMS 版本及物料清單版次',
+          'UN 38.3 測試摘要對應精確電芯與電池配置',
+          '真正適用於目的市場的安全、EMC、無線、化學與標示證據',
+          '量產代表性充電、溫升、風扇失效、風道堵塞及噪音測試結果',
+          '書面變更管理，以及依核准樣品執行的出貨前核對'
+        ],
+        limitsText: '截至 2026 年 9 月 3 日，公開資料可確認 Anker 的發表資訊，以及 WPC 對 Qi-24417／A110R 列出的登錄欄位；它們不能獨立證實所有效能宣稱、揭露內部電芯或 BMS 供應商、證明所有市場核准、涵蓋另一家供應商的產品，也不能預測量產與本批出貨品質。本文提出的散熱與量產檢查屬 ZimonAI 實務風險判讀，不是法規結論。做出合規決策前，仍應取得報價供應商的精確文件，並依目的市場與運輸路線尋求合格技術或法律意見。'
+      },
       iso9001Factory: {
         topic: '中國工廠查核',
         published: '2026 年 9 月 3 日',
@@ -1969,12 +2145,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、ISO 9001 工厂声明、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、工厂声明、Qi2、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '十一篇核查笔记',
+      latest: '十二篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -2056,6 +2232,64 @@ export const knowledgeContent = {
       back: '返回知识库'
     },
     articles: {
+      ankerMagGo2Pro: {
+        topic: 'IFA 2026 充电产业观察',
+        published: '2026 年 9 月 3 日',
+        readTime: '约 8 分钟',
+        title: 'Anker 发布风冷 Qi2 25W 移动电源：采购同类产品前要核实什么？',
+        description: '新品发布确认了一个产品方向，并不代表外观相似的供应商型号已经认证、可以运输或能够稳定量产。本文整理采购方应索取的证据链。',
+        imageAlt: '桌面上一部手机连接黑色移动电源，用于说明 Qi2 移动电源采购核查的编辑图片。',
+        imageCaption: '手机和移动电源为编辑配图；并非 Anker MagGo 2 Pro，也不是 ZimonAI 的客户、供应商、工厂、核查现场或受测证据。',
+        answer: '不能直接这样判断。Anker 9 月 3 日的发布信息以及 Wireless Power Consortium（WPC）的公开记录，分别确认 MagGo Power Bank 2 Pro 已经亮相，而且精确型号 A110R 以 Qi-24417 登记为 25 W MPP25 产品；这些资料不能证明另一家供应商外观相似的产品也获得 Qi 认证、符合目的市场要求、适用于本次运输，或已经能够稳定量产。采购方仍需把报价型号逐项对应到自身的 Qi 记录、电池运输证据、市场文件、物料清单和量产代表性测试。',
+        takeaways: [
+          '把正式记录与品牌宣传分开：风扇、散热和充电性能来自 Anker 产品信息；WPC 数据库独立确认的范围是 Qi-24417、A110R 及其登记功率规格。',
+          '不能让 OEM 或贸易商用 Anker 记录、已认证芯片或旧方案，替代另一品牌、外壳、线圈位置、固件或型号的产品证据。',
+          '主动散热需要单独核查：风扇控制、风道堵塞、噪声、热性能、电池配置和变更管理，都要有产品专属资料。'
+        ],
+        sections: [
+          {
+            title: 'Anker 这次发布了什么，哪些内容已有独立记录？',
+            paragraphs: [
+              'Anker Innovations 的 IFA 官方页面列出 2026 年 9 月 3 日全球发布活动，并将“Anker MagGo 2 Pro”列为 IFA 充电产品亮点。Anker 产品页说明这是一款 10,000 mAh 磁吸移动电源，具有 Qi2 25 W 无线输出、风扇与双风道主动散热、45 W 回充、显示屏和支架。页面列出的充电时间与温度表现属于 Anker 在指定条件下提出的品牌测试宣传，本文不把它们当作独立实验室结论。',
+              'WPC 公开产品记录提供了另一组范围较窄、可以独立核对的事实：产品名称为“Anker MagGo Power Bank 2 Pro”、制造商料号 A110R、Qi ID 24417、版本 2.2.1、功率规格 MPP25、potential load power 25.0，认证日期为 2026 年 8 月 21 日；记录将其标为完整 PTx 产品，而不是子系统或评估模块。这能支持精确产品的 Qi 登记，但不能替 Anker 的散热、耐用性、电池寿命或量产一致性宣传背书。'
+            ]
+          },
+          {
+            title: '供应商能用这条 Qi 记录证明相似的 OEM 或自有品牌型号吗？',
+            paragraphs: [
+              '不能。WPC 建议专业采购方索取 Qi Certificate of Registration，再沿着证书网址核对数据库产品，确认外观、品牌、产品名称和型号一致。WPC 同时说明，线圈、屏蔽材料和 IC 不能单独取得产品认证；使用曾出现在其他 Qi 认证产品中的零件，也不会让新产品自动符合。外壳材料、线圈与屏蔽位置，甚至固件差异，都可能影响无线电力传输。',
+              'ZimonAI 的实务判断是：供应商如果报价自己的品牌、型号或修改后的 ODM 设计，就必须提供真正覆盖该销售配置的认证路径。只展示 Anker A110R、所谓 Qi-ready 芯片、实验室评估板，或一句“同方案”，都不能替代型号证据。支付模具费或大货款之前，应先冻结并比对以下字段。'
+            ],
+            items: [
+              '证书、数据库、样品和标签上的品牌、产品名称与型号',
+              'Qi ID、规范版本、功率规格和认证产品类型',
+              '线圈、屏蔽、磁体、外壳材料以及线圈到表面的距离',
+              '固件版本、异物检测和温控设置',
+              '如主张重新贴牌或采用子系统，对应的 WPC 登记路径',
+              '硬件、材料、电芯或固件替换时的书面变更规则'
+            ]
+          },
+          {
+            title: '加入主动散热后，移动电源还要多查哪些风险？',
+            paragraphs: [
+              '以下属于 ZimonAI 的工程风险判断，并非 WPC 或监管机构结论：风扇、风道、传感器和控制逻辑会让被动外壳增加零件与失效模式。采购方应在明确的环境温度和手机状态下，用量产代表性样品测试持续无线输出、表面与电芯温度、风扇转速与噪声、风道受阻或积尘、不同支架角度、边回充边供电，以及风扇或传感器失效时能否安全降载。测试需要记录样品、固件和设备条件，避免把表现良好的原型结果直接延伸到已经变更的量产品。',
+              'Qi 登记也不是完整文件包。WPC 明确提醒，Qi 认证不保证产品整体安全，也不是对产品的推荐；制造商仍须负责适用的产品安全规定。移动电源还包含锂电池，UNECE《试验和标准手册》第 38.3 节处理锂电芯和电池测试，实际出货则仍要按运输方式、路线和承运人准备正确文件。因此，采购方应把电芯和组装电池的精确配置对应到 UN 38.3 测试概要，再分别判断目的市场的电气安全、EMC、无线功能或标签义务。'
+            ]
+          }
+        ],
+        checklist: [
+          '报价品牌、型号、容量、无线输出及有线输入／输出完整规格',
+          'WPC 证书网址和产品数据库记录能够对应实物样品与标签',
+          'Qi 版本、功率规格和产品类型，而不是只有 Qi 标志或“兼容”说法',
+          '当前硬件、固件、线圈、屏蔽、磁体、外壳及散热系统版本',
+          '电芯厂商与型号、组装电池型号、BMS 版本和物料清单版次',
+          'UN 38.3 测试概要对应精确电芯和电池配置',
+          '真正适用于目的市场的安全、EMC、无线、化学和标签证据',
+          '量产代表性充电、温升、风扇失效、风道堵塞和噪声测试结果',
+          '书面变更管理，以及按批准样品执行的出货前核对'
+        ],
+        limitsText: '截至 2026 年 9 月 3 日，公开资料可以确认 Anker 的发布信息，以及 WPC 对 Qi-24417／A110R 列出的登记字段；它们不能独立证实所有性能宣传、披露内部电芯或 BMS 供应商、证明全部市场准入、覆盖另一家供应商的产品，也无法预测量产和本批出货质量。本文提出的散热与量产检查属于 ZimonAI 实务风险判断，不是监管结论。作出合规决策前，仍应取得报价供应商的精确文件，并针对目的市场和运输路线寻求合格技术或法律意见。'
+      },
       iso9001Factory: {
         topic: '中国工厂核查',
         published: '2026 年 9 月 3 日',
