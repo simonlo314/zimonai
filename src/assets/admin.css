@@ -78,10 +78,10 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 .admin-workspace__side { min-width: 0; display: grid; align-content: end; gap: 18px; }
 .admin-identity { min-width: 0; padding: 18px 0 4px 20px; border-left: 1px solid rgba(255, 255, 255, .2); }
 .admin-identity small { display: block; margin-bottom: 9px; color: #91a8c7; font-family: var(--mono); font-size: 12px; line-height: 1.4; text-transform: uppercase; }
-.admin-identity strong,
-.admin-identity span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.admin-identity > strong,
+.admin-identity > span[data-admin-user-email] { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .admin-identity strong { color: #fff; font-size: 16px; }
-.admin-identity span { margin-top: 3px; color: #aebdd0; font-size: 13px; }
+.admin-identity > span[data-admin-user-email] { margin-top: 3px; color: #aebdd0; font-size: 13px; }
 .admin-workspace__links { display: grid; gap: 7px; padding-left: 20px; }
 .admin-workspace__links a { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 7px 10px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 6px; color: #e6eef9; font-size: 12px; font-weight: 700; }
 .admin-workspace__links a:hover { border-color: rgba(142, 185, 244, .65); background: rgba(255, 255, 255, .07); }
@@ -162,7 +162,7 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 .admin-action-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .admin-action-field { min-width: 0; display: grid; gap: 7px; align-content: start; }
 .admin-action-field--wide { grid-column: 1 / -1; }
-.admin-action-field > span { color: #53657c; font-size: 12px; font-weight: 700; }
+.admin-action-field > span:not(.cjk-keep) { color: #53657c; font-size: 12px; font-weight: 700; }
 .admin-action-field input,
 .admin-action-field select,
 .admin-action-field textarea,
@@ -180,6 +180,7 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 }
 .admin-action-field textarea,
 .admin-case-form textarea { min-height: 105px; resize: vertical; }
+html[data-layout="cjk"] .admin-action-field input { min-width: 0; }
 .admin-action-field input:focus,
 .admin-action-field select:focus,
 .admin-action-field textarea:focus,
@@ -203,7 +204,7 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 .admin-case-form { margin-top: 26px; }
 .admin-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 18px; }
 .admin-fields > label { min-width: 0; display: grid; gap: 8px; }
-.admin-fields > label > span { color: #2d4059; font-size: 14px; font-weight: 700; }
+.admin-fields > label > span:not(.cjk-keep) { color: #2d4059; font-size: 14px; font-weight: 700; }
 .admin-fields b { margin-left: 6px; color: #77879c; font-family: var(--mono); font-size: 12px; font-weight: 500; }
 .admin-field--wide { grid-column: 1 / -1; }
 .admin-field-hint,
@@ -221,7 +222,7 @@ html[data-layout="cjk"] .admin-page h3 { font-size: clamp(20px, 1.7vw, 24px); li
 
 .admin-page + .site-footer .site-footer__top { grid-template-columns: 1fr; gap: 0; padding-block: 30px; }
 .admin-page + .site-footer .site-footer__top > div > p,
-.admin-page + .site-footer .footer-identity > span,
+.admin-page + .site-footer .footer-identity > span:not(.cjk-keep),
 .admin-page + .site-footer .footer-addresses,
 .admin-page + .site-footer .footer-contact { display: none; }
 .admin-page + .site-footer .footer-identity { margin-top: 16px; }

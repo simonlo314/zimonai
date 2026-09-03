@@ -6,6 +6,7 @@ import { legalContent } from './legal-content.mjs';
 import { knowledgeArticleSpecs, knowledgeCategoryDefinitions, knowledgeContent, knowledgeSpecById } from './knowledge-content.mjs';
 import { portalContent } from './portal-content.mjs';
 import { adminContent } from './admin-content.mjs';
+import { protectCjkHtml } from './cjk-linebreak.mjs';
 
 const pageMap = Object.fromEntries(pages.map((page) => [page.id, page]));
 
@@ -297,7 +298,7 @@ function home(t) {
             <a class="button button--ink magnetic" href="${pathFor(t.__key, 'request')}">${esc(t.home.primary)}${arrow()}</a>
             <a class="text-link" href="${pathFor(t.__key, 'methodology')}">${esc(t.home.secondary)}${arrow()}</a>
           </div>
-          <p class="hero__boundary"><span aria-hidden="true">—</span>${esc(t.home.distinction)}</p>
+          <p class="hero__boundary"><span aria-hidden="true">—</span><span class="hero__boundary-text">${esc(t.home.distinction)}</span></p>
         </div>
         <aside class="hero-proof" aria-label="${esc(t.home.proof.label)}">
           <header><span>${esc(t.home.proof.label)}</span><img src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512" aria-hidden="true"></header>
@@ -386,7 +387,7 @@ function services(t) {
       <aside class="service-tier-panel__commercial"><dl><div><dt>${esc(t.services.labels.price)}</dt><dd>${esc(service.price)}</dd></div><div><dt>${esc(t.services.labels.timing)}</dt><dd>${esc(service.timing)}</dd></div><div><dt>${esc(t.services.labels.mode)}</dt><dd>${esc(service.mode)}</dd></div></dl>${service.purchasable ? `${serviceCheckoutProtocol(t)}${checkoutForm(t, paymentProduct(t, service.id), 'checkout-form--inline')}` : ''}</aside>
     </header>
     ${service.id === 't1' ? sampleReport(t) : ''}
-    ${service.upgrade ? `<p class="service-tier-panel__upgrade"><span>+</span>${esc(service.upgrade)}</p>` : ''}
+    ${service.upgrade ? `<p class="service-tier-panel__upgrade"><span aria-hidden="true">+</span><span class="service-tier-panel__upgrade-copy">${esc(service.upgrade)}</span></p>` : ''}
     <div class="service-tier-panel__work">${service.groups.map((group) => `<section><h3>${esc(group.title)}</h3><ul>${group.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></section>`).join('')}</div>
     ${serviceMarketReference(service.marketReference)}
     ${service.note ? `<aside class="service-tier-panel__note"><strong>${esc(t.services.labels.important)}</strong><p>${esc(service.note)}</p></aside>` : ''}
@@ -493,7 +494,7 @@ function about(t) {
       <h2 id="registration-title">${esc(t.about.registration.title)}</h2>
       <p class="registration-evidence__lead">${esc(t.about.registration.lead)}</p>
       <dl>${registrationFields.map(([term, description, lang]) => `<div><dt>${esc(term)}</dt><dd${lang ? ` lang="${lang}"` : ''}>${esc(description)}</dd></div>`).join('')}</dl>
-      <p class="registration-evidence__disclosure"><span aria-hidden="true">!</span>${esc(t.about.registration.disclosure)}</p>
+      <p class="registration-evidence__disclosure"><span class="registration-evidence__disclosure-mark" aria-hidden="true">!</span><span class="registration-evidence__disclosure-copy">${esc(t.about.registration.disclosure)}</span></p>
     </div>
     <figure class="registration-evidence__document reveal">
       <div class="registration-evidence__frame" data-public-excerpt="${esc(t.about.registration.publicExcerpt)}"><img src="${esc(registration.publicAsset)}" alt="${esc(t.about.registration.imageAlt)}" width="1800" height="1273" loading="lazy"></div>
@@ -504,7 +505,7 @@ function about(t) {
     <header class="office-evidence__header reveal"><div><p class="kicker">${esc(t.about.office.label)}</p><h2 id="office-evidence-title">${esc(t.about.office.title)}</h2></div><p>${esc(t.about.office.lead)}</p></header>
     <address class="office-evidence__address reveal"><span>${esc(t.about.office.addressLabel)}</span><strong lang="zh-Hans">${esc(brandProfile.office.address)}</strong></address>
     <div class="office-evidence__gallery">${brandProfile.office.photos.map((photo, index) => { const copy = t.about.office.photos[photo.id]; return `<figure class="reveal"><div class="office-evidence__image"><img src="${esc(photo.src)}" alt="${esc(copy.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy"><span>0${index + 1}</span></div><figcaption>${esc(copy.caption)}</figcaption></figure>`; }).join('')}</div>
-    <p class="office-evidence__disclosure reveal"><span aria-hidden="true">—</span>${esc(t.about.office.disclosure)}</p>
+    <p class="office-evidence__disclosure reveal"><span class="office-evidence__disclosure-mark" aria-hidden="true">—</span><span class="office-evidence__disclosure-copy">${esc(t.about.office.disclosure)}</span></p>
   </section>` : '';
   return `<main id="main">${pageHeader(t.about.kicker, t.about.title, t.about.lead, true)}
     <section class="about-grid shell">
@@ -542,7 +543,7 @@ function request(t) {
       </form>
       <aside class="request-aside reveal">
         <div><p class="kicker">${esc(t.request.directTitle)}</p><h2>${esc(t.request.directTitle)}</h2><p>${esc(t.request.directText)}</p>${requestContactList(t)}</div>
-        <div><p class="kicker">${esc(t.request.responseTitle)}</p><ol>${t.request.responseSteps.map((item, index) => `<li><span>0${index + 1}</span>${esc(item)}</li>`).join('')}</ol></div>
+        <div><p class="kicker">${esc(t.request.responseTitle)}</p><ol>${t.request.responseSteps.map((item, index) => `<li><span>0${index + 1}</span><p>${esc(item)}</p></li>`).join('')}</ol></div>
       </aside>
     </section>
   </main>`;
@@ -657,7 +658,7 @@ function legalDocument(t, copy, idPrefix) {
           <div><dt>${esc(ui.operator)}</dt><dd lang="zh-Hans">${esc(brandProfile.registration.legalNameZhHans)}</dd></div>
           <div><dt>${esc(ui.contact)}</dt><dd><a href="mailto:${esc(brandProfile.email)}">${esc(brandProfile.email)}</a></dd></div>
         </dl>
-        <nav class="legal-toc" aria-label="${esc(ui.contents)}"><strong>${esc(ui.contents)}</strong><ol>${copy.sections.map((section, index) => `<li><a href="#${esc(idPrefix)}-${String(index + 1).padStart(2, '0')}"><span>${String(index + 1).padStart(2, '0')}</span>${esc(section.title)}</a></li>`).join('')}</ol></nav>
+        <nav class="legal-toc" aria-label="${esc(ui.contents)}"><strong>${esc(ui.contents)}</strong><ol>${copy.sections.map((section, index) => `<li><a href="#${esc(idPrefix)}-${String(index + 1).padStart(2, '0')}"><span class="legal-toc__no">${String(index + 1).padStart(2, '0')}</span><span class="legal-toc__title">${esc(section.title)}</span></a></li>`).join('')}</ol></nav>
       </aside>
       <div class="legal">${copy.sections.map((section, index) => legalSection(section, index, ui, idPrefix)).join('')}${references}
         <section class="legal-contact reveal"><div><p class="kicker">${esc(ui.contactTitle)}</p><h2>${esc(ui.contactTitle)}</h2><p>${esc(ui.contactLead)}</p></div><a class="button button--ink" href="mailto:${esc(brandProfile.email)}">${esc(brandProfile.email)}${arrow()}</a></section>
@@ -875,20 +876,20 @@ function knowledgeArticle(t, page) {
       <div class="shell field-note__layout">
         <aside class="field-note__rail">
           <p class="kicker">${esc(summaryLabel)}</p>
-          <ol>${article.sections.map((section, index) => `<li><a href="#section-${index + 1}"><span>0${index + 1}</span>${esc(section.title)}</a></li>`).join('')}</ol>
+          <ol>${article.sections.map((section, index) => `<li><a href="#section-${index + 1}"><span class="field-note__rail-no">0${index + 1}</span><span class="field-note__rail-title">${esc(section.title)}</span></a></li>`).join('')}</ol>
         </aside>
         <div class="field-note__body">
           <section class="answer-first reveal" aria-labelledby="answer-title"><p class="kicker" id="answer-title">${esc(summaryLabel)}</p><p>${esc(article.answer)}</p></section>
           <ul class="field-note__takeaways">${article.takeaways.map((item, index) => `<li class="reveal"><span>${String(index + 1).padStart(2, '0')}</span><p>${esc(item)}</p></li>`).join('')}</ul>
           ${article.sections.map((section, index) => `<section class="field-note__section reveal" id="section-${index + 1}"><span class="field-note__section-no">${String(index + 1).padStart(2, '0')}</span><h2>${esc(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}${section.items ? `<ul>${section.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
-          <section class="buyer-checklist reveal"><p class="kicker">${esc(checklistLabel)}</p><h2>${esc(checklistLabel)}</h2><ul>${article.checklist.map((item) => `<li><span aria-hidden="true">✓</span>${esc(item)}</li>`).join('')}</ul></section>
+          <section class="buyer-checklist reveal"><p class="kicker">${esc(checklistLabel)}</p><h2>${esc(checklistLabel)}</h2><ul>${article.checklist.map((item) => `<li><span class="buyer-checklist__mark" aria-hidden="true">✓</span><span class="buyer-checklist__text">${esc(item)}</span></li>`).join('')}</ul></section>
           <aside class="evidence-limit reveal"><span>!</span><div><p class="kicker">${esc(limitsLabel)}</p><h2>${esc(limitsLabel)}</h2><p>${esc(article.limitsText)}</p></div></aside>
         </div>
       </div>
       <section class="field-note__sources">
         <div class="shell field-note__sources-grid">
           <header><p class="kicker">${esc(copy.ui.sources)}</p><h2>${esc(copy.ui.sources)}</h2><p>${esc(copy.ui.sourcesLead)}</p></header>
-          <ol>${spec.sources.map((source, index) => `<li><span>${String(index + 1).padStart(2, '0')}</span><div><strong>${esc(source.publisher)}</strong><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.title)}${arrow()}</a></div></li>`).join('')}</ol>
+          <ol>${spec.sources.map((source, index) => `<li><span>${String(index + 1).padStart(2, '0')}</span><div><strong>${esc(source.publisher)}</strong><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer"><span class="field-note__source-title">${esc(source.title)}</span>${arrow()}</a></div></li>`).join('')}</ol>
         </div>
       </section>
       <section class="field-note__related shell"><header><p class="kicker">${esc(copy.ui.related)}</p><h2>${esc(copy.ui.related)}</h2></header><div>${related.map((relatedSpec) => { const relatedArticle = copy.articles[relatedSpec.key]; return `<a href="${pathFor(t.__key, relatedSpec.id)}"><span>${esc(relatedArticle.topic)}</span><strong>${esc(relatedArticle.title)}</strong>${arrow()}</a>`; }).join('')}</div></section>
@@ -921,7 +922,7 @@ function header(t, pageId) {
 
 function footer(t) {
   const officeLocations = localizedOfficeLocations(t);
-  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong>深圳智蒙湾科技有限公司 · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span><address class="footer-addresses" aria-label="${esc(t.common.officesLabel)}">${officeLocations.map((office) => `<span class="footer-office"><b>${esc(office.label)}</b><i><em>${esc(office.role)}</em><span lang="${office.lang}">${esc(office.address)}</span>${office.note ? `<small>${esc(office.note)}</small>` : ''}</i></span>`).join('')}</address></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'services')}">${esc(t.nav.servicesBooking)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
+  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong><span lang="zh-Hans">深圳智蒙湾科技有限公司</span> · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span><address class="footer-addresses" aria-label="${esc(t.common.officesLabel)}">${officeLocations.map((office) => `<span class="footer-office"><b>${esc(office.label)}</b><i><em>${esc(office.role)}</em><span lang="${office.lang}">${esc(office.address)}</span>${office.note ? `<small>${esc(office.note)}</small>` : ''}</i></span>`).join('')}</address></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'services')}">${esc(t.nav.servicesBooking)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
 }
 
 function supportPanel(t) {
@@ -929,7 +930,7 @@ function supportPanel(t) {
   return `<button class="support-launch" type="button" aria-label="${esc(copy.open)}" aria-expanded="false" aria-controls="support-panel" data-support-open><span aria-hidden="true">?</span><strong>${esc(copy.open)}</strong></button><div class="support-backdrop" data-support-backdrop hidden></div><aside class="support-panel" id="support-panel" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="support-title" tabindex="-1" inert data-support-panel><header><div><p class="kicker">ZimonAI</p><h2 id="support-title">${esc(copy.title)}</h2></div><button type="button" aria-label="${esc(copy.close)}" data-support-close>×</button></header><p>${esc(copy.intro)}</p><div class="support-contacts">${approvedContacts(t).map((item) => `<div><span>${esc(item.label)}</span>${item.href ? `<a href="${esc(item.href)}"${item.external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(item.value)}${arrow()}</a>` : `<strong>${esc(item.value)}</strong><button type="button" aria-live="polite" data-copy-contact="${esc(item.value)}" data-copy-label="${esc(copy.copy)}" data-copied-label="${esc(copy.copied)}" data-copy-error-label="${esc(copy.copyFailed)}">${esc(copy.copy)}</button>`}</div>`).join('')}</div><a class="button button--ink" href="mailto:${esc(brandProfile.email)}?subject=${encodeURIComponent(t.__key === 'en' ? 'ZimonAI service or payment support' : t.__key === 'zh-tw' ? 'ZimonAI 服務或付款協助' : 'ZimonAI 服务或付款协助')}">${esc(copy.emailAction)}${arrow()}</a><p class="support-panel__note">${esc(copy.paymentHelp)}</p></aside>`;
 }
 
-export function renderPage(langKey, pageId) {
+export function renderPage(langKey, pageId, { protectCjk = true } = {}) {
   const original = languages[langKey];
   const page = pageMap[pageId];
   const knowledgeCopy = knowledgeContent[langKey];
@@ -1098,7 +1099,7 @@ export function renderPage(langKey, pageId) {
     .filter((language) => language.locale !== original.locale)
     .map((language) => `<meta property="og:locale:alternate" content="${language.locale}">`)
     .join('\n  ');
-  return `<!doctype html>
+  const document = `<!doctype html>
 <html lang="${original.htmlLang}" data-page="${pageId}" data-layout="${layoutMode(langKey)}">
 <head>
   <meta charset="utf-8">
@@ -1143,4 +1144,5 @@ export function renderPage(langKey, pageId) {
   ${supportPanel(t)}
 </body>
 </html>`;
+  return protectCjk ? protectCjkHtml(document, langKey) : document;
 }

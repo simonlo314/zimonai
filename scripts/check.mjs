@@ -14,9 +14,11 @@ import {
 } from '../src/knowledge-content.mjs';
 import { portalContent } from '../src/portal-content.mjs';
 import { adminContent } from '../src/admin-content.mjs';
+import { cjkProtectedTerms, stripCjkProtectionMarkup } from '../src/cjk-linebreak.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
+await access(path.join(root, 'scripts', 'cjk-browser-check.playwright.js'));
 const distFiles = await readdir(dist, { recursive: true });
 const files = distFiles.filter((file) => file.endsWith('.html'));
 const errors = [];
@@ -35,6 +37,8 @@ const sourcePortalJs = await readFile(path.join(root, 'src', 'assets', 'portal.j
 const sourceAdminCss = await readFile(path.join(root, 'src', 'assets', 'admin.css'), 'utf8');
 const sourceAdminJs = await readFile(path.join(root, 'src', 'assets', 'admin.js'), 'utf8');
 const sourceKnowledge = await readFile(path.join(root, 'src', 'knowledge-content.mjs'), 'utf8');
+const sourceCjkLinebreak = await readFile(path.join(root, 'src', 'cjk-linebreak.mjs'), 'utf8');
+const sourceCjkRuntime = await readFile(path.join(root, 'src', 'assets', 'cjk-runtime.js'), 'utf8');
 const analyticsFunction = await readFile(path.join(root, 'functions', 'api', 'analytics.js'), 'utf8');
 const checkoutFunction = await readFile(path.join(root, 'functions', 'api', 'create-checkout-session.js'), 'utf8');
 const sessionFunction = await readFile(path.join(root, 'functions', 'api', 'checkout-session.js'), 'utf8');
@@ -116,6 +120,50 @@ if (layoutMode('zh-tw') !== 'cjk' || layoutMode('zh-cn') !== 'cjk' || layoutMode
 for (const hook of ['html[lang="zh-Hant"]', 'html[lang="zh-Hans"]', 'html[data-layout="cjk"]']) {
   if (!sourceCss.includes(hook)) errors.push(`CSS missing language layout hook ${hook}`);
 }
+if (/word-break:\s*break-all/.test(`${sourceCss}\n${sourcePortalCss}\n${sourceAdminCss}`)) errors.push('CSS contains arbitrary character breaking');
+if (/html\[data-layout="cjk"\][^{]*\{[^}]*word-break:\s*keep-all/s.test(sourceCss)) errors.push('CJK layout uses forbidden global keep-all');
+if (!sourceCss.includes('@supports (word-break: auto-phrase)') || !sourceCss.includes('html[data-layout="cjk"] .cjk-keep { display: inline-block; white-space: nowrap; }')) {
+  errors.push('shared CJK semantic line-break CSS is incomplete');
+}
+for (const [cssFile, cssSource] of [
+  ['site.css', sourceCss],
+  ['portal.css', sourcePortalCss],
+  ['admin.css', sourceAdminCss]
+]) {
+  for (const match of cssSource.matchAll(/([^{}]+)\{/g)) {
+    const selector = match[1].trim();
+    if (selector.startsWith('@')) continue;
+    for (const part of selector.split(',')) {
+      for (const token of part.matchAll(/\bspan(?=[\s.:>+~#\[]|$)/g)) {
+        const suffix = part.slice(token.index);
+        if (!/^span(?::not\(\.cjk-keep\)|\[data-|\.cjk-keep)/.test(suffix)) {
+          errors.push(`${cssFile}: span selector can restyle semantic CJK wrappers: ${part.trim()}`);
+        }
+      }
+    }
+  }
+}
+for (const required of ['Intl.Segmenter', "'zh-tw'", "'zh-cn'", 'cjk-keep--${kind}', 'ordinalPattern']) {
+  if (!sourceCjkLinebreak.includes(required)) errors.push(`CJK semantic line-break source missing ${required}`);
+}
+for (const required of ['MutationObserver', 'characterData', 'cjk-terms.js', 'observeDynamicCjkText']) {
+  if (!`${sourceCjkRuntime}\n${sourceJs}`.includes(required)) errors.push(`dynamic CJK semantic line-break source missing ${required}`);
+}
+const generatedCjkTerms = await readFile(path.join(dist, 'assets', 'cjk-terms.js'), 'utf8');
+const generatedSiteJs = await readFile(path.join(dist, 'assets', 'site.js'), 'utf8');
+const generatedCjkRuntime = await readFile(path.join(dist, 'assets', 'cjk-runtime.js'), 'utf8');
+if (!/\.\/cjk-runtime\.js\?v=[a-f0-9]{12}/.test(generatedSiteJs)) errors.push('dynamic CJK runtime import is not cache-versioned');
+if (!/\.\/cjk-terms\.js\?v=[a-f0-9]{12}/.test(generatedCjkRuntime)) errors.push('dynamic CJK vocabulary import is not cache-versioned');
+for (const locale of ['zh-tw', 'zh-cn']) {
+  for (const required of locale === 'zh-tw'
+    ? ['供應商', '充電器', '物料清單', '第一層', '新北市']
+    : ['供应商', '充电器', '物料清单', '第一层', '新北市', '智蒙灣']) {
+    if (!cjkProtectedTerms[locale].includes(required) || !generatedCjkTerms.includes(required)) {
+      errors.push(`${locale}: protected CJK vocabulary missing ${required}`);
+    }
+  }
+}
+if (/&nbsp;|word-break:\s*keep-all|<br\s*\/>/i.test(sourceCjkLinebreak)) errors.push('CJK semantic protection uses a forbidden hard-break workaround');
 if (/font-size:\s*(?:8|9|10|11)px/.test(`${sourceCss}\n${sourcePortalCss}\n${sourceAdminCss}`)) errors.push('CSS contains public text below the 12px readability floor');
 if (!sourcePolicy.includes('Traditional and Simplified Chinese are separate editorial versions')) errors.push('content policy does not preserve independent Chinese writing');
 if (brandProfile.office.address !== brandProfile.registration.registeredAddressZhHans) errors.push('approved reception address differs from registered address');
@@ -344,14 +392,16 @@ for (const [prefix, htmlLang, addressLabel, proofLabel] of [
 ]) {
   const homeHtml = await readFile(path.join(dist, prefix, 'index.html'), 'utf8');
   const aboutHtml = await readFile(path.join(dist, prefix, 'about', 'index.html'), 'utf8');
+  const homeText = stripCjkProtectionMarkup(homeHtml);
+  const aboutText = stripCjkProtectionMarkup(aboutHtml);
   if (!homeHtml.includes(`<html lang="${htmlLang}" data-page="home" data-layout="cjk">`)) errors.push(`${prefix}: missing CJK page mode`);
-  if (!homeHtml.includes(proofLabel)) errors.push(`${prefix}: truthful hero scope is not localized`);
-  if (!aboutHtml.includes(addressLabel)) errors.push(`${prefix}: approved reception-address label missing`);
-  if (!aboutHtml.includes(brandProfile.registration.legalNameZhHans)) errors.push(`${prefix}: registered legal name missing`);
-  if (!aboutHtml.includes(brandProfile.registration.registeredAddressZhHans)) errors.push(`${prefix}: registered reception address missing`);
-  if (!aboutHtml.includes(prefix === 'zh-tw' ? '公共接待區' : '公共接待区')) errors.push(`${prefix}: public reception-area disclosure missing`);
+  if (!homeText.includes(proofLabel)) errors.push(`${prefix}: truthful hero scope is not localized`);
+  if (!aboutText.includes(addressLabel)) errors.push(`${prefix}: approved reception-address label missing`);
+  if (!aboutText.includes(brandProfile.registration.legalNameZhHans)) errors.push(`${prefix}: registered legal name missing`);
+  if (!aboutText.includes(brandProfile.registration.registeredAddressZhHans)) errors.push(`${prefix}: registered reception address missing`);
+  if (!aboutText.includes(prefix === 'zh-tw' ? '公共接待區' : '公共接待区')) errors.push(`${prefix}: public reception-area disclosure missing`);
   for (const englishLabel of ['WHAT WE CHECK', 'WHY IT MATTERS', 'SOURCE TYPE', 'POSSIBLE RESULT', 'PUBLIC EXCERPT']) {
-    if (aboutHtml.includes(englishLabel) || homeHtml.includes(englishLabel)) errors.push(`${prefix}: untranslated interface label ${englishLabel}`);
+    if (aboutText.includes(englishLabel) || homeText.includes(englishLabel)) errors.push(`${prefix}: untranslated interface label ${englishLabel}`);
   }
 }
 
@@ -366,6 +416,12 @@ for (const file of files) {
   if (!html.includes('href="/zimonai-shield-favicon.png"')) errors.push(`${label}: current root favicon link missing`);
   if (html.includes('href="/zimonai-favicon.svg"')) errors.push(`${label}: previous favicon URL remains linked`);
   if (file !== '404.html' && !html.includes('https://www.linkedin.com/in/zimonai')) errors.push(`${label}: LinkedIn contact is missing`);
+  if (/^zh-(?:tw|cn)\//.test(file)) {
+    if (!html.includes('class="cjk-keep ')) errors.push(`${label}: shared CJK semantic line-break markup is missing`);
+    for (const match of html.matchAll(/<(option|textarea)\b[^>]*>([\s\S]*?)<\/\1>/gi)) {
+      if (match[2].includes('class="cjk-keep')) errors.push(`${label}: CJK protection inserted invalid phrasing markup into a form control`);
+    }
+  }
   if (/rel="icon"[^>]+href="\/(?:assets\/)?favicon\.(?:svg|png)(?:\?|\")/.test(html)) errors.push(`${label}: retired favicon remains linked`);
   if (file !== '404.html' && (html.match(/hreflang=/g) || []).length !== 4) errors.push(`${label}: expected 4 hreflang links`);
   if (file !== '404.html' && !html.includes('max-image-preview:large') && !html.includes('noindex, nofollow')) errors.push(`${label}: missing explicit index preview directive`);
@@ -408,7 +464,7 @@ for (const file of files) {
   }
 }
 
-const allText = await Promise.all(distFiles.filter((file) => /\.(html|js|css|xml|txt)$/.test(file)).map((file) => readFile(path.join(dist, file), 'utf8')));
+const allText = await Promise.all(distFiles.filter((file) => /\.(html|js|css|xml|txt)$/.test(file)).map(async (file) => stripCjkProtectionMarkup(await readFile(path.join(dist, file), 'utf8'))));
 const joined = allText.join('\n');
 const forbidden = [
   ['old Gmail', /slab\.stores@gmail\.com/i],

@@ -39,6 +39,10 @@ Every commercial page should answer concrete buyer questions: who the service is
 - Public interface text has a 12px minimum. Section eyebrows and field labels use the shared 13–14px type tokens; the evidence aesthetic must come from typeface, weight and rules, not unreadably small text.
 - Do not use negative tracking on Chinese headings.
 - Use `text-autospace`, strict line breaking and natural word breaking where supported.
+- Build Chinese pages through the shared semantic line-break protector. It combines browser phrase analysis with neutral inline spans around recognised words, approved compound terms, model names and ordinals; the visible and copyable text must remain unchanged.
+- Maintain Traditional and Simplified Chinese protection terms independently in `src/cjk-linebreak.mjs`. Add a term there when a new service, technical or regulatory phrase must never split.
+- Important headlines may define short punctuation-aware semantic phrases, but each phrase must still fit the narrowest supported viewport. Do not replace this mechanism with mass `<br>`, non-breaking spaces or global `word-break: keep-all`.
+- Before release, run the reusable Playwright browser matrix in `scripts/cjk-browser-check.playwright.js` against both Chinese locales at 320, 360, 375, 390, 430, 768, 1024, 1280 and 1440px.
 - Avoid single-character orphan lines in final visual review.
 
 `npm run check` enforces the structural parts of this policy. A human language review is still required because natural writing cannot be guaranteed by code alone.

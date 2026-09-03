@@ -7,6 +7,7 @@ import { paymentContent } from '../src/payment-content.mjs';
 import { portalContent } from '../src/portal-content.mjs';
 import { brandProfile } from '../src/brand-profile.mjs';
 import { renderPage } from '../src/template.mjs';
+import { stripCjkProtectionMarkup } from '../src/cjk-linebreak.mjs';
 
 function contentKeys(value, prefix = '') {
   return Object.entries(value || {}).flatMap(([key, nested]) => {
@@ -173,7 +174,7 @@ test('client and operations workspaces expose safe progress and reversible order
 test('the footer shows both offices only in the address language selected by the visitor', () => {
   const footerOf = (locale) => {
     const html = renderPage(locale, 'home');
-    return html.slice(html.indexOf('<footer class="site-footer">'), html.indexOf('</footer>') + 9);
+    return stripCjkProtectionMarkup(html.slice(html.indexOf('<footer class="site-footer">'), html.indexOf('</footer>') + 9));
   };
   const english = footerOf('en');
   const traditional = footerOf('zh-tw');

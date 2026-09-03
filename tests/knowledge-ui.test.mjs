@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import vm from 'node:vm';
 import { knowledgeArticleSpecs, knowledgeContent } from '../src/knowledge-content.mjs';
+import { stripCjkProtectionMarkup } from '../src/cjk-linebreak.mjs';
 import { renderPage } from '../src/template.mjs';
 
 const siteJs = await readFile(new URL('../src/assets/site.js', import.meta.url), 'utf8');
@@ -50,8 +51,9 @@ function matchingIds(locale, htmlLang, query, product = '', market = '') {
 
 test('knowledge hub and category pages expose progressive, crawlable collection UI', () => {
   const hub = renderPage('zh-tw', 'knowledge');
+  const hubText = stripCjkProtectionMarkup(hub);
   assert.match(hub, /data-knowledge-index-url="\/assets\/knowledge-index-zh-tw\.json"/);
-  assert.match(hub, /<h2 class="sr-only" id="knowledge-index-title">搜尋查核文章<\/h2>/);
+  assert.match(hubText, /<h2 class="sr-only" id="knowledge-index-title">搜尋查核文章<\/h2>/);
   assert.match(hub, /href="\/zh-tw\/knowledge\/supplier-identity\/"/);
   assert.match(hub, /href="\/zh-tw\/knowledge\/factory-onsite\/"/);
   assert.doesNotMatch(hub, /\/knowledge\/commercial-risk\//);
