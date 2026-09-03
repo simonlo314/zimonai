@@ -8,8 +8,126 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-anker-maggo-2-pro-qi2',
+    key: 'ankerMagGo2Pro',
+    contentType: 'current-affairs',
+    slug: 'knowledge/anker-maggo-2-pro-qi2-25w-sourcing',
+    category: 'certification-market-access',
+    products: ['power-bank'],
+    markets: ['global', 'international'],
+    keywords: {
+      en: ['Anker MagGo Power Bank 2 Pro', 'Anker IFA 2026', 'Qi2 25W power bank', 'active cooling power bank', 'Anker A110R', '10000mAh magnetic power bank'],
+      'zh-tw': ['Anker MagGo Power Bank 2 Pro', 'Anker IFA 2026', 'Qi2 25W 行動電源', '主動散熱行動電源', 'Anker A110R', '10000mAh 磁吸行動電源'],
+      'zh-cn': ['Anker MagGo Power Bank 2 Pro', 'Anker IFA 2026', 'Qi2 25W 移动电源', '主动散热移动电源', 'Anker A110R', '10000mAh 磁吸移动电源']
+    },
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    image: '/assets/editorial-anker-maggo-2-pro.jpg',
+    imageWidth: 1600,
+    imageHeight: 2000,
+    imageCrop: {
+      card: '61% 56%',
+      article: '59% 55%',
+      mobile: '60% 52%'
+    },
+    photo: {
+      photographer: 'Anker Innovations',
+      page: 'https://www.dropbox.com/scl/fo/xo6ymq0rpxcak9ijbl21e/AFc7V47c6qJtFf1A59bIPfE/Anker%20Charging/110R-Anker%20MagGo%20Power%20Bank%20Pro%202/A110RH11_RI_TD06_EN_V1%20%281%29.jpg?rlkey=v5lytb6qesicevy3tgxmmz19k&dl=0',
+      license: 'https://www.einpresswire.com/article/939305437/anker-unveils-2026-charging-lineup-at-ifa-adding-intelligence-to-a-category-built-on-speed'
+    },
+    sources: [
+      {
+        publisher: 'Anker Innovations',
+        title: 'Anker unveils its 2026 charging lineup at IFA — product details, availability and official press kit',
+        url: 'https://www.einpresswire.com/article/939305437/anker-unveils-2026-charging-lineup-at-ifa-adding-intelligence-to-a-category-built-on-speed'
+      },
+      {
+        publisher: 'Anker',
+        title: 'Anker MagGo 2 Pro — Qi2 25W, 10K and active-cooling product information',
+        url: 'https://www.anker.com/a110r-maggo-2-pro-qi2-magnetic-power-bank-cooling'
+      },
+      {
+        publisher: 'Wireless Power Consortium',
+        title: 'Qi-24417 — Anker MagGo Power Bank 2 Pro, part number A110R',
+        url: 'https://jpsapi.wirelesspowerconsortium.com/products/qi/24417'
+      },
+      {
+        publisher: 'Wireless Power Consortium',
+        title: 'How professional buyers verify a Qi Certified product and its certificate',
+        url: 'https://www.wirelesspowerconsortium.com/knowledge-base/testing-and-certification/qi-certified-products/'
+      },
+      {
+        publisher: 'Wireless Power Consortium',
+        title: 'Qi components and subsystems — why parts and prior designs do not automatically cover a product',
+        url: 'https://www.wirelesspowerconsortium.com/knowledge-base/testing-and-certification/qi-components-and-subsystems/'
+      },
+      {
+        publisher: 'United Nations Economic Commission for Europe',
+        title: 'UN Manual of Tests and Criteria, Revision 8 and Amendment 1',
+        url: 'https://unece.org/transport/publications/un-manual-tests-and-criteria-rev8-2023'
+      }
+    ]
+  },
+  {
+    id: 'knowledge-iso-9001-factory',
+    key: 'iso9001Factory',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/iso-9001-charger-factory',
+    category: 'factory-onsite',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['china'],
+    keywords: {
+      en: ['ISO 9001 certificate', 'China charger factory', 'supplier factory verification', 'quality management system', 'ISO certificate verification', 'charger manufacturer audit'],
+      'zh-tw': ['ISO 9001 證書', '中國充電器工廠', '供應商工廠查核', '品質管理系統', 'ISO 證書查驗', '充電器製造商查核'],
+      'zh-cn': ['ISO 9001 证书', '中国充电器工厂', '供应商工厂核查', '质量管理体系', 'ISO 证书查询', '充电器制造商审核']
+    },
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    image: '/assets/editorial-iso-9001-checklist.jpg',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageCrop: {
+      card: '50% 54%',
+      article: '50% 50%',
+      mobile: '50% 58%'
+    },
+    photo: {
+      photographer: 'MART PRODUCTION',
+      page: 'https://www.pexels.com/photo/a-to-do-list-on-a-clipboard-7718755/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'International Organization for Standardization',
+        title: 'ISO 9001 explained — quality management systems and certification',
+        url: 'https://www.iso.org/home/insights-news/resources/iso-9001-explained.html'
+      },
+      {
+        publisher: 'International Organization for Standardization',
+        title: 'Certification — ISO develops standards but does not issue certificates',
+        url: 'https://committee.iso.org/certification.html'
+      },
+      {
+        publisher: 'International Organization for Standardization',
+        title: 'Attestations of conformity — management-system marks and products',
+        url: 'https://committee.iso.org/attestations-of-conformity.html'
+      },
+      {
+        publisher: 'Certification and Accreditation Administration of China',
+        title: 'CNCA Announcement No. 16 of 2025 — CNCA-QMS-01:2025 Quality Management System Certification Rules',
+        url: 'https://www.cnca.gov.cn/zwxx/gg/2025/art/2025/art_b10adde5119f42fab7cad959b757ccc7.html'
+      },
+      {
+        publisher: 'Certification and Accreditation Administration of China',
+        title: 'Management system certification portal — bodies and public certificate query',
+        url: 'https://www.cnca.gov.cn/hlwfw/ywzl/gltxrz/index.html'
+      }
+    ]
+  },
+  {
     id: 'knowledge-rohs-test-report',
     key: 'rohsTestReport',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/rohs-test-report-charger',
     category: 'certification-market-access',
     products: ['charger', 'power-adapter', 'gan-charger'],
@@ -70,6 +188,7 @@ export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-eu-safety-gate',
     key: 'euSafetyGate',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/eu-safety-gate-charger-alert',
     category: 'certification-market-access',
     products: ['charger', 'power-adapter', 'gan-charger'],
@@ -120,6 +239,7 @@ export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-iecee-cb-certificate',
     key: 'ieceeCbCertificate',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/iecee-cb-certificate-charger',
     category: 'certification-market-access',
     products: ['charger', 'power-adapter', 'gan-charger'],
@@ -170,6 +290,7 @@ export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-usb-if-certification',
     key: 'usbIfCertification',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/usb-if-certification-gan-charger',
     category: 'certification-market-access',
     products: ['gan-charger', 'charger'],
@@ -220,6 +341,7 @@ export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-eu-economic-operator',
     key: 'euEconomicOperator',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/eu-economic-operator-charger-label',
     featured: true,
     category: 'certification-market-access',
@@ -266,6 +388,7 @@ export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-legal-entity',
     key: 'legalEntity',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/chinese-supplier-legal-entity',
     category: 'supplier-identity',
     products: ['general'],
@@ -311,6 +434,7 @@ export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-fcc-id',
     key: 'fccId',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/fcc-id-charger-verification',
     category: 'certification-market-access',
     products: ['charger'],
@@ -356,6 +480,7 @@ export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-ul-file',
     key: 'ulFile',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/ul-file-number-product-iq',
     category: 'certification-market-access',
     products: ['charger'],
@@ -396,6 +521,7 @@ export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-ce-marking',
     key: 'ceMarking',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/ce-marking-power-adapter-documents',
     category: 'certification-market-access',
     products: ['power-adapter'],
@@ -441,6 +567,7 @@ export const knowledgeArticleSpecs = [
   {
     id: 'knowledge-un38-3',
     key: 'un383',
+    contentType: 'industry-knowledge',
     slug: 'knowledge/un38-3-power-bank-test-summary',
     category: 'product-transport-documents',
     products: ['power-bank'],
@@ -514,12 +641,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, RoHS, EU Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, factory claims, Qi2, RoHS, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-bank buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Ten field notes',
+      latest: 'Twelve field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -598,9 +725,125 @@ export const knowledgeContent = {
       sourcesLead: 'Facts in this note were checked against the following primary sources. Links open the source owner’s website.',
       photo: 'Editorial photograph',
       related: 'Continue reading',
-      back: 'All knowledge notes'
+      back: 'All knowledge notes',
+      editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      ankerMagGo2Pro: {
+        topic: 'IFA 2026 product news',
+        published: '3 September 2026',
+        readTime: '6 minutes',
+        title: 'Anker launches MagGo Power Bank 2 Pro with Qi2 25W and active cooling at IFA 2026',
+        description: 'Anker’s new 10,000 mAh magnetic power bank adds a fan, dual air ducts, a smart display and a stand. Here is what is confirmed, why the design matters and what remains to be seen.',
+        imageAlt: 'An Anker MagGo Power Bank 2 Pro attached to a smartphone at a live event.',
+        imageCaption: 'Official Anker MagGo Power Bank 2 Pro media image supplied in Anker Innovations’ IFA 2026 press kit. It is not ZIMONAI photography, testing or sponsored content.',
+        labels: {
+          summary: 'In brief',
+          checklist: 'What to watch next',
+          limits: 'What is still unconfirmed'
+        },
+        answer: 'Anker unveiled the MagGo Power Bank 2 Pro at IFA 2026, combining a 10,000 mAh battery with Qi2.2 magnetic charging at up to 25 W, active cooling, a smart display and an adjustable stand. Anker says the product will launch in the United States on 17 September for US$109.99 in three colours. The bigger story is not another rise in wattage: it is the move toward thermal management and visible charging data in a category that has usually been sold on capacity and speed alone.',
+        takeaways: [
+          'The announced package includes Qi2.2 25 W wireless output, 45 W recharging, a 10,000 mAh battery, active cooling, a display and a built-in stand.',
+          'The WPC database separately lists model A110R as Qi-24417 with the MPP25 power profile, giving the launch an independently checkable certification record.',
+          'Active cooling is the important product signal: charging brands are starting to compete on sustained performance, temperature control and user-visible data—not only headline wattage.'
+        ],
+        sections: [
+          {
+            title: 'What did Anker announce at IFA 2026?',
+            paragraphs: [
+              'At its 3 September IFA press conference in Berlin, Anker introduced six charging products built around device recognition, heat management and on-device displays. The MagGo Power Bank 2 Pro is the portable model in that lineup: a 10,000 mAh magnetic battery with up to 25 W Qi2.2 wireless charging, 45 W wired recharging, a screen that shows power, temperature and remaining time, and an adjustable stand.',
+              'Anker’s official release lists a US launch date of 17 September, a price of US$109.99 and three finishes: Phantom Gray, Starlight Silver and Polar Night Blue. Those details are market-specific; pricing and availability elsewhere may differ and had not all been published when this article was checked.'
+            ]
+          },
+          {
+            title: 'Why is the built-in fan the real story?',
+            paragraphs: [
+              'Wireless charging loses part of its energy as heat, and phones can reduce charging power when temperature rises. Anker is trying to make thermal control a visible feature rather than an invisible engineering detail: it describes a fan-control algorithm, dual air ducts and a graphene heat-spreading structure, while the side display shows live temperature and charging information.',
+              'That makes the product more interesting than a simple “25 W” label. If active cooling can keep charging speed steadier without becoming noisy or fragile, it gives premium power banks a new way to differentiate. The trade-off is added complexity: a fan, air path, sensors and control logic introduce questions about dust, blocked vents, acoustics, power consumption and long-term reliability.'
+            ],
+            items: [
+              'Can the fan sustain 25 W charging without distracting noise?',
+              'How does performance change when the vents are partly blocked or dusty?',
+              'Does the extra cooling hardware materially affect weight, battery life or durability?',
+              'Will competing brands adopt similar cooling and display designs?'
+            ]
+          },
+          {
+            title: 'What does the independent record confirm—and what comes next?',
+            paragraphs: [
+              'The Wireless Power Consortium gives this launch a useful independent reference point. Its database lists “Anker MagGo Power Bank 2 Pro,” part number A110R, under Qi ID 24417 with Qi version 2.2.1, the MPP25 profile, potential load power of 25.0 W and a certification date of 21 August 2026. That confirms the registration fields for this exact product; it does not independently test every speed, temperature or durability claim in Anker’s marketing.',
+              'After launch, the most useful evidence will come from retail availability and repeatable independent testing: sustained charging curves, surface temperature, fan noise, behaviour in warm rooms and long-term wear. For the wider market, the question is whether active cooling becomes a durable category feature or remains a premium niche. For manufacturers and buyers, it also raises a practical issue: adding cooling hardware can create new sourcing, assembly and quality-control work even when the wireless-charging standard is already established.'
+            ]
+          }
+        ],
+        checklist: [
+          'Actual launch dates and pricing outside the United States',
+          'Independent charging-speed and temperature tests under the same conditions',
+          'Fan noise, blocked-vent behaviour and long-term reliability',
+          'Real-world weight, pocketability and stand stability',
+          'Whether firmware or hardware revisions change performance after launch',
+          'How quickly other charging brands follow with actively cooled designs'
+        ],
+        limitsText: 'As of 3 September 2026, Anker had published the US price, colour options and launch timing, and the WPC record confirmed the Qi registration fields for A110R. Independent reviews had not yet established sustained charging speed, real-world temperature, fan noise, battery endurance or long-term durability. Availability and pricing in every market were also not fully confirmed. The comments on category direction and manufacturing complexity are ZIMONAI’s analysis, not statements issued by Anker, WPC or a regulator.'
+      },
+      iso9001Factory: {
+        topic: 'China factory verification',
+        published: '3 September 2026',
+        readTime: '8 minutes',
+        title: 'Does an ISO 9001 certificate prove this Chinese supplier is the charger factory?',
+        description: 'A valid certificate supports the named organisation’s quality management system within stated sites and scope. It does not certify the charger or prove who made the quoted model.',
+        imageAlt: 'A clipboard and lined checklist on an orange background, used as an editorial illustration for ISO 9001 factory-evidence checks.',
+        imageCaption: 'Editorial photograph of a checklist. It is not a ZimonAI supplier, client, factory, audit, ISO certificate or production record.',
+        answer: 'No. A valid ISO 9001 certificate can support that the named organisation operates a quality management system within the sites, activities and validity shown on the certificate. It does not certify the charger, prove that the seller owns the factory, or establish that the quoted model and order will be made at that site. Verify the certificate and then build a separate evidence chain from seller to legal entity, covered manufacturing address, product model and current production records.',
+        takeaways: [
+          'Identify the certification body and verify the certificate’s current status; ISO itself develops the standard but does not issue ISO 9001 certificates.',
+          'Match the organisation name, Unified Social Credit Code, registered address, covered operating address and manufacturing scope—not only the ISO logo or company name.',
+          'Connect the certified site to the quoted charger with model, process, bill-of-materials and order evidence; quality-system certification is not product certification.'
+        ],
+        sections: [
+          {
+            title: 'Who issued the certificate—and what did they certify?',
+            paragraphs: [
+              'ISO describes ISO 9001 as a standard setting requirements for a quality management system. Certification is voluntary and performed by an independent certification body; ISO does not certify organisations or issue certificates. The first check is therefore the named certification body, its official contact and query service, and whether it is authorised for the stated activity—not an ISO logo copied into a supplier PDF.',
+              'For certification conducted in China, the currently effective CNCA-QMS-01:2025 rules use GB/T 19001 and/or ISO 9001 as the certification basis. The rules require audits to cover the management system and typical products or services within scope, but they also require the audit report to state that the audit was sampling-based. Certificates may be valid for no more than three years, require continuing surveillance, and can be suspended or withdrawn. A status checked today is useful dated evidence, not a permanent guarantee.'
+            ]
+          },
+          {
+            title: 'Do the legal entity, factory address and manufacturing scope all match?',
+            paragraphs: [
+              'CNCA-QMS-01:2025 requires a China QMS certificate to identify the certified organisation, Unified Social Credit Code, registered address, covered operating address or addresses, the scope of products, activities or services, the applicable standard, issue and expiry dates, certificate number, certification body and a query path. For a multi-site organisation, every site included in the certification scope must be listed. Those fields let a buyer test a factory claim instead of treating the certificate as a decorative badge.',
+              'Put the certificate beside the Chinese business licence, supplier quotation, contract, invoice details and the address where production is said to occur. A certificate naming a trading company, sales office, unrelated address or broad service scope does not by itself support a claim that a particular charger is manufactured at the visited site. A difference is not automatic proof of fraud: OEM, group-company and subcontracting structures can be legitimate, but the relationship must be documented before the buyer relies on it.'
+            ],
+            items: [
+              'Certified legal name and Unified Social Credit Code',
+              'Registered address and every covered operating site',
+              'Manufacturing activities and product scope relevant to chargers',
+              'Certificate number, issue date, expiry date and current status',
+              'Certification body and, where claimed, accreditation scope',
+              'Documented relationship among seller, certificate holder and factory'
+            ]
+          },
+          {
+            title: 'What still connects the certificate to this charger and order?',
+            paragraphs: [
+              'ISO’s conformity guidance warns that a management-system certification mark must not be placed on a product in a way that implies the product itself was certified. The practical boundary is important: ISO 9001 can support how an organisation manages processes; it does not establish that a charger passed electrical-safety, EMC, chemical, performance or destination-market requirements.',
+              'ZimonAI’s practical method is to build four explicit links: seller to certified legal entity; certified entity to the covered manufacturing address and scope; factory to the quoted model, process and current bill of materials; and the model to the actual order through samples, production schedule and inspection records. Ask to see model-specific work instructions, incoming and final inspection criteria, nonconformity or corrective-action records and traceability examples during an audit. These records do not turn a sampled visit into certainty, but they test whether the certificate’s scope is operating around the product being purchased.'
+            ]
+          }
+        ],
+        checklist: [
+          'Original certificate number, certification body and official query path',
+          'Current valid, suspended, withdrawn or expired status recorded with query date',
+          'Certified Chinese legal name and Unified Social Credit Code matched to the business licence',
+          'Registered address and actual production address matched to all covered sites',
+          'Scope that expressly covers relevant manufacturing activities and products',
+          'Written relationship among seller, certificate holder, brand owner and producing factory',
+          'Quoted model, specification, bill of materials and process flow tied to the site',
+          'Recent model-relevant production, inspection, traceability and corrective-action records'
+        ],
+        limitsText: 'An ISO 9001 certificate is management-system evidence for the named organisation, sites, scope and validity shown. It does not prove factory ownership, seller authority, product certification, exact-model compliance, legal market access, capacity, financial health, ethical performance, intellectual-property rights or shipment quality. Certification audits and buyer audits use sampling; records can be incomplete or change after the visit. If the legal entity, operating site, scope or certificate status cannot be independently matched, keep the factory claim unresolved rather than treating the certificate as proof.'
+      },
       rohsTestReport: {
         topic: 'EU hazardous-substance compliance',
         published: '1 September 2026',
@@ -1157,12 +1400,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、工廠聲明、Qi2、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '十篇查核筆記',
+      latest: '十二篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1234,16 +1477,132 @@ export const knowledgeContent = {
       published: '發布日期',
       reviewed: '來源核對',
       readTime: '閱讀時間',
-      quickAnswer: '先說結論',
+      quickAnswer: '懶人包',
       buyerChecklist: '買家核對清單',
       limits: '這些證據不能證明什麼',
       sources: '官方資料來源',
       sourcesLead: '本文的事實內容已對照以下一手資料；連結會開啟主管機關或資料擁有者的網站。',
       photo: '編輯用圖片',
       related: '繼續閱讀',
-      back: '返回知識庫'
+      back: '返回知識庫',
+      editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      ankerMagGo2Pro: {
+        topic: 'IFA 2026 新品新聞',
+        published: '2026 年 9 月 3 日',
+        readTime: '約 6 分鐘',
+        title: 'Anker 在 IFA 2026 推出 MagGo Power Bank 2 Pro：Qi2 25W、主動散熱與智慧顯示一次看',
+        description: 'Anker 把 25W 磁吸充電、風扇散熱、10,000mAh 電量、螢幕與支架整合進一顆行動電源。這款新品為何值得注意，還有哪些表現要等上市後才知道？',
+        imageAlt: 'Anker MagGo Power Bank 2 Pro 吸附在手機背面，使用者正在活動現場拍攝。',
+        imageCaption: 'Anker MagGo Power Bank 2 Pro 官方媒體圖片，由 Anker Innovations 的 IFA 2026 Press Kit 提供；非 ZIMONAI 拍攝、測試或贊助內容。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '接下來值得觀察',
+          limits: '目前仍未確認'
+        },
+        answer: 'Anker 在 IFA 2026 發表 MagGo Power Bank 2 Pro，把 10,000mAh 電量、最高 25W 的 Qi2.2 磁吸無線充電、主動風冷、智慧顯示器與可調支架整合在同一機身。Anker 表示，美國將於 9 月 17 日上市，定價 109.99 美元，共有三種顏色。比規格本身更值得注意的是：高功率磁吸行動電源的競爭，正從單純追逐瓦數，走向散熱管理與充電狀態可視化。',
+        takeaways: [
+          '這款新品整合 Qi2.2 25W 無線輸出、45W 回充、10,000mAh 電量、主動散熱、顯示器與內建支架。',
+          'WPC 資料庫另有 A110R／Qi-24417 的 MPP25 登錄資料，讓這場發表多了一筆可獨立核對的官方紀錄。',
+          '真正的新意不是再多幾瓦，而是把散熱、持續輸出與即時資訊做成消費者看得見的產品功能。'
+        ],
+        sections: [
+          {
+            title: 'Anker 這次在 IFA 2026 發表了什麼？',
+            paragraphs: [
+              'Anker 於 9 月 3 日在柏林 IFA 記者會發表六款充電新品，主軸包括裝置辨識、溫度管理與螢幕顯示。MagGo Power Bank 2 Pro 是其中的行動款：容量 10,000mAh，支援最高 25W Qi2.2 磁吸無線充電與 45W 有線回充，機身側邊螢幕可顯示功率、溫度與剩餘充電時間，背面另有可調式支架。',
+              '依 Anker 官方新聞稿，美國上市日為 9 月 17 日，售價 109.99 美元，提供 Phantom Gray、Starlight Silver 與 Polar Night Blue 三色。這些資訊是美國市場安排；其他地區的價格與上市時間，在本文查核時尚未全部公布。'
+            ]
+          },
+          {
+            title: '為什麼內建風扇才是這次新品的重點？',
+            paragraphs: [
+              '無線充電有一部分能量會轉成熱，溫度升高時，手機也可能主動降低充電功率。Anker 這次不再把散熱藏在機身內，而是直接做成產品賣點：官方資料提到風扇控制演算法、雙風道與石墨烯導熱結構，側邊螢幕則把即時溫度與充電狀態顯示給使用者。',
+              '這讓 MagGo Power Bank 2 Pro 不只是另一顆標榜「25W」的行動電源。如果主動散熱能讓輸出更穩定，又不帶來惱人的噪音與耐用度問題，它可能成為高階磁吸行動電源的新賣點；代價則是零件與控制邏輯變多，風扇積塵、風道阻塞、耗電與長期可靠性都需要上市後的實測來回答。'
+            ],
+            items: [
+              '風扇運轉時，能否安靜地維持 25W 充電？',
+              '風道被手掌、口袋纖維或灰塵部分遮住時，效能會怎麼變化？',
+              '多出的散熱零件，會不會明顯影響重量、續航與耐用度？',
+              '其他品牌是否會快速跟進風冷與資訊螢幕？'
+            ]
+          },
+          {
+            title: '官方紀錄確認了什麼，接下來還要看什麼？',
+            paragraphs: [
+              'Wireless Power Consortium 的公開資料庫提供了一個可獨立核對的基準：產品名稱為 Anker MagGo Power Bank 2 Pro，製造商料號 A110R，Qi ID 24417，Qi 版本 2.2.1，功率規格為 MPP25，potential load power 為 25.0W，認證日期為 2026 年 8 月 21 日。這能確認精確型號的登錄欄位，但不等於替 Anker 所有速度、溫度與耐用度宣稱背書。',
+              '上市後最有價值的資訊，會來自可重複的獨立實測：長時間充電曲線、機身溫度、風扇噪音、炎熱環境下的表現，以及使用數月後的磨耗。對整個市場而言，更值得觀察的是主動散熱會不會成為高階行動電源的常態；對製造與採購端來說，風扇、風道、感測器與韌體也意味著新的零件、組裝與品質控制工作。'
+            ]
+          }
+        ],
+        checklist: [
+          '美國以外市場的實際上市日與售價',
+          '相同條件下的獨立充電速度與溫度測試',
+          '風扇噪音、風道受阻與長期耐用度',
+          '真實使用時的重量感、攜帶性與支架穩定度',
+          '上市後的韌體或硬體版本是否改變表現',
+          '其他充電品牌跟進主動散熱設計的速度'
+        ],
+        limitsText: '截至 2026 年 9 月 3 日，Anker 已公布美國售價、顏色與上市時間，WPC 紀錄也能確認 A110R 的 Qi 登錄欄位；但獨立評測尚未證實長時間充電速度、實際溫度、風扇噪音、電池續航與長期耐用度，所有市場的價格與供貨情況也還沒有完整答案。本文對品類走向與製造複雜度的描述屬 ZIMONAI 編輯判讀，不是 Anker、WPC 或主管機關的結論。'
+      },
+      iso9001Factory: {
+        topic: '中國工廠查核',
+        published: '2026 年 9 月 3 日',
+        readTime: '約 8 分鐘',
+        title: 'ISO 9001 證書能證明這家中國供應商就是充電器工廠嗎？',
+        description: '有效證書能支持所載組織在特定場所與範圍內運作品質管理系統，卻不能證明充電器已獲產品認證，也不能單獨確認誰生產報價型號。',
+        imageAlt: '橘色背景上的寫字板與條紋核對單，用於說明 ISO 9001 工廠證據查核。',
+        imageCaption: '核對單為編輯用照片；不是 ZimonAI 的供應商、客戶、工廠、稽核、ISO 證書或生產紀錄。',
+        answer: '不能。有效的 ISO 9001 證書，可以支持證書所載組織在列明的場所、活動範圍與有效期間內運作品質管理系統；它不能證明充電器本身已獲認證、賣方擁有工廠，或報價型號與本批訂單一定在該場所生產。買家應先查驗證書，再另外建立從賣方、法律主體、涵蓋的生產地址到產品型號與當期生產紀錄的證據鏈。',
+        takeaways: [
+          '確認發證機構並查詢證書目前狀態；ISO 負責制定標準，本身不替企業發出 ISO 9001 證書。',
+          '逐項核對組織名稱、統一社會信用代碼、註冊地址、證書涵蓋的營運地址與製造範圍，不能只看 ISO 標誌或公司名稱。',
+          '用型號、製程、物料清單與訂單紀錄把獲證場所連回報價充電器；管理系統認證不是產品認證。'
+        ],
+        sections: [
+          {
+            title: '證書由誰發出，又認證了什麼？',
+            paragraphs: [
+              'ISO 將 ISO 9001 定位為品質管理系統的要求標準。取得認證是自願選擇，查核與發證由獨立認證機構執行；ISO 本身不認證企業，也不發證。因此，第一步應確認證書上的認證機構、官方聯絡方式、證書查詢管道，以及該機構是否能執行所載認證，而不是把供應商 PDF 上的 ISO 標誌當成結論。',
+              '在中國境內辦理的品質管理系統認證，目前適用的 CNCA-QMS-01:2025，以 GB/T 19001 及／或 ISO 9001 為認證依據。規則要求稽核涵蓋管理系統與認證範圍內具代表性的產品或服務，同時要求稽核報告說明查核是以抽樣方式進行。證書有效期最長三年，期間仍要接受監督，也可能被暫停或撤銷；今天查到的狀態是有日期的證據，不是永久保證。'
+            ]
+          },
+          {
+            title: '法律主體、工廠地址與製造範圍都有對上嗎？',
+            paragraphs: [
+              'CNCA-QMS-01:2025 要求中國的品質管理系統證書列出獲證組織、統一社會信用代碼、註冊地址、認證涵蓋的營運地址、產品／活動／服務範圍、適用標準、發證與到期日、證書編號、認證機構及查詢管道；多場所組織還須列出認證範圍內的每一個場所。這些欄位能讓買家實際檢驗「這是工廠」的說法，而不是把證書當成裝飾。',
+              '請把證書與中國營業執照、報價單、合約、發票資料，以及供應商聲稱的生產地址並排核對。若證書寫的是貿易公司、辦公室、不相關地址，或只涵蓋銷售／服務活動，就不能單憑它支持特定充電器是在受訪工廠製造。資料不一致也不必直接判定造假：OEM、集團關係與分包可能合理，但買家在採信前仍須取得可追溯的關係文件。'
+            ],
+            items: [
+              '獲證法律名稱與統一社會信用代碼',
+              '註冊地址與所有受認證涵蓋的營運場所',
+              '與充電器相關的製造活動及產品範圍',
+              '證書編號、發證日、到期日與目前狀態',
+              '認證機構，以及有聲稱時的認可範圍',
+              '賣方、證書持有人與實際工廠的書面關係'
+            ]
+          },
+          {
+            title: '還需要哪些證據，才能連到這款充電器與本批訂單？',
+            paragraphs: [
+              'ISO 的符合性說明提醒，管理系統認證標誌不能放在產品上而使人誤以為產品本身獲得認證。這項界線很重要：ISO 9001 可以支持一個組織如何管理流程，卻不能證明充電器已符合電氣安全、EMC、化學物質、效能或目的市場法規。',
+              'ZimonAI 的實務做法，是把四段關係明確接起來：賣方到獲證法律主體、獲證主體到認證涵蓋的製造地址與範圍、工廠到報價型號／製程／現行物料清單，以及型號到本批訂單的樣品、生產排程與檢驗紀錄。現場可抽查型號專用作業指導書、進料與出貨檢驗標準、不符合與矯正措施紀錄，以及追溯範例。這些資料不能把抽樣查核變成保證，但能測試證書所述系統是否真的運用在買家要採購的產品上。'
+            ]
+          }
+        ],
+        checklist: [
+          '證書原始編號、認證機構與官方查詢管道',
+          '記錄查詢日期與有效、暫停、撤銷或過期狀態',
+          '獲證中文法律名稱及統一社會信用代碼與營業執照一致',
+          '註冊地址、實際生產地址與證書所列全部場所相符',
+          '認證範圍明確涵蓋相關製造活動與產品',
+          '賣方、證書持有人、品牌方與生產工廠的書面關係',
+          '報價型號、規格、物料清單與製程流程可連回該場所',
+          '近期且與型號相關的生產、檢驗、追溯與矯正措施紀錄'
+        ],
+        limitsText: 'ISO 9001 證書是針對所載組織、場所、範圍與有效期間的管理系統證據；不能證明工廠所有權、賣方授權、產品認證、精確型號合規、市場准入、產能、財務狀況、勞動或環境表現、智慧財產權及本批出貨品質。認證稽核與買家查核都採用抽樣，紀錄也可能不完整或在訪查後改變。若法律主體、營運場所、認證範圍或證書狀態無法獨立對應，就應把工廠關係保留為未確認，而不是拿證書替它背書。'
+      },
       rohsTestReport: {
         topic: '歐盟限用物質合規',
         published: '2026 年 9 月 1 日',
@@ -1800,12 +2159,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、工厂声明、Qi2、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '十篇核查笔记',
+      latest: '十二篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -1877,16 +2236,132 @@ export const knowledgeContent = {
       published: '发布日期',
       reviewed: '来源核对',
       readTime: '阅读时间',
-      quickAnswer: '先说结论',
+      quickAnswer: '总结',
       buyerChecklist: '买家核对清单',
       limits: '这些证据不能证明什么',
       sources: '官方资料来源',
       sourcesLead: '本文的事实内容已对照以下一手资料；链接会打开主管部门或资料所有者的网站。',
       photo: '编辑用图片',
       related: '继续阅读',
-      back: '返回知识库'
+      back: '返回知识库',
+      editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      ankerMagGo2Pro: {
+        topic: 'IFA 2026 新品新闻',
+        published: '2026 年 9 月 3 日',
+        readTime: '约 6 分钟',
+        title: 'Anker 在 IFA 2026 推出 MagGo Power Bank 2 Pro：Qi2 25W、主动散热与智能显示一次看懂',
+        description: 'Anker 把 25W 磁吸充电、风扇散热、10,000mAh 电量、屏幕和支架装进一块移动电源。这款新品为什么值得关注，还有哪些表现要等上市后才知道？',
+        imageAlt: 'Anker MagGo Power Bank 2 Pro 吸附在手机背面，用户正在活动现场拍摄。',
+        imageCaption: 'Anker MagGo Power Bank 2 Pro 官方媒体图片，由 Anker Innovations 的 IFA 2026 Press Kit 提供；并非 ZIMONAI 拍摄、测试或赞助内容。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '接下来值得关注',
+          limits: '目前仍未确认'
+        },
+        answer: 'Anker 在 IFA 2026 发布 MagGo Power Bank 2 Pro，将 10,000mAh 容量、最高 25W 的 Qi2.2 磁吸无线充电、主动风冷、智能显示屏和可调支架整合在同一机身中。Anker 表示，这款产品将于 9 月 17 日在美国上市，定价 109.99 美元，提供三种颜色。比参数本身更值得关注的是，高功率磁吸移动电源的竞争正在从单纯追逐瓦数，转向散热管理与充电状态可视化。',
+        takeaways: [
+          '新品整合 Qi2.2 25W 无线输出、45W 回充、10,000mAh 容量、主动散热、显示屏和内置支架。',
+          'WPC 数据库另有 A110R／Qi-24417 的 MPP25 登记信息，为这场发布提供了可独立查询的官方记录。',
+          '真正的新意并不是再多几瓦，而是把散热、持续输出和实时信息做成消费者能够看见的产品功能。'
+        ],
+        sections: [
+          {
+            title: 'Anker 这次在 IFA 2026 发布了什么？',
+            paragraphs: [
+              'Anker 于 9 月 3 日在柏林 IFA 发布会上带来六款充电新品，重点围绕设备识别、温度管理和屏幕显示。MagGo Power Bank 2 Pro 是其中的便携产品：容量 10,000mAh，支持最高 25W Qi2.2 磁吸无线充电和 45W 有线回充，侧边屏幕可显示功率、温度和剩余充电时间，背面还带有可调支架。',
+              '根据 Anker 官方新闻稿，这款产品将于 9 月 17 日在美国上市，售价 109.99 美元，提供 Phantom Gray、Starlight Silver 和 Polar Night Blue 三种配色。这些是美国市场信息；其他地区的售价与上市安排，在本文核对时还没有全部公布。'
+            ]
+          },
+          {
+            title: '为什么内置风扇才是这款新品的重点？',
+            paragraphs: [
+              '无线充电会有一部分能量转化为热量，温度升高时，手机也可能主动降低充电功率。Anker 这次没有把散热藏在机身内部，而是直接做成核心卖点：官方资料提到风扇控制算法、双风道和石墨烯导热结构，侧边屏幕则把实时温度和充电状态呈现给用户。',
+              '这让 MagGo Power Bank 2 Pro 不只是另一块写着“25W”的移动电源。如果主动散热能让输出更加稳定，又不会带来明显噪声和耐用性问题，它可能成为高端磁吸移动电源的新卖点；代价是零件和控制逻辑增加，风扇积尘、风道堵塞、额外耗电和长期可靠性都要等上市后的实测来回答。'
+            ],
+            items: [
+              '风扇运转时，能否安静地维持 25W 充电？',
+              '风道被手掌、口袋纤维或灰尘部分遮挡时，性能会怎样变化？',
+              '增加的散热部件是否会明显影响重量、续航和耐用性？',
+              '其他品牌会不会迅速跟进风冷和信息显示设计？'
+            ]
+          },
+          {
+            title: '官方记录确认了什么，接下来还要看什么？',
+            paragraphs: [
+              'Wireless Power Consortium 的公开数据库给出了一个可独立核对的基准：产品名称为 Anker MagGo Power Bank 2 Pro，制造商料号 A110R，Qi ID 24417，Qi 版本 2.2.1，功率规格为 MPP25，potential load power 为 25.0W，认证日期为 2026 年 8 月 21 日。这能确认精确型号的登记字段，但不等于替 Anker 所有速度、温度和耐用性宣传背书。',
+              '上市后最有价值的信息，将来自可重复的独立测试：长时间充电曲线、机身温度、风扇噪声、炎热环境下的表现，以及使用数月后的磨损。对整个市场而言，更值得观察的是主动散热会不会成为高端移动电源的常态；对制造和采购端来说，风扇、风道、传感器与固件也意味着新的零件、组装与质量控制工作。'
+            ]
+          }
+        ],
+        checklist: [
+          '美国以外市场的实际上市日期与售价',
+          '相同条件下的独立充电速度和温度测试',
+          '风扇噪声、风道受阻和长期耐用性',
+          '真实使用中的重量感、便携性和支架稳定性',
+          '上市后的固件或硬件版本是否改变性能',
+          '其他充电品牌跟进主动散热设计的速度'
+        ],
+        limitsText: '截至 2026 年 9 月 3 日，Anker 已公布美国售价、配色和上市时间，WPC 记录也能确认 A110R 的 Qi 登记字段；但独立评测尚未证实长时间充电速度、实际温度、风扇噪声、电池续航与长期耐用性，所有市场的售价和供货情况也还没有完整答案。本文对品类方向和制造复杂度的描述属于 ZIMONAI 编辑判断，并非 Anker、WPC 或监管机构的结论。'
+      },
+      iso9001Factory: {
+        topic: '中国工厂核查',
+        published: '2026 年 9 月 3 日',
+        readTime: '约 8 分钟',
+        title: 'ISO 9001 证书能证明这家中国供应商就是充电器工厂吗？',
+        description: '有效证书可以支持证书所列组织在相应场所和范围内运行质量管理体系，但不能证明充电器已获得产品认证，也不能单独确认报价型号由谁生产。',
+        imageAlt: '橙色背景上的写字板和条纹核对单，用于说明 ISO 9001 工厂证据核查。',
+        imageCaption: '核对单为编辑用图片；不是 ZimonAI 的供应商、客户、工厂、审核、ISO 证书或生产记录。',
+        answer: '不能。有效的 ISO 9001 证书可以支持证书所列组织在注明的场所、活动范围和有效期内运行质量管理体系；它不能证明充电器本身获得了认证、卖方拥有工厂，也不能证明报价型号和本批订单一定在该场所生产。买家应先查验证书，再另行建立从卖方、法律主体、获证生产地址到产品型号和当前生产记录的证据链。',
+        takeaways: [
+          '确认发证机构，并查询证书当前状态；ISO 负责制定标准，本身不为企业签发 ISO 9001 证书。',
+          '核对组织名称、统一社会信用代码、注册地址、认证覆盖的经营地址和制造范围，不能只看 ISO 标识或公司名称。',
+          '用型号、工艺、物料清单和订单资料将获证场所对应到报价充电器；管理体系认证不是产品认证。'
+        ],
+        sections: [
+          {
+            title: '证书是谁签发的，又认证了什么？',
+            paragraphs: [
+              'ISO 将 ISO 9001 定位为质量管理体系的要求标准。组织是否申请认证是自愿选择，审核和发证由独立认证机构执行；ISO 本身不认证企业，也不签发证书。因此，第一步应核实证书上的认证机构、官方联系方式、证书查询渠道，以及该机构能否开展所列业务，不能把供应商 PDF 上的 ISO 标识当成最终证据。',
+              '在中国境内开展的质量管理体系认证，目前执行 CNCA-QMS-01:2025，并以 GB/T 19001 和／或 ISO 9001 为认证依据。规则要求审核覆盖管理体系以及认证范围内具有代表性的产品或服务，同时要求审核报告说明审核基于抽样。证书有效期最长三年，期间仍需接受监督，也可能被暂停或撤销。今天查到的状态是一项带有查询日期的证据，并非永久保证。'
+            ]
+          },
+          {
+            title: '法律主体、工厂地址和制造范围是否全部一致？',
+            paragraphs: [
+              'CNCA-QMS-01:2025 要求中国质量管理体系证书列出获证组织、统一社会信用代码、注册地址、认证覆盖的经营地址、产品／活动／服务范围、适用标准、发证与到期日期、证书编号、认证机构及查询渠道；对于多场所组织，认证范围内的每个场所都要列明。采购方可以据此检验“这是工厂”的说法，而不是把证书当作装饰。',
+              '将证书与中国营业执照、报价单、合同、开票资料，以及供应商声称的生产地址放在一起核对。证书如果属于贸易公司、办公室、无关地址，或范围只写销售／服务，就不能单凭它证明某款充电器由所考察工厂生产。信息不一致也不必立刻认定造假：OEM、集团公司和分包安排可能合理，但买家在采信之前仍需取得可追溯的关系文件。'
+            ],
+            items: [
+              '获证法律名称和统一社会信用代码',
+              '注册地址及认证覆盖的全部经营场所',
+              '与充电器相关的制造活动和产品范围',
+              '证书编号、发证日、到期日和当前状态',
+              '认证机构，以及存在相关声明时的认可范围',
+              '卖方、证书持有人和实际工厂之间的书面关系'
+            ]
+          },
+          {
+            title: '还要哪些证据，才能对应到这款充电器和本批订单？',
+            paragraphs: [
+              'ISO 的符合性说明提醒，管理体系认证标志不能以暗示产品本身获得认证的方式标在产品上。这一区分十分关键：ISO 9001 可以支持一个组织如何管理流程，却不能证明充电器满足电气安全、EMC、化学物质、性能或目的市场法规。',
+              'ZimonAI 的实务方法是将四段关系明确连接起来：卖方与获证法律主体；获证主体与认证覆盖的生产地址及范围；工厂与报价型号、工艺及现行物料清单；型号与本批订单的样品、生产计划和检验记录。现场可抽查型号专用作业指导书、进料和出货检验标准、不合格及纠正措施记录，以及追溯样本。这些资料不会把抽样审核变成确定性保证，但能检验证书所称体系是否实际用于买家要采购的产品。'
+            ]
+          }
+        ],
+        checklist: [
+          '证书原始编号、认证机构和官方查询渠道',
+          '记录查询日期以及有效、暂停、撤销或过期状态',
+          '获证中文法律名称及统一社会信用代码与营业执照一致',
+          '注册地址、实际生产地址与证书所列全部场所相符',
+          '认证范围明确覆盖相关制造活动和产品',
+          '卖方、证书持有人、品牌方和生产工厂之间的书面关系',
+          '报价型号、规格、物料清单和工艺流程能够对应到该场所',
+          '近期且与型号相关的生产、检验、追溯和纠正措施记录'
+        ],
+        limitsText: 'ISO 9001 证书是针对所列组织、场所、范围和有效期的管理体系证据，不能证明工厂所有权、卖方授权、产品认证、精确型号合规、市场准入、产能、财务状况、劳工或环境表现、知识产权以及本批货物质量。认证审核和买家核查都采用抽样，记录也可能不完整或在访问后发生变化。法律主体、经营场所、认证范围或证书状态如果无法独立对应，就应将工厂关系保留为未确认，而不是用证书替它背书。'
+      },
       rohsTestReport: {
         topic: '欧盟限用物质合规',
         published: '2026 年 9 月 1 日',

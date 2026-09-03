@@ -34,8 +34,16 @@ test('knowledge taxonomy keeps five stable category definitions', () => {
   }
 });
 
+test('Chinese article-summary labels stay natural and format-specific', () => {
+  assert.equal(knowledgeContent['zh-tw'].ui.quickAnswer, '懶人包');
+  assert.equal(knowledgeContent['zh-cn'].ui.quickAnswer, '总结');
+  assert.equal(knowledgeContent['zh-tw'].articles.ankerMagGo2Pro.labels.summary, '新聞摘要');
+  assert.equal(knowledgeContent['zh-cn'].articles.ankerMagGo2Pro.labels.summary, '新闻摘要');
+});
+
 test('every knowledge article has valid locale-independent filters and trilingual keywords', () => {
   const validCategories = new Set(knowledgeCategoryDefinitions.map(({ id }) => id));
+  const validContentTypes = new Set(['industry-knowledge', 'current-affairs']);
   const ids = knowledgeArticleSpecs.map(({ id }) => id);
   const keys = knowledgeArticleSpecs.map(({ key }) => key);
   const slugs = knowledgeArticleSpecs.map(({ slug }) => slug);
@@ -46,6 +54,7 @@ test('every knowledge article has valid locale-independent filters and trilingua
 
   for (const article of knowledgeArticleSpecs) {
     assert.ok(validCategories.has(article.category), `${article.id} has an unknown category`);
+    assert.ok(validContentTypes.has(article.contentType), `${article.id} has an unknown content type`);
     assert.match(article.slug, /^knowledge\/[a-z0-9]+(?:-[a-z0-9]+)*$/, `${article.id} needs a stable knowledge slug`);
     assert.match(article.datePublished, /^\d{4}-\d{2}-\d{2}$/, `${article.id} needs a publication date`);
     assert.match(article.dateModified, /^\d{4}-\d{2}-\d{2}$/, `${article.id} needs a modified date`);
@@ -64,6 +73,10 @@ test('every knowledge article has valid locale-independent filters and trilingua
       assert.ok(keywords.every((keyword) => typeof keyword === 'string' && keyword.trim() === keyword && keyword.length > 0));
       assert.equal(new Set(keywords.map((keyword) => keyword.toLocaleLowerCase(locale))).size, keywords.length, `${article.id} has duplicate ${locale} keywords`);
       assert.ok(knowledgeContent[locale].articles[article.key], `${article.id} needs ${locale} article copy`);
+      assert.ok(knowledgeContent[locale].ui.editorialCredit, `${locale} needs an editorial credit`);
+      if (article.contentType === 'current-affairs') {
+        assert.deepEqual(Object.keys(knowledgeContent[locale].articles[article.key].labels || {}), ['summary', 'checklist', 'limits'], `${article.id} needs current-affairs labels in ${locale}`);
+      }
     }
 
     for (const product of article.products) {
@@ -165,5 +178,6 @@ test('static category pages are generated only for categories with articles', ()
     kind: 'knowledge-category',
     categoryId
   })));
-  assert.ok(!categoryPages.some(({ categoryId }) => ['factory-onsite', 'commercial-risk'].includes(categoryId)));
+  assert.ok(categoryPages.some(({ categoryId }) => categoryId === 'factory-onsite'));
+  assert.ok(!categoryPages.some(({ categoryId }) => categoryId === 'commercial-risk'));
 });
