@@ -165,5 +165,6 @@ test('static category pages are generated only for categories with articles', ()
     kind: 'knowledge-category',
     categoryId
   })));
-  assert.ok(!categoryPages.some(({ categoryId }) => ['factory-onsite', 'commercial-risk'].includes(categoryId)));
+  assert.ok(categoryPages.some(({ categoryId }) => categoryId === 'factory-onsite'));
+  assert.ok(!categoryPages.some(({ categoryId }) => categoryId === 'commercial-risk'));
 });

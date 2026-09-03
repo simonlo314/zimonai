@@ -8,6 +8,61 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-iso-9001-factory',
+    key: 'iso9001Factory',
+    slug: 'knowledge/iso-9001-charger-factory',
+    category: 'factory-onsite',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['china'],
+    keywords: {
+      en: ['ISO 9001 certificate', 'China charger factory', 'supplier factory verification', 'quality management system', 'ISO certificate verification', 'charger manufacturer audit'],
+      'zh-tw': ['ISO 9001 證書', '中國充電器工廠', '供應商工廠查核', '品質管理系統', 'ISO 證書查驗', '充電器製造商查核'],
+      'zh-cn': ['ISO 9001 证书', '中国充电器工厂', '供应商工厂核查', '质量管理体系', 'ISO 证书查询', '充电器制造商审核']
+    },
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    image: '/assets/editorial-iso-9001-checklist.jpg',
+    imageWidth: 1600,
+    imageHeight: 1000,
+    imageCrop: {
+      card: '50% 54%',
+      article: '50% 50%',
+      mobile: '50% 58%'
+    },
+    photo: {
+      photographer: 'MART PRODUCTION',
+      page: 'https://www.pexels.com/photo/a-to-do-list-on-a-clipboard-7718755/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'International Organization for Standardization',
+        title: 'ISO 9001 explained — quality management systems and certification',
+        url: 'https://www.iso.org/home/insights-news/resources/iso-9001-explained.html'
+      },
+      {
+        publisher: 'International Organization for Standardization',
+        title: 'Certification — ISO develops standards but does not issue certificates',
+        url: 'https://committee.iso.org/certification.html'
+      },
+      {
+        publisher: 'International Organization for Standardization',
+        title: 'Attestations of conformity — management-system marks and products',
+        url: 'https://committee.iso.org/attestations-of-conformity.html'
+      },
+      {
+        publisher: 'Certification and Accreditation Administration of China',
+        title: 'CNCA Announcement No. 16 of 2025 — CNCA-QMS-01:2025 Quality Management System Certification Rules',
+        url: 'https://www.cnca.gov.cn/zwxx/gg/2025/art/2025/art_b10adde5119f42fab7cad959b757ccc7.html'
+      },
+      {
+        publisher: 'Certification and Accreditation Administration of China',
+        title: 'Management system certification portal — bodies and public certificate query',
+        url: 'https://www.cnca.gov.cn/hlwfw/ywzl/gltxrz/index.html'
+      }
+    ]
+  },
+  {
     id: 'knowledge-rohs-test-report',
     key: 'rohsTestReport',
     slug: 'knowledge/rohs-test-report-charger',
@@ -514,12 +569,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, RoHS, EU Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, ISO 9001 factory claims, RoHS, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Ten field notes',
+      latest: 'Eleven field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -601,6 +656,63 @@ export const knowledgeContent = {
       back: 'All knowledge notes'
     },
     articles: {
+      iso9001Factory: {
+        topic: 'China factory verification',
+        published: '3 September 2026',
+        readTime: '8 minutes',
+        title: 'Does an ISO 9001 certificate prove this Chinese supplier is the charger factory?',
+        description: 'A valid certificate supports the named organisation’s quality management system within stated sites and scope. It does not certify the charger or prove who made the quoted model.',
+        imageAlt: 'A clipboard and lined checklist on an orange background, used as an editorial illustration for ISO 9001 factory-evidence checks.',
+        imageCaption: 'Editorial photograph of a checklist. It is not a ZimonAI supplier, client, factory, audit, ISO certificate or production record.',
+        answer: 'No. A valid ISO 9001 certificate can support that the named organisation operates a quality management system within the sites, activities and validity shown on the certificate. It does not certify the charger, prove that the seller owns the factory, or establish that the quoted model and order will be made at that site. Verify the certificate and then build a separate evidence chain from seller to legal entity, covered manufacturing address, product model and current production records.',
+        takeaways: [
+          'Identify the certification body and verify the certificate’s current status; ISO itself develops the standard but does not issue ISO 9001 certificates.',
+          'Match the organisation name, Unified Social Credit Code, registered address, covered operating address and manufacturing scope—not only the ISO logo or company name.',
+          'Connect the certified site to the quoted charger with model, process, bill-of-materials and order evidence; quality-system certification is not product certification.'
+        ],
+        sections: [
+          {
+            title: 'Who issued the certificate—and what did they certify?',
+            paragraphs: [
+              'ISO describes ISO 9001 as a standard setting requirements for a quality management system. Certification is voluntary and performed by an independent certification body; ISO does not certify organisations or issue certificates. The first check is therefore the named certification body, its official contact and query service, and whether it is authorised for the stated activity—not an ISO logo copied into a supplier PDF.',
+              'For certification conducted in China, the currently effective CNCA-QMS-01:2025 rules use GB/T 19001 and/or ISO 9001 as the certification basis. The rules require audits to cover the management system and typical products or services within scope, but they also require the audit report to state that the audit was sampling-based. Certificates may be valid for no more than three years, require continuing surveillance, and can be suspended or withdrawn. A status checked today is useful dated evidence, not a permanent guarantee.'
+            ]
+          },
+          {
+            title: 'Do the legal entity, factory address and manufacturing scope all match?',
+            paragraphs: [
+              'CNCA-QMS-01:2025 requires a China QMS certificate to identify the certified organisation, Unified Social Credit Code, registered address, covered operating address or addresses, the scope of products, activities or services, the applicable standard, issue and expiry dates, certificate number, certification body and a query path. For a multi-site organisation, every site included in the certification scope must be listed. Those fields let a buyer test a factory claim instead of treating the certificate as a decorative badge.',
+              'Put the certificate beside the Chinese business licence, supplier quotation, contract, invoice details and the address where production is said to occur. A certificate naming a trading company, sales office, unrelated address or broad service scope does not by itself support a claim that a particular charger is manufactured at the visited site. A difference is not automatic proof of fraud: OEM, group-company and subcontracting structures can be legitimate, but the relationship must be documented before the buyer relies on it.'
+            ],
+            items: [
+              'Certified legal name and Unified Social Credit Code',
+              'Registered address and every covered operating site',
+              'Manufacturing activities and product scope relevant to chargers',
+              'Certificate number, issue date, expiry date and current status',
+              'Certification body and, where claimed, accreditation scope',
+              'Documented relationship among seller, certificate holder and factory'
+            ]
+          },
+          {
+            title: 'What still connects the certificate to this charger and order?',
+            paragraphs: [
+              'ISO’s conformity guidance warns that a management-system certification mark must not be placed on a product in a way that implies the product itself was certified. The practical boundary is important: ISO 9001 can support how an organisation manages processes; it does not establish that a charger passed electrical-safety, EMC, chemical, performance or destination-market requirements.',
+              'ZimonAI’s practical method is to build four explicit links: seller to certified legal entity; certified entity to the covered manufacturing address and scope; factory to the quoted model, process and current bill of materials; and the model to the actual order through samples, production schedule and inspection records. Ask to see model-specific work instructions, incoming and final inspection criteria, nonconformity or corrective-action records and traceability examples during an audit. These records do not turn a sampled visit into certainty, but they test whether the certificate’s scope is operating around the product being purchased.'
+            ]
+          }
+        ],
+        checklist: [
+          'Original certificate number, certification body and official query path',
+          'Current valid, suspended, withdrawn or expired status recorded with query date',
+          'Certified Chinese legal name and Unified Social Credit Code matched to the business licence',
+          'Registered address and actual production address matched to all covered sites',
+          'Scope that expressly covers relevant manufacturing activities and products',
+          'Written relationship among seller, certificate holder, brand owner and producing factory',
+          'Quoted model, specification, bill of materials and process flow tied to the site',
+          'Recent model-relevant production, inspection, traceability and corrective-action records'
+        ],
+        limitsText: 'An ISO 9001 certificate is management-system evidence for the named organisation, sites, scope and validity shown. It does not prove factory ownership, seller authority, product certification, exact-model compliance, legal market access, capacity, financial health, ethical performance, intellectual-property rights or shipment quality. Certification audits and buyer audits use sampling; records can be incomplete or change after the visit. If the legal entity, operating site, scope or certificate status cannot be independently matched, keep the factory claim unresolved rather than treating the certificate as proof.'
+      },
       rohsTestReport: {
         topic: 'EU hazardous-substance compliance',
         published: '1 September 2026',
@@ -1157,12 +1269,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、ISO 9001 工廠聲明、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '十篇查核筆記',
+      latest: '十一篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1244,6 +1356,63 @@ export const knowledgeContent = {
       back: '返回知識庫'
     },
     articles: {
+      iso9001Factory: {
+        topic: '中國工廠查核',
+        published: '2026 年 9 月 3 日',
+        readTime: '約 8 分鐘',
+        title: 'ISO 9001 證書能證明這家中國供應商就是充電器工廠嗎？',
+        description: '有效證書能支持所載組織在特定場所與範圍內運作品質管理系統，卻不能證明充電器已獲產品認證，也不能單獨確認誰生產報價型號。',
+        imageAlt: '橘色背景上的寫字板與條紋核對單，用於說明 ISO 9001 工廠證據查核。',
+        imageCaption: '核對單為編輯用照片；不是 ZimonAI 的供應商、客戶、工廠、稽核、ISO 證書或生產紀錄。',
+        answer: '不能。有效的 ISO 9001 證書，可以支持證書所載組織在列明的場所、活動範圍與有效期間內運作品質管理系統；它不能證明充電器本身已獲認證、賣方擁有工廠，或報價型號與本批訂單一定在該場所生產。買家應先查驗證書，再另外建立從賣方、法律主體、涵蓋的生產地址到產品型號與當期生產紀錄的證據鏈。',
+        takeaways: [
+          '確認發證機構並查詢證書目前狀態；ISO 負責制定標準，本身不替企業發出 ISO 9001 證書。',
+          '逐項核對組織名稱、統一社會信用代碼、註冊地址、證書涵蓋的營運地址與製造範圍，不能只看 ISO 標誌或公司名稱。',
+          '用型號、製程、物料清單與訂單紀錄把獲證場所連回報價充電器；管理系統認證不是產品認證。'
+        ],
+        sections: [
+          {
+            title: '證書由誰發出，又認證了什麼？',
+            paragraphs: [
+              'ISO 將 ISO 9001 定位為品質管理系統的要求標準。取得認證是自願選擇，查核與發證由獨立認證機構執行；ISO 本身不認證企業，也不發證。因此，第一步應確認證書上的認證機構、官方聯絡方式、證書查詢管道，以及該機構是否能執行所載認證，而不是把供應商 PDF 上的 ISO 標誌當成結論。',
+              '在中國境內辦理的品質管理系統認證，目前適用的 CNCA-QMS-01:2025，以 GB/T 19001 及／或 ISO 9001 為認證依據。規則要求稽核涵蓋管理系統與認證範圍內具代表性的產品或服務，同時要求稽核報告說明查核是以抽樣方式進行。證書有效期最長三年，期間仍要接受監督，也可能被暫停或撤銷；今天查到的狀態是有日期的證據，不是永久保證。'
+            ]
+          },
+          {
+            title: '法律主體、工廠地址與製造範圍都有對上嗎？',
+            paragraphs: [
+              'CNCA-QMS-01:2025 要求中國的品質管理系統證書列出獲證組織、統一社會信用代碼、註冊地址、認證涵蓋的營運地址、產品／活動／服務範圍、適用標準、發證與到期日、證書編號、認證機構及查詢管道；多場所組織還須列出認證範圍內的每一個場所。這些欄位能讓買家實際檢驗「這是工廠」的說法，而不是把證書當成裝飾。',
+              '請把證書與中國營業執照、報價單、合約、發票資料，以及供應商聲稱的生產地址並排核對。若證書寫的是貿易公司、辦公室、不相關地址，或只涵蓋銷售／服務活動，就不能單憑它支持特定充電器是在受訪工廠製造。資料不一致也不必直接判定造假：OEM、集團關係與分包可能合理，但買家在採信前仍須取得可追溯的關係文件。'
+            ],
+            items: [
+              '獲證法律名稱與統一社會信用代碼',
+              '註冊地址與所有受認證涵蓋的營運場所',
+              '與充電器相關的製造活動及產品範圍',
+              '證書編號、發證日、到期日與目前狀態',
+              '認證機構，以及有聲稱時的認可範圍',
+              '賣方、證書持有人與實際工廠的書面關係'
+            ]
+          },
+          {
+            title: '還需要哪些證據，才能連到這款充電器與本批訂單？',
+            paragraphs: [
+              'ISO 的符合性說明提醒，管理系統認證標誌不能放在產品上而使人誤以為產品本身獲得認證。這項界線很重要：ISO 9001 可以支持一個組織如何管理流程，卻不能證明充電器已符合電氣安全、EMC、化學物質、效能或目的市場法規。',
+              'ZimonAI 的實務做法，是把四段關係明確接起來：賣方到獲證法律主體、獲證主體到認證涵蓋的製造地址與範圍、工廠到報價型號／製程／現行物料清單，以及型號到本批訂單的樣品、生產排程與檢驗紀錄。現場可抽查型號專用作業指導書、進料與出貨檢驗標準、不符合與矯正措施紀錄，以及追溯範例。這些資料不能把抽樣查核變成保證，但能測試證書所述系統是否真的運用在買家要採購的產品上。'
+            ]
+          }
+        ],
+        checklist: [
+          '證書原始編號、認證機構與官方查詢管道',
+          '記錄查詢日期與有效、暫停、撤銷或過期狀態',
+          '獲證中文法律名稱及統一社會信用代碼與營業執照一致',
+          '註冊地址、實際生產地址與證書所列全部場所相符',
+          '認證範圍明確涵蓋相關製造活動與產品',
+          '賣方、證書持有人、品牌方與生產工廠的書面關係',
+          '報價型號、規格、物料清單與製程流程可連回該場所',
+          '近期且與型號相關的生產、檢驗、追溯與矯正措施紀錄'
+        ],
+        limitsText: 'ISO 9001 證書是針對所載組織、場所、範圍與有效期間的管理系統證據；不能證明工廠所有權、賣方授權、產品認證、精確型號合規、市場准入、產能、財務狀況、勞動或環境表現、智慧財產權及本批出貨品質。認證稽核與買家查核都採用抽樣，紀錄也可能不完整或在訪查後改變。若法律主體、營運場所、認證範圍或證書狀態無法獨立對應，就應把工廠關係保留為未確認，而不是拿證書替它背書。'
+      },
       rohsTestReport: {
         topic: '歐盟限用物質合規',
         published: '2026 年 9 月 1 日',
@@ -1800,12 +1969,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、ISO 9001 工厂声明、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '十篇核查笔记',
+      latest: '十一篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -1887,6 +2056,63 @@ export const knowledgeContent = {
       back: '返回知识库'
     },
     articles: {
+      iso9001Factory: {
+        topic: '中国工厂核查',
+        published: '2026 年 9 月 3 日',
+        readTime: '约 8 分钟',
+        title: 'ISO 9001 证书能证明这家中国供应商就是充电器工厂吗？',
+        description: '有效证书可以支持证书所列组织在相应场所和范围内运行质量管理体系，但不能证明充电器已获得产品认证，也不能单独确认报价型号由谁生产。',
+        imageAlt: '橙色背景上的写字板和条纹核对单，用于说明 ISO 9001 工厂证据核查。',
+        imageCaption: '核对单为编辑用图片；不是 ZimonAI 的供应商、客户、工厂、审核、ISO 证书或生产记录。',
+        answer: '不能。有效的 ISO 9001 证书可以支持证书所列组织在注明的场所、活动范围和有效期内运行质量管理体系；它不能证明充电器本身获得了认证、卖方拥有工厂，也不能证明报价型号和本批订单一定在该场所生产。买家应先查验证书，再另行建立从卖方、法律主体、获证生产地址到产品型号和当前生产记录的证据链。',
+        takeaways: [
+          '确认发证机构，并查询证书当前状态；ISO 负责制定标准，本身不为企业签发 ISO 9001 证书。',
+          '核对组织名称、统一社会信用代码、注册地址、认证覆盖的经营地址和制造范围，不能只看 ISO 标识或公司名称。',
+          '用型号、工艺、物料清单和订单资料将获证场所对应到报价充电器；管理体系认证不是产品认证。'
+        ],
+        sections: [
+          {
+            title: '证书是谁签发的，又认证了什么？',
+            paragraphs: [
+              'ISO 将 ISO 9001 定位为质量管理体系的要求标准。组织是否申请认证是自愿选择，审核和发证由独立认证机构执行；ISO 本身不认证企业，也不签发证书。因此，第一步应核实证书上的认证机构、官方联系方式、证书查询渠道，以及该机构能否开展所列业务，不能把供应商 PDF 上的 ISO 标识当成最终证据。',
+              '在中国境内开展的质量管理体系认证，目前执行 CNCA-QMS-01:2025，并以 GB/T 19001 和／或 ISO 9001 为认证依据。规则要求审核覆盖管理体系以及认证范围内具有代表性的产品或服务，同时要求审核报告说明审核基于抽样。证书有效期最长三年，期间仍需接受监督，也可能被暂停或撤销。今天查到的状态是一项带有查询日期的证据，并非永久保证。'
+            ]
+          },
+          {
+            title: '法律主体、工厂地址和制造范围是否全部一致？',
+            paragraphs: [
+              'CNCA-QMS-01:2025 要求中国质量管理体系证书列出获证组织、统一社会信用代码、注册地址、认证覆盖的经营地址、产品／活动／服务范围、适用标准、发证与到期日期、证书编号、认证机构及查询渠道；对于多场所组织，认证范围内的每个场所都要列明。采购方可以据此检验“这是工厂”的说法，而不是把证书当作装饰。',
+              '将证书与中国营业执照、报价单、合同、开票资料，以及供应商声称的生产地址放在一起核对。证书如果属于贸易公司、办公室、无关地址，或范围只写销售／服务，就不能单凭它证明某款充电器由所考察工厂生产。信息不一致也不必立刻认定造假：OEM、集团公司和分包安排可能合理，但买家在采信之前仍需取得可追溯的关系文件。'
+            ],
+            items: [
+              '获证法律名称和统一社会信用代码',
+              '注册地址及认证覆盖的全部经营场所',
+              '与充电器相关的制造活动和产品范围',
+              '证书编号、发证日、到期日和当前状态',
+              '认证机构，以及存在相关声明时的认可范围',
+              '卖方、证书持有人和实际工厂之间的书面关系'
+            ]
+          },
+          {
+            title: '还要哪些证据，才能对应到这款充电器和本批订单？',
+            paragraphs: [
+              'ISO 的符合性说明提醒，管理体系认证标志不能以暗示产品本身获得认证的方式标在产品上。这一区分十分关键：ISO 9001 可以支持一个组织如何管理流程，却不能证明充电器满足电气安全、EMC、化学物质、性能或目的市场法规。',
+              'ZimonAI 的实务方法是将四段关系明确连接起来：卖方与获证法律主体；获证主体与认证覆盖的生产地址及范围；工厂与报价型号、工艺及现行物料清单；型号与本批订单的样品、生产计划和检验记录。现场可抽查型号专用作业指导书、进料和出货检验标准、不合格及纠正措施记录，以及追溯样本。这些资料不会把抽样审核变成确定性保证，但能检验证书所称体系是否实际用于买家要采购的产品。'
+            ]
+          }
+        ],
+        checklist: [
+          '证书原始编号、认证机构和官方查询渠道',
+          '记录查询日期以及有效、暂停、撤销或过期状态',
+          '获证中文法律名称及统一社会信用代码与营业执照一致',
+          '注册地址、实际生产地址与证书所列全部场所相符',
+          '认证范围明确覆盖相关制造活动和产品',
+          '卖方、证书持有人、品牌方和生产工厂之间的书面关系',
+          '报价型号、规格、物料清单和工艺流程能够对应到该场所',
+          '近期且与型号相关的生产、检验、追溯和纠正措施记录'
+        ],
+        limitsText: 'ISO 9001 证书是针对所列组织、场所、范围和有效期的管理体系证据，不能证明工厂所有权、卖方授权、产品认证、精确型号合规、市场准入、产能、财务状况、劳工或环境表现、知识产权以及本批货物质量。认证审核和买家核查都采用抽样，记录也可能不完整或在访问后发生变化。法律主体、经营场所、认证范围或证书状态如果无法独立对应，就应将工厂关系保留为未确认，而不是用证书替它背书。'
+      },
       rohsTestReport: {
         topic: '欧盟限用物质合规',
         published: '2026 年 9 月 1 日',
