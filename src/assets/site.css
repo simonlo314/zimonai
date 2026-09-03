@@ -1379,7 +1379,7 @@ html[data-layout="cjk"] .field-note__headline h1 { max-width: 12.5em; line-heigh
 .field-note__meta > div:last-child { border-right: 0; }
 .field-note__meta dt { color: #91a5c2; font-family: var(--mono); font-size: var(--text-utility); letter-spacing: .06em; text-transform: uppercase; }
 .field-note__meta dd { margin: 6px 0 0; color: #fff; font-size: var(--text-caption); }
-.field-note__image { min-width: 0; margin: 0; padding-left: 24px; border-left: 1px solid rgba(255,255,255,.2); background: transparent; }
+.field-note__image { min-width: 0; align-self: center; margin: 0; padding-left: 24px; border-left: 1px solid rgba(255,255,255,.2); background: transparent; }
 .field-note__image img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: var(--field-note-image-position,50% 50%); filter: saturate(.72) contrast(1.06); }
 .field-note__image figcaption { display: grid; gap: 9px; padding: 16px 0 0; color: #aebdd1; font-size: var(--text-utility); line-height: 1.65; }
 .field-note__image figcaption a { color: #d8e6f8; text-decoration: underline; text-underline-offset: 3px; }
