@@ -34,6 +34,13 @@ test('knowledge taxonomy keeps five stable category definitions', () => {
   }
 });
 
+test('Chinese article-summary labels stay natural and format-specific', () => {
+  assert.equal(knowledgeContent['zh-tw'].ui.quickAnswer, '懶人包');
+  assert.equal(knowledgeContent['zh-cn'].ui.quickAnswer, '总结');
+  assert.equal(knowledgeContent['zh-tw'].articles.ankerMagGo2Pro.labels.summary, '新聞摘要');
+  assert.equal(knowledgeContent['zh-cn'].articles.ankerMagGo2Pro.labels.summary, '新闻摘要');
+});
+
 test('every knowledge article has valid locale-independent filters and trilingual keywords', () => {
   const validCategories = new Set(knowledgeCategoryDefinitions.map(({ id }) => id));
   const validContentTypes = new Set(['industry-knowledge', 'current-affairs']);
