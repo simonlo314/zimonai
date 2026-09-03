@@ -64,7 +64,7 @@ export const knowledgeArticleSpecs = [
       {
         publisher: 'United Nations Economic Commission for Europe',
         title: 'UN Manual of Tests and Criteria, Revision 8 and Amendment 1',
-        url: 'https://unece.org/transport/standards/transport/dangerous-goods/un-manual-tests-and-criteria-rev8-2023'
+        url: 'https://unece.org/transport/publications/un-manual-tests-and-criteria-rev8-2023'
       }
     ]
   },
