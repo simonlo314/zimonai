@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-03
+Last reviewed: 2026-09-04
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -17,6 +17,7 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | `src/assets/editorial-safety-gate-charger.jpg` | ready made | [Photo Of Cord Near Socket](https://www.pexels.com/photo/photo-of-cord-near-socket-3921702/) | Knowledge article about checking EU Safety Gate alerts for chargers; editorial illustration only |
 | `src/assets/editorial-rohs-circuit-board.jpg` | Ivan Chumak | [Detailed macro shot of a circuit board highlighting electronic components and traces](https://www.pexels.com/photo/close-up-of-electronic-circuit-board-with-components-34924858/) | Knowledge article about checking RoHS test-report evidence for chargers; editorial illustration only |
 | `src/assets/editorial-iso-9001-checklist.jpg` | MART PRODUCTION | [A To Do List on a Clipboard](https://www.pexels.com/photo/a-to-do-list-on-a-clipboard-7718755/) | Knowledge article about testing ISO 9001 claims against a Chinese charger factory; editorial illustration only |
+| `src/assets/editorial-reach-svhc-power-supply-board.jpg` | ed br | [Close-Up of Circuit Board with Components](https://www.pexels.com/photo/close-up-of-circuit-board-with-components-37005283/) | Knowledge article about checking REACH/SVHC supplier declarations for chargers and power adapters; editorial illustration only; downloaded and used 2026-09-04 |
 
 ## Official press-kit assets
 

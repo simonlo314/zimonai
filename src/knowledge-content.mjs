@@ -69,6 +69,62 @@ export const knowledgeArticleSpecs = [
     ]
   },
   {
+    id: 'knowledge-reach-svhc-declaration',
+    key: 'reachSvhcDeclaration',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/reach-svhc-declaration-charger',
+    category: 'product-transport-documents',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['china', 'european-union'],
+    keywords: {
+      en: ['REACH SVHC declaration', 'charger REACH compliance', 'Candidate List substances', 'Article 33 declaration', '0.1% w/w threshold', 'charger material declaration'],
+      'zh-tw': ['REACH SVHC 聲明', '充電器 REACH 合規', '候選清單物質', 'REACH 第 33 條', '0.1% w/w 門檻', '充電器物質聲明'],
+      'zh-cn': ['REACH SVHC 声明', '充电器 REACH 合规', '候选清单物质', 'REACH 第 33 条', '0.1% w/w 阈值', '充电器物质声明']
+    },
+    datePublished: '2026-09-04',
+    dateModified: '2026-09-04',
+    image: '/assets/editorial-reach-svhc-power-supply-board.jpg',
+    imageWidth: 1600,
+    imageHeight: 1200,
+    imageCrop: {
+      card: '55% 55%',
+      article: '56% 54%',
+      mobile: '52% 50%'
+    },
+    photo: {
+      photographer: 'ed br',
+      page: 'https://www.pexels.com/photo/close-up-of-circuit-board-with-components-37005283/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'European Chemicals Agency',
+        title: 'Candidate List substances in articles — duties for producers, importers and suppliers',
+        url: 'https://echa.europa.eu/regulations/reach/candidate-list-substances-in-articles'
+      },
+      {
+        publisher: 'European Chemicals Agency',
+        title: 'Communication in the supply chain — REACH Article 33 information duties',
+        url: 'https://echa.europa.eu/en-GB/regulations/reach/candidate-list-substances-in-articles/communication-in-the-supply-chain'
+      },
+      {
+        publisher: 'European Chemicals Agency',
+        title: 'Guidance on requirements for substances in articles, Version 4.0',
+        url: 'https://echa.europa.eu/documents/10162/2324906/articles_en.pdf'
+      },
+      {
+        publisher: 'Court of Justice of the European Union',
+        title: 'Judgment in Case C-106/14 — the 0.1% threshold applies to articles in a complex product',
+        url: 'https://curia.europa.eu/jcms/jcms/P_173743/'
+      },
+      {
+        publisher: 'European Chemicals Agency',
+        title: 'Summary of obligations resulting from inclusion of SVHCs in the Candidate List',
+        url: 'https://echa.europa.eu/candidate-list-obligations'
+      }
+    ]
+  },
+  {
     id: 'knowledge-iso-9001-factory',
     key: 'iso9001Factory',
     contentType: 'industry-knowledge',
@@ -641,12 +697,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, factory claims, Qi2, RoHS, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-bank buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, factory claims, Qi2, RoHS, REACH/SVHC, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-bank buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
       featured: 'Start here',
-      latest: 'Twelve field notes',
+      latest: 'Thirteen field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -786,6 +842,63 @@ export const knowledgeContent = {
           'How quickly other charging brands follow with actively cooled designs'
         ],
         limitsText: 'As of 3 September 2026, Anker had published the US price, colour options and launch timing, and the WPC record confirmed the Qi registration fields for A110R. Independent reviews had not yet established sustained charging speed, real-world temperature, fan noise, battery endurance or long-term durability. Availability and pricing in every market were also not fully confirmed. The comments on category direction and manufacturing complexity are ZIMONAI’s analysis, not statements issued by Anker, WPC or a regulator.'
+      },
+      reachSvhcDeclaration: {
+        topic: 'EU chemical-information evidence',
+        published: '4 September 2026',
+        readTime: '7 minutes',
+        title: 'Does a supplier REACH/SVHC declaration prove this charger meets EU requirements?',
+        description: 'A declaration can support a named model, bill of materials and Candidate List reference date. It is not an ECHA approval and cannot cover an unidentified product or later material change.',
+        imageAlt: 'Electronic components on a small circuit board, used as an editorial illustration for REACH and SVHC evidence checks.',
+        imageCaption: 'Editorial photograph of electronic components. It is not a ZIMONAI supplier, client, charger, factory, audit sample, laboratory result or compliance record.',
+        answer: 'No. A supplier declaration can be useful evidence only when it identifies the exact charger or power-adapter model, the covered bill-of-materials revision, the Candidate List reference date and the basis for its conclusion. REACH Article 33 creates information duties when a Candidate List substance is present above 0.1% weight by weight in an article; a generic “REACH compliant” letter is neither an ECHA certificate nor proof that every component, later substitution and other REACH obligation has been assessed.',
+        takeaways: [
+          'Check the declaration’s product identity, legal issuer, bill-of-materials revision and Candidate List reference date before reading its conclusion.',
+          'For a complex charger, the 0.1% w/w threshold applies to each constituent object that remains an article—not only to the finished charger’s total mass.',
+          'Separate three questions: Article 33 communication, any SCIP duty for the EU market actor, and other REACH restrictions or authorisation issues. One supplier sentence does not resolve all three.'
+        ],
+        sections: [
+          {
+            title: 'What does REACH Article 33 actually require?',
+            paragraphs: [
+              'ECHA states that an EU or EEA supplier of an article containing a Candidate List substance above 0.1% w/w must give professional recipients enough available information for safe use, including at least the substance name. A consumer can request similar information, which must be supplied free of charge within 45 days. These duties arise from the substance’s inclusion in the Candidate List; they are not created by a private test-report format or an ECHA product approval.',
+              'A Chinese exporter may provide the upstream data needed for this assessment, but the official ECHA summary assigns the market-facing duties to EU or EEA producers, importers and suppliers according to their role. A buyer should therefore ask who will place the charger on the EU market and who has reviewed the product information, rather than treating the exporter’s letter as the end of the compliance chain.'
+            ]
+          },
+          {
+            title: 'Why can a one-page “REACH compliant” statement be too broad?',
+            paragraphs: [
+              'The Court of Justice of the European Union held in Case C-106/14 that the 0.1% threshold applies to each article incorporated as a component of a complex product. ECHA’s guidance follows the same “once an article, always an article” approach. For a charger, the relevant evidence may therefore need to follow constituent articles such as a cable, enclosure part or connector; dividing one substance amount by the mass of the complete product can hide a component-level result above the threshold.',
+              'The Candidate List can change, and a charger bill of materials can change. A useful declaration should therefore state the exact model and variant, covered production or bill-of-materials revision, issuer and date, Candidate List cut-off date, substance identifiers or screening basis, threshold used and any exclusions. A genuine declaration for an older configuration does not automatically cover a new plastic, cable, solder, adhesive, connector or sub-supplier.'
+            ],
+            items: [
+              'Exact model, electrical variant and included cable or accessory',
+              'Manufacturer or supplier legal name and authorised signatory',
+              'Bill-of-materials or material-list revision and issue date',
+              'Candidate List version or explicit reference date',
+              '0.1% w/w assessment at constituent-article level',
+              'Named SVHCs and safe-use information when the threshold is exceeded'
+            ]
+          },
+          {
+            title: 'How should a buyer test the declaration before relying on it?',
+            paragraphs: [
+              'ZIMONAI’s practical method is to build a component-to-evidence matrix. Start with the quoted model and current bill of materials; identify higher-risk plastics, cable assemblies, connectors, coatings, solder and other constituent articles; then link each row to a supplier material declaration, test evidence or documented assessment. Record gaps instead of converting missing information into an assumed pass.',
+              'If an SVHC is reported above 0.1% w/w, obtain the substance name and sufficient safe-use information, then ask the responsible EU actor to confirm its Article 33 communication and whether a SCIP submission is required. If the supplier reports no Candidate List substance above the threshold, retain the dated basis and change-control link. This strengthens traceability, but it remains a sampled documentary assessment rather than proof of every unit or every REACH rule.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact charger, power-adapter and accessory model identifiers',
+          'Declaration issuer, legal entity, signature and issue date',
+          'Current bill-of-materials or material-list revision',
+          'Candidate List reference date and substance identifiers',
+          'Constituent-article basis for the 0.1% w/w assessment',
+          'Supporting material declarations, test reports or assessment records',
+          'Documented controls for material and sub-supplier changes',
+          'EU importer or supplier review of Article 33 and SCIP duties'
+        ],
+        limitsText: 'A REACH/SVHC declaration is supplier evidence, not an ECHA product certificate. It does not by itself prove laboratory accuracy, completeness of the bill of materials, production consistency, absence of all hazardous substances, compliance with REACH restrictions or authorisation rules, SCIP submission, RoHS conformity, electrical safety, CE conformity, factory identity or shipment quality. The 0.1% Article 33 threshold is an information trigger; the presence of an SVHC does not by itself prove consumer exposure or unacceptable risk. When product identity, Candidate List date or component-level basis is missing, keep the conclusion unresolved.'
       },
       iso9001Factory: {
         topic: 'China factory verification',
@@ -1400,12 +1513,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、工廠聲明、Qi2、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、工廠聲明、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
       featured: '建議先讀',
-      latest: '十二篇查核筆記',
+      latest: '十三篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1545,6 +1658,63 @@ export const knowledgeContent = {
           '其他充電品牌跟進主動散熱設計的速度'
         ],
         limitsText: '截至 2026 年 9 月 3 日，Anker 已公布美國售價、顏色與上市時間，WPC 紀錄也能確認 A110R 的 Qi 登錄欄位；但獨立評測尚未證實長時間充電速度、實際溫度、風扇噪音、電池續航與長期耐用度，所有市場的價格與供貨情況也還沒有完整答案。本文對品類走向與製造複雜度的描述屬 ZIMONAI 編輯判讀，不是 Anker、WPC 或主管機關的結論。'
+      },
+      reachSvhcDeclaration: {
+        topic: '歐盟化學物質文件',
+        published: '2026 年 9 月 4 日',
+        readTime: '約 7 分鐘',
+        title: '供應商給了 REACH／SVHC 聲明，就能證明充電器符合歐盟要求嗎？',
+        description: '聲明只有在型號、物料表版本與候選清單基準日都清楚時，才有可追溯價值；它不是 ECHA 核發的產品證書，也不會自動涵蓋後續換料。',
+        imageAlt: '小型電路板上的電子零組件，用於說明 REACH 與 SVHC 文件核對。',
+        imageCaption: '電子零組件編輯用照片；不是 ZIMONAI 客戶、供應商、充電器、工廠、查核樣品、實驗室結果或合規紀錄。',
+        answer: '不能。供應商聲明只有在明確指出充電器或電源適配器的精確型號、物料表版本、候選清單基準日與判定依據時，才可作為一項文件證據。REACH 第 33 條處理的是候選清單物質在某一「物品」中超過 0.1% w/w 時的資訊傳遞義務；一張泛稱「REACH compliant」的聲明，既不是 ECHA 核發的證書，也不能證明所有零件、後續換料與其他 REACH 義務都已完成評估。',
+        takeaways: [
+          '先核對聲明所指的產品、出具法律主體、物料表版本與候選清單基準日，再閱讀合規結論。',
+          '充電器是由多個物件組成的複合產品；0.1% w/w 門檻要套用到其中每個仍屬於「物品」的組成件，不能只拿整機重量稀釋。',
+          '把第 33 條資訊傳遞、歐盟市場責任人的 SCIP 義務，以及其他 REACH 限制或授權問題分開查；一句供應商聲明無法一次回答全部問題。'
+        ],
+        sections: [
+          {
+            title: 'REACH 第 33 條實際要求什麼？',
+            paragraphs: [
+              'ECHA 說明，歐盟或歐洲經濟區的物品供應者，如果物品中的候選清單物質超過 0.1% w/w，就必須向專業收受者提供足以安全使用的現有資訊，最低限度要告知物質名稱。消費者提出相同資訊請求時，供應者須在 45 天內免費回覆。這項義務源自物質被納入候選清單，不是由某一種民間測試報告格式或 ECHA 產品批准所產生。',
+              '中國出口商可以提供評估所需的上游資料，但 ECHA 的官方摘要是依角色，把面向歐盟市場的義務放在歐盟或歐洲經濟區的生產者、進口商與供應者身上。買家因此還要確認誰把充電器投放歐盟市場、誰已審閱產品資料，不能把出口商的一張信函當成合規鏈的終點。'
+            ]
+          },
+          {
+            title: '為什麼一頁「符合 REACH」聲明可能寫得太廣？',
+            paragraphs: [
+              '歐盟法院在 C-106/14 判決中確認，0.1% 門檻要套用到複合產品裡的每一個物品；ECHA 指引也採用相同原則。對充電器而言，線材、外殼零件、連接器等組成件都可能需要各自追溯。若只把某一物質的重量除以整台充電器的重量，就可能把單一組成件超過門檻的結果稀釋掉。',
+              '候選清單會更新，充電器的物料表也可能改版。因此，有判讀價值的聲明至少要寫出精確型號與變體、涵蓋的生產或物料表版本、出具者與日期、候選清單截止日、物質識別或篩查依據、採用門檻及排除範圍。即使舊版聲明是真實文件，也不能自動涵蓋後來更換的塑膠、線材、焊料、黏著劑、連接器或次級供應商。'
+            ],
+            items: [
+              '精確型號、電氣變體及隨附線材或配件',
+              '製造商或供應商法律名稱與授權簽署人',
+              '物料表或材料清單版本與出具日期',
+              '候選清單版本或明確基準日',
+              '以各組成物品為基礎的 0.1% w/w 評估',
+              '超過門檻時的 SVHC 名稱與安全使用資訊'
+            ]
+          },
+          {
+            title: '買家要怎麼測試這份聲明能不能採信？',
+            paragraphs: [
+              'ZIMONAI 的實務作法，是建立「零件—證據」對照表。先鎖定報價型號與現行物料表，再挑出風險較高的塑膠、線材組件、連接器、塗層、焊料與其他組成物品，逐項連到上游材料聲明、測試證據或書面評估。遇到資料缺口就明確標記，不把缺資料自動解讀成通過。',
+              '若供應商申報某項 SVHC 超過 0.1% w/w，應取得物質名稱與足夠的安全使用資訊，再由負責的歐盟市場主體確認第 33 條溝通與 SCIP 申報是否適用。若結論是未超過門檻，也要保留有日期的判定依據與變更管制關係。這能提高可追溯性，但仍屬文件與抽樣證據，不能當成每一件產品或所有 REACH 規則的保證。'
+            ]
+          }
+        ],
+        checklist: [
+          '充電器、電源適配器與配件的精確型號',
+          '聲明出具者、法律主體、簽署與日期',
+          '現行物料表或材料清單版本',
+          '候選清單基準日與物質識別資訊',
+          '各組成物品的 0.1% w/w 評估方式',
+          '上游材料聲明、測試報告或評估紀錄',
+          '材料與次級供應商變更管制',
+          '歐盟進口商或供應者對第 33 條與 SCIP 義務的審查'
+        ],
+        limitsText: 'REACH／SVHC 聲明是供應鏈文件證據，不是 ECHA 核發的產品證書。它不能單獨證明實驗室結果正確、物料表完整、量產一致、完全不含有害物質、符合所有 REACH 限制或授權規定、已完成 SCIP 申報，也不能證明 RoHS、電氣安全、CE 符合性、工廠身分或出貨品質。第 33 條的 0.1% 是資訊傳遞門檻；含有 SVHC 並不等於已證明消費者會暴露或風險不可接受。若產品識別、候選清單日期或零件層級的判定基礎不完整，結論就應保留為尚未確認。'
       },
       iso9001Factory: {
         topic: '中國工廠查核',
@@ -2159,12 +2329,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、工厂声明、Qi2、RoHS、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、工厂声明、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
       featured: '建议先读',
-      latest: '十二篇核查笔记',
+      latest: '十三篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -2304,6 +2474,63 @@ export const knowledgeContent = {
           '其他充电品牌跟进主动散热设计的速度'
         ],
         limitsText: '截至 2026 年 9 月 3 日，Anker 已公布美国售价、配色和上市时间，WPC 记录也能确认 A110R 的 Qi 登记字段；但独立评测尚未证实长时间充电速度、实际温度、风扇噪声、电池续航与长期耐用性，所有市场的售价和供货情况也还没有完整答案。本文对品类方向和制造复杂度的描述属于 ZIMONAI 编辑判断，并非 Anker、WPC 或监管机构的结论。'
+      },
+      reachSvhcDeclaration: {
+        topic: '欧盟化学物质文件',
+        published: '2026 年 9 月 4 日',
+        readTime: '约 7 分钟',
+        title: '供应商提供了 REACH／SVHC 声明，就能证明充电器符合欧盟要求吗？',
+        description: '声明只有在型号、物料清单版本和候选清单基准日都清楚时才具有可追溯价值；它不是 ECHA 颁发的产品证书，也不会自动覆盖后续换料。',
+        imageAlt: '小型电路板上的电子零部件，用于说明 REACH 和 SVHC 文件核对。',
+        imageCaption: '电子零部件编辑用照片；并非 ZIMONAI 客户、供应商、充电器、工厂、核查样品、实验室结果或合规记录。',
+        answer: '不能。供应商声明只有在明确指出充电器或电源适配器的精确型号、物料清单版本、候选清单基准日和判断依据时，才能作为一项文件证据。REACH 第 33 条处理的是候选清单物质在某一“物品”中超过 0.1% w/w 时的信息传递义务；一份笼统的“REACH compliant”声明，既不是 ECHA 颁发的证书，也不能证明所有零部件、后续换料和其他 REACH 义务都已完成评估。',
+        takeaways: [
+          '先核对声明所指的产品、出具法律主体、物料清单版本和候选清单基准日，再阅读合规结论。',
+          '充电器是由多个对象组成的复杂产品；0.1% w/w 阈值要用于其中每个仍属于“物品”的组成件，不能只用整机重量稀释。',
+          '把第 33 条信息传递、欧盟市场责任方的 SCIP 义务，以及其他 REACH 限制或授权问题分开核查；一句供应商声明无法一次回答全部问题。'
+        ],
+        sections: [
+          {
+            title: 'REACH 第 33 条实际要求什么？',
+            paragraphs: [
+              'ECHA 说明，欧盟或欧洲经济区的物品供应方，如果物品中的候选清单物质超过 0.1% w/w，就必须向专业接收方提供足以安全使用的现有信息，至少要告知物质名称。消费者提出同类信息请求时，供应方须在 45 天内免费回复。这项义务来自物质被列入候选清单，并非由某一种民间测试报告格式或 ECHA 产品批准产生。',
+              '中国出口商可以提供评估所需的上游资料，但 ECHA 的官方摘要是按角色把面向欧盟市场的义务放在欧盟或欧洲经济区的生产商、进口商和供应方身上。因此，买家还要确认由谁把充电器投放欧盟市场、谁已审核产品资料，不能把出口商的一封声明当作合规链的终点。'
+            ]
+          },
+          {
+            title: '为什么一页“符合 REACH”声明可能写得太宽泛？',
+            paragraphs: [
+              '欧盟法院在 C-106/14 判决中确认，0.1% 阈值要用于复杂产品中的每一个物品；ECHA 指南也采用相同原则。对充电器而言，线材、外壳零件、连接器等组成件都可能需要分别追溯。如果只把某种物质的重量除以整台充电器的重量，就可能把单个组成件超过阈值的结果稀释掉。',
+              '候选清单会更新，充电器的物料清单也可能改版。因此，有判断价值的声明至少要写明精确型号与变体、覆盖的生产或物料清单版本、出具方与日期、候选清单截止日、物质识别或筛查依据、所用阈值及排除范围。即使旧版声明是真实文件，也不能自动覆盖后来更换的塑料、线材、焊料、胶黏剂、连接器或次级供应商。'
+            ],
+            items: [
+              '精确型号、电气变体及随附线材或配件',
+              '制造商或供应商法律名称与授权签字人',
+              '物料清单或材料清单版本与出具日期',
+              '候选清单版本或明确基准日',
+              '以各组成物品为基础的 0.1% w/w 评估',
+              '超过阈值时的 SVHC 名称与安全使用信息'
+            ]
+          },
+          {
+            title: '买家怎样测试这份声明是否值得采信？',
+            paragraphs: [
+              'ZIMONAI 的实务做法是建立“零件—证据”对照表。先锁定报价型号和现行物料清单，再找出风险较高的塑料、线材组件、连接器、涂层、焊料及其他组成物品，逐项连接到上游材料声明、测试证据或书面评估。遇到资料缺口就明确标记，不能把资料缺失自动解释成通过。',
+              '如果供应商申报某项 SVHC 超过 0.1% w/w，应取得物质名称和足够的安全使用信息，再由负责的欧盟市场主体确认第 33 条沟通与 SCIP 申报是否适用。如果结论是未超过阈值，也要保存带日期的判断依据和变更控制关系。这能提高可追溯性，但仍属于文件和抽样证据，不能视为每一件产品或所有 REACH 规则的保证。'
+            ]
+          }
+        ],
+        checklist: [
+          '充电器、电源适配器与配件的精确型号',
+          '声明出具方、法律主体、签字和日期',
+          '现行物料清单或材料清单版本',
+          '候选清单基准日与物质识别信息',
+          '各组成物品的 0.1% w/w 评估方式',
+          '上游材料声明、测试报告或评估记录',
+          '材料和次级供应商变更控制',
+          '欧盟进口商或供应方对第 33 条与 SCIP 义务的审核'
+        ],
+        limitsText: 'REACH／SVHC 声明是供应链文件证据，并非 ECHA 颁发的产品证书。它不能单独证明实验室结果准确、物料清单完整、量产一致、完全不含有害物质、符合所有 REACH 限制或授权规定、已完成 SCIP 申报，也不能证明 RoHS、电气安全、CE 符合性、工厂身份或出货质量。第 33 条的 0.1% 是信息传递阈值；含有 SVHC 并不等于已经证明消费者会接触或风险不可接受。如果产品识别、候选清单日期或零件层级的判断基础不完整，结论就应保留为尚未确认。'
       },
       iso9001Factory: {
         topic: '中国工厂核查',
