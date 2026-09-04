@@ -12,7 +12,7 @@ Do not publish generic SEO filler, broad consumer advice, invented cases, client
 
 ### Industry knowledge
 
-Industry-knowledge articles answer one concrete buyer question. They should lead with a direct answer, explain the evidence chain and end with a practical checklist and clear limits. A decisive opening such as “No” or “Not by itself” is appropriate when it directly answers the reader's question.
+Industry-knowledge articles answer one concrete buyer question. They should open with a self-contained reader overview, explain the evidence chain and end with a practical checklist and clear limits. The opening is not a yes/no verdict: it must bring together what the document, record or issue actually does, its most important boundary, what that means for an overseas buyer and a useful ZIMONAI editorial interpretation. Do not begin the overview—or any sentence inside it—with “No,” “Yes,” “It depends,” “Not necessarily,” “不能,” “可以,” “不一定” or an equivalent binary answer.
 
 ### Current affairs
 
@@ -41,13 +41,17 @@ In `knowledgeArticleSpecs`, set `contentType` to `industry-knowledge` or `curren
 
 Every locale must include:
 
-- one answer-first paragraph;
+- one self-contained overview paragraph;
 - three concise takeaways;
 - three evidence-led sections;
 - a practical buyer checklist;
 - a visible limitations statement;
 - links to all primary sources;
 - one licensed editorial photograph with meaningful alternative text and a truthful caption.
+
+The source field remains named `answer` for compatibility with the existing schema, and the template class remains `answer-first`; those internal names do not define the writing style. A reader who sees only this paragraph should still understand the subject, the decisive facts, the evidence boundary, the practical consequence and the editorial takeaway. Do not turn it into a disclaimer, a checklist, a restatement of the headline or a mechanical list of things the document cannot prove.
+
+Automated validation must reject binary-verdict sentence openings, summaries that are too short to stand alone, and industry summaries that lack both a buyer perspective and an editorial insight. Passing the validator is only the first gate: a human reviewer must still compare every locale with the complete article and confirm that the overview accurately represents the whole piece.
 
 The visible end of every article must carry the approved editorial credit for its locale. Use the shared `knowledge.ui.editorialCredit` value so every existing and future article displays the same ZIMONAI／智蒙灣科技 editorial ownership line without copy drift.
 

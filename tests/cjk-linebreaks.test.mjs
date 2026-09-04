@@ -125,8 +125,8 @@ test('pure Latin technical names are protected without requiring adjacent Han te
 
 test('ordinals and quantities keep their number and measure word together', () => {
   for (const [locale, values] of [
-    ['zh-tw', ['第一層', '兩款', '12 個', '三項', '7 天', '8 月', '9 篇', '6 位數', '109.99 美元', '50–500 件', '3–5 頁', '4～8 週', '1,000–2,500 件', '1167號', '7樓', '24–48 小時', '60 分鐘']],
-    ['zh-cn', ['第一层', '两款', '12 个', '三项', '7 天', '8 月', '9 篇', '18 位', '109.99 美元', '50–500 件', '3–5 个', '4～8 周', '1.5–2.0 年', '1167号', '7楼', '24–48 小时', '30 分钟']]
+    ['zh-tw', ['第一層', '第 33 條', '兩款', '12 個', '三項', '7 天', '8 月', '9 月 17 日', '9 篇', '6 位數', '109.99 美元', '50–500 件', '3–5 頁', '4～8 週', '1,000–2,500 件', '1167號', '7樓', '24–48 小時', '60 分鐘']],
+    ['zh-cn', ['第一层', '第 33 条', '两款', '12 个', '三项', '7 天', '8 月', '9 月 17 日', '9 篇', '18 位', '109.99 美元', '50–500 件', '3–5 个', '4～8 周', '1.5–2.0 年', '1167号', '7楼', '24–48 小时', '30 分钟']]
   ]) {
     for (const value of values) {
       assert.equal(
@@ -138,10 +138,20 @@ test('ordinals and quantities keep their number and measure word together', () =
   }
 });
 
+test('technical measurements keep their values and units together', () => {
+  for (const value of ['10,000mAh', '25W', '0.1% w/w', '3.3V', '65°C']) {
+    assert.equal(
+      protectCjkText(value, 'zh-cn'),
+      `<span class="cjk-keep cjk-keep--phrase">${value}</span>`,
+      `did not keep ${value} together`
+    );
+  }
+});
+
 test('demonstratives and non-numeric quantifiers stay attached to their measure word', () => {
   for (const [locale, values] of [
-    ['zh-tw', ['這款', '這張', '這家', '這筆', '每個', '每一個', '每款', '每篇', '每項', '本批']],
-    ['zh-cn', ['这款', '这张', '这家', '这笔', '每个', '每一个', '每款', '每篇', '每项', '本批']]
+    ['zh-tw', ['這款', '這張', '這家', '這筆', '這台', '每個', '每一個', '每款', '每篇', '每項', '本批']],
+    ['zh-cn', ['这款', '这张', '这家', '这笔', '这台', '每个', '每一个', '每款', '每篇', '每项', '本批']]
   ]) {
     for (const value of values) {
       assert.equal(
@@ -156,7 +166,9 @@ test('demonstratives and non-numeric quantifiers stay attached to their measure 
 test('closing punctuation stays with the semantic unit before it', () => {
   for (const [locale, value, expected] of [
     ['zh-tw', '符合性聲明，下一步', '符合性聲明，'],
+    ['zh-tw', '插腳、電路板', '插腳、'],
     ['zh-cn', '欧盟联系地址，下一步', '欧盟联系地址，'],
+    ['zh-cn', '后续换料、SCIP', '后续换料、'],
     ['zh-tw', '新品新聞 · 01', '新品新聞 · 01'],
     ['zh-cn', '新品新闻 · 01', '新品新闻 · 01']
   ]) {
@@ -167,6 +179,37 @@ test('closing punctuation stays with the semantic unit before it', () => {
       new RegExp(`<span class="cjk-keep cjk-keep--(?:phrase|word)">${expected.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}<\\/span>`),
       `${locale} left closing punctuation outside ${expected}`
     );
+  }
+});
+
+test('visually reviewed summary phrases are protected without broad grammatical joining', () => {
+  for (const [locale, phrases] of [
+    ['zh-tw', [
+      '25W 的 Qi2.2', '這項查核', '下一筆訂單', '相符紀錄時', '依特定標準',
+      '範圍內的品質管理系統', '採購時', '一張快照', '外殼下的不同瓦數',
+      '這份摘要', '若對不上', '這筆採購', '並以證書狀態', '只支持',
+      '主體身分與狀態', '應比對', '這項查核的重點', '危險產品通報與矯正措施',
+      '型號與篩選條件', '仍須搭配產品', 'CB 證書的價值', '供應商的管理主張',
+      '這類文件應作為', '整體合規的結案依據',
+      '指定樣品或均質材料', '受測物質與結果', '實際涵蓋的對象',
+      'EU 符合性聲明與量產變更管制', '電路板或安全元件',
+      '目前賣方與檔案持有人', '行動電源的當批內部配置',
+      '供應商符合性聲明（SDoC）'
+    ]],
+    ['zh-cn', [
+      '将 10,000mAh', '更不保证', '是先按产品功能', '先按产品功能', '或 SDoC',
+      '经 Certification', '各组成物品的 0.1% w/w', '更不涵盖', '把摘要',
+      '并以型号', '完整型号和设备类别', '主体一致性', '及物料清单版本', '它不是',
+      '供应商符合性声明（SDoC）'
+    ]]
+  ]) {
+    for (const phrase of phrases) {
+      assert.equal(
+        protectCjkText(phrase, locale),
+        `<span class="cjk-keep cjk-keep--phrase">${phrase}</span>`,
+        `${locale} did not keep ${phrase} as one reviewed phrase`
+      );
+    }
   }
 });
 
@@ -203,7 +246,12 @@ test('visually reviewed Chinese compounds remain indivisible regression units', 
       'RoHS 測試報告', '製造商的符合性聲明', '背後的法律主體', '先確認服務範圍',
       '再進行付款', '已合規嗎', '案件資料', '把錢', '素材庫照片', '你正要做的決定', '先找出',
       '與電源電子', '電源電子供應鏈', '與電源電子供應鏈', '原始說法', '與資料來源',
-      '方便就查哪個', '這款充電器', '就代表', '就能證明', '就能把', '能證明', '起算時間'
+      '方便就查哪個', '這款充電器', '就代表', '就能證明', '就能把', '能證明', '起算時間',
+      '是中國供應商法律主體', '中國供應商法律主體', '中國供應商', '穩定識別基準', '官方公示紀錄',
+      '可見的主體身分',
+      '看起來一致', '英文譯名', '郵件簽名',
+      '而企業登記本身', '企業登記本身', '登記資料', '登記主體', '自有工廠', '具備足夠產能',
+      '發票方', '收款方', '誰負責', '或一定履行', '一定履行', '會履行'
     ],
     'zh-cn': [
       '电源', '物料', '说法', '第一层', '双基地协作', '发布了什么', '欧盟联系地址',
@@ -211,7 +259,12 @@ test('visually reviewed Chinese compounds remain indivisible regression units', 
       'RoHS 测试报告', '制造商的符合性声明', '背后的法律主体', '先确认服务范围',
       '再进行付款', '已合规吗', '项目资料', '把钱', '素材库照片', '你正要做的决定', '先找出',
       '与电源电子', '电源电子供应链', '与电源电子供应链', '原始说法', '和信息来源',
-      '方便就查哪个', '这款充电器', '就代表', '就能证明', '就能认为', '能证明', '起算时间'
+      '方便就查哪个', '这款充电器', '就代表', '就能证明', '就能认为', '能证明', '起算时间',
+      '是中国供应商法律主体', '中国供应商法律主体', '中国供应商', '稳定识别基准', '官方公示记录', '该主体',
+      '平台店名或邮件签名', '签约方和收款方',
+      '容易混淆', '英文译名', '邮件签名',
+      '而企业登记本身', '企业登记本身', '登记资料', '登记主体', '自有工厂',
+      '发票方', '收款方', '谁负责', '或一定履行', '一定履行', '会履行订单', '会履行'
     ]
   };
   for (const [locale, terms] of Object.entries(reviewedTerms)) {

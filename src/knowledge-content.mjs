@@ -138,7 +138,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['ISO 9001 证书', '中国充电器工厂', '供应商工厂核查', '质量管理体系', 'ISO 证书查询', '充电器制造商审核']
     },
     datePublished: '2026-09-03',
-    dateModified: '2026-09-03',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-iso-9001-checklist.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
@@ -194,7 +194,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['RoHS 测试报告', '充电器 RoHS 合规', 'RoHS 均质材料', 'EN IEC 63000', 'RoHS 符合性声明', '充电器限用物质']
     },
     datePublished: '2026-09-01',
-    dateModified: '2026-09-01',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-rohs-circuit-board.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
@@ -255,7 +255,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['欧盟 Safety Gate', '充电器召回', '危险充电器预警', 'Safety Gate 产品查询', '电源适配器安全', '欧盟产品安全']
     },
     datePublished: '2026-08-30',
-    dateModified: '2026-08-30',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-safety-gate-charger.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
@@ -306,7 +306,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['IECEE CB 测试证书', 'CB 证书核查', '充电器认证', '电源适配器 CB 证书', '国家认证机构', 'CB Scheme']
     },
     datePublished: '2026-08-28',
-    dateModified: '2026-08-28',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-cb-charger.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
@@ -357,7 +357,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['USB-IF 认证', 'USB PD 充电器', 'GaN 充电器', 'USB-IF 产品查询', 'Test ID', 'TID', 'Certified USB Charger']
     },
     datePublished: '2026-08-26',
-    dateModified: '2026-08-26',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-usb-c-charger.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
@@ -409,7 +409,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['欧盟经济运营者', '充电器标识', '欧盟进口商', '授权代表', '产品可追溯性', 'EU 符合性声明']
     },
     datePublished: '2026-08-22',
-    dateModified: '2026-08-22',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-chargers-table.jpg',
     imageWidth: 1600,
     imageHeight: 1000,
@@ -455,7 +455,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['中国供应商法律主体', '中文企业名称', '统一社会信用代码', '营业执照', '合同签约方', '银行收款人']
     },
     datePublished: '2026-08-20',
-    dateModified: '2026-08-20',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-contract-document.jpg',
     imageWidth: 1200,
     imageHeight: 900,
@@ -501,7 +501,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['FCC ID', 'FCC 设备授权', '充电器合规', '供应商符合性声明', 'SDoC', 'FCC 授权记录']
     },
     datePublished: '2026-08-20',
-    dateModified: '2026-08-20',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-power-supply-board.jpg',
     imageWidth: 1600,
     imageHeight: 954,
@@ -547,7 +547,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['UL 档案号', 'UL Product iQ', 'UL 认证', '电源适配器', '型号覆盖范围', '认证持有人']
     },
     datePublished: '2026-08-20',
-    dateModified: '2026-08-20',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-multiport-adapter.jpg',
     imageWidth: 1600,
     imageHeight: 1066,
@@ -588,7 +588,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['CE 标志', 'EU 符合性声明', '电源适配器', '技术文件', '低电压指令', '型号核对']
     },
     datePublished: '2026-08-20',
-    dateModified: '2026-08-20',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-eu-power-adapter.jpg',
     imageWidth: 1350,
     imageHeight: 900,
@@ -634,7 +634,7 @@ export const knowledgeArticleSpecs = [
       'zh-cn': ['UN 38.3', '移动电源测试概要', '锂电池运输', '测试报告', '电池配置', '危险品运输']
     },
     datePublished: '2026-08-20',
-    dateModified: '2026-08-20',
+    dateModified: '2026-09-04',
     image: '/assets/editorial-power-bank.jpg',
     imageWidth: 1600,
     imageHeight: 1066,
@@ -700,14 +700,14 @@ export const knowledgeContent = {
       metaDescription: 'Practical, source-backed guides to Chinese supplier identity, factory claims, Qi2, RoHS, REACH/SVHC, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-bank buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
-      lead: 'Short, source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note starts with the practical answer, shows the official source and states what the evidence cannot prove.',
+      lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
       latest: 'Thirteen field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
         ['Official sources first', 'Rules and database functions are checked against the authority or certification owner that operates them.'],
-        ['Answer before explanation', 'Each note opens with the decision a buyer can make, then shows the evidence behind it.'],
+        ['The whole issue at a glance', 'Each opening summary brings together what the evidence means, where it stops and why that matters before the detailed analysis.'],
         ['Limits stay visible', 'A registry hit, file number or test summary is never presented as a guarantee of future delivery or product quality.']
       ],
       nextLabel: 'Ongoing research',
@@ -772,9 +772,9 @@ export const knowledgeContent = {
     ui: {
       read: 'Read field note',
       published: 'Published',
-      reviewed: 'Sources reviewed',
+      updated: 'Last updated',
       readTime: 'Reading time',
-      quickAnswer: 'The short answer',
+      quickAnswer: 'Executive summary',
       buyerChecklist: 'Buyer checklist',
       limits: 'What this does not prove',
       sources: 'Official sources',
@@ -851,7 +851,7 @@ export const knowledgeContent = {
         description: 'A declaration can support a named model, bill of materials and Candidate List reference date. It is not an ECHA approval and cannot cover an unidentified product or later material change.',
         imageAlt: 'Electronic components on a small circuit board, used as an editorial illustration for REACH and SVHC evidence checks.',
         imageCaption: 'Editorial photograph of electronic components. It is not a ZIMONAI supplier, client, charger, factory, audit sample, laboratory result or compliance record.',
-        answer: 'No. A supplier declaration can be useful evidence only when it identifies the exact charger or power-adapter model, the covered bill-of-materials revision, the Candidate List reference date and the basis for its conclusion. REACH Article 33 creates information duties when a Candidate List substance is present above 0.1% weight by weight in an article; a generic “REACH compliant” letter is neither an ECHA certificate nor proof that every component, later substitution and other REACH obligation has been assessed.',
+        answer: 'A supplier REACH/SVHC declaration can map a named charger to a bill-of-materials revision, Candidate List reference date and constituent-article assessment, including the 0.1% w/w threshold used for Article 33 information duties. Overseas buyers should connect that dated basis to the exact model, components and responsible EU actor, because a generic “REACH compliant” letter is not ECHA approval and does not cover later substitutions, SCIP duties or every other REACH rule. ZIMONAI’s editorial view is that the declaration works best as the entry point to a traceable material-evidence chain, not as the final compliance verdict.',
         takeaways: [
           'Check the declaration’s product identity, legal issuer, bill-of-materials revision and Candidate List reference date before reading its conclusion.',
           'For a complex charger, the 0.1% w/w threshold applies to each constituent object that remains an article—not only to the finished charger’s total mass.',
@@ -908,7 +908,7 @@ export const knowledgeContent = {
         description: 'A valid certificate supports the named organisation’s quality management system within stated sites and scope. It does not certify the charger or prove who made the quoted model.',
         imageAlt: 'A clipboard and lined checklist on an orange background, used as an editorial illustration for ISO 9001 factory-evidence checks.',
         imageCaption: 'Editorial photograph of a checklist. It is not a ZimonAI supplier, client, factory, audit, ISO certificate or production record.',
-        answer: 'No. A valid ISO 9001 certificate can support that the named organisation operates a quality management system within the sites, activities and validity shown on the certificate. It does not certify the charger, prove that the seller owns the factory, or establish that the quoted model and order will be made at that site. Verify the certificate and then build a separate evidence chain from seller to legal entity, covered manufacturing address, product model and current production records.',
+        answer: 'An ISO 9001 certificate describes the quality management system of the named organisation within its listed sites, activities and validity period, rather than certifying the charger itself. Overseas buyers should verify the issuer and current record, then link the legal entity, Unified Social Credit Code, operating address and scope to the quoted model and recent production records; the certificate does not establish factory ownership or where this order will be made. ZIMONAI’s editorial view is that its value lies in showing a management system operating around the product being purchased; the logo alone says little about the next shipment.',
         takeaways: [
           'Identify the certification body and verify the certificate’s current status; ISO itself develops the standard but does not issue ISO 9001 certificates.',
           'Match the organisation name, Unified Social Credit Code, registered address, covered operating address and manufacturing scope—not only the ISO logo or company name.',
@@ -965,7 +965,7 @@ export const knowledgeContent = {
         description: 'A test report can support specific samples and materials. It does not replace the exact product’s technical documentation, EU declaration or production controls.',
         imageAlt: 'Macro view of components and soldered parts on a circuit board, used as an editorial illustration for RoHS evidence checks.',
         imageCaption: 'Editorial photograph of a circuit board. It is not a ZimonAI supplier, client, factory, charger, test sample or compliance record.',
-        answer: 'No. A RoHS test report can support the substances, samples, methods and results that it actually identifies, but it does not by itself prove that every homogeneous material in the exact charger complies, that an exemption is valid, or that the manufacturer has completed the technical documentation, EU declaration of conformity and series-production controls required by Directive 2011/65/EU.',
+        answer: 'A RoHS test report records the named samples, methods and results against substance limits applied at homogeneous-material level. Overseas buyers should map those samples to the quoted charger’s current bill of materials and separately check exemptions, technical documentation, the EU Declaration of Conformity and change controls; untested materials and later substitutions do not inherit a pass. ZIMONAI’s editorial view is that a laboratory report becomes useful evidence only inside a model-specific, change-controlled file; on its own, it is a dated snapshot rather than proof of electrical safety, REACH compliance or shipment quality.',
         takeaways: [
           'Read the report at sample level: product or material identity, model, component, colour, test method, substances, result and reporting limit must all be visible.',
           'Connect the tested samples to the quoted charger’s current bill of materials and every relevant homogeneous material; do not extend one passing result to untested variants.',
@@ -1022,7 +1022,7 @@ export const knowledgeContent = {
         description: 'Safety Gate records notified dangerous products and corrective measures. A search with no match is not a safety approval for the charger, supplier or shipment.',
         imageAlt: 'Power adapters and a USB-C cable on a marble surface, used as an editorial illustration for EU Safety Gate checks.',
         imageCaption: 'Editorial photograph of adapters and a cable. It is not ZimonAI supplier, client, inspection, recall or product-safety evidence.',
-        answer: 'No. The EU Safety Gate is a rapid alert system for dangerous products and corrective measures found through market surveillance; it is not a pre-market approval list or a complete register of safe chargers. A search with no match means only that the buyer did not find a published alert under the identifiers and filters used at that time. The exact model still needs product, compliance, supplier and shipment evidence.',
+        answer: 'EU Safety Gate publishes market-surveillance alerts about dangerous products and corrective measures, so a matching record is specific post-market risk evidence rather than pre-sale approval. Overseas buyers should compare the exact model, codes, images, batch details, stated risk and action with the quoted charger; an empty search means only that no public match appeared under the identifiers, filters and date used. ZIMONAI’s editorial view is that the database is asymmetric: a credible match warrants investigation, while no match offers little reassurance and does not replace model, supplier or shipment evidence.',
         takeaways: [
           'Treat a Safety Gate match as official post-market risk evidence that requires immediate model and batch comparison—not as a verdict on every product from the supplier.',
           'Search more than one identifier and compare the alert reference, product description, brand, model or type, images, risk and corrective measure with the quoted charger.',
@@ -1078,7 +1078,7 @@ export const knowledgeContent = {
         description: 'A CB certificate can support national certification, but buyers still need to verify the exact charger record, issuing body, model scope and destination-country requirements.',
         imageAlt: 'White power adapter against a yellow background, used as an editorial illustration for IECEE CB certificate checks.',
         imageCaption: 'Editorial photograph of a power adapter. It is not ZimonAI supplier, client, laboratory, certificate or market-approval evidence.',
-        answer: 'No. A valid IECEE CB Test Certificate shows that selected samples represented by the certificate were assessed to the stated standard through the CB Scheme. It can facilitate national certification, but it is not automatic approval for every country. The buyer must still verify the official record, exact model and ratings, issuing National Certification Body (NCB), stated national differences and the destination market’s own requirements.',
+        answer: 'An IECEE CB Test Certificate records a sample-based assessment of the stated product and standard and can support an NCB in granting national recognition. Overseas buyers should match the certificate status, exact model, ratings, manufacturer or brand relationship, standard edition, national differences and issuing NCB; the scheme has no ongoing factory surveillance and provides no automatic approval in every market. ZIMONAI’s editorial view is to use the CB record as portable technical evidence that can shorten the next national approval step, not as a passport for every country or proof that the shipment matches the assessed sample.',
         takeaways: [
           'Search the certificate reference in the official IECEE database; do not rely on the supplier’s PDF or logo alone.',
           'Match the model or type reference, ratings, brand, manufacturer, standard edition and any national differences to the quoted charger.',
@@ -1134,7 +1134,7 @@ export const knowledgeContent = {
         description: 'USB PD wording describes a claimed technology. Certification requires an exact product record, completed USB-IF testing and a defensible model relationship.',
         imageAlt: 'USB-C cable beside power adapters, used as an editorial illustration for USB-IF charger-record checks.',
         imageCaption: 'Editorial photograph of adapters and a USB-C cable. It is not ZimonAI supplier, client, test-lab or certification evidence.',
-        answer: 'No. “USB PD,” “USB-C” or “GaN” in a quotation does not by itself prove USB-IF certification. USB-IF says certified products pass its Compliance Program and are added to the Integrators List; certified charger logos may be used only with products that passed the applicable procedures and were posted to that list. The buyer still needs to match the supplier’s exact model, company, Test ID (TID), certification date and charger category to the official record.',
+        answer: 'A USB-IF certification claim should lead to an exact Integrators List record whose company, model, Test ID, product category and certification date match the quoted charger. Overseas buyers should distinguish that product-level record from terms such as “USB PD,” “USB-C” and “GaN,” then document any OEM or similar model relationship; those labels, a chip claim or a shared enclosure do not establish certification, safety or market access. ZIMONAI’s editorial view is that the central risk is identity drift, where one certified variant is used to support a different wattage, port layout or model.',
         takeaways: [
           'Ask whether the supplier is making a specification claim or a USB-IF certification claim; they require different evidence.',
           'Search the exact product and company in USB-IF Product Search, then preserve the TID, model, category and certification date.',
@@ -1190,7 +1190,7 @@ export const knowledgeContent = {
         description: 'An EU economic-operator address helps trace the product. It does not, by itself, connect a Chinese seller, the exact model and the required compliance documents.',
         imageAlt: 'Chargers arranged on a table, used as an editorial illustration for EU product traceability.',
         imageCaption: 'Editorial photograph of chargers on a table. It is not a ZimonAI supplier, client, inspection or compliance record.',
-        answer: 'No. For chargers within the EU harmonisation rules, an EU-based economic operator must be identifiable, and that operator has defined market-surveillance tasks. But a name and address are traceability evidence, not proof that the Chinese seller is the manufacturer, that the quoted model is covered by an EU Declaration of Conformity, or that every shipment conforms.',
+        answer: 'An EU economic-operator name and address identify a traceable contact in a product’s EU market route, but their meaning depends on whether the party is the manufacturer, importer or authorised representative. Overseas buyers should preserve the contact, identify the Chinese manufacturer, document the relationships among seller and operators, and match the compliance documents to the model, ratings, plug and brand; an address alone does not establish CE conformity or shipment consistency. ZIMONAI’s editorial view is that the contact is most useful as a document-retrieval and accountability anchor, not as a badge of product approval.',
         takeaways: [
           'Record the EU contact exactly as it appears on the product, packaging or accompanying document, then identify its legal role.',
           'Ask separately for the manufacturer, the EU importer or authorised representative, and the documents for the exact quoted model.',
@@ -1243,7 +1243,7 @@ export const knowledgeContent = {
         description: 'How to connect a supplier’s English trading name to its Chinese legal name, Unified Social Credit Code, contract and bank beneficiary before payment.',
         imageAlt: 'Close-up of a contract and pen used as an editorial illustration for supplier identity checks.',
         imageCaption: 'A contract name is useful only when it can be tied to the registered entity and the intended payee.',
-        answer: 'An English supplier name, marketplace profile or email signature is not enough to identify your contractual counterparty. Ask for the Chinese legal name and Unified Social Credit Code, locate the entity in the National Enterprise Credit Information Publicity System, and then compare that identity with the contract, bank beneficiary, licence and any certification holder.',
+        answer: 'A Chinese legal name and 18-character Unified Social Credit Code identify a mainland-registered entity independently of the English trading name used by a supplier. Buyers should find that entity in the National Enterprise Credit Information Publicity System, then compare the registry identity with the contract, invoice, bank beneficiary, business licence and certification holder; any mismatch needs written support before payment. ZIMONAI’s editorial view: this cross-check shows which entity receives money and owes the obligation, while registration alone does not establish factory ownership, capacity, solvency or future performance.',
         takeaways: [
           'Preserve the Chinese legal name exactly as shown on the business licence.',
           'Use the 18-character Unified Social Credit Code to reduce same-name and translation errors.',
@@ -1297,7 +1297,7 @@ export const knowledgeContent = {
         description: 'FCC certification and Supplier’s Declaration of Conformity are different routes. Learn when an FCC ID search is useful and what a grant cannot prove.',
         imageAlt: 'Macro photograph of an electronic circuit board used as an editorial illustration for FCC equipment authorization.',
         imageCaption: 'The product’s radio-frequency function determines the authorization question; a logo alone does not.',
-        answer: 'No. FCC rules use more than one equipment-authorization procedure, including Certification and Supplier’s Declaration of Conformity. An FCC ID is associated with equipment authorized through Certification; an SDoC device does not receive the same searchable grant. Before rejecting a charger because no FCC ID appears, determine which function and authorization procedure apply to the exact model.',
+        answer: 'FCC compliance begins with the charger’s functions and authorization route: Certification creates a searchable grant and FCC ID, while Supplier’s Declaration of Conformity follows a different evidence path. Overseas buyers should identify the applicable procedure before searching, then compare any FCC ID with the grantee, equipment class, function, model evidence and public exhibits; even a valid grant does not establish electrical safety, factory identity or shipment conformity. ZIMONAI’s editorial view is that product architecture must come before database results, or the same search can create both false alarms and false confidence.',
         takeaways: [
           'Do not turn “no FCC ID found” into a failure until the applicable procedure is identified.',
           'For a submitted FCC ID, search the FCC system and compare grantee, product code, model evidence and operating description.',
@@ -1351,7 +1351,7 @@ export const knowledgeContent = {
         description: 'How buyers can use UL Product iQ to test a supplier’s UL claim without mistaking a real file for blanket coverage.',
         imageAlt: 'Hand holding a multi-port power adapter used as an editorial illustration for UL file verification.',
         imageCaption: 'One housing can contain several electrical variants; certification scope must be checked against the quoted model.',
-        answer: 'Use the UL file number or unique identifier as a search key in UL Product iQ, then confirm the certification holder, product category, model designation and geographic mark. Finding a real file is only the first step: the question is whether the supplier and exact quoted model are connected to that record.',
+        answer: 'A UL file number or unique identifier gives buyers an independent search key in UL Product iQ for the certification holder, product category, model or series, electrical ratings and mark or geography. Overseas buyers should connect the exact offered variant to that record and document any relationship among the seller, brand owner, factory and file holder, because a real file does not establish factory ownership, capacity or conformity of every shipment. ZIMONAI’s editorial view is that the decisive question is not whether the UL file exists, but whether this supplier and this electrical configuration sit within its documented scope.',
         takeaways: [
           'Search the official UL database, not only a certificate PDF supplied by the seller.',
           'Compare the exact model, electrical rating and product category—not just the company name.',
@@ -1405,7 +1405,7 @@ export const knowledgeContent = {
         description: 'What to request when a power-adapter supplier says a product is CE certified: declaration, exact model, applicable rules and supporting technical evidence.',
         imageAlt: 'White European two-pin power adapter on a blue surface used as an editorial illustration for CE document checks.',
         imageCaption: 'The CE mark starts a document review; it does not identify a central authority that approved the product.',
-        answer: 'There is no central EU body that issues permission or a universal “CE certificate.” For a product that requires CE marking, the manufacturer identifies the applicable EU rules, completes the required conformity assessment, prepares technical documentation, signs the EU Declaration of Conformity and affixes the mark. A buyer should therefore ask for the declaration and trace it to the exact product—not stop at a logo or voluntary certificate.',
+        answer: 'CE marking is the manufacturer’s declaration that it identified applicable EU rules, completed conformity assessment, prepared technical documentation and signed an EU Declaration of Conformity; no central EU authority issues a universal certificate. Overseas buyers should match the manufacturer, model and ratings to that declaration, its legislation, standards, date and signatory, then check supporting reports and any notified-body role against the route; a logo or voluntary certificate is not a substitute. ZIMONAI’s editorial view is to judge each document by its legal role and product link, not by how official its title or artwork appears.',
         takeaways: [
           'Ask for the EU Declaration of Conformity for the exact model and manufacturer.',
           'Check listed legislation, standards, date, signatory and product identification.',
@@ -1460,7 +1460,7 @@ export const knowledgeContent = {
         description: 'The key fields in a UN 38.3 lithium battery test summary and how to connect them to the exact power-bank model before shipment.',
         imageAlt: 'White power bank and cables used as an editorial illustration for UN 38.3 transport-document checks.',
         imageCaption: 'Transport evidence must follow the battery type and model inside the commercial product.',
-        answer: 'The UN Manual of Tests and Criteria requires a lithium cell or battery test summary to be made available. For a power bank, check the manufacturer, test laboratory, report number and date, battery description, watt-hour rating, model numbers, tests and pass/fail results, manual revision and signatory. Then connect those fields to the exact battery configuration inside the quoted product.',
+        answer: 'A UN 38.3 test summary records transport testing for a lithium cell or battery type, identifying the parties, report, battery description, ratings, models, results and signatory. Overseas buyers should match those fields to the power bank’s internal battery, bill of materials, label and shipment file; the summary must be available but need not accompany every carton, and a pass does not establish capacity, cycle life, electrical safety or shipment quality. ZIMONAI’s editorial view is that battery identity matters more than the PDF’s appearance, because a genuine summary for another configuration does not resolve the product being shipped.',
         takeaways: [
           'A test summary is not the same as a generic “UN 38.3 certificate” image.',
           'Model number and watt-hour rating are essential for connecting the summary to the power bank.',
@@ -1516,14 +1516,14 @@ export const knowledgeContent = {
       metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、工廠聲明、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
-      lead: '寫給採購充電器、電源適配器與行動電源的海外買家。文章先回答實際問題，再交代官方來源與證據邊界；不拿關鍵字堆成看似專業的內容。',
+      lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
       latest: '十三篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
         ['先查官方來源', '法規、資料庫用途與認證規則，優先回到主管機關或認證機構本身。'],
-        ['先給可以採取的判斷', '每篇開頭先回答買家眼前的問題，再說明證據如何支持這個答案。'],
+        ['一段掌握完整問題', '懶人包先整合證據代表什麼、界線在哪裡，以及這件事為何影響採購，再展開完整分析。'],
         ['證據邊界不藏起來', '查到企業、檔案號或測試摘要，不會被寫成對交貨與品質的保證。']
       ],
       nextLabel: '持續更新',
@@ -1588,7 +1588,7 @@ export const knowledgeContent = {
     ui: {
       read: '閱讀查核筆記',
       published: '發布日期',
-      reviewed: '來源核對',
+      updated: '更新日期',
       readTime: '閱讀時間',
       quickAnswer: '懶人包',
       buyerChecklist: '買家核對清單',
@@ -1667,7 +1667,7 @@ export const knowledgeContent = {
         description: '聲明只有在型號、物料表版本與候選清單基準日都清楚時，才有可追溯價值；它不是 ECHA 核發的產品證書，也不會自動涵蓋後續換料。',
         imageAlt: '小型電路板上的電子零組件，用於說明 REACH 與 SVHC 文件核對。',
         imageCaption: '電子零組件編輯用照片；不是 ZIMONAI 客戶、供應商、充電器、工廠、查核樣品、實驗室結果或合規紀錄。',
-        answer: '不能。供應商聲明只有在明確指出充電器或電源適配器的精確型號、物料表版本、候選清單基準日與判定依據時，才可作為一項文件證據。REACH 第 33 條處理的是候選清單物質在某一「物品」中超過 0.1% w/w 時的資訊傳遞義務；一張泛稱「REACH compliant」的聲明，既不是 ECHA 核發的證書，也不能證明所有零件、後續換料與其他 REACH 義務都已完成評估。',
+        answer: 'REACH／SVHC 聲明整理特定充電器的型號、物料表版本、候選清單日期與零件判定依據，形成可追溯的材料紀錄。REACH 第 33 條關注候選清單物質超過門檻時的資訊傳遞；「REACH compliant」這類籠統聲明並非 ECHA 產品證書，也不會涵蓋後續換料與其他義務。海外買家採購時，聲明要能連回當期物料表和零件證據才有決策價值；ZIMONAI 的判讀是，這類文件應作為材料查核的入口，而非整體合規的結案依據。',
         takeaways: [
           '先核對聲明所指的產品、出具法律主體、物料表版本與候選清單基準日，再閱讀合規結論。',
           '充電器是由多個物件組成的複合產品；0.1% w/w 門檻要套用到其中每個仍屬於「物品」的組成件，不能只拿整機重量稀釋。',
@@ -1724,7 +1724,7 @@ export const knowledgeContent = {
         description: '有效證書能支持所載組織在特定場所與範圍內運作品質管理系統，卻不能證明充電器已獲產品認證，也不能單獨確認誰生產報價型號。',
         imageAlt: '橘色背景上的寫字板與條紋核對單，用於說明 ISO 9001 工廠證據查核。',
         imageCaption: '核對單為編輯用照片；不是 ZimonAI 的供應商、客戶、工廠、稽核、ISO 證書或生產紀錄。',
-        answer: '不能。有效的 ISO 9001 證書，可以支持證書所載組織在列明的場所、活動範圍與有效期間內運作品質管理系統；它不能證明充電器本身已獲認證、賣方擁有工廠，或報價型號與本批訂單一定在該場所生產。買家應先查驗證書，再另外建立從賣方、法律主體、涵蓋的生產地址到產品型號與當期生產紀錄的證據鏈。',
+        answer: 'ISO 9001 證書記錄特定組織、場所與活動範圍內的品質管理系統，並以證書狀態和有效期間界定可採信的範圍。這項管理系統認證不等於充電器產品認證，也不會證明賣方擁有工廠，或本批訂單確實在受認證場所生產。海外買家應把證書持有人、營運地址與製造範圍，連回報價型號和近期生產紀錄；ZIMONAI 的判讀是，證書最適合用來檢驗供應商的管理主張，而不是替實際工廠身分背書。',
         takeaways: [
           '確認發證機構並查詢證書目前狀態；ISO 負責制定標準，本身不替企業發出 ISO 9001 證書。',
           '逐項核對組織名稱、統一社會信用代碼、註冊地址、證書涵蓋的營運地址與製造範圍，不能只看 ISO 標誌或公司名稱。',
@@ -1781,7 +1781,7 @@ export const knowledgeContent = {
         description: '測試報告可以支持列明樣品與材料的結果，但不能取代精確產品的技術文件、EU 符合性聲明與量產管制。',
         imageAlt: '電路板上電子元件與焊接部位的近景照片，用於說明 RoHS 證據查核。',
         imageCaption: '電路板為編輯用圖片；不是 ZimonAI 的供應商、客戶、工廠、充電器、送測樣品或合規紀錄。',
-        answer: '不能。RoHS 測試報告只能支持報告明確列出的物質、樣品、方法與結果；它本身不能證明精確充電器的每一種均質材料都合格、引用的豁免仍有效，也不能代替《2011/65/EU 指令》要求製造商建立的技術文件、EU 符合性聲明與量產一致性程序。',
+        answer: 'RoHS 測試報告記錄指定樣品或均質材料的測試方法、受測物質與結果，讓買家了解這次檢測實際涵蓋的對象。報告上的 Passed 不會自動延伸到整台充電器、未送測材料或後續替代料，也不會取代適用豁免、技術文件、EU 符合性聲明與量產變更管制。海外買家應確認樣品、型號和材料都與當期物料表吻合；ZIMONAI 的判讀是，測試報告只是產品證據鏈中的一張快照，完整合規仍要回到產品與量產紀錄。',
         takeaways: [
           '先看送測樣品，而不是先看封面上的 Passed：產品／材料身分、型號、零件、顏色、方法、物質、結果與限值都要讀得到。',
           '把每個樣品連回報價型號當下的 BOM 與均質材料；一項材料通過，不能自行延伸到沒有送測的變體。',
@@ -1838,7 +1838,7 @@ export const knowledgeContent = {
         description: 'Safety Gate 收錄主管機關通報的危險產品與矯正措施；查無結果，不是對充電器、供應商或出貨批次的安全核准。',
         imageAlt: '大理石桌面上的電源適配器與 USB-C 線材，用於說明歐盟 Safety Gate 查核。',
         imageCaption: '電源適配器與線材為編輯用圖片；不是 ZimonAI 的供應商、客戶、查核、召回或產品安全證據。',
-        answer: '不能。歐盟 Safety Gate 是市場監管發現危險產品後，用來交換通報與矯正措施的快速預警系統；它不是上市前核准名單，也不是「安全充電器」的完整資料庫。查無結果只能表示：在當次使用的名稱、型號與篩選條件下，沒有找到公開通報。買家仍須另外核對精確型號的產品、合規、供應商與出貨證據。',
+        answer: 'Safety Gate 彙整歐盟會員國提交的危險產品通報與矯正措施，讓買家掌握特定型號、風險和後續處置。這套系統不是上市前核准或安全產品名單；搜尋沒有結果，只代表當次使用的名稱、型號與篩選條件未找到公開通報。海外買家遇到相符紀錄時，應立即核對型號與批次；ZIMONAI 的判讀是，Safety Gate 適合作為風險升級依據，空白結果仍須搭配產品和出貨證據。',
         takeaways: [
           '查到相符通報時，把它視為必須立即核對型號與批次的官方市場後風險證據；不能直接延伸成該供應商所有產品都有同一問題。',
           '不要只輸入一種名稱；應比對通報編號、產品描述、品牌、Model／Type、照片、風險與採取措施。',
@@ -1894,7 +1894,7 @@ export const knowledgeContent = {
         description: 'CB 證書有助於申請各國認證，但買家仍要核對官方紀錄、精確型號、簽發機構與目的國要求。',
         imageAlt: '黃色背景上的白色電源適配器，用於說明 IECEE CB 證書查核。',
         imageCaption: '電源適配器為編輯用圖片；不是 ZimonAI 的供應商、客戶、實驗室、證書或市場准入證據。',
-        answer: '不能。有效的 IECEE CB Test Certificate，表示證書所代表的選定樣品已依列明標準走過 CB Scheme 評估；它可以協助後續申請國家認證，但不等於所有國家自動放行。買家仍要查官方紀錄、精確型號與額定值、簽發的國家認證機構（NCB）、National Differences，以及目的市場另外要求的程序。',
+        answer: 'IECEE CB 測試證書記錄選定樣品依特定標準完成的評估，可為後續申請目的國認證提供技術基礎。證書不含持續性的工廠監督，也不代表所有市場已自動准入；目的國仍可能另有國家差異、標誌、登錄或其他程序。海外買家應把現行官方狀態、精確型號、額定值、標準版本與簽發機構對回報價產品；ZIMONAI 的判讀是，CB 證書的價值在於協助走完目的國認證，而非充當全球通行證。',
         takeaways: [
           '用證書編號回到 IECEE 官方資料庫查詢，不要只看供應商寄來的 PDF、標誌或報告封面。',
           '逐項比對型號、額定值、品牌、製造商、標準版本與 National Differences，不能把同外殼或同系列直接視為受涵蓋。',
@@ -1950,7 +1950,7 @@ export const knowledgeContent = {
         description: 'USB PD 是供應商宣稱支援的技術；要證明 USB-IF 認證，還要找到精確產品紀錄，並把公司、型號與 TID 對起來。',
         imageAlt: '電源適配器旁的 USB-C 線材照片，用於說明 USB-IF 充電器紀錄核對。',
         imageCaption: '電源適配器與 USB-C 線材為編輯用圖片；不是 ZimonAI 的供應商、客戶、實驗室或認證證據。',
-        answer: '不能。報價上的「USB PD」、「USB-C」或「GaN」字樣，本身都不能證明 USB-IF 認證。USB-IF 說明，認證產品須通過 Compliance Program 並列入 Integrators List；Certified USB Charger 標誌也只能用於已完成適用測試、且已列入該清單的產品。買家仍要把報價的精確型號、公司、Test ID（TID）、認證日期與充電器類別，逐項對回官方紀錄。',
+        answer: 'USB-IF 認證會把通過適用測試程序的產品，以公司、型號、產品類別、認證日期與 TID 列入官方紀錄。報價中的「USB PD」、「USB-C」或「GaN」只是技術主張；這些字樣、晶片能力或相似外殼，都不等於精確產品已列名，也不涵蓋電氣安全和市場准入。海外買家應把官方紀錄對回報價型號、功率與連接埠配置；ZIMONAI 的判讀是，查核重點不在熱門標示，而在這款產品是否具有可追溯的認證身分。',
         takeaways: [
           '先問清楚供應商是在宣稱支援 USB 規格，還是在宣稱取得 USB-IF 認證；兩者需要的證據不同。',
           '用精確產品與公司名稱查 USB-IF Product Search，並保存 TID、型號、類別、認證日期與查詢日期。',
@@ -2006,7 +2006,7 @@ export const knowledgeContent = {
         description: '歐盟經濟營運者的地址能幫助追溯產品，但它本身無法把中國賣方、精確型號與必要合規文件連起來。',
         imageAlt: '桌面上擺放的充電器照片，用於說明歐盟產品可追溯性。',
         imageCaption: '桌面上的充電器為編輯用圖片；不是 ZimonAI 的供應商、客戶、查核現場或合規紀錄。',
-        answer: '不能。對適用歐盟調和法規的充電器，必須能辨識設立於歐盟境內的經濟營運者，且該營運者負有明定的市場監管配合工作。不過，名稱與地址只是可追溯性的證據；不能單獨證明中國賣方就是製造商、報價型號已被 EU 符合性聲明涵蓋，或每批出貨都符合要求。',
+        answer: '歐盟經濟營運者的名稱與地址，為適用產品提供歐盟境內可辨識的聯絡點，也是市場監管和索取文件的追溯入口。這項聯絡資料不會證明中國賣方就是製造商，也不替精確型號、EU 符合性聲明或每批出貨的符合性背書。海外買家應先確認聯絡方的法律角色，再連結中國賣方、製造商、歐盟營運者與產品文件；ZIMONAI 的判讀是，地址的價值在於建立責任鏈，而不是製造產品已獲歐盟認可的表象。',
         takeaways: [
           '先逐字記下產品、包裝或隨附文件上的歐盟聯絡資料，再確認它扮演的法律角色。',
           '製造商、歐盟進口商或授權代表要分開問，也要分開索取對應報價型號的文件。',
@@ -2059,7 +2059,7 @@ export const knowledgeContent = {
         description: '如何用中文企業名稱與統一社會信用代碼，核對合約、收款帳戶、營業執照與認證持有人。',
         imageAlt: '合約與鋼筆的近景照片，用於說明供應商法律主體查核。',
         imageCaption: '合約上的名稱，必須能連回登記主體與預計收款人，才有判讀價值。',
-        answer: '只看英文公司名、平台店名或 Email 簽名，還不能確定誰是合約相對人。請供應商提供完整中文企業名稱與統一社會信用代碼，到國家企業信用信息公示系統找出對應主體，再逐一核對合約、發票、收款帳戶、營業執照與認證持有人。',
+        answer: '完整中文企業名稱、18 位統一社會信用代碼，是中國供應商法律主體的穩定識別基準，也能連回官方公示紀錄。登記資料只支持查詢當下可見的主體身分與狀態，不會證明該公司自有工廠、具備足夠產能，或一定履行下一筆訂單。海外買家付款前，應比對登記主體、合約方、發票方、銀行收款人與認證持有人；ZIMONAI 的判讀是，這項查核的重點不在名稱看起來一致，而在確認誰收款、誰負責。',
         takeaways: [
           '中文企業名稱要照營業執照保留原字，不要自行修成比較順眼的版本。',
           '搭配 18 位統一社會信用代碼，可降低同名與英文譯名造成的誤判。',
@@ -2113,7 +2113,7 @@ export const knowledgeContent = {
         description: 'FCC Certification 與 SDoC 是不同程序。先確認產品功能與適用路徑，再決定查不到 FCC ID 是否真的有問題。',
         imageAlt: '電子電路板微距照片，用於說明 FCC 設備授權查核。',
         imageCaption: '先看產品的射頻功能與適用程序，再看標誌或資料庫。',
-        answer: '不一定。FCC 的設備授權不只有一種程序，其中包括 Certification 與供應商符合性聲明（SDoC）。FCC ID 對應的是經 Certification 取得授權的設備；採 SDoC 的設備不會有同樣的可查授權紀錄。因此，不能一看到「查無 FCC ID」就判定不合格，應先確認該型號的功能與適用程序。',
+        answer: 'FCC 設備授權會依產品功能採用不同程序；Certification 程序形成可查詢的 FCC ID 紀錄，供應商符合性聲明（SDoC）則走另一條資料路徑。查不到 FCC ID 不會自動代表產品違規；即使找到有效授權，紀錄處理的仍是適用射頻要求，不延伸到電氣安全、工廠關係或出貨一致性。海外買家應先判斷適用程序，再核對申請人、精確型號、設備類別與公開附件；ZIMONAI 的判讀是，產品功能必須先於資料庫搜尋，才不會用錯路徑。',
         takeaways: [
           '還沒確定適用程序以前，不要把「查不到 FCC ID」直接寫成不合格。',
           '供應商若提供 FCC ID，要繼續核對申請人、產品代碼、型號證據與功能描述。',
@@ -2167,7 +2167,7 @@ export const knowledgeContent = {
         description: '如何使用 UL Product iQ 核對供應商的 UL 主張，避免把真實檔案號誤當成所有型號都受涵蓋。',
         imageAlt: '手持多孔電源適配器的照片，用於說明 UL 檔案查核。',
         imageCaption: '外殼相似的產品可能有不同電氣版本，認證範圍仍要回到實際型號。',
-        answer: '先把 UL 檔案號或識別碼放進 UL Product iQ，再核對認證持有人、產品類別、型號與標示適用地區。找到真實檔案只完成第一步；真正要回答的是：目前供應商與報價型號，是否能合理連回這份紀錄。',
+        answer: 'UL 檔案號或識別碼能讓買家回到 UL Product iQ，核對認證持有人、產品類別、型號與標誌適用地區。真實檔案不會自動涵蓋共用外殼下的不同瓦數、插腳、電路板或安全元件，也不證明目前賣方與檔案持有人具有授權關係。海外買家應把供應商、認證持有人、產品類別與精確型號連成完整關係；ZIMONAI 的判讀是，UL 查核的重點不在檔案真假，而在報價產品是否確實落在紀錄範圍內。',
         takeaways: [
           '優先查 UL 官方資料庫，不要只看供應商寄來的證書 PDF。',
           '比對精確型號、電氣額定值與產品類別，不只比公司名稱。',
@@ -2221,7 +2221,7 @@ export const knowledgeContent = {
         description: '供應商說電源適配器「有 CE」時，買家應索取哪些聲明、型號與技術證據。',
         imageAlt: '藍色背景上的歐規雙圓腳電源適配器，用於說明 CE 文件查核。',
         imageCaption: 'CE 標誌是文件查核的起點，不代表有某個歐盟中央機構核准產品。',
-        answer: '歐盟沒有一個中央機構負責核發通用的「CE 證書」。產品依法需要 CE 標示時，製造商要辨識適用規則、完成相應符合性評估、建立技術文件、簽署 EU Declaration of Conformity，再加貼 CE 標誌。因此，買家要的是能對上精確型號的符合性聲明與支持文件，而不是只看標誌或自願性證書。',
+        answer: 'CE 標誌是製造商完成適用的歐盟符合性程序後，對產品符合相關要求作出的聲明；核心文件：EU Declaration of Conformity。歐盟沒有中央機構核發通用的「CE 證書」；標誌、實驗室報告或自願性證書，也不會取代精確型號的技術文件與量產管制。海外買家應把製造商、型號、額定值、適用法規和簽署資料連回產品證據；ZIMONAI 的判讀是，CE 查核重點在文件的法律角色與產品連結，而不是外觀多正式。',
         takeaways: [
           '索取精確型號與製造商對應的 EU Declaration of Conformity。',
           '核對法規、標準、日期、簽署人與產品識別資料。',
@@ -2276,7 +2276,7 @@ export const knowledgeContent = {
         description: 'UN 38.3 鋰電池測試摘要應有哪些欄位，以及如何把文件連回實際行動電源型號。',
         imageAlt: '白色行動電源與線材照片，用於說明 UN 38.3 運輸文件查核。',
         imageCaption: '運輸證據必須跟著產品內部的電池種類、型號與瓦時數。',
-        answer: '聯合國《試驗和標準手冊》要求提供鋰電池或電芯的測試摘要。查核行動電源時，要看製造商、實驗室、報告編號與日期、電池說明、瓦時數、型號、測試項目與通過結果、手冊版本及簽署人，再把這些欄位連回報價產品裡實際使用的電池配置。',
+        answer: 'UN 38.3 測試摘要記錄特定鋰電芯或電池類型的運輸測試資料，包括製造商、實驗室、電池型號、瓦時數、報告資訊與測試結果。這份摘要的證據範圍停在受測電池類型，不延伸到標示容量、循環壽命、電氣安全或本批出貨品質。海外買家應把摘要中的電池型號與瓦時數，連回報價行動電源的當批內部配置；ZIMONAI 的判讀是，真實文件若對不上實際電池，仍不足以支援這筆採購的運輸判斷。',
         takeaways: [
           '測試摘要不是一張只有「UN 38.3」字樣的通用證書圖片。',
           '型號與瓦時數，是把摘要連回行動電源的重要欄位。',
@@ -2332,14 +2332,14 @@ export const knowledgeContent = {
       metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、工厂声明、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
-      lead: '写给采购充电器、电源适配器和移动电源的海外买家。文章先回答实际问题，再交代官方来源和证据边界；不会为了搜索排名堆砌关键词。',
+      lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
       latest: '十三篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
         ['优先核对官方来源', '法规、数据库用途和认证规则，优先回到主管部门或认证机构本身。'],
-        ['先给出可执行的判断', '每篇开头先回答买家眼前的问题，再说明证据为什么支持这个答案。'],
+        ['一段掌握完整问题', '总结先整合证据代表什么、边界在哪里，以及这件事为什么影响采购，再展开完整分析。'],
         ['证据边界始终可见', '查到企业、档案号或测试摘要，不会被写成对交付和质量的保证。']
       ],
       nextLabel: '持续更新',
@@ -2404,7 +2404,7 @@ export const knowledgeContent = {
     ui: {
       read: '阅读核查笔记',
       published: '发布日期',
-      reviewed: '来源核对',
+      updated: '更新日期',
       readTime: '阅读时间',
       quickAnswer: '总结',
       buyerChecklist: '买家核对清单',
@@ -2483,7 +2483,7 @@ export const knowledgeContent = {
         description: '声明只有在型号、物料清单版本和候选清单基准日都清楚时才具有可追溯价值；它不是 ECHA 颁发的产品证书，也不会自动覆盖后续换料。',
         imageAlt: '小型电路板上的电子零部件，用于说明 REACH 和 SVHC 文件核对。',
         imageCaption: '电子零部件编辑用照片；并非 ZIMONAI 客户、供应商、充电器、工厂、核查样品、实验室结果或合规记录。',
-        answer: '不能。供应商声明只有在明确指出充电器或电源适配器的精确型号、物料清单版本、候选清单基准日和判断依据时，才能作为一项文件证据。REACH 第 33 条处理的是候选清单物质在某一“物品”中超过 0.1% w/w 时的信息传递义务；一份笼统的“REACH compliant”声明，既不是 ECHA 颁发的证书，也不能证明所有零部件、后续换料和其他 REACH 义务都已完成评估。',
+        answer: 'REACH／SVHC 声明说明某一精确型号、物料清单版本，针对特定候选清单日期、各组成物品的 0.1% w/w 阈值采用了什么判断依据。它不是 ECHA 核发的产品证书，笼统的“REACH compliant”也不会自动覆盖后续换料、SCIP 申报或其他 REACH 义务。海外买家应把声明逐项连回当前零部件与上游证据；ZIMONAI 的编辑判断是，这份文件应当作为追溯工作的入口，而不是整个合规项目的结案依据。',
         takeaways: [
           '先核对声明所指的产品、出具法律主体、物料清单版本和候选清单基准日，再阅读合规结论。',
           '充电器是由多个对象组成的复杂产品；0.1% w/w 阈值要用于其中每个仍属于“物品”的组成件，不能只用整机重量稀释。',
@@ -2540,7 +2540,7 @@ export const knowledgeContent = {
         description: '有效证书可以支持证书所列组织在相应场所和范围内运行质量管理体系，但不能证明充电器已获得产品认证，也不能单独确认报价型号由谁生产。',
         imageAlt: '橙色背景上的写字板和条纹核对单，用于说明 ISO 9001 工厂证据核查。',
         imageCaption: '核对单为编辑用图片；不是 ZimonAI 的供应商、客户、工厂、审核、ISO 证书或生产记录。',
-        answer: '不能。有效的 ISO 9001 证书可以支持证书所列组织在注明的场所、活动范围和有效期内运行质量管理体系；它不能证明充电器本身获得了认证、卖方拥有工厂，也不能证明报价型号和本批订单一定在该场所生产。买家应先查验证书，再另行建立从卖方、法律主体、获证生产地址到产品型号和当前生产记录的证据链。',
+        answer: 'ISO 9001 证书的作用，是支持特定法律主体在证书列明的场所、活动范围和有效期内运行质量管理体系。它属于管理体系认证，不代表充电器获得产品认证，也不会自动证明卖方拥有工厂或本批订单在该场所生产。海外买家应先独立核对证书状态，再把获证主体和生产地址连回报价型号及当前生产记录；ZIMONAI 的编辑判断是，这张证书是核查工厂关系的起点，不是“这就是工厂”的答案。',
         takeaways: [
           '确认发证机构，并查询证书当前状态；ISO 负责制定标准，本身不为企业签发 ISO 9001 证书。',
           '核对组织名称、统一社会信用代码、注册地址、认证覆盖的经营地址和制造范围，不能只看 ISO 标识或公司名称。',
@@ -2597,7 +2597,7 @@ export const knowledgeContent = {
         description: '报告只能支持实际列出的样品和材料，不能替代具体产品的技术文件、EU 符合性声明和量产控制。',
         imageAlt: '电路板上电子元器件和焊接部位的微距照片，用于说明 RoHS 证据核查。',
         imageCaption: '电路板为编辑配图；不是 ZimonAI 的供应商、客户、工厂、充电器、送检样品或合规记录。',
-        answer: '不能。RoHS 测试报告能够支持文件中明确识别的物质、样品、方法和结果，但不能单独证明具体充电器的每一种均质材料均符合限值、所引用豁免仍然适用，也不能代替《2011/65/EU 指令》要求制造商完成的技术文件、EU 符合性声明和批量生产控制。',
+        answer: 'RoHS 测试报告的作用，是记录文件明确识别的样品或均质材料、测试方法、受测物质和结果。报告上的“PASS”不代表整台充电器的所有材料与后续替代料都已覆盖，也不等于制造商完成了技术文件、EU 符合性声明和批量生产控制。海外买家应把报告对应到当前型号、物料清单和变更记录；ZIMONAI 的编辑判断是，报告价值取决于覆盖关系是否清楚，而不是 PDF 数量或结论页上的一个词。',
         takeaways: [
           '不要只看“PASS”结论，应逐项确认产品或材料身份、型号、部件、颜色、测试方法、物质、结果和报告限值。',
           '用当前物料清单把送检样品对应到报价充电器的均质材料，未检测的型号或材料不能依靠相似外观自动获得覆盖。',
@@ -2654,7 +2654,7 @@ export const knowledgeContent = {
         description: 'Safety Gate 发布主管部门通报的危险产品与纠正措施；搜索无结果，不等于充电器、供应商或本批货物获得安全认可。',
         imageAlt: '大理石台面上的电源适配器和 USB-C 线缆，用于说明欧盟 Safety Gate 核查。',
         imageCaption: '电源适配器和线缆为编辑配图；不是 ZimonAI 的供应商、客户、核查、召回或产品安全证据。',
-        answer: '不能。欧盟 Safety Gate 是市场监管发现危险产品后，用于交换预警和纠正措施的快速通报系统；它不是上市前审批清单，也不是一份完整的“安全充电器”名录。搜索无结果只能说明，在本次使用的名称、型号和筛选条件下没有找到公开预警。采购方仍需单独核实精确型号的产品合规、供应商关系和出货一致性。',
+        answer: 'Safety Gate 的作用，是汇集欧盟成员国提交的危险产品通报与纠正措施，为特定产品提供可用于采购决策的市场后风险线索。它不是上市前审批或完整的安全产品名录，搜索无结果只说明按当次名称、型号和筛选条件没有找到公开预警。海外买家应把预警内容连回报价型号、批次和合规资料；ZIMONAI 的编辑判断是，这套系统适合筛查风险并升级异常，不适合作为“产品安全”的单一结论。',
         takeaways: [
           '发现疑似匹配记录时，应把它视为需要立即核对型号和批次的官方市场后风险信息，不能直接推断该供应商的全部产品都有相同问题。',
           '不要只查一个名称；还要比较预警编号、产品描述、品牌、Model／Type、图片、风险和已采取的措施。',
@@ -2710,7 +2710,7 @@ export const knowledgeContent = {
         description: 'CB 证书可以为各国认证提供基础，但采购方仍需核对官方记录、具体型号、签发机构和目的国规则。',
         imageAlt: '黄色背景上的白色电源适配器，用于说明 IECEE CB 证书核查。',
         imageCaption: '电源适配器为编辑用图片；不是 ZimonAI 的供应商、客户、实验室、证书或市场准入证据。',
-        answer: '不能。有效的 IECEE CB Test Certificate 说明证书所代表的选定样品，已经按照列明标准完成 CB Scheme 评估；它可以减少申请国家认证时的重复工作，却不是所有国家的自动准入许可。采购方仍要核实官方记录、准确型号与额定值、签发证书的国家认证机构（NCB）、National Differences，以及销售目的地另行规定的步骤。',
+        answer: 'IECEE CB 测试证书的作用，是说明证书代表的选定样品已按列明标准完成 CB Scheme 评估，并为后续目的国认证申请提供基础。它不包含持续工厂监督，也不等于所有国家已经自动准入或后续量产都与受测样品一致。海外买家应核对官方状态、签发机构、完整型号和额定值，再确认目的国的国家差异与程序；ZIMONAI 的编辑判断是，CB 文件是目的国认证的基础，不是全球通行证。',
         takeaways: [
           '用证书编号查询 IECEE 官方数据库，不要把供应商发送的 PDF、标志或报告封面当成最终验证。',
           '将型号、额定值、品牌、制造商、标准版本和 National Differences 与报价产品逐项对应。',
@@ -2766,7 +2766,7 @@ export const knowledgeContent = {
         description: 'USB PD 是供应商声称支持的技术；要证明 USB-IF 认证，还要找到精确产品记录，并对应公司、型号与 TID。',
         imageAlt: '电源适配器旁的 USB-C 线材照片，用于说明 USB-IF 充电器记录核对。',
         imageCaption: '电源适配器和 USB-C 线材为编辑用图片；不是 ZimonAI 的供应商、客户、实验室或认证证据。',
-        answer: '不能。报价中的“USB PD”“USB-C”或“GaN”字样，本身都不能证明 USB-IF 认证。USB-IF 说明，认证产品须通过 Compliance Program 并列入 Integrators List；Certified USB Charger 标志也只能用于完成适用测试且已列入该清单的产品。买家仍要把报价中的精确型号、公司、Test ID（TID）、认证日期和充电器类别逐项对应官方记录。',
+        answer: 'USB-IF 认证的作用，是确认精确产品通过适用的 Compliance Program，并以型号、产品类别和 Test ID（TID）进入官方记录。报价中的“USB PD”、“USB-C”或“GaN”只是技术或产品主张，标志图片、芯片能力和相似外壳都不等于该型号已经列名。海外买家应把官方记录连回报价型号、功率和接口配置；ZIMONAI 的编辑判断是，核查关键不在有没有标志，而在产品是否具备可追溯的认证身份。',
         takeaways: [
           '先确认供应商是在声称支持 USB 规范，还是声称取得 USB-IF 认证；两种说法需要不同证据。',
           '用精确产品和公司名称查询 USB-IF Product Search，并保存 TID、型号、类别、认证日期和查询日期。',
@@ -2822,7 +2822,7 @@ export const knowledgeContent = {
         description: '欧盟经济运营者的地址可以帮助追溯产品，但它本身无法把中国卖方、精确型号和必要合规文件连起来。',
         imageAlt: '桌面上摆放的充电器照片，用于说明欧盟产品可追溯性。',
         imageCaption: '桌面上的充电器为编辑用图片；不是 ZimonAI 的供应商、客户、核查现场或合规记录。',
-        answer: '不能。对适用欧盟协调法规的充电器，必须能识别设立在欧盟境内的经济运营者，该运营者也承担明确的市场监管配合工作。不过，名称和地址只是可追溯性证据；不能单独证明中国卖方就是制造商、报价型号已被 EU 符合性声明覆盖，或每批出货都符合要求。',
+        answer: '欧盟经济运营者联系资料为适用产品提供一个设立在欧盟境内、能够被识别和联系的追溯入口。这个地址不代表中国卖方就是制造商，也不等于报价型号已被 EU 符合性声明覆盖或每批出货持续一致。海外买家在采购前应先确认该主体的法律角色，再把卖方、制造商、合规文件和精确型号连成证据链；ZIMONAI 的编辑判断是，联系地址是打开整条证据链的入口，不是对供应商的合规背书。',
         takeaways: [
           '先逐字记录产品、包装或随附文件上的欧盟联系资料，再确认它的法律角色。',
           '制造商、欧盟进口商或授权代表要分别确认，也要分别索取对应报价型号的文件。',
@@ -2875,7 +2875,7 @@ export const knowledgeContent = {
         description: '如何用中文企业名称和统一社会信用代码，核对合同、收款账户、营业执照与认证持有人。',
         imageAlt: '合同与钢笔的近景照片，用于说明供应商法律主体核查。',
         imageCaption: '合同上的名称必须能够连回登记主体和预定收款人，才有判断价值。',
-        answer: '只看英文公司名、平台店名或邮件签名，还无法确定谁是合同相对方。请供应商提供完整中文企业名称和统一社会信用代码，到国家企业信用信息公示系统找到对应主体，再逐项核对合同、发票、收款账户、营业执照与认证持有人。',
+        answer: '完整中文企业名称、18 位统一社会信用代码，是中国供应商法律主体的稳定识别基准，也能回查官方公示记录。英文译名、平台店名或邮件签名容易混淆卖方、签约方和收款方，而企业登记本身也不代表该主体自有工厂或会履行订单。海外买家付款前应比较登记主体、合同方、发票方和银行收款人；ZIMONAI 的编辑判断是，主体一致性是付款核查的第一道门，任何名称差异都应先取得书面说明。',
         takeaways: [
           '中文企业名称应按营业执照原样保留，不要自行改成看起来更顺的版本。',
           '结合 18 位统一社会信用代码，可以降低同名和英文译名造成的误判。',
@@ -2929,7 +2929,7 @@ export const knowledgeContent = {
         description: 'FCC Certification 和 SDoC 是不同程序。先确认产品功能与适用路径，再判断查不到 FCC ID 是否真的有问题。',
         imageAlt: '电子电路板微距照片，用于说明 FCC 设备授权核查。',
         imageCaption: '先看产品的射频功能与适用程序，再看标志或数据库。',
-        answer: '不一定。FCC 设备授权包括 Certification 和供应商符合性声明（SDoC）等程序。FCC ID 对应经 Certification 获得授权的设备；采用 SDoC 的设备不会有同样的可查询授权记录。因此，不能看到“查无 FCC ID”就直接判定不合格，应先确认该型号的功能和适用程序。',
+        answer: 'FCC 设备授权核查的作用，是先按产品功能判断适用 Certification 或 SDoC，再寻找相应的授权记录或符合性信息。FCC ID 只对应经 Certification 授权的设备，查不到它不等于产品违规，查到有效记录也不证明电气安全、供应商身份或实际出货配置。海外买家应核对申请人、完整型号和设备类别；ZIMONAI 的编辑判断是，先判断授权路径再查数据库，比把 FCC ID 当成每款充电器的通用证书更可靠。',
         takeaways: [
           '没有确定适用程序前，不要把“查不到 FCC ID”直接写成不合格。',
           '供应商提供 FCC ID 后，还要核对申请人、产品代码、型号证据和功能说明。',
@@ -2983,7 +2983,7 @@ export const knowledgeContent = {
         description: '如何使用 UL Product iQ 核对供应商的 UL 主张，避免把真实档案误认为覆盖所有型号。',
         imageAlt: '手持多口电源适配器的照片，用于说明 UL 档案核查。',
         imageCaption: '外壳相似的产品可能有不同电气版本，认证范围仍要回到实际型号。',
-        answer: '先把 UL 档案号或识别码放入 UL Product iQ，再核对认证持有人、产品类别、型号和标志适用地区。找到真实档案只是第一步；真正需要回答的是，当前供应商和报价型号能否合理连回这份记录。',
+        answer: 'UL 档案号或唯一识别码让买家直接在 UL Product iQ 核对档案持有人、产品类别、型号和标志适用地区。真实档案不会自动覆盖共用外壳的不同功率、接口或关键安全元件，也不证明当前卖方与档案持有人存在授权关系。海外买家应把供应商、档案持有人和精确型号连成可追溯关系；ZIMONAI 的编辑判断是，核查重点不是档案是否真实，而是报价产品是否确实落在该档案范围内。',
         takeaways: [
           '优先查询 UL 官方数据库，不要只看供应商发来的证书 PDF。',
           '比对精确型号、电气额定值和产品类别，不要只比公司名称。',
@@ -3037,7 +3037,7 @@ export const knowledgeContent = {
         description: '供应商称电源适配器“有 CE”时，买家应索取哪些声明、型号和技术证据。',
         imageAlt: '蓝色背景上的欧规双圆脚电源适配器，用于说明 CE 文件核查。',
         imageCaption: 'CE 标志是文件核查的起点，不代表有某个欧盟中央机构批准产品。',
-        answer: '欧盟没有一个中央机构负责颁发通用的“CE 证书”。产品依法需要 CE 标志时，制造商要识别适用规则、完成相应符合性评估、建立技术文件、签署 EU Declaration of Conformity，再加贴 CE 标志。因此，买家需要的是能够对应精确型号的符合性声明和支持文件，而不是只看标志或自愿性证书。',
+        answer: 'CE 标志体现制造商在识别适用欧盟规则、完成符合性评估并建立技术文件后，对产品作出的声明；核心文件：EU Declaration of Conformity。欧盟没有统一颁发通用“CE 证书”的中央机构，实验室报告或自愿性证书也不等于精确型号已完成法定程序，更不保证后续量产持续一致。海外买家应核对声明中的制造商、型号和适用规则，再回查支持证据；ZIMONAI 的编辑判断是，CE 核查重在文件的法律角色与产品连接，而非证书名称是否正式。',
         takeaways: [
           '索取精确型号和制造商对应的 EU Declaration of Conformity。',
           '核对法规、标准、日期、签署人和产品识别资料。',
@@ -3092,7 +3092,7 @@ export const knowledgeContent = {
         description: 'UN 38.3 锂电池测试摘要应包含哪些字段，以及如何把文件连回实际移动电源型号。',
         imageAlt: '白色移动电源与线材照片，用于说明 UN 38.3 运输文件核查。',
         imageCaption: '运输证据必须跟随产品内部的电池种类、型号和瓦时数。',
-        answer: '联合国《试验和标准手册》要求提供锂电池或电芯测试摘要。核查移动电源时，要查看制造商、实验室、报告编号和日期、电池说明、瓦时数、型号、测试项目与结果、手册版本和签署人，再把这些字段连回报价产品中实际使用的电池配置。',
+        answer: 'UN 38.3 测试摘要的作用，是通过制造商、实验室、型号和瓦时数等关键字段，说明某一锂电芯或电池类型对应的测试记录与结果。文件真实也不代表它属于报价移动电源内部的实际电池，更不涵盖标称容量、循环寿命、电气安全或本批货物质量。海外买家应把摘要连回物料清单、产品标签和运输资料；ZIMONAI 的编辑判断是，常见风险不在有没有 PDF，而在这份摘要是否真正对应本批电池配置。',
         takeaways: [
           '测试摘要不是一张只写着“UN 38.3”的通用证书图片。',
           '型号和瓦时数，是把摘要连回移动电源的重要字段。',

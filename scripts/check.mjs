@@ -12,6 +12,7 @@ import {
   knowledgeContent,
   knowledgePageDefinitions
 } from '../src/knowledge-content.mjs';
+import { knowledgeSummaryIssues } from '../src/knowledge-summary-policy.mjs';
 import { portalContent } from '../src/portal-content.mjs';
 import { adminContent } from '../src/admin-content.mjs';
 import { cjkProtectedTerms, stripCjkProtectionMarkup } from '../src/cjk-linebreak.mjs';
@@ -105,6 +106,9 @@ for (const langKey of ['en', 'zh-tw', 'zh-cn']) {
   for (const spec of knowledgeArticleSpecs) {
     const article = knowledgeContent[langKey]?.articles?.[spec.key];
     if (!article?.title || !article?.answer || article.sections?.length !== 3 || !article.checklist?.length) errors.push(`${langKey}: incomplete knowledge article ${spec.key}`);
+    for (const issue of knowledgeSummaryIssues(langKey, spec.contentType, article?.answer)) {
+      errors.push(`${langKey}: ${spec.key} ${issue}`);
+    }
   }
 }
 if (/\.replaceAll\s*\(/.test(sourceKnowledge)) errors.push('knowledge source uses mechanical locale conversion');
@@ -146,7 +150,7 @@ for (const [cssFile, cssSource] of [
 for (const required of ['Intl.Segmenter', "'zh-tw'", "'zh-cn'", 'cjk-keep--${kind}', 'ordinalPattern']) {
   if (!sourceCjkLinebreak.includes(required)) errors.push(`CJK semantic line-break source missing ${required}`);
 }
-for (const required of ['MutationObserver', 'characterData', 'cjk-terms.js', 'observeDynamicCjkText']) {
+for (const required of ['MutationObserver', 'characterData', 'cjk-terms.js', 'cjk-patterns.js', 'technicalMeasurementPattern', 'datePattern', 'hasTechnicalMeasurement', 'observeDynamicCjkText']) {
   if (!`${sourceCjkRuntime}\n${sourceJs}`.includes(required)) errors.push(`dynamic CJK semantic line-break source missing ${required}`);
 }
 const generatedCjkTerms = await readFile(path.join(dist, 'assets', 'cjk-terms.js'), 'utf8');
@@ -154,6 +158,7 @@ const generatedSiteJs = await readFile(path.join(dist, 'assets', 'site.js'), 'ut
 const generatedCjkRuntime = await readFile(path.join(dist, 'assets', 'cjk-runtime.js'), 'utf8');
 if (!/\.\/cjk-runtime\.js\?v=[a-f0-9]{12}/.test(generatedSiteJs)) errors.push('dynamic CJK runtime import is not cache-versioned');
 if (!/\.\/cjk-terms\.js\?v=[a-f0-9]{12}/.test(generatedCjkRuntime)) errors.push('dynamic CJK vocabulary import is not cache-versioned');
+if (!/\.\/cjk-patterns\.js\?v=[a-f0-9]{12}/.test(generatedCjkRuntime)) errors.push('dynamic CJK pattern import is not cache-versioned');
 for (const locale of ['zh-tw', 'zh-cn']) {
   for (const required of locale === 'zh-tw'
     ? ['供應商', '充電器', '物料清單', '第一層', '新北市']

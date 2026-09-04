@@ -57,7 +57,8 @@ await writeFile(
 );
 for (const [file, dependency] of [
   ['site.js', 'cjk-runtime.js'],
-  ['cjk-runtime.js', 'cjk-terms.js']
+  ['cjk-runtime.js', 'cjk-terms.js'],
+  ['cjk-runtime.js', 'cjk-patterns.js']
 ]) {
   const target = path.join(dist, 'assets', file);
   const source = await readFile(target, 'utf8');

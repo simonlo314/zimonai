@@ -103,7 +103,7 @@ async (page) => {
     const result = await locator.evaluate((root) => {
       const isVisible = (element) => {
         const rect = element.getBoundingClientRect();
-        if (rect.width <= 0 || rect.height <= 0 || element.closest('[aria-hidden="true"], [inert]')) return false;
+        if (rect.width <= 0 || rect.height <= 0 || element.closest('[aria-hidden="true"], [inert], .sr-only')) return false;
         for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
           const style = getComputedStyle(ancestor);
           if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false;
@@ -114,15 +114,19 @@ async (page) => {
       const keepBreaks = inScope('.cjk-keep')
         .filter((element) => new Set([...element.getClientRects()].map((rect) => Math.round(rect.top))).size > 1)
         .map((element) => element.textContent.trim()).filter(Boolean).slice(0, 20);
-      const keepOverflow = inScope('.cjk-keep')
-        .filter((element) => {
-          for (let ancestor = element.parentElement; ancestor; ancestor = ancestor.parentElement) {
-            const style = getComputedStyle(ancestor);
-            if (['auto', 'scroll'].includes(style.overflowX) && ancestor.scrollWidth > ancestor.clientWidth + 1) return false;
-          }
-          const rect = element.getBoundingClientRect();
-          return rect.left < -1 || rect.right > window.innerWidth + 1;
-        })
+          const keepOverflow = inScope('.cjk-keep')
+            .filter((element) => {
+              for (let ancestor = element.parentElement; ancestor; ancestor = ancestor.parentElement) {
+                const style = getComputedStyle(ancestor);
+                if (['auto', 'scroll'].includes(style.overflowX) && ancestor.scrollWidth > ancestor.clientWidth + 1) return false;
+              }
+              const rect = element.getBoundingClientRect();
+              const textContainer = element.closest('h1, h2, h3, p, li, a, button, dd, dt, td, th, label, figcaption, strong');
+              const containerRect = textContainer?.getBoundingClientRect();
+              return rect.left < -1
+                || rect.right > window.innerWidth + 1
+                || Boolean(containerRect && (rect.left < containerRect.left - 1 || rect.right > containerRect.right + 1));
+            })
         .map((element) => element.textContent.trim()).filter(Boolean).slice(0, 20);
       const wrapperStyleDrift = inScope('.cjk-keep')
         .flatMap((element) => {
@@ -310,7 +314,7 @@ async (page) => {
         const result = await page.evaluate(() => {
           const isVisible = (element) => {
             const rect = element.getBoundingClientRect();
-            if (rect.width <= 0 || rect.height <= 0 || element.closest('[aria-hidden="true"], [inert]')) return false;
+            if (rect.width <= 0 || rect.height <= 0 || element.closest('[aria-hidden="true"], [inert], .sr-only')) return false;
             for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
               const style = getComputedStyle(ancestor);
               if (style.display === 'none' || style.visibility === 'hidden' || Number(style.opacity) === 0) return false;
@@ -332,7 +336,11 @@ async (page) => {
                 if (['auto', 'scroll'].includes(style.overflowX) && ancestor.scrollWidth > ancestor.clientWidth + 1) return false;
               }
               const rect = element.getBoundingClientRect();
-              return rect.left < -1 || rect.right > window.innerWidth + 1;
+              const textContainer = element.closest('h1, h2, h3, p, li, a, button, dd, dt, td, th, label, figcaption, strong');
+              const containerRect = textContainer?.getBoundingClientRect();
+              return rect.left < -1
+                || rect.right > window.innerWidth + 1
+                || Boolean(containerRect && (rect.left < containerRect.left - 1 || rect.right > containerRect.right + 1));
             })
             .map((element) => element.textContent.trim())
             .filter(Boolean)
@@ -401,6 +409,32 @@ async (page) => {
               const invalid = [...lines.values()].map((line) => line.trim()).filter(Boolean)
                 .filter((line) => /^[，。；：！？、,.!?;:·•）】》」』]/u.test(line));
               return invalid.length ? [{ text: element.textContent.trim(), invalid }] : [];
+            })
+            .slice(0, 20);
+          // Summary copy is a release-critical editorial surface. The broader site-wide
+          // line-break audit is handled separately so older body copy does not obscure
+          // regressions introduced by a knowledge-summary edit.
+          const textPunctuationOrphans = [...document.querySelectorAll('.answer-first p:last-child')]
+            .filter(isVisible)
+            .filter((element) => /\p{Script=Han}/u.test(element.textContent || ''))
+            .flatMap((element) => {
+              const lines = new Map();
+              const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+              while (walker.nextNode()) {
+                const node = walker.currentNode;
+                for (let index = 0; index < node.data.length; index += 1) {
+                  const range = document.createRange();
+                  range.setStart(node, index);
+                  range.setEnd(node, index + 1);
+                  const rect = range.getBoundingClientRect();
+                  if (!rect.width && !rect.height) continue;
+                  const key = Math.round(rect.top);
+                  lines.set(key, `${lines.get(key) || ''}${node.data[index]}`);
+                }
+              }
+              const invalid = [...lines.values()].map((line) => line.trim()).filter(Boolean)
+                .filter((line) => /^[，。；：！？、,.!?;:）】》〉」』”’]/u.test(line) || /[（【《〈「『“‘]$/u.test(line));
+              return invalid.length ? [{ text: element.textContent.trim().replace(/\s+/g, ' ').slice(0, 120), invalid }] : [];
             })
             .slice(0, 20);
           const structuralTopology = [
@@ -521,6 +555,7 @@ async (page) => {
             wrapperStyleDrift,
             headingOrphans,
             headingLeadingPunctuation,
+            textPunctuationOrphans,
             structuralTopology,
             splitFlexControls,
             textOverflow,
@@ -544,6 +579,7 @@ async (page) => {
         if (result.wrapperStyleDrift.length) issues.push(`semantic wrappers changed inherited typography: ${result.wrapperStyleDrift.map((item) => `${item.text} [${item.differences.join(',')}]`).join(' | ')}`);
         if (result.headingOrphans.length) issues.push(`single-character heading lines: ${result.headingOrphans.map((item) => item.text).join(' | ')}`);
         if (result.headingLeadingPunctuation.length) issues.push(`heading lines start with punctuation: ${result.headingLeadingPunctuation.map((item) => `${item.text} [${item.invalid.join(',')}]`).join(' | ')}`);
+        if (result.textPunctuationOrphans.length) issues.push(`text lines orphan punctuation: ${result.textPunctuationOrphans.map((item) => `${item.text} [${item.invalid.join(',')}]`).join(' | ')}`);
         if (result.structuralTopology.length) issues.push(`CJK wrappers changed grid topology: ${result.structuralTopology.join(' | ')}`);
         if (result.splitFlexControls.length) issues.push(`flex controls contain split direct labels: ${result.splitFlexControls.join(' | ')}`);
         if (result.textOverflow.length) issues.push(`text containers overflow: ${result.textOverflow.map((item) => `${item.element} ${item.clientWidth}/${item.scrollWidth} ${item.text}`).join(' | ')}`);
@@ -922,8 +958,11 @@ async (page) => {
           const status = document.querySelector('[data-knowledge-count]');
           const host = document.createElement('div');
           host.id = 'cjk-runtime-probe';
-          host.innerHTML = '<p></p><button type="button"></button><div class="inquiry-status"><p></p></div>';
-          host.querySelector(':scope > p').textContent = currentLocale === 'zh-cn' ? '50–500 件供应商核查' : '50–500 件供應商查核';
+          host.innerHTML = '<p data-cjk-language></p><p data-cjk-measurement></p><button type="button"></button><div class="inquiry-status"><p></p></div>';
+          host.querySelector('[data-cjk-language]').textContent = currentLocale === 'zh-cn'
+            ? '50–500 件供应商核查，第 33 条、9 月 17 日与下一台充电器。'
+            : '50–500 件供應商查核，第 33 條、9 月 17 日與下一台充電器。';
+          host.querySelector('[data-cjk-measurement]').textContent = '10,000mAh／25W';
           host.querySelector('button').textContent = currentLocale === 'zh-cn' ? '再确认产品' : '再確認產品';
           const machineData = host.querySelector('.inquiry-status p');
           machineData.style.width = '120px';
@@ -947,6 +986,9 @@ async (page) => {
         interactionChecks.push({ locale, width, route, state: 'runtime-probe', ...interaction });
         if (!interaction.status || !interaction.statusProtected || interaction.statusSplit) interactionIssues.push(`${locale}: dynamic search count is not protected`);
         if (!interaction.phraseValues.includes('50–500 件') || !interaction.phraseValues.some((value) => value.includes('供應商') || value.includes('供应商'))) interactionIssues.push(`${locale}: dynamic phrase protection failed`);
+        for (const expected of [locale === 'zh-cn' ? '第 33 条' : '第 33 條', '9 月 17 日', '下一台', '10,000mAh', '25W']) {
+          if (!interaction.phraseValues.some((value) => value.includes(expected))) interactionIssues.push(`${locale}: dynamic pattern protection failed for ${expected}`);
+        }
         const expectedControl = locale === 'zh-cn' ? '再确认产品' : '再確認產品';
         if (!interaction.controlValues.includes(expectedControl)) interactionIssues.push(locale + ': dynamic control protection failed');
         if (!interaction.machineDataFits) interactionIssues.push(locale + ': machine-readable data no longer wraps');

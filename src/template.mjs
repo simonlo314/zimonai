@@ -28,6 +28,19 @@ function jsonForHtml(value) {
   return JSON.stringify(value).replaceAll('<', '\\u003c');
 }
 
+const englishMonthNames = Object.freeze([
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+]);
+
+function formatKnowledgeDate(locale, isoDate) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(isoDate || '');
+  if (!match) return isoDate || '';
+  const [, year, month, day] = match;
+  if (locale === 'en') return `${Number(day)} ${englishMonthNames[Number(month) - 1]} ${year}`;
+  return `${year} 年 ${Number(month)} 月 ${Number(day)} 日`;
+}
+
 function statusLabel(t, status) {
   return status === 'verified' ? t.common.verified : status === 'unresolved' ? t.common.unresolved : t.common.discrepancy;
 }
@@ -864,7 +877,7 @@ function knowledgeArticle(t, page) {
             <dl class="field-note__meta">
               <div><dt>${esc(copy.ui.published)}</dt><dd><time datetime="${esc(spec.datePublished)}">${esc(article.published)}</time></dd></div>
               <div><dt>${esc(copy.ui.readTime)}</dt><dd>${esc(article.readTime)}</dd></div>
-              <div><dt>${esc(copy.ui.reviewed)}</dt><dd>${esc(article.published)}</dd></div>
+              <div><dt>${esc(copy.ui.updated)}</dt><dd><time datetime="${esc(spec.dateModified)}">${esc(formatKnowledgeDate(t.__key, spec.dateModified))}</time></dd></div>
             </dl>
           </div>
           <figure class="field-note__image" style="${imageCropStyle}">
