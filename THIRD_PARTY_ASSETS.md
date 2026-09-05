@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-04
+Last reviewed: 2026-09-05
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -24,6 +24,12 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | Local asset | Issuing organisation | Source and editorial-use basis | Retrieved | Website use |
 | --- | --- | --- | --- | --- |
 | `src/assets/editorial-anker-maggo-2-pro.jpg` | Anker Innovations | [A110RH11_RI_TD06_EN_V1](https://www.dropbox.com/scl/fo/xo6ymq0rpxcak9ijbl21e/AFc7V47c6qJtFf1A59bIPfE/Anker%20Charging/110R-Anker%20MagGo%20Power%20Bank%20Pro%202/A110RH11_RI_TD06_EN_V1%20%281%29.jpg?rlkey=v5lytb6qesicevy3tgxmmz19k&dl=0), supplied inside the [official IFA 2026 Anker Press Kit linked as “product photos and additional assets” in Anker Innovations' issued release](https://www.einpresswire.com/article/939305437/anker-unveils-2026-charging-lineup-at-ifa-adding-intelligence-to-a-category-built-on-speed) | 2026-09-03 | Current-affairs article about the Anker MagGo Power Bank 2 Pro; official editorial media image, not sponsored content or ZIMONAI evidence |
+
+## Government recall-notice assets
+
+| Local asset | Issuing authority | Source and reuse basis | Retrieved | Website use |
+| --- | --- | --- | --- | --- |
+| `src/assets/editorial-xo-poppy-power-bank-recall.jpg` | U.S. Consumer Product Safety Commission | Three recalled-product photographs from the [XO Poppy Power Trip recall notice](https://www.cpsc.gov/Recalls/2026/Truststone-Group-Recalls-XO-Poppy-Power-Trip-Magnetic-Wireless-Power-Banks-Due-to-Fire-and-Burn-Hazards-Sold-Exclusively-at-TJX-and-Marshalls-Stores), arranged side by side and JPEG-compressed without generative editing. The [CPSC copyright policy](https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy) states that recall notices, including photographs of recalled items, may be freely copied and distributed without permission; CPSC is credited and no endorsement is implied. | 2026-09-05 | Current-affairs article about the separate US and Canadian XO Poppy magnetic power-bank recalls; actual US recalled-product images, not a complete Canadian model list, ZIMONAI testing or sponsored content |
 
 ## Representation boundary
 

@@ -34,7 +34,10 @@ async (page) => {
     const counterpart = `/${match[1] === 'zh-tw' ? 'zh-cn' : 'zh-tw'}${match[2]}`;
     return !allRoutes.includes(counterpart);
   });
-  if (allRoutes.length !== 60 || routeCounts['zh-tw'] !== 30 || routeCounts['zh-cn'] !== 30 || unmatchedRoutes.length) {
+  if (routeCounts['zh-tw'] < 30
+    || routeCounts['zh-cn'] !== routeCounts['zh-tw']
+    || allRoutes.length !== routeCounts['zh-tw'] + routeCounts['zh-cn']
+    || unmatchedRoutes.length) {
     throw new Error(`Unexpected CJK route inventory: ${JSON.stringify({ routeCount: allRoutes.length, routeCounts, unmatchedRoutes })}`);
   }
   const uniqueRoutes = debug && configuration.routePattern

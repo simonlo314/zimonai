@@ -8,6 +8,47 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-xo-poppy-power-bank-recall',
+    key: 'xoPoppyPowerBankRecall',
+    contentType: 'current-affairs',
+    slug: 'knowledge/xo-poppy-power-bank-recall-us-canada',
+    category: 'certification-market-access',
+    products: ['power-bank'],
+    markets: ['united-states', 'canada'],
+    keywords: {
+      en: ['XO Poppy power bank recall', 'PYPBK5M recall', 'magnetic wireless power bank recall', 'CPSC power bank recall 2026', 'Health Canada power bank recall', 'lithium-ion battery fire risk'],
+      'zh-tw': ['XO Poppy 行動電源召回', 'PYPBK5M 召回', '磁吸無線行動電源召回', 'CPSC 行動電源召回 2026', '加拿大行動電源召回', '鋰離子電池火災風險'],
+      'zh-cn': ['XO Poppy 移动电源召回', 'PYPBK5M 召回', '磁吸无线移动电源召回', 'CPSC 移动电源召回 2026', '加拿大移动电源召回', '锂离子电池起火风险']
+    },
+    datePublished: '2026-09-05',
+    dateModified: '2026-09-05',
+    image: '/assets/editorial-xo-poppy-power-bank-recall.jpg',
+    imageWidth: 1200,
+    imageHeight: 750,
+    imageCrop: {
+      card: '50% 50%',
+      article: '50% 50%',
+      mobile: '50% 50%'
+    },
+    photo: {
+      photographer: 'U.S. Consumer Product Safety Commission',
+      page: 'https://www.cpsc.gov/Recalls/2026/Truststone-Group-Recalls-XO-Poppy-Power-Trip-Magnetic-Wireless-Power-Banks-Due-to-Fire-and-Burn-Hazards-Sold-Exclusively-at-TJX-and-Marshalls-Stores',
+      license: 'https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy'
+    },
+    sources: [
+      {
+        publisher: 'U.S. Consumer Product Safety Commission',
+        title: 'Truststone Group recalls XO Poppy Power Trip magnetic wireless power banks',
+        url: 'https://www.cpsc.gov/Recalls/2026/Truststone-Group-Recalls-XO-Poppy-Power-Trip-Magnetic-Wireless-Power-Banks-Due-to-Fire-and-Burn-Hazards-Sold-Exclusively-at-TJX-and-Marshalls-Stores'
+      },
+      {
+        publisher: 'Health Canada',
+        title: 'XO Poppy 5000 mAh MagSafe power banks recalled due to fire hazard',
+        url: 'https://recalls-rappels.canada.ca/en/alert-recall/xo-poppy-5000-mah-magsafe-powerbanks-recalled-due-fire-hazard'
+      }
+    ]
+  },
+  {
     id: 'knowledge-anker-maggo-2-pro-qi2',
     key: 'ankerMagGo2Pro',
     contentType: 'current-affairs',
@@ -702,7 +743,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Thirteen field notes',
+      latest: 'Fourteen field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -764,6 +805,7 @@ export const knowledgeContent = {
       markets: {
         china: 'China',
         'united-states': 'United States',
+        canada: 'Canada',
         'european-union': 'European Union',
         global: 'Global standards',
         international: 'International transport'
@@ -785,6 +827,64 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      xoPoppyPowerBankRecall: {
+        topic: 'North America power-bank recall',
+        published: '5 September 2026',
+        readTime: '7 minutes',
+        title: 'XO Poppy magnetic power banks recalled in the US and Canada: why the model lists differ',
+        description: 'US regulators recalled about 32,400 units days after a Canadian notice covering 30,000. The brand is the same, but the model codes, sales channels and refund routes are not.',
+        imageAlt: 'Three XO Poppy magnetic power banks and their packaging model labels from the US recall notice.',
+        imageCaption: 'Three product photographs from the US CPSC recall notice, arranged together for editorial display. They show the US-listed cream, bow-print and teddy-bear-print variants—not the full Canadian model list. This is not ZIMONAI testing or sponsored content.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What buyers should check now',
+          limits: 'What remains unknown'
+        },
+        answer: 'Two North American notices cover XO Poppy power banks: the US CPSC announced about 32,400 units on 3 September, after Health Canada recalled 30,000 related models on 26 August. The bigger story is the scope gap—the US lists three retail variants, Canada 30 model codes and a different refund route. For buyers and retailers, market-by-market SKU mapping, battery/BOM traceability and recall logistics are frontline requirements; a shared brand name is not a recall identifier. Both authorities cite overheating and fire hazards and reported no incidents or injuries at publication, but neither identifies the root cause, cell supplier, production lots or common internal design.',
+        takeaways: [
+          'The US CPSC notice covers about 32,400 XO Poppy Power Trip units sold at TJX and Marshalls; Health Canada separately reports 30,000 related 5,000 mAh power banks sold through HomeSense, Winners and Marshalls.',
+          'The US notice lists three packaging variants, while Canada lists 30 model codes. Buyers need the full market SKU and packaging identifier, not just the XO Poppy name or a similar appearance.',
+          'Neither regulator published a root-cause analysis. The responsible next step is to isolate affected finished-goods records and preserve cell, PCBA, connector, firmware and production-lot evidence without assigning blame to an unnamed supplier.'
+        ],
+        sections: [
+          {
+            title: 'What exactly was recalled in the United States and Canada?',
+            paragraphs: [
+              'The US Consumer Product Safety Commission announced recall 26-740 on 3 September 2026. It covers XO Poppy Power Trip Magnetic Wireless Power Banks under model PYPBK5M in three variants: cream (PY-PBK5M-CR2), cream with a pink bow print (PY-PBK5M-BW8), and black with a teddy-bear print (PY-PBK5M-TB2). CPSC says about 32,400 units were sold for roughly US$15 at TJX and Marshalls stores nationwide from April 2025 through March 2026. Truststone Group LLC is named as the importer, and Vietnam as the country of manufacture.',
+              'Health Canada published its related notice on 26 August. It covers 30,000 XO Poppy 5,000 mAh MagSafe-compatible power banks sold from May 2024 through March 2026 through HomeSense, Winners and Marshalls. The Canadian list contains 30 model codes, including PY-PBK5M-BW8 but many variants that do not appear in the US notice. Both notices reported no incidents or injuries at the stated cut-off dates.'
+            ]
+          },
+          {
+            title: 'Why are the model lists and consumer instructions different?',
+            paragraphs: [
+              'A recall is defined by the authority, market, distribution records and product identifiers in that specific notice. The US action tells consumers to stop using the product and contact Truststone Group for a refund issued as a virtual gift card. CPSC also warns that recalled lithium-ion products should not enter household rubbish, ordinary recycling or retail battery boxes; consumers should first ask a local household hazardous-waste facility whether it accepts recalled lithium batteries.',
+              'Canada directs consumers to stop using the units and return them to HomeSense, Winners or Marshalls for a refund, and notes that recalled products cannot be redistributed, sold or given away in Canada. These differences are operational, not cosmetic. A global seller that collapses both notices into one brand-level spreadsheet could miss Canadian variants, send US customers to the wrong remedy channel or apply one country’s disposal instructions in another.'
+            ],
+            items: [
+              'US scope: PYPBK5M with three named packaging variants and about 32,400 units.',
+              'Canadian scope: 30 listed model codes and 30,000 reported units.',
+              'One overlapping code does not establish that every listed variant shares the same internal bill of materials.',
+              'Country-specific sales and remedy records should remain linked to the exact notice that created them.'
+            ]
+          },
+          {
+            title: 'What does this recall reveal about power-bank traceability?',
+            paragraphs: [
+              'The public notices identify the retail products well enough for consumers to act, but they do not disclose the cell manufacturer, PCBA revision, connector supplier, production dates, lot boundaries or technical failure analysis. A buyer investigating its own assortment therefore needs an internal bridge from market SKU and packaging code to the finished-goods record, bill-of-materials revision, battery-cell lot and shipment history. That bridge is what makes a targeted stop-ship and customer notification possible.',
+              'ZIMONAI’s editorial assessment is that cross-market recall readiness should be designed before a product ships, not improvised after a notice appears. Brand owners and importers should be able to freeze affected inventory, identify customers by destination market, preserve samples and change records, and operate the correct refund and reverse-logistics route for each jurisdiction. This event does not prove a defect in every XO Poppy product or identify which supplier caused the hazard; it shows why precise product identity and response records matter when the public name stays the same.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact market SKU, packaging code, colour or print variant and sales country',
+          'Finished-goods lot, production date, purchase order and shipment destinations',
+          'Battery-cell maker and lot, PCBA revision, connector specification and protection settings',
+          'Change approvals covering cells, ports, housings, firmware and secondary suppliers',
+          'Stop-ship, retailer notification, refund and country-specific disposal workflow',
+          'Retained samples, incident records and an owner for regulator and customer follow-up'
+        ],
+        limitsText: 'As of 5 September 2026, the CPSC and Health Canada notices did not publish a technical root cause, cell supplier, production-lot range, laboratory report or a complete mapping between the US and Canadian variants. They also do not establish that every XO Poppy power bank is affected, that all listed units share an identical internal design, or that manufacture in Vietnam caused the hazard. The traceability and recall-readiness observations above are ZIMONAI’s editorial analysis; the affected products, consumer actions and legal requirements must be taken from the notice for the relevant market.'
+      },
       ankerMagGo2Pro: {
         topic: 'IFA 2026 product news',
         published: '3 September 2026',
@@ -1518,7 +1618,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '十三篇查核筆記',
+      latest: '十四篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1580,6 +1680,7 @@ export const knowledgeContent = {
       markets: {
         china: '中國',
         'united-states': '美國',
+        canada: '加拿大',
         'european-union': '歐盟',
         global: '全球標準',
         international: '國際運輸'
@@ -1601,6 +1702,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      xoPoppyPowerBankRecall: {
+        topic: '北美行動電源召回',
+        published: '2026 年 9 月 5 日',
+        readTime: '約 7 分鐘',
+        title: 'XO Poppy 磁吸行動電源美加接連召回：同品牌，為何型號清單不一樣？',
+        description: '美國主管機關召回約 32,400 顆，加拿大也已公告 30,000 顆；品牌相同，型號、通路與退款方式卻不能混成一份名單。',
+        imageAlt: '美國召回公告中的三款 XO Poppy 磁吸行動電源，以及包裝上的型號標籤。',
+        imageCaption: '美國 CPSC 召回公告中的三張產品照片，經並排整理作為編輯展示；畫面是美國列名的米色、蝴蝶結與泰迪熊版本，不是加拿大完整型號清單。非 ZIMONAI 測試或贊助內容。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '買家現在應核對什麼',
+          limits: '目前仍未確認'
+        },
+        answer: '北美兩份召回公告都指向 XO Poppy 磁吸行動電源。美國 CPSC 9 月 3 日召回約 32,400 顆，加拿大衛生部 8 月 26 日已公告 30,000 顆相關 5,000mAh 型號；兩地都指出過熱與火災風險。真正值得注意的是，美國只列三個零售版本，加拿大列出 30 組型號，退款與處置管道也不同。對買家與通路商而言，這起事件把各市場 SKU 對照、電芯與物料清單追溯、召回物流推到第一線；共同品牌名稱不足以界定召回範圍。兩份公告當時都沒有事故或傷害通報，但尚未公開根因、電芯供應商、受影響批次或各型號的內部配置。',
+        takeaways: [
+          '美國 CPSC 公告涵蓋約 32,400 顆於 TJX 與 Marshalls 銷售的 XO Poppy Power Trip；加拿大衛生部另列 30,000 顆在 HomeSense、Winners 與 Marshalls 銷售的相關 5,000mAh 行動電源。',
+          '美國公告列出三種包裝版本，加拿大則列出 30 組型號。買家要核對完整市場 SKU 與包裝型號，不能只憑 XO Poppy 名稱或相似外觀。',
+          '兩國主管機關都未公布根因分析。正確做法是先隔離受影響成品紀錄，保存電芯、PCBA、連接埠、韌體與生產批次證據，不能把責任直接指向未具名供應商。'
+        ],
+        sections: [
+          {
+            title: '美國與加拿大究竟各自召回了哪些產品？',
+            paragraphs: [
+              '美國消費品安全委員會（CPSC）於 2026 年 9 月 3 日公布第 26-740 號召回。範圍是母型號 PYPBK5M 下的三種 XO Poppy Power Trip 磁吸無線行動電源：米色（PY-PBK5M-CR2）、米色蝴蝶結圖樣（PY-PBK5M-BW8）與黑色泰迪熊圖樣（PY-PBK5M-TB2）。CPSC 表示，約 32,400 顆產品於 2025 年 4 月至 2026 年 3 月在全美 TJX 與 Marshalls 門市銷售，售價約 15 美元；公告列 Truststone Group LLC 為進口商，製造地為越南。',
+              '加拿大衛生部則於 8 月 26 日公布相關召回，涵蓋 30,000 顆相容 MagSafe 的 XO Poppy 5,000mAh 行動電源，銷售期間為 2024 年 5 月至 2026 年 3 月，通路包括 HomeSense、Winners 與 Marshalls。加拿大清單共有 30 組型號，其中包含 PY-PBK5M-BW8，也有許多未出現在美國公告的版本。兩份公告在各自的資料截止日都表示，尚未收到事故或傷害通報。'
+            ]
+          },
+          {
+            title: '為什麼型號清單與消費者處置方式不一樣？',
+            paragraphs: [
+              '召回範圍由各主管機關公告中的市場、通路紀錄與產品識別資料共同界定。美國要求消費者立即停用，並向 Truststone Group 申請以虛擬禮物卡形式退費。CPSC 也提醒，召回的鋰離子產品不可丟入一般垃圾、普通回收系統或零售門市的電池回收箱；送往家庭有害廢棄物收集站前，應先確認該站是否接收召回鋰電池。',
+              '加拿大要求消費者停用後，直接帶回 HomeSense、Winners 或 Marshalls 退款，並指出加拿大禁止再散布、出售或轉贈召回品。這些差異不是文字細節，而是實際執行規則。全球賣家若把兩份公告縮成一張品牌層級清單，可能漏掉加拿大版本、把美國客戶導向錯誤退款管道，或在不同國家套用不適用的處置方式。'
+            ],
+            items: [
+              '美國範圍：母型號 PYPBK5M、三個包裝版本，約 32,400 顆。',
+              '加拿大範圍：30 組列名型號，官方通報銷售 30,000 顆。',
+              '只有一組型號重疊，不能據此推定所有版本共用相同物料清單。',
+              '各國銷售與退款紀錄，都應連回產生該項義務的正式公告。'
+            ]
+          },
+          {
+            title: '這起召回揭示了哪些行動電源追溯問題？',
+            paragraphs: [
+              '公開公告已提供足夠的零售端資訊，讓消費者辨識產品並採取行動，但沒有揭露電芯製造商、PCBA 版本、連接埠供應商、生產日期、批次邊界或技術失效分析。買家若要排查自己的商品組合，還需要一條能把各市場 SKU 與包裝型號連回成品紀錄、物料清單版本、電芯批次及出貨歷程的證據鏈，才能準確停出貨並通知客戶。',
+              'ZIMONAI 的編輯判讀是，跨市場召回能力應在出貨前設計好，而不是等公告出現後才臨時拼湊。品牌方與進口商應能凍結受影響庫存、依目的市場找出客戶、保存樣品與變更紀錄，並啟動各司法管轄區正確的退款與逆向物流。這起事件沒有證明每一款 XO Poppy 產品都有缺陷，也沒有指出是哪個供應商造成風險；它顯示的是，當公開品牌名稱相同時，精確產品身分與應變紀錄為何關鍵。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整市場 SKU、包裝型號、顏色或圖樣版本與銷售國家',
+          '成品批次、生產日期、採購單與實際出貨目的地',
+          '電芯製造商與批次、PCBA 版本、連接埠規格與保護設定',
+          '電芯、連接埠、外殼、韌體及次級供應商的變更核准紀錄',
+          '停出貨、通路通知、退款與各國處置流程',
+          '留樣、事故紀錄，以及負責主管機關與客戶後續聯繫的人員'
+        ],
+        limitsText: '截至 2026 年 9 月 5 日，CPSC 與加拿大衛生部公告都沒有公開技術根因、電芯供應商、生產批次範圍、實驗室報告，或美加版本的完整對照關係。現有資料也無法證明所有 XO Poppy 行動電源都受影響、所有列名產品採用完全相同的內部設計，或製造地越南本身造成這項風險。前述追溯與召回準備建議屬於 ZIMONAI 編輯分析；受影響產品、消費者行動與法律要求，仍應以相關市場的正式公告為準。'
+      },
       ankerMagGo2Pro: {
         topic: 'IFA 2026 新品新聞',
         published: '2026 年 9 月 3 日',
@@ -2334,7 +2493,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '十三篇核查笔记',
+      latest: '十四篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -2396,6 +2555,7 @@ export const knowledgeContent = {
       markets: {
         china: '中国',
         'united-states': '美国',
+        canada: '加拿大',
         'european-union': '欧盟',
         global: '全球标准',
         international: '国际运输'
@@ -2417,6 +2577,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      xoPoppyPowerBankRecall: {
+        topic: '北美移动电源召回',
+        published: '2026 年 9 月 5 日',
+        readTime: '约 7 分钟',
+        title: 'XO Poppy 磁吸移动电源美加接连召回：同一品牌，为何型号清单不同？',
+        description: '美国监管部门召回约 32,400 台，加拿大也已公告 30,000 台；品牌相同，型号、渠道和退款方式却不能合并成一份名单。',
+        imageAlt: '美国召回公告中的三款 XO Poppy 磁吸移动电源，以及包装上的型号标签。',
+        imageCaption: '美国 CPSC 召回公告中的三张产品照片，经并排整理用于编辑展示；画面为美国列名的米色、蝴蝶结和泰迪熊版本，并非加拿大完整型号清单。不是 ZIMONAI 测试或赞助内容。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '买家现在应核对什么',
+          limits: '目前仍未确认'
+        },
+        answer: '北美两份召回公告都指向 XO Poppy 磁吸移动电源。美国 CPSC 9 月 3 日召回约 32,400 台，加拿大卫生部 8 月 26 日已公告 30,000 台相关 5,000mAh 型号；两地都指出过热和起火风险。真正值得关注的是，美国只列出三个零售版本，加拿大列出 30 个型号，退款和处置渠道也不同。对买家和零售商而言，这起事件把各市场 SKU 对照、电芯和物料清单追溯、召回物流推到第一线；共同品牌名称不足以界定召回范围。两份公告发布时都没有事故或伤害报告，但尚未公开根因、电芯供应商、受影响批次或各型号的内部配置。',
+        takeaways: [
+          '美国 CPSC 公告涉及约 32,400 台在 TJX 和 Marshalls 销售的 XO Poppy Power Trip；加拿大卫生部另列 30,000 台在 HomeSense、Winners 和 Marshalls 销售的相关 5,000mAh 移动电源。',
+          '美国公告列出三种包装版本，加拿大则列出 30 个型号。买家需要核对完整市场 SKU 和包装型号，不能只凭 XO Poppy 名称或相似外观。',
+          '两国监管部门都未公布根因分析。合理的下一步是先隔离受影响成品记录，保存电芯、PCBA、接口、固件与生产批次证据，不能把责任直接归于未具名供应商。'
+        ],
+        sections: [
+          {
+            title: '美国和加拿大分别召回了哪些产品？',
+            paragraphs: [
+              '美国消费品安全委员会（CPSC）于 2026 年 9 月 3 日发布第 26-740 号召回。范围是母型号 PYPBK5M 下的三种 XO Poppy Power Trip 磁吸无线移动电源：米色（PY-PBK5M-CR2）、米色蝴蝶结图案（PY-PBK5M-BW8）和黑色泰迪熊图案（PY-PBK5M-TB2）。CPSC 表示，约 32,400 台产品于 2025 年 4 月至 2026 年 3 月在全美 TJX 和 Marshalls 门店销售，售价约 15 美元；公告将 Truststone Group LLC 列为进口商，制造地为越南。',
+              '加拿大卫生部则于 8 月 26 日发布相关召回，涉及 30,000 台兼容 MagSafe 的 XO Poppy 5,000mAh 移动电源，销售期为 2024 年 5 月至 2026 年 3 月，渠道包括 HomeSense、Winners 和 Marshalls。加拿大清单共有 30 个型号，其中包含 PY-PBK5M-BW8，也有许多未出现在美国公告中的版本。两份公告在各自的数据截止日都表示，尚未收到事故或伤害报告。'
+            ]
+          },
+          {
+            title: '为什么型号清单和消费者处置方式不同？',
+            paragraphs: [
+              '召回范围由各监管部门公告中的市场、渠道记录和产品识别信息共同界定。美国要求消费者立即停用，并向 Truststone Group 申请以虚拟礼品卡形式退款。CPSC 同时提醒，召回的锂离子产品不得投入普通垃圾、常规回收系统或零售门店的电池回收箱；送往家庭有害废物收集点之前，应先确认该机构是否接收召回锂电池。',
+              '加拿大要求消费者停用后，直接带回 HomeSense、Winners 或 Marshalls 退款，并指出加拿大禁止再次分发、销售或转赠召回产品。这些差异直接影响实际操作。全球卖家如果把两份公告压缩成一张品牌级名单，可能漏掉加拿大版本、将美国消费者导向错误的退款渠道，或在不同国家套用不适用的处置方式。'
+            ],
+            items: [
+              '美国范围：母型号 PYPBK5M、三个包装版本，约 32,400 台。',
+              '加拿大范围：30 个列名型号，官方报告销售 30,000 台。',
+              '只有一个型号重叠，不能据此推定所有版本共用相同物料清单。',
+              '各国销售和退款记录都应关联到产生相应义务的正式公告。'
+            ]
+          },
+          {
+            title: '这起召回暴露了哪些移动电源追溯问题？',
+            paragraphs: [
+              '公开公告已提供足够的零售信息，帮助消费者识别产品并采取行动，但没有披露电芯制造商、PCBA 版本、接口供应商、生产日期、批次边界或技术失效分析。买家若要排查自己的商品组合，还需要一条能够把各市场 SKU 和包装型号关联到成品记录、物料清单版本、电芯批次及出货历史的证据链，才能准确停止出货并通知客户。',
+              'ZIMONAI 的编辑判断是，跨市场召回能力应在出货前建立，而不是等公告出现后再临时拼凑。品牌方和进口商应能够冻结受影响库存、按目的市场找出客户、保存样品与变更记录，并启动各司法管辖区正确的退款和逆向物流。这起事件没有证明每一款 XO Poppy 产品都存在缺陷，也没有指出哪个供应商造成风险；它说明的是，当公开品牌名称相同时，精确产品身份和应对记录为什么重要。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整市场 SKU、包装型号、颜色或图案版本和销售国家',
+          '成品批次、生产日期、采购单和实际出货目的地',
+          '电芯制造商与批次、PCBA 版本、接口规格和保护设置',
+          '电芯、接口、外壳、固件及二级供应商的变更批准记录',
+          '停止出货、渠道通知、退款与各国处置流程',
+          '留样、事故记录，以及负责监管部门和客户后续联络的人员'
+        ],
+        limitsText: '截至 2026 年 9 月 5 日，CPSC 和加拿大卫生部公告都没有公开技术根因、电芯供应商、生产批次范围、实验室报告，或美加版本的完整对应关系。现有资料也无法证明所有 XO Poppy 移动电源都受影响、所有列名产品采用完全相同的内部设计，或制造地越南本身造成这项风险。上述追溯和召回准备建议属于 ZIMONAI 编辑分析；受影响产品、消费者行动与法律要求，仍应以相关市场的正式公告为准。'
+      },
       ankerMagGo2Pro: {
         topic: 'IFA 2026 新品新闻',
         published: '2026 年 9 月 3 日',
