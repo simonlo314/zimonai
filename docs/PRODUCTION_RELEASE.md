@@ -52,6 +52,13 @@ It does not run a schema migration and does not deploy Pages.
 
 ## Controlled production release
 
+All production publication paths, including daily knowledge articles, must use
+the guarded release command in this section. Do not use a direct
+`wrangler pages deploy` as a shortcut or fallback. Its `--branch=main` argument
+selects a deployment branch; it does not push the release source to GitHub.
+For article-only releases, follow `KNOWLEDGE_PUBLISHING.md` and stop if the
+read-only preflight reports pending database migrations or unrelated changes.
+
 After ledger repair, run the read-only gate again. It should report analytics
 0004 and portal 0008 as the only pending migrations:
 

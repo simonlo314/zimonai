@@ -91,9 +91,10 @@ Visual acceptance is a hard publication gate, not a screenshot-generation task. 
 1. Confirm the topic does not duplicate an existing article.
 2. Add the article specification, its category/products/markets/three-locale keywords and all three locale article objects to `src/knowledge-content.mjs`.
 3. Add and document the local image.
-4. Run `npm run build`, `npm run check` and `git diff --check`.
+4. Run `npm run build`, `npm run check`, `npm test` and `git diff --check`.
 5. Review desktop and mobile rendering, including the Chinese line breaks.
-6. Deploy only a complete, passing build.
-7. Verify the production article, image, canonical URL, hreflang links, Article schema and sitemap entry.
+6. Commit the reviewed changes, fetch and compare the current `origin/main`, and synchronize the release to GitHub through a non-force fast-forward push or the repository's required PR process. Confirm the worktree is clean and `HEAD`, the local `origin/main` and the live `origin/main` all identify the reviewed release. If another change has arrived, review and reconcile it and repeat the affected checks before publishing; never overwrite it.
+7. Follow `docs/PRODUCTION_RELEASE.md`: run the read-only `npm run release:preflight`, then publish only through `npm run deploy:production -- --confirm=deploy-zimonai-production`. A routine article release must stop if preflight reports pending database migrations or an unrelated schema/configuration change; database repair or migration requires its own authorized work. Never bypass the release guard with a direct `wrangler pages deploy`, and never treat `--branch=main` as proof that GitHub has been synchronized.
+8. Verify the production article, image, canonical URL, hreflang links, Article schema and sitemap entry. Record the synchronized Git commit and successful production deployment separately; a push alone is not a publication.
 
 If any step fails, leave production unchanged and report the failure plainly.
