@@ -8,6 +8,62 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-china-ccc-charger',
+    key: 'chinaCccCharger',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/china-ccc-charger-certificate-scope',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter'],
+    markets: ['china'],
+    keywords: {
+      en: ['China CCC certification', 'charger CCC certificate', 'power adapter certification', 'CNCA certificate scope', 'charger model verification', 'China market access'],
+      'zh-tw': ['中國 CCC 認證', '充電器 CCC 證書', '電源適配器認證', 'CNCA 證書範圍', '充電器型號核對', '中國市場准入'],
+      'zh-cn': ['中国 CCC 认证', '充电器 CCC 证书', '电源适配器认证', 'CNCA 证书范围', '充电器型号核对', '中国市场准入']
+    },
+    datePublished: '2026-09-06',
+    dateModified: '2026-09-06',
+    image: '/assets/editorial-ccc-power-adapter.jpg',
+    imageWidth: 1603,
+    imageHeight: 2400,
+    imageCrop: {
+      card: '50% 49%',
+      article: '50% 49%',
+      mobile: '50% 51%'
+    },
+    photo: {
+      photographer: 'ready made',
+      page: 'https://www.pexels.com/photo/white-adapter-on-white-surface-3921700/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'Certification and Accreditation Administration of China',
+        title: 'Current compulsory product certification implementation rules — updated August 2026',
+        url: 'https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/ssgz/art/2026/art_5261f654e02d45edaf0805fb268c9fc9.html'
+      },
+      {
+        publisher: 'Certification and Accreditation Administration of China',
+        title: 'CNCA-C09-01:2023 — Electronic products and safety accessories',
+        url: 'https://www.cnca.gov.cn/cms_files/filemanager/953091537/attach/20236/bf59d670caf04327916fb4c79e10711c.pdf'
+      },
+      {
+        publisher: 'Certification and Accreditation Administration of China',
+        title: 'Announcement No. 10 of 2023 — electronic products and safety accessories CCC rule',
+        url: 'https://www.cnca.gov.cn/zwxx/gg/2023/art/2023/art_6d451c4883ca4251b56097b04e06e108.html'
+      },
+      {
+        publisher: 'State Administration for Market Regulation',
+        title: 'Compulsory Product Certification Administration Provisions — Order No. 117',
+        url: 'https://www.cnca.gov.cn/zwxx/gg/2009/art/2023/art_f27c0966aa924f78a75121497cfc0e8a.html'
+      },
+      {
+        publisher: 'Certification and Accreditation Administration of China',
+        title: 'Notice on certification-body information disclosure and certificate-status queries',
+        url: 'https://www.cnca.gov.cn/zwxx/tz/2025/art/2025/art_7f10ec7a1a8341038a8b081edf6a90d4.html'
+      }
+    ]
+  },
+  {
     id: 'knowledge-xo-poppy-power-bank-recall',
     key: 'xoPoppyPowerBankRecall',
     contentType: 'current-affairs',
@@ -738,12 +794,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, factory claims, Qi2, RoHS, REACH/SVHC, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-bank buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, factory claims, CCC, Qi2, RoHS, REACH/SVHC, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-bank buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Fourteen field notes',
+      latest: 'Fifteen field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -827,6 +883,62 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      chinaCccCharger: {
+        topic: 'China charger market access',
+        published: '6 September 2026',
+        readTime: '7 minutes',
+        title: 'Does a CCC certificate prove a Chinese charger is approved for every market?',
+        description: 'CCC can support a listed charger or power adapter for China. Buyers still need to match the certificate, model, manufacturer and factory—and check each export market separately.',
+        imageAlt: 'White two-pin power adapter on a marble surface, used as an editorial illustration for China CCC certificate checks.',
+        imageCaption: 'Editorial photograph of a power adapter. It is not a ZIMONAI supplier, client, factory, certificate, test sample or market-approval record.',
+        answer: 'A valid China Compulsory Certification (CCC) certificate can support the listed charger or power adapter for the Chinese market when its holder, manufacturer, production factory, model, ratings and current status match the product. It is not a universal export approval: CE, UKCA, UL or other destination-market requirements must be assessed separately. For overseas buyers, ZIMONAI’s editorial view is therefore two-part—CCC can be strong evidence about one defined China-market certification scope, while the quotation still needs an exact model relationship, current production consistency and a separate market-access file for every sales destination.',
+        takeaways: [
+          'CNCA’s August 2026 catalogue still lists power supplies under product codes 0807 and 0907, with electronic products and safety accessories governed by CNCA-C09-01:2023.',
+          'The certificate check should cover the applicant, manufacturer, production factory, product name, complete model or series, certification basis, issuing body, dates and live status.',
+          'A shared enclosure, CCC mark or certificate for one model does not automatically cover another wattage, circuit, safety structure, factory or export market.'
+        ],
+        sections: [
+          {
+            title: 'Which chargers and power adapters fall within the CCC route?',
+            paragraphs: [
+              'CNCA’s current implementation-rule index, updated in August 2026, lists “power supplies” under catalogue codes 0807 and 0907 in the electronic-products and safety-accessories category. The controlling rule is CNCA-C09-01:2023, effective from 1 August 2023. It applies only to products that fall within the compulsory-certification catalogue; the exact product function and scope must be checked before treating every device sold as a “charger” as equivalent.',
+              'For products within scope, China’s CCC rules concern permission to leave the factory, be sold, imported or used in commercial activities in China. That market boundary matters. A supplier can hold a genuine CCC certificate for a China-market adapter and still need different conformity work for the European Union, United Kingdom, United States or another destination.'
+            ]
+          },
+          {
+            title: 'What must match between the certificate and the quoted charger?',
+            paragraphs: [
+              'The CCC administration provisions require certificates to identify the applicant, manufacturer, production enterprise where needed, product name and model or series, certification basis, dates, issuing body and certificate number. CNCA-C09-01:2023 adds a product-specific boundary: power supplies are divided into certification units by circuit principle and safety structure, and type-test reports must describe all products in the certification unit.',
+              'Place the live certificate result beside the quotation, label, sample and factory documents. Compare the full model suffix, input and output ratings, port configuration, applicant, manufacturer and production site. CNCA’s 2025 disclosure notice requires certification bodies to publish certificate states—including valid, suspended, cancelled or withdrawn—and provide a way for the public to check validity. A PDF with an unexpired date is therefore not enough when the live status or exact product relationship differs.'
+            ],
+            items: [
+              'Certificate number, issuing body, issue date, expiry date and current status',
+              'Applicant, manufacturer and production factory with their written relationships',
+              'Exact product name, model or series and every suffix used on the quotation',
+              'Input/output ratings, wattage, ports, plug and safety structure',
+              'Applicable rule and standards shown for the certification unit',
+              'Label and CCC mark information matched to the physical sample'
+            ]
+          },
+          {
+            title: 'What happens when the factory, circuit or key components change?',
+            paragraphs: [
+              'CNCA-C09-01:2023 requires certified products to remain consistent with the type-tested sample and provides post-certification surveillance. Changes to key components, materials, safety design or electrical structure must be submitted for approval or filing before implementation; expanding the covered products also requires the certification body to evaluate the differences and add testing or factory checks where necessary.',
+              'ZIMONAI’s practical reading is that a CCC certificate is most valuable when it can be joined to current production evidence. Buyers should connect the certified model to the present bill of materials, key-component list, factory address, change approvals and shipment specification. This does not turn CCC into a global approval or a guarantee of every unit, but it prevents a genuine certificate from being stretched across an unrelated model, factory or market.'
+            ]
+          }
+        ],
+        checklist: [
+          'Confirm whether the exact product function falls within the current CCC catalogue',
+          'Retrieve the current certificate status from the issuing body’s public query route',
+          'Match applicant, manufacturer and production factory to the supplier’s documents',
+          'Match the full model, ratings, plug, ports and safety structure to the sample',
+          'Review key-component, material and electrical-structure change approvals',
+          'Keep destination-market approvals and declarations in a separate evidence set',
+          'Use production and shipment checks to verify the ordered configuration'
+        ],
+        limitsText: 'A CCC certificate addresses the product, certification unit, standards, parties and Chinese-market scope represented by that certificate. It does not prove that the seller owns the factory, that every product from the company is certified, that every shipment matches the type-tested sample, or that the charger meets requirements in the EU, UK, US or another export market. It also does not replace commercial due diligence, performance testing, chemical compliance, transport documentation or order-specific quality controls. When the current status, factory, model or configuration cannot be matched, keep the claim unresolved and confirm it with the issuing certification body.'
+      },
       xoPoppyPowerBankRecall: {
         topic: 'North America power-bank recall',
         published: '5 September 2026',
@@ -1613,12 +1725,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、工廠聲明、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、工廠聲明、CCC、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '十四篇查核筆記',
+      latest: '十五篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1702,6 +1814,62 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      chinaCccCharger: {
+        topic: '中國充電器市場准入',
+        published: '2026 年 9 月 6 日',
+        readTime: '約 7 分鐘',
+        title: '充電器有 CCC 證書，就代表中國工廠與所有出口市場都已通過認證嗎？',
+        description: 'CCC 能支持列名充電器或電源適配器在中國市場的特定認證範圍；買家仍要核對證書、型號、製造商、工廠與各出口市場要求。',
+        imageAlt: '大理石桌面上的白色雙圓腳電源適配器，用於說明中國 CCC 證書查核。',
+        imageCaption: '電源適配器編輯用照片；不是 ZIMONAI 的供應商、客戶、工廠、證書、送測樣品或市場准入紀錄。',
+        answer: '有效的中國強制性產品認證（CCC）證書，能支持列名充電器或電源適配器在中國市場的特定認證範圍，前提是證書持有人、製造商、生產工廠、完整型號、額定值與即時狀態都和產品一致。它不是全球出口通行證；歐盟、美國、英國或其他市場仍有各自的法規與文件。對海外買家，ZIMONAI 的判讀是：CCC 可以是一筆有力的中國市場證據，但報價產品仍須對上精確型號與當期量產，銷往哪個市場，就要另外建立該市場的准入資料。',
+        takeaways: [
+          '國家認監委 2026 年 8 月更新的目錄仍將「電源」列為 0807、0907，電子產品及安全附件依 CNCA-C09-01:2023 執行。',
+          '證書查核要看委託人、製造商、生產工廠、產品名稱、完整型號或系列、認證依據、發證機構、日期與目前狀態。',
+          '共用外殼、印有 CCC 標誌，或同系列某一型號有證書，都不能自動涵蓋不同瓦數、電路、安全結構、工廠或出口市場。'
+        ],
+        sections: [
+          {
+            title: '哪些充電器與電源適配器會走 CCC 認證？',
+            paragraphs: [
+              '國家認監委 2026 年 8 月更新的現行實施規則彙整，把「電源」列在電子產品及安全附件類別，產品代碼為 0807、0907，對應的實施規則是 CNCA-C09-01:2023，並自 2023 年 8 月 1 日施行。是否落入強制認證範圍，要先看產品功能與目錄界定，不能只因為商品頁都寫「充電器」，就把不同用途的產品視為同一類。',
+              '落在目錄內的產品，CCC 處理的是產品在中國境內出廠、銷售、進口或用於其他經營活動的要求。這個市場邊界很重要：供應商持有真實的中國市場證書，不代表產品已同時完成歐盟、美國、英國或其他目的地的符合性程序。'
+            ]
+          },
+          {
+            title: '證書與報價充電器，哪些欄位必須逐項對上？',
+            paragraphs: [
+              '《強制性產品認證管理規定》要求證書列出認證委託人、製造商、需要時的生產企業、產品名稱與型號或系列、認證依據、日期、發證機構及證書編號。CNCA-C09-01:2023 又進一步規定，電源產品原則上依電路原理與安全結構劃分認證單元，型式試驗報告應描述該認證單元內所有產品的相關資訊。',
+              '實際核對時，把官方即時狀態、報價單、銘牌、樣品與工廠文件放在一起看。完整型號尾碼、輸入輸出、連接埠、委託人、製造商與生產地址都要一致。國家認監委 2025 年的資訊公開通知要求認證機構公布證書有效、暫停、註銷或撤銷狀態，並提供公開查詢方式；因此，PDF 上的到期日還沒到，不等於可以略過即時狀態與產品關係。'
+            ],
+            items: [
+              '證書編號、發證機構、發證日、到期日與目前狀態',
+              '認證委託人、製造商與生產工廠，以及三者的書面關係',
+              '完整產品名稱、型號或系列，以及報價使用的所有尾碼',
+              '輸入輸出、瓦數、連接埠、插腳與安全結構',
+              '該認證單元採用的實施規則與標準',
+              '實體樣品上的銘牌與 CCC 標誌資訊'
+            ]
+          },
+          {
+            title: '工廠、電路或關鍵零件變更後，原證書還能直接沿用嗎？',
+            paragraphs: [
+              'CNCA-C09-01:2023 要求獲證產品持續符合標準，並維持與型式試驗樣品一致；制度也包含獲證後監督。關鍵零件、材料、安全設計或電氣結構改變時，應在實施前辦理變更核准或備案；要擴大證書涵蓋產品時，認證機構也須評估差異，必要時增加測試或工廠檢查。',
+              'ZIMONAI 的實務判讀是，CCC 證書要能接上當期量產資料，才真正具有採購價值。買家應把獲證型號連回現行物料清單、關鍵零件清單、工廠地址、變更核准與出貨規格。這不會把 CCC 變成全球認證，也不能保證每一件產品，但能避免供應商把一張真實證書延伸到不相關的型號、工廠或市場。'
+            ]
+          }
+        ],
+        checklist: [
+          '先確認精確產品功能是否落入現行 CCC 目錄',
+          '從發證機構的公開查詢管道取得目前證書狀態',
+          '把委託人、製造商與生產工廠對回供應商文件',
+          '比對完整型號、額定值、插腳、連接埠與安全結構',
+          '檢查關鍵零件、材料及電氣結構的變更核准',
+          '把各目的市場的認證與聲明分開建立證據檔案',
+          '用量產與出貨檢查確認本批訂單的實際配置'
+        ],
+        limitsText: 'CCC 證書只能支持證書所載產品、認證單元、標準、相關主體與中國市場範圍；不能證明賣方自有工廠、該公司所有產品都獲證、每一批出貨都和型式試驗樣品相同，也不能證明充電器符合歐盟、英國、美國或其他出口市場要求。它也不能取代企業信用查核、效能測試、化學物質合規、運輸文件與訂單專屬品質管制。若即時狀態、工廠、型號或配置無法對應，應先保留結論，向發證認證機構確認。'
+      },
       xoPoppyPowerBankRecall: {
         topic: '北美行動電源召回',
         published: '2026 年 9 月 5 日',
@@ -2488,12 +2656,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、工厂声明、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、工厂声明、CCC、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '十四篇核查笔记',
+      latest: '十五篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -2577,6 +2745,62 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      chinaCccCharger: {
+        topic: '中国充电器市场准入',
+        published: '2026 年 9 月 6 日',
+        readTime: '约 7 分钟',
+        title: '充电器有 CCC 证书，就代表中国工厂和所有出口市场都通过认证了吗？',
+        description: 'CCC 可以支持列名充电器或电源适配器在中国市场的特定认证范围；买家仍需核对证书、型号、制造商、工厂和各出口市场要求。',
+        imageAlt: '大理石台面上的白色双圆脚电源适配器，用于说明中国 CCC 证书核查。',
+        imageCaption: '电源适配器编辑配图；不是 ZIMONAI 的供应商、客户、工厂、证书、送检样品或市场准入记录。',
+        answer: '有效的中国强制性产品认证（CCC）证书，可以支持列名充电器或电源适配器在中国市场的特定认证范围，前提是证书持有人、制造商、生产工厂、完整型号、额定值和当前状态都与产品一致。它不是全球出口通行证；欧盟、美国、英国或其他市场仍有各自的法规和文件要求。对海外买家，ZIMONAI 的编辑判断是：CCC 可以是一项有力的中国市场证据，但报价产品仍须对应精确型号和当前量产配置，销往哪个市场，就要另外建立该市场的准入资料。',
+        takeaways: [
+          '国家认监委 2026 年 8 月更新的目录仍将“电源”列为 0807、0907，电子产品及安全附件按照 CNCA-C09-01:2023 执行。',
+          '证书核查要看认证委托人、制造商、生产工厂、产品名称、完整型号或系列、认证依据、发证机构、日期和当前状态。',
+          '共用外壳、印有 CCC 标志，或同系列某个型号持有证书，都不能自动覆盖不同功率、电路、安全结构、工厂或出口市场。'
+        ],
+        sections: [
+          {
+            title: '哪些充电器和电源适配器需要走 CCC 认证？',
+            paragraphs: [
+              '国家认监委 2026 年 8 月更新的现行实施规则汇总，将“电源”列在电子产品及安全附件类别，产品代码为 0807、0907，对应实施规则 CNCA-C09-01:2023，并自 2023 年 8 月 1 日起实施。是否属于强制认证范围，要先看产品功能和目录界定，不能仅因为商品页都写“充电器”，就把不同用途的产品当成同一类别。',
+              '对目录内产品而言，CCC 处理的是产品在中国境内出厂、销售、进口或用于其他经营活动的要求。这个市场边界十分重要：供应商持有真实的中国市场证书，不代表产品已经同时完成欧盟、美国、英国或其他目的地的符合性程序。'
+            ]
+          },
+          {
+            title: '证书和报价充电器有哪些字段必须对应？',
+            paragraphs: [
+              '《强制性产品认证管理规定》要求证书列出认证委托人、制造商、需要时的生产企业、产品名称与型号或系列、认证依据、日期、发证机构和证书编号。CNCA-C09-01:2023 进一步规定，电源产品原则上按电路原理和安全结构划分认证单元，型式试验报告应描述认证单元内所有产品的相关信息。',
+              '实际核对时，应把官方当前状态、报价单、铭牌、样品和工厂资料放在一起比较。完整型号后缀、输入输出、接口、认证委托人、制造商与生产地址都要一致。国家认监委 2025 年的信息公开通知要求认证机构公布证书有效、暂停、注销或撤销状态，并提供公众查询方式；因此，PDF 上的到期日尚未结束，并不代表可以忽略当前状态和产品对应关系。'
+            ],
+            items: [
+              '证书编号、发证机构、发证日、到期日和当前状态',
+              '认证委托人、制造商和生产工厂，以及三者的书面关系',
+              '完整产品名称、型号或系列，以及报价使用的全部后缀',
+              '输入输出、功率、接口、插脚和安全结构',
+              '认证单元采用的实施规则与标准',
+              '实物样品上的铭牌和 CCC 标志信息'
+            ]
+          },
+          {
+            title: '工厂、电路或关键部件变更后，原证书还能直接沿用吗？',
+            paragraphs: [
+              'CNCA-C09-01:2023 要求获证产品持续符合标准，并保持与型式试验样品一致；制度也包含获证后监督。关键部件、材料、安全设计或电气结构发生变化时，应在实施前完成变更批准或备案；需要扩大证书覆盖产品时，认证机构还要评价差异，并在必要时增加测试或工厂检查。',
+              'ZIMONAI 的实务判断是，CCC 证书只有连接到当前量产资料，才真正具有采购价值。买家应把获证型号对应到现行物料清单、关键部件清单、工厂地址、变更批准和出货规格。这不会让 CCC 变成全球认证，也不能保证每一件产品，但可以避免一张真实证书被扩展到无关型号、工厂或市场。'
+            ]
+          }
+        ],
+        checklist: [
+          '先确认精确产品功能是否属于现行 CCC 目录',
+          '通过发证机构的公开查询渠道取得当前证书状态',
+          '将认证委托人、制造商和生产工厂对应到供应商资料',
+          '核对完整型号、额定值、插脚、接口和安全结构',
+          '检查关键部件、材料与电气结构的变更批准',
+          '为各目的市场分别建立认证和声明证据档案',
+          '通过量产与出货检查确认本批订单的实际配置'
+        ],
+        limitsText: 'CCC 证书只能支持证书列明的产品、认证单元、标准、相关主体和中国市场范围；不能证明卖方自有工厂、该公司的全部产品都已获证、每批出货都与型式试验样品一致，也不能证明充电器符合欧盟、英国、美国或其他出口市场要求。它还不能替代企业信用核查、性能测试、化学物质合规、运输文件和订单专属质量控制。如果当前状态、工厂、型号或配置无法对应，应暂不下结论，并向发证认证机构确认。'
+      },
       xoPoppyPowerBankRecall: {
         topic: '北美移动电源召回',
         published: '2026 年 9 月 5 日',
