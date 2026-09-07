@@ -155,6 +155,7 @@ await writeFile(
   'User-agent: *\nAllow: /\n\nSitemap: https://zimonai.com/sitemap.xml\n',
   'utf8'
 );
+await cp(path.join(root, 'src', '_redirects'), path.join(dist, '_redirects'));
 
 const securityText = [
   'Contact: mailto:simonlo@zimonai.com',

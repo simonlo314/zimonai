@@ -38,6 +38,7 @@ const sourcePortalJs = await readFile(path.join(root, 'src', 'assets', 'portal.j
 const sourceAdminCss = await readFile(path.join(root, 'src', 'assets', 'admin.css'), 'utf8');
 const sourceAdminJs = await readFile(path.join(root, 'src', 'assets', 'admin.js'), 'utf8');
 const sourceKnowledge = await readFile(path.join(root, 'src', 'knowledge-content.mjs'), 'utf8');
+const sourceRedirects = await readFile(path.join(root, 'src', '_redirects'), 'utf8');
 const sourceCjkLinebreak = await readFile(path.join(root, 'src', 'cjk-linebreak.mjs'), 'utf8');
 const sourceCjkRuntime = await readFile(path.join(root, 'src', 'assets', 'cjk-runtime.js'), 'utf8');
 const analyticsFunction = await readFile(path.join(root, 'functions', 'api', 'analytics.js'), 'utf8');
@@ -60,9 +61,17 @@ const adminInquiryFunction = await readFile(path.join(root, 'functions', 'api', 
 const portalCasesFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases.js'), 'utf8');
 const portalCaseDetailFunction = await readFile(path.join(root, 'functions', 'api', 'portal', 'cases', '[id].js'), 'utf8');
 const headersFile = await readFile(path.join(dist, '_headers'), 'utf8');
+const redirectsFile = await readFile(path.join(dist, '_redirects'), 'utf8');
 const securityText = await readFile(path.join(dist, '.well-known', 'security.txt'), 'utf8');
 const rootSecurityText = await readFile(path.join(dist, 'security.txt'), 'utf8');
 if (!headersFile.includes('Strict-Transport-Security: max-age=2592000')) errors.push('global HSTS header is missing');
+if (redirectsFile !== sourceRedirects) errors.push('built redirect rules do not match their source');
+for (const redirect of [
+  '/about.html /about/ 301',
+  '/contact.html /request-verification/ 301'
+]) {
+  if (!sourceRedirects.split(/\r?\n/).includes(redirect)) errors.push(`required legacy redirect is missing: ${redirect}`);
+}
 
 for (const directive of [
   'Contact: mailto:simonlo@zimonai.com',
