@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-06
+Last reviewed: 2026-09-07
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -25,6 +25,7 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | Local asset | Issuing organisation | Source and editorial-use basis | Retrieved | Website use |
 | --- | --- | --- | --- | --- |
 | `src/assets/editorial-anker-maggo-2-pro.jpg` | Anker Innovations | [A110RH11_RI_TD06_EN_V1](https://www.dropbox.com/scl/fo/xo6ymq0rpxcak9ijbl21e/AFc7V47c6qJtFf1A59bIPfE/Anker%20Charging/110R-Anker%20MagGo%20Power%20Bank%20Pro%202/A110RH11_RI_TD06_EN_V1%20%281%29.jpg?rlkey=v5lytb6qesicevy3tgxmmz19k&dl=0), supplied inside the [official IFA 2026 Anker Press Kit linked as “product photos and additional assets” in Anker Innovations' issued release](https://www.einpresswire.com/article/939305437/anker-unveils-2026-charging-lineup-at-ifa-adding-intelligence-to-a-category-built-on-speed) | 2026-09-03 | Current-affairs article about the Anker MagGo Power Bank 2 Pro; official editorial media image, not sponsored content or ZIMONAI evidence |
+| `src/assets/editorial-belkin-ultracharge-pro-boostsolid.jpg` | Belkin International | [BoostSolid press-release image](https://www.belkin.com/on/demandware.static/-/Library-Sites-Belkin-Shared-Library/default/dweb917563/img/newsroom/boostsolid%20press%20release%20image.png), published on Belkin's [official IFA 2026 press release](https://www.belkin.com/pr-belkin-ultra-charge-pro-semi-solid-state-power-banks.html) and supplied alongside its linked [media kit](https://www.dropbox.com/scl/fo/vk8275ou9tljj8qbr8dwt/AFMKh1NrcuzBNsrKQ05ChGA?dl=0&e=1&rlkey=jdql8rhyeeyb6wn2zvpkalc0q&st=lktorrlg); locally JPEG-compressed without generative editing | 2026-09-07 | Current-affairs article about Belkin UltraCharge Pro BoostSolid power banks; official editorial media image, not sponsored content, ZIMONAI testing or supplier evidence |
 
 ## Government recall-notice assets
 

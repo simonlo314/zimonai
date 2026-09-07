@@ -64,6 +64,52 @@ export const knowledgeArticleSpecs = [
     ]
   },
   {
+    id: 'knowledge-belkin-ultracharge-pro-boostsolid',
+    key: 'belkinUltraChargeProBoostSolid',
+    contentType: 'current-affairs',
+    slug: 'knowledge/belkin-ultracharge-pro-boostsolid-power-banks',
+    category: 'product-transport-documents',
+    products: ['power-bank'],
+    markets: ['global', 'international'],
+    keywords: {
+      en: ['Belkin UltraCharge Pro BoostSolid', 'semi-solid-state power bank', 'Belkin IFA 2026', 'UltraCharge Pro 5K', 'UltraCharge Pro 10K', 'power bank cycle life'],
+      'zh-tw': ['Belkin UltraCharge Pro BoostSolid', '半固態電芯行動電源', 'Belkin IFA 2026', 'UltraCharge Pro 5K', 'UltraCharge Pro 10K', '行動電源循環壽命'],
+      'zh-cn': ['Belkin UltraCharge Pro BoostSolid', '半固态电芯移动电源', 'Belkin IFA 2026', 'UltraCharge Pro 5K', 'UltraCharge Pro 10K', '移动电源循环寿命']
+    },
+    datePublished: '2026-09-07',
+    dateModified: '2026-09-07',
+    image: '/assets/editorial-belkin-ultracharge-pro-boostsolid.jpg',
+    imageWidth: 1800,
+    imageHeight: 800,
+    imageCrop: {
+      card: '58% 52%',
+      article: '58% 52%',
+      mobile: '58% 52%'
+    },
+    photo: {
+      photographer: 'Belkin International',
+      page: 'https://www.belkin.com/pr-belkin-ultra-charge-pro-semi-solid-state-power-banks.html',
+      license: 'https://www.dropbox.com/scl/fo/vk8275ou9tljj8qbr8dwt/AFMKh1NrcuzBNsrKQ05ChGA?dl=0&e=1&rlkey=jdql8rhyeeyb6wn2zvpkalc0q&st=lktorrlg'
+    },
+    sources: [
+      {
+        publisher: 'Belkin International',
+        title: 'Belkin introduces UltraCharge Pro semi-solid-state power banks at IFA 2026',
+        url: 'https://www.belkin.com/pr-belkin-ultra-charge-pro-semi-solid-state-power-banks.html'
+      },
+      {
+        publisher: 'Belkin',
+        title: 'UltraCharge Pro Slim Magnetic Power Bank 5K with BoostSolid Cell — specifications and disclosures',
+        url: 'https://www.belkin.com/p/slim-magnetic-power-bank-5k-with-boostsolid-cell/BPD024fqBK.html'
+      },
+      {
+        publisher: 'TechRadar',
+        title: 'Belkin announces two super-slim semi-solid-state power banks — early IFA look',
+        url: 'https://www.techradar.com/phones/phone-accessories/belkin-has-announced-two-super-slim-semi-solid-state-power-banks-and-weve-already-had-an-early-look-at-them'
+      }
+    ]
+  },
+  {
     id: 'knowledge-xo-poppy-power-bank-recall',
     key: 'xoPoppyPowerBankRecall',
     contentType: 'current-affairs',
@@ -799,7 +845,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Fifteen field notes',
+      latest: 'Sixteen field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -875,8 +921,8 @@ export const knowledgeContent = {
       quickAnswer: 'Executive summary',
       buyerChecklist: 'Buyer checklist',
       limits: 'What this does not prove',
-      sources: 'Official sources',
-      sourcesLead: 'Facts in this note were checked against the following primary sources. Links open the source owner’s website.',
+      sources: 'Sources and evidence',
+      sourcesLead: 'Facts in this note were checked against the following primary and independent sources. Links open the source publisher’s website.',
       photo: 'Editorial photograph',
       related: 'Continue reading',
       back: 'All knowledge notes',
@@ -938,6 +984,63 @@ export const knowledgeContent = {
           'Use production and shipment checks to verify the ordered configuration'
         ],
         limitsText: 'A CCC certificate addresses the product, certification unit, standards, parties and Chinese-market scope represented by that certificate. It does not prove that the seller owns the factory, that every product from the company is certified, that every shipment matches the type-tested sample, or that the charger meets requirements in the EU, UK, US or another export market. It also does not replace commercial due diligence, performance testing, chemical compliance, transport documentation or order-specific quality controls. When the current status, factory, model or configuration cannot be matched, keep the claim unresolved and confirm it with the issuing certification body.'
+      },
+      belkinUltraChargeProBoostSolid: {
+        topic: 'IFA 2026 battery technology news',
+        published: '7 September 2026',
+        readTime: '6 minutes',
+        title: 'Belkin brings semi-solid-state cells to two UltraCharge Pro power banks at IFA 2026',
+        description: 'Belkin has launched a slim magnetic 5K model and a 60W 10K model around its new BoostSolid cell. The real story is a shift from headline wattage to size, cycle life and thermal design.',
+        imageAlt: 'Belkin UltraCharge Pro 5K magnetic and 10K display power banks charging a smartphone and laptop.',
+        imageCaption: 'Official Belkin media image supplied with its IFA 2026 press release. It shows the announced UltraCharge Pro BoostSolid products and is not ZIMONAI testing, sponsored content, a supplier site or a client project.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What to watch next',
+          limits: 'What remains unknown'
+        },
+        answer: 'Belkin introduced two UltraCharge Pro power banks with BoostSolid semi-solid-state cells at IFA 2026: an 8.8 mm magnetic 5K model with 15W Qi2 charging and a 10K model with up to 60W USB-C output and a status display. Belkin says the cells retain up to 80% capacity after 1,000 cycles; TechRadar’s early hands-on confirms the unusually slim finished hardware, but not the long-term endurance or safety claims. The launch places cell chemistry, cycle-life evidence and thermal design at the centre of power-bank competition for manufacturers and buyers, moving the category beyond capacity and wattage alone.',
+        takeaways: [
+          'The 5K model combines an 8.8 mm body, 15W Qi2 magnetic charging and up to 22.5W USB-C output; the 10K model adds up to 60W USB-C, three output ports and a screen for power, battery and temperature information.',
+          'Belkin states that BoostSolid retains up to 80% capacity after 1,000 cycles. That is a defined company claim, not yet an independently reproduced five-year durability result.',
+          'For the wider power-bank market, the competitive story is moving beyond higher wattage toward cell chemistry, pack volume, thermal controls, cycle-life evidence and clearer status information.'
+        ],
+        sections: [
+          {
+            title: 'What exactly did Belkin launch at IFA 2026?',
+            paragraphs: [
+              'Belkin announced the UltraCharge Pro Slim Magnetic Power Bank 5K and UltraCharge Pro Power Bank 10K with BoostSolid Cell on 3 September. The 5K model is 8.8 mm thick, supports 15W Qi2 magnetic wireless charging and up to 22.5W wired output, and was announced at US$69.99. The 10K model supplies up to 60W from one USB-C port, includes two USB-C ports and one USB-A port, and uses a display to show battery status, output and thermal information; its announced US price is US$89.99.',
+              'These are two different product propositions rather than a capacity-only choice. The 5K is designed around thin, phone-attached use, while the 10K aims at wired charging for phones, tablets and some laptops. Belkin’s official release says both were available to order from its US site, with black and sand finishes. Market availability and prices outside the announced regions should be checked separately.'
+            ]
+          },
+          {
+            title: 'Why is the semi-solid-state cell the important part of the story?',
+            paragraphs: [
+              'Belkin describes BoostSolid as a semi-solid architecture that adds a gel-like layer alongside liquid electrolyte. The company links that design to slimmer packs, greater thermal stability and slower degradation. Its stated comparison is specific: up to 80% capacity after 1,000 full charge cycles, with the “five-year” wording based on one full charge and discharge every two days. Belkin also says the 5K is 40% slimmer than its previous-generation comparable products and the 10K is 27% smaller than a standard 45W 10K power bank.',
+              'The qualifiers matter. Those percentages use Belkin-selected comparison baselines, and the cycle-life and safety statements come from the manufacturer. TechRadar’s IFA hands-on independently supports that both units existed as finished, notably slim products and found their construction impressive, but it did not reproduce 1,000 charge cycles or publish abuse, temperature or capacity-retention testing. The news is a commercial product launch; it is not independent validation of every performance claim.'
+            ],
+            items: [
+              'Company claim: up to 80% capacity after 1,000 cycles.',
+              'Independent observation: the products were shown at IFA and the 5K was notably slim.',
+              'Still untested publicly: long-run degradation, high-temperature output, swelling resistance and lot-to-lot consistency.'
+            ]
+          },
+          {
+            title: 'What could this change for the power-bank supply chain?',
+            paragraphs: [
+              'ZIMONAI’s editorial view is that the launch makes cell choice part of the consumer-facing product story. A supplier quotation for a similar “semi-solid” power bank will need more than the chemistry label: buyers will want the exact cell model, nominal and rated capacity, cycle-test method, temperature conditions, protection design, pack dimensions and change-control rules connected to the finished SKU. Otherwise, a familiar phrase can conceal very different cell formulations and evidence quality.',
+              'It also changes where product value can be created. If manufacturers can deliver a thinner pack without sacrificing usable capacity or thermal margins, enclosure design and portability become stronger selling points; if the cycle-life claim holds in independent testing, replacement frequency becomes part of the commercial calculation. The next signal will not be another launch slide. It will be repeatable testing, teardown evidence and whether other major brands begin specifying comparable cell and cycle-life data.'
+            ]
+          }
+        ],
+        checklist: [
+          'Independent capacity-retention results after hundreds of full cycles',
+          'Charging speed and surface temperature under sustained 60W use',
+          'Nominal versus rated output capacity for each finished model',
+          'Cell model, supplier, protection design and pack change-control records',
+          'Regional availability, warranty terms and final retail pricing',
+          'Whether competing brands publish comparable semi-solid cell evidence'
+        ],
+        limitsText: 'As of 7 September 2026, Belkin has published specifications, comparison methods, prices and availability for the announced models, and TechRadar has reported an early hands-on at IFA. No independent source cited here has completed 1,000-cycle ageing, destructive safety tests, sustained-temperature measurements or production-lot comparisons. “Semi-solid-state” does not by itself establish a single industry-wide formulation or prove that every product using the term will perform alike. Supply-chain implications in this article are ZIMONAI editorial analysis, not findings issued by Belkin, TechRadar or a regulator.'
       },
       xoPoppyPowerBankRecall: {
         topic: 'North America power-bank recall',
@@ -1730,7 +1833,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '十五篇查核筆記',
+      latest: '十六篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1806,8 +1909,8 @@ export const knowledgeContent = {
       quickAnswer: '懶人包',
       buyerChecklist: '買家核對清單',
       limits: '這些證據不能證明什麼',
-      sources: '官方資料來源',
-      sourcesLead: '本文的事實內容已對照以下一手資料；連結會開啟主管機關或資料擁有者的網站。',
+      sources: '資料來源與查核依據',
+      sourcesLead: '本文的事實內容已對照以下一手與獨立來源；連結會開啟資料發布者的網站。',
       photo: '編輯用圖片',
       related: '繼續閱讀',
       back: '返回知識庫',
@@ -1869,6 +1972,63 @@ export const knowledgeContent = {
           '用量產與出貨檢查確認本批訂單的實際配置'
         ],
         limitsText: 'CCC 證書只能支持證書所載產品、認證單元、標準、相關主體與中國市場範圍；不能證明賣方自有工廠、該公司所有產品都獲證、每一批出貨都和型式試驗樣品相同，也不能證明充電器符合歐盟、英國、美國或其他出口市場要求。它也不能取代企業信用查核、效能測試、化學物質合規、運輸文件與訂單專屬品質管制。若即時狀態、工廠、型號或配置無法對應，應先保留結論，向發證認證機構確認。'
+      },
+      belkinUltraChargeProBoostSolid: {
+        topic: 'IFA 2026 電池技術新聞',
+        published: '2026 年 9 月 7 日',
+        readTime: '約 6 分鐘',
+        title: 'Belkin 在 IFA 2026 推出半固態電芯行動電源：UltraCharge Pro 有何不同？',
+        description: 'Belkin 以 BoostSolid 電芯推出纖薄磁吸 5K 與 60W 10K 兩款新品。真正值得注意的，是行動電源競爭正從瓦數延伸到體積、循環壽命與熱管理。',
+        imageAlt: 'Belkin UltraCharge Pro 磁吸 5K 與顯示螢幕 10K 行動電源，分別為手機與筆電充電。',
+        imageCaption: 'Belkin IFA 2026 新聞稿隨附的官方媒體圖片，呈現本次發表的 UltraCharge Pro BoostSolid 產品；非 ZIMONAI 測試、贊助內容、供應商現場或客戶專案。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '接下來值得關注',
+          limits: '目前仍未確認'
+        },
+        answer: 'Belkin 在 IFA 2026 發表兩款採用 BoostSolid 半固態電芯的 UltraCharge Pro 行動電源：8.8mm 的磁吸 5K 款支援 15W Qi2，10K 款最高可輸出 60W，並有狀態螢幕。Belkin 宣稱電芯在 1,000 次循環後仍可保有最高 80% 容量；TechRadar 實機確認產品明顯纖薄，卻未驗證長期壽命與安全主張。這次發表把電芯技術、循環壽命證據與熱管理推到行動電源品類競爭核心，製造商與買家不再只看容量和瓦數。',
+        takeaways: [
+          '5K 款整合 8.8mm 機身、15W Qi2 磁吸充電與最高 22.5W USB-C 輸出；10K 款則提供最高 60W USB-C、三個輸出埠與狀態螢幕。',
+          'Belkin 宣稱 BoostSolid 在 1,000 次循環後仍可保有最高 80% 容量；這是條件明確的品牌主張，不是已被獨立重現的五年耐用結論。',
+          '對整個行動電源市場而言，競爭焦點正從更高瓦數，延伸到電芯技術、電池包體積、熱控制、循環壽命證據與狀態資訊。'
+        ],
+        sections: [
+          {
+            title: 'Belkin 這次在 IFA 2026 發表了什麼？',
+            paragraphs: [
+              'Belkin 於 9 月 3 日發表 UltraCharge Pro Slim Magnetic Power Bank 5K 與 UltraCharge Pro Power Bank 10K with BoostSolid Cell。5K 款厚度 8.8mm，支援 15W Qi2 磁吸無線充電及最高 22.5W 有線輸出，美國定價 69.99 美元。10K 款單一 USB-C 最高輸出 60W，配置兩個 USB-C 與一個 USB-A，螢幕可顯示剩餘電量、輸出功率與溫度資訊，美國定價 89.99 美元。',
+              '兩款產品不只是容量不同。5K 款鎖定吸附在手機背面的輕薄使用情境，10K 款則面向手機、平板與部分筆電的有線快充。Belkin 新聞稿表示，兩款當時已在美國官網開放訂購，並提供黑色與沙色；其他地區的上市時間與售價，仍要依各市場資訊分開確認。'
+            ]
+          },
+          {
+            title: '為什麼半固態電芯才是這則新聞的重點？',
+            paragraphs: [
+              'Belkin 將 BoostSolid 描述為在液態電解質之外加入凝膠狀層的半固態架構，並把更纖薄的電池包、熱穩定性與較慢衰退連在一起。品牌提出的循環壽命基準很具體：完整充放電 1,000 次後，容量最高仍可維持 80%；「五年」則是假設每兩天完成一次完整充放電。Belkin 另稱，5K 款比自家前一代同級產品薄 40%，10K 款比一般 45W、10K 行動電源小 27%。',
+              '這些比較條件不能省略。體積百分比採用 Belkin 自訂的比較基準，循環壽命與安全敘述也來自製造商。TechRadar 在 IFA 的實機體驗可獨立支持兩款產品已成形，並指出 5K 款確實非常纖薄、整體質感出色；但該報導沒有重做 1,000 次循環，也沒有公布穿刺、高溫或容量保持測試。這是一場真正的產品發布，卻還不是所有效能宣稱的獨立驗證。'
+            ],
+            items: [
+              '品牌主張：1,000 次循環後，容量最高仍保有 80%。',
+              '獨立觀察：產品已在 IFA 展出，5K 款機身明顯纖薄。',
+              '仍待實測：長期衰退、高溫輸出、抗膨脹能力與批次一致性。'
+            ]
+          },
+          {
+            title: '這會如何改變行動電源供應鏈？',
+            paragraphs: [
+              'ZIMONAI 編輯部的判讀是，這場發表讓電芯選擇直接成為消費者看得見的產品故事。未來供應商若報價相似的「半固態」行動電源，光有技術名稱還不夠；買家會需要把精確電芯型號、標稱與額定容量、循環測試方法、溫度條件、保護設計、電池包尺寸與變更管理規則，連回實際成品型號。否則，同一個熱門名詞底下，可能藏著截然不同的配方與證據品質。',
+              '產品價值的來源也可能改變。如果製造商能在不犧牲可用容量與熱裕度的前提下做出更薄的電池包，外觀設計與便攜性就會更有賣點；循環壽命若能在獨立測試中成立，更換頻率也會進入商業計算。下一個有意義的訊號，不會是另一張發布會投影片，而是可重複的測試、拆解證據，以及其他主流品牌是否開始公布可比較的電芯與循環壽命資料。'
+            ]
+          }
+        ],
+        checklist: [
+          '經過數百次完整循環後的獨立容量保持結果',
+          '持續 60W 輸出時的充電速度與表面溫度',
+          '各成品型號的標稱容量與額定輸出容量',
+          '電芯型號、供應商、保護設計與電池包變更紀錄',
+          '各地區實際上市時間、保固條款與最終售價',
+          '其他品牌是否提出可比較的半固態電芯證據'
+        ],
+        limitsText: '截至 2026 年 9 月 7 日，Belkin 已公布新品規格、比較方式、售價與上市資訊，TechRadar 也已發布 IFA 實機體驗；但本文引用的獨立來源尚未完成 1,000 次循環老化、破壞性安全測試、持續溫度量測或量產批次比較。「半固態」本身也不代表全產業只有一種固定配方，更不能證明所有採用該名稱的產品表現相同。本文對供應鏈的影響分析來自 ZIMONAI｜智蒙灣科技編輯部，不是 Belkin、TechRadar 或主管機關的結論。'
       },
       xoPoppyPowerBankRecall: {
         topic: '北美行動電源召回',
@@ -2661,7 +2821,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '十五篇核查笔记',
+      latest: '十六篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -2737,8 +2897,8 @@ export const knowledgeContent = {
       quickAnswer: '总结',
       buyerChecklist: '买家核对清单',
       limits: '这些证据不能证明什么',
-      sources: '官方资料来源',
-      sourcesLead: '本文的事实内容已对照以下一手资料；链接会打开主管部门或资料所有者的网站。',
+      sources: '资料来源与核查依据',
+      sourcesLead: '本文的事实内容已对照以下一手与独立来源；链接会打开资料发布方的网站。',
       photo: '编辑用图片',
       related: '继续阅读',
       back: '返回知识库',
@@ -2800,6 +2960,63 @@ export const knowledgeContent = {
           '通过量产与出货检查确认本批订单的实际配置'
         ],
         limitsText: 'CCC 证书只能支持证书列明的产品、认证单元、标准、相关主体和中国市场范围；不能证明卖方自有工厂、该公司的全部产品都已获证、每批出货都与型式试验样品一致，也不能证明充电器符合欧盟、英国、美国或其他出口市场要求。它还不能替代企业信用核查、性能测试、化学物质合规、运输文件和订单专属质量控制。如果当前状态、工厂、型号或配置无法对应，应暂不下结论，并向发证认证机构确认。'
+      },
+      belkinUltraChargeProBoostSolid: {
+        topic: 'IFA 2026 电池技术新闻',
+        published: '2026 年 9 月 7 日',
+        readTime: '约 6 分钟',
+        title: 'Belkin 在 IFA 2026 推出半固态电芯移动电源：UltraCharge Pro 有何不同？',
+        description: 'Belkin 以 BoostSolid 电芯推出纤薄磁吸 5K 与 60W 10K 两款新品。真正值得关注的，是移动电源竞争正从功率延伸到体积、循环寿命与热管理。',
+        imageAlt: 'Belkin UltraCharge Pro 磁吸 5K 与显示屏 10K 移动电源，分别为手机和笔记本电脑充电。',
+        imageCaption: 'Belkin IFA 2026 新闻稿随附的官方媒体图片，展示本次发布的 UltraCharge Pro BoostSolid 产品；不是 ZIMONAI 测试、赞助内容、供应商现场或客户项目。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '接下来值得关注',
+          limits: '目前仍未确认'
+        },
+        answer: 'Belkin 在 IFA 2026 发布两款采用 BoostSolid 半固态电芯的 UltraCharge Pro 移动电源：8.8mm 的磁吸 5K 款支持 15W Qi2，10K 款最高可输出 60W，并有状态显示屏。Belkin 宣称电芯在 1,000 次循环后仍可保有最高 80% 容量；TechRadar 上手确认产品明显纤薄，却未验证长期寿命与安全主张。这次发布把电芯技术、循环寿命证据与热管理推到移动电源品类竞争核心，制造商与买家不再只看容量和功率。',
+        takeaways: [
+          '5K 款结合 8.8mm 机身、15W Qi2 磁吸充电与最高 22.5W USB-C 输出；10K 款提供最高 60W USB-C、三个输出接口与状态显示屏。',
+          'Belkin 宣称 BoostSolid 在 1,000 次循环后仍可保有最高 80% 容量；这是条件明确的品牌主张，不是已被独立复现的五年耐用结论。',
+          '对整个移动电源市场而言，竞争重点正从更高功率，延伸到电芯技术、电池包体积、热控制、循环寿命证据与状态信息。'
+        ],
+        sections: [
+          {
+            title: 'Belkin 这次在 IFA 2026 发布了什么？',
+            paragraphs: [
+              'Belkin 于 9 月 3 日发布 UltraCharge Pro Slim Magnetic Power Bank 5K 与 UltraCharge Pro Power Bank 10K with BoostSolid Cell。5K 款厚度为 8.8mm，支持 15W Qi2 磁吸无线充电和最高 22.5W 有线输出，美国定价 69.99 美元。10K 款单个 USB-C 端口最高输出 60W，配有两个 USB-C 和一个 USB-A，显示屏可呈现剩余电量、输出功率与温度信息，美国定价 89.99 美元。',
+              '两款产品不只是容量不同。5K 款围绕吸附在手机背面的轻薄使用场景设计，10K 款则面向手机、平板电脑和部分笔记本电脑的有线快充。Belkin 新闻稿表示，两款当时已在美国官网开放订购，并提供黑色与沙色；其他地区的上市日期与售价，仍需按各市场信息分别确认。'
+            ]
+          },
+          {
+            title: '为什么半固态电芯才是这条新闻的重点？',
+            paragraphs: [
+              'Belkin 将 BoostSolid 描述为在液态电解质之外加入凝胶状层的半固态结构，并把更纤薄的电池包、热稳定性与较慢衰减联系在一起。品牌提出的循环寿命基准很具体：完整充放电 1,000 次后，容量最高仍可维持 80%；“五年”则按每两天完成一次完整充放电计算。Belkin 还表示，5K 款比自家前一代同级产品薄 40%，10K 款比一般 45W、10K 移动电源小 27%。',
+              '这些比较条件不能省略。体积百分比采用 Belkin 选定的比较基准，循环寿命与安全叙述也来自制造商。TechRadar 在 IFA 的上手体验可以独立支持两款产品已经成形，并指出 5K 款确实非常纤薄、整体质感出色；但该报道没有重做 1,000 次循环，也没有公布穿刺、高温或容量保持测试。这是一次真实的产品发布，却还不是对所有性能宣称的独立验证。'
+            ],
+            items: [
+              '品牌主张：1,000 次循环后，容量最高仍保有 80%。',
+              '独立观察：产品已在 IFA 展出，5K 款机身明显纤薄。',
+              '仍待实测：长期衰减、高温输出、抗膨胀能力与批次一致性。'
+            ]
+          },
+          {
+            title: '这会怎样改变移动电源供应链？',
+            paragraphs: [
+              'ZIMONAI 编辑部的判断是，这场发布让电芯选择直接成为消费者看得见的产品故事。以后供应商若报价类似的“半固态”移动电源，只有技术名称并不够；买家会需要把精确电芯型号、标称与额定容量、循环测试方法、温度条件、保护设计、电池包尺寸和变更管理规则，关联到实际成品型号。否则，同一个热门名词下面，可能隐藏着完全不同的配方与证据质量。',
+              '产品价值的来源也可能改变。如果制造商能够在不牺牲可用容量和热裕度的情况下做出更薄的电池包，外观设计与便携性就会更具卖点；循环寿命若能在独立测试中成立，更换频率也会进入商业计算。下一个有意义的信号不会是另一张发布会幻灯片，而是可重复的测试、拆解证据，以及其他主流品牌是否开始公布可比较的电芯与循环寿命数据。'
+            ]
+          }
+        ],
+        checklist: [
+          '经过数百次完整循环后的独立容量保持结果',
+          '持续 60W 输出时的充电速度与表面温度',
+          '各成品型号的标称容量与额定输出容量',
+          '电芯型号、供应商、保护设计与电池包变更记录',
+          '各地区实际上市时间、保修条款与最终售价',
+          '其他品牌是否提出可比较的半固态电芯证据'
+        ],
+        limitsText: '截至 2026 年 9 月 7 日，Belkin 已公布新品规格、比较方式、售价与上市信息，TechRadar 也已发布 IFA 上手体验；但本文引用的独立来源尚未完成 1,000 次循环老化、破坏性安全测试、持续温度测量或量产批次比较。“半固态”本身也不代表全行业只有一种固定配方，更不能证明所有使用该名称的产品表现相同。本文对供应链影响的分析来自 ZIMONAI｜智蒙湾科技编辑部，不是 Belkin、TechRadar 或主管部门的结论。'
       },
       xoPoppyPowerBankRecall: {
         topic: '北美移动电源召回',
