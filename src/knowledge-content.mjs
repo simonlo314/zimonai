@@ -8,6 +8,62 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-common-charger-rules',
+    key: 'euCommonChargerRules',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/eu-common-charger-usb-c-rules',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['EU common charger rules', 'USB-C charger EU compliance', 'Directive EU 2022/2380', 'USB Power Delivery 15W', 'EU charger label', 'external power supply 2028'],
+      'zh-tw': ['歐盟通用充電器規則', 'USB-C 充電器歐盟合規', '歐盟 2022/2380 指令', 'USB Power Delivery 15W', '歐盟充電標示', '外接電源供應器 2028'],
+      'zh-cn': ['欧盟通用充电器规则', 'USB-C 充电器欧盟合规', '欧盟 2022/2380 指令', 'USB Power Delivery 15W', '欧盟充电标签', '外部电源 2028']
+    },
+    datePublished: '2026-09-08',
+    dateModified: '2026-09-08',
+    image: '/assets/editorial-eu-common-charger-usb-c.jpg',
+    imageWidth: 1800,
+    imageHeight: 1202,
+    imageCrop: {
+      card: '48% 44%',
+      article: '50% 44%',
+      mobile: '46% 46%'
+    },
+    photo: {
+      photographer: 'ready made',
+      page: 'https://www.pexels.com/photo/usb-c-cable-on-white-surface-3921713/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'European Commission — Directorate-General for Internal Market, Industry, Entrepreneurship and SMEs',
+        title: 'The EU common charger — scope, application dates and consumer information',
+        url: 'https://single-market-economy.ec.europa.eu/sectors/electrical-and-electronic-engineering-industries-eei/radio-equipment-directive-red/one-common-charging-solution-all_en'
+      },
+      {
+        publisher: 'European Union — EUR-Lex',
+        title: 'Directive (EU) 2022/2380 — common charging requirements under the Radio Equipment Directive',
+        url: 'https://eur-lex.europa.eu/eli/dir/2022/2380/oj'
+      },
+      {
+        publisher: 'European Commission — EUR-Lex',
+        title: 'Commission Notice 2024/C 2997 — guidance on interpreting the Common Charger Directive',
+        url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:C_202402997'
+      },
+      {
+        publisher: 'European Commission — EUR-Lex',
+        title: 'COM(2026) 329 — report on wired-charging market developments and common-charger requirements',
+        url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52026DC0329'
+      },
+      {
+        publisher: 'European Commission — Energy Efficient Products',
+        title: 'Regulation (EU) 2025/2052 — new ecodesign requirements for external power supplies from 14 December 2028',
+        url: 'https://energy-efficient-products.ec.europa.eu/product-list/external-power-supplies/eps-regulation-20252052-new_en'
+      }
+    ]
+  },
+  {
     id: 'knowledge-china-ccc-charger',
     key: 'chinaCccCharger',
     contentType: 'industry-knowledge',
@@ -840,12 +896,12 @@ export const knowledgeContent = {
     nav: 'Knowledge',
     hub: {
       metaTitle: 'Supplier Verification Knowledge | ZimonAI',
-      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, factory claims, CCC, Qi2, RoHS, REACH/SVHC, Safety Gate, IECEE CB, USB-IF, FCC, UL, CE and UN 38.3 evidence for charger and power-bank buyers.',
+      metaDescription: 'Practical, source-backed guides to Chinese supplier identity, factory claims, EU common-charger rules, CCC, Qi2, RoHS, REACH/SVHC and other evidence for charger and power-bank buyers.',
       kicker: 'ZimonAI research desk',
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Sixteen field notes',
+      latest: 'Seventeen field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -929,6 +985,64 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      euCommonChargerRules: {
+        topic: 'EU common-charger market access',
+        published: '8 September 2026',
+        readTime: '7 minutes',
+        title: 'EU common-charger rules: separate the USB-C device, charger and 2028 requirements',
+        description: 'The EU common-charger rules already cover listed wired-charging devices, including laptops. Charger-side ecodesign requirements follow in 2028, so buyers need two distinct evidence sets.',
+        imageAlt: 'USB-C connector and cable beside an adapter on a marble surface, used as an editorial illustration for EU common-charger checks.',
+        imageCaption: 'Editorial photograph of a USB-C cable and adapter. It is not a ZIMONAI supplier, client, charger test, factory, certification file or proof of EU conformity.',
+        answer: 'EU common-charger rules set USB-C, USB Power Delivery, separate-sale and consumer-information duties for listed wired-charging devices; laptops joined on 28 April 2026. This does not make “USB-C” a complete charger-compliance claim: device-side RED evidence, package contents and charging data remain separate from the external power supply’s safety, EMC, energy and future 2028 ecodesign file. Buyers should match exact device, charger and cable models to power ranges, USB PD, packaging symbols and the EU Declaration of Conformity. ZIMONAI’s editorial view is that the sourcing risk is collapsing device rules, charger rules and future requirements into one unsupported claim.',
+        takeaways: [
+          'Since 28 April 2026, the current common-charger requirements cover laptops as well as the twelve portable-device categories already covered since 28 December 2024, where those products support wired charging.',
+          'Covered devices use a USB Type-C receptacle; when wired charging exceeds 5 V, 3 A or 15 W, USB Power Delivery is required and an additional protocol must not block full USB PD functionality.',
+          'The charger-side Ecodesign Regulation (EU) 2025/2052 applies from 14 December 2028. Its USB-C ports, detachable cables, power markings and common-charger logo should be planned now but not misrepresented as already mandatory in 2026.'
+        ],
+        sections: [
+          {
+            title: 'What is already required in the EU in 2026?',
+            paragraphs: [
+              'The European Commission lists twelve portable-device categories under the common-charging solution from 28 December 2024: handheld mobile phones, tablets, digital cameras, headphones, headsets, portable speakers, handheld videogame consoles, e-readers, earbuds, keyboards, mice and portable navigation systems. Laptops entered the same framework on 28 April 2026. Directive (EU) 2022/2380 applies these requirements to covered radio equipment in so far as it can be recharged by wired charging; it is not a rule that every electrical product must have USB-C.',
+              'For a covered device, Annex Ia requires an accessible and operational USB Type-C receptacle and compatible USB-C cables. If the device can charge above 5 V, 3 A or 15 W, it must incorporate USB Power Delivery. Producers and sellers must also provide the opportunity to buy the equipment without a charging device, show whether one is included and display the minimum and maximum charging power and compatible fast-charging protocol. The Commission’s 2026 report describes these as five connected requirements, not as a single port-shape test.'
+            ]
+          },
+          {
+            title: 'Which evidence should match the device and the charger?',
+            paragraphs: [
+              'Start with the exact radio-equipment model and its charging architecture. The packaging, online offer and instructions should consistently show whether a charging device is included, the minimum power needed to start charging, the maximum power needed for full charging speed and “USB PD” where applicable. Compare those values with the supplied or recommended external power supply, its single-port and shared-port behaviour, the cable rating and the product actually quoted.',
+              'The Common Charger Directive sits inside the Radio Equipment Directive conformity route. Buyers should therefore connect the charging claims to the manufacturer’s EU Declaration of Conformity and technical file for the exact device, while keeping the external power supply’s own safety, EMC, substance, energy-efficiency and market-access records as a separate set. ZIMONAI’s practical reading is to reject one-page statements that name neither the device model nor the charger model: interoperability is a relationship between two defined products, not a property established by the words “USB-C”.'
+            ],
+            items: [
+              'Covered device category and the date the requirement became applicable',
+              'Exact device and external-power-supply model numbers',
+              'Minimum and maximum charging power shown on the consumer label',
+              'USB PD support and any additional proprietary protocol',
+              'Included/not-included pictogram across packaging and online sales',
+              'EU Declaration of Conformity and supporting technical evidence for the device',
+              'Separate safety, EMC, ecodesign and other evidence for the charger'
+            ]
+          },
+          {
+            title: 'What changes for external power supplies in 2028?',
+            paragraphs: [
+              'The European Commission explains that Regulation (EU) 2025/2052 will apply from 14 December 2028 to external power supplies, chargers for portable batteries of general use, wireless chargers or pads and USB Type-C cables, subject to its scope and exemptions. Covered external power supplies will by default need to meet the common-charger design, interoperability, information and energy-performance requirements, including at least one USB Type-C or USB PD port, detachable USB-C cables, port power marking and the new common-charger logo.',
+              'This future date changes product planning, not the legal status of a September 2026 shipment. A long-running OEM programme should already map its enclosure, ports, cable, firmware, label and test plan to the 2028 regulation, especially if the model will remain on sale after the application date. The present purchase decision must still be judged under the rules in force when the product is placed on the EU market, with later requirements recorded as a controlled redesign milestone rather than backdated as current certification.'
+            ]
+          }
+        ],
+        checklist: [
+          'Identify the covered device category and applicable date',
+          'Record exact device, charger and cable models without shortening suffixes',
+          'Match USB-C receptacle, minimum and maximum power and USB PD claims',
+          'Check the included/not-included pictogram and charging label in every sales format',
+          'Review the device’s EU Declaration of Conformity and charging evidence',
+          'Review the external power supply’s safety, EMC, ecodesign and substance evidence separately',
+          'Test interoperability with the actual charger, cable and relevant port combinations',
+          'Create a dated 2028 transition plan for products that will remain on the EU market'
+        ],
+        limitsText: 'The common-charger rules address specified radio equipment, charging interfaces, protocols, sales choices and consumer information, and the 2028 ecodesign rules add a separate framework for covered external power supplies and cables. They do not prove that a Chinese seller owns the factory, that every USB-C product is within scope, that the quoted charger is electrically safe, or that production units match the reviewed configuration. USB-IF certification, CE conformity, chemical compliance, energy performance, product safety and shipment quality each require evidence appropriate to the exact product. Commission guidance supports consistent interpretation but is not a product approval, and the European Court of Justice retains authority over binding interpretation of EU law.'
+      },
       chinaCccCharger: {
         topic: 'China charger market access',
         published: '6 September 2026',
@@ -1828,12 +1942,12 @@ export const knowledgeContent = {
     nav: '查核知識',
     hub: {
       metaTitle: '供應商查核知識庫｜ZimonAI 智蒙灣',
-      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、工廠聲明、CCC、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
+      metaDescription: '面向充電器、電源適配器與行動電源買家的實務查核文章，整理中國企業主體、工廠聲明、歐盟通用充電器、CCC、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 與 UN 38.3 證據。',
       kicker: 'ZimonAI 研究台',
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '十六篇查核筆記',
+      latest: '十七篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -1917,6 +2031,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      euCommonChargerRules: {
+        topic: '歐盟通用充電器規則',
+        published: '2026 年 9 月 8 日',
+        readTime: '約 7 分鐘',
+        title: '歐盟通用充電器規則：USB-C 裝置、充電器與 2028 新要求要分開查',
+        description: '歐盟現行規則已涵蓋列名有線充電裝置與筆電，充電器本身的新生態設計要求則自 2028 年適用；買家需要兩套清楚分開的證據。',
+        imageAlt: '大理石桌面上的 USB-C 接頭、線材與轉接器，用於說明歐盟通用充電器規則。',
+        imageCaption: 'USB-C 線材與轉接器為編輯用照片；不是 ZIMONAI 的供應商、客戶、送測充電器、工廠、認證文件或歐盟符合性證據。',
+        answer: '歐盟「通用充電器」目前規範列名有線充電裝置的 USB-C 插孔、USB Power Delivery、分售選項與消費者標示；筆電已於 2026 年 4 月 28 日納入。這不會讓「USB-C」自動成為充電器合規證明：裝置端 RED 文件與包裝資訊，和充電器的安全、EMC、能效及 2028 年生態設計要求，仍是不同證據。買家應把裝置、充電器與線材完整型號，逐項對上功率、USB PD、包裝標示及 EU 符合性聲明。ZIMONAI 的判讀是，真正風險是把現行裝置規則、充電器規則與未生效要求混成一句「已符合」。',
+        takeaways: [
+          '自 2026 年 4 月 28 日起，筆電也納入歐盟通用充電器要求；其他十二類可用有線充電的可攜裝置，已從 2024 年 12 月 28 日開始適用。',
+          '適用裝置要有 USB Type-C 插孔；有線充電超過 5 V、3 A 或 15 W 時，必須支援 USB Power Delivery，其他快充協定也不能妨礙 USB PD 完整運作。',
+          '針對充電器本身的《2025/2052 號生態設計規則》要到 2028 年 12 月 14 日才適用；現在可以納入產品規劃，但不能倒寫成 2026 年已生效。'
+        ],
+        sections: [
+          {
+            title: '2026 年在歐盟已經生效的是哪些要求？',
+            paragraphs: [
+              '歐盟執委會列出的十二類可攜裝置，自 2024 年 12 月 28 日起納入通用充電規則，包括手機、平板、數位相機、耳機、頭戴式耳機、可攜式喇叭、掌上型遊戲機、電子書閱讀器、耳塞式耳機、鍵盤、滑鼠與可攜式導航裝置；筆電則從 2026 年 4 月 28 日起適用。《2022/2380 號指令》限定在可使用有線充電的列名無線電設備，並不是所有電器一律改用 USB-C。',
+              '在適用範圍內，裝置必須具備可操作的 USB Type-C 插孔並可用相容線材充電。若有線充電可超過 5 V、3 A 或 15 W，還要支援 USB Power Delivery；其他快充協定不得妨礙完整 USB PD 功能。廠商也要提供不附充電器的購買選項、標明包裝是否包含充電器，並揭露達到充電所需的最低與最高功率及相容協定。歐盟執委會 2026 年報告把這些整理為五項相互關聯的要求，不是一項插孔外觀檢查。'
+            ]
+          },
+          {
+            title: '裝置與充電器，買家各要核對哪些證據？',
+            paragraphs: [
+              '先從精確裝置型號與充電架構開始。包裝、網路銷售頁與說明書應一致交代是否附充電器、啟動充電所需最低功率、達到最快速度所需最高功率，以及適用時的「USB PD」字樣。這些數值要再對照實際供應或建議搭配的外接電源、單埠與多埠同時使用時的輸出、線材額定值及本次報價產品。',
+              '通用充電器指令屬於《無線電設備指令》的符合性路徑，因此裝置端充電聲明應連回該精確型號的 EU 符合性聲明與技術文件；外接電源本身的安全、EMC、物質、能效與市場准入文件則要另立一套。ZIMONAI 的實務判讀是：沒有同時寫明裝置型號與充電器型號的一頁式聲明，無法建立完整互通關係；「USB-C」三個字本身不是證據鏈。'
+            ],
+            items: [
+              '產品是否屬於列名裝置，以及規則開始適用的日期',
+              '裝置、外接電源與線材的完整型號',
+              '消費者標示上的最低與最高充電功率',
+              'USB PD 支援狀態與其他專有快充協定',
+              '包裝與網路銷售頁的附帶／未附帶充電器圖示',
+              '裝置的 EU 符合性聲明及技術證據',
+              '充電器另行適用的安全、EMC、能效與其他文件'
+            ]
+          },
+          {
+            title: '2028 年外接電源新規則會改變什麼？',
+            paragraphs: [
+              '歐盟執委會說明，《2025/2052 號規則》將自 2028 年 12 月 14 日起適用於外接電源、一般用途可攜式電池充電器、無線充電器或充電板，以及 USB Type-C 線材，但仍要逐項確認範圍與例外。屆時列入範圍的外接電源原則上要符合通用充電器設計、互通、資訊與能源效率要求，包括至少一個 USB Type-C 或 USB PD 連接埠、可拆式 USB-C 線材、連接埠功率標示及新的通用充電器標誌。',
+              '這個未來日期會影響產品規劃，卻不會改寫 2026 年 9 月出貨的法律狀態。預計長期銷售的 OEM 專案，現在就應把外殼、連接埠、線材、韌體、標示與測試計畫對照 2028 年規則；眼前採購仍須依產品投放歐盟市場當時有效的規定判斷，並把後續要求列成有日期的改版節點，而不是提前包裝成已取得的認證。'
+            ]
+          }
+        ],
+        checklist: [
+          '判斷產品是否屬於列名裝置及規則適用日期',
+          '記錄裝置、充電器與線材完整型號，不省略尾碼',
+          '核對 USB-C 插孔、最低與最高功率及 USB PD 聲明',
+          '檢查所有銷售形式的附帶／未附帶圖示與充電標示',
+          '審閱裝置的 EU 符合性聲明與充電技術證據',
+          '另行審閱外接電源的安全、EMC、能效與物質文件',
+          '以實際充電器、線材與相關連接埠組合測試互通性',
+          '若產品將持續在歐盟販售，建立有日期的 2028 轉換計畫'
+        ],
+        limitsText: '通用充電器規則處理特定無線電設備的充電介面、協定、銷售選項與消費者資訊；2028 年生態設計規則則另行涵蓋列入範圍的外接電源與線材。這些要求不能證明中國賣家擁有工廠、所有 USB-C 產品都在適用範圍、本次報價充電器已具備電氣安全，或量產品與審閱版本完全一致。USB-IF 認證、CE 符合性、化學物質合規、能源效率、產品安全與出貨品質，都要依精確產品準備各自證據。歐盟執委會指引可協助一致解讀，但不是產品核准；歐盟法的最終拘束性解釋權仍屬歐盟法院。'
+      },
       chinaCccCharger: {
         topic: '中國充電器市場准入',
         published: '2026 年 9 月 6 日',
@@ -2816,12 +2988,12 @@ export const knowledgeContent = {
     nav: '核查知识',
     hub: {
       metaTitle: '供应商核查知识库｜ZimonAI 智蒙灣',
-      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、工厂声明、CCC、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
+      metaDescription: '面向充电器、电源适配器和移动电源买家的实务核查文章，梳理中国企业主体、工厂声明、欧盟通用充电器、CCC、Qi2、RoHS、REACH／SVHC、Safety Gate、IECEE CB、USB-IF、FCC、UL、CE 和 UN 38.3 证据。',
       kicker: 'ZimonAI 研究台',
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '十六篇核查笔记',
+      latest: '十七篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -2905,6 +3077,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      euCommonChargerRules: {
+        topic: '欧盟通用充电器规则',
+        published: '2026 年 9 月 8 日',
+        readTime: '约 7 分钟',
+        title: '欧盟通用充电器规则：USB-C 设备、充电器与 2028 新要求要分开核查',
+        description: '欧盟现行规则已覆盖清单内的有线充电设备和笔记本电脑，充电器自身的新生态设计要求从 2028 年起适用；买家需要区分两套证据。',
+        imageAlt: '大理石台面上的 USB-C 接头、线缆和适配器，用于说明欧盟通用充电器规则。',
+        imageCaption: 'USB-C 线缆与适配器为编辑配图；不是 ZIMONAI 的供应商、客户、送检充电器、工厂、认证文件或欧盟符合性证据。',
+        answer: '欧盟“通用充电器”目前规范清单内有线充电设备的 USB-C 接口、USB Power Delivery、单独销售选择和消费者标签；笔记本电脑已于 2026 年 4 月 28 日纳入。这不等于写有“USB-C”的充电器已经合规：设备端 RED 文件和包装信息，与充电器的安全、EMC、能效及 2028 年生态设计要求，仍属于不同证据。买家应把设备、充电器和线缆完整型号，逐项对应功率、USB PD、包装标签及 EU 符合性声明。ZIMONAI 的判断是，真正风险在于把现行设备规则、充电器规则和尚未生效的要求，混为一项笼统的合规结论。',
+        takeaways: [
+          '从 2026 年 4 月 28 日起，笔记本电脑也适用欧盟通用充电器要求；另外十二类支持有线充电的便携设备，已从 2024 年 12 月 28 日开始执行。',
+          '适用设备需要 USB Type-C 接口；有线充电超过 5 V、3 A 或 15 W 时，必须支持 USB Power Delivery，其他快充协议也不得妨碍完整的 USB PD 功能。',
+          '针对充电器本身的《2025/2052 号生态设计法规》要到 2028 年 12 月 14 日才开始适用；企业可以提前规划，但不能把未来要求写成 2026 年已经生效。'
+        ],
+        sections: [
+          {
+            title: '2026 年欧盟已经执行哪些要求？',
+            paragraphs: [
+              '欧盟委员会列出的十二类便携设备从 2024 年 12 月 28 日起纳入通用充电规则，包括手机、平板电脑、数码相机、耳机、头戴式耳机、便携式扬声器、掌上游戏机、电子阅读器、耳塞式耳机、键盘、鼠标和便携式导航设备；笔记本电脑则从 2026 年 4 月 28 日起适用。《2022/2380 号指令》的对象是支持有线充电且列入清单的无线电设备，并非所有电气产品都必须采用 USB-C。',
+              '在适用范围内，设备必须配备可正常工作的 USB Type-C 接口并支持兼容线缆充电。若有线充电超过 5 V、3 A 或 15 W，还必须支持 USB Power Delivery；其他快充协议不能限制完整的 USB PD 功能。生产商和销售方还要让消费者能够选择不带充电器的设备，标明包装内是否含充电器，并披露开始充电所需的最低功率、达到最快速度所需的最高功率和兼容协议。欧盟委员会 2026 年报告将其归纳为五项相互关联的要求，而不是一次接口外观检查。'
+            ]
+          },
+          {
+            title: '设备和充电器分别需要核对哪些证据？',
+            paragraphs: [
+              '核查应从准确的设备型号和充电架构开始。包装、网络销售页面和说明书应一致说明是否附带充电器、开始充电所需的最低功率、实现最快充电所需的最高功率，以及适用情况下的“USB PD”字样。随后还要把这些参数与实际供应或推荐的外部电源、单口与多口同时使用时的输出、线缆额定值和本次报价产品进行比对。',
+              '通用充电器指令属于《无线电设备指令》的符合性路径，因此设备端的充电声明应对应到该完整型号的 EU 符合性声明和技术文件；外部电源自身的安全、EMC、物质、能效和市场准入文件则需要单独整理。ZIMONAI 的实务判断是：如果一页声明没有同时写明设备型号和充电器型号，就不足以建立完整的互操作关系；“USB-C”本身不是证据链。'
+            ],
+            items: [
+              '产品是否属于清单内设备，以及规则开始适用的日期',
+              '设备、外部电源和线缆的完整型号',
+              '消费者标签上的最低和最高充电功率',
+              'USB PD 支持状态及其他专有快充协议',
+              '包装与网络销售页是否附带充电器的图示',
+              '设备的 EU 符合性声明及配套技术证据',
+              '充电器另行适用的安全、EMC、能效和其他文件'
+            ]
+          },
+          {
+            title: '2028 年外部电源新规则会带来哪些变化？',
+            paragraphs: [
+              '欧盟委员会说明，《2025/2052 号法规》将从 2028 年 12 月 14 日起适用于外部电源、一般用途便携式电池充电器、无线充电器或充电板，以及 USB Type-C 线缆，但仍需逐项确认适用范围和豁免。届时纳入范围的外部电源原则上要满足通用充电器的设计、互操作、信息和能源性能要求，包括至少一个 USB Type-C 或 USB PD 端口、可拆卸 USB-C 线缆、端口功率标识和新的通用充电器标志。',
+              '这个未来日期会影响产品路线图，却不会改变 2026 年 9 月出货的法律状态。计划长期在欧盟销售的 OEM 项目，现在就应把外壳、端口、线缆、固件、标签和测试计划对照 2028 年法规；当前采购仍应依据产品投放欧盟市场时有效的规则判断，并将后续要求作为有日期的改版节点，而不是提前描述成已经取得的认证。'
+            ]
+          }
+        ],
+        checklist: [
+          '确认产品是否属于清单内设备及规则适用日期',
+          '记录设备、充电器和线缆完整型号，不省略后缀',
+          '核对 USB-C 接口、最低和最高功率及 USB PD 声明',
+          '检查所有销售形式中的是否附带图示和充电标签',
+          '审阅设备的 EU 符合性声明与充电技术证据',
+          '单独审阅外部电源的安全、EMC、能效和物质文件',
+          '使用实际充电器、线缆和相关端口组合测试互操作性',
+          '若产品将继续在欧盟销售，建立注明日期的 2028 年转换计划'
+        ],
+        limitsText: '通用充电器规则处理特定无线电设备的充电接口、协议、销售选择和消费者信息；2028 年生态设计法规则另行覆盖纳入范围的外部电源和线缆。这些要求不能证明中国卖家拥有工厂、所有 USB-C 产品都在适用范围、本次报价充电器已经满足电气安全，或量产产品与审阅版本完全一致。USB-IF 认证、CE 符合性、化学物质合规、能源性能、产品安全和出货质量，都需要针对完整产品准备各自证据。欧盟委员会指南有助于统一理解，但不是产品批准；欧盟法院仍拥有欧盟法的最终权威解释权。'
+      },
       chinaCccCharger: {
         topic: '中国充电器市场准入',
         published: '2026 年 9 月 6 日',
