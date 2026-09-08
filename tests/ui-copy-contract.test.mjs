@@ -196,7 +196,12 @@ test('the footer shows both offices only in the address language selected by the
   assert.doesNotMatch(simplified, new RegExp(brandProfile.taiwanOffice.addressEn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   assert.doesNotMatch(simplified, new RegExp(brandProfile.taiwanOffice.addressZhHant));
 
-  assert.match(traditional, /台灣辦公室｜新北/);
+  assert.match(english, /New Taipei Office/);
+  assert.match(traditional, /新北辦公室/);
+  assert.match(simplified, /新北办公室/);
+  assert.doesNotMatch(english, /Taiwan Office/);
+  assert.doesNotMatch(traditional, /台灣辦公室/);
+  assert.doesNotMatch(simplified, /台湾办公室/);
   assert.match(traditional, /客戶聯絡與專案協調/);
   assert.match(traditional, /會面採預約制/);
 });
