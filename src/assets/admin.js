@@ -262,10 +262,11 @@ if (root) {
       button.disabled = true;
       button.textContent = copy.actions.saving;
       try {
-        await api(`/api/admin/orders/${encodeURIComponent(item.id)}`, { method: 'PATCH', body: JSON.stringify(payload) });
-        if (payload.paymentStatus) item.paymentStatus = payload.paymentStatus;
-        item.fulfillmentStatus = payload.fulfillmentStatus;
+        const result = await api(`/api/admin/orders/${encodeURIComponent(item.id)}`, { method: 'PATCH', body: JSON.stringify(payload) });
+        Object.assign(item, result.order);
         item.paymentMethodNote = payload.paymentMethodNote;
+        payment.querySelector('select').value = item.paymentStatus;
+        form.querySelector('[name="fulfillmentStatus"]').value = item.fulfillmentStatus;
         const status = details.closest('.admin-record')?.querySelector('.admin-record__status');
         if (status) status.textContent = copy.paymentStatus[item.paymentStatus] || item.paymentStatus;
         setFeedback(feedback, copy.actions.orderSaved);

@@ -529,6 +529,47 @@ test('customer intake PATCH is allowed only while awaiting client and closes its
   } finally { fx.close(); }
 });
 
+test('customer intake preserves a concurrent admin-authorized service tier update', async () => {
+  const fx = await fixture();
+  try {
+    const pending = await createAdminCase(fx.env, { user_id: fx.admin.user.id }, {
+      customerUserId: fx.client.user.id, locale: 'en', tier: 't1'
+    });
+    const originalBatch = fx.db.batch.bind(fx.db);
+    let updated = false;
+    fx.db.batch = async (statements) => {
+      if (!updated) {
+        updated = true;
+        const authorized = await adminUpdateCase({
+          request: requestFor(fx.admin, `/api/admin/cases/${pending.caseId}`, {
+            method: 'PATCH', payload: { tier: 't2' }
+          }),
+          env: fx.env, params: { id: pending.caseId }
+        });
+        assert.equal(authorized.status, 200);
+        assert.equal((await authorized.json()).case.tier, 't2');
+      }
+      return originalBatch(statements);
+    };
+    const response = await customerUpdateCase({
+      request: requestFor(fx.client, `/api/portal/cases/${pending.caseId}`, {
+        method: 'PATCH', payload: { supplierName: 'Customer intake name' }
+      }),
+      env: fx.env, params: { id: pending.caseId }
+    });
+    assert.equal(response.status, 200);
+    const item = (await response.json()).case;
+    assert.equal(item.tier, 't2');
+    assert.equal(item.supplierName, 'Customer intake name');
+    assert.equal(item.status, 'awaiting_client');
+    const audits = fx.db.raw.prepare(`
+      SELECT event_type FROM portal_audit_events
+      WHERE case_id = ? AND event_type IN ('admin_case_updated', 'case_intake_updated')
+    `).all(pending.caseId);
+    assert.equal(audits.length, 2);
+  } finally { fx.close(); }
+});
+
 test('admin workbench lists cases, orders and verified or invited customers', async () => {
   const fx = await fixture();
   try {

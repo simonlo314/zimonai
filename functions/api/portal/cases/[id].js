@@ -42,8 +42,9 @@ export async function onRequestPatch({ request, env, params }) {
   const existing = await db.prepare(CASE_SELECT).bind(id, authorization.session.user_id).first();
   if (!existing) return portalJson({ error: 'case_not_found' }, 404);
   if (existing.status !== 'awaiting_client') return portalJson({ error: 'case_intake_locked' }, 409);
+  // Intake can describe the work, but only the server/admin can set its scope.
   const allowed = new Set([
-    'tier', 'supplierName', 'supplierUrl', 'chineseLegalName', 'productCategory',
+    'supplierName', 'supplierUrl', 'chineseLegalName', 'productCategory',
     'productModel', 'decisionContext', 'requestedChecks'
   ]);
   const supplied = Object.keys(parsed.data || {});
@@ -67,12 +68,12 @@ export async function onRequestPatch({ request, env, params }) {
     `).bind(workflowId('evt'), authorization.session.user_id, timestamp, details, id),
     db.prepare(`
       UPDATE portal_cases
-      SET service_tier = ?1, supplier_name = ?2, supplier_url = ?3, chinese_legal_name = ?4,
-          product_category = ?5, product_model = ?6, decision_context = ?7, requested_checks = ?8,
-          status = ?9, client_status_note = ?10, status_updated_at = CASE WHEN status <> ?9 THEN ?11 ELSE status_updated_at END,
-          updated_at = ?11
-      WHERE id = ?12 AND owner_user_id = ?13 AND status = 'awaiting_client'
-    `).bind(input.tier, input.supplierName, input.supplierUrl, input.chineseLegalName,
+      SET supplier_name = ?1, supplier_url = ?2, chinese_legal_name = ?3,
+          product_category = ?4, product_model = ?5, decision_context = ?6, requested_checks = ?7,
+          status = ?8, client_status_note = ?9, status_updated_at = CASE WHEN status <> ?8 THEN ?10 ELSE status_updated_at END,
+          updated_at = ?10
+      WHERE id = ?11 AND owner_user_id = ?12 AND status = 'awaiting_client'
+    `).bind(input.supplierName, input.supplierUrl, input.chineseLegalName,
       input.productCategory, input.productModel, input.decisionContext, input.requestedChecks,
       status, clientNote, timestamp, id, authorization.session.user_id)
   ]);

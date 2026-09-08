@@ -216,23 +216,41 @@ export async function onRequestPatch(context) {
     ? (order?.paid_at || invited?.paid_at || timestamp)
     : (paymentStatus === 'refunded' ? (order?.paid_at || invited?.paid_at || '') : '');
   if (order) {
-    await db.batch([
-      db.prepare(`
+    // Never write a Stripe payment snapshot back during an operations update:
+    // a webhook may have changed payment_status/paid_at since the read above.
+    const update = source === 'stripe'
+      ? db.prepare(`
+        UPDATE portal_orders
+        SET fulfillment_status = CASE WHEN ?1 = 1 THEN ?2 ELSE fulfillment_status END,
+            payment_method_note = CASE WHEN ?3 = 1 THEN ?4 ELSE payment_method_note END,
+            updated_at = ?5
+        WHERE id = ?6 AND source = 'stripe'
+      `).bind(
+        Object.hasOwn(payload, 'fulfillmentStatus') ? 1 : 0, fulfillmentStatus,
+        Object.hasOwn(payload, 'paymentMethodNote') ? 1 : 0, paymentMethodNote, timestamp, id
+      )
+      : db.prepare(`
         UPDATE portal_orders
         SET payment_status = ?1, fulfillment_status = ?2, payment_method_note = ?3,
             paid_at = ?4, updated_at = ?5
         WHERE id = ?6 AND source = ?7
-      `).bind(paymentStatus, fulfillmentStatus, paymentMethodNote, paidAt, timestamp, id, source),
-      auditStatement(db, {
-        actorUserId: authorization.session.user_id,
-        targetUserId: order.owner_user_id,
-        caseId: order.case_id || null,
-        orderId: id,
-        eventType: 'admin_order_updated',
-        details: { fields: fields.sort(), paymentStatus, fulfillmentStatus },
-        now
-      })
+      `).bind(paymentStatus, fulfillmentStatus, paymentMethodNote, paidAt, timestamp, id, source);
+    const results = await db.batch([
+      update,
+      // Audit the stored outcome within the same transaction, not the old read.
+      db.prepare(`
+        INSERT INTO portal_audit_events
+          (id, user_id, case_id, event_type, created_at, order_id, target_user_id, detail_json)
+        SELECT ?1, ?2, case_id, 'admin_order_updated', ?3, id, owner_user_id,
+               json_object('fields', json(?4), 'paymentStatus', payment_status,
+                           'fulfillmentStatus', fulfillment_status)
+        FROM portal_orders
+        WHERE id = ?5 AND source = ?6 AND updated_at = ?3
+      `).bind(workflowId('evt'), authorization.session.user_id, timestamp, JSON.stringify(fields.sort()), id, source)
     ]);
+    if (Number(results[0]?.meta?.changes || 0) !== 1) {
+      return portalJson({ error: 'order_update_conflict' }, 409);
+    }
     order = await db.prepare(`
       SELECT o.*, u.primary_email AS owner_email, u.locale AS owner_locale
       FROM portal_orders o JOIN portal_users u ON u.id = o.owner_user_id
@@ -254,9 +272,9 @@ export async function onRequestPatch(context) {
       })
     ]);
   }
-  // A waived charge settles the manual ledger without representing money
-  // received. Never reuse the paid receipt/alert for that distinct outcome.
-  if (paymentStatus === 'paid') {
+  // Stripe owns its payment notifications. A progress save must not emit one
+  // from a stale paid snapshot. Waived manual charges are not money received.
+  if (source === 'manual' && paymentStatus === 'paid') {
     const notificationOrder = order || {
       id,
       public_reference: invited.order_public_reference,
@@ -273,9 +291,9 @@ export async function onRequestPatch(context) {
   return portalJson({
     order: {
       id,
-      paymentStatus,
-      fulfillmentStatus,
-      paidAt,
+      paymentStatus: order ? order.payment_status : paymentStatus,
+      fulfillmentStatus: order ? order.fulfillment_status : fulfillmentStatus,
+      paidAt: order ? order.paid_at : paidAt,
       cancelledAt: order?.cancelled_at || invited?.order_cancelled_at || '',
       archivedAt: order?.archived_at || invited?.order_archived_at || '',
       pendingInvitation: Boolean(invited)

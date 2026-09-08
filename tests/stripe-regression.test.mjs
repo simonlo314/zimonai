@@ -14,6 +14,8 @@ import {
 import { onRequestGet as checkoutSummary } from '../functions/api/checkout-session.js';
 import { onRequest, onRequestPost as createCheckout } from '../functions/api/create-checkout-session.js';
 import { onRequestPost as stripeWebhook } from '../functions/api/stripe-webhook.js';
+import { onRequestPatch as adminUpdateOrder } from '../functions/api/admin/orders/[id].js';
+import { onRequestPatch as customerUpdateCase } from '../functions/api/portal/cases/[id].js';
 import { SqliteD1 } from './helpers/sqlite-d1.mjs';
 
 const origin = 'http://127.0.0.1:8788';
@@ -78,6 +80,17 @@ function checkoutRequest(payload, accountInfo, {
 
 function portalRequest(path, accountInfo) {
   return new Request(`${origin}${path}`, { headers: { Cookie: accountInfo.cookie } });
+}
+
+function patchRequest(path, accountInfo, payload) {
+  return new Request(`${origin}${path}`, {
+    method: 'PATCH',
+    headers: {
+      Cookie: accountInfo.cookie, Origin: origin, 'Content-Type': 'application/json',
+      'X-CSRF-Token': accountInfo.session.csrfToken
+    },
+    body: JSON.stringify(payload)
+  });
 }
 
 function stripeCreateStub(sessionId = 'cs_test_local123') {
@@ -645,6 +658,119 @@ test('paid T1 creates one awaiting-client case and idempotent notification outbo
     assert.equal(fx.portal.raw.prepare('SELECT COUNT(*) AS count FROM portal_stripe_events').get().count, 1);
   } finally { fx.close(); }
 });
+
+for (const product of ['t1', 't2']) {
+  test(`paid ${product.toUpperCase()} intake rejects customer tier changes without changing the case or order`, async () => {
+    const fx = await fixture();
+    try {
+      const { order } = await createOrderWithCheckout(fx, product);
+      assert.equal((await sendEvent(fx, paidEvent(order))).status, 200);
+      const caseBefore = fx.portal.raw.prepare('SELECT * FROM portal_cases WHERE payment_order_id = ?').get(order.id);
+      const orderBefore = fx.portal.raw.prepare('SELECT * FROM portal_orders WHERE id = ?').get(order.id);
+      const intake = {
+        supplierName: 'Intake supplier', productCategory: 'charger',
+        decisionContext: 'Review before paying a deposit'
+      };
+      for (const tier of ['t6', 'unsure', product]) {
+        const rejected = await customerUpdateCase({
+          request: patchRequest(`/api/portal/cases/${caseBefore.id}`, fx.owner, { ...intake, tier }),
+          env: fx.env, params: { id: caseBefore.id }
+        });
+        assert.equal(rejected.status, 400, `customer-supplied tier ${tier} must be rejected`);
+        assert.equal((await rejected.json()).error, 'validation_failed');
+        assert.deepEqual(fx.portal.raw.prepare('SELECT * FROM portal_cases WHERE id = ?').get(caseBefore.id), caseBefore);
+      }
+      assert.equal(fx.portal.raw.prepare(`
+        SELECT COUNT(*) AS count FROM portal_audit_events
+        WHERE case_id = ? AND event_type = 'case_intake_updated'
+      `).get(caseBefore.id).count, 0);
+
+      const accepted = await customerUpdateCase({
+        request: patchRequest(`/api/portal/cases/${caseBefore.id}`, fx.owner, intake),
+        env: fx.env, params: { id: caseBefore.id }
+      });
+      assert.equal(accepted.status, 200);
+      const updatedCase = (await accepted.json()).case;
+      assert.equal(updatedCase.tier, product);
+      assert.equal(updatedCase.status, 'submitted');
+      assert.deepEqual(fx.portal.raw.prepare('SELECT * FROM portal_orders WHERE id = ?').get(order.id), orderBefore);
+    } finally { fx.close(); }
+  });
+}
+
+for (const transition of ['paid', 'refunded']) {
+  for (const updateField of ['fulfillmentStatus', 'paymentMethodNote']) {
+    test(`admin ${updateField} update preserves a concurrent Stripe ${transition} event and its paid timestamp`, async () => {
+      const fx = await fixture();
+      try {
+        fx.env.PORTAL_ADMIN_EMAILS = 'admin@example.com';
+        const admin = await account(fx.portal, fx.env, 'admin@example.com', 'admin-subject');
+        const { order: initialOrder } = await createOrderWithCheckout(fx, 't1');
+        const created = Math.floor(Date.now() / 1000) - 120;
+        if (transition === 'refunded') {
+          assert.equal((await sendEvent(fx, paidEvent(initialOrder, { created }))).status, 200);
+        }
+        const before = fx.portal.raw.prepare('SELECT * FROM portal_orders WHERE id = ?').get(initialOrder.id);
+        const event = transition === 'paid'
+          ? paidEvent(before, { created: created + 60 })
+          : refundEvent(before, { created: created + 60 });
+        const payload = updateField === 'fulfillmentStatus'
+          ? { fulfillmentStatus: 'reviewing' }
+          : { paymentMethodNote: 'Internal reconciliation note', paymentStatus: before.payment_status };
+        let afterWebhook;
+        let notificationWrites = 0;
+        const interleavedDb = {
+          batch: fx.portal.batch.bind(fx.portal),
+          prepare(sql) {
+            if (/INSERT/i.test(sql) && sql.includes('notification_outbox')) notificationWrites += 1;
+            const statement = fx.portal.prepare(sql);
+            if (sql.includes('0 AS pending_invitation') && sql.includes('u.locale AS owner_locale')) {
+              const originalFirst = statement.first.bind(statement);
+              statement.first = async () => {
+                const snapshot = await originalFirst();
+                assert.equal((await sendEvent(fx, event)).status, 200);
+                fx.portal.raw.prepare('UPDATE portal_orders SET payment_method_note = ? WHERE id = ?')
+                  .run('Concurrent operations note', initialOrder.id);
+                afterWebhook = fx.portal.raw.prepare('SELECT * FROM portal_orders WHERE id = ?').get(initialOrder.id);
+                assert.equal(afterWebhook.payment_status, transition);
+                return snapshot;
+              };
+            }
+            return statement;
+          }
+        };
+        const response = await adminUpdateOrder({
+          request: patchRequest(`/api/admin/orders/${initialOrder.id}`, admin, payload),
+          env: { ...fx.env, PORTAL_DB: interleavedDb }, params: { id: initialOrder.id }
+        });
+        assert.equal(response.status, 200);
+        assert.ok(afterWebhook, 'the event must land after the admin read and before its write');
+        const stored = fx.portal.raw.prepare('SELECT * FROM portal_orders WHERE id = ?').get(initialOrder.id);
+        assert.equal(stored.payment_status, transition);
+        assert.equal(stored.paid_at, afterWebhook.paid_at);
+        assert.ok(stored.paid_at);
+        assert.equal(stored.last_stripe_event_id, event.id);
+        assert.equal(stored.fulfillment_status, payload.fulfillmentStatus ?? afterWebhook.fulfillment_status);
+        assert.equal(stored.payment_method_note, payload.paymentMethodNote ?? afterWebhook.payment_method_note);
+        assert.equal(fx.analytics.raw.prepare('SELECT payment_status FROM payment_orders WHERE stripe_session_id = ?')
+          .get(initialOrder.stripe_session_id).payment_status, transition);
+        const returned = (await response.json()).order;
+        assert.equal(returned.paymentStatus, stored.payment_status);
+        assert.equal(returned.fulfillmentStatus, stored.fulfillment_status);
+        assert.equal(returned.paidAt, stored.paid_at);
+        const audit = fx.portal.raw.prepare(`
+          SELECT detail_json FROM portal_audit_events WHERE order_id = ? AND event_type = 'admin_order_updated'
+        `).all(initialOrder.id);
+        assert.equal(audit.length, 1);
+        assert.deepEqual(JSON.parse(audit[0].detail_json), {
+          fields: Object.keys(payload).sort(), paymentStatus: stored.payment_status,
+          fulfillmentStatus: stored.fulfillment_status
+        });
+        assert.equal(notificationWrites, 0, 'Stripe payment notifications belong to the webhook, not an admin progress save');
+      } finally { fx.close(); }
+    });
+  }
+}
 
 test('out-of-order expiry cannot regress paid state or duplicate the T2 case', async () => {
   const fx = await fixture();
