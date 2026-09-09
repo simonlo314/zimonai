@@ -56,7 +56,7 @@ test('knowledge hub and category pages expose progressive, crawlable collection 
   assert.match(hubText, /<h2 class="sr-only" id="knowledge-index-title">搜尋查核文章<\/h2>/);
   assert.match(hub, /href="\/zh-tw\/knowledge\/supplier-identity\/"/);
   assert.match(hub, /href="\/zh-tw\/knowledge\/factory-onsite\/"/);
-  assert.doesNotMatch(hub, /\/knowledge\/commercial-risk\//);
+  assert.match(hub, /href="\/zh-tw\/knowledge\/commercial-risk\/"/);
   assert.doesNotMatch(hub, /document\.documentElement\.classList\.add\('js'\)/);
 
   const category = renderPage('en', 'knowledge-category-supplier-identity');

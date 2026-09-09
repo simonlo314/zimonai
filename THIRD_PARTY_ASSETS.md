@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-08
+Last reviewed: 2026-09-09
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -20,6 +20,7 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | `src/assets/editorial-reach-svhc-power-supply-board.jpg` | ed br | [Close-Up of Circuit Board with Components](https://www.pexels.com/photo/close-up-of-circuit-board-with-components-37005283/) | Knowledge article about checking REACH/SVHC supplier declarations for chargers and power adapters; editorial illustration only; downloaded and used 2026-09-04 |
 | `src/assets/editorial-ccc-power-adapter.jpg` | ready made | [White Adapter on White Surface](https://www.pexels.com/photo/white-adapter-on-white-surface-3921700/) | Knowledge article about checking China CCC certificate scope for chargers and power adapters; editorial illustration only; downloaded and used 2026-09-06 |
 | `src/assets/editorial-eu-common-charger-usb-c.jpg` | ready made | [USB-C Cable on White Surface](https://www.pexels.com/photo/usb-c-cable-on-white-surface-3921713/) | Knowledge article about separating current EU common-charger device requirements from the 2028 external-power-supply rules; editorial illustration only; downloaded and used 2026-09-08 |
+| `src/assets/editorial-eu-customs-parcel-inspection.jpg` | Tima Miroshnichenko | [Warehouse Worker Inspecting Shipment Packages](https://www.pexels.com/photo/a-man-inspecting-parcels-on-a-shelves-6170405/) | Current-affairs article about the EU customs reform and low-value e-commerce parcels; real editorial photograph, not an EU customs inspection, a ZIMONAI site, client shipment, supplier facility or evidence about any named platform; downloaded and used 2026-09-09 |
 
 ## Official press-kit assets
 

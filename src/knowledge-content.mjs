@@ -8,6 +8,57 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-customs-reform-ecommerce-parcels',
+    key: 'euCustomsReformEcommerceParcels',
+    contentType: 'current-affairs',
+    slug: 'knowledge/eu-customs-reform-ecommerce-parcels',
+    category: 'commercial-risk',
+    products: ['charger', 'power-adapter', 'power-bank', 'gan-charger'],
+    markets: ['china', 'european-union'],
+    keywords: {
+      en: ['EU customs reform 2026', 'EU ecommerce handling fee', 'China parcels EU customs', 'non-EU platform importer', 'EU product identifiers November 2026', 'charger ecommerce compliance'],
+      'zh-tw': ['歐盟海關改革 2026', '歐盟電商處理費', '中國小包裹歐盟關稅', '非歐盟平台進口責任', '歐盟產品識別碼 2026', '充電器跨境電商合規'],
+      'zh-cn': ['欧盟海关改革 2026', '欧盟电商处理费', '中国小包裹欧盟关税', '非欧盟平台进口责任', '欧盟产品标识符 2026', '充电器跨境电商合规']
+    },
+    datePublished: '2026-09-09',
+    dateModified: '2026-09-09',
+    image: '/assets/editorial-eu-customs-parcel-inspection.jpg',
+    imageWidth: 1800,
+    imageHeight: 1200,
+    imageCrop: {
+      card: '56% 64%',
+      article: '56% 62%',
+      mobile: '55% 66%'
+    },
+    photo: {
+      photographer: 'Tima Miroshnichenko',
+      page: 'https://www.pexels.com/photo/a-man-inspecting-parcels-on-a-shelves-6170405/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'Council of the European Union',
+        title: 'EU customs: Council greenlights landmark reform — 3 September 2026',
+        url: 'https://www.consilium.europa.eu/en/press/press-releases/2026/09/03/eu-customs-council-greenlights-landmark-reform/'
+      },
+      {
+        publisher: 'European Commission — Directorate-General for Taxation and Customs Union',
+        title: 'Guidance and legal text on the temporary flat-rate duty for low-value imports',
+        url: 'https://taxation-customs.ec.europa.eu/news/guidance-and-legal-text-temporary-flat-fee-low-value-imports-which-will-apply-until-1-july-2028-2026-06-08_en'
+      },
+      {
+        publisher: 'European Parliament',
+        title: 'Deal reached on Union Customs Code reform — 26 March 2026',
+        url: 'https://www.europarl.europa.eu/news/en/press-room/20260323IPR38815/deal-reached-on-union-customs-code-reform'
+      },
+      {
+        publisher: 'The European Consumer Organisation (BEUC)',
+        title: 'Who pays for the parcel? EU customs reform and consumer protection',
+        url: 'https://www.beuc.eu/sites/default/files/publications/BEUC-X-2026-063_Factsheet_Who_pays_for_the_parcel.pdf'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-common-charger-rules',
     key: 'euCommonChargerRules',
     contentType: 'industry-knowledge',
@@ -901,7 +952,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Seventeen field notes',
+      latest: 'Eighteen field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -985,6 +1036,65 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      euCustomsReformEcommerceParcels: {
+        topic: 'EU customs and e-commerce news',
+        published: '9 September 2026',
+        readTime: '7 minutes',
+        title: 'EU customs reform clears the Council: platforms and low-value parcels face a new import regime',
+        description: 'The Council has backed a sweeping customs overhaul that shifts importer duties toward non-EU e-commerce platforms and adds a handling fee. The amount and final parliamentary step are still pending.',
+        imageAlt: 'Warehouse worker inspecting parcels on storage shelves, used as an editorial photograph for EU e-commerce customs reform.',
+        imageCaption: 'Editorial photograph of a warehouse worker inspecting parcels. It is not an EU customs inspection, a ZIMONAI site, client shipment, supplier facility or evidence about any named platform.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What to watch next',
+          limits: 'What remains unsettled'
+        },
+        answer: 'On 3 September, the Council of the EU backed a major customs overhaul that would make non-EU e-commerce platforms importers and add an EU handling fee for small parcels. For China-direct chargers and power banks, this matters because landed cost, product identifiers and compliance data move closer to the sales channel instead of the final consumer. Parliament must still approve the text, publication must follow, and the fee amount is not yet set. ZIMONAI’s editorial view: the stronger channel will be the one that can carry accurate SKU, customs and product-safety data at scale—not simply ship the cheapest single parcel.',
+        takeaways: [
+          'The Council’s 3 September approval would treat non-EU platforms selling into the EU as importers responsible for customs formalities, duty payments and compliance obligations; Parliament’s final approval and publication still have to follow.',
+          'The new handling fee is separate from the temporary €3 customs duty already applied since 1 July 2026 to low-value distance-sale consignments. The Commission had not announced the handling-fee amount when the Council vote was published.',
+          'For chargers and power banks shipped directly from China, model-level product identifiers, tariff classification, EU product records and returns logistics become part of channel economics—not paperwork to assemble after a parcel is stopped.'
+        ],
+        sections: [
+          {
+            title: 'What did the Council approve on 3 September?',
+            paragraphs: [
+              'The Council gave its final approval to its position on a new Union Customs Code and a European Union Customs Authority. The package is designed around a central customs data hub, shared risk analysis and a new “Trust and Check” route for the most transparent traders. The Council says the authority will be based in Lille and begin operating in 2027; e-commerce use of the data hub is scheduled to become mandatory on 1 July 2028, with other traders following later.',
+              'For online retail, the headline shift is responsibility. The Council’s release says non-EU e-commerce platforms selling goods into the EU will be considered the importer, rather than leaving the final consumer to handle customs obligations. Operators that repeatedly fail to meet customs and EU-standard obligations could face escalating sanctions, including fines of up to 6% of annual EU import value in the most serious cases, loss of customs privileges and possible platform-access restrictions.'
+            ]
+          },
+          {
+            title: 'Which costs and data rules are already in force—and which are still coming?',
+            paragraphs: [
+              'Three measures are easy to confuse. First, a temporary €3 customs duty has applied since 1 July 2026 to goods in qualifying distance-sale consignments worth up to €150; the Commission explains that it is calculated by tariff-classification item, not simply by parcel count. Second, product identifiers become mandatory from 1 November 2026 to improve traceability and safety screening. Third, the reform creates a separate Union handling fee for small parcels to fund customs processing.',
+              'The Council says member states will introduce that handling fee by 1 November, but the Commission will set its level. That means any article or quotation presenting the amount as final before the delegated act is published is getting ahead of the evidence. The wider customs reform also still needs the European Parliament’s expected approval, signature and publication in the Official Journal. Today’s operational rules and the future code should therefore be tracked on separate timelines.'
+            ],
+            items: [
+              'In force since 1 July 2026: temporary €3 duty for covered low-value distance-sale goods.',
+              'From 1 November 2026: mandatory product identifiers under the Commission’s implementation guidance.',
+              'By 1 November 2026: a separate Union handling fee, with its amount still to be set by the Commission.',
+              'Next legislative step: European Parliament approval, followed by signature and Official Journal publication.'
+            ]
+          },
+          {
+            title: 'Why does this matter for China-direct chargers and power banks?',
+            paragraphs: [
+              'A charger or power bank sold one unit at a time from China already carries product-specific questions—tariff code, exact model, EU economic operator, declarations, battery transport records, warnings and recall traceability. When the platform or its representative is treated as importer and customs systems require structured identifiers, mismatched product names and incomplete SKU files become a clearance, enforcement and cost problem for the channel itself. This does not make a platform the manufacturer, but it raises the price of accepting untraceable catalogue data.',
+              'ZIMONAI’s editorial assessment is that the reform favours operators that can preserve one product identity from supplier quotation to listing, parcel declaration and post-market action. Direct shipping may remain viable for some products, while EU inventory and consolidated import may make more sense for others; the official texts do not decide that business model. The useful comparison is total landed cost plus data, compliance and return capacity—not the freight quote alone.'
+            ]
+          }
+        ],
+        checklist: [
+          'European Parliament vote, final signed text and Official Journal publication',
+          'Commission delegated act setting the Union handling-fee amount and collection design',
+          'Exact 1 November product-identifier fields required by the chosen declaration route',
+          'Named importer or indirect representative for each e-commerce channel',
+          'SKU-level tariff code, model identity, EU compliance file and battery-shipping records',
+          'Direct-from-China parcel cost compared with consolidated EU import, inventory and returns',
+          'Platform onboarding, listing or fulfilment changes introduced before the 2028 data-hub phase'
+        ],
+        limitsText: 'As of 9 September 2026, the Council had approved its position, while the European Parliament’s final vote, signature and Official Journal publication were still pending. The Commission had not yet set the Union handling-fee amount. Application dates differ across the temporary duty, product identifiers, handling fee, platform obligations and data hub, and later legal text or guidance may refine them. The reform applies to e-commerce generally and does not prove that a particular charger, power bank, Chinese supplier or platform is compliant or non-compliant. The channel and sourcing implications above are ZIMONAI editorial analysis, not a forecast issued by the Council, Commission, Parliament or BEUC.'
+      },
       euCommonChargerRules: {
         topic: 'EU common-charger market access',
         published: '8 September 2026',
@@ -1947,7 +2057,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '十七篇查核筆記',
+      latest: '十八篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -2031,6 +2141,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      euCustomsReformEcommerceParcels: {
+        topic: '歐盟海關與跨境電商新聞',
+        published: '2026 年 9 月 9 日',
+        readTime: '約 7 分鐘',
+        title: '歐盟海關改革獲理事會放行：平台與低價小包裹將面對新的進口制度',
+        description: '歐盟理事會通過數十年來最大幅度的海關改革，將非歐盟電商平台推向進口責任方，並新增小包裹處理費；費率與最後立法程序仍待確認。',
+        imageAlt: '倉儲人員在貨架間檢視包裹，用於說明歐盟跨境電商海關改革。',
+        imageCaption: '倉儲包裹檢視情境的編輯用照片；不是歐盟海關查驗、ZIMONAI 場所、客戶貨件、供應商設施，也不是任何特定平台的證據。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '接下來值得關注',
+          limits: '目前仍未定案'
+        },
+        answer: '歐盟理事會 9 月 3 日通過海關改革立場，準備把非歐盟電商平台納入進口責任方，並對低價小包裹新增全歐盟處理費。這件事之所以重要，是因為中國直寄歐盟的充電器與行動電源，其落地成本、產品識別資料與合規紀錄，將更直接綁在銷售通路上。不過改革尚未完成立法，歐洲議會仍須表決，後續還要簽署及刊登官方公報，處理費金額也尚未公布。ZIMONAI 認為，真正的競爭將從追求最低單件寄送成本，轉向比較哪一種通路能穩定承接正確的 SKU、海關與產品安全資料。',
+        takeaways: [
+          '理事會 9 月 3 日通過的方案，將讓銷往歐盟的非歐盟平台承擔進口人的報關、稅費與合規責任；歐洲議會最後表決及正式刊登仍在後續程序中。',
+          '新處理費與 2026 年 7 月 1 日起已實施的低價遠距銷售貨物每項 3 歐元暫行關稅不同。理事會公告發布時，執委會尚未公布處理費金額。',
+          '對中國直寄的充電器與行動電源，型號層級的產品識別碼、稅則分類、歐盟產品文件與退貨追溯能力，會逐漸成為通路成本，而不是包裹被攔下後才補的行政資料。'
+        ],
+        sections: [
+          {
+            title: '歐盟理事會 9 月 3 日究竟通過了什麼？',
+            paragraphs: [
+              '理事會完成新《歐盟海關法典》與歐盟海關管理局方案的第一讀立場。整套改革包含集中式海關資料中心、跨國風險分析，以及提供給高度透明業者的「Trust and Check」簡化制度。依理事會規劃，新管理局將設於法國里爾並自 2027 年開始運作；電商業者預計自 2028 年 7 月 1 日起強制使用海關資料中心，其他貿易商則在更晚階段納入。',
+              '電商最重要的變化是責任歸屬。理事會公告指出，非歐盟平台把商品賣進歐盟時，將被視為進口人，而不是讓最終消費者自行承擔報關義務。反覆違反海關與歐盟標準的業者，可能面對逐級加重的處分；最嚴重情況包括最高相當於前一年歐盟進口總值 6% 的罰款、失去海關優惠，甚至限制平台介面存取。'
+            ]
+          },
+          {
+            title: '哪些費用與資料要求已經生效，哪些還在路上？',
+            paragraphs: [
+              '三項制度很容易被混在一起。第一，2026 年 7 月 1 日起，價值不超過 150 歐元且符合條件的遠距銷售貨物，已適用每項 3 歐元的暫行關稅；歐盟執委會說明，計算依據是包裹中的稅則分類項目，不是單純以包裹件數計算。第二，產品識別碼將自 11 月 1 日起強制申報，用於提高追溯與安全篩查。第三，本次改革另設全歐盟小包裹處理費，用來支應海關處理成本。',
+              '理事會表示，各會員國最晚會在 11 月 1 日開始徵收該處理費，但實際金額要由執委會另行訂定。因此，在委任法案公布以前，任何把費率寫成已定案的報導或物流報價，都超出了目前證據。整套海關改革還要等待歐洲議會表決、簽署與《歐盟官方公報》刊登；眼前已生效措施與未來法典，必須分成不同時間軸閱讀。'
+            ],
+            items: [
+              '2026 年 7 月 1 日起已生效：符合條件的低價遠距銷售貨物，每項暫行關稅 3 歐元。',
+              '2026 年 11 月 1 日起：依執委會實施說明，產品識別碼成為強制欄位。',
+              '最晚 2026 年 11 月 1 日：另有全歐盟處理費，金額仍待執委會訂定。',
+              '下一個立法節點：歐洲議會表決，之後才是簽署與官方公報刊登。'
+            ]
+          },
+          {
+            title: '這會怎麼影響中國直寄的充電器與行動電源？',
+            paragraphs: [
+              '充電器或行動電源從中國逐件直寄，本來就牽涉稅則號列、精確型號、歐盟經濟營運者、符合性聲明、電池運輸資料、警語與召回追溯。當平台或其代表成為進口人，海關系統又要求結構化產品識別資料時，商品名稱不一致、SKU 文件不完整，就會直接變成通關、執法與成本問題。這不代表平台變成製造商，卻會提高平台接受不可追溯型錄資料的代價。',
+              'ZIMONAI 編輯部的判讀是，改革將更有利於能把同一產品身分，從供應商報價一路保存到商品頁、包裹申報及上市後處置的業者。部分商品仍可能適合中國直寄，另一些則可能改採歐盟集中進口與在地庫存；官方文件沒有替企業決定通路模式。真正該比較的是完整落地成本，加上資料、合規與退貨能力，而不是只看物流報價。'
+            ]
+          }
+        ],
+        checklist: [
+          '歐洲議會表決、最終簽署文本與《歐盟官方公報》刊登',
+          '執委會訂定處理費金額與徵收方式的委任法案',
+          '所採申報路徑自 11 月 1 日起要求的精確產品識別欄位',
+          '各電商通路指定的進口人或間接報關代表',
+          'SKU 層級的稅則號列、型號、歐盟合規檔案與電池運輸資料',
+          '中國逐件直寄與歐盟集中進口、庫存及退貨的總成本比較',
+          '平台在 2028 年資料中心階段前推出的上架或履約新要求'
+        ],
+        limitsText: '截至 2026 年 9 月 9 日，理事會已通過自身立場，歐洲議會最後表決、簽署與《歐盟官方公報》刊登仍待完成；執委會也尚未公布全歐盟處理費金額。暫行關稅、產品識別碼、處理費、平台義務與海關資料中心各有不同適用日期，後續法律文字與指引仍可能補充細節。改革針對整體跨境電商，不能用來證明某一款充電器、行動電源、中國供應商或平台已合規或違規。本文對通路與採購的影響分析來自 ZIMONAI｜智蒙灣科技編輯部，不是理事會、執委會、歐洲議會或 BEUC 的預測。'
+      },
       euCommonChargerRules: {
         topic: '歐盟通用充電器規則',
         published: '2026 年 9 月 8 日',
@@ -2993,7 +3162,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '十七篇核查笔记',
+      latest: '十八篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -3077,6 +3246,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      euCustomsReformEcommerceParcels: {
+        topic: '欧盟海关与跨境电商新闻',
+        published: '2026 年 9 月 9 日',
+        readTime: '约 7 分钟',
+        title: '欧盟海关改革获理事会放行：平台与低价小包裹将面对新的进口制度',
+        description: '欧盟理事会通过数十年来最大幅度的海关改革，将非欧盟电商平台推向进口责任方，并新增小包裹处理费；费率和最后立法程序仍待确认。',
+        imageAlt: '仓储人员在货架间检查包裹，用于说明欧盟跨境电商海关改革。',
+        imageCaption: '仓储包裹检查场景的编辑配图；并非欧盟海关查验、ZIMONAI 场所、客户货件、供应商设施，也不是任何特定平台的证据。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '接下来值得关注',
+          limits: '目前仍未定案'
+        },
+        answer: '欧盟理事会 9 月 3 日通过海关改革立场，准备把非欧盟电商平台纳入进口责任方，并对低价小包裹新增全欧盟处理费。这件事之所以重要，是因为中国直发欧盟的充电器和移动电源，其落地成本、产品标识信息与合规记录，将更直接地绑定销售渠道。不过改革尚未完成立法，欧洲议会仍需表决，随后还要签署并刊登官方公报，处理费金额也尚未公布。ZIMONAI 认为，真正的竞争将从追求最低单件寄送成本，转向比较哪种渠道能够稳定承接准确的 SKU、海关和产品安全数据。',
+        takeaways: [
+          '理事会 9 月 3 日通过的方案，将让向欧盟销售的非欧盟平台承担进口人的报关、税费和合规责任；欧洲议会最终表决与正式刊登仍属于后续程序。',
+          '新的处理费不同于 2026 年 7 月 1 日起已实施的低价远程销售货物每项 3 欧元临时关税。理事会公告发布时，欧盟委员会尚未公布处理费金额。',
+          '对中国直发的充电器和移动电源，型号层级的产品标识符、税则归类、欧盟产品资料与退货追溯能力，将逐渐成为渠道成本，而不是包裹被拦截后才补交的行政资料。'
+        ],
+        sections: [
+          {
+            title: '欧盟理事会 9 月 3 日究竟通过了什么？',
+            paragraphs: [
+              '理事会完成新《欧盟海关法典》和欧盟海关管理局方案的一读立场。整套改革包括集中式海关数据中心、跨国风险分析，以及面向高度透明企业的“Trust and Check”简化制度。按照理事会规划，新管理局将设在法国里尔并于 2027 年开始运作；电商企业预计从 2028 年 7 月 1 日起强制使用海关数据中心，其他贸易商则在更晚阶段纳入。',
+              '电商领域最重要的变化是责任归属。理事会公告指出，非欧盟平台把商品卖进欧盟时，将被视为进口人，而不是让最终消费者自行承担报关义务。反复违反海关和欧盟标准的经营者可能面对逐级加重的处罚；最严重情况包括最高相当于上一年度欧盟进口总值 6% 的罚款、失去海关优惠，甚至限制平台界面访问。'
+            ]
+          },
+          {
+            title: '哪些费用和数据要求已经生效，哪些还在推进？',
+            paragraphs: [
+              '三项制度很容易混淆。第一，从 2026 年 7 月 1 日起，价值不超过 150 欧元且符合条件的远程销售货物，已适用每项 3 欧元的临时关税；欧盟委员会说明，计算依据是包裹中的税则归类项目，而非简单按包裹数量计费。第二，产品标识符将从 11 月 1 日起强制申报，用于提升追溯和安全筛查。第三，本次改革另设全欧盟小包裹处理费，用来支付海关处理成本。',
+              '理事会表示，各成员国最迟将在 11 月 1 日开始征收处理费，但具体金额要由欧盟委员会另行确定。因此，在授权法案公布之前，任何把费率写成已经定案的报道或物流报价，都超出了现有证据。完整海关改革还要等待欧洲议会表决、签署与《欧盟官方公报》刊登；当前已经生效的措施与未来法典，需要按两条时间线理解。'
+            ],
+            items: [
+              '2026 年 7 月 1 日起已生效：符合条件的低价远程销售货物，每项临时关税 3 欧元。',
+              '2026 年 11 月 1 日起：按照欧盟委员会实施说明，产品标识符成为强制字段。',
+              '最迟 2026 年 11 月 1 日：另有全欧盟处理费，金额仍待欧盟委员会确定。',
+              '下一个立法节点：欧洲议会表决，之后才是签署与官方公报刊登。'
+            ]
+          },
+          {
+            title: '这会怎样影响中国直发的充电器和移动电源？',
+            paragraphs: [
+              '充电器或移动电源从中国逐件直发，本来就涉及税则号列、精确型号、欧盟经济运营者、符合性声明、电池运输资料、警示信息和召回追溯。当平台或其代表成为进口人，海关系统又要求结构化产品标识信息时，商品名称不一致、SKU 文件不完整，就会直接变成通关、执法与成本问题。这不代表平台成为制造商，却会提高平台接受无法追溯目录数据的代价。',
+              'ZIMONAI 编辑部的判断是，改革将更有利于能够把同一产品身份，从供应商报价一直保持到商品页面、包裹申报和上市后处置的经营者。部分商品仍可能适合中国直发，另一些则可能改为欧盟集中进口和本地库存；官方文件没有替企业决定渠道模式。真正应该比较的是完整落地成本，加上数据、合规和退货能力，而不只是物流报价。'
+            ]
+          }
+        ],
+        checklist: [
+          '欧洲议会表决、最终签署文本与《欧盟官方公报》刊登',
+          '欧盟委员会确定处理费金额和征收方式的授权法案',
+          '所用申报路径从 11 月 1 日起要求的精确产品标识字段',
+          '各电商渠道指定的进口人或间接报关代表',
+          'SKU 层级的税则号列、型号、欧盟合规档案和电池运输资料',
+          '中国逐件直发与欧盟集中进口、库存和退货的总成本比较',
+          '平台在 2028 年数据中心阶段前推出的上架或履约新要求'
+        ],
+        limitsText: '截至 2026 年 9 月 9 日，理事会已通过自身立场，欧洲议会最终表决、签署与《欧盟官方公报》刊登仍待完成；欧盟委员会也尚未公布全欧盟处理费金额。临时关税、产品标识符、处理费、平台义务和海关数据中心各有不同适用日期，后续法律文本与指南仍可能补充细节。改革针对整体跨境电商，不能用来证明某款充电器、移动电源、中国供应商或平台已经合规或违规。本文对渠道和采购的影响分析来自 ZIMONAI｜智蒙湾科技编辑部，并非理事会、欧盟委员会、欧洲议会或 BEUC 的预测。'
+      },
       euCommonChargerRules: {
         topic: '欧盟通用充电器规则',
         published: '2026 年 9 月 8 日',
