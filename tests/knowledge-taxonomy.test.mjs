@@ -317,10 +317,16 @@ test('every knowledge article has valid locale-independent filters and trilingua
   }
 });
 
-test('exactly one published article is the explicit Start here selection', () => {
+test('the explicit Start here selection was reviewed against the newest published article', () => {
   const featuredArticles = knowledgeArticleSpecs.filter(({ featured }) => featured);
+  const newestPublishedDate = knowledgeArticleSpecs.reduce(
+    (latest, article) => article.datePublished > latest ? article.datePublished : latest,
+    ''
+  );
 
   assert.equal(featuredArticles.length, 1);
+  assert.equal(featuredArticles[0].id, 'knowledge-apple-iphone-18-pro-vapor-chamber');
+  assert.equal(featuredArticles[0].featuredReviewedThrough, newestPublishedDate);
 });
 
 test('the seven published notes retain their evidence-led classifications', () => {
