@@ -71,17 +71,17 @@ export const knowledgeArticleSpecs = [
     datePublished: '2026-09-10',
     dateModified: '2026-09-10',
     image: '/assets/editorial-apple-iphone-18-pro-thermal.jpg',
-    imageWidth: 2000,
-    imageHeight: 1333,
+    imageWidth: 1312,
+    imageHeight: 738,
     imageCrop: {
-      card: '52% 48%',
-      article: '52% 48%',
-      mobile: '45% 49%'
+      card: '50% 50%',
+      article: '50% 50%',
+      mobile: '50% 50%'
     },
     photo: {
-      photographer: 'Howard Bouchevereau',
-      page: 'https://unsplash.com/photos/a-close-up-of-an-apple-phone-on-a-table-Cz7jeoBSRZ4',
-      license: 'https://unsplash.com/license'
+      photographer: 'Apple Newsroom',
+      page: 'https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/',
+      license: 'https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/'
     },
     sources: [
       {
@@ -1291,8 +1291,8 @@ export const knowledgeContent = {
         readTime: '7 minutes',
         title: 'iPhone 18 Pro makes cooling a headline feature—not hidden engineering',
         description: 'Apple paired the 2nm A20 Pro with a redesigned vapor chamber and is openly selling sustained performance. That puts thermal consistency, interfaces and assembly control in the spotlight.',
-        imageAlt: 'Close-up of an earlier-generation iPhone Pro camera and enclosure, used as an editorial photograph for iPhone 18 Pro thermal-design news.',
-        imageCaption: 'Editorial photograph of an iPhone 16 Pro, not iPhone 18 Pro. It is not a teardown, thermal test, ZIMONAI client unit, supplier sample or evidence about Apple’s component sources.',
+        imageAlt: 'Burgundy iPhone 18 Pro shown from the front and back in an official Apple Newsroom image.',
+        imageCaption: 'Official Apple Newsroom image of iPhone 18 Pro in burgundy. It is manufacturer-issued media material, not a teardown, thermal test, ZIMONAI client unit, supplier sample or evidence about Apple’s component sources.',
         labels: {
           summary: 'News summary',
           checklist: 'What to watch next',
@@ -2629,8 +2629,8 @@ export const knowledgeContent = {
         readTime: '約 7 分鐘',
         title: 'iPhone 18 Pro 把散熱搬上主舞台：均熱板不再只是藏在機身裡的零件',
         description: 'Apple 以 2 奈米 A20 Pro 搭配重新設計的均熱板，主打可持續性能；散熱一致性、介面與裝配管制也因此受到注目。',
-        imageAlt: '前一代 iPhone Pro 的相機與機身特寫，用於 iPhone 18 Pro 散熱設計新聞的編輯配圖。',
-        imageCaption: 'iPhone 16 Pro 的編輯用照片，並非 iPhone 18 Pro；也不是拆解、散熱測試、ZIMONAI 客戶機、供應商樣品或 Apple 零件來源證據。',
+        imageAlt: 'Apple Newsroom 官方圖片中的酒紅色 iPhone 18 Pro 正面與背面。',
+        imageCaption: 'Apple Newsroom 發布的酒紅色 iPhone 18 Pro 官方新聞素材；不是拆解、散熱測試、ZIMONAI 客戶機、供應商樣品，也不能證明 Apple 的零件來源。',
         labels: {
           summary: '新聞摘要',
           checklist: '接下來值得關注',
@@ -3967,8 +3967,8 @@ export const knowledgeContent = {
         readTime: '约 7 分钟',
         title: 'iPhone 18 Pro 把散热推上主舞台：均热板不再是隐藏参数',
         description: 'Apple 用 2 纳米 A20 Pro 搭配重新设计的均热板，公开强调持续性能；散热一致性、界面材料与装配控制随之成为焦点。',
-        imageAlt: '上一代 iPhone Pro 的相机与机身特写，用作 iPhone 18 Pro 散热设计新闻的编辑配图。',
-        imageCaption: 'iPhone 16 Pro 的编辑图片，并非 iPhone 18 Pro；也不是拆解、散热测试、ZIMONAI 客户设备、供应商样品或 Apple 零件来源证据。',
+        imageAlt: 'Apple Newsroom 官方图片中的酒红色 iPhone 18 Pro 正面与背面。',
+        imageCaption: 'Apple Newsroom 发布的酒红色 iPhone 18 Pro 官方新闻素材；不是拆解、散热测试、ZIMONAI 客户设备、供应商样品，也不能证明 Apple 的零件来源。',
         labels: {
           summary: '新闻摘要',
           checklist: '接下来值得关注',
