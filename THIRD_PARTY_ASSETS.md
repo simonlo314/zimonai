@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-09
+Last reviewed: 2026-09-10
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -22,6 +22,16 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | `src/assets/editorial-eu-common-charger-usb-c.jpg` | ready made | [USB-C Cable on White Surface](https://www.pexels.com/photo/usb-c-cable-on-white-surface-3921713/) | Knowledge article about separating current EU common-charger device requirements from the 2028 external-power-supply rules; editorial illustration only; downloaded and used 2026-09-08 |
 | `src/assets/editorial-eu-customs-parcel-inspection.jpg` | Tima Miroshnichenko | [Warehouse Worker Inspecting Shipment Packages](https://www.pexels.com/photo/a-man-inspecting-parcels-on-a-shelves-6170405/) | Current-affairs article about the EU customs reform and low-value e-commerce parcels; real editorial photograph, not an EU customs inspection, a ZIMONAI site, client shipment, supplier facility or evidence about any named platform; downloaded and used 2026-09-09 |
 | `src/assets/editorial-eu-battery-passport-power-bank.jpg` | Karola G | [Overhead Shot of a Cellphone Charging from a Power Bank](https://www.pexels.com/photo/overhead-shot-of-a-cellphone-charging-from-a-power-bank-5208772/) | Industry-knowledge article about EU battery-passport scope for ordinary power banks; real editorial photograph downloaded under the [Pexels licence](https://www.pexels.com/license/) and locally resized/compressed without generative editing; not a ZIMONAI product, client device, supplier sample, compliance file, battery passport or test record; downloaded and used 2026-09-10 |
+
+## Unsplash editorial photographs
+
+The following photographs were downloaded from their original Unsplash pages under the [Unsplash License](https://unsplash.com/license), which permits free commercial and non-commercial use and modification. Attribution is recorded on the article and here even though the license does not require it. None of these photographs was generated or extended with AI.
+
+| Local asset | Photographer | Source | Website use |
+| --- | --- | --- | --- |
+| `src/assets/editorial-apple-iphone-duo-news.jpg` | Artem Korolev | [Apple Store with large illuminated logo in Shanghai](https://unsplash.com/photos/apple-store-with-large-illuminated-logo-on-glass-building-V8wUMy-fDog) | Current-affairs article about Apple announcing iPhone Duo; real editorial photograph of an Apple Store, not an iPhone Duo product image, Apple production site, ZIMONAI client or supplier, or evidence about Apple manufacturing partners; downloaded and used 2026-09-10 |
+| `src/assets/editorial-apple-iphone-18-pro-thermal.jpg` | Howard Bouchevereau | [iPhone 16 Pro Natural Titanium](https://unsplash.com/photos/a-close-up-of-an-apple-phone-on-a-table-Cz7jeoBSRZ4) | Current-affairs article about iPhone 18 Pro thermal design; real editorial photograph of an iPhone 16 Pro, not an iPhone 18 Pro, teardown, thermal test, ZIMONAI client unit, supplier sample or evidence about Apple component sources; downloaded and used 2026-09-10 |
+| `src/assets/editorial-apple-airpods-5.jpg` | Alexandru Tabusca | [Apple AirPods product photograph](https://unsplash.com/photos/white-apple-airpods-on-brown-wooden-table-ZhToglVbSdY) | Current-affairs article about AirPods 5 and its wireless charging case; real editorial photograph of an earlier AirPods model, not AirPods 5, a ZIMONAI client product, supplier sample, charging test or evidence about Apple manufacturing partners; downloaded and used 2026-09-10 |
 
 ## Official press-kit assets
 

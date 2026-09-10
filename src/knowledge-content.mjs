@@ -8,6 +8,144 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-apple-iphone-duo-foldable-supply-chain',
+    key: 'appleIphoneDuoFoldableSupplyChain',
+    contentType: 'current-affairs',
+    slug: 'knowledge/apple-iphone-duo-foldable-supply-chain',
+    category: 'commercial-risk',
+    products: ['general'],
+    markets: ['global', 'international'],
+    keywords: {
+      en: ['Apple iPhone Duo', 'foldable iPhone 2026', 'iPhone Duo hinge', 'foldable phone supply chain', 'dual battery iPhone', 'iPhone Duo release date'],
+      'zh-tw': ['Apple iPhone Duo', '摺疊 iPhone 2026', 'iPhone Duo 轉軸', '摺疊手機供應鏈', '雙電池 iPhone', 'iPhone Duo 上市日期'],
+      'zh-cn': ['Apple iPhone Duo', '折叠 iPhone 2026', 'iPhone Duo 铰链', '折叠手机供应链', '双电池 iPhone', 'iPhone Duo 上市日期']
+    },
+    datePublished: '2026-09-10',
+    dateModified: '2026-09-10',
+    image: '/assets/editorial-apple-iphone-duo-news.jpg',
+    imageWidth: 2000,
+    imageHeight: 2667,
+    imageCrop: {
+      card: '50% 43%',
+      article: '50% 43%',
+      mobile: '50% 44%'
+    },
+    photo: {
+      photographer: 'Artem Korolev',
+      page: 'https://unsplash.com/photos/apple-store-with-large-illuminated-logo-on-glass-building-V8wUMy-fDog',
+      license: 'https://unsplash.com/license'
+    },
+    sources: [
+      {
+        publisher: 'Apple Newsroom',
+        title: 'Apple unveils iPhone Duo — 9 September 2026',
+        url: 'https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo/'
+      },
+      {
+        publisher: 'Associated Press',
+        title: 'Apple unveils its first foldable iPhone in bid to jumpstart sales',
+        url: 'https://apnews.com/article/apple-foldable-iphone-ternus-fd35312e6d894d5f3b055b3d62f22cd2'
+      },
+      {
+        publisher: 'Axios',
+        title: 'Apple debuts foldable iPhone Duo and iPhone 18 lineup',
+        url: 'https://www.axios.com/2026/09/09/apple-live-updates-foldable-iphone-duo-18'
+      }
+    ]
+  },
+  {
+    id: 'knowledge-apple-iphone-18-pro-vapor-chamber',
+    key: 'appleIphone18ProVaporChamber',
+    contentType: 'current-affairs',
+    slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
+    category: 'factory-onsite',
+    products: ['general'],
+    markets: ['global', 'international'],
+    keywords: {
+      en: ['iPhone 18 Pro vapor chamber', 'Apple A20 Pro 2nm', 'iPhone thermal design', 'smartphone vapor chamber supply chain', 'iPhone 18 Pro release date', 'Apple September 2026 event'],
+      'zh-tw': ['iPhone 18 Pro 均熱板', 'Apple A20 Pro 2 奈米', 'iPhone 散熱設計', '手機均熱板供應鏈', 'iPhone 18 Pro 上市日期', 'Apple 2026 秋季發表會'],
+      'zh-cn': ['iPhone 18 Pro 均热板', 'Apple A20 Pro 2 纳米', 'iPhone 散热设计', '手机均热板供应链', 'iPhone 18 Pro 上市日期', 'Apple 2026 秋季发布会']
+    },
+    datePublished: '2026-09-10',
+    dateModified: '2026-09-10',
+    image: '/assets/editorial-apple-iphone-18-pro-thermal.jpg',
+    imageWidth: 2000,
+    imageHeight: 1333,
+    imageCrop: {
+      card: '52% 48%',
+      article: '52% 48%',
+      mobile: '45% 49%'
+    },
+    photo: {
+      photographer: 'Howard Bouchevereau',
+      page: 'https://unsplash.com/photos/a-close-up-of-an-apple-phone-on-a-table-Cz7jeoBSRZ4',
+      license: 'https://unsplash.com/license'
+    },
+    sources: [
+      {
+        publisher: 'Apple Newsroom',
+        title: 'Apple debuts iPhone 18 Pro and iPhone 18 Pro Max — 9 September 2026',
+        url: 'https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/'
+      },
+      {
+        publisher: 'MacRumors',
+        title: 'iPhone 18 Pro features redesigned vapor chamber with three times the surface area',
+        url: 'https://www.macrumors.com/2026/09/09/iphone-18-pro-redesigned-vapor-chamber/'
+      },
+      {
+        publisher: 'Axios',
+        title: 'Apple debuts foldable iPhone Duo and iPhone 18 lineup',
+        url: 'https://www.axios.com/2026/09/09/apple-live-updates-foldable-iphone-duo-18'
+      }
+    ]
+  },
+  {
+    id: 'knowledge-apple-airpods-5-wireless-charging-case',
+    key: 'appleAirpods5WirelessChargingCase',
+    contentType: 'current-affairs',
+    slug: 'knowledge/apple-airpods-5-wireless-charging-case',
+    category: 'product-transport-documents',
+    products: ['general'],
+    markets: ['global', 'international'],
+    keywords: {
+      en: ['Apple AirPods 5', 'AirPods 5 wireless charging case', 'AirPods 5 price', 'AirPods 5 ANC battery life', 'Qi charging earbuds case', 'AirPods 5 release date'],
+      'zh-tw': ['Apple AirPods 5', 'AirPods 5 無線充電盒', 'AirPods 5 價格', 'AirPods 5 降噪續航', 'Qi 耳機充電盒', 'AirPods 5 上市日期'],
+      'zh-cn': ['Apple AirPods 5', 'AirPods 5 无线充电盒', 'AirPods 5 价格', 'AirPods 5 降噪续航', 'Qi 耳机充电盒', 'AirPods 5 上市日期']
+    },
+    datePublished: '2026-09-10',
+    dateModified: '2026-09-10',
+    image: '/assets/editorial-apple-airpods-5.jpg',
+    imageWidth: 2000,
+    imageHeight: 2500,
+    imageCrop: {
+      card: '51% 52%',
+      article: '51% 50%',
+      mobile: '51% 49%'
+    },
+    photo: {
+      photographer: 'Alexandru Tabusca',
+      page: 'https://unsplash.com/photos/white-apple-airpods-on-brown-wooden-table-ZhToglVbSdY',
+      license: 'https://unsplash.com/license'
+    },
+    sources: [
+      {
+        publisher: 'Apple Newsroom',
+        title: 'Apple introduces AirPods 5 with open-ear Active Noise Cancellation — 9 September 2026',
+        url: 'https://www.apple.com/newsroom/2026/09/apple-introduces-airpods-5-with-best-in-class-open-ear-active-noise-cancellation/'
+      },
+      {
+        publisher: 'The Independent',
+        title: 'AirPods 5 add stronger noise cancellation and a second charging-case option',
+        url: 'https://www.the-independent.com/tech/airpods-5-apple-noise-cancellation-new-feature-update-b3047610.html'
+      },
+      {
+        publisher: 'MacRumors',
+        title: 'AirPods 5 announced with improved ANC and two models',
+        url: 'https://www.macrumors.com/2026/09/09/airpods-5-announced-improved-anc/'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-battery-passport-power-bank',
     key: 'euBatteryPassportPowerBank',
     contentType: 'industry-knowledge',
@@ -1003,7 +1141,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Nineteen field notes',
+      latest: 'Twenty-two field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -1087,6 +1225,183 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      appleIphoneDuoFoldableSupplyChain: {
+        topic: 'Apple product and supply-chain news',
+        published: '10 September 2026',
+        readTime: '7 minutes',
+        title: 'Apple enters foldables with iPhone Duo: the hinge is only the beginning',
+        description: 'Apple’s first foldable iPhone combines two displays, a precision hinge, dual batteries and vapor-chamber cooling. The launch turns foldable-phone execution into a mainstream manufacturing story.',
+        imageAlt: 'Apple Store in Shanghai with a large illuminated Apple logo, used as an editorial photograph for the iPhone Duo announcement.',
+        imageCaption: 'Editorial photograph of an Apple Store in Shanghai. It is not an iPhone Duo product image, an Apple production site, a ZIMONAI client or supplier, or evidence about Apple’s manufacturing partners.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What to watch next',
+          limits: 'What remains unknown'
+        },
+        answer: 'Apple unveiled iPhone Duo on 9 September, making its first foldable iPhone a premium $1,999 product. It combines a 7.6-inch inner display, 5.4-inch outer display, precision hinge, two batteries and vapor-chamber cooling; pre-orders begin 16 October and availability starts 23 October. The bigger story is not the fold alone. The launch raises the industry benchmark for making several difficult subsystems behave as one polished product. ZIMONAI’s editorial view: supply-chain performance will be judged through hinge feel, flexible-display protection, structural consistency, heat flow and battery matching across production—not one headline specification.',
+        takeaways: [
+          'Apple officially describes iPhone Duo as its first foldable iPhone, with a 7.6-inch inner screen, 5.4-inch outer screen and more than 100 parts in the hinge assembly.',
+          'The internal architecture adds two batteries and a custom vapor chamber around the A20 Pro, showing that the foldable challenge extends beyond the display and hinge.',
+          'Apple has confirmed U.S. pricing and launch dates, but has not published component suppliers, production yield, service-life targets for the hinge or shipment volume.'
+        ],
+        sections: [
+          {
+            title: 'What exactly did Apple announce?',
+            paragraphs: [
+              'Apple introduced iPhone Duo on 9 September as the first foldable model in the iPhone family. When open, it uses a 7.6-inch inner Super Retina XDR display; when closed, a 5.4-inch outer display provides what Apple says is 90 percent of the screen area of iPhone 18 Pro. Both panels use the same aspect ratio so content can move between them without a major change in shape. Apple says the inner surface uses a nano-texture finish intended to reduce glare and make the crease less visible.',
+              'The hardware is built around a precision hinge that supports the display when flat and closes with an integrated magnet array. Apple says the hinge contains more than 100 components, while the enclosure uses grade 5 titanium and internal ribs for stiffness. iPhone Duo starts at $1,999 in the United States, with pre-orders on 16 October and first availability on 23 October in more than 70 countries and regions.'
+            ]
+          },
+          {
+            title: 'Why is this more than a foldable-display story?',
+            paragraphs: [
+              'A folding product makes several tolerances interact. The hinge must control motion and support the panel; the cover layers and adhesives must survive bending; the frame has to resist twisting; and dust, water and repeated handling still affect the finished device. Apple says custom adhesives let the display layers move past one another to relieve bend stress, and that the phone carries an IP68 rating. Those are product claims from Apple, not public proof of long-term field performance.',
+              'Space is also divided differently from a conventional phone. Apple placed one battery on each side and combined the A20 Pro with a custom vapor chamber. For manufacturers and component teams, that means display, hinge, battery, thermal interface, antennas and enclosure cannot be qualified only as isolated parts. ZIMONAI’s interpretation is that assembly variation and subsystem interaction will matter as much as the headline material or component specification.'
+            ],
+            items: [
+              'Hinge torque and alignment across the opening range',
+              'Flexible-display layers, crease control and adhesive consistency',
+              'Two-battery matching, protection logic and thermal balance',
+              'Frame stiffness, sealing and antenna integration',
+              'Final-unit inspection after repeated folding and temperature cycling'
+            ]
+          },
+          {
+            title: 'What could iPhone Duo change across the supply chain?',
+            paragraphs: [
+              'Apple’s entry gives foldable components a larger reference point, but it does not automatically reveal who will win supply contracts. A component that works in a development sample still has to meet cosmetic, dimensional, reliability and delivery requirements at production scale. The practical signal is that foldable-phone sourcing is becoming a systems-integration discipline rather than a search for one novel hinge or panel.',
+              'For overseas buyers of their own foldable or hinged products, the useful lesson is to request evidence by failure mode: hinge-cycle data with the tested configuration, display and adhesive lot traceability, battery-pair controls, thermal maps, ingress-test conditions and final inspection records. Copying iPhone Duo’s marketing vocabulary does not establish comparable durability. What matters is whether the quoted model, verified sample and production process remain the same.'
+            ]
+          }
+        ],
+        checklist: [
+          'Independent teardowns confirming the internal architecture after retail release',
+          'Apple support and repair information for the inner display, hinge and batteries',
+          'Any official durability test methods or cycle figures Apple later publishes',
+          'Early field reports separated from isolated damage or pre-production demonstrations',
+          'Supplier filings or disclosures rather than unnamed supply-chain rumours',
+          'How competing foldable brands change pricing, warranties and component requirements'
+        ],
+        limitsText: 'Apple has confirmed the product design, selected performance claims, pricing and launch schedule. It has not identified the hinge, panel, battery or vapor-chamber suppliers; disclosed production yield, unit volume or full validation methods; or published a hinge-life guarantee. Associated Press and Axios provide independent reporting on the launch, but they do not prove component provenance or factory performance. The manufacturing implications in this article are ZIMONAI editorial analysis, not Apple statements and not evidence that a particular supplier participates in iPhone Duo production.'
+      },
+      appleIphone18ProVaporChamber: {
+        topic: 'Apple hardware and manufacturing news',
+        published: '10 September 2026',
+        readTime: '7 minutes',
+        title: 'iPhone 18 Pro makes cooling a headline feature—not hidden engineering',
+        description: 'Apple paired the 2nm A20 Pro with a redesigned vapor chamber and is openly selling sustained performance. That puts thermal consistency, interfaces and assembly control in the spotlight.',
+        imageAlt: 'Close-up of an earlier-generation iPhone Pro camera and enclosure, used as an editorial photograph for iPhone 18 Pro thermal-design news.',
+        imageCaption: 'Editorial photograph of an iPhone 16 Pro, not iPhone 18 Pro. It is not a teardown, thermal test, ZIMONAI client unit, supplier sample or evidence about Apple’s component sources.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What to watch next',
+          limits: 'What remains unknown'
+        },
+        answer: 'Apple’s iPhone 18 Pro launch puts thermal engineering at the centre of the product story. The new A20 Pro uses a 2-nanometer process and an M-series-inspired package connected to a larger vapor chamber. Apple claims up to 40 percent better sustained performance than the previous generation; pre-orders begin 12 September and sales start 18 September. This matters because smartphone performance is moving beyond a brief benchmark peak toward what a device can maintain. ZIMONAI’s editorial view: vapor-chamber flatness, fluid control, interface pressure and final assembly are becoming visible manufacturing-quality issues as AI, gaming and camera workloads rise.',
+        takeaways: [
+          'Apple says A20 Pro is built on 2nm process technology and connects directly to a new vapor chamber through a redesigned chip package.',
+          'The official claim is up to 40 percent better sustained performance than the previous generation; the figure is Apple’s comparison, not an independent universal result.',
+          'The design turns cooling into a production-control story involving the chamber, thermal interfaces, enclosure contact and software workload—not a single supplier part.'
+        ],
+        sections: [
+          {
+            title: 'What changed inside iPhone 18 Pro?',
+            paragraphs: [
+              'Apple announced iPhone 18 Pro and Pro Max on 9 September. The A20 Pro uses the company’s latest 2nm process and a package that places major elements side by side, an approach Apple says was inspired by M-series silicon. That package connects the chip directly to a new vapor chamber to move heat away from concentrated workloads.',
+              'Apple is unusually direct about the performance objective: up to 40 percent higher sustained performance than the previous generation. MacRumors reports that the chamber has three times the surface area of the prior design and contains deionized water. The larger chamber is important because sustained cooling depends on how efficiently heat reaches, spreads through and leaves the chamber—not simply whether a phone contains one.'
+            ]
+          },
+          {
+            title: 'Why does a larger vapor chamber raise manufacturing demands?',
+            paragraphs: [
+              'A vapor chamber is a sealed, thin two-phase heat spreader. Heat evaporates internal fluid near the source; vapour moves across the chamber, condenses in cooler regions and returns through a wick structure. In a phone, a chamber must remain thin and flat while surviving handling, assembly pressure and temperature changes. Small variations in fill quantity, sealing, internal cleanliness or surface contact can change performance even when the drawing looks identical.',
+              'The larger contact area also increases dependence on surrounding parts. Gap materials, frame flatness, fastener sequence and enclosure tolerance can determine whether heat actually reaches the designed path. ZIMONAI’s practical reading is that buyers evaluating similar cooling claims should ask for production-distribution data and test-fixture details, not just a golden-sample thermal image or a component datasheet.'
+            ],
+            items: [
+              'Vapor-chamber dimensions, thickness and flatness tolerance',
+              'Working-fluid, wick and sealing process controls',
+              'Leak, pressure and thermal-resistance test methods',
+              'Interface material thickness and compression window',
+              'Finished-device temperature and throttling results across production lots'
+            ]
+          },
+          {
+            title: 'What does Apple’s claim mean for the wider phone market?',
+            paragraphs: [
+              'By promoting sustained performance, Apple shifts attention from a short peak score to what a device can maintain during gaming, video, AI and camera workloads. Competitors and component vendors are likely to answer with their own cooling claims, but comparable language does not guarantee comparable test conditions. Ambient temperature, workload duration, screen brightness, software version and case configuration can materially alter a result.',
+              'For brands and sourcing teams, the commercial opportunity is real: cooling can support performance, comfort and battery behaviour. The risk is turning one supplier’s chamber specification into a finished-product promise. A defensible claim needs a defined device configuration, repeatable method, sample count and acceptance range. That distinction will become more important if thermal performance moves onto packaging and launch slides.'
+            ]
+          }
+        ],
+        checklist: [
+          'Independent sustained-performance tests after retail units ship',
+          'Test temperature, workload duration, software version and device configuration',
+          'Teardowns confirming chamber size, placement and interface construction',
+          'Whether Apple publishes additional detail behind the 40 percent comparison',
+          'Early reports of heat, throttling or battery behaviour assessed across more than one unit',
+          'How competing brands define and substantiate their own cooling claims'
+        ],
+        limitsText: 'Apple has confirmed the A20 Pro process, package concept, vapor chamber and its own sustained-performance claim. The company has not published the vapor-chamber supplier, complete dimensions, fluid quantity, production tolerances, validation sample size or yield. MacRumors adds design detail but is not a substitute for Apple engineering records or independent multi-unit testing. The supplier-control and test implications above are ZIMONAI editorial analysis; they do not show that iPhone 18 Pro has a defect or that any named factory makes the component.'
+      },
+      appleAirpods5WirelessChargingCase: {
+        topic: 'Apple audio and charging news',
+        published: '10 September 2026',
+        readTime: '6 minutes',
+        title: 'AirPods 5 splits into two models—and the charging case now defines the upgrade',
+        description: 'Apple launched two AirPods 5 versions at $129 and $149. The more expensive model adds a wireless charging case, longer battery life and swipe volume control, making variant accuracy part of the product story.',
+        imageAlt: 'Earlier-generation Apple AirPods and charging case on a wooden table, used as an editorial photograph for AirPods 5 charging-case news.',
+        imageCaption: 'Editorial photograph of an earlier AirPods model, not AirPods 5. It is not a ZIMONAI client device, supplier sample, charging test or evidence about Apple’s manufacturing partners.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What to watch next',
+          limits: 'What remains unknown'
+        },
+        answer: 'AirPods 5 arrives as two products: a $129 model and a $149 version with a Wireless Charging Case. Both add the H3 chip and open-ear Active Noise Cancellation; the higher-priced version also brings longer battery life and swipe volume control. Its case supports Apple Watch chargers, Qi-compatible chargers and USB-C, with availability from 18 September. The bigger story is commercial as much as technical: one small accessory now defines the product tier. For buyers and the wider accessories supply chain, model names, packaging, battery claims, charging compatibility and test records must stay aligned from factory file to retail page.',
+        takeaways: [
+          'Apple has created two AirPods 5 SKUs at $129 and $149, with the Wireless Charging Case version carrying the extra charging, control and battery-life features.',
+          'Apple claims up to five hours of listening with Active Noise Cancellation and up to 22 hours with the wireless case; these are Apple test results under stated conditions.',
+          'For the wider accessories market, the launch shows how charging-case architecture can define a product tier and create costly listing or packaging errors when variants look similar.'
+        ],
+        sections: [
+          {
+            title: 'What is different between the two AirPods 5 models?',
+            paragraphs: [
+              'Apple announced AirPods 5 on 9 September with a redesigned open-ear fit, H3 chip and Active Noise Cancellation across both versions. The standard model costs $129 in the United States. The $149 AirPods 5 with Wireless Charging Case adds swipe volume control on the stem and the upgraded case, while Apple also describes longer battery life for that configuration.',
+              'Apple says the wireless case works with Apple Watch chargers, Qi-compatible chargers and USB-C cables. For the wireless-case model, the company states up to five hours of listening with Active Noise Cancellation enabled and up to 22 hours when the case is included. Availability begins 18 September. The Independent and MacRumors independently reported the two-model structure and the added case features.'
+            ]
+          },
+          {
+            title: 'Why does the charging case matter beyond convenience?',
+            paragraphs: [
+              'A charging case is part of the electrical product system. It contains its own battery, charging input, power management, contacts, enclosure and firmware behaviour. Adding Qi and Apple Watch charger compatibility changes coil alignment, heat management and interoperability expectations. It also changes how the full product should be described, packed and tested.',
+              'ZIMONAI’s editorial view is that the $20 price step makes variant control unusually visible. If a carton, online listing, manual or inspection record drops the words “Wireless Charging Case,” a buyer could receive a legitimate AirPods 5 product that is still the wrong commercial SKU. The same risk applies to look-alike earbuds projects: accessory differences need their own bill of materials, label artwork and final-function checks.'
+            ],
+            items: [
+              'Complete earbud and case model identifiers',
+              'USB-C, Qi and watch-charger compatibility by exact SKU',
+              'Earbud and case battery specifications',
+              'Packaging statements and included-cable contents',
+              'Final charging, pairing and control-function inspection'
+            ]
+          },
+          {
+            title: 'What should readers make of the noise-cancellation and battery claims?',
+            paragraphs: [
+              'Apple says AirPods 5 delivers up to 50 percent more external-noise reduction than AirPods 4 with Active Noise Cancellation. Its footnote describes testing against IEC 60268-24 using specified AirPods hardware and prerelease software. That is a defined comparative claim, not a promise that every listener will perceive exactly the same improvement in every environment.',
+              'Battery figures are also configuration-dependent. Listening mode, volume, calls, spatial features, battery age and wireless-charging conditions can change real-world results. The useful reading is that Apple is combining a performance story with a more clearly tiered accessory system. Retail testing and user reviews after 18 September will show how the two versions differ in ordinary use.'
+            ]
+          }
+        ],
+        checklist: [
+          'Retail model numbers and package wording for both AirPods 5 versions',
+          'Independent battery tests with Active Noise Cancellation on and off',
+          'Qi and Apple Watch charger interoperability across common charger designs',
+          'Charging temperature, alignment and behaviour with protective cases',
+          'Whether buyers confuse the two SKUs in listings or fulfilment',
+          'Repair, battery-service and replacement-case information after launch'
+        ],
+        limitsText: 'Apple has confirmed the two configurations, U.S. prices, charging methods, availability date and its own battery and noise-reduction claims. It has not published component suppliers, battery-cell sources, complete case electrical specifications, manufacturing yield or independent field results. The editorial photograph shows an earlier AirPods generation and must not be used to identify the new model. The variant-control and supply-chain implications above are ZIMONAI editorial analysis, not claims made by Apple, The Independent or MacRumors.'
+      },
       euBatteryPassportPowerBank: {
         topic: 'EU battery documents',
         published: '10 September 2026',
@@ -2164,7 +2479,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '十九篇查核筆記',
+      latest: '二十二篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -2248,6 +2563,183 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      appleIphoneDuoFoldableSupplyChain: {
+        topic: 'Apple 新品與供應鏈時事',
+        published: '2026 年 9 月 10 日',
+        readTime: '約 7 分鐘',
+        title: 'Apple 首款摺疊機 iPhone Duo 登場：真正的考驗不只是一支轉軸',
+        description: 'iPhone Duo 把雙螢幕、精密轉軸、雙電池與均熱板放進同一支手機，也讓摺疊機的量產品質成為主流製造議題。',
+        imageAlt: '上海 Apple Store 與大型 Apple 標誌，用於 iPhone Duo 發表新聞的編輯配圖。',
+        imageCaption: '上海 Apple Store 的編輯用照片；不是 iPhone Duo 產品照、Apple 生產據點、ZIMONAI 客戶或供應商，也不能證明 Apple 的製造夥伴。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '接下來值得關注',
+          limits: '仍待確認'
+        },
+        answer: 'Apple 於 9 月 9 日發表首款摺疊 iPhone「iPhone Duo」，美國售價 1,999 美元起，10 月 16 日預購、10 月 23 日上市。它展開後是 7.6 吋內螢幕，闔起後使用 5.4 吋外螢幕，機身同時整合精密轉軸、雙電池與均熱板。更值得注意的是，Apple 把轉軸手感、柔性面板、結構強度、熱流與電池匹配一起推成供應鏈的量產門檻。ZIMONAI｜智蒙灣科技編輯部認為，iPhone Duo 會成為摺疊機能否從新奇規格走向成熟量產品質的一次大型檢驗。',
+        takeaways: [
+          'Apple 正式確認 iPhone Duo 是旗下第一款摺疊 iPhone，內螢幕 7.6 吋、外螢幕 5.4 吋，轉軸由超過 100 個零件構成。',
+          '內部採用左右雙電池與客製化均熱板，顯示摺疊機的難題早已超出面板與轉軸本身。',
+          '售價與上市時程已公布，但零組件供應商、量產良率、轉軸壽命目標與首批出貨量仍未公開。'
+        ],
+        sections: [
+          {
+            title: 'Apple 這次到底發表了什麼？',
+            paragraphs: [
+              'iPhone Duo 展開後使用 7.6 吋 Super Retina XDR 內螢幕，闔起後則使用 5.4 吋外螢幕。Apple 表示，兩塊面板採相同比例，畫面能在開闔之間自然切換；內螢幕另有奈米紋理表面，用來降低反光並淡化摺痕的視覺存在感。',
+              '機身以精密轉軸支撐展開後的面板，並搭配磁鐵完成闔蓋。Apple 說轉軸含有超過 100 個零件，機框使用 Grade 5 鈦金屬與內部補強肋。美國售價 1,999 美元起，首波超過 70 個國家與地區將於 10 月 16 日預購、10 月 23 日上市。'
+            ]
+          },
+          {
+            title: '為什麼它不只是「一塊會摺的螢幕」？',
+            paragraphs: [
+              '摺疊機會讓多種公差彼此牽動：轉軸要控制阻尼並撐平面板，蓋板、膠材與面板層要承受反覆彎折，機框還要同時面對扭轉、落摔與防水防塵。Apple 表示，內螢幕以客製膠材讓不同層之間相對滑動，並宣稱整機具備 IP68；這些是 Apple 公開的產品聲明，還不能等同長期實際使用結果。',
+              'iPhone Duo 的內部空間也被重新分配。左右兩側各放置一顆電池，A20 Pro 則連接客製化均熱板。ZIMONAI 的判讀是：面板、轉軸、電池、散熱介面、天線與外殼不能只分開驗證，裝配後的交互影響與批次差異，才會決定使用者拿到的每一支手機是否一致。'
+            ],
+            items: [
+              '開闔全行程的轉軸扭力與對位',
+              '柔性面板、蓋板與膠材的批次一致性',
+              '雙電池匹配、保護邏輯與熱平衡',
+              '機框剛性、防護結構與天線整合',
+              '反覆彎折與溫度循環後的成品檢驗'
+            ]
+          },
+          {
+            title: 'iPhone Duo 可能怎麼改變摺疊機供應鏈？',
+            paragraphs: [
+              'Apple 進場會替摺疊零組件帶來更大的市場參考，但不代表某家面板、轉軸或電池廠已經取得訂單。能在開發樣品上運作的零件，仍要跨過外觀、公差、可靠度、良率與交期等量產門檻。真正的訊號是：摺疊機採購已從尋找單一創新零件，轉向整機系統整合能力的競賽。',
+              '海外買家若正在開發摺疊或帶轉軸的產品，應依失效模式索取資料，包括測試配置明確的開闔壽命、面板與膠材批次追溯、雙電池管制、熱分布、防護測試條件及成品檢驗紀錄。使用與 iPhone Duo 相似的行銷文字，不能證明產品具有同等耐用度；報價型號、送審樣品與量產流程能否保持一致，才是可查證的重點。'
+            ]
+          }
+        ],
+        checklist: [
+          '零售版上市後的獨立拆解與內部配置確認',
+          'Apple 對內螢幕、轉軸與雙電池公布的維修資訊',
+          'Apple 是否進一步公開耐用測試方法或開闔次數',
+          '首批實際使用回報，並排除單一損壞與展示機案例',
+          '具名供應商的正式申報或公告，而非匿名供應鏈傳聞',
+          '其他摺疊品牌後續的價格、保固與零件要求變化'
+        ],
+        limitsText: 'Apple 已確認產品架構、部分性能聲明、價格與上市時程，但尚未公布轉軸、面板、電池或均熱板供應商，也沒有揭露量產良率、出貨量、完整驗證方法或轉軸壽命保證。美聯社與 Axios 提供獨立新聞報導，仍不能證明零件來源或工廠表現。本文對製造與供應鏈的影響分析來自 ZIMONAI｜智蒙灣科技編輯部，不是 Apple 的結論，也不能證明任何特定供應商參與 iPhone Duo 生產。'
+      },
+      appleIphone18ProVaporChamber: {
+        topic: 'Apple 硬體與製造時事',
+        published: '2026 年 9 月 10 日',
+        readTime: '約 7 分鐘',
+        title: 'iPhone 18 Pro 把散熱搬上主舞台：均熱板不再只是藏在機身裡的零件',
+        description: 'Apple 以 2 奈米 A20 Pro 搭配重新設計的均熱板，主打可持續性能；散熱一致性、介面與裝配管制也因此受到注目。',
+        imageAlt: '前一代 iPhone Pro 的相機與機身特寫，用於 iPhone 18 Pro 散熱設計新聞的編輯配圖。',
+        imageCaption: 'iPhone 16 Pro 的編輯用照片，並非 iPhone 18 Pro；也不是拆解、散熱測試、ZIMONAI 客戶機、供應商樣品或 Apple 零件來源證據。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '接下來值得關注',
+          limits: '仍待確認'
+        },
+        answer: 'Apple 在 iPhone 18 Pro 發表會上，罕見地把散熱工程放到新品敘事中心。新的 A20 Pro 採 2 奈米製程，晶片封裝概念來自 M 系列晶片，並直接連接面積更大的均熱板。Apple 宣稱，持續性能最高可比前一代提升 40%；9 月 12 日開放預購，9 月 18 日上市。這代表手機效能的競爭，已從短時間跑出多高的峰值，走向高負載能維持多久。ZIMONAI｜智蒙灣科技編輯部認為，均熱板平整度、內部工質、熱介面壓合與整機裝配的一致性，今後會從看不見的零件細節，變成消費者能直接感受到的產品品質。',
+        takeaways: [
+          'Apple 表示 A20 Pro 使用 2 奈米製程，並透過重新設計的晶片封裝直接連接新一代均熱板。',
+          '最高 40% 的持續性能提升屬於 Apple 在特定比較基準下的官方聲明，不是所有環境都會得到相同結果。',
+          '更大的均熱板會把熱介面、機框接觸、組裝壓力與軟體負載一起帶進量產管制，而不是只換掉一個散熱零件。'
+        ],
+        sections: [
+          {
+            title: 'iPhone 18 Pro 的內部設計改了什麼？',
+            paragraphs: [
+              'Apple 於 9 月 9 日發表 iPhone 18 Pro 與 Pro Max。A20 Pro 採用最新 2 奈米製程，新的封裝方式將主要元件並排配置，再直接連上均熱板，把高負載產生的熱更快帶離晶片集中區域。',
+              'Apple 宣稱持續性能最高較前一代提升 40%。MacRumors 報導，新均熱板的表面積是前一代的三倍，內部使用去離子水。面積變大之所以重要，是因為持續散熱取決於熱能如何進入均熱板、在其中擴散，再傳到機身其他區域，而不是手機裡「有裝均熱板」就算完成。'
+            ]
+          },
+          {
+            title: '均熱板變大，為什麼量產反而更難？',
+            paragraphs: [
+              '均熱板是密封的薄型兩相散熱元件。熱端讓內部液體蒸發，蒸氣移向低溫區凝結，再透過毛細結構回流。在手機有限厚度裡，它必須保持平整，還要承受搬運、壓合與溫度變化。充液量、密封、潔淨度或表面接觸的微小差異，都可能讓圖面相同的零件出現不同結果。',
+              '接觸面變大，也會更依賴周邊結構。導熱介面材料厚度、機框平整度、鎖付順序與外殼公差，都會影響熱是否真的走上設計路徑。ZIMONAI 的實務判讀是，類似產品若要宣稱高負載穩定散熱，應提供量產分布、測試治具與整機條件，而不是只看一張黃金樣品熱像圖。'
+            ],
+            items: [
+              '均熱板長寬、厚度與平整度公差',
+              '工質、毛細結構與封口製程管制',
+              '氣密、耐壓與熱阻測試方法',
+              '導熱介面材料的厚度與壓縮範圍',
+              '跨批次整機溫度與降頻結果'
+            ]
+          },
+          {
+            title: 'Apple 的說法會怎麼影響其他手機品牌？',
+            paragraphs: [
+              'Apple 公開主打持續性能，會把市場注意力從短時間峰值跑分，帶向遊戲、錄影、AI 與相機工作負載下能維持多久。其他品牌與散熱零件廠很可能提出相似主張，但相似用語不代表測試可直接比較；環境溫度、負載時間、螢幕亮度、軟體版本與保護殼，都會影響結果。',
+              '對品牌與採購團隊而言，散熱可以支撐效能、握持舒適度與電池表現，卻不能把單一供應商的均熱板規格直接寫成整機承諾。能被驗證的主張，需要明確裝置配置、可重複方法、樣本數與允收範圍；當散熱開始出現在包裝與發表會上，這條證據界線會更重要。'
+            ]
+          }
+        ],
+        checklist: [
+          '零售版上市後的獨立持續性能測試',
+          '測試環境溫度、負載時間、軟體版本與機身配置',
+          '拆解確認均熱板尺寸、位置與熱介面結構',
+          'Apple 是否補充最高 40% 比較的詳細條件',
+          '多台實機的發熱、降頻與電池表現，而非單一案例',
+          '競爭品牌如何定義並證明自己的散熱聲明'
+        ],
+        limitsText: 'Apple 已確認 A20 Pro 製程、封裝概念、均熱板與自家持續性能聲明，但沒有公布均熱板供應商、完整尺寸、充液量、量產公差、驗證樣本數或良率。MacRumors 補充了設計細節，仍不能取代 Apple 工程紀錄或多台實機測試。本文的供應商管制與測試判讀來自 ZIMONAI｜智蒙灣科技編輯部，不代表 iPhone 18 Pro 存在瑕疵，也不能證明任何具名工廠生產該零件。'
+      },
+      appleAirpods5WirelessChargingCase: {
+        topic: 'Apple 音訊與充電時事',
+        published: '2026 年 9 月 10 日',
+        readTime: '約 6 分鐘',
+        title: 'AirPods 5 一次推出兩個版本：這回差異藏在充電盒裡',
+        description: 'Apple 以 129 與 149 美元推出兩款 AirPods 5；高階版加入無線充電盒、更長續航與滑動音量控制，充電盒成為產品分級關鍵。',
+        imageAlt: '前一代 Apple AirPods 與充電盒放在木桌上，用於 AirPods 5 充電盒新聞的編輯配圖。',
+        imageCaption: '前一代 AirPods 的編輯用照片，並非 AirPods 5；也不是 ZIMONAI 客戶產品、供應商樣品、充電測試或 Apple 製造夥伴證據。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '接下來值得關注',
+          limits: '仍待確認'
+        },
+        answer: 'AirPods 5 這次分成外觀接近、功能不同的兩個版本：美國售價 129 美元的標準版，以及 149 美元的 Wireless Charging Case 版。兩者都有 H3 晶片與開放式主動降噪，高階版再加入更長續航、滑動音量控制，以及可用 Apple Watch 充電器、Qi 相容充電器或 USB-C 充電的盒子，9 月 18 日上市。更值得注意的是，小小充電盒已成為產品分級核心；對買家與配件供應鏈來說，型號、包裝、續航、充電方式與測試紀錄只要錯位一項，就可能交付正版卻錯誤的版本。',
+        takeaways: [
+          'Apple 以 129 與 149 美元推出兩款 AirPods 5，Wireless Charging Case 版承擔額外的充電、控制與續航功能。',
+          'Apple 宣稱開啟主動降噪時單次最長 5 小時，搭配無線充電盒最長 22 小時；這些是依其測試條件得出的官方數據。',
+          '對配件產業而言，這場發表顯示充電盒架構已足以定義產品級距，也會放大相似版本在上架、包裝與出貨時的混料風險。'
+        ],
+        sections: [
+          {
+            title: '兩款 AirPods 5 到底差在哪裡？',
+            paragraphs: [
+              'Apple 於 9 月 9 日發表 AirPods 5，兩個版本都採用新的開放式配戴設計、H3 晶片與主動降噪。標準版美國售價 129 美元；149 美元的 Wireless Charging Case 版另有耳機柄滑動音量控制、升級充電盒，以及 Apple 所稱更長的電池續航。',
+              '無線充電盒支援 Apple Watch 充電器、Qi 相容充電器與 USB-C。Apple 表示，開啟主動降噪時單次最長可聆聽 5 小時，搭配充電盒則最長 22 小時。兩款產品將於 9 月 18 日上市；The Independent 與 MacRumors 也分別報導了雙版本安排與充電盒差異。'
+            ]
+          },
+          {
+            title: '充電盒為什麼不只是「比較方便」？',
+            paragraphs: [
+              '充電盒本身就是一套電氣系統，包含電池、充電輸入、電源管理、接點、外殼與韌體行為。加入 Qi 與 Apple Watch 充電器相容性後，線圈對位、溫升與互通性都成為產品要求；同時也會改變包裝、說明書、法規資料與出貨測試。',
+              'ZIMONAI 的判讀是，20 美元價差把版本管制變得格外明顯。紙箱、商品頁、說明書或驗貨紀錄只要漏掉「Wireless Charging Case」，買家收到的可能仍是正版 AirPods 5，卻不是下單版本。其他相似耳機專案也一樣：配件差異必須有獨立 BOM、標籤稿與最終功能檢驗。'
+            ],
+            items: [
+              '耳機與充電盒的完整型號識別',
+              '各版本的 USB-C、Qi 與手錶充電器相容性',
+              '耳機與盒內電池規格',
+              '包裝標示與內附線材',
+              '出貨前的充電、配對與控制功能檢驗'
+            ]
+          },
+          {
+            title: '降噪與續航數字應該怎麼看？',
+            paragraphs: [
+              'Apple 宣稱 AirPods 5 的外部噪音降低效果，比 AirPods 4 主動降噪版最高提升 50%；註腳說明，測試使用指定 AirPods 硬體、預發行軟體，並參考 IEC 60268-24。這是一項有比較對象與測試框架的官方聲明，不代表每位使用者在所有環境都會感受到完全相同的差距。',
+              '續航同樣取決於使用條件。聆聽模式、音量、通話、空間音訊、電池老化與無線充電環境，都可能改變實際結果。現在可以確定的是，Apple 把性能故事與更清楚的配件分級綁在一起；9 月 18 日之後的零售測試與使用者回報，才會讓兩個版本的日常差異更完整。'
+            ]
+          }
+        ],
+        checklist: [
+          '兩款 AirPods 5 的零售型號與包裝用語',
+          '主動降噪開啟與關閉時的獨立續航測試',
+          '常見 Qi 與 Apple Watch 充電器的互通性',
+          '搭配保護殼時的對位、溫升與充電表現',
+          '電商上架與倉儲出貨是否混淆兩個版本',
+          '上市後的維修、電池服務與替換充電盒資訊'
+        ],
+        limitsText: 'Apple 已確認兩種配置、美國售價、充電方式、上市日期，以及自家續航與降噪聲明，但沒有公布零組件供應商、電芯來源、完整充電盒電氣規格、量產良率或獨立實測結果。本文配圖為前一代 AirPods，不能用來辨識新品。本文對版本管制與供應鏈的分析來自 ZIMONAI｜智蒙灣科技編輯部，不是 Apple、The Independent 或 MacRumors 的結論。'
+      },
       euBatteryPassportPowerBank: {
         topic: '歐盟電池文件',
         published: '2026 年 9 月 10 日',
@@ -3325,7 +3817,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '十九篇核查笔记',
+      latest: '二十二篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -3409,6 +3901,183 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      appleIphoneDuoFoldableSupplyChain: {
+        topic: 'Apple 新品与供应链新闻',
+        published: '2026 年 9 月 10 日',
+        readTime: '约 7 分钟',
+        title: 'Apple 首款折叠机 iPhone Duo 亮相：真正难题远不止一副铰链',
+        description: 'iPhone Duo 把双屏、精密铰链、双电池与均热板装进同一台手机，也把折叠机的量产品质推到主流制造议题中心。',
+        imageAlt: '上海 Apple Store 与大型 Apple 标志，用作 iPhone Duo 发布新闻的编辑配图。',
+        imageCaption: '上海 Apple Store 的编辑图片；不是 iPhone Duo 产品图、Apple 生产场所、ZIMONAI 客户或供应商，也不能证明 Apple 的制造合作方。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '接下来值得关注',
+          limits: '仍待确认'
+        },
+        answer: 'Apple 9 月 9 日发布首款折叠 iPhone——iPhone Duo，美国起售价 1,999 美元，10 月 16 日预售，10 月 23 日开售。展开后，它提供 7.6 英寸内屏；合上后使用 5.4 英寸外屏；机身内部还有精密铰链、两块电池与均热板。更值得关注的是，Apple 把铰链手感、柔性面板、结构强度、散热路径和双电池匹配一起推向供应链的量产门槛。ZIMONAI｜智蒙湾科技编辑部认为，iPhone Duo 将成为折叠手机能否从新鲜设计走向成熟量产品质的一次重要检验。',
+        takeaways: [
+          'Apple 正式确认 iPhone Duo 是首款折叠 iPhone，内屏 7.6 英寸、外屏 5.4 英寸，铰链包含 100 多个零件。',
+          '内部采用双电池和定制均热板，说明折叠机的工程难度早已不只来自面板与铰链。',
+          '价格和上市时间已经公布，但零部件供应商、量产良率、铰链寿命目标与首批出货量仍未公开。'
+        ],
+        sections: [
+          {
+            title: 'Apple 这次究竟发布了什么？',
+            paragraphs: [
+              'iPhone Duo 展开时使用 7.6 英寸 Super Retina XDR 内屏，闭合时通过 5.4 英寸外屏操作。Apple 表示，两块屏幕采用相同比例，内容能够在开合之间连续切换；内屏还使用纳米纹理表面，用于降低反光并减弱折痕的视觉影响。',
+              '精密铰链负责支撑展开后的屏幕，并配合磁体完成闭合。Apple 称铰链包含 100 多个零件，机身使用 5 级钛金属与内部加强结构。美国起售价 1,999 美元，首批 70 多个国家和地区将在 10 月 16 日开启预售，10 月 23 日开始发售。'
+            ]
+          },
+          {
+            title: '为什么它不是一块“会折叠的屏幕”那么简单？',
+            paragraphs: [
+              '折叠结构会让多组公差相互影响：铰链既要控制阻尼，又要托平屏幕；盖板、胶层和显示层需要承受反复弯折；中框还要面对扭转、跌落与防护要求。Apple 表示，定制胶黏剂能让显示层之间相对滑动以释放弯折应力，并宣称整机达到 IP68。这些是 Apple 的官方产品声明，还不是长期真实使用表现的完整答案。',
+              '内部空间也被重新切分。Apple 在机身两侧各放一块电池，并让 A20 Pro 连接定制均热板。ZIMONAI 的判断是：面板、铰链、电池、热界面、天线和外壳不能只作为单独零件验证；装配后的系统互动与批次波动，才会决定量产手机的一致性。'
+            ],
+            items: [
+              '全开合角度内的铰链扭矩与对位',
+              '柔性面板、盖板与胶层的批次一致性',
+              '双电池匹配、保护逻辑与热平衡',
+              '中框刚性、防护结构与天线集成',
+              '反复折叠和温度循环后的整机检验'
+            ]
+          },
+          {
+            title: 'iPhone Duo 会怎样影响折叠机供应链？',
+            paragraphs: [
+              'Apple 入场会为折叠零部件带来更大的市场参照，但并不等于某家面板、铰链或电池厂已经拿到订单。能在工程样机上工作的零件，仍要通过外观、公差、可靠性、良率和交期等量产门槛。更清晰的信号是：折叠手机采购已经从寻找一项新奇零件，转向整机系统集成能力的竞争。',
+              '海外买家如果开发折叠或铰接产品，应该按照失效模式索取证据，包括注明测试配置的开合寿命、屏幕与胶材批次追溯、双电池控制、热分布、防护测试条件以及成品检验记录。复制 iPhone Duo 的宣传词并不能获得相同耐用性；报价型号、送检样品和量产流程能否保持一致，才是可验证的问题。'
+            ]
+          }
+        ],
+        checklist: [
+          '零售版本上市后的独立拆解与内部结构确认',
+          'Apple 对内屏、铰链和双电池公布的维修资料',
+          'Apple 是否进一步公布耐久测试方法或开合次数',
+          '首批用户反馈，并与单一损坏或展示机情况区分',
+          '供应商的正式申报或公告，而非匿名产业链传闻',
+          '其他折叠品牌后续的定价、保修和零件要求变化'
+        ],
+        limitsText: 'Apple 已确认产品架构、部分性能声明、价格与发售计划，但没有公布铰链、面板、电池或均热板供应商，也未披露量产良率、出货量、完整验证方法或铰链寿命承诺。美联社与 Axios 提供了独立报道，但不能证明零部件来源或工厂表现。本文对制造和供应链影响的分析来自 ZIMONAI｜智蒙湾科技编辑部，不是 Apple 的结论，也不能证明任何特定供应商参与 iPhone Duo 生产。'
+      },
+      appleIphone18ProVaporChamber: {
+        topic: 'Apple 硬件与制造新闻',
+        published: '2026 年 9 月 10 日',
+        readTime: '约 7 分钟',
+        title: 'iPhone 18 Pro 把散热推上主舞台：均热板不再是隐藏参数',
+        description: 'Apple 用 2 纳米 A20 Pro 搭配重新设计的均热板，公开强调持续性能；散热一致性、界面材料与装配控制随之成为焦点。',
+        imageAlt: '上一代 iPhone Pro 的相机与机身特写，用作 iPhone 18 Pro 散热设计新闻的编辑配图。',
+        imageCaption: 'iPhone 16 Pro 的编辑图片，并非 iPhone 18 Pro；也不是拆解、散热测试、ZIMONAI 客户设备、供应商样品或 Apple 零件来源证据。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '接下来值得关注',
+          limits: '仍待确认'
+        },
+        answer: 'Apple 在 iPhone 18 Pro 发布中把散热工程放到了产品叙事中心。新的 A20 Pro 采用 2 纳米工艺，芯片封装借鉴 M 系列思路，并直接连接面积更大的均热板。Apple 宣称，持续性能最高比上一代提升 40%；9 月 12 日预售，9 月 18 日开售。这里的市场变化很明确：手机性能已经不只比较瞬时峰值，还要看高负载能维持多久。ZIMONAI｜智蒙湾科技编辑部认为，均热板平整度、内部工质、热界面压合与整机装配一致性，将从消费者看不见的零件细节，变成能够直接感知的产品质量。',
+        takeaways: [
+          'Apple 表示 A20 Pro 采用 2 纳米工艺，并通过新的芯片封装直接连接重新设计的均热板。',
+          '最高 40% 的持续性能提升是 Apple 在特定比较条件下的官方主张，不代表所有环境都会出现相同结果。',
+          '面积更大的均热板会把热界面、中框接触、装配压力与软件负载同时纳入量产控制，而不是简单更换一个零件。'
+        ],
+        sections: [
+          {
+            title: 'iPhone 18 Pro 的内部设计改变了什么？',
+            paragraphs: [
+              'Apple 9 月 9 日发布 iPhone 18 Pro 与 Pro Max。A20 Pro 使用最新 2 纳米工艺，新的封装方式将主要元件并排放置，再直接连接均热板，让集中在芯片附近的热量更快向外扩散。',
+              'Apple 宣称持续性能最高比上一代提升 40%。MacRumors 报道，新均热板的表面积达到上一代的三倍，内部使用去离子水。面积扩大之所以有意义，是因为散热效果取决于热量如何进入均热板、在其中扩散，再传向机身其他区域，而不是设备里只要出现一块均热板就足够。'
+            ]
+          },
+          {
+            title: '均热板面积变大，量产要求为什么更高？',
+            paragraphs: [
+              '均热板是一种密封的薄型两相散热器件。热端使内部液体蒸发，蒸气移动到低温区域凝结，再通过毛细结构回流。在手机有限的厚度里，它要保持平整，还要承受搬运、压合和温度变化。充液量、密封、洁净度或接触状态的轻微波动，都可能让图纸相同的零件表现不同。',
+              '更大的接触面也会更依赖周边结构。导热材料厚度、中框平整度、锁付顺序和外壳公差，都会影响热量是否沿设计路径扩散。ZIMONAI 的实务判断是，评估同类散热主张时，应查看量产数据分布、测试夹具与整机条件，而不是只接受黄金样机的一张热成像图。'
+            ],
+            items: [
+              '均热板尺寸、厚度与平整度公差',
+              '工质、毛细结构与封装工艺控制',
+              '气密、耐压和热阻测试方法',
+              '导热界面材料厚度与压缩范围',
+              '跨批次整机温度和降频结果'
+            ]
+          },
+          {
+            title: 'Apple 的说法会给其他手机品牌带来什么？',
+            paragraphs: [
+              '当 Apple 公开强调持续性能，市场关注点就会从短时间峰值跑分，转向游戏、视频、AI 和相机负载能够维持多久。其他品牌与散热器件厂商可能跟进类似主张，但相似词语不等于测试可比；环境温度、负载时长、屏幕亮度、软件版本和保护壳都会改变结果。',
+              '对品牌和采购团队来说，散热确实能够支持性能、握持舒适度和电池状态，但不能把某一家供应商的均热板规格直接写成整机承诺。可以被复核的主张需要明确设备配置、可重复方法、样本量与接受区间。随着散热被写进发布会和产品页面，这条证据边界会越来越重要。'
+            ]
+          }
+        ],
+        checklist: [
+          '零售设备上市后的独立持续性能测试',
+          '测试环境温度、负载时长、软件版本和设备配置',
+          '拆解确认均热板尺寸、位置与热界面结构',
+          'Apple 是否补充最高 40% 比较的详细条件',
+          '多台设备的发热、降频和电池表现，而非单个案例',
+          '竞争品牌如何定义并证明自己的散热主张'
+        ],
+        limitsText: 'Apple 已确认 A20 Pro 工艺、封装概念、均热板和自家持续性能主张，但没有公布均热板供应商、完整尺寸、充液量、量产公差、验证样本量或良率。MacRumors 补充了设计信息，仍不能替代 Apple 工程记录或多台零售设备测试。本文的供应商控制与测试分析来自 ZIMONAI｜智蒙湾科技编辑部，不代表 iPhone 18 Pro 存在缺陷，也不能证明任何具名工厂制造该零件。'
+      },
+      appleAirpods5WirelessChargingCase: {
+        topic: 'Apple 音频与充电新闻',
+        published: '2026 年 9 月 10 日',
+        readTime: '约 6 分钟',
+        title: 'AirPods 5 同时推出两个版本：这一次，差异藏在充电盒里',
+        description: 'Apple 以 129 美元和 149 美元推出两款 AirPods 5；高配版增加无线充电盒、更长续航与滑动音量控制，充电盒成为产品分级重点。',
+        imageAlt: '上一代 Apple AirPods 与充电盒放在木桌上，用作 AirPods 5 充电盒新闻的编辑配图。',
+        imageCaption: '上一代 AirPods 的编辑图片，并非 AirPods 5；也不是 ZIMONAI 客户产品、供应商样品、充电测试或 Apple 制造合作方证据。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '接下来值得关注',
+          limits: '仍待确认'
+        },
+        answer: 'AirPods 5 分成外观接近、功能不同的两款产品：美国售价 129 美元的标准版，以及 149 美元的 Wireless Charging Case 版。两者都有 H3 芯片与开放式主动降噪，高配版进一步加入更长续航、滑动调节音量，以及可使用 Apple Watch 充电器、Qi 兼容充电器或 USB-C 充电的盒子，9 月 18 日开售。更值得关注的是，一只充电盒已经成为产品分级核心；对买家和配件供应链来说，型号、包装、续航、充电方式与检测记录只要错位一项，就可能交付正品却错误的版本。',
+        takeaways: [
+          'Apple 以 129 美元和 149 美元推出两款 AirPods 5，Wireless Charging Case 版承载额外的充电、控制和续航功能。',
+          'Apple 宣称开启主动降噪后单次最长 5 小时，配合无线充电盒最长 22 小时；这些数字来自 Apple 设定条件下的测试。',
+          '对配件行业而言，这次发布说明充电盒架构已经能够定义产品档位，也会放大相似版本在上架、包装和发货中的混料风险。'
+        ],
+        sections: [
+          {
+            title: '两款 AirPods 5 到底有什么区别？',
+            paragraphs: [
+              'Apple 9 月 9 日发布 AirPods 5。两个版本都采用新的开放式佩戴设计、H3 芯片和主动降噪。标准版美国售价 129 美元；149 美元的 Wireless Charging Case 版另有耳机柄滑动音量控制、升级充电盒，以及 Apple 所称更长的电池续航。',
+              '无线充电盒支持 Apple Watch 充电器、Qi 兼容充电器与 USB-C。Apple 表示，开启主动降噪后单次最长可听 5 小时，加上充电盒最长 22 小时。两款产品都将在 9 月 18 日开售；The Independent 和 MacRumors 也分别报道了双版本安排与充电盒差异。'
+            ]
+          },
+          {
+            title: '为什么充电盒不只是更方便？',
+            paragraphs: [
+              '充电盒本身就是一套电气系统，里面有电池、充电输入、电源管理、触点、外壳与固件。加入 Qi 和 Apple Watch 充电器兼容性后，线圈对位、温升与互操作性都会成为产品要求，同时也会改变包装、说明书、合规资料和出货测试。',
+              'ZIMONAI 的判断是，20 美元价差把版本管理变得非常直观。纸箱、商品页、说明书或验货记录一旦漏掉“Wireless Charging Case”，买家拿到的仍可能是正品 AirPods 5，却不是订单对应的版本。其他相似耳机项目也应把配件差异拆成独立 BOM、标签文件与最终功能检查。'
+            ],
+            items: [
+              '耳机和充电盒的完整型号标识',
+              '各版本的 USB-C、Qi 和手表充电器兼容性',
+              '耳机与盒内电池规格',
+              '包装说明和随附线材',
+              '出货前的充电、配对与控制功能检查'
+            ]
+          },
+          {
+            title: '降噪和续航数字应该怎样理解？',
+            paragraphs: [
+              'Apple 宣称 AirPods 5 的外部噪声降低效果，相比 AirPods 4 主动降噪版最高提高 50%。其脚注说明，测试采用指定的 AirPods 硬件、预发布软件，并参考 IEC 60268-24。这是一项有比较对象和测试框架的官方主张，不代表每位用户在所有环境里都会感受到完全相同的提升。',
+              '续航也会随着使用条件变化。聆听模式、音量、通话、空间音频、电池老化与无线充电环境，都可能影响实际时间。现在可以确认的是，Apple 把性能故事与更明确的配件分级放在一起；9 月 18 日之后的零售测试和用户反馈，才会补齐两个版本在日常使用中的差别。'
+            ]
+          }
+        ],
+        checklist: [
+          '两款 AirPods 5 的零售型号和包装文字',
+          '主动降噪开启与关闭时的独立续航测试',
+          '常见 Qi 与 Apple Watch 充电器的互操作性',
+          '安装保护壳后的对位、温升与充电表现',
+          '电商上架和仓库发货是否混淆两个版本',
+          '上市后的维修、电池服务与替换充电盒信息'
+        ],
+        limitsText: 'Apple 已确认两种配置、美国价格、充电方式、上市日期，以及自家的续航和降噪主张，但没有公布零部件供应商、电芯来源、完整充电盒电气规格、量产良率或独立实测结果。本文配图展示上一代 AirPods，不能用来识别新品。本文对版本控制和供应链的分析来自 ZIMONAI｜智蒙湾科技编辑部，不是 Apple、The Independent 或 MacRumors 的结论。'
+      },
       euBatteryPassportPowerBank: {
         topic: '欧盟电池文件',
         published: '2026 年 9 月 10 日',
