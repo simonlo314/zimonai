@@ -8,6 +8,57 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-battery-passport-power-bank',
+    key: 'euBatteryPassportPowerBank',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/eu-battery-passport-power-bank',
+    category: 'product-transport-documents',
+    products: ['power-bank'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['EU battery passport power bank', 'power bank QR code 2027', 'EU Batteries Regulation 2023/1542', 'portable battery passport', 'battery category verification', 'power bank EU compliance'],
+      'zh-tw': ['歐盟電池護照 行動電源', '行動電源 QR code 2027', '歐盟電池法規 2023/1542', '可攜式電池 電池護照', '電池類別查核', '行動電源歐盟合規'],
+      'zh-cn': ['欧盟电池护照 移动电源', '移动电源 QR code 2027', '欧盟电池法规 2023/1542', '便携式电池 电池护照', '电池类别核查', '移动电源欧盟合规']
+    },
+    datePublished: '2026-09-10',
+    dateModified: '2026-09-10',
+    image: '/assets/editorial-eu-battery-passport-power-bank.jpg',
+    imageWidth: 1600,
+    imageHeight: 2400,
+    imageCrop: {
+      card: '60% 63%',
+      article: '60% 62%',
+      mobile: '58% 62%'
+    },
+    photo: {
+      photographer: 'Karola G',
+      page: 'https://www.pexels.com/photo/overhead-shot-of-a-cellphone-charging-from-a-power-bank-5208772/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'European Union — EUR-Lex',
+        title: 'Regulation (EU) 2023/1542 on batteries and waste batteries — consolidated text',
+        url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02023R1542-20250731'
+      },
+      {
+        publisher: 'European Commission — Directorate-General for Internal Market, Industry, Entrepreneurship and SMEs',
+        title: 'Digital Product Passport for Batteries — scope, responsibility and implementation timeline',
+        url: 'https://single-market-economy.ec.europa.eu/single-market/digital-product-passport/batteries_en'
+      },
+      {
+        publisher: 'European Commission — Directorate-General for Internal Market, Industry, Entrepreneurship and SMEs',
+        title: 'Guidance to support preparations for the Digital Batteries Passport — 21 August 2026',
+        url: 'https://single-market-economy.ec.europa.eu/news/guidance-support-preparations-digital-batteries-passport-2026-08-21_en'
+      },
+      {
+        publisher: 'European Commission — Directorate-General for Environment',
+        title: 'Batteries — objectives, law and implementation resources',
+        url: 'https://environment.ec.europa.eu/topics/waste-and-recycling/batteries_en'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-customs-reform-ecommerce-parcels',
     key: 'euCustomsReformEcommerceParcels',
     contentType: 'current-affairs',
@@ -952,7 +1003,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Eighteen field notes',
+      latest: 'Nineteen field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -1036,6 +1087,62 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      euBatteryPassportPowerBank: {
+        topic: 'EU battery documents',
+        published: '10 September 2026',
+        readTime: '7 minutes',
+        title: 'Does an ordinary power bank need an EU battery passport in 2027?',
+        description: 'Battery passports begin on 18 February 2027, but not for every rechargeable battery. Power-bank buyers first need the right battery category, then the separate QR-code file.',
+        imageAlt: 'A smartphone connected by cable to a portable power bank, used as an editorial illustration for EU battery-passport checks.',
+        imageCaption: 'Editorial photograph of a phone connected to a power bank. It is not a ZIMONAI product, supplier, client device, compliance file, battery passport or test record.',
+        answer: 'From 18 February 2027, the EU battery passport applies to EV and LMT batteries and industrial batteries above 2 kWh. A typical consumer power bank normally fits the portable-battery definition—sealed, 5 kg or less and not designed specifically for industrial use—so it is outside that passport scope. It still needs the all-battery QR code introduced on the same date, which links to a different information set. ZIMONAI’s editorial view: buyers should record the exact model, weight, watt-hours, intended use and category rationale before asking for a “passport”; otherwise a polished digital page may answer the wrong legal question.',
+        takeaways: [
+          'Article 77 limits the 18 February 2027 battery-passport duty to EV batteries, LMT batteries and industrial batteries with a capacity above 2 kWh.',
+          'A normal consumer power bank usually falls within the portable-battery definition based on its physical characteristics and intended use; the exact product still needs to be classified rather than assumed from its marketing name.',
+          'All batteries require a QR code from the same date. For portable batteries outside the passport categories, Article 13 points that code to applicable label, conformity, due-diligence and end-of-life information—not to a battery passport.'
+        ],
+        sections: [
+          {
+            title: 'Which batteries actually need a passport from February 2027?',
+            paragraphs: [
+              'Article 77 of Regulation (EU) 2023/1542 sets a narrow category test: from 18 February 2027, each EV battery, each light-means-of-transport (LMT) battery and each industrial battery with a capacity greater than 2 kWh must have an electronic battery passport. The Commission’s current battery-passport page describes the affected products as including EV batteries, batteries for e-bikes, e-mopeds and e-scooters, home-storage batteries and industrial batteries.',
+              'The obligation sits with the economic operator that places the finished battery on the EU market, not automatically with a cell or module supplier. The passport is linked through a QR code and contains model-level and battery-specific information with different access rights. A supplier portal, test-report folder or QR code on its own is therefore not evidence that the Article 77 passport route applies or has been completed.'
+            ]
+          },
+          {
+            title: 'Where does an ordinary consumer power bank fit?',
+            paragraphs: [
+              'The Regulation defines a portable battery as sealed, weighing 5 kg or less, not designed specifically for industrial use, and not an EV, LMT or starting-lighting-ignition battery. It also treats finished battery packs ready for end-user use as batteries. On those criteria, an ordinary phone-charging power bank will usually be a portable battery rather than an industrial or LMT battery. That is ZIMONAI’s product-classification reading of the legal definitions, not an EU approval of every item sold under the name “power bank.”',
+              'The marketing label cannot settle borderline products. A large portable power station, a battery designed for industrial equipment, or a product used in a mobility application may have different characteristics and intended use. Buyers should preserve rated energy in watt-hours, total weight, design purpose, battery configuration, instructions and intended application, then obtain the manufacturer’s written category rationale for the exact model.'
+            ],
+            items: [
+              'Product and battery model, including every suffix and pack configuration',
+              'Total battery weight and rated energy in watt-hours',
+              'Consumer or specifically industrial intended use',
+              'Whether the battery supplies traction to a light means of transport',
+              'Manufacturer’s documented category and the definition used'
+            ]
+          },
+          {
+            title: 'Why is a 2027 QR code not automatically a battery passport?',
+            paragraphs: [
+              'Article 13 requires all batteries to carry a QR code from 18 February 2027. For EV, LMT and qualifying industrial batteries, the code provides access to the Article 77 passport. For other batteries, including an ordinary portable power bank under the classification above, the code instead provides access to the applicable labelling information, EU Declaration of Conformity, relevant battery due-diligence reporting and waste-prevention and end-of-life information specified by the Regulation.',
+              'This distinction changes the buyer request. Asking every supplier for a “battery passport” can produce a false pass/fail test; asking who is the responsible economic operator, which battery category applies, where the QR code resolves and whether its records match the finished model produces auditable evidence. The Commission’s August 2026 data-point guidance is useful for preparing covered passport categories, but it expressly says it does not add legal requirements or provide an authoritative interpretation. The Regulation and later applicable acts remain controlling.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact finished-product and battery-pack model, with no omitted suffixes',
+          'Battery weight, rated capacity and watt-hour calculation',
+          'Intended-use evidence supporting portable, industrial, LMT or EV classification',
+          'Name and role of the economic operator placing the finished battery on the EU market',
+          'QR-code destination checked on the physical sample and current packaging artwork',
+          'Information behind the code matched to the exact model and applicable category',
+          'EU Declaration of Conformity and supporting technical file reviewed separately',
+          'Change control for cells, pack design, firmware, label and economic operator'
+        ],
+        limitsText: 'The EU Battery Regulation applies broadly to batteries, while the Article 77 passport duty covers only the listed categories and threshold. The ordinary-power-bank classification above is a reasoned reading of the legal definitions based on typical characteristics; a product name, nominal capacity or this article cannot classify an unusual model. A QR code does not by itself prove that the linked data are accurate, that the responsible operator has completed every obligation, or that production units match the reviewed sample. Battery passport, QR-code information, CE conformity, transport testing, electrical safety, producer registration, waste duties and shipment quality remain distinct evidence questions. Later delegated or implementing acts and official guidance may refine operational details before or after 18 February 2027.'
+      },
       euCustomsReformEcommerceParcels: {
         topic: 'EU customs and e-commerce news',
         published: '9 September 2026',
@@ -2057,7 +2164,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '十八篇查核筆記',
+      latest: '十九篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -2141,6 +2248,62 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      euBatteryPassportPowerBank: {
+        topic: '歐盟電池文件',
+        published: '2026 年 9 月 10 日',
+        readTime: '約 7 分鐘',
+        title: '一般行動電源 2027 年要有歐盟電池護照嗎？先確認電池類別',
+        description: '歐盟電池護照將於 2027 年 2 月 18 日上路，卻不是所有充電電池都適用。行動電源買家要先分清電池類別，再核對 QR code 後方的資料。',
+        imageAlt: '手機透過線材連接可攜式行動電源，作為歐盟電池護照查核文章的編輯用圖片。',
+        imageCaption: '手機連接行動電源的編輯用照片；不是 ZIMONAI 產品、客戶裝置、供應商樣品、合規文件、電池護照或測試紀錄。',
+        answer: '自 2027 年 2 月 18 日起，歐盟電池護照適用於電動車、LMT 及容量超過 2kWh 的工業電池。一般行動電源若密封、未逾 5 公斤且非專為工業用途設計，通常屬於可攜式電池，不在護照範圍；但同日起仍須有所有電池適用的 QR code，連結另一組法定資料。ZIMONAI 認為，買家應先核對精確型號、重量、瓦時數、用途與分類依據，再索取正確數位文件，避免用一個看似完整的「護照」回答錯法律問題。',
+        takeaways: [
+          '《歐盟電池法規》第 77 條把 2027 年 2 月 18 日的電池護照義務，限於電動車電池、LMT 電池與容量超過 2kWh 的工業電池。',
+          '一般消費型行動電源多半依重量、密封狀態與設計用途歸入可攜式電池；實際產品仍要依完整規格判定，不能只看商品名稱。',
+          '同一天起所有電池都要標示 QR code，但可攜式電池等其他類別連結的是標示、符合性、盡職調查與廢棄管理等適用資料，不是第 77 條電池護照。'
+        ],
+        sections: [
+          {
+            title: '2027 年 2 月起，哪些電池才真的要有電池護照？',
+            paragraphs: [
+              '《歐盟電池法規》（EU）2023/1542 第 77 條列出的範圍很明確：自 2027 年 2 月 18 日起，每一顆投入歐盟市場或啟用的電動車電池、輕型運輸工具（LMT）電池，以及容量超過 2kWh 的工業電池，都要有電子形式的電池護照。歐盟執委會目前的專頁，將相關產品舉例為電動車、電動自行車、電動機車與電動滑板車電池，以及家用儲能與工業電池。',
+              '建立及維護護照的責任，落在把完整電池投入歐盟市場的經濟營運者，不會自動轉給單一電芯或模組供應商。護照透過 QR code 連結，內容包含電池型號與個別電池資料，並依使用者身分設定不同存取權限。因此，供應商提供一個資料頁、報告資料夾或可掃描代碼，還不足以證明該型號應走第 77 條護照制度，也不足以證明義務已完成。'
+            ]
+          },
+          {
+            title: '一般消費型行動電源，會被歸在哪一類？',
+            paragraphs: [
+              '法規所稱「可攜式電池」，是指密封、重量不超過 5 公斤、並非專為工業用途設計，而且不屬於電動車、LMT 或汽車啟動照明點火電池的產品；完成封裝、可供終端使用者直接使用的電池組，也會被當成電池管理。依這些條件，一般替手機充電的行動電源通常屬於可攜式電池，而不是工業或 LMT 電池。這是 ZIMONAI 依典型產品特徵對法規定義所作的分類判讀，並不是歐盟替所有名為「行動電源」的商品作出的核准。',
+              '商品名稱不能處理邊界個案。大型可攜式儲能電源、專為工業設備設計的電池，或用在移動載具的產品，都可能因重量、用途或供電對象而落入不同類別。採購時應保存額定瓦時數、總重量、設計用途、電池配置、說明書與實際應用，再要求製造商針對精確型號提出書面分類依據。'
+            ],
+            items: [
+              '完整產品與電池型號，包括尾碼及電池組配置',
+              '電池總重量與額定瓦時數',
+              '一般消費用途或專門工業用途',
+              '是否為輕型運輸工具提供牽引動力',
+              '製造商採用的電池類別與法規定義'
+            ]
+          },
+          {
+            title: '為什麼 2027 年的 QR code 不一定是電池護照？',
+            paragraphs: [
+              '第 13 條規定，自 2027 年 2 月 18 日起，所有電池都要帶有 QR code。電動車、LMT 與符合門檻的工業電池，代碼會連到第 77 條電池護照；其他電池若依前述判讀包含一般行動電源，代碼則連到該類別適用的標示資訊、EU 符合性聲明、電池供應鏈盡職調查報告，以及廢棄預防與回收處理資訊。共同的是 QR code，後方承載的法定資料卻不相同。',
+              '這個差別會直接改變買家提問。把「請提供電池護照」發給所有工廠，容易製造錯誤的通過或不通過判定；先問誰是把成品投入歐盟市場的責任方、產品屬於哪個電池類別、QR code 連去哪裡，以及後方資料能否對回實物型號，才會留下可稽核紀錄。歐盟執委會 2026 年 8 月更新的資料點指引，可協助護照適用類別準備資料，但文件也明確聲明不會新增法律義務，也不是具權威性的法規解釋；最後仍要回到法規與後續適用法案。'
+            ]
+          }
+        ],
+        checklist: [
+          '成品與電池組的完整型號，尾碼不得省略',
+          '電池重量、額定容量與瓦時數計算',
+          '支持可攜式、工業、LMT 或電動車類別的用途證據',
+          '把完整電池投入歐盟市場的經濟營運者名稱與角色',
+          '以實體樣品及最新包裝稿測試 QR code 連結',
+          '把代碼後方資料對回精確型號與適用類別',
+          '另行核對 EU 符合性聲明及支持技術文件',
+          '電芯、電池組、韌體、標示與責任方的變更管制'
+        ],
+        limitsText: '《歐盟電池法規》廣泛適用於各類電池，但第 77 條護照義務只涵蓋列名類別與容量門檻。本文對一般行動電源的分類，是依典型產品特徵對法規定義所作的判讀；商品名稱、標稱容量或本文，都不能替特殊產品完成正式分類。QR code 本身不會證明連結資料正確、責任方已履行全部義務，或量產品與查閱樣品一致。電池護照、QR code 資料、CE 符合性、運輸測試、電氣安全、生產者登記、廢棄管理與出貨品質，仍是不同的證據問題。2027 年 2 月 18 日前後發布的授權法案、執行法案與官方指引，仍可能細化實務要求。'
+      },
       euCustomsReformEcommerceParcels: {
         topic: '歐盟海關與跨境電商新聞',
         published: '2026 年 9 月 9 日',
@@ -3162,7 +3325,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '十八篇核查笔记',
+      latest: '十九篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -3246,6 +3409,62 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      euBatteryPassportPowerBank: {
+        topic: '欧盟电池文件',
+        published: '2026 年 9 月 10 日',
+        readTime: '约 7 分钟',
+        title: '普通移动电源 2027 年需要欧盟电池护照吗？先确认电池类别',
+        description: '欧盟电池护照将于 2027 年 2 月 18 日实施，但并非所有充电电池都适用。移动电源买家要先分清电池类别，再核对二维码背后的资料。',
+        imageAlt: '手机通过线缆连接便携式移动电源，作为欧盟电池护照核查文章的编辑图片。',
+        imageCaption: '手机连接移动电源的编辑图片；不是 ZIMONAI 产品、客户设备、供应商样品、合规文件、电池护照或测试记录。',
+        answer: '从 2027 年 2 月 18 日起，欧盟电池护照适用于电动汽车、LMT 电池和容量超过 2kWh 的工业电池。普通移动电源若为密封式、重量不超过 5 千克且非专门工业用途，通常属于便携式电池，不在护照范围。同日起，它仍须带有适用于所有电池的二维码，并链接另一组法定资料。ZIMONAI 认为，买家应先核对精确型号、重量和瓦时数并记录用途及分类依据。完成分类后再索取相应数字文件，才不会用错合规资料。',
+        takeaways: [
+          '《欧盟电池法规》第 77 条把 2027 年 2 月 18 日的电池护照义务，限定为电动汽车电池、LMT 电池和容量超过 2kWh 的工业电池。',
+          '普通消费类移动电源通常根据重量、密封状态和设计用途归入便携式电池；实际产品仍需按完整规格分类，不能只看商品名称。',
+          '同一天起所有电池都要标示二维码，但便携式电池等其他类别链接的是标签、符合性、尽职调查和废弃管理等适用信息，而不是第 77 条电池护照。'
+        ],
+        sections: [
+          {
+            title: '从 2027 年 2 月起，哪些电池必须建立电池护照？',
+            paragraphs: [
+              '《欧盟电池法规》（EU）2023/1542 第 77 条列出的范围很明确：自 2027 年 2 月 18 日起，每一块投放欧盟市场或投入使用的电动汽车电池、轻型交通工具（LMT）电池，以及容量超过 2kWh 的工业电池，都应具备电子形式的电池护照。欧盟委员会当前专页列举的相关产品，包括电动汽车、电动自行车、电动摩托车和电动滑板车电池，以及家庭储能电池与工业电池。',
+              '创建和维护护照的责任，在于将完整电池投放欧盟市场的经济运营者，并不会自动转移给单个电芯或模组供应商。护照通过二维码连接，包含电池型号和单体电池信息，并按不同主体设置访问权限。因此，供应商提供一个数据页面、报告文件夹或可扫描代码，还不能证明该型号需要采用第 77 条护照制度，也不能证明相关义务已经完成。'
+            ]
+          },
+          {
+            title: '普通消费类移动电源通常属于哪类电池？',
+            paragraphs: [
+              '法规所称“便携式电池”，是指密封、重量不超过 5 千克、并非专门为工业用途设计，而且不属于电动汽车、LMT 或启动照明点火电池的产品；已经封装完成、可供终端用户直接使用的电池组，同样按照电池管理。按照这些条件，普通手机移动电源通常属于便携式电池，而不是工业电池或 LMT 电池。这是 ZIMONAI 依据典型产品特征对法律定义作出的分类判断，不是欧盟对所有名为“移动电源”的商品作出的批准。',
+              '商品名称无法解决边界产品。大型便携储能电源、专为工业设备设计的电池，或者用于交通工具的产品，都可能因重量、用途或供电对象而进入不同类别。采购时应保存额定瓦时数、总重量、设计用途、电池配置、说明书和实际应用，并要求制造商针对精确型号提供书面分类依据。'
+            ],
+            items: [
+              '完整产品与电池型号，包括尾码和电池组配置',
+              '电池总重量与额定瓦时数',
+              '一般消费用途或专门工业用途',
+              '是否为轻型交通工具提供牵引动力',
+              '制造商采用的电池类别和法规定义'
+            ]
+          },
+          {
+            title: '为什么 2027 年的二维码不一定是电池护照？',
+            paragraphs: [
+              '第 13 条规定，从 2027 年 2 月 18 日起，所有电池都要带有二维码。电动汽车、LMT 和符合门槛的工业电池，其代码会链接到第 77 条电池护照；其他电池若按前述判断包含普通移动电源，代码则链接至该类别适用的标签信息、EU 符合性声明、电池供应链尽职调查报告，以及废弃预防和回收处理信息。二维码是共同入口，背后承载的法定资料却并不相同。',
+              '这个差别会直接改变买家的提问。向所有工厂统一索取“电池护照”，容易制造错误的通过或不通过结论；先确认谁是将成品投放欧盟市场的责任方、产品属于哪类电池、二维码指向哪里，以及所链接信息能否对应实物型号，才能留下可审计记录。欧盟委员会 2026 年 8 月更新的数据点指引，可帮助护照适用类别准备资料，但该文件也明确声明不会增加法律义务，并非权威法规解释；最终仍要回到法规及后续适用法案。'
+            ]
+          }
+        ],
+        checklist: [
+          '成品和电池组的完整型号，不得省略尾码',
+          '电池重量、额定容量与瓦时数计算',
+          '支持便携式、工业、LMT 或电动汽车类别的用途证据',
+          '将完整电池投放欧盟市场的经济运营者名称和角色',
+          '使用实物样品和最新包装稿测试二维码链接',
+          '将代码背后的信息对应到精确型号与适用类别',
+          '单独核查 EU 符合性声明和支持技术文件',
+          '电芯、电池组、固件、标签与责任方的变更控制'
+        ],
+        limitsText: '《欧盟电池法规》广泛适用于各类电池，但第 77 条护照义务仅覆盖列明类别和容量门槛。本文对普通移动电源的分类，是根据典型产品特征对法规定义作出的判断；商品名称、标称容量或本文都不能替特殊产品完成正式分类。二维码本身不能证明链接信息准确、责任方已经履行全部义务，或量产产品与核查样品一致。电池护照、二维码资料、CE 符合性、运输测试、电气安全、生产者登记、废弃管理与出货质量，仍是不同的证据问题。2027 年 2 月 18 日前后发布的授权法案、实施法案和官方指引，仍可能细化操作要求。'
+      },
       euCustomsReformEcommerceParcels: {
         topic: '欧盟海关与跨境电商新闻',
         published: '2026 年 9 月 9 日',
