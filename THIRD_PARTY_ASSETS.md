@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-10
+Last reviewed: 2026-09-11
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -22,6 +22,7 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | `src/assets/editorial-eu-common-charger-usb-c.jpg` | ready made | [USB-C Cable on White Surface](https://www.pexels.com/photo/usb-c-cable-on-white-surface-3921713/) | Knowledge article about separating current EU common-charger device requirements from the 2028 external-power-supply rules; editorial illustration only; downloaded and used 2026-09-08 |
 | `src/assets/editorial-eu-customs-parcel-inspection.jpg` | Tima Miroshnichenko | [Warehouse Worker Inspecting Shipment Packages](https://www.pexels.com/photo/a-man-inspecting-parcels-on-a-shelves-6170405/) | Current-affairs article about the EU customs reform and low-value e-commerce parcels; real editorial photograph, not an EU customs inspection, a ZIMONAI site, client shipment, supplier facility or evidence about any named platform; downloaded and used 2026-09-09 |
 | `src/assets/editorial-eu-battery-passport-power-bank.jpg` | Karola G | [Overhead Shot of a Cellphone Charging from a Power Bank](https://www.pexels.com/photo/overhead-shot-of-a-cellphone-charging-from-a-power-bank-5208772/) | Industry-knowledge article about EU battery-passport scope for ordinary power banks; real editorial photograph downloaded under the [Pexels licence](https://www.pexels.com/license/) and locally resized/compressed without generative editing; not a ZIMONAI product, client device, supplier sample, compliance file, battery passport or test record; downloaded and used 2026-09-10 |
+| `src/assets/editorial-japan-pse-ac-adapter.jpg` | Steve A Johnson | [White Travel Adapter](https://www.pexels.com/photo/white-travel-adapter-845239/) | Industry-knowledge article about matching Japan PSE evidence for covered AC/DC power-supply units; real editorial photograph downloaded under the [Pexels licence](https://www.pexels.com/license/) and locally resized/compressed without generative editing; the pictured adapter is not presented as PSE-marked, Japan-approved, a ZIMONAI client device, supplier sample or compliance evidence; downloaded and used 2026-09-11 |
 
 ## Unsplash editorial photographs
 

@@ -8,6 +8,67 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-japan-pse-ac-adapter',
+    key: 'japanPseAcAdapter',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/japan-pse-ac-adapter',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter'],
+    markets: ['japan'],
+    keywords: {
+      en: ['Japan PSE AC adapter', 'diamond PSE mark charger', 'PSE certificate power adapter', 'Japan importer PSE', 'DENAN AC DC power supply', 'PSE notifying supplier'],
+      'zh-tw': ['日本 PSE 電源適配器', '菱形 PSE 充電器', 'PSE 證明書', '日本進口商 PSE', '電氣用品安全法 AC 適配器', 'PSE 屆出事業者'],
+      'zh-cn': ['日本 PSE 电源适配器', '菱形 PSE 充电器', 'PSE 证书', '日本进口商 PSE', '电气用品安全法 AC 适配器', 'PSE 届出事业者']
+    },
+    datePublished: '2026-09-11',
+    dateModified: '2026-09-11',
+    image: '/assets/editorial-japan-pse-ac-adapter.jpg',
+    imageWidth: 1800,
+    imageHeight: 1205,
+    imageCrop: {
+      card: '58% 52%',
+      article: '57% 51%',
+      mobile: '58% 51%'
+    },
+    photo: {
+      photographer: 'Steve A Johnson',
+      page: 'https://www.pexels.com/photo/white-travel-adapter-845239/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'e-Gov Law Search',
+        title: 'Electrical Appliances and Materials Safety Act — current Japanese text',
+        url: 'https://laws.e-gov.go.jp/law/336AC0000000234?occasion_date=20260611'
+      },
+      {
+        publisher: 'Japan Ministry of Economy, Trade and Industry',
+        title: 'Electrical Appliances and Materials Safety Act — scope and notifying-supplier duties',
+        url: 'https://www.meti.go.jp/english/policy/economy/consumer/pse/index.html'
+      },
+      {
+        publisher: 'Japan Ministry of Economy, Trade and Industry',
+        title: 'Procedures required under the Electrical Appliances and Materials Safety Act',
+        url: 'https://www.meti.go.jp/english/policy/economy/consumer/product_safety/pse_procedure/index.html'
+      },
+      {
+        publisher: 'Japan Ministry of Economy, Trade and Industry',
+        title: 'Regulatory instructions for manufacturers and importers',
+        url: 'https://www.meti.go.jp/english/policy/economy/consumer/product_safety/pse_procedure/pdf/pse_regulatory-instructions.pdf'
+      },
+      {
+        publisher: 'Japan Ministry of Economy, Trade and Industry',
+        title: 'Current product-scope interpretations — DC power-supply units',
+        url: 'https://www.meti.go.jp/policy/consumer/seian/denan/subject01.html'
+      },
+      {
+        publisher: 'Japan Ministry of Economy, Trade and Industry',
+        title: 'Product Safety Four Acts now cover qualifying overseas direct sellers',
+        url: 'https://www.meti.go.jp/product_safety/tokuteiyunyu/tokuteiyunyu.html'
+      }
+    ]
+  },
+  {
     id: 'knowledge-apple-iphone-duo-foldable-supply-chain',
     key: 'appleIphoneDuoFoldableSupplyChain',
     contentType: 'current-affairs',
@@ -59,7 +120,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-10',
+    featuredReviewedThrough: '2026-09-11',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1205,6 +1266,7 @@ export const knowledgeContent = {
         china: 'China',
         'united-states': 'United States',
         canada: 'Canada',
+        japan: 'Japan',
         'european-union': 'European Union',
         global: 'Global standards',
         international: 'International transport'
@@ -1226,6 +1288,64 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      japanPseAcAdapter: {
+        topic: 'Japan market-access documents',
+        published: '11 September 2026',
+        readTime: '7 minutes',
+        title: 'A diamond PSE mark on an AC adapter is only the start: match the responsible business, certificate and type',
+        description: 'Japan treats covered AC/DC adapters as specified electrical appliances. Buyers should connect the diamond PSE mark to the responsible business, certificate, inspection records and exact product type.',
+        imageAlt: 'A compact plug-in AC adapter photographed on a dark surface, used as an editorial illustration for Japan PSE document checks.',
+        imageCaption: 'Editorial photograph of a generic plug-in adapter. The visible product is not presented as PSE-marked, Japan-approved, a ZIMONAI client device, supplier sample or compliance evidence.',
+        answer: 'Japan classifies covered AC/DC power-supply units as Specified Electrical Appliances and Materials. Before the diamond PSE mark appears, the notifying supplier must meet technical requirements, complete registered-body assessment, conduct self-inspection and keep records. For imports, that role normally belongs to the Japanese importer; certain overseas direct sellers have used a domestic-representative route since 25 December 2025. Buyers should match the exact adapter and type to the responsible business, certificate, records and final label. ZIMONAI’s editorial view is that the mark becomes procurement evidence only when the chain resolves to one product and business.',
+        takeaways: [
+          'METI lists AC/DC power-supply units as examples of the 116 Specified Electrical Appliances and Materials, which require registered-body conformity assessment in addition to self-inspection.',
+          'For ordinary imports, the Japanese importer is the notifying supplier responsible for the statutory process; a Chinese factory’s test file does not by itself identify the business legally placing the adapter on Japan’s market.',
+          'The certificate, type classification, rated input and output, manufacturer, factory information, inspection records and final PSE label must form one traceable chain for the quoted model.'
+        ],
+        sections: [
+          {
+            title: 'Why does a plug-in adapter use the diamond PSE route?',
+            paragraphs: [
+              'METI divides 457 regulated electrical-appliance items into 116 Specified Electrical Appliances and Materials and 341 non-specified items. Its official overview names AC/DC power-supply units as a specified example. METI’s current scope-interpretation page describes the regulated DC power-supply-unit category as including units that also operate as AC supplies, generally with rated capacity up to 1kVA, while excluding certain specially constructed radio-communication test equipment.',
+              'Classification comes before document review. A USB wall charger, a power unit built into another product, a battery-powered device and a standalone DC supply may not be treated identically. Buyers should preserve the rated input, output combinations, capacity, plug and cord configuration, enclosure, intended use and relationship to the host product, then ask the responsible business to document why the exact item falls inside—or outside—the regulated category.'
+            ]
+          },
+          {
+            title: 'Who is legally responsible, and what does the certificate support?',
+            paragraphs: [
+              'Under the Act and METI procedure, a business that manufactures or imports covered electrical appliances must notify the government. For imported products, METI assigns the statutory duties to the importer: confirming technical conformity, conducting the prescribed self-inspection and keeping its records. Specified products also require conformity assessment by a body registered with METI. Only after the notifying supplier has fulfilled the relevant obligations may it place the statutory PSE marking on the product.',
+              'The assessment certificate belongs inside that system; it is not a transferable marketing badge. The buyer should identify the certificate holder or applicant, the registered assessment body, the covered product name and type classification, issue and validity information, manufacturing factory or facilities covered by the assessment, and any referenced technical standard. A retail model that is absent from the certificate may still be covered through a documented type classification, but that mapping must be shown rather than inferred from an enclosure photograph.'
+            ],
+            items: [
+              'Japanese notifying supplier and its legal role',
+              'Registered conformity-assessment body',
+              'Certificate number, issue date and current validity',
+              'Covered product name and type classification',
+              'Manufacturer, factory and assessed facilities',
+              'Technical file connecting the retail model to the assessed type'
+            ]
+          },
+          {
+            title: 'What changed for overseas sellers, and what should the buyer match?',
+            paragraphs: [
+              'Since 25 December 2025, Japan’s amended product-safety framework also allows a qualifying overseas business that sells regulated products directly to Japanese consumers without a domestic importer to notify as a specified importer after appointing a domestic administrator. METI states that existing Japanese importers remain regulated as before. The new route does not make every overseas factory a notifying supplier; the actual sales and import structure determines which legal path applies.',
+              'A practical review therefore works from the transaction outward. Confirm whether a Japanese importer or a qualifying overseas direct seller is the responsible business, then match its identity to the notification route and final marking. Match the quoted adapter’s ratings, plug, connector, model suffix and type classification to the certificate and technical file. Finally, review the self-inspection record format and a current production record. This sequence separates a genuine market-access file from a correct-looking mark copied onto unrelated artwork.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact adapter model, suffix, input and every output profile',
+          'Plug, detachable-cord, connector and enclosure configuration',
+          'Written classification as a regulated DC power-supply unit or documented exclusion',
+          'Japanese importer, or qualifying overseas direct seller and domestic administrator',
+          'Business-notification evidence for the responsible product classification',
+          'Registered-body certificate and model-to-type mapping',
+          'Technical-standard evidence and prescribed self-inspection records',
+          'Final product and packaging label matched to the responsible business',
+          'Change control for factory, components, ratings, plug, enclosure and model name'
+        ],
+        limitsText: 'The PSE framework addresses Japan’s Electrical Appliances and Materials Safety Act and the product type covered by its records. A mark, certificate or notification does not by itself prove approval in another market, USB-IF certification, supplier ownership of a factory, production capacity, performance, intellectual-property rights, shipping readiness or lot-level conformity. A generic adapter photograph and this article cannot classify a specific product. The Japanese text of the Act and current METI instructions control; the English materials are explanatory, and later amendments or interpretations may change the procedure.'
+      },
       appleIphoneDuoFoldableSupplyChain: {
         topic: 'Apple product and supply-chain news',
         published: '10 September 2026',
@@ -2543,6 +2663,7 @@ export const knowledgeContent = {
         china: '中國',
         'united-states': '美國',
         canada: '加拿大',
+        japan: '日本',
         'european-union': '歐盟',
         global: '全球標準',
         international: '國際運輸'
@@ -2564,6 +2685,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      japanPseAcAdapter: {
+        topic: '日本市場准入文件',
+        published: '2026 年 9 月 11 日',
+        readTime: '約 7 分鐘',
+        title: '電源適配器印有菱形 PSE 還不夠：日本責任方、證明書與型式要對得上',
+        description: '日本將受管制的 AC／DC 電源適配器列為特定電氣用品。買家要把菱形 PSE、責任事業者、適合性檢查證明書、檢查紀錄與精確型式連成一條證據鏈。',
+        imageAlt: '深色桌面上的插牆式電源適配器，作為日本 PSE 文件核對文章的編輯用圖片。',
+        imageCaption: '一般插牆式電源適配器的編輯用照片；畫面中的產品不代表已標示 PSE、取得日本准入，也不是 ZIMONAI 客戶裝置、供應商樣品或合規證據。',
+        answer: '日本《電氣用品安全法》將受管制的 AC／DC 電源裝置列為特定電氣用品。菱形 PSE 標誌上線前，屆出事業者須完成技術基準確認、適合性檢查、自主檢查與紀錄保存；一般進口案由日本進口商負責，特定海外直售業者另有日本國內管理人程序。買家應把精確型號、型式分類、責任方、證明書、檢查紀錄與最終標示逐一對上。ZIMONAI 的判讀是，只有整條證據鏈指向同一產品與事業者，PSE 資料才具有採購判斷價值。',
+        takeaways: [
+          '日本經濟產業省把 AC／DC 電源裝置列為 116 項特定電氣用品的代表品項，除自主檢查外，還須完成登錄檢查機構的適合性檢查。',
+          '一般進口案由日本進口商擔任屆出事業者並承擔法定程序；中國工廠提供的測試文件，本身不會指出誰是把產品投入日本市場的責任方。',
+          '證明書、型式分類、輸入輸出額定值、製造商與工廠資料、檢查紀錄及最終 PSE 標示，都要能對回報價中的同一款電源適配器。'
+        ],
+        sections: [
+          {
+            title: '為什麼插牆式電源適配器通常走菱形 PSE？',
+            paragraphs: [
+              '日本經濟產業省把 457 項受管制電氣用品分為 116 項「特定電氣用品」與 341 項「特定電氣用品以外的電氣用品」，官方英文說明直接把 AC／DC 電源裝置列為前者的例子。經產省 2026 年更新的適用範圍解釋，則把可兼具交流電源功能、額定容量不超過 1kVA 的直流電源裝置納入定義，同時排除部分供無線通訊設備試驗使用的特殊結構。',
+              '文件核對以前，先把產品分類說清楚。USB 牆充、內建於整機的電源模組、電池供電裝置與獨立直流電源，不應只因外觀看起來相近就使用同一結論。買家要保存額定輸入、所有輸出組合、容量、插頭與線材形式、外殼、用途及其與主機的關係，再要求責任事業者留下精確產品納入或排除管制的書面理由。'
+            ]
+          },
+          {
+            title: '誰負法律責任？證明書又涵蓋到哪裡？',
+            paragraphs: [
+              '依《電氣用品安全法》與經產省程序，製造或進口受管制電氣用品的事業者必須向政府屆出。對進口品而言，日本進口商要負責確認技術基準、執行規定的自主檢查並保存紀錄；特定電氣用品還要由經產省登錄的檢查機構進行適合性檢查。屆出事業者履行相應義務後，才可在產品上加註法定 PSE 標示。',
+              '適合性檢查證明書屬於這套法定流程，不是一個可以轉貼到任何型號的宣傳徽章。買家應核對證明書的申請或持有人、登錄檢查機構、電氣用品名稱與型式分類、簽發與有效資訊、納入評估的製造工廠或檢查設備，以及所引用的技術基準。零售型號即使沒有直接列在證明書上，也可能透過型式分類文件被涵蓋；但這段對應關係必須由技術資料證明，不能只看外殼照片猜測。'
+            ],
+            items: [
+              '日本屆出事業者及其製造或進口角色',
+              '經產省登錄的適合性檢查機構',
+              '證明書編號、簽發日期與目前有效狀態',
+              '電氣用品名稱與涵蓋的型式分類',
+              '製造商、工廠及受評估的檢查設備',
+              '把零售型號連回受評型式的技術文件'
+            ]
+          },
+          {
+            title: '海外直售新制上路後，買家要怎麼把資料對起來？',
+            paragraphs: [
+              '自 2025 年 12 月 25 日起，日本修法後的產品安全制度也涵蓋特定海外直售業者。沒有經由日本進口商、直接向日本消費者販售受管制產品的海外業者，符合條件時可選任日本國內管理人，再以「特定輸入事業者」身分辦理屆出；原本的日本進口商制度則持續適用。這條新路徑不代表每一家海外工廠自動成為屆出事業者，實際交易與進口安排才會決定法律角色。',
+              '實務核對可從交易結構往產品收斂：先確認責任方是日本進口商，還是符合新制的海外直售業者，再把其法律名稱連回屆出程序與最終標示。接著將報價電源適配器的額定值、插頭、連接埠、型號尾碼與型式分類，逐項對回證明書及技術檔案；最後查看自主檢查紀錄格式與近期量產紀錄。這個順序有助於分辨完整的市場准入證據，與被複製到不相關圖稿上的正確標誌。'
+            ]
+          }
+        ],
+        checklist: [
+          '電源適配器完整型號、尾碼、輸入及全部輸出檔位',
+          '插頭、可拆線材、連接埠與外殼配置',
+          '直流電源裝置的納管分類，或有依據的排除理由',
+          '日本進口商，或符合資格的海外直售業者與日本國內管理人',
+          '責任事業者針對相關電氣用品分類的屆出資料',
+          '登錄檢查機構證明書及型號對回型式的文件',
+          '技術基準資料與規定的自主檢查紀錄',
+          '實際產品及包裝標示與責任事業者一致',
+          '工廠、關鍵零件、額定值、插頭、外殼與型號的變更管制'
+        ],
+        limitsText: 'PSE 制度處理的是日本《電氣用品安全法》及其紀錄涵蓋的產品型式。標誌、證明書或屆出資料本身，不會證明其他市場准入、USB-IF 認證、供應商擁有工廠、產能、產品性能、智慧財產權、運輸條件或每一批量產一致性。一般適配器照片與本文都無法替特定產品完成法律分類。日本法規原文與經產省現行程序才是依據；英文資料僅供理解，後續修法或解釋也可能改變實務要求。'
+      },
       appleIphoneDuoFoldableSupplyChain: {
         topic: 'Apple 新品與供應鏈時事',
         published: '2026 年 9 月 10 日',
@@ -3881,6 +4060,7 @@ export const knowledgeContent = {
         china: '中国',
         'united-states': '美国',
         canada: '加拿大',
+        japan: '日本',
         'european-union': '欧盟',
         global: '全球标准',
         international: '国际运输'
@@ -3902,6 +4082,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      japanPseAcAdapter: {
+        topic: '日本市场准入文件',
+        published: '2026 年 9 月 11 日',
+        readTime: '约 7 分钟',
+        title: '电源适配器上的菱形 PSE 不是单独通行证：责任主体、证书和型式必须对应',
+        description: '日本将受管制的 AC／DC 电源适配器列为特定电气用品。买家要把菱形 PSE、责任经营者、合格评定证书、检验记录和精确型式连成完整证据链。',
+        imageAlt: '深色台面上的插墙式电源适配器，作为日本 PSE 文件核查文章的编辑图片。',
+        imageCaption: '普通插墙式电源适配器的编辑图片；图中产品不代表带有 PSE 标识、已经获准进入日本市场，也不是 ZIMONAI 客户设备、供应商样品或合规证据。',
+        answer: '日本《电气用品安全法》将受管制的 AC／DC 电源装置列为特定电气用品。菱形 PSE 标识上架前，届出事业者须完成技术标准确认、合格评定、自主检验和记录保存；普通进口业务由日本进口商负责，特定境外直销经营者另有日本国内管理人程序。买家应把精确型号、型式分类、责任主体、证书、检验记录与最终标签逐项对应。ZIMONAI 的编辑判断是，只有整条证据链指向同一产品和经营者，PSE 资料才具有采购决策价值。',
+        takeaways: [
+          '日本经济产业省把 AC／DC 电源装置列为 116 项特定电气用品的代表品类，除自主检验外，还需要完成注册检验机构的合格评定。',
+          '普通进口业务由日本进口商担任届出事业者并承担法定程序；中国工厂提供的测试文件本身无法说明谁是将产品投放日本市场的责任方。',
+          '证书、型式分类、输入输出额定值、制造商和工厂资料、检验记录与最终 PSE 标签，都应对应报价中的同一款电源适配器。'
+        ],
+        sections: [
+          {
+            title: '为什么插墙式电源适配器通常采用菱形 PSE？',
+            paragraphs: [
+              '日本经济产业省将 457 项受管制电气用品分为 116 项“特定电气用品”和 341 项“特定电气用品以外的电气用品”，官方英文说明直接把 AC／DC 电源装置列为前者的示例。经产省 2026 年更新的适用范围解释，则将可兼具交流电源功能、额定容量不超过 1kVA 的直流电源装置纳入定义，同时排除部分供无线通信设备试验使用的特殊结构。',
+              '核查文件前，首先要把产品分类讲清楚。USB 墙充、整机内置电源模块、电池供电设备和独立直流电源，不能只因外观相似便采用同一结论。买家应保存额定输入、全部输出组合、容量、插头与线缆形式、外壳、用途及其与主机的关系，再要求责任经营者书面说明精确产品为何纳入或排除管制。'
+            ]
+          },
+          {
+            title: '谁承担法律责任？证书又覆盖到哪里？',
+            paragraphs: [
+              '根据《电气用品安全法》和经产省程序，制造或进口受管制电气用品的经营者应向政府届出。对于进口产品，日本进口商负责确认技术标准、执行规定的自主检验并保存记录；特定电气用品还要由经产省注册的检验机构进行合格评定。届出事业者履行相应义务后，方可在产品上加贴法定 PSE 标识。',
+              '合格评定证书属于这套法定流程，并不是可以复制到任何型号上的宣传徽章。买家应核对证书申请人或持有人、注册检验机构、电气用品名称与型式分类、签发与有效信息、纳入评定的制造工厂或检验设备，以及所引用的技术标准。零售型号即使没有直接列在证书上，也可能通过型式分类文件得到覆盖；但这段对应关系应由技术资料证明，不能根据外壳照片推测。'
+            ],
+            items: [
+              '日本届出事业者及其制造或进口角色',
+              '经产省注册的合格评定机构',
+              '证书编号、签发日期与当前有效状态',
+              '电气用品名称与覆盖的型式分类',
+              '制造商、工厂及接受评定的检验设备',
+              '将零售型号对应至受评型式的技术文件'
+            ]
+          },
+          {
+            title: '境外直销新规实施后，买家怎样核对整套资料？',
+            paragraphs: [
+              '从 2025 年 12 月 25 日起，日本修订后的产品安全制度也覆盖特定境外直销经营者。没有经过日本进口商、直接向日本消费者销售受管制产品的境外经营者，符合条件时可以指定日本国内管理人，再以“特定进口事业者”身份办理届出；原有日本进口商制度继续适用。这条新路径不代表每家境外工厂都会自动成为届出事业者，实际交易和进口安排才会决定法律角色。',
+              '实际核查可以从交易结构逐步收敛到产品：先确认责任方是日本进口商，还是符合新规的境外直销经营者，再将其法定名称对应至届出程序与最终标签。随后把报价电源适配器的额定值、插头、接口、型号尾码与型式分类，逐项对应证书和技术档案；最后查看自主检验记录格式与近期量产记录。这个顺序有助于区分完整的市场准入证据和被复制到无关图稿上的正确标识。'
+            ]
+          }
+        ],
+        checklist: [
+          '电源适配器完整型号、尾码、输入及全部输出档位',
+          '插头、可拆卸线缆、接口与外壳配置',
+          '直流电源装置的管制分类，或有依据的排除理由',
+          '日本进口商，或符合资格的境外直销经营者与日本国内管理人',
+          '责任经营者针对相关电气用品分类的届出资料',
+          '注册检验机构证书及型号对应型式的文件',
+          '技术标准资料与规定的自主检验记录',
+          '实物及包装标签与责任经营者保持一致',
+          '工厂、关键零件、额定值、插头、外壳和型号的变更控制'
+        ],
+        limitsText: 'PSE 制度处理的是日本《电气用品安全法》及其记录覆盖的产品型式。标识、证书或届出资料本身，不能证明其他市场准入、USB-IF 认证、供应商拥有工厂、产能、产品性能、知识产权、运输条件或每批量产一致性。普通适配器照片和本文都无法替具体产品完成法律分类。日本法规原文与经产省现行程序才是依据；英文资料仅用于理解，后续修法或解释也可能改变实务要求。'
+      },
       appleIphoneDuoFoldableSupplyChain: {
         topic: 'Apple 新品与供应链新闻',
         published: '2026 年 9 月 10 日',

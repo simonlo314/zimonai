@@ -69,8 +69,8 @@ test('nested Chinese lang attributes select the matching locale dictionary', () 
 
 test('known failure examples are protected as indivisible units in both locales', () => {
   const samples = {
-    'zh-tw': ['再確認產品。', '電源適配器', '充電器', '行動電源', '供應商', '物料清單', '供應商說法', '第一層', '第一次下單前', '品質管理系統', '驗證碼'],
-    'zh-cn': ['再确认产品。', '电源适配器', '充电器', '移动电源', '供应商', '物料清单', '供应商说法', '第一层', '第一次下单前', '质量管理体系', '验证码', '智蒙灣']
+    'zh-tw': ['再確認產品。', '電源適配器', 'AC／DC 電源裝置', '菱形 PSE 標誌', '特定電氣用品', '屆出事業者', '適合性檢查', '日本國內管理人', '型式分類', '充電器', '行動電源', '供應商', '物料清單', '供應商說法', '第一層', '第一次下單前', '品質管理系統', '驗證碼'],
+    'zh-cn': ['再确认产品。', '电源适配器', 'AC／DC 电源装置', '菱形 PSE 标识', '特定电气用品', '届出事业者', '合格评定', '日本国内管理人', '型式分类', '充电器', '移动电源', '供应商', '物料清单', '供应商说法', '第一层', '第一次下单前', '质量管理体系', '验证码', '智蒙灣']
   };
   for (const [locale, terms] of Object.entries(samples)) {
     const html = protectCjkHtml(`<!doctype html><html><body><p>${terms.join('／')}</p></body></html>`, locale);
