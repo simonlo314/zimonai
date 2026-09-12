@@ -8,6 +8,62 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-cra-reporting-connected-hardware',
+    key: 'euCraReportingConnectedHardware',
+    contentType: 'current-affairs',
+    slug: 'knowledge/eu-cra-reporting-connected-hardware',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'power-bank', 'gan-charger'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['EU Cyber Resilience Act reporting', 'CRA 24 hour reporting', 'ENISA Single Reporting Platform', 'connected hardware cybersecurity', 'CRA severe incident', 'CRA actively exploited vulnerability'],
+      'zh-tw': ['歐盟網路韌性法通報', 'CRA 24 小時通報', 'ENISA 單一通報平台', '連網硬體資安', 'CRA 重大安全事件', '主動遭利用弱點'],
+      'zh-cn': ['欧盟网络韧性法通报', 'CRA 24 小时通报', 'ENISA 单一通报平台', '联网硬件网络安全', 'CRA 严重安全事件', '主动利用漏洞']
+    },
+    datePublished: '2026-09-12',
+    dateModified: '2026-09-12',
+    image: '/assets/editorial-eu-cra-connected-hardware.jpg',
+    imageWidth: 1600,
+    imageHeight: 2400,
+    imageCrop: {
+      card: '50% 41%',
+      article: '50% 41%',
+      mobile: '50% 43%'
+    },
+    photo: {
+      photographer: 'Karola G / Kaboompics.com',
+      page: 'https://www.pexels.com/photo/smartphone-and-charger-usb-connector-on-wooden-table-4195333/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'European Commission',
+        title: 'Cyber Resilience Act — reporting obligations',
+        url: 'https://digital-strategy.ec.europa.eu/en/policies/cra-reporting'
+      },
+      {
+        publisher: 'European Union Agency for Cybersecurity',
+        title: 'CRA Single Reporting Platform',
+        url: 'https://www.enisa.europa.eu/topics/product-security/single-reporting-platform-srp'
+      },
+      {
+        publisher: 'Official Journal of the European Union',
+        title: 'Regulation (EU) 2024/2847 — Cyber Resilience Act',
+        url: 'https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng'
+      },
+      {
+        publisher: 'European Commission',
+        title: 'Cyber Resilience Act — summary of the legislative text',
+        url: 'https://digital-strategy.ec.europa.eu/en/policies/cra-summary'
+      },
+      {
+        publisher: 'Ireland National Cyber Security Centre',
+        title: 'EU Cyber Resilience Act — reporting obligations',
+        url: 'https://www.ncsc.gov.ie/cra/'
+      }
+    ]
+  },
+  {
     id: 'knowledge-japan-pse-ac-adapter',
     key: 'japanPseAcAdapter',
     contentType: 'industry-knowledge',
@@ -120,7 +176,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-11',
+    featuredReviewedThrough: '2026-09-12',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1288,6 +1344,65 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      euCraReportingConnectedHardware: {
+        topic: 'EU cybersecurity news',
+        published: '12 September 2026',
+        readTime: '7 minutes',
+        title: 'The EU Cyber Resilience Act’s 24-hour reporting clock is now running',
+        description: 'Manufacturers of connected hardware now face a 24-hour early-warning deadline for certain cybersecurity events—more than a year before the CRA’s main product rules take effect.',
+        imageAlt: 'A smartphone beside a disconnected charging cable on a wooden desk, used as an editorial image for connected-hardware cybersecurity reporting.',
+        imageCaption: 'Editorial photograph of a smartphone and charging cable. It does not depict a CRA notification, affected product, security incident, ZIMONAI client, supplier or test result.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What to watch next',
+          limits: 'What remains unknown'
+        },
+        answer: 'EU Cyber Resilience Act reporting began on 11 September: manufacturers must now report actively exploited vulnerabilities and severe security incidents affecting products with digital elements. The sequence starts with an early warning within 24 hours, a fuller notification within 72 hours and a final report through ENISA’s Single Reporting Platform. The bigger story is the timing: reporting starts 15 months before the main product rules apply on 11 December 2027 and can reach products already sold in the EU. Connected-hardware manufacturers now need product, firmware, support and incident teams to assemble one defensible record before the clock runs out.',
+        takeaways: [
+          'From 11 September 2026, manufacturers must use ENISA’s Single Reporting Platform for mandatory notifications of actively exploited vulnerabilities and severe security incidents.',
+          'The sequence is an early warning within 24 hours, a notification within 72 hours, then a final report on the statutory timetable for the event type.',
+          'Reporting can reach products already available in the EU before the broader 11 December 2027 compliance date, making legacy product records and supplier escalation paths immediately relevant.'
+        ],
+        sections: [
+          {
+            title: 'What changed on 11 September?',
+            paragraphs: [
+              'The European Commission says manufacturers must now notify two defined event types: an actively exploited vulnerability, where reliable evidence shows malicious exploitation without the system owner’s permission, and a severe incident affecting the security of a product with digital elements. A routine bug, failed update or unverified report is not automatically one of these events; the legal trigger depends on the CRA definitions and the facts known to the manufacturer.',
+              'Once the manufacturer becomes aware, the first deadline is short. The early warning is due without undue delay and within 24 hours, while the notification with general information and an initial assessment is due within 72 hours. For an actively exploited vulnerability, the final report follows no later than 14 days after a corrective or mitigating measure becomes available; for a severe incident, it is due within one month of the 72-hour notification.'
+            ]
+          },
+          {
+            title: 'Why does this arrive before the rest of the CRA?',
+            paragraphs: [
+              'Most CRA product obligations—including the wider cybersecurity requirements and conformity framework—apply from 11 December 2027. Reporting was deliberately brought forward to 11 September 2026. The Commission’s legislative summary states that the reporting duty applies to products with digital elements made available on the EU market, including products placed there before the 2027 date.',
+              'That split creates an unusual transition period: a product may not yet be subject to the full 2027 design regime, but its manufacturer may already need to report an active exploit or severe incident. ENISA’s platform is designed as a single entry point; the report is routed to the coordinating national Computer Security Incident Response Team and, except in narrowly defined circumstances, made available to ENISA and relevant authorities.'
+            ],
+            items: [
+              '11 September 2026: mandatory manufacturer reporting begins',
+              'Within 24 hours: early warning after awareness',
+              'Within 72 hours: fuller notification and initial assessment',
+              'Final report: deadline depends on vulnerability or incident route',
+              '11 December 2027: the CRA’s main product obligations apply'
+            ]
+          },
+          {
+            title: 'What does this mean for connected charging hardware?',
+            paragraphs: [
+              'The CRA covers hardware and software products with digital elements when their intended or reasonably foreseeable use includes a direct or indirect data connection to a device or network. A conventional, non-connected charger should not be treated as identical to an app-controlled power bank, network-managed charging hub or device whose firmware and remote service are integral to its function. Whether a particular product is in scope requires a product-specific legal and technical assessment.',
+              'ZIMONAI’s editorial view is that the reporting deadline will expose weak handoffs in hardware supply chains. A brand may receive customer complaints, a module vendor may see the vulnerable component, and an app developer may hold the relevant logs; none of them alone has the whole incident. Manufacturers that cannot connect model, firmware version, component source, affected markets and decision ownership will lose time before they can judge and report. Buyers should therefore watch whether connected-product suppliers publish security contacts, support periods and update channels—not merely whether a package carries familiar compliance marks.'
+            ]
+          }
+        ],
+        checklist: [
+          'Whether ENISA updates its launch guidance or platform workflow after real submissions begin',
+          'How national CSIRTs interpret awareness and severity in early cases',
+          'Whether manufacturers publish dedicated vulnerability-reporting contacts and support periods',
+          'How brands connect product models and firmware versions to third-party software components',
+          'Whether incident notices identify affected markets, versions and available mitigations clearly',
+          'How the Commission’s 2027 implementation guidance changes product documentation and conformity plans'
+        ],
+        limitsText: 'The reporting start date, deadlines, platform and transition timetable are official EU facts. This article does not classify a specific charger, power bank or supplier under the CRA, and it does not mean every software flaw must be reported. Product scope, manufacturer status, awareness, active exploitation and incident severity depend on the Regulation and the facts of each case. Enforcement practice and the volume or pattern of early reports are not yet established. The connected-hardware and supply-chain implications above are analysis by the ZIMONAI Editorial Desk at Zhimengwan Technology, not conclusions issued by the European Commission, ENISA or a national authority.'
+      },
       japanPseAcAdapter: {
         topic: 'Japan market-access documents',
         published: '11 September 2026',
@@ -2685,6 +2800,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      euCraReportingConnectedHardware: {
+        topic: '歐盟資安法規時事',
+        published: '2026 年 9 月 12 日',
+        readTime: '約 7 分鐘',
+        title: '歐盟《網路韌性法》通報義務上路：連網硬體進入 24 小時計時',
+        description: '歐盟 CRA 的事件通報已於 9 月 11 日啟動，製造商最早須在知悉後 24 小時內預警，比主要產品義務提早 15 個月。',
+        imageAlt: '木桌上的智慧型手機與尚未接上的充電線，用於連網硬體資安通報新聞的編輯配圖。',
+        imageCaption: '智慧型手機與充電線的編輯用照片；不是 CRA 通報畫面、受影響產品、資安事件、ZIMONAI 客戶、供應商或測試證據。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '接下來值得關注',
+          limits: '仍待確認'
+        },
+        answer: '歐盟《網路韌性法》的第一個實際期限已於 9 月 11 日生效：含數位元素的產品若出現主動遭利用弱點或重大安全事件，製造商必須開始通報。知悉事件後 24 小時內要先提出預警，72 小時內補交通報，之後再依事件類型提交最終報告，入口統一走 ENISA 的單一通報平台。更值得注意的是，這項義務比 CRA 主要產品規範在 2027 年 12 月 11 日全面適用早了 15 個月，而且可能涵蓋已在歐盟市場販售的既有產品。對連網硬體產業來說，真正的變化不是包裝多一個標誌，而是產品、韌體、客服與資安團隊能否在倒數開始後及時拼出同一事件。',
+        takeaways: [
+          '2026 年 9 月 11 日起，製造商須透過 ENISA 單一通報平台，通報主動遭利用弱點與重大安全事件。',
+          '通報節奏依序是知悉後 24 小時內預警、72 小時內提出較完整資訊，再按事件類型提交最終報告。',
+          '通報義務早於 2027 年底的主要產品規範，且可能觸及已在歐盟市場販售的既有產品，舊型號與供應商升級路徑因此立即受到考驗。'
+        ],
+        sections: [
+          {
+            title: '9 月 11 日究竟改變了什麼？',
+            paragraphs: [
+              '歐盟執委會指出，製造商現在必須處理兩類法定事件。第一類是「主動遭利用弱點」，也就是有可靠證據顯示惡意行為者已在未獲系統擁有者同意下利用弱點；第二類是對含數位元素產品的安全造成重大影響的事件。一般程式錯誤、更新失敗或尚未證實的回報，不會自動成為這兩類事件，仍要依 CRA 定義與製造商掌握的事實判斷。',
+              '製造商一旦知悉事件，第一個期限很短：須在沒有不當延誤的情況下，最晚 24 小時內提出預警，並於 72 小時內補上一般資訊與初步評估。主動遭利用弱點的最終報告，最晚在修正或緩解措施可用後 14 天提出；重大安全事件則須在 72 小時通報後一個月內完成最終報告。'
+            ]
+          },
+          {
+            title: '為什麼通報比 CRA 其他規範更早開始？',
+            paragraphs: [
+              'CRA 多數產品義務，包括完整的資安要求與符合性架構，要到 2027 年 12 月 11 日才適用；事件通報則提前到 2026 年 9 月 11 日。執委會的法規摘要進一步說明，通報適用於已在歐盟市場提供的含數位元素產品，包括在 2027 年期限以前就已上市的產品。',
+              '因此，現在出現一段特殊過渡期：某項產品尚未進入 2027 年完整設計規範，製造商卻可能已經需要通報它的主動利用事件。ENISA 建置的單一平台會把通報送往製造商主要設立地的協調電腦資安事件應變小組；除法規限定的特殊情況外，ENISA 與其他相關主管機關也會取得資訊。'
+            ],
+            items: [
+              '2026 年 9 月 11 日：製造商強制通報正式開始',
+              '知悉後 24 小時內：提出事件預警',
+              '知悉後 72 小時內：補交通報與初步評估',
+              '最終報告：依弱點或事件類型採不同期限',
+              '2027 年 12 月 11 日：CRA 主要產品義務適用'
+            ]
+          },
+          {
+            title: '連網充電產品為什麼需要關注？',
+            paragraphs: [
+              'CRA 涵蓋軟體與硬體形式的含數位元素產品，其預定用途或可合理預見用途須包含與裝置或網路直接、間接連接。一般不連網充電器，不應與 App 控制行動電源、網路管理充電集線器，或仰賴韌體與遠端服務運作的產品一概而論。特定產品是否納入，仍須依設計、連接方式與法規排除項目進行法律及技術判斷。',
+              'ZIMONAI｜智蒙灣科技編輯部認為，24 小時通報期限最先暴露的會是硬體供應鏈的交接斷點：品牌從客服收到異常，模組商知道弱點落在哪個元件，App 團隊握有紀錄，卻沒有任何一方看見全貌。製造商若無法迅速串起產品型號、韌體版本、元件來源、受影響市場與決策責任人，就會在判斷是否通報以前先耗掉時間。接下來真正值得買家留意的，是連網產品供應商有沒有公開資安聯絡窗口、支援年限與更新管道，而不只是包裝上熟悉的合規標誌。'
+            ]
+          }
+        ],
+        checklist: [
+          'ENISA 是否依首批實際通報調整平台流程或操作指引',
+          '各國電腦資安事件應變小組如何在早期案件解讀「知悉」與「重大」',
+          '製造商是否公開弱點通報聯絡窗口與產品支援年限',
+          '品牌能否把產品型號、韌體版本與第三方軟體元件連成紀錄',
+          '事件公告是否清楚交代受影響市場、版本與可用緩解措施',
+          '執委會後續指引如何影響 2027 年的技術文件與符合性規劃'
+        ],
+        limitsText: '通報生效日、法定時限、單一通報平台與過渡期，均來自歐盟官方資料。本文沒有判定任何特定充電器、行動電源或供應商一定落入 CRA，也不代表每一個軟體弱點都必須通報；產品範圍、製造商身分、知悉時間、主動利用與事件重大程度，都要依法律及個案事實判斷。主管機關如何執法，以及首批通報將呈現何種規模與樣貌，目前仍未形成公開紀錄。本文對連網硬體與供應鏈的影響分析，來自 ZIMONAI｜智蒙灣科技編輯部，不是歐盟執委會、ENISA 或各國主管機關的結論。'
+      },
       japanPseAcAdapter: {
         topic: '日本市場准入文件',
         published: '2026 年 9 月 11 日',
@@ -4082,6 +4256,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      euCraReportingConnectedHardware: {
+        topic: '欧盟网络安全法规时事',
+        published: '2026 年 9 月 12 日',
+        readTime: '约 7 分钟',
+        title: '欧盟《网络韧性法》通报义务生效：联网硬件进入 24 小时倒计时',
+        description: '欧盟 CRA 事件通报已于 9 月 11 日启动，制造商最早须在知悉后 24 小时内预警，比主要产品义务提前 15 个月。',
+        imageAlt: '木桌上的智能手机与尚未接入的充电线，用于联网硬件网络安全通报新闻的编辑图片。',
+        imageCaption: '智能手机与充电线的编辑图片；不是 CRA 通报画面、受影响产品、网络安全事件、ZIMONAI 客户、供应商或测试证据。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '接下来值得关注',
+          limits: '仍待确认'
+        },
+        answer: '欧盟《网络韧性法》的第一个实际期限已于 9 月 11 日生效：带数字元素的产品如果出现主动利用漏洞或严重安全事件，制造商必须开始通报。知悉事件后 24 小时内要先发出预警，72 小时内补交通报，随后再按事件类型提交最终报告，统一入口是 ENISA 单一通报平台。更值得关注的是，这项义务比 CRA 主要产品规则在 2027 年 12 月 11 日全面适用早了 15 个月，而且可能覆盖已经在欧盟市场销售的存量产品。对联网硬件行业而言，真正的变化不是包装上增加一个标识，而是产品、固件、客服和安全团队能否在倒计时开始后及时拼出同一个事件。',
+        takeaways: [
+          '从 2026 年 9 月 11 日起，制造商须通过 ENISA 单一通报平台，通报主动利用漏洞和严重安全事件。',
+          '通报依次为知悉后 24 小时内预警、72 小时内提交较完整信息，再按照事件类型提交最终报告。',
+          '通报义务早于 2027 年底的主要产品规则，且可能涉及已在欧盟市场销售的存量产品，旧型号记录与供应商升级路径因此立即受到考验。'
+        ],
+        sections: [
+          {
+            title: '9 月 11 日究竟改变了什么？',
+            paragraphs: [
+              '欧盟委员会指出，制造商现在必须处理两类法定事件。第一类是“主动利用漏洞”，即有可靠证据显示恶意行为者已经在未经系统所有者许可的情况下利用漏洞；第二类是对带数字元素产品的安全造成严重影响的事件。普通程序错误、更新失败或尚未证实的报告，不会自动成为这两类事件，仍需按照 CRA 定义和制造商掌握的事实判断。',
+              '制造商一旦知悉事件，第一个期限很短：须在不无故拖延的情况下，最迟 24 小时内发出预警，并在 72 小时内补充一般信息和初步评估。主动利用漏洞的最终报告，最迟在修复或缓解措施可用后 14 天内提交；严重安全事件则须在 72 小时通报后的一个月内提交最终报告。'
+            ]
+          },
+          {
+            title: '为什么通报比 CRA 其他规则更早开始？',
+            paragraphs: [
+              'CRA 多数产品义务，包括完整的网络安全要求和合格评定框架，要到 2027 年 12 月 11 日才适用；事件通报则提前到 2026 年 9 月 11 日。欧盟委员会的法规摘要进一步说明，通报适用于已经在欧盟市场提供的带数字元素产品，包括在 2027 年期限之前就已上市的产品。',
+              '这形成了一段特殊过渡期：某款产品尚未进入 2027 年完整设计规则，制造商却可能已经需要通报其主动利用事件。ENISA 建立的单一平台会把通报发送给制造商主要设立地的协调计算机安全事件响应团队；除法规规定的特殊情况外，ENISA 和其他相关主管机构也会取得信息。'
+            ],
+            items: [
+              '2026 年 9 月 11 日：制造商强制通报正式开始',
+              '知悉后 24 小时内：发出事件预警',
+              '知悉后 72 小时内：补交通报与初步评估',
+              '最终报告：漏洞与事件适用不同期限',
+              '2027 年 12 月 11 日：CRA 主要产品义务适用'
+            ]
+          },
+          {
+            title: '联网充电产品为什么需要关注？',
+            paragraphs: [
+              'CRA 覆盖软件和硬件形式的带数字元素产品，其预定用途或可合理预见用途须包含与设备或网络直接、间接连接。普通非联网充电器，不能与 App 控制充电宝、网络管理充电集线器，或依赖固件与远程服务运行的产品一概而论。特定产品是否纳入，仍须根据设计、连接方式与法规排除项目进行法律和技术判断。',
+              'ZIMONAI｜智蒙湾科技编辑部认为，24 小时通报期限最先暴露的将是硬件供应链的交接断点：品牌从客服获得异常信息，模块厂知道漏洞落在哪个零件，App 团队掌握日志，却没有任何一方看见全貌。制造商如果无法迅速串联产品型号、固件版本、零件来源、受影响市场和决策责任人，就会在判断是否通报之前先浪费时间。接下来真正值得买家关注的，是联网产品供应商是否公开安全联系窗口、支持期限与更新渠道，而不只是包装上的常见合规标识。'
+            ]
+          }
+        ],
+        checklist: [
+          'ENISA 是否根据首批实际通报调整平台流程或操作指南',
+          '各国计算机安全事件响应团队如何在早期案例中解释“知悉”与“严重”',
+          '制造商是否公开漏洞通报联系窗口与产品支持期限',
+          '品牌能否把产品型号、固件版本与第三方软件组件连成记录',
+          '事件公告是否清楚说明受影响市场、版本与可用缓解措施',
+          '欧盟委员会后续指南如何影响 2027 年的技术文件与合规计划'
+        ],
+        limitsText: '通报生效日期、法定期限、单一通报平台与过渡期均来自欧盟官方资料。本文没有判定任何特定充电器、充电宝或供应商必然纳入 CRA，也不代表每一个软件漏洞都必须通报；产品范围、制造商身份、知悉时间、主动利用和事件严重程度，都需要依据法律和个案事实判断。主管机构如何执法，以及首批通报会呈现何种规模与特征，目前尚未形成公开记录。本文对联网硬件和供应链影响的分析来自 ZIMONAI｜智蒙湾科技编辑部，不是欧盟委员会、ENISA 或各国主管机构的结论。'
+      },
       japanPseAcAdapter: {
         topic: '日本市场准入文件',
         published: '2026 年 9 月 11 日',
