@@ -8,6 +8,67 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-us-doe-level-vi-power-adapter',
+    key: 'usDoeLevelViPowerAdapter',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/us-doe-level-vi-power-adapter',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter'],
+    markets: ['united-states'],
+    keywords: {
+      en: ['DOE Level VI power adapter', 'external power supply efficiency mark', 'DOE CCMS power supply', 'US power adapter certification', 'external power supply basic model', 'power adapter importer compliance'],
+      'zh-tw': ['美國 DOE Level VI 電源適配器', '外接電源供應器效率標誌', 'DOE CCMS 電源供應器', '美國電源適配器認證', '外接電源基本型號', '電源適配器進口商責任'],
+      'zh-cn': ['美国 DOE Level VI 电源适配器', '外部电源效率标识', 'DOE CCMS 电源适配器', '美国电源适配器认证', '外部电源基本型号', '电源适配器进口商责任']
+    },
+    datePublished: '2026-09-13',
+    dateModified: '2026-09-13',
+    image: '/assets/editorial-us-doe-level-vi-power-adapter.jpg',
+    imageWidth: 1600,
+    imageHeight: 2400,
+    imageCrop: {
+      card: '56% 59%',
+      article: '56% 60%',
+      mobile: '55% 58%'
+    },
+    photo: {
+      photographer: "I'm Zion",
+      page: 'https://www.pexels.com/photo/person-holding-a-white-power-adaptor-5948310/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'U.S. Department of Energy',
+        title: 'External Power Supplies — current standards and test procedure',
+        url: 'https://www.energy.gov/cmei/buildings/external-power-supplies'
+      },
+      {
+        publisher: 'Electronic Code of Federal Regulations',
+        title: '10 CFR 430.32(w) — energy conservation standards and efficiency marking',
+        url: 'https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-430/subpart-C/section-430.32'
+      },
+      {
+        publisher: 'Electronic Code of Federal Regulations',
+        title: '10 CFR 429.37 — external power-supply certification reports',
+        url: 'https://www.ecfr.gov/current/title-10/chapter-II/subchapter-D/part-429/subpart-B/section-429.37'
+      },
+      {
+        publisher: 'U.S. Department of Energy',
+        title: 'Implementation, Certification and Enforcement — CCMS and public database',
+        url: 'https://www.energy.gov/cmei/buildings/implementation-certification-and-enforcement'
+      },
+      {
+        publisher: 'U.S. Department of Energy',
+        title: 'Conservation Standards Enforcement — Importer Q&As',
+        url: 'https://www.energy.gov/gc/conservation-standards-enforcement-importer-qas'
+      },
+      {
+        publisher: 'U.S. Department of Energy',
+        title: 'Conservation Standards Enforcement — U.S. Manufacturer FAQs',
+        url: 'https://www.energy.gov/gc/conservation-standards-enforcement-us-manufacturer-faqs'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-cra-reporting-connected-hardware',
     key: 'euCraReportingConnectedHardware',
     contentType: 'current-affairs',
@@ -176,7 +237,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-12',
+    featuredReviewedThrough: '2026-09-13',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1259,7 +1320,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Twenty-two field notes',
+      latest: 'Twenty-five field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -1344,6 +1405,64 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      usDoeLevelViPowerAdapter: {
+        topic: 'U.S. market-access documents',
+        published: '13 September 2026',
+        readTime: '7 minutes',
+        title: 'A Level VI mark is only the label: match the power adapter to DOE records and the importer',
+        description: 'For U.S.-bound external power supplies, the Level VI mark, DOE certification record, basic-model scope, test data and importer responsibility need to describe the same product.',
+        imageAlt: 'A person holding a white plug-in power adapter above a desk with several chargers, used as an editorial illustration for U.S. DOE Level VI evidence checks.',
+        imageCaption: 'Editorial photograph of generic power adapters. The products are not presented as DOE-certified, Level VI-compliant, ZIMONAI client devices, supplier samples or test evidence.',
+        answer: 'The Level VI numeral identifies an energy-efficiency tier for a U.S.-regulated external power supply. The useful compliance trail links the product scope, applicable 10 CFR 430.32(w) limits, DOE test data, the correct CCMS basic model or design family, and the named manufacturer or importer. DOE’s public database republishes manufacturer-submitted information rather than granting product approval. For buyers, the decisive check is whether the quoted model, every output mode and the responsible U.S. importer match one current filing. ZIMONAI’s editorial view is that Level VI becomes meaningful procurement evidence only when those links are documented.',
+        takeaways: [
+          'DOE currently directs covered external power supplies to 10 CFR 430.32(w), which sets active-mode and no-load requirements and requires the applicable international efficiency mark.',
+          'Certification is organized around a basic model or design family, so the retail model number and all relevant output voltages must be traceable to the filed scope rather than inferred from a shared enclosure.',
+          'The U.S. importer is treated as a manufacturer under EPCA and retains compliance responsibility even when the overseas OEM or a laboratory submits the CCMS report on its behalf.'
+        ],
+        sections: [
+          {
+            title: 'What does the Level VI mark actually describe?',
+            paragraphs: [
+              'DOE defines an external power supply by function: it converts household electricity into DC or lower-voltage AC to operate a consumer product, subject to specific exclusions. The current DOE product page points covered units to 10 CFR 430.32(w) and Appendix Z. Under the present table, direct-operation external power supplies generally follow Level VI active-mode efficiency and no-load limits; covered units must carry the corresponding international efficiency marking.',
+              'The Roman numeral therefore communicates an efficiency level, not the whole U.S. compliance story. Product classification still matters: direct and indirect operation, AC-to-DC or AC-to-AC output, single or multiple voltage, output power, intended end product and any exemption can change the applicable route. A familiar wall-charger shape is not enough to classify a model.'
+            ]
+          },
+          {
+            title: 'How should the CCMS record match the quoted adapter?',
+            paragraphs: [
+              'DOE says covered basic models must be certified through the Compliance Certification Management System before distribution in U.S. commerce, annually thereafter, and again when a design change increases energy use or reduces efficiency enough that existing test data no longer supports the rating. A basic model may group units that differ only in non-energy-related characteristics such as colour; a design-family filing must still identify the individual manufacturer model numbers it covers.',
+              'For external power supplies, 10 CFR 429.37 requires public product information such as average active-mode efficiency, no-load power and nameplate output power. Adaptive units report the relevant values at the highest and lowest nameplate output voltages. A buyer should therefore match the supplier’s full retail model, input, each advertised output voltage and current, product group and filing party to the record—not stop at a visually similar casing or a copied Level VI symbol.'
+            ],
+            items: [
+              'Full manufacturer and retail model numbers, including suffixes',
+              'Basic model or design family used in the certification',
+              'AC/DC type, direct or indirect operation and output-power class',
+              'Highest and lowest voltage profiles for adaptive supplies',
+              'Reported active-mode efficiency and no-load power',
+              'Certification party, submission status and current model record'
+            ]
+          },
+          {
+            title: 'Who is responsible when the adapter is made in China?',
+            paragraphs: [
+              'DOE’s importer guidance states that an importer is treated as a manufacturer under EPCA. An overseas OEM or third party may submit a certification report, but the importer must authorize that submission and be identified as the importer or certifier. The importer remains responsible for ensuring that the covered product is tested, certified and compliant before importation.',
+              'DOE also warns that appearance in the public database is not DOE approval and carries no agency warranty about the manufacturer-submitted information. ZIMONAI’s practical reading is to connect four records before purchase: the importer’s identity, the CCMS submission or ticket, the DOE-procedure test data supporting the filing, and the supplier’s change-control record for the production adapter. That chain shows who filed what for which product; it still needs shipment and production evidence to support the units being bought.'
+            ]
+          }
+        ],
+        checklist: [
+          'Complete adapter model and every private-label or regional suffix',
+          'Nameplate input, output voltages, currents and maximum power',
+          'Written scope classification and any claimed exemption',
+          'DOE public-database record and the underlying CCMS submission or ticket',
+          'Basic-model or design-family mapping to the retail model',
+          'DOE Appendix Z test data and the units represented by the sample',
+          'U.S. importer or manufacturer identified as the responsible certifier',
+          'Authorization when an OEM, laboratory or third party filed the report',
+          'Change control for transformer, controller, firmware, enclosure and output profiles'
+        ],
+        limitsText: 'Level VI and DOE certification concern the U.S. energy-efficiency framework for covered external power supplies. They do not establish electrical safety certification, FCC authorization, USB-IF status, factory ownership, supplier authority, intellectual-property rights, shipment acceptance or continuing batch conformity. The DOE public database contains submitted information and is not an approval by the Department. Scope, exemptions and the effect of future rulemaking must be checked against the current CFR and DOE guidance for the exact product.'
+      },
       euCraReportingConnectedHardware: {
         topic: 'EU cybersecurity news',
         published: '12 September 2026',
@@ -2715,7 +2834,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '二十二篇查核筆記',
+      latest: '二十五篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -2800,6 +2919,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      usDoeLevelViPowerAdapter: {
+        topic: '美國市場准入文件',
+        published: '2026 年 9 月 13 日',
+        readTime: '約 7 分鐘',
+        title: '電源適配器印有 Level VI，還要查什麼？DOE 紀錄、基本型號與進口商要對上',
+        description: '出口美國的外接電源供應器，須把 Level VI 標誌、DOE 申報紀錄、基本型號、測試資料與美國進口商連成同一條證據鏈。',
+        imageAlt: '一名使用者手持白色插牆式電源適配器，桌上另有數個充電器，作為美國 DOE Level VI 證據核對文章的編輯用圖片。',
+        imageCaption: '一般電源適配器的編輯用照片；畫面中的產品不代表已向 DOE 申報、符合 Level VI，也不是 ZIMONAI 客戶裝置、供應商樣品或測試證據。',
+        answer: '電源適配器上的 Level VI 羅馬數字，是美國外接電源供應器規則使用的效率等級標誌。真正支撐這個標誌的是一條資料鏈：先確認產品是否納管與 10 CFR 430.32(w) 的適用門檻。接著核對 DOE 測試結果、正確基本型號或設計系列的 CCMS 申報，以及申報中負責的製造商或進口商。DOE 公開資料庫呈現業者提交的資料，並不等於主管機關核准產品。對買家而言，最有價值的判讀，是把報價型號、全部輸出檔位與美國進口商逐一對回同一筆有效紀錄。ZIMONAI 認為，這條對應關係完整時，Level VI 才能成為實質採購證據。',
+        takeaways: [
+          'DOE 現行外接電源供應器頁面仍指向 10 CFR 430.32(w)；該條文規範主動模式效率、無負載功耗與適用的國際效率等級標誌。',
+          '申報以基本型號或設計系列為單位，零售型號與相關輸出電壓必須可追溯到申報範圍，不能只憑共用外殼或相近照片推定。',
+          '美國進口商在 EPCA 下被視為製造商；即使中國 OEM 或實驗室代為提交 CCMS 資料，進口商仍承擔合規責任。'
+        ],
+        sections: [
+          {
+            title: 'Level VI 標誌實際代表什麼？',
+            paragraphs: [
+              'DOE 依產品功能定義外接電源供應器：它把家用電力轉換成直流電或較低電壓的交流電，用來驅動消費性產品，但法規另列特定排除項目。DOE 現行產品頁面把受管制機種指向 10 CFR 430.32(w) 與 Appendix Z；依現行表格，直接操作型外接電源供應器通常適用 Level VI 的主動模式效率及無負載功耗門檻，並須標示相應的國際效率等級。',
+              '因此，羅馬數字說明的是效率等級，不是完整的美國合規結論。產品屬於直接或間接操作、AC／DC 或 AC／AC、單一或多組電壓、額定輸出功率、搭配哪一種終端產品，以及是否符合豁免條件，都可能改變適用途徑。只看插牆式外觀，無法替型號完成分類。'
+            ]
+          },
+          {
+            title: 'DOE CCMS 紀錄要怎麼對回報價型號？',
+            paragraphs: [
+              'DOE 說明，受管制產品的基本型號在美國商業流通前須透過 Compliance Certification Management System（CCMS）申報，之後每年更新；若設計變更導致耗能提高或效率下降，使原測試資料無法再支撐申報值，也要重新處理。基本型號可涵蓋僅顏色等非能源特性不同的產品；若以設計系列申報，仍須列出實際涵蓋的各個製造商型號。',
+              '依 10 CFR 429.37，外接電源供應器的公開申報資訊包括平均主動模式效率、無負載功耗與銘牌輸出功率；自適應型電源則要處理最高與最低銘牌輸出電壓的相應數值。買家應把完整零售型號、輸入、每一組輸出電壓與電流、產品分類及申報責任方逐項對回紀錄，而不是停在外殼相似或標誌相同。'
+            ],
+            items: [
+              '完整製造商型號與零售型號，包括尾碼',
+              '申報使用的基本型號或設計系列',
+              'AC／DC 類型、操作方式與輸出功率級距',
+              '自適應電源的最高與最低電壓檔位',
+              '平均主動模式效率與無負載功耗',
+              '申報主體、提交狀態與目前可查紀錄'
+            ]
+          },
+          {
+            title: '產品在中國製造時，誰負美國端責任？',
+            paragraphs: [
+              'DOE 的進口商指引明確指出，進口商在 EPCA 下被視為製造商。中國 OEM、實驗室或其他第三方可以代為提交申報，但進口商必須正式授權，並在申報中被列為進口商或認證責任方。產品輸入美國以前，確認受管制產品已依 DOE 程序測試、申報並符合規範，仍是進口商的責任。',
+              'DOE 同時提醒，公開資料庫只揭露業者申報的部分資訊，不是 DOE 對產品的核准，也不附帶資料正確性的保證。ZIMONAI 的實務判讀是，付款前應把四份資料連起來：美國進口商身分、CCMS 提交紀錄或 ticket、支撐申報的 DOE 測試資料，以及量產適配器的變更管制。這條證據鏈能說明誰替哪一款產品提交了什麼資料；實際採購批次仍要另以生產與出貨證據確認。'
+            ]
+          }
+        ],
+        checklist: [
+          '電源適配器完整型號、貼牌名稱與地區尾碼',
+          '銘牌輸入、所有輸出電壓與電流、最大功率',
+          '產品納管分類，以及任何豁免主張的書面依據',
+          'DOE 公開資料庫紀錄與底層 CCMS 提交紀錄或 ticket',
+          '基本型號或設計系列如何涵蓋零售型號',
+          '依 DOE Appendix Z 取得的測試資料及抽樣產品',
+          '被列為認證責任方的美國進口商或製造商',
+          '由 OEM、實驗室或第三方申報時的正式授權',
+          '變壓器、控制器、韌體、外殼與輸出檔位的變更管制'
+        ],
+        limitsText: 'Level VI 與 DOE 申報處理的是受管制外接電源供應器的美國能源效率規範，不會取代電氣安全認證、FCC 授權、USB-IF 紀錄，也不能證明工廠所有權、供應商授權、智慧財產權、出貨驗收或後續批次一致性。DOE 公開資料庫呈現申報資料，不代表能源部核准產品。產品範圍、豁免與後續規則變動，仍須按精確型號對照現行 CFR 與 DOE 指引。'
+      },
       euCraReportingConnectedHardware: {
         topic: '歐盟資安法規時事',
         published: '2026 年 9 月 12 日',
@@ -4171,7 +4348,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '二十二篇核查笔记',
+      latest: '二十五篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -4256,6 +4433,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      usDoeLevelViPowerAdapter: {
+        topic: '美国市场准入文件',
+        published: '2026 年 9 月 13 日',
+        readTime: '约 7 分钟',
+        title: '电源适配器标有 Level VI，还要查什么？DOE 记录、基本型号和进口商必须对应',
+        description: '面向美国市场的外部电源，需要把 Level VI 标识、DOE 备案记录、基本型号、测试数据与美国进口商连成同一条证据链。',
+        imageAlt: '一名使用者手持白色插墙式电源适配器，桌面上摆有多个充电器，用作美国 DOE Level VI 证据核查文章的编辑图片。',
+        imageCaption: '普通电源适配器的编辑图片；画面中的产品不代表已经向 DOE 备案、符合 Level VI，也不是 ZIMONAI 客户设备、供应商样品或测试证据。',
+        answer: '电源适配器上的 Level VI 罗马数字，是美国外部电源规则采用的效率等级标识。标识背后是一条合规资料链：先确认产品是否属于监管范围及 10 CFR 430.32(w) 的适用限值。然后核对 DOE 测试结果、正确基本型号或设计系列的 CCMS 备案，以及备案中承担责任的制造商或进口商。DOE 公开数据库展示的是企业提交的信息，并不代表监管部门批准产品。对采购方而言，关键是把报价型号、全部输出档位和美国进口商逐项对应到同一条有效记录。ZIMONAI 认为，只有这组对应关系完整，Level VI 才能成为有价值的采购证据。',
+        takeaways: [
+          'DOE 当前外部电源页面仍指向 10 CFR 430.32(w)；该条款规定工作模式效率、空载功耗以及适用的国际效率等级标识。',
+          '备案以基本型号或设计系列为单位，零售型号与相关输出电压必须能够追溯到申报范围，不能根据共用外壳或相似图片推定。',
+          '美国进口商在 EPCA 下被视为制造商；即使中国 OEM 或实验室代为提交 CCMS 资料，进口商仍然承担合规责任。'
+        ],
+        sections: [
+          {
+            title: 'Level VI 标识具体说明什么？',
+            paragraphs: [
+              'DOE 按照产品功能定义外部电源：这类设备把家用交流电转换成直流电或较低电压的交流电，为消费产品供电，同时法规列有特定排除范围。DOE 当前产品页面把受监管型号指向 10 CFR 430.32(w) 和 Appendix Z；按照现行表格，直接工作型外部电源通常适用 Level VI 的工作模式效率和空载功耗限值，并须标出相应的国际效率等级。',
+              '因此，罗马数字说明的是效率等级，而不是完整的美国合规结论。产品属于直接或间接工作、AC／DC 或 AC／AC、单一或多组电压、额定输出功率、配套终端产品以及是否满足豁免条件，都可能改变适用路径。常见的插墙式外观无法替具体型号完成分类。'
+            ]
+          },
+          {
+            title: 'DOE CCMS 记录如何对应报价型号？',
+            paragraphs: [
+              'DOE 说明，受监管产品的基本型号在美国商业流通前须通过 Compliance Certification Management System（CCMS）备案，此后按年度更新；设计变更如果导致能耗提高或效率下降，使原有测试数据无法继续支持申报值，也要重新处理。基本型号可以涵盖仅颜色等非能源特性不同的产品；使用设计系列备案时，仍须列明覆盖的各个制造商型号。',
+              '根据 10 CFR 429.37，外部电源的公开备案信息包括平均工作模式效率、空载功耗和铭牌输出功率；自适应电源还须处理最高和最低铭牌输出电压的相关数值。采购方应把完整零售型号、输入、每组输出电压与电流、产品分组及备案责任方逐项对应到记录，而不是停留在外壳相似或标识相同。'
+            ],
+            items: [
+              '完整制造商型号和零售型号，包括尾缀',
+              '备案采用的基本型号或设计系列',
+              'AC／DC 类型、工作方式与输出功率分组',
+              '自适应电源的最高和最低电压档位',
+              '平均工作模式效率与空载功耗',
+              '备案主体、提交状态及当前可查记录'
+            ]
+          },
+          {
+            title: '产品在中国制造时，谁承担美国端责任？',
+            paragraphs: [
+              'DOE 的进口商指引明确说明，进口商在 EPCA 下被视为制造商。中国 OEM、实验室或其他第三方可以代交备案，但进口商必须正式授权，并在备案中被列为进口商或认证责任方。产品进入美国之前，确认受监管产品已按照 DOE 程序完成测试、备案并符合要求，仍然是进口商的责任。',
+              'DOE 同时提醒，公开数据库只披露企业备案中的部分信息，不是 DOE 对产品作出的批准，也不为申报内容的准确性背书。ZIMONAI 的实务判断是，付款前应把四项资料连接起来：美国进口商身份、CCMS 提交记录或 ticket、支撑备案的 DOE 测试数据，以及量产适配器的变更控制。这条证据链可以说明谁为哪款产品提交了什么资料；实际采购批次仍需使用生产和出货证据进一步确认。'
+            ]
+          }
+        ],
+        checklist: [
+          '电源适配器完整型号、贴牌名称和地区尾缀',
+          '铭牌输入、所有输出电压与电流、最大功率',
+          '产品监管分类，以及任何豁免主张的书面依据',
+          'DOE 公开数据库记录与底层 CCMS 提交记录或 ticket',
+          '基本型号或设计系列如何覆盖零售型号',
+          '按照 DOE Appendix Z 取得的测试数据及抽样产品',
+          '被列为认证责任方的美国进口商或制造商',
+          '由 OEM、实验室或第三方备案时的正式授权',
+          '变压器、控制器、固件、外壳和输出档位的变更控制'
+        ],
+        limitsText: 'Level VI 与 DOE 备案处理的是受监管外部电源的美国能源效率要求，不能替代电气安全认证、FCC 授权或 USB-IF 记录，也不能证明工厂所有权、供应商授权、知识产权、出货验收或后续批次一致性。DOE 公开数据库展示备案资料，不代表能源部批准产品。产品范围、豁免及后续规则变化，仍须按具体型号对照现行 CFR 与 DOE 指引。'
+      },
       euCraReportingConnectedHardware: {
         topic: '欧盟网络安全法规时事',
         published: '2026 年 9 月 12 日',
