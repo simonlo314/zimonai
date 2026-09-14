@@ -8,6 +8,62 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-battery-recycling-targets-2026',
+    key: 'euBatteryRecyclingTargets2026',
+    contentType: 'current-affairs',
+    slug: 'knowledge/eu-battery-recycling-targets-2026',
+    category: 'commercial-risk',
+    products: ['power-bank'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['EU battery recycling targets 2026', 'lithium battery recycling EU', 'EU battery material recovery targets', 'Regulation EU 2023/1542 recycling', 'battery recycling capacity Europe', 'waste battery recycling efficiency'],
+      'zh-tw': ['歐盟電池回收目標 2026', '歐盟鋰電池回收', '電池材料回收率', '歐盟電池法規 2023/1542', '歐洲電池回收產能', '廢電池回收效率'],
+      'zh-cn': ['欧盟电池回收目标 2026', '欧盟锂电池回收', '电池材料回收率', '欧盟电池法规 2023/1542', '欧洲电池回收产能', '废电池回收效率']
+    },
+    datePublished: '2026-09-14',
+    dateModified: '2026-09-14',
+    image: '/assets/editorial-eu-battery-recycling-targets.jpg',
+    imageWidth: 991,
+    imageHeight: 661,
+    imageCrop: {
+      card: '54% 54%',
+      article: '54% 53%',
+      mobile: '52% 54%'
+    },
+    photo: {
+      photographer: 'European Commission / © European Union 2019',
+      page: 'https://environment.ec.europa.eu/news/waste-batteries-recycling-targets-remain-fit-purpose-2026-09-11_en',
+      license: 'https://commission.europa.eu/legal-notice_en'
+    },
+    sources: [
+      {
+        publisher: 'European Commission, Directorate-General for Environment',
+        title: 'Waste Batteries: Commission finds recycling targets remain fit for purpose — 11 September 2026',
+        url: 'https://environment.ec.europa.eu/news/waste-batteries-recycling-targets-remain-fit-purpose-2026-09-11_en'
+      },
+      {
+        publisher: 'European Commission',
+        title: 'COM(2026) 470 — assessment of recycling-efficiency and material-recovery targets',
+        url: 'https://environment.ec.europa.eu/publications/commission-report-assessment-appropriateness-revising-targets-recycling-efficiency-and-recovery_en'
+      },
+      {
+        publisher: 'Official Journal of the European Union',
+        title: 'Regulation (EU) 2023/1542 — Batteries and Waste Batteries',
+        url: 'https://eur-lex.europa.eu/eli/reg/2023/1542/oj/eng'
+      },
+      {
+        publisher: 'Official Journal of the European Union',
+        title: 'Delegated Regulation (EU) 2025/606 — recycling calculation and verification methodology',
+        url: 'https://eur-lex.europa.eu/eli/reg_del/2025/606/oj/eng'
+      },
+      {
+        publisher: 'Swedish Environmental Protection Agency',
+        title: 'Waste-management operators — current EU battery recycling targets',
+        url: 'https://www.naturvardsverket.se/en/guidance/extended-producer-responsibility-epr/producer-responsibility-for-batteries/waste-management-operators/'
+      }
+    ]
+  },
+  {
     id: 'knowledge-us-doe-level-vi-power-adapter',
     key: 'usDoeLevelViPowerAdapter',
     contentType: 'industry-knowledge',
@@ -237,7 +293,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-13',
+    featuredReviewedThrough: '2026-09-14',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1320,7 +1376,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Twenty-five field notes',
+      latest: 'Twenty-six field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -1405,6 +1461,65 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      euBatteryRecyclingTargets2026: {
+        topic: 'EU battery-industry news',
+        published: '14 September 2026',
+        readTime: '7 minutes',
+        title: 'EU keeps battery recycling targets unchanged as treatment capacity moves into focus',
+        description: 'The European Commission has kept its existing waste-battery recycling and material-recovery targets, shifting attention to lithium recovery, plant scale-up and treatment capacity.',
+        imageAlt: 'Workers sorting used household batteries on a conveyor at the BEBAT recycling plant in Belgium.',
+        imageCaption: 'Battery sorting at the BEBAT plant in Tienen, Belgium. Official European Commission editorial photograph, © European Union 2019; stored locally and cropped for layout. It is not a ZIMONAI facility, client project or performance claim.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What to watch next',
+          limits: 'What remains uncertain'
+        },
+        answer: 'The European Commission decided on 11 September to keep the EU’s waste-battery recycling-efficiency and material-recovery targets unchanged. Lithium-based battery recycling therefore remains 65% by average weight for 2025 and 70% for 2030, while lithium recovery stays at 50% in 2027 and 80% in 2031. The bigger story is capacity: the Commission found that changing the percentages would do little to solve Europe’s shortage of total battery-treatment capacity. ZIMONAI’s editorial view is that competition will shift from announcing higher recovery figures to securing feedstock, scaling stable processes and producing traceable recovery data.',
+        takeaways: [
+          'COM(2026) 470 concludes that the existing recycling-efficiency and material-recovery targets remain an appropriate balance between ambition and feasibility.',
+          'The Commission’s modelling says Europe’s broader constraint is total battery-treatment capacity, while changing lithium recovery targets by ten percentage points would have only a limited effect on overall supply.',
+          'The decision gives recyclers a stable rulebook, but it leaves the 2027 lithium target, the 2030 calculation changes and the need to scale industrial processes fully in place.'
+        ],
+        sections: [
+          {
+            title: 'What did the Commission decide on 11 September?',
+            paragraphs: [
+              'Article 71 of the EU Batteries Regulation required the Commission to assess whether market development, raw-material availability and technical progress justified revising the targets. Its new report says they do not. The Commission therefore sees no basis for a delegated act changing Parts B and C of Annex XII, and the next mandatory review is due by 18 August 2031 at the latest.',
+              'This is a decision to preserve the existing timetable, not a pause in implementation. Recycling efficiency for lithium-based batteries remains 65% by average weight for 2025 and 70% for 2030. Material recovery remains 50% for lithium and 90% for cobalt, copper, lead and nickel in 2027, rising in 2031 to 80% for lithium and 95% for the other four metals.'
+            ],
+            items: [
+              '2025: 65% recycling efficiency for lithium-based batteries',
+              '2027: 50% lithium recovery and 90% for cobalt, copper, lead and nickel',
+              '2030: 70% recycling efficiency for lithium-based batteries',
+              '2031: 80% lithium recovery and 95% for cobalt, copper, lead and nickel',
+              'By 18 August 2031: next Commission review at the latest'
+            ]
+          },
+          {
+            title: 'Why did the percentages stay where they are?',
+            paragraphs: [
+              'The report acknowledges industry pressure. Stakeholders said lithium-based batteries vary sharply by chemistry, format and recoverable value, and some considered the 2030 efficiency target difficult for particular streams. Very few recyclers reported being able to recover lithium at the end of 2025, while some respondents said the jump from 50% lithium recovery in 2027 to 80% in 2031 may be steep. The 95% targets for nickel and cobalt were also described as close to the technical limit for large continuous processes.',
+              'Even so, the Commission judged that neither raising nor lowering the targets would materially improve the total supply picture. Its modelling found that a ten-percentage-point change in lithium recovery would shift the share of EU lithium demand met by domestic primary and secondary supply by about two percentage points in 2027 and three points in 2035. The report therefore identifies treatment capacity—not the efficiency of an individual plant—as the larger bottleneck.'
+            ]
+          },
+          {
+            title: 'Why does this matter beyond recycling plants?',
+            paragraphs: [
+              'Stable targets reduce one source of regulatory uncertainty for recyclers and battery producers, but they also preserve the investment deadline. Delegated Regulation (EU) 2025/606 temporarily allows certain fractions to be excluded from recycling-efficiency calculations through 2029. From 2030, graphite, iron and phosphorus must be included, increasing the commercial value of processes that can recover a wider set of materials rather than only the highest-value metals.',
+              'For power-bank and portable-electronics supply chains, this report does not create a new product certificate or change the separate battery-passport, labelling and producer-responsibility duties. Its significance is upstream and downstream: manufacturers need better battery composition and end-of-life data, while recyclers need dependable feedstock, scalable plants and verifiable mass-balance records. ZIMONAI’s editorial reading is that buyers should expect recycling capability to become a data-and-capacity question, not merely a sustainability claim printed in a supplier deck.'
+            ]
+          }
+        ],
+        checklist: [
+          'Whether Member State and recycler reporting from 2027 onward confirms the assumptions used in the Commission model',
+          'How quickly EU lithium-recovery lines move from pilot scale to stable industrial throughput',
+          'Whether collection and feedstock availability keep new recycling plants sufficiently utilised',
+          'How recyclers prepare for graphite, iron and phosphorus entering efficiency calculations from 2030',
+          'Whether recovery yields remain consistent across portable, EV, LMT and industrial battery streams',
+          'How the Commission’s next review responds to new chemistries, trade restrictions and treatment-capacity growth'
+        ],
+        limitsText: 'The 11 September decision, current target schedule and Commission modelling are official EU findings. The report is based partly on forward-looking modelling, confidential industry data and assumptions about future battery waste, collection and chemistry; it is not a measured performance result for every recycler. It does not certify any battery, power bank, supplier or recycling plant, and it does not alter separate EU product, passport, labelling or producer-responsibility requirements. The capacity, procurement and data implications above are analysis by the ZIMONAI Editorial Desk at Zhimengwan Technology, not findings about a named company or facility.'
+      },
       usDoeLevelViPowerAdapter: {
         topic: 'U.S. market-access documents',
         published: '13 September 2026',
@@ -2834,7 +2949,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '二十五篇查核筆記',
+      latest: '二十六篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -2919,6 +3034,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      euBatteryRecyclingTargets2026: {
+        topic: '歐盟電池產業時事',
+        published: '2026 年 9 月 14 日',
+        readTime: '約 7 分鐘',
+        title: '歐盟電池回收目標不變：鋰回收承壓，處理產能成焦點',
+        description: '歐盟執委會決定維持現行廢電池回收效率與材料回收目標，產業焦點轉向鋰回收、產線擴充與實際處理產能。',
+        imageAlt: '比利時 BEBAT 電池回收廠內，工作人員在輸送帶上分選使用過的家用電池。',
+        imageCaption: '比利時蒂嫩 BEBAT 廠的電池分選作業。歐盟執委會官方編輯照片，© European Union 2019；本站下載保存並依版面裁切。畫面不是 ZIMONAI 設施、客戶專案或績效主張。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '接下來值得關注',
+          limits: '仍待確認'
+        },
+        answer: '歐盟執委會在 9 月 11 日完成檢討後，決定不調整現行廢電池回收效率與材料回收目標。鋰電池的回收效率門檻仍維持 2025 年平均重量 65%、2030 年 70%；鋰材料回收率則維持 2027 年 50%、2031 年 80%。更值得注意的是，這份報告沒有放寬產業期限，也沒有再把百分比往上推，因為執委會的評估認為，歐洲更大的瓶頸是整體廢電池處理產能，而不是單座工廠的回收率。ZIMONAI｜智蒙灣科技編輯部認為，下一階段的競爭重點將從宣稱更高回收率，轉向能否取得穩定料源、擴大成熟製程，並提出可追溯的材料回收數據。',
+        takeaways: [
+          'COM(2026) 470 認為，現行回收效率與材料回收目標仍在企圖心與可行性之間取得合理平衡。',
+          '執委會模型顯示，歐洲真正的限制更接近整體電池處理產能；鋰回收目標上下調整 10 個百分點，對總供應的改善幅度有限。',
+          '目標不變讓投資規則更穩定，但 2027 年鋰回收期限、2030 年計算方法轉折與產線擴充壓力也全部保留。'
+        ],
+        sections: [
+          {
+            title: '9 月 11 日的正式決定是什麼？',
+            paragraphs: [
+              '《歐盟電池法規》第 71 條要求執委會評估市場變化、原料供應與技術進步，判斷是否需要改寫回收目標。最新報告的答案是暫時維持原案：執委會認為沒有足夠理由透過授權法案修改附件 XII 的 B、C 部分，下一次法定評估最晚要在 2031 年 8 月 18 日前完成。',
+              '這項決定代表既有時程繼續往前，不是延後執行。鋰電池回收效率仍是 2025 年平均重量 65%、2030 年 70%；材料回收方面，2027 年鋰為 50%，鈷、銅、鉛、鎳為 90%，到了 2031 年分別提高到 80% 與 95%。'
+            ],
+            items: [
+              '2025 年：鋰電池回收效率 65%',
+              '2027 年：鋰材料回收 50%，鈷、銅、鉛、鎳 90%',
+              '2030 年：鋰電池回收效率 70%',
+              '2031 年：鋰材料回收 80%，鈷、銅、鉛、鎳 95%',
+              '最晚 2031 年 8 月 18 日：執委會再次評估'
+            ]
+          },
+          {
+            title: '回收業者有壓力，為什麼數字仍不動？',
+            paragraphs: [
+              '執委會並沒有忽略回收業者的難題。利害關係人指出，鋰電池的化學體系、尺寸與可回收價值差異很大，部分廢物流要達到 2030 年回收效率並不容易。調查也顯示，2025 年底能實際回收鋰的業者仍然很少；另有業者認為，鋰材料回收率從 2027 年 50% 快速升至 2031 年 80%，步調可能過陡，而鎳與鈷 95% 的門檻也已接近大型連續製程的技術極限。',
+              '但執委會模型認為，單純上調或下調回收率，都難以明顯改變歐盟的總供應局面。若把鋰回收目標調整 10 個百分點，歐盟自產與二次鋰供應占需求的比例，2027 年約只變動 2 個百分點，2035 年約變動 3 個百分點。因此報告把更大的問題指向整體處理產能，而非單一回收廠的效率。'
+            ]
+          },
+          {
+            title: '這件事為什麼不只影響回收廠？',
+            paragraphs: [
+              '目標維持不變，讓回收商與電池業者少了一層法規變數，卻也意味投資期限沒有後移。《歐盟授權法規 2025/606》在 2029 年底以前，暫時允許部分物質不納入回收效率計算；自 2030 年起，石墨、鐵與磷必須計入。能夠回收更多材料、而不是只集中在高價金屬的製程，商業價值將更受重視。',
+              '對行動電源與消費電子供應鏈而言，這份報告沒有新增產品認證，也沒有改寫電池護照、標示與生產者責任等另一套義務。它帶來的訊號出現在供應鏈前後端：製造商要能交代電池成分與報廢資料，回收商則要取得穩定料源、擴大處理產線並建立可驗證的質量平衡紀錄。ZIMONAI 的編輯判讀是，未來買家看到「可回收」宣稱時，會更需要追問資料與產能，而不只是接受簡報上的永續標語。'
+            ]
+          }
+        ],
+        checklist: [
+          '2027 年起的會員國與回收商申報，是否支持執委會模型中的假設',
+          '歐盟鋰回收產線能否從試驗規模穩定放大到工業產量',
+          '回收料源與收集量，能否讓新建處理廠維持足夠稼動率',
+          '回收商如何準備 2030 年起納入石墨、鐵與磷的計算方式',
+          '可攜式、電動車、輕型運具與工業電池的回收表現是否持續分化',
+          '新化學體系、貿易限制與處理產能成長，是否改變下一次執委會評估'
+        ],
+        limitsText: '9 月 11 日的決定、現行目標時程與執委會模型，均來自歐盟官方資料。報告部分依賴前瞻模型、業界機密資料，以及對未來廢電池數量、收集率與化學體系的假設，並不是每一家回收商的實測成績。本文也沒有替任何電池、行動電源、供應商或回收廠提供認證，亦不會改變歐盟其他產品、電池護照、標示或生產者責任要求。前述產能、採購與資料影響，屬於 ZIMONAI｜智蒙灣科技編輯部的產業分析，不是對特定公司或設施的結論。'
+      },
       usDoeLevelViPowerAdapter: {
         topic: '美國市場准入文件',
         published: '2026 年 9 月 13 日',
@@ -4348,7 +4522,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '二十五篇核查笔记',
+      latest: '二十六篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -4433,6 +4607,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      euBatteryRecyclingTargets2026: {
+        topic: '欧盟电池产业时事',
+        published: '2026 年 9 月 14 日',
+        readTime: '约 7 分钟',
+        title: '欧盟电池回收目标不变：锂回收承压，处理产能成焦点',
+        description: '欧盟委员会决定维持现行废电池回收效率与材料回收目标，行业焦点转向锂回收、产线扩建与实际处理能力。',
+        imageAlt: '比利时 BEBAT 电池回收厂内，工作人员在输送带上分拣使用过的家用电池。',
+        imageCaption: '比利时蒂嫩 BEBAT 工厂的电池分拣作业。欧盟委员会官方编辑图片，© European Union 2019；本站下载保存并按照版面裁切。画面不是 ZIMONAI 设施、客户项目或绩效主张。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '接下来值得关注',
+          limits: '仍待确认'
+        },
+        answer: '欧盟委员会在 9 月 11 日完成审查后，决定不调整现行废电池回收效率与材料回收目标。锂电池的回收效率门槛仍为 2025 年平均重量 65%、2030 年 70%；锂材料回收率则维持 2027 年 50%、2031 年 80%。更值得关注的是，这份报告没有放宽行业期限，也没有继续提高百分比，因为欧盟委员会的评估认为，欧洲更大的瓶颈是整体废电池处理能力，而不是单座工厂的回收率。ZIMONAI｜智蒙湾科技编辑部认为，下一阶段的竞争重点将从宣称更高回收率，转向能否获得稳定料源、扩大成熟工艺，并提供可追溯的材料回收数据。',
+        takeaways: [
+          'COM(2026) 470 认为，现行回收效率与材料回收目标仍在进取程度和可行性之间保持合理平衡。',
+          '欧盟委员会模型显示，欧洲真正的限制更接近整体电池处理能力；锂回收目标上下调整 10 个百分点，对总供应的改善幅度有限。',
+          '目标不变让投资规则更加稳定，但 2027 年锂回收期限、2030 年计算方法变化与产线扩建压力也全部保留。'
+        ],
+        sections: [
+          {
+            title: '9 月 11 日的正式决定是什么？',
+            paragraphs: [
+              '《欧盟电池法规》第 71 条要求欧盟委员会评估市场变化、原料供应和技术进步，判断是否需要修改回收目标。最新报告决定暂时维持原方案：委员会认为没有足够理由通过授权法案修改附件 XII 的 B、C 部分，下一次法定评估最迟须在 2031 年 8 月 18 日前完成。',
+              '这项决定意味着原有时间表继续推进，并非延后实施。锂电池回收效率仍是 2025 年平均重量 65%、2030 年 70%；材料回收方面，2027 年锂为 50%，钴、铜、铅、镍为 90%，到 2031 年分别提高到 80% 和 95%。'
+            ],
+            items: [
+              '2025 年：锂电池回收效率 65%',
+              '2027 年：锂材料回收 50%，钴、铜、铅、镍 90%',
+              '2030 年：锂电池回收效率 70%',
+              '2031 年：锂材料回收 80%，钴、铜、铅、镍 95%',
+              '最迟 2031 年 8 月 18 日：欧盟委员会再次评估'
+            ]
+          },
+          {
+            title: '回收企业承受压力，为何数字仍然不动？',
+            paragraphs: [
+              '欧盟委员会并未忽视回收行业面临的难题。利益相关方指出，锂电池的化学体系、尺寸和可回收价值差异很大，部分废物流很难达到 2030 年回收效率。调查还显示，截至 2025 年底，能够实际回收锂的企业仍然很少；部分受访者认为，锂材料回收率从 2027 年 50% 快速升至 2031 年 80%，步伐可能过快，而镍和钴 95% 的目标也已接近大型连续工艺的技术极限。',
+              '不过，欧盟委员会模型认为，单纯上调或下调回收率，都难以明显改变欧盟的总体供应格局。如果把锂回收目标调整 10 个百分点，欧盟本土初级和二次锂供应占需求的比例，2027 年仅会变化约 2 个百分点，2035 年约变化 3 个百分点。因此，报告把更大的问题指向整体处理能力，而不是单个回收厂的效率。'
+            ]
+          },
+          {
+            title: '这件事为何不只影响回收厂？',
+            paragraphs: [
+              '目标维持不变，让回收商和电池企业减少了一项法规变数，但也意味着投资期限没有后移。《欧盟授权法规 2025/606》在 2029 年底之前暂时允许部分物质不计入回收效率；从 2030 年开始，石墨、铁和磷必须纳入计算。能够回收更多材料，而不是只集中处理高价值金属的工艺，将获得更高商业价值。',
+              '对于移动电源与消费电子供应链，这份报告没有新增产品认证，也没有修改电池护照、标签和生产者责任等其他义务。它释放的信号位于供应链两端：制造商需要说明电池成分和报废信息，回收商则要获得稳定料源、扩大处理产线并建立可验证的质量平衡记录。ZIMONAI 的编辑判断是，未来采购方看到“可回收”声明时，会更需要追问数据和产能，而不只是接受演示文稿里的可持续口号。'
+            ]
+          }
+        ],
+        checklist: [
+          '2027 年起成员国和回收企业的申报数据，是否支持欧盟委员会模型中的假设',
+          '欧盟锂回收产线能否从试验规模稳定放大到工业产量',
+          '废电池收集量和料源能否让新建处理厂维持足够开工率',
+          '回收企业如何准备 2030 年起纳入石墨、铁和磷的计算方式',
+          '便携式、电动汽车、轻型交通工具和工业电池的回收表现是否持续分化',
+          '新化学体系、贸易限制和处理能力增长，是否改变下一次欧盟委员会评估'
+        ],
+        limitsText: '9 月 11 日的决定、现行目标时间表与欧盟委员会模型均来自欧盟官方资料。报告部分依赖前瞻模型、行业保密数据，以及对未来废电池数量、收集率和化学体系的假设，并不是每一家回收企业的实测成绩。本文也没有为任何电池、移动电源、供应商或回收厂提供认证，也不会改变欧盟其他产品、电池护照、标签或生产者责任要求。上述产能、采购与数据影响属于 ZIMONAI｜智蒙湾科技编辑部的行业分析，不是针对某家公司或设施的结论。'
+      },
       usDoeLevelViPowerAdapter: {
         topic: '美国市场准入文件',
         published: '2026 年 9 月 13 日',

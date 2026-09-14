@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-13
+Last reviewed: 2026-09-14
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -42,6 +42,12 @@ The following photographs were downloaded from their original Unsplash pages und
 | `src/assets/editorial-apple-iphone-18-pro-thermal.jpg` | Apple | [Official iPhone 18 Pro two-device image](https://www.apple.com/newsroom/images/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/tile/Apple-iPhone-18-Pro-2up-260909-lp.jpg.landing-big_2x.jpg), issued with Apple's [iPhone 18 Pro and iPhone 18 Pro Max Newsroom release](https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/), which provides downloadable press media; locally stored without generative editing | 2026-09-10 | Current-affairs article about iPhone 18 Pro thermal design; official manufacturer-issued editorial media showing the actual announced product, not sponsored content, ZIMONAI testing, a client device, supplier sample or evidence about Apple component sources |
 | `src/assets/editorial-anker-maggo-2-pro.jpg` | Anker Innovations | [A110RH11_RI_TD06_EN_V1](https://www.dropbox.com/scl/fo/xo6ymq0rpxcak9ijbl21e/AFc7V47c6qJtFf1A59bIPfE/Anker%20Charging/110R-Anker%20MagGo%20Power%20Bank%20Pro%202/A110RH11_RI_TD06_EN_V1%20%281%29.jpg?rlkey=v5lytb6qesicevy3tgxmmz19k&dl=0), supplied inside the [official IFA 2026 Anker Press Kit linked as “product photos and additional assets” in Anker Innovations' issued release](https://www.einpresswire.com/article/939305437/anker-unveils-2026-charging-lineup-at-ifa-adding-intelligence-to-a-category-built-on-speed) | 2026-09-03 | Current-affairs article about the Anker MagGo Power Bank 2 Pro; official editorial media image, not sponsored content or ZIMONAI evidence |
 | `src/assets/editorial-belkin-ultracharge-pro-boostsolid.jpg` | Belkin International | [BoostSolid press-release image](https://www.belkin.com/on/demandware.static/-/Library-Sites-Belkin-Shared-Library/default/dweb917563/img/newsroom/boostsolid%20press%20release%20image.png), published on Belkin's [official IFA 2026 press release](https://www.belkin.com/pr-belkin-ultra-charge-pro-semi-solid-state-power-banks.html) and supplied alongside its linked [media kit](https://www.dropbox.com/scl/fo/vk8275ou9tljj8qbr8dwt/AFMKh1NrcuzBNsrKQ05ChGA?dl=0&e=1&rlkey=jdql8rhyeeyb6wn2zvpkalc0q&st=lktorrlg); locally JPEG-compressed without generative editing | 2026-09-07 | Current-affairs article about Belkin UltraCharge Pro BoostSolid power banks; official editorial media image, not sponsored content, ZIMONAI testing or supplier evidence |
+
+## Official public-sector editorial assets
+
+| Local asset | Issuing organisation | Source and reuse basis | Retrieved | Website use |
+| --- | --- | --- | --- | --- |
+| `src/assets/editorial-eu-battery-recycling-targets.jpg` | European Commission / © European Union 2019 | [Battery sorting at the BEBAT plant in Tienen, Belgium](https://environment.ec.europa.eu/news/waste-batteries-recycling-targets-remain-fit-purpose-2026-09-11_en), published as the lead image for the Commission's 11 September 2026 battery-recycling report. The Commission's [legal notice](https://commission.europa.eu/legal-notice_en) licenses EU-owned website content under CC BY 4.0 unless otherwise indicated; the page identifies the image as © EU 2019. The source is already a compressed JPEG; it is stored locally and cropped by CSS without generative editing, with attribution and layout cropping disclosed. | 2026-09-14 | Current-affairs article about the Commission retaining EU waste-battery recycling and material-recovery targets; actual EU editorial photograph of battery sorting, not a ZIMONAI facility, client project, audited recycler, supplier relationship or performance evidence |
 
 ## Government recall-notice assets
 
