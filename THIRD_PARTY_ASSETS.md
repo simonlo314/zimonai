@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-14
+Last reviewed: 2026-09-15
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -25,6 +25,14 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | `src/assets/editorial-japan-pse-ac-adapter.jpg` | Steve A Johnson | [White Travel Adapter](https://www.pexels.com/photo/white-travel-adapter-845239/) | Industry-knowledge article about matching Japan PSE evidence for covered AC/DC power-supply units; real editorial photograph downloaded under the [Pexels licence](https://www.pexels.com/license/) and locally resized/compressed without generative editing; the pictured adapter is not presented as PSE-marked, Japan-approved, a ZIMONAI client device, supplier sample or compliance evidence; downloaded and used 2026-09-11 |
 | `src/assets/editorial-eu-cra-connected-hardware.jpg` | Karola G / Kaboompics.com | [Smartphone and charger USB connector on wooden table](https://www.pexels.com/photo/smartphone-and-charger-usb-connector-on-wooden-table-4195333/) | Current-affairs article about the start of EU Cyber Resilience Act reporting for products with digital elements; real editorial photograph downloaded under the [Pexels licence](https://www.pexels.com/license/) and locally resized/compressed without generative editing; not a CRA notification, affected product, security incident, ZIMONAI client, supplier or test result; downloaded and used 2026-09-12 |
 | `src/assets/editorial-us-doe-level-vi-power-adapter.jpg` | I'm Zion | [Person Holding A White Power Adaptor](https://www.pexels.com/photo/person-holding-a-white-power-adaptor-5948310/) | Industry-knowledge article about matching U.S. DOE Level VI external-power-supply evidence; real editorial photograph downloaded under the [Pexels licence](https://www.pexels.com/license/) and locally resized/compressed without generative editing; the pictured adapters are not presented as DOE-certified, Level VI-compliant, ZIMONAI client devices, supplier samples or test evidence; downloaded and used 2026-09-13 |
+
+## Wikimedia Commons public-domain editorial photograph
+
+The following real photograph was downloaded from its Wikimedia Commons file page, which records that the photographer released the work into the public domain for unrestricted use, including commercial use. It was resized and JPEG-compressed locally without generative editing.
+
+| Local asset | Photographer | Source and licence | Website use |
+| --- | --- | --- | --- |
+| `src/assets/editorial-australia-rcm-power-adapter.jpg` | Leon Brooks | [Plugpack with barrel connector Australian mains plug](https://commons.wikimedia.org/wiki/File:Plugpack_with_barrel_connector_australian_mains_plug.jpg), [public-domain release by the author](https://commons.wikimedia.org/wiki/File:Plugpack_with_barrel_connector_australian_mains_plug.jpg#Licensing) | Industry-knowledge article about matching an Australian RCM label to the Responsible Supplier, EESS registration and ACMA records; the source page identifies the pictured plug-pack as an older design with uninsulated active and neutral pins that may no longer be sold. It illustrates the product category only and is not presented as a current compliant model, RCM evidence, ZIMONAI client device, supplier sample or test result; downloaded, resized to 1800 × 1350 and used 2026-09-15 |
 
 ## Unsplash editorial photographs
 

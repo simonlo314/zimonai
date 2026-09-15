@@ -8,6 +8,67 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-australia-rcm-charger',
+    key: 'australiaRcmCharger',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/australia-rcm-charger',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['australia'],
+    keywords: {
+      en: ['Australia RCM charger', 'RCM power adapter compliance', 'EESS charger registration', 'Australian responsible supplier', 'Level 3 power supply charger', 'ACMA declaration of conformity'],
+      'zh-tw': ['澳洲 RCM 充電器', 'RCM 電源適配器合規', 'EESS 充電器登記', '澳洲責任供應商', 'Level 3 電源供應器', 'ACMA 符合性聲明'],
+      'zh-cn': ['澳大利亚 RCM 充电器', 'RCM 电源适配器合规', 'EESS 充电器登记', '澳大利亚责任供应商', 'Level 3 电源适配器', 'ACMA 符合性声明']
+    },
+    datePublished: '2026-09-15',
+    dateModified: '2026-09-15',
+    image: '/assets/editorial-australia-rcm-power-adapter.jpg',
+    imageWidth: 1800,
+    imageHeight: 1350,
+    imageCrop: {
+      card: '63% 48%',
+      article: '62% 48%',
+      mobile: '67% 47%'
+    },
+    photo: {
+      photographer: 'Leon Brooks',
+      page: 'https://commons.wikimedia.org/wiki/File:Plugpack_with_barrel_connector_australian_mains_plug.jpg',
+      license: 'https://commons.wikimedia.org/wiki/File:Plugpack_with_barrel_connector_australian_mains_plug.jpg#Licensing'
+    },
+    sources: [
+      {
+        publisher: 'Electrical Equipment Safety System',
+        title: 'Manufacturers and Importers — Responsible Suppliers',
+        url: 'https://www.eess.gov.au/responsible-supplier/manufacturers-and-importers-responsible-suppliers/'
+      },
+      {
+        publisher: 'Electrical Equipment Safety System',
+        title: 'EESS Registrations Purpose',
+        url: 'https://www.eess.gov.au/registration/eess-registrations-purpose/'
+      },
+      {
+        publisher: 'Electrical Equipment Safety System',
+        title: 'Not In-scope Electrical Equipment — mobile-phone charger Level 3 example',
+        url: 'https://www.eess.gov.au/equipment/not-in-scope/'
+      },
+      {
+        publisher: 'Australian Communications and Media Authority',
+        title: 'Step 3: sign and keep records',
+        url: 'https://www.acma.gov.au/step-3-sign-and-keep-records'
+      },
+      {
+        publisher: 'Australian Communications and Media Authority',
+        title: 'Step 4: register as a responsible supplier',
+        url: 'https://www.acma.gov.au/step-4-register-responsible-supplier'
+      },
+      {
+        publisher: 'Australian Communications and Media Authority',
+        title: 'Step 5: label your product',
+        url: 'https://www.acma.gov.au/step-5-label-your-product'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-battery-recycling-targets-2026',
     key: 'euBatteryRecyclingTargets2026',
     contentType: 'current-affairs',
@@ -293,7 +354,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-14',
+    featuredReviewedThrough: '2026-09-15',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1439,6 +1500,7 @@ export const knowledgeContent = {
         china: 'China',
         'united-states': 'United States',
         canada: 'Canada',
+        australia: 'Australia',
         japan: 'Japan',
         'european-union': 'European Union',
         global: 'Global standards',
@@ -1461,6 +1523,63 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      australiaRcmCharger: {
+        topic: 'Australia market-access documents',
+        published: '15 September 2026',
+        readTime: '7 minutes',
+        title: 'An RCM mark on a charger is only the label: match the Australian supplier, registration and records',
+        description: 'For Australia-bound chargers, connect the RCM to the responsible supplier, EESS equipment entry, supporting certificate and applicable ACMA compliance records.',
+        imageAlt: 'An older plug-in power adapter with an Australian Type I mains plug and barrel connector on a dark surface.',
+        imageCaption: 'Editorial photograph of an older Australian plug-pack with uninsulated active and neutral pins. It is used to illustrate the product category and is not presented as a current compliant model, an RCM record, a ZIMONAI client device, supplier sample or test result.',
+        answer: 'Australia’s RCM is the visible end of a compliance process, not a separate approval issued to a Chinese factory. For a mains charger, buyers should connect the brand and model to an Australian or New Zealand Responsible Supplier, the applicable EESS registration and certificate, and the ACMA declaration and test records required for the product. EESS expressly identifies a mobile-phone charger as Level 3 “power supply or charger” equipment, making registration and a valid Certificate of Conformity central checks for that category. ZIMONAI’s editorial view is that the mark is a routing clue: its value comes from the accountable entity and model-specific records behind it.',
+        takeaways: [
+          'EESS authorisation to use the RCM sits with the Registered Responsible Supplier; an overseas manufacturer cannot register itself as that EESS Responsible Supplier.',
+          'EESS requires Level 2 and Level 3 equipment to be registered, and its official guidance gives the mobile-phone charger as a Level 3 “power supply or charger” example.',
+          'ACMA uses the same RCM label but has its own applicable-rule, testing, declaration, record-keeping and supplier-registration steps; one printed symbol does not replace those records.'
+        ],
+        sections: [
+          {
+            title: 'Who stands behind the RCM on an imported charger?',
+            paragraphs: [
+              'Under EESS, the Responsible Supplier is the first Australian or New Zealand manufacturer or importer of in-scope electrical equipment. Registration requires an Australian Business Number or New Zealand IRD number and a real business presence in one of those countries. EESS states that an overseas company, offshore factory or agent cannot become the EESS Registered Responsible Supplier merely by arranging tests or paperwork.',
+              'That distinction matters in OEM sourcing. A Chinese charger factory may apply the mark during production only with authority from the Registered Responsible Supplier that will import and sell that product. The label therefore should lead to a named local legal entity. It does not by itself identify the factory, prove that the factory owns a certificate or show who will carry the product into the Australian market.'
+            ],
+            items: [
+              'Australian ABN or New Zealand IRD-linked Responsible Supplier identity',
+              'Exact brand, trade name and model printed on the product and packaging',
+              'Written authority connecting the offshore manufacturer to the Responsible Supplier',
+              'Current public supplier and equipment records where registration is required'
+            ]
+          },
+          {
+            title: 'Which EESS record should match the charger?',
+            paragraphs: [
+              'EESS separates in-scope equipment into three risk levels. Level 1 equipment needs safety evidence but product registration is voluntary; Level 2 and Level 3 equipment must be registered. EESS also states that a mobile-phone charger is in-scope Level 3 equipment under “power supply or charger”. A Level 3 registration must be supported by a current Certificate of Conformity, while the Responsible Supplier remains responsible for keeping the registration and supporting details current.',
+              'The practical check is a four-way match between the product nameplate, the EESS equipment record, the certificate and the Responsible Supplier. Model suffixes, input ratings, output profiles, plug construction and brand ownership all matter. Similar housings or a certificate for another family member are not enough to establish that the quoted model is the registered equipment.'
+            ]
+          },
+          {
+            title: 'Why must ACMA records be checked separately?',
+            paragraphs: [
+              'The RCM is also the compliance label used under ACMA regulatory arrangements. ACMA tells suppliers to identify the applicable labelling rules, obtain supporting test evidence, sign and retain a Declaration of Conformity, register on the national EESS Platform when required, and apply the label only after the earlier steps are complete. The records depend on the product and may include a product description, test report, customer guide and change statement.',
+              'For buyers, this means the EESS electrical-safety trail and the applicable ACMA trail should be reviewed as connected but distinct obligations. ZIMONAI’s editorial judgement is to ask for one indexed compliance folder that maps every document to the same sale model and revision. That folder can show how the supplier reached the label; it still needs purchasing, production and shipment evidence to show that the delivered units match the documented design.'
+            ]
+          }
+        ],
+        checklist: [
+          'Full product brand, model and every regional or customer suffix',
+          'Nameplate input, all output modes, rated power and Australian plug construction',
+          'Registered Responsible Supplier legal name, ABN or New Zealand IRD identifier and current status',
+          'EESS risk-level basis for the exact product category',
+          'Current equipment registration and Certificate of Conformity for a Level 3 charger',
+          'Certificate model scope, listed standards and plug or cord component details',
+          'Applicable ACMA labelling route, Declaration of Conformity and supporting test reports',
+          'Written link between the Responsible Supplier, brand owner and Chinese manufacturer',
+          'Engineering-change control for PCB, transformer, controller, enclosure, plug and firmware',
+          'Production and pre-shipment evidence tying the ordered batch to the reviewed design'
+        ],
+        limitsText: 'The EESS and ACMA sources establish the supplier, registration, labelling and record-keeping framework; they do not approve the factory shown in a quotation or prove that every charger with an RCM is compliant. The mobile-phone-charger Level 3 example should not be used to classify every power product without checking the current equipment definition, voltage range, intended use and destination jurisdiction. An RCM trail also does not establish USB-IF status, battery-transport compliance, factory ownership, intellectual-property rights, production capacity, commercial authority or batch consistency. The model-matching and indexed-folder approach above is analysis by the ZIMONAI Editorial Desk at Zhimengwan Technology, not a regulator’s finding about a named product.'
+      },
       euBatteryRecyclingTargets2026: {
         topic: 'EU battery-industry news',
         published: '14 September 2026',
@@ -3012,6 +3131,7 @@ export const knowledgeContent = {
         china: '中國',
         'united-states': '美國',
         canada: '加拿大',
+        australia: '澳洲',
         japan: '日本',
         'european-union': '歐盟',
         global: '全球標準',
@@ -3034,6 +3154,63 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      australiaRcmCharger: {
+        topic: '澳洲市場准入文件',
+        published: '2026 年 9 月 15 日',
+        readTime: '約 7 分鐘',
+        title: '充電器印有 RCM 還不夠：澳洲責任供應商、設備登記與合規資料要對上',
+        description: '銷往澳洲的充電器，應把 RCM、責任供應商、EESS 設備登記、證明書與適用的 ACMA 合規資料連成同一條證據鏈。',
+        imageAlt: '一款舊式插牆電源適配器，配有澳規 Type I 插腳與圓形直流接頭，放在深色桌面上。',
+        imageCaption: '舊式澳規插牆電源適配器的編輯用實拍；主動與中性插腳尚未絕緣。畫面只用來說明產品類型，不代表現行合規型號、RCM 紀錄、ZIMONAI 客戶設備、供應商樣品或測試結果。',
+        answer: '澳洲 RCM 是合規流程最後呈現在產品上的標誌，不是主管機關單獨核發給中國工廠的批准。採購市電充電器時，買家應把完整品牌與型號連回澳洲或紐西蘭責任供應商、EESS 設備登記與有效證明書，以及適用的 ACMA 符合性聲明與測試紀錄。EESS 更把手機充電器列為 Level 3「電源供應器或充電器」示例，設備登記與有效 Certificate of Conformity 因此是核心查核點。ZIMONAI 的判讀是，把 RCM 當成追查路徑的起點；找到負責主體與型號紀錄，標誌才會成為有價值的採購證據。',
+        takeaways: [
+          'EESS 的 RCM 使用權由已登記的責任供應商掌握；境外製造商本身不能登記成 EESS 責任供應商。',
+          'EESS 要求 Level 2、Level 3 設備完成設備登記，官方並以手機充電器作為 Level 3「電源供應器或充電器」的示例。',
+          'ACMA 同樣使用 RCM，但仍有適用規則、測試、符合性聲明、紀錄保存與供應商登記程序；一個印刷標誌無法取代這些資料。'
+        ],
+        sections: [
+          {
+            title: '進口充電器上的 RCM，背後應該由誰負責？',
+            paragraphs: [
+              '依 EESS 規則，責任供應商是第一個在澳洲或紐西蘭製造或進口適用電氣設備的主體。登記時須具備 Australian Business Number（ABN）或紐西蘭 IRD 編號，並在當地有實際商業存在。EESS 明確說明，境外公司、中國工廠或協助文件的代理人，不能只靠安排測試或準備資料就成為 EESS 已登記責任供應商。',
+              '這項區分對 OEM 採購很重要。中國充電器工廠可以在生產時印上 RCM，但前提是取得實際進口並銷售該產品的已登記責任供應商授權。因此，產品上的標誌應能一路追到明確的當地法律主體；它本身不會指認製造工廠，也不代表工廠持有證明書，更不會說明誰負責把產品帶進澳洲市場。'
+            ],
+            items: [
+              '可由 ABN 或紐西蘭 IRD 編號追查的責任供應商',
+              '產品與包裝上的完整品牌、商號與型號',
+              '境外製造商使用 RCM 與責任供應商之間的書面連結',
+              '依法需登記時，可公開查得的供應商及設備紀錄'
+            ]
+          },
+          {
+            title: 'EESS 設備紀錄要怎麼對回充電器？',
+            paragraphs: [
+              'EESS 依風險把適用設備分成三個等級。Level 1 仍須保存安全證據，但產品登記為自願；Level 2 與 Level 3 則必須登記。EESS 官方也說明，手機充電器屬於「電源供應器或充電器」之下的 Level 3 適用設備。Level 3 設備登記須有仍在有效期內的 Certificate of Conformity 支持，責任供應商也要持續維護登記與支撐資料。',
+              '採購時應做四向對照：產品銘牌、EESS 設備紀錄、證明書與責任供應商。型號尾碼、輸入額定值、每組輸出規格、插腳結構及品牌範圍都可能影響對應。共用外殼或同系列另一個型號的證明書，無法直接代表報價產品已列入登記。'
+            ]
+          },
+          {
+            title: '為什麼還要另外核對 ACMA 資料？',
+            paragraphs: [
+              'RCM 也是 ACMA 法規安排所使用的合規標誌。ACMA 要求供應商先判定產品適用的標示規則、取得測試證據、簽署並保存 Declaration of Conformity（DoC），在需要時登記至 EESS Platform，完成前面程序後才能標示。依產品不同，資料還可能包含產品說明、測試報告、使用指南及產品變更聲明。',
+              '對買家而言，EESS 的電氣安全資料鏈與適用的 ACMA 資料鏈應一起看，但兩者不是同一份文件。ZIMONAI 的實務判讀是，要求供應商提供一份有索引的合規檔案，逐份標出相同銷售型號與版本。這份檔案能說明標誌如何成立；至於交付的量產品是否維持同一設計，仍須以生產與出貨證據另外確認。'
+            ]
+          }
+        ],
+        checklist: [
+          '產品完整品牌、型號，以及所有地區或客製尾碼',
+          '銘牌輸入、全部輸出模式、額定功率與澳規插腳結構',
+          '責任供應商法律名稱、ABN 或紐西蘭 IRD 編號及目前狀態',
+          '精確產品類別所採用的 EESS 風險等級依據',
+          'Level 3 充電器的現行設備登記與有效 Certificate of Conformity',
+          '證明書涵蓋型號、適用標準，以及插頭或電源線零件資料',
+          '適用的 ACMA 標示路徑、符合性聲明與支撐測試報告',
+          '責任供應商、品牌權利人與中國製造商之間的書面關係',
+          'PCB、變壓器、控制器、外殼、插腳及韌體的工程變更管制',
+          '把訂購批次連回已審資料的生產與出貨前證據'
+        ],
+        limitsText: 'EESS 與 ACMA 官方資料建立的是責任供應商、設備登記、標示與紀錄保存架構，不會替報價中的工廠背書，也不代表每一款印有 RCM 的充電器都已合規。手機充電器的 Level 3 官方示例，也不應直接套用到所有電源產品；仍須按最新設備定義、額定電壓、預定用途及銷售地區判定。RCM 資料鏈亦無法證明 USB-IF 狀態、電池運輸合規、工廠所有權、智慧財產權、產能、商業授權或批次一致性。本文提出的型號對照與索引檔案方法，屬於 ZIMONAI｜智蒙灣科技編輯部的採購判讀，不是主管機關對特定產品的結論。'
+      },
       euBatteryRecyclingTargets2026: {
         topic: '歐盟電池產業時事',
         published: '2026 年 9 月 14 日',
@@ -4585,6 +4762,7 @@ export const knowledgeContent = {
         china: '中国',
         'united-states': '美国',
         canada: '加拿大',
+        australia: '澳大利亚',
         japan: '日本',
         'european-union': '欧盟',
         global: '全球标准',
@@ -4607,6 +4785,63 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      australiaRcmCharger: {
+        topic: '澳大利亚市场准入文件',
+        published: '2026 年 9 月 15 日',
+        readTime: '约 7 分钟',
+        title: '充电器标有 RCM 还不够：澳大利亚责任供应商、设备登记和合规资料必须对应',
+        description: '销往澳大利亚的充电器，应把 RCM、责任供应商、EESS 设备登记、证书与适用的 ACMA 合规资料连成同一条证据链。',
+        imageAlt: '一款老式插墙电源适配器，带有澳大利亚 Type I 插脚和圆形直流接头，放在深色桌面上。',
+        imageCaption: '老式澳规插墙电源适配器的编辑实拍；火线与中性线插脚尚未绝缘。图片只用于说明产品类别，不代表当前合规型号、RCM 记录、ZIMONAI 客户设备、供应商样品或测试结果。',
+        answer: '澳大利亚 RCM 是合规流程最终呈现在产品上的标志，并非主管机构单独颁发给中国工厂的批准。采购市电充电器时，买家应把完整品牌与型号连回澳大利亚或新西兰责任供应商、EESS 设备登记与有效证书，以及适用的 ACMA 符合性声明和测试记录。EESS 还把手机充电器列为 Level 3“电源适配器或充电器”示例，设备登记与有效 Certificate of Conformity 因此是核心核查点。ZIMONAI 的编辑判断是，应把 RCM 当作追查路径的起点；找到责任主体和型号记录，这个标志才会成为有价值的采购证据。',
+        takeaways: [
+          'EESS 的 RCM 使用权由已登记的责任供应商掌握；境外制造商自身不能登记成为 EESS 责任供应商。',
+          'EESS 要求 Level 2、Level 3 设备完成设备登记，官方并以手机充电器作为 Level 3“电源适配器或充电器”的示例。',
+          'ACMA 同样使用 RCM，但仍有适用规则、测试、符合性声明、记录保存与供应商登记程序；一个印刷标志无法替代这些资料。'
+        ],
+        sections: [
+          {
+            title: '进口充电器上的 RCM，背后应由谁负责？',
+            paragraphs: [
+              '按照 EESS 规则，责任供应商是第一个在澳大利亚或新西兰制造或进口适用电气设备的主体。登记时须具备 Australian Business Number（ABN）或新西兰 IRD 编号，并在当地有实际商业存在。EESS 明确说明，境外公司、中国工厂或协助处理文件的代理人，不能仅凭安排测试或准备资料就成为 EESS 已登记责任供应商。',
+              '这一区分对 OEM 采购非常重要。中国充电器工厂可以在生产时印上 RCM，前提是获得实际进口并销售该产品的已登记责任供应商授权。因此，产品上的标志应能追溯至明确的当地法律主体；它本身不会指认制造工厂，也不代表工厂持有证书，更不会说明谁负责将产品带入澳大利亚市场。'
+            ],
+            items: [
+              '可通过 ABN 或新西兰 IRD 编号追查的责任供应商',
+              '产品与包装上的完整品牌、商号和型号',
+              '境外制造商使用 RCM 与责任供应商之间的书面联系',
+              '依法需要登记时，可公开查询的供应商及设备记录'
+            ]
+          },
+          {
+            title: 'EESS 设备记录应如何对应充电器？',
+            paragraphs: [
+              'EESS 按风险把适用设备分成三个等级。Level 1 仍须保存安全证据，但产品登记属于自愿；Level 2 与 Level 3 则必须登记。EESS 官方也说明，手机充电器属于“电源适配器或充电器”下的 Level 3 适用设备。Level 3 设备登记须由仍在有效期内的 Certificate of Conformity 支持，责任供应商也要持续维护登记及支撑资料。',
+              '采购时应进行四向核对：产品铭牌、EESS 设备记录、证书与责任供应商。型号后缀、输入额定值、每组输出规格、插脚结构和品牌范围都可能影响对应关系。共用外壳或同系列另一个型号的证书，不能直接代表报价产品已经列入登记。'
+            ]
+          },
+          {
+            title: '为什么还要单独核对 ACMA 资料？',
+            paragraphs: [
+              'RCM 也是 ACMA 监管安排采用的合规标志。ACMA 要求供应商先确定产品适用的标签规则、取得测试证据、签署并保存 Declaration of Conformity（DoC），在需要时登记至 EESS Platform，完成前面程序后才能标示。根据产品不同，资料还可能包括产品说明、测试报告、用户指南与产品变更声明。',
+              '对买家而言，EESS 的电气安全资料链与适用的 ACMA 资料链应当一起审查，但两者不是同一份文件。ZIMONAI 的实务判断是，要求供应商提供一份带索引的合规档案，逐份标明相同销售型号与版本。这份档案能够说明标志如何成立；至于交付的量产产品是否维持同一设计，仍须用生产和出货证据另行确认。'
+            ]
+          }
+        ],
+        checklist: [
+          '产品完整品牌、型号，以及所有地区或定制后缀',
+          '铭牌输入、全部输出模式、额定功率与澳规插脚结构',
+          '责任供应商法律名称、ABN 或新西兰 IRD 编号及当前状态',
+          '精确产品类别采用的 EESS 风险等级依据',
+          'Level 3 充电器的当前设备登记与有效 Certificate of Conformity',
+          '证书覆盖型号、适用标准，以及插头或电源线部件资料',
+          '适用的 ACMA 标签路径、符合性声明与支撑测试报告',
+          '责任供应商、品牌权利人与中国制造商之间的书面关系',
+          'PCB、变压器、控制器、外壳、插脚和固件的工程变更控制',
+          '把订购批次连回已审核资料的生产与出货前证据'
+        ],
+        limitsText: 'EESS 与 ACMA 官方资料建立的是责任供应商、设备登记、标签与记录保存框架，不会为报价中的工厂背书，也不代表每一款印有 RCM 的充电器都已合规。手机充电器的 Level 3 官方示例，也不应直接套用到所有电源产品；仍须按照最新设备定义、额定电压、预定用途及销售地区进行判断。RCM 资料链也无法证明 USB-IF 状态、电池运输合规、工厂所有权、知识产权、产能、商业授权或批次一致性。本文提出的型号核对与索引档案方法，属于 ZIMONAI｜智蒙湾科技编辑部的采购判断，并非主管机构对特定产品的结论。'
+      },
       euBatteryRecyclingTargets2026: {
         topic: '欧盟电池产业时事',
         published: '2026 年 9 月 14 日',
