@@ -8,6 +8,62 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-usb-pd-3-2-version-1-2',
+    key: 'usbPd32Version12',
+    contentType: 'current-affairs',
+    slug: 'knowledge/usb-pd-3-2-version-1-2',
+    category: 'product-transport-documents',
+    products: ['charger', 'power-adapter', 'power-bank', 'gan-charger'],
+    markets: ['global'],
+    keywords: {
+      en: ['USB PD 3.2 Version 1.2', 'USB Power Delivery specification update', 'USB PD 240W', 'USB PD dynamic power sources', 'USB PD EPR update', 'USB-C charger firmware'],
+      'zh-tw': ['USB PD 3.2 Version 1.2', 'USB Power Delivery 規格更新', 'USB PD 240W', 'USB PD 動態電源', 'USB PD EPR 更新', 'USB-C 充電器韌體'],
+      'zh-cn': ['USB PD 3.2 Version 1.2', 'USB Power Delivery 规范更新', 'USB PD 240W', 'USB PD 动态电源', 'USB PD EPR 更新', 'USB-C 充电器固件']
+    },
+    datePublished: '2026-09-16',
+    dateModified: '2026-09-16',
+    image: '/assets/editorial-usb-pd-3-2-v1-2.jpg',
+    imageWidth: 2000,
+    imageHeight: 1336,
+    imageCrop: {
+      card: '42% 42%',
+      article: '44% 43%',
+      mobile: '39% 42%'
+    },
+    photo: {
+      photographer: 'ready made',
+      page: 'https://www.pexels.com/photo/close-up-photo-of-cord-3921633/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB Power Delivery Specification Revision 3.2 Version 1.2 — document library listing',
+        url: 'https://usb.org/documents?items_per_page=50&order=title&search=power+delivery&sort=asc'
+      },
+      {
+        publisher: 'USB Implementers Forum',
+        title: 'USB-IF Compliance Program',
+        url: 'https://www.usb.org/compliance'
+      },
+      {
+        publisher: 'International Electrotechnical Commission',
+        title: 'IEC 62680-1-2:2026 — USB Power Delivery specification based on Revision 3.2 Version 1.1',
+        url: 'https://webstore.iec.ch/en/publication/106823'
+      },
+      {
+        publisher: 'STMicroelectronics',
+        title: 'STM32 USB Power Delivery core release notes',
+        url: 'https://github.com/STMicroelectronics/stm32-mw-usbpd-core/blob/main/Release_Notes.md'
+      },
+      {
+        publisher: 'ChromiumOS',
+        title: 'USB PD data-object definitions referencing Revision 3.2 Version 1.2',
+        url: 'https://chromium.googlesource.com/chromiumos/platform/ec/%2B/a02f1ab3982c88be8cfdb539f5909e8eb3334f4f/include/usb_pd_vdo.h'
+      }
+    ]
+  },
+  {
     id: 'knowledge-australia-rcm-charger',
     key: 'australiaRcmCharger',
     contentType: 'industry-knowledge',
@@ -354,7 +410,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-15',
+    featuredReviewedThrough: '2026-09-16',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1523,6 +1579,66 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      usbPd32Version12: {
+        topic: 'USB charging industry news',
+        published: '16 September 2026',
+        readTime: '7 minutes',
+        title: 'USB-IF lists USB PD 3.2 Version 1.2: the update is about implementation, not more watts',
+        description: 'USB-IF has listed a new corrected printing of USB Power Delivery Revision 3.2 Version 1.2, tightening implementation details without raising the 240W ceiling.',
+        imageAlt: 'A black braided USB-C cable and adapter on a pale marble surface.',
+        imageCaption: 'Editorial photograph of a generic USB-C cable and adapter. The visible products are not presented as USB PD 3.2 Version 1.2 compliant, USB-IF certified, ZIMONAI client devices, supplier samples or test evidence.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What product teams should check',
+          limits: 'What remains unconfirmed'
+        },
+        answer: 'USB-IF listed USB Power Delivery Revision 3.2 Version 1.2 in its public library on 14 September; the specification file is dated 19 August and identifies an August corrected printing. The update does not raise the 240W EPR ceiling: it consolidates implementation text on Dynamic Power Sources, EPR, Fast Role Swap, cable data objects and timers. This matters because charger and component manufacturers now need exact version alignment across controller silicon, firmware, test plans and compliance evidence, while existing Version 1.1 products are not automatically obsolete.',
+        takeaways: [
+          'USB-IF’s library records the Version 1.2 package on 14 September, while the specification PDF is dated 19 August and its revision history identifies an August corrected printing.',
+          'Version 1.2 reorganises the specification and incorporates a defined set of ECNs; the August printing fixes timers, EPR keep-alive sections, VCONN Swap retry text and cross-references.',
+          'The maximum remains 240W in EPR. The near-term work is version control across silicon, firmware, test plans and compliance evidence—not designing around a newly announced power level.'
+        ],
+        sections: [
+          {
+            title: 'What exactly appeared in the USB-IF library?',
+            paragraphs: [
+              'The USB-IF Document Library now lists “USB Power Delivery Specification Revision 3.2 Version 1.2 and corresponding Adopters Agreements” with a 14 September date. Inside the downloadable package, the main specification is titled Release 3.2, Version 1.2 and dated 19 August 2026. Its revision appendix says Version 1.2 was restructured and consolidated in January, followed by corrected printings in March, May and August.',
+              'That date sequence matters because “listed on 14 September” is not the same claim as “the technical revision was first created on 14 September.” The August printing records seven additional editorial corrections, including timer-table fixes, restored VCONN Swap retry wording, EPR keep-alive section repairs and applying SinkRequestTimer to both Request and EPR_Request messages.'
+            ],
+            items: [
+              '14 September: public USB-IF document-library listing',
+              '19 August: date printed on the specification PDF',
+              'August corrected printing: editorial errata 11 through 17',
+              'Revision 3.2, Version 1.2: the exact engineering reference in the package'
+            ]
+          },
+          {
+            title: 'Does Version 1.2 introduce faster than 240W charging?',
+            paragraphs: [
+              'No new maximum is announced in the package. IEC 62680-1-2:2026, which adopts USB PD Revision 3.2 Version 1.1, already describes up to 100W in Standard Power Range and 240W in Extended Power Range. Version 1.2 keeps that architecture and instead brings the specification structure and accumulated engineering changes into one reference.',
+              'The revision history names Dynamic Power Sources, assured and shared capacity definitions, EPR request and capability handling, Fast Role Swap, source power rules and cable-data-object corrections among the incorporated ECNs. These are not catchy retail specifications, but they can change firmware state machines, controller integration, multi-port power allocation and the test cases used to show that a design behaves consistently.'
+            ]
+          },
+          {
+            title: 'Why should charger and component teams care now?',
+            paragraphs: [
+              'Public implementation work already shows that the change is more than a renamed PDF. STMicroelectronics added official Revision 3.2 support to its STM32 USB PD stack in January and implemented the “Wait in EPR_Request” ECN in May. ChromiumOS source code now identifies Revision 3.2 Version 1.2 and ECNs through May as its reference. Together, those records show software teams aligning real protocol code to the evolving text on different schedules.',
+              'ZIMONAI’s editorial view is that the biggest near-term risk is version mismatch: a controller datasheet may say PD 3.2, a firmware branch may implement only part of the later ECNs, and a test package may still target another printing. That does not make an older product automatically defective or obsolete. It does mean that a new design review should name the exact specification and test-suite revision, record which ECNs are implemented, and keep the controller, firmware and multi-port power policy under one change-control baseline.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact USB PD specification revision, version and corrected printing used by the design team',
+          'PD controller silicon revision and the matching production firmware build',
+          'Implemented ECNs, especially EPR_Request, Dynamic Power Sources and FRS-related changes',
+          'Source and sink capability tables for every advertised USB-C port and operating mode',
+          'Multi-port assured, shared and dynamic power behaviour under simultaneous load',
+          'Cable and E-marker requirements for every EPR output claim',
+          'Compliance test specification version, lab scope, TID and Integrators List record where certification is claimed',
+          'Regression evidence for timers, resets, role swaps and error recovery before mass production'
+        ],
+        limitsText: 'USB-IF’s document library confirms the package listing, and the specification appendix records the incorporated ECNs and corrected printings. It does not announce an industry-wide migration deadline, state that existing Version 1.1 products are obsolete, or prove that a device claiming “PD 3.2” implements Version 1.2. IEC 62680-1-2:2026 currently identifies Version 1.1, so the two references should not be treated as interchangeable without checking the applicable contract, market and test programme. USB-IF also separates a specification from product certification: certified products are evaluated under its Compliance Program and tracked by a TID and Integrators List entry. The version-mismatch and product-team implications above are analysis by the ZIMONAI Editorial Desk at Zhimengwan Technology, not a finding about a named supplier or product.'
+      },
       australiaRcmCharger: {
         topic: 'Australia market-access documents',
         published: '15 September 2026',
@@ -3154,6 +3270,66 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      usbPd32Version12: {
+        topic: 'USB 充電產業時事',
+        published: '2026 年 9 月 16 日',
+        readTime: '約 7 分鐘',
+        title: 'USB-IF 上架 USB PD 3.2 Version 1.2：這次更新重點不是把瓦數再拉高',
+        description: 'USB-IF 公開上架 USB Power Delivery Revision 3.2 Version 1.2 最新修正版，重點是整合實作細節，最高功率仍為 240W。',
+        imageAlt: '淡色大理石桌面上的黑色編織 USB-C 線材與轉接器。',
+        imageCaption: '通用 USB-C 線材與轉接器的編輯實拍。畫面中的產品不代表符合 USB PD 3.2 Version 1.2、通過 USB-IF 認證，也不是 ZIMONAI 客戶設備、供應商樣品或測試證據。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '產品團隊現在該核對什麼',
+          limits: '仍待確認'
+        },
+        answer: 'USB-IF 於 9 月 14 日上架 USB Power Delivery Revision 3.2 Version 1.2；主規格檔日期為 8 月 19 日，並標示為 8 月修正版。這不是更高功率世代，EPR 上限仍為 240W；更新重點是整合 Dynamic Power Sources、EPR、Fast Role Swap、線材資料物件與計時器等實作細節。更值得注意的是，這次更新把充電器與零組件產業的焦點推向版本對齊：控制晶片、韌體、測試計畫與合規資料必須使用同一基準，舊版產品則不會因此自動失效。',
+        takeaways: [
+          'USB-IF 文件庫把 Version 1.2 套件標在 9 月 14 日；規格 PDF 日期為 8 月 19 日，修訂紀錄則列出 8 月修正版。',
+          'Version 1.2 重新編排規格並整合一批 ECN；8 月修正版再處理計時器、EPR keep-alive、VCONN Swap 重試文字與交叉引用。',
+          '最高功率仍是 EPR 的 240W。近期真正的工作，是讓控制晶片、韌體、測試計畫與合規資料使用同一個版本基準。'
+        ],
+        sections: [
+          {
+            title: 'USB-IF 這次究竟上架了什麼？',
+            paragraphs: [
+              'USB-IF Document Library 現在列出「USB Power Delivery Specification Revision 3.2 Version 1.2 and corresponding Adopters Agreements」，頁面日期是 9 月 14 日。下載套件後，主規格的完整標題是 Release 3.2, Version 1.2，文件日期為 2026 年 8 月 19 日。附錄進一步記載，Version 1.2 在 1 月完成規格重整，3 月、5 月與 8 月又陸續發布修正版。',
+              '因此，最精確的說法是「9 月 14 日列入公開文件庫」，不能直接把這一天寫成所有技術內容首次完成的日期。8 月修正版記錄了七項編輯勘誤，包括修正計時器表、補回 VCONN Swap 重試敘述、整理 EPR keep-alive 章節，並讓 SinkRequestTimer 同時適用於 Request 與 EPR_Request 訊息。'
+            ],
+            items: [
+              '9 月 14 日：USB-IF 公開文件庫上架日期',
+              '8 月 19 日：主規格 PDF 標示日期',
+              '8 月修正版：處理第 11 至第 17 項編輯勘誤',
+              'Revision 3.2, Version 1.2：套件中的精確工程基準'
+            ]
+          },
+          {
+            title: 'Version 1.2 代表充電功率突破 240W 嗎？',
+            paragraphs: [
+              '沒有。這份套件沒有公布新的功率上限。以 USB PD Revision 3.2 Version 1.1 為基礎的 IEC 62680-1-2:2026，已明確記載 Standard Power Range 最高 100W、Extended Power Range 最高 240W；Version 1.2 延續這套架構，重點是把規格結構與累積的工程變更整合成一份新基準。',
+              '修訂紀錄列出的 ECN 包括 Dynamic Power Sources、assured／shared capacity 定義、EPR 請求與能力處理、Fast Role Swap、電源規則及線材資料物件修正。這些名稱不容易成為消費性賣點，卻可能直接影響韌體狀態機、控制器整合、多埠功率分配，以及產品用什麼測項證明行為一致。'
+            ]
+          },
+          {
+            title: '為什麼充電器與零組件團隊現在就要注意？',
+            paragraphs: [
+              '公開的實作紀錄已顯示，這次變化不只是 PDF 改名。STMicroelectronics 在 1 月替 STM32 USB PD stack 加入 Revision 3.2 正式支援，5 月再實作「Wait in EPR_Request」ECN；ChromiumOS 原始碼也已把 Revision 3.2 Version 1.2 與截至 5 月的 ECN 列為參考。不同軟體專案依自己的時程對齊新文字，正好說明「支援 PD 3.2」不一定代表實作落在同一個細部版本。',
+              'ZIMONAI｜智蒙灣科技編輯部認為，近期最大的實務風險是版本錯位：控制晶片資料表寫著 PD 3.2，量產韌體可能只納入部分後續 ECN，測試套件又可能指向另一版規格。這不表示舊產品自動失效或過時，但新設計審查應明確寫出規格與測試版本、已實作 ECN，並把控制器、韌體及多埠功率策略納入同一份變更基準。'
+            ]
+          }
+        ],
+        checklist: [
+          '設計團隊採用的 USB PD revision、version 與修正版日期',
+          'PD 控制晶片版本，以及量產韌體的精確 build',
+          '已實作的 ECN，特別是 EPR_Request、Dynamic Power Sources 與 FRS 變更',
+          '每個 USB-C 埠在各種模式下的 Source／Sink capabilities',
+          '多埠同時負載時，assured、shared 與 dynamic power 的實際行為',
+          '每一項 EPR 輸出宣稱所需的線材與 E-marker 條件',
+          '若宣稱 USB-IF 認證，對應的測試規格版本、實驗室範圍、TID 與 Integrators List 紀錄',
+          '量產前針對計時器、重置、角色切換與錯誤復原完成的回歸測試'
+        ],
+        limitsText: 'USB-IF 文件庫可以證明套件已公開上架，規格附錄也列出整合的 ECN 與各次修正版；但官方資料沒有公布全產業統一轉版期限，也沒有表示 Version 1.1 產品已經過時，更不能證明標示「PD 3.2」的產品已實作 Version 1.2。IEC 62680-1-2:2026 目前明確對應 Version 1.1，若涉及合約、市場或測試方案，兩份基準不能未經核對就直接互換。USB-IF 也把技術規格與產品認證分開：認證產品須依 Compliance Program 評估，並以 TID 與 Integrators List 紀錄追查。上述版本錯位與產品團隊影響，屬於 ZIMONAI｜智蒙灣科技編輯部的產業判讀，不是對特定供應商或產品的結論。'
+      },
       australiaRcmCharger: {
         topic: '澳洲市場准入文件',
         published: '2026 年 9 月 15 日',
@@ -4785,6 +4961,66 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      usbPd32Version12: {
+        topic: 'USB 充电产业时事',
+        published: '2026 年 9 月 16 日',
+        readTime: '约 7 分钟',
+        title: 'USB-IF 上架 USB PD 3.2 Version 1.2：这次更新重点不是继续提高功率',
+        description: 'USB-IF 公开上架 USB Power Delivery Revision 3.2 Version 1.2 最新修正版，重点是整合实现细节，最高功率仍为 240W。',
+        imageAlt: '浅色大理石桌面上的黑色编织 USB-C 线缆与转接器。',
+        imageCaption: '通用 USB-C 线缆与转接器的编辑实拍。画面中的产品不代表符合 USB PD 3.2 Version 1.2、通过 USB-IF 认证，也不是 ZIMONAI 客户设备、供应商样品或测试证据。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '产品团队现在应核对什么',
+          limits: '仍待确认'
+        },
+        answer: 'USB-IF 于 9 月 14 日上架 USB Power Delivery Revision 3.2 Version 1.2；主规范文件日期为 8 月 19 日，并标明是 8 月修正版。这不是更高功率世代，EPR 上限仍为 240W；更新重点是整合 Dynamic Power Sources、EPR、Fast Role Swap、线缆数据对象与计时器等实现细节。更值得关注的是，这次更新把充电器与零部件产业的焦点推向版本对齐：控制芯片、固件、测试计划与合规资料必须采用同一基准，旧版产品不会因此自动失效。',
+        takeaways: [
+          'USB-IF 文档库把 Version 1.2 套件标在 9 月 14 日；规范 PDF 日期为 8 月 19 日，修订记录则列出 8 月修正版。',
+          'Version 1.2 重新编排规范并整合一批 ECN；8 月修正版进一步处理计时器、EPR keep-alive、VCONN Swap 重试文字与交叉引用。',
+          '最高功率仍然是 EPR 的 240W。近期真正的工作，是让控制芯片、固件、测试计划与合规资料使用同一个版本基准。'
+        ],
+        sections: [
+          {
+            title: 'USB-IF 这次究竟上架了什么？',
+            paragraphs: [
+              'USB-IF Document Library 现在列出“USB Power Delivery Specification Revision 3.2 Version 1.2 and corresponding Adopters Agreements”，页面日期为 9 月 14 日。下载套件后，主规范的完整标题是 Release 3.2, Version 1.2，文件日期为 2026 年 8 月 19 日。附录还记录，Version 1.2 在 1 月完成规范重整，3 月、5 月和 8 月又陆续发布修正版。',
+              '因此，最准确的说法是“9 月 14 日列入公开文档库”，不能直接把这一天写成所有技术内容首次完成的日期。8 月修正版记录了七项编辑勘误，包括修正计时器表、补回 VCONN Swap 重试说明、整理 EPR keep-alive 章节，并让 SinkRequestTimer 同时适用于 Request 与 EPR_Request 消息。'
+            ],
+            items: [
+              '9 月 14 日：USB-IF 公开文档库上架日期',
+              '8 月 19 日：主规范 PDF 标示日期',
+              '8 月修正版：处理第 11 至第 17 项编辑勘误',
+              'Revision 3.2, Version 1.2：套件中的精确工程基准'
+            ]
+          },
+          {
+            title: 'Version 1.2 代表充电功率突破 240W 吗？',
+            paragraphs: [
+              '没有。这份套件并未公布新的功率上限。以 USB PD Revision 3.2 Version 1.1 为基础的 IEC 62680-1-2:2026，已经明确记载 Standard Power Range 最高 100W、Extended Power Range 最高 240W；Version 1.2 延续这套架构，重点是把规范结构和累积的工程变更整合成一份新基准。',
+              '修订记录列出的 ECN 包括 Dynamic Power Sources、assured／shared capacity 定义、EPR 请求与能力处理、Fast Role Swap、电源规则及线缆数据对象修正。这些名称不容易成为消费卖点，却可能直接影响固件状态机、控制器集成、多端口功率分配，以及产品通过哪些测试证明行为一致。'
+            ]
+          },
+          {
+            title: '为什么充电器与零部件团队现在就要注意？',
+            paragraphs: [
+              '公开的实现记录已经显示，这次变化不只是 PDF 改名。STMicroelectronics 在 1 月为 STM32 USB PD stack 加入 Revision 3.2 正式支持，5 月再实现“Wait in EPR_Request”ECN；ChromiumOS 源代码也已将 Revision 3.2 Version 1.2 与截至 5 月的 ECN 列为参考。不同软件项目按各自进度对齐新文字，正好说明“支持 PD 3.2”不一定代表实现位于同一个细分版本。',
+              'ZIMONAI｜智蒙湾科技编辑部认为，近期最大的实际风险是版本错位：控制芯片数据表写着 PD 3.2，量产固件可能只纳入部分后续 ECN，测试套件又可能指向另一个版本。这不表示旧产品自动失效或过时，但新设计评审应明确写出规范与测试版本、已实现 ECN，并把控制器、固件和多端口功率策略纳入同一份变更基准。'
+            ]
+          }
+        ],
+        checklist: [
+          '设计团队采用的 USB PD revision、version 与修正版日期',
+          'PD 控制芯片版本，以及量产固件的精确 build',
+          '已实现的 ECN，特别是 EPR_Request、Dynamic Power Sources 与 FRS 变更',
+          '每个 USB-C 端口在各种模式下的 Source／Sink capabilities',
+          '多端口同时负载时，assured、shared 与 dynamic power 的实际行为',
+          '每一项 EPR 输出声明所需的线缆与 E-marker 条件',
+          '如宣称 USB-IF 认证，对应的测试规范版本、实验室范围、TID 与 Integrators List 记录',
+          '量产前针对计时器、重置、角色切换和错误恢复完成的回归测试'
+        ],
+        limitsText: 'USB-IF 文档库可以证明套件已经公开上架，规范附录也列出整合的 ECN 与各次修正版；但官方资料没有公布全行业统一转版期限，也没有表示 Version 1.1 产品已经过时，更不能证明标有“PD 3.2”的产品已经实现 Version 1.2。IEC 62680-1-2:2026 目前明确对应 Version 1.1，如涉及合同、市场或测试方案，两份基准不能未经核对就直接互换。USB-IF 也将技术规范与产品认证分开：认证产品须通过 Compliance Program 评估，并以 TID 与 Integrators List 记录追查。上述版本错位与产品团队影响，属于 ZIMONAI｜智蒙湾科技编辑部的行业判断，并非对特定供应商或产品的结论。'
+      },
       australiaRcmCharger: {
         topic: '澳大利亚市场准入文件',
         published: '2026 年 9 月 15 日',
