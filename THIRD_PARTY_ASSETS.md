@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-16
+Last reviewed: 2026-09-17
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -34,6 +34,7 @@ The following real photograph was downloaded from its Wikimedia Commons file pag
 | Local asset | Photographer | Source and licence | Website use |
 | --- | --- | --- | --- |
 | `src/assets/editorial-australia-rcm-power-adapter.jpg` | Leon Brooks | [Plugpack with barrel connector Australian mains plug](https://commons.wikimedia.org/wiki/File:Plugpack_with_barrel_connector_australian_mains_plug.jpg), [public-domain release by the author](https://commons.wikimedia.org/wiki/File:Plugpack_with_barrel_connector_australian_mains_plug.jpg#Licensing) | Industry-knowledge article about matching an Australian RCM label to the Responsible Supplier, EESS registration and ACMA records; the source page identifies the pictured plug-pack as an older design with uninsulated active and neutral pins that may no longer be sold. It illustrates the product category only and is not presented as a current compliant model, RCM evidence, ZIMONAI client device, supplier sample or test result; downloaded, resized to 1800 × 1350 and used 2026-09-15 |
+| `src/assets/editorial-ukca-ce-charger.jpg` | Asim18 | [BS1363 Plug 03](https://commons.wikimedia.org/wiki/File:BS1363_Plug_03.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Industry-knowledge article about separating CE and UKCA routes for chargers placed on the Great Britain and Northern Ireland markets; real photograph of a British BS 1363 plug, locally resized to 2000 × 1500 and JPEG-compressed without generative editing. Layout cropping is disclosed under the same CC BY-SA 4.0 licence. The plug illustrates the destination format only and is not presented as a charger, conformity mark, UK approval, ZIMONAI client device, supplier sample or compliance record; downloaded and used 2026-09-17 |
 
 ## Unsplash editorial photographs
 

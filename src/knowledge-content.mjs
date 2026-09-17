@@ -8,6 +8,62 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-ukca-ce-charger-great-britain-northern-ireland',
+    key: 'ukcaCeChargerUkMarkets',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/ukca-ce-charger-great-britain-northern-ireland',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['united-kingdom'],
+    keywords: {
+      en: ['UKCA or CE charger', 'UK charger compliance', 'CE marking Great Britain charger', 'UKCA power adapter', 'Northern Ireland CE charger', 'UK electrical equipment declaration of conformity'],
+      'zh-tw': ['英國充電器 UKCA CE', '英國充電器合規', '英國本島 CE 標誌', 'UKCA 電源適配器', '北愛爾蘭 CE 充電器', '英國電氣設備符合性聲明'],
+      'zh-cn': ['英国充电器 UKCA CE', '英国充电器合规', '英国本岛 CE 标志', 'UKCA 电源适配器', '北爱尔兰 CE 充电器', '英国电气设备符合性声明']
+    },
+    datePublished: '2026-09-17',
+    dateModified: '2026-09-17',
+    image: '/assets/editorial-ukca-ce-charger.jpg',
+    imageWidth: 2000,
+    imageHeight: 1500,
+    imageCrop: {
+      card: '46% 46%',
+      article: '47% 47%',
+      mobile: '43% 48%'
+    },
+    photo: {
+      photographer: 'Asim18',
+      page: 'https://commons.wikimedia.org/wiki/File:BS1363_Plug_03.jpg',
+      license: 'https://creativecommons.org/licenses/by-sa/4.0/'
+    },
+    sources: [
+      {
+        publisher: 'UK Department for Business and Trade',
+        title: 'Placing UKCA or CE marked products on the market in Great Britain',
+        url: 'https://www.gov.uk/guidance/placing-ukca-or-ce-marked-products-on-the-market-in-great-britain'
+      },
+      {
+        publisher: 'UK Department for Business and Trade',
+        title: 'Product regulations by sector and current approaches to product marking',
+        url: 'https://www.gov.uk/government/publications/product-regulations-by-sector-and-current-approaches-to-product-marking-ukca-and-ce-regimes/product-regulations-by-sector-and-current-approaches-to-product-marking-ukca-and-ce-regimes'
+      },
+      {
+        publisher: 'UK Office for Product Safety and Standards',
+        title: 'Electrical Equipment (Safety) Regulations 2016 — Great Britain',
+        url: 'https://www.gov.uk/government/publications/electrical-equipment-safety-regulations-2016/electrical-equipment-safety-regulations-2016-great-britain'
+      },
+      {
+        publisher: 'UK Office for Product Safety and Standards',
+        title: 'Electrical Equipment (Safety) Regulations 2016 — Northern Ireland',
+        url: 'https://www.gov.uk/government/publications/electrical-equipment-safety-regulations-2016/electrical-equipment-safety-regulations-2016-northern-ireland'
+      },
+      {
+        publisher: 'UK Office for Product Safety and Standards',
+        title: 'Electromagnetic Compatibility Regulations 2016 — Great Britain',
+        url: 'https://www.gov.uk/government/publications/electromagnetic-compatibility-regulations-2016/electromagnetic-compatibility-regulations-2016-great-britain'
+      }
+    ]
+  },
+  {
     id: 'knowledge-usb-pd-3-2-version-1-2',
     key: 'usbPd32Version12',
     contentType: 'current-affairs',
@@ -410,7 +466,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-16',
+    featuredReviewedThrough: '2026-09-17',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1558,6 +1614,7 @@ export const knowledgeContent = {
         canada: 'Canada',
         australia: 'Australia',
         japan: 'Japan',
+        'united-kingdom': 'United Kingdom',
         'european-union': 'European Union',
         global: 'Global standards',
         international: 'International transport'
@@ -1579,6 +1636,63 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      ukcaCeChargerUkMarkets: {
+        topic: 'UK market-access documents',
+        published: '17 September 2026',
+        readTime: '7 minutes',
+        title: 'CE or UKCA for a charger sold in the UK? Separate Great Britain from Northern Ireland',
+        description: 'Great Britain accepts CE or UKCA for covered chargers under current rules, while Northern Ireland remains on the CE route; the declaration, importer and technical file must follow the chosen market.',
+        imageAlt: 'Close-up photograph of a white and red British BS 1363 three-pin mains plug on a pale background.',
+        imageCaption: 'Editorial photograph of a British BS 1363 plug by Asim18, licensed under CC BY-SA 4.0 and cropped for layout. It illustrates the destination plug format only; it is not a charger, conformity mark, ZIMONAI client product, supplier sample or compliance record.',
+        answer: 'A charger sold in Great Britain—England, Scotland and Wales—may currently use CE or UKCA when it meets the applicable Great Britain requirements. CE uses an EU Declaration of Conformity; UKCA uses a UK Declaration of Conformity. Northern Ireland follows CE, adding UKNI only where a UK body performs an applicable mandatory third-party assessment. Buyers should therefore map each destination to its declaration, technical evidence and importer before artwork approval. ZIMONAI’s editorial view is that a shared enclosure and plug do not create a shared legal file.',
+        takeaways: [
+          'For electrical equipment placed on the Great Britain market, current UK rules recognise either UKCA or CE; the government says this flexibility applies to both electrical-safety and electromagnetic-compatibility regimes.',
+          'The marking route controls the declaration: UKCA uses a UK Declaration of Conformity, while CE uses an EU Declaration of Conformity, and both still require technical documentation and product identification.',
+          'Northern Ireland is not the same market route. Electrical equipment there must bear CE, with UKNI added only in the applicable third-party assessment circumstances.'
+        ],
+        sections: [
+          {
+            title: 'Where will the charger actually be placed on the market?',
+            paragraphs: [
+              'The UK government’s current Great Britain guide applies to England, Scotland and Wales. It states that many product sectors continue to recognise CE alongside UKCA, and its sector table confirms that electrical equipment may use either route under the Electrical Equipment (Safety) Regulations 2016. The same choice is available under the Great Britain electromagnetic-compatibility regime.',
+              'Northern Ireland must be handled separately. Official electrical-equipment guidance requires an EU Declaration of Conformity and CE marking for the Northern Ireland market. Where mandatory third-party conformity assessment is carried out by a UK body, UKNI accompanies CE; UKCA on its own is not the Northern Ireland route. A purchase order addressed simply to “UK stock” therefore leaves a material compliance question unanswered.'
+            ],
+            items: [
+              'Great Britain: England, Scotland and Wales',
+              'Northern Ireland: a separate CE or CE-plus-UKNI route',
+              'The EU market: CE requirements remain separate from Great Britain recognition',
+              'The exact entity that first places the product on each market'
+            ]
+          },
+          {
+            title: 'Which documents should match the CE or UKCA route?',
+            paragraphs: [
+              'The Great Britain electrical-equipment guidance covers equipment designed for 50 to 1,000 volts AC or 75 to 1,500 volts DC. A typical 100–240V mains-input charger therefore falls within that voltage scope, subject to the regulation’s exclusions and the product’s actual design. Before placing it on the market, the manufacturer must prepare technical documentation, complete the relevant conformity procedure, draw up the declaration and apply the chosen marking.',
+              'For an imported charger, the Great Britain importer must verify the conformity assessment, technical documentation, marking and corresponding declaration, keep the declaration and technical documentation for ten years, provide its identity and postal address as required, and ensure that understandable English instructions accompany the product. These duties belong to the economic operators; a Chinese factory’s test report or artwork file does not replace them.'
+            ]
+          },
+          {
+            title: 'Why is one logo or one UK plug still incomplete evidence?',
+            paragraphs: [
+              'A conformity mark represents the manufacturer’s chosen regulatory route; it is not a central approval certificate and does not establish every rule that may apply. Depending on the charger, the evidence set may also need to cover electromagnetic compatibility, hazardous substances, ecodesign or radio-equipment requirements. The official sector table shows that continued CE recognition exists across several of these regimes, but each applicable regulation still has its own technical and document obligations.',
+              'ZIMONAI’s practical judgement is to maintain a destination matrix before mass production: one row for Great Britain, one for Northern Ireland and, if relevant, another for the EU. Each row should name the marking, declaration, standards basis, importer, label artwork and file revision. This prevents a factory from treating a Type G plug, a CE logo or a UKCA logo as a universal “UK version”, and gives change-control teams a clear baseline when ratings, components or packaging move.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact sales destination: Great Britain, Northern Ireland, the EU or more than one market',
+          'Full brand, model, suffix, input rating and every output profile',
+          'CE, UKCA or CE-plus-UKNI route selected for each destination',
+          'EU Declaration of Conformity for CE or UK Declaration of Conformity for UKCA',
+          'Applicable electrical-safety, EMC, RoHS, ecodesign and radio-equipment scope assessment',
+          'Standards and test reports mapped to the same model and hardware revision',
+          'Manufacturer and market-specific importer identity, address and responsibilities',
+          'Product, packaging and instruction artwork for each destination',
+          'Ten-year document-retention responsibility and complaint or recall records',
+          'Change control linking production units to the reviewed technical file'
+        ],
+        limitsText: 'The cited UK guidance establishes the current marking choices and economic-operator duties for Great Britain and Northern Ireland. It does not classify every charger, approve a particular Chinese factory, or prove that a photographed product meets electrical-safety, EMC, RoHS, ecodesign or radio requirements. A CE or UKCA mark also does not establish USB-IF status, intellectual-property rights, commercial authority, production capacity or batch consistency. Rules outside the cited product regimes and future amendments must be checked for the actual product and placement date. The destination-matrix method above is analysis by the ZIMONAI Editorial Desk at Zhimengwan Technology, not a regulator’s finding about a named product.'
+      },
       usbPd32Version12: {
         topic: 'USB charging industry news',
         published: '16 September 2026',
@@ -3249,6 +3363,7 @@ export const knowledgeContent = {
         canada: '加拿大',
         australia: '澳洲',
         japan: '日本',
+        'united-kingdom': '英國',
         'european-union': '歐盟',
         global: '全球標準',
         international: '國際運輸'
@@ -3270,6 +3385,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      ukcaCeChargerUkMarkets: {
+        topic: '英國市場准入文件',
+        published: '2026 年 9 月 17 日',
+        readTime: '約 7 分鐘',
+        title: '英國充電器要用 CE 還是 UKCA？大不列顛與北愛爾蘭要分開',
+        description: '現行規則下，大不列顛市場接受 CE 或 UKCA，北愛爾蘭則沿用 CE 路徑；聲明、進口商與技術文件都要跟著目的市場對齊。',
+        imageAlt: '白色背景上的英規 BS 1363 三腳插頭近拍，插頭為白色與紅色設計。',
+        imageCaption: 'Asim18 拍攝的英規 BS 1363 插頭編輯用照片，依 CC BY-SA 4.0 授權使用並配合版面裁切。畫面只用來說明目的地插頭形式，不是充電器、合規標誌、ZIMONAI 客戶產品、供應商樣品或合規紀錄。',
+        answer: '充電器銷往大不列顛（英格蘭、蘇格蘭與威爾斯），現行制度可依適用要求使用 CE 或 UKCA；CE 對應 EU Declaration of Conformity，UKCA 對應 UK Declaration of Conformity。北愛爾蘭仍採 CE，只有特定第三方評估情形才加 UKNI。買家應在包裝定稿前，把各目的地分別對上聲明、技術證據與進口商。ZIMONAI 的判讀是，共用外殼與插頭不等於共用法律文件。',
+        takeaways: [
+          '充電器等電氣設備進入大不列顛市場時，現行英國規則接受 UKCA 或 CE；官方並確認電氣安全與電磁相容制度都保留這項彈性。',
+          '標誌路徑會決定聲明文件：UKCA 對應 UK Declaration of Conformity，CE 對應 EU Declaration of Conformity，兩者仍須有技術文件與明確產品識別。',
+          '北愛爾蘭不能直接套用大不列顛路徑。當地電氣設備須使用 CE；只有符合特定第三方評估情形時，才會在 CE 旁加上 UKNI。'
+        ],
+        sections: [
+          {
+            title: '這批充電器實際要在哪個市場銷售？',
+            paragraphs: [
+              '英國政府目前的大不列顛指引適用於英格蘭、蘇格蘭與威爾斯。指引說明，多項產品制度持續同時承認 CE 與 UKCA；官方產品分類表也確認，電氣設備可依 Electrical Equipment (Safety) Regulations 2016 選擇其中一條路徑。大不列顛的電磁相容制度同樣接受 CE 或 UKCA。',
+              '北愛爾蘭必須另行處理。官方電氣設備指引要求北愛爾蘭市場使用 EU Declaration of Conformity 與 CE 標誌；如果法規要求第三方評估，且採用英國的合格評定機構，才會使用 CE 加 UKNI。UKCA 本身不是北愛爾蘭的獨立市場路徑。因此，採購單只寫「UK stock」或「英國版」，仍缺少關鍵的目的地資訊。'
+            ],
+            items: [
+              '大不列顛：英格蘭、蘇格蘭與威爾斯',
+              '北愛爾蘭：CE 或符合條件時的 CE 加 UKNI 路徑',
+              '歐盟市場：CE 要求仍須與大不列顛的承認制度分開判讀',
+              '第一個把產品投放到各市場的實際法律主體'
+            ]
+          },
+          {
+            title: 'CE 或 UKCA 路徑應該對上哪些文件？',
+            paragraphs: [
+              '大不列顛的電氣設備安全指引適用於設計使用交流 50 至 1,000 伏特，或直流 75 至 1,500 伏特的設備。一般輸入為 100–240V 的市電充電器，通常會落在這段交流電壓範圍內，但仍要依產品實際設計與法規排除項目確認。產品上市前，製造商須建立技術文件、完成適用的符合性評估、簽署聲明並使用所選標誌。',
+              '進口充電器時，大不列顛進口商須確認製造商已完成符合性評估、技術文件、標示及相應聲明，並保存聲明與技術文件十年；同時依規定提供自身名稱與郵寄地址，確保產品附有容易理解的英文說明。這些是經濟營運者的法定責任，中國工廠提供的測試報告或包裝設計稿無法取代。'
+            ]
+          },
+          {
+            title: '為什麼一個標誌或英規插頭仍不是完整證據？',
+            paragraphs: [
+              '符合性標誌反映的是製造商選用的法規路徑，不是中央機關核發的通用批准證書，也不會一次涵蓋所有可能適用的要求。依充電器功能與設計不同，資料還可能涉及電磁相容、有害物質限制、生態設計或無線電設備制度。英國官方產品分類表顯示，多項制度都持續承認 CE，但每一項適用法規仍有自己的技術與文件義務。',
+              'ZIMONAI 的實務判讀是，在量產前建立目的地矩陣：大不列顛一列、北愛爾蘭一列，若同時銷往歐盟再增加一列。每一列分別寫清楚標誌、聲明、標準依據、進口商、標籤稿與文件版本。這能避免工廠把 Type G 插頭、CE 或 UKCA 當成通用「英國版」，也讓額定值、零件或包裝變更時，有明確基準可回查。'
+            ]
+          }
+        ],
+        checklist: [
+          '精確銷售目的地：大不列顛、北愛爾蘭、歐盟或多個市場',
+          '完整品牌、型號、尾碼、輸入額定值及所有輸出模式',
+          '各目的地選用的 CE、UKCA 或 CE 加 UKNI 路徑',
+          'CE 路徑所需的 EU 符合性聲明',
+          'UKCA 路徑所需的 UK 符合性聲明',
+          '電氣安全、EMC、RoHS、生態設計與無線電設備的適用範圍判定',
+          '能對回同一型號與硬體版本的標準和測試報告',
+          '製造商及各市場進口商的身分、地址與責任',
+          '各目的地的產品、包裝與英文說明書設計稿',
+          '十年文件保存責任，以及客訴、撤回與召回紀錄',
+          '把量產產品連回已審技術檔案的工程變更管制'
+        ],
+        limitsText: '本文引用的英國官方指引，說明大不列顛與北愛爾蘭目前可用的標誌路徑及經濟營運者責任；它不會替每一款充電器完成法規分類，也不會批准特定中國工廠，或證明照片中的產品已符合電氣安全、EMC、RoHS、生態設計或無線電要求。CE 或 UKCA 也無法證明 USB-IF 狀態、智慧財產權、商業授權、產能與批次一致性。實際產品還須按投放日期核對其他適用制度與後續修法。本文提出的目的地矩陣方法，屬於 ZIMONAI｜智蒙灣科技編輯部的採購判讀，不是主管機關對特定產品的結論。'
+      },
       usbPd32Version12: {
         topic: 'USB 充電產業時事',
         published: '2026 年 9 月 16 日',
@@ -4940,6 +5113,7 @@ export const knowledgeContent = {
         canada: '加拿大',
         australia: '澳大利亚',
         japan: '日本',
+        'united-kingdom': '英国',
         'european-union': '欧盟',
         global: '全球标准',
         international: '国际运输'
@@ -4961,6 +5135,64 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      ukcaCeChargerUkMarkets: {
+        topic: '英国市场准入文件',
+        published: '2026 年 9 月 17 日',
+        readTime: '约 7 分钟',
+        title: '英国充电器该用 CE 还是 UKCA？大不列颠与北爱尔兰必须分开',
+        description: '按照现行规则，大不列颠市场接受 CE 或 UKCA，北爱尔兰则继续采用 CE 路径；声明、进口商和技术文件都要与目的市场对应。',
+        imageAlt: '浅色背景上的英国 BS 1363 三脚插头特写，插头采用白色和红色设计。',
+        imageCaption: 'Asim18 拍摄的英国 BS 1363 插头编辑照片，按照 CC BY-SA 4.0 许可使用并为版面裁切。图片只用于说明目的地插头形式，不是充电器、合规标志、ZIMONAI 客户产品、供应商样品或合规记录。',
+        answer: '充电器销往大不列颠（英格兰、苏格兰和威尔士），现行制度可按适用要求使用 CE 或 UKCA；CE 对应 EU Declaration of Conformity，UKCA 对应 UK Declaration of Conformity。北爱尔兰仍采用 CE，只有特定第三方评估情形才增加 UKNI。买家应在包装定稿前，把各目的地分别对应声明、技术证据和进口商。ZIMONAI 的判断是，共用外壳和插头不等于共用法律文件。',
+        takeaways: [
+          '充电器等电气设备进入大不列颠市场时，现行英国规则接受 UKCA 或 CE；官方确认电气安全和电磁兼容制度都保留这一选择。',
+          '标志路径决定声明文件：UKCA 对应 UK Declaration of Conformity，CE 对应 EU Declaration of Conformity，两者仍须具备技术文件和明确的产品识别。',
+          '北爱尔兰不能直接套用大不列颠路径。当地电气设备须使用 CE；只有符合特定第三方评估条件时，才会在 CE 旁增加 UKNI。'
+        ],
+        sections: [
+          {
+            title: '这批充电器实际要在哪个市场销售？',
+            paragraphs: [
+              '英国政府当前的大不列颠指南适用于英格兰、苏格兰和威尔士。指南说明，多项产品制度继续同时承认 CE 与 UKCA；官方产品分类表也确认，电气设备可按照 Electrical Equipment (Safety) Regulations 2016 选择其中一条路径。大不列颠的电磁兼容制度同样接受 CE 或 UKCA。',
+              '北爱尔兰必须单独处理。官方电气设备指南要求北爱尔兰市场使用 EU Declaration of Conformity 和 CE 标志；如果法规要求第三方评估，并采用英国的合格评定机构，才会使用 CE 加 UKNI。UKCA 本身不是北爱尔兰的独立市场路径。因此，采购单只写“UK stock”或“英国版”，仍缺少关键的目的地信息。'
+            ],
+            items: [
+              '大不列颠：英格兰、苏格兰和威尔士',
+              '北爱尔兰：CE，或符合条件时的 CE 加 UKNI 路径',
+              '欧盟市场：CE 要求仍须与大不列颠的承认制度分开判断',
+              '第一个将产品投放到各市场的实际法律主体'
+            ]
+          },
+          {
+            title: 'CE 或 UKCA 路径应当对应哪些文件？',
+            paragraphs: [
+              '大不列颠电气设备安全指南适用于设计使用交流 50 至 1,000 伏特，或直流 75 至 1,500 伏特的设备。一般输入为 100–240V 的市电充电器，通常会落在这一交流电压范围内，但仍要根据产品实际设计和法规排除项目确认。产品上市前，制造商须建立技术文件、完成适用的符合性评估、签署声明并采用所选标志。',
+              '进口充电器时，大不列颠进口商须确认制造商已经完成符合性评估、技术文件、标识和相应声明，并保存声明及技术文件十年；同时按照规定提供自身名称与邮政地址，确保产品附带容易理解的英文说明。这些是经济运营者的法定责任，中国工厂提供的测试报告或包装设计稿无法取代。'
+            ]
+          },
+          {
+            title: '为什么一个标志或英国插头仍不是完整证据？',
+            paragraphs: [
+              '符合性标志体现的是制造商选择的监管路径，不是中央机构颁发的通用批准证书，也不会一次覆盖所有可能适用的要求。根据充电器功能与设计不同，资料还可能涉及电磁兼容、有害物质限制、生态设计或无线电设备制度。英国官方产品分类表显示，多项制度都继续承认 CE，但每一项适用法规仍有各自的技术和文件义务。',
+              'ZIMONAI 的实务判断是，在批量生产前建立目的地矩阵：大不列颠一行、北爱尔兰一行，如同时销往欧盟再增加一行。每一行分别写清标志、声明、标准依据、进口商、标签稿和文件版本。这能避免工厂把 Type G 插头、CE 或 UKCA 当作通用“英国版”，也让额定值、部件或包装发生变化时，有明确基准可以追查。'
+            ]
+          }
+        ],
+        checklist: [
+          '精确销售目的地：大不列颠、北爱尔兰、欧盟或多个市场',
+          '完整品牌、型号、后缀、输入额定值和全部输出模式',
+          '各目的地采用的 CE、UKCA 或 CE 加 UKNI 路径',
+          'CE 路径所需的 EU 符合性声明',
+          'UKCA 路径所需的 UK 符合性声明',
+          '电气安全、EMC、RoHS、生态设计与无线电设备的适用范围判断',
+          '可以对应同一型号和硬件版本的标准及测试报告',
+          '制造商与各市场进口商的身份、地址和责任',
+          '各目的地的产品、包装与英文说明书设计稿',
+          '十年文件保存责任，以及投诉、撤回和召回记录',
+          '把量产产品连回已审核技术档案的工程变更控制'
+        ],
+        limitsText: '本文引用的英国官方指南，说明大不列颠与北爱尔兰目前可用的标志路径和经济运营者责任；它不会替每一款充电器完成法规分类，也不会批准特定中国工厂，或证明照片中的产品已经符合电气安全、EMC、RoHS、生态设计或无线电要求。CE 或 UKCA 也无法证明 USB-IF 状态、知识产权、商业授权、产能和批次一致性。实际产品还须按照投放日期核对其他适用制度及后续修法。本文提出的目的地矩阵方法，属于 ZIMONAI｜智蒙湾科技编辑部的采购判断，并非主管机构对特定产品的结论。'
+      },
       usbPd32Version12: {
         topic: 'USB 充电产业时事',
         published: '2026 年 9 月 16 日',
