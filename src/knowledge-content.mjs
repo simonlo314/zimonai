@@ -8,6 +8,52 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-hererod-jump-starter-power-bank-warning',
+    key: 'hererodJumpStarterWarning',
+    contentType: 'current-affairs',
+    slug: 'knowledge/hererod-jump-starter-power-bank-warning',
+    category: 'commercial-risk',
+    products: ['power-bank'],
+    markets: ['united-states'],
+    keywords: {
+      en: ['Hererod jump starter warning', 'Hererod PW40 EW40 fire', 'CPSC power bank warning 2026', 'jump starter power bank fire risk', 'portable power pack UL 2743', 'China manufacturer recall response'],
+      'zh-tw': ['Hererod 啟動電源警告', 'Hererod PW40 EW40 起火', 'CPSC 行動電源警告 2026', '汽車啟動電源火災風險', 'UL 2743 便攜式電源', '中國製造商召回回應'],
+      'zh-cn': ['Hererod 启动电源警告', 'Hererod PW40 EW40 起火', 'CPSC 移动电源警告 2026', '汽车启动电源火灾风险', 'UL 2743 便携式电源', '中国制造商召回响应']
+    },
+    datePublished: '2026-09-20',
+    dateModified: '2026-09-20',
+    image: '/assets/editorial-hererod-jump-starter-warning.jpg',
+    imageWidth: 2000,
+    imageHeight: 1333,
+    imageCrop: {
+      card: '56% 49%',
+      article: '56% 49%',
+      mobile: '61% 50%'
+    },
+    photo: {
+      photographer: 'Julia Avamotive',
+      page: 'https://www.pexels.com/photo/car-battery-beside-an-engine-6473244/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'U.S. Consumer Product Safety Commission',
+        title: 'CPSC urges consumers to stop using Hererod jump starters/power banks — 17 September 2026',
+        url: 'https://www.cpsc.gov/Warnings/2026/CPSC-Urges-Consumers-to-Stop-Using-Hererod-Jump-Starters-Power-Banks-Immediately-Due-to-Risk-of-Serious-Injury-and-Death-from-Fire-Hazard'
+      },
+      {
+        publisher: 'UL Standards & Engagement',
+        title: 'ANSI/CAN/UL 2743 — Portable Power Packs, Third Edition',
+        url: 'https://www.shopulstandards.com/ProductDetail.aspx?ShowFreeviewModal=1&UniqueKey=49072'
+      },
+      {
+        publisher: 'UL Solutions',
+        title: 'Portable Power Pack Testing — UL 2743 scope and booster function',
+        url: 'https://www.ul.com/services/portable-power-pack-testing'
+      }
+    ]
+  },
+  {
     id: 'knowledge-ukca-ce-charger-great-britain-northern-ireland',
     key: 'ukcaCeChargerUkMarkets',
     contentType: 'industry-knowledge',
@@ -466,7 +512,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-17',
+    featuredReviewedThrough: '2026-09-20',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1636,6 +1682,67 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      hererodJumpStarterWarning: {
+        topic: 'US product-safety news',
+        published: '20 September 2026',
+        readTime: '7 minutes',
+        title: 'CPSC warns against Hererod PW40 and EW40 after 16 fire reports—and no cooperative recall',
+        description: 'The US safety warning covers about 12,500 Hererod jump starters sold online and exposes a second risk beyond the battery: no manufacturer-led recall response.',
+        imageAlt: 'A real editorial photograph of a vehicle battery connected to charging or jump-start cables in an engine bay.',
+        imageCaption: 'Generic editorial photograph of a vehicle battery and cables. It does not show a Hererod PW40 or EW40, a reported incident, a CPSC inspection, ZIMONAI testing, a client product or supplier evidence.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What buyers should establish now',
+          limits: 'What remains unconfirmed'
+        },
+        answer: 'On 17 September, CPSC told consumers to stop using and dispose of Hererod PW40 and EW40 jump starters after 16 fire reports, seven involving property damage. About 12,500 units were sold through Amazon, CarKart and eBay from August 2024 through August 2026; the Chinese manufacturer did not respond to recall or information requests, so this is a safety warning without a company-run remedy. This matters because buyers and marketplaces need a responsible party, incident channel and funded response plan before listing. ZIMONAI’s editorial view is that post-sale response capacity belongs in product-safety procurement, not in cleanup after fires.',
+        takeaways: [
+          'CPSC identifies two affected models, PW40 and EW40, and says their internal lithium-ion batteries can explode and ignite.',
+          'The agency records 16 fire reports, including seven with property damage, across approximately 12,500 units sold online over a two-year period.',
+          'This is a CPSC product-safety warning rather than a cooperative recall notice: the named Chinese manufacturer was unresponsive to requests for a recall or information.'
+        ],
+        sections: [
+          {
+            title: 'What did CPSC confirm about the PW40 and EW40?',
+            paragraphs: [
+              'CPSC Warning 26-768 names Hererod jump starters/power banks with model numbers PW40 and EW40. Both combine a rechargeable lithium-ion battery with vehicle jump-start leads and small-device charging. CPSC says the PW40 also has a tyre-inflation function, while the EW40 does not. The PW40 model number appears on the front; the EW40 does not display its model number, making purchase records and product photographs more important for identification.',
+              'The agency says about 12,500 units were sold on Amazon, CarKart and eBay between August 2024 and August 2026. It is aware of 16 fires, seven involving property damage, and warns that the internal battery can explode and ignite. Consumers are told to stop using the products and follow local hazardous-waste procedures rather than place the device in household rubbish, general recycling or retail battery boxes.'
+            ],
+            items: [
+              'Models named by CPSC: PW40 and EW40',
+              'Warning date: 17 September 2026',
+              'Sales period: August 2024 through August 2026',
+              'Reported events: 16 fires, including seven property-damage reports',
+              'Sales channels named: Amazon, CarKart and eBay'
+            ]
+          },
+          {
+            title: 'Why is this more than another power-bank fire story?',
+            paragraphs: [
+              'A jump starter is not merely a phone power bank with larger marketing numbers. It must deliver a short, high-current output to a vehicle battery, and some products add an air compressor, light and USB outputs around the same internal battery system. UL Standards & Engagement places booster-function products and integral air compressors inside the scope of ANSI/CAN/UL 2743 for portable power packs; UL Solutions separately explains that ordinary phone-charging power banks fall under UL 2056 instead.',
+              'That scope distinction matters to sourcing teams because a product title containing “power bank” does not identify the complete safety evaluation. The exact architecture, booster output, battery pack, protection circuit, clamps, charger and any compressor function must be mapped to the intended standard and sale model. CPSC has not stated whether these Hererod units held or lacked any certification, so the warning should not be used to invent a certification conclusion.'
+            ]
+          },
+          {
+            title: 'What does the missing recall response change for buyers?',
+            paragraphs: [
+              'CPSC states that Qianjiang Simiaole Network Technology Co., Ltd. did not respond to requests for a recall or information. Without a cooperating firm, the public notice provides no manufacturer-run registration route, refund, replacement or collection programme; the immediate instruction is disposal through suitable local hazardous-waste channels. That turns a technical incident into a traceability and commercial-response problem for every importer, marketplace seller and brand owner in the chain.',
+              'ZIMONAI’s editorial judgement is that buyers should treat post-market response as a procurement deliverable. Before listing, the file should identify the legal manufacturer, US importer or other responsible commercial party, each marketplace SKU, battery and finished-product revision, complaint escalation route, affected-unit search method and funded remedy owner. Those records do not prevent every defect, but they determine whether a warning can become a targeted, measurable response instead of a broad disposal notice.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact brand, model, marketplace SKU and product photographs for every listing',
+          'Legal manufacturer and US importer or responsible seller identity',
+          'Battery-cell and pack supplier, model, rated energy and production lot traceability',
+          'Applicable finished-product standard and model-specific certification record',
+          'High-current jump-start, protection, charging, drop, thermal and misuse test evidence',
+          'Engineering-change control for the cell, BMS, enclosure, clamps, charger and compressor',
+          'Complaint intake, incident escalation and regulator-contact ownership',
+          'A funded stop-sale, notification, refund or disposal plan by sales channel'
+        ],
+        limitsText: 'CPSC confirms the named models, sales channels, approximate unit count, reported fires, property-damage reports, manufacturer identity and lack of response to its requests. The notice does not publish a technical root cause, cell or pack supplier, factory site, production-lot range, certification history, laboratory reports, sales split by model or channel, or a complete injury record. UL 2743 is cited to explain the product-category scope, not to state that Hererod PW40 or EW40 was tested, certified or noncompliant with that standard. The procurement and response controls above are analysis by the ZIMONAI Editorial Desk at Zhimengwan Technology, not findings by CPSC or UL about an unnamed supplier.'
+      },
       ukcaCeChargerUkMarkets: {
         topic: 'UK market-access documents',
         published: '17 September 2026',
@@ -3385,6 +3492,67 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      hererodJumpStarterWarning: {
+        topic: '美國產品安全時事',
+        published: '2026 年 9 月 20 日',
+        readTime: '約 7 分鐘',
+        title: 'Hererod PW40／EW40 傳 16 起火災：美國 CPSC 警告停用，製造商未回應召回要求',
+        description: '美國 CPSC 警告約 12,500 台 Hererod 汽車啟動電源可能爆炸起火；製造商未回應召回要求，讓售後責任成為事件焦點。',
+        imageAlt: '汽車引擎室內，車用電池連接充電或跨接啟動線材的真實編輯照片。',
+        imageCaption: '車用電池與線材的通用編輯實拍；畫面不是 Hererod PW40 或 EW40，也不是事故現場、CPSC 檢查、ZIMONAI 測試、客戶產品或供應商證據。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '買家現在應建立哪些資料',
+          limits: '仍待確認'
+        },
+        answer: '美國 CPSC 9 月 17 日警告停用 Hererod PW40、EW40 汽車啟動電源；官方收到 16 起火災通報，其中 7 起造成財物損失，產品約 12,500 台。中國製造商未回應召回或資料要求，因此這是缺少企業退款、換貨或回收方案的產品安全警告。更值得注意的是，買家與平台必須在上架前確認責任主體、事故窗口與處置預算。ZIMONAI 認為，售後應變是產品安全的一部分，不該等到起火後才拼湊。',
+        takeaways: [
+          'CPSC 點名 PW40 與 EW40 兩個型號，並表示內部鋰離子電池可能爆炸與起火。',
+          '官方記錄 16 起火災通報，其中 7 起涉及財物損失；產品約 12,500 台，網路銷售期長達兩年。',
+          '這是一則 CPSC 產品安全警告，不是企業配合執行的召回公告；公告所列中國製造商未回應召回或資料要求。'
+        ],
+        sections: [
+          {
+            title: 'CPSC 已確認 PW40、EW40 的哪些資訊？',
+            paragraphs: [
+              'CPSC 第 26-768 號警告點名 Hererod PW40、EW40 汽車啟動電源。兩款產品均以內建鋰離子電池提供汽車跨接啟動與小型裝置充電；PW40 另有輪胎充氣功能，EW40 則沒有。PW40 會在正面顯示型號，EW40 機身不顯示型號，因此訂單紀錄、上架頁面與產品照片對辨識範圍格外重要。',
+              '官方表示，約 12,500 台產品於 2024 年 8 月至 2026 年 8 月在 Amazon、CarKart 與 eBay 銷售，已收到 16 起火災通報，其中 7 起造成財物損失。CPSC 要求消費者停止使用，並依所在地危險廢棄物程序處理，不可投入一般垃圾、一般回收系統或零售店的普通廢電池回收箱。'
+            ],
+            items: [
+              'CPSC 點名型號：PW40、EW40',
+              '警告日期：2026 年 9 月 17 日',
+              '銷售期間：2024 年 8 月至 2026 年 8 月',
+              '官方通報：16 起火災，其中 7 起涉及財物損失',
+              '公告所列通路：Amazon、CarKart、eBay'
+            ]
+          },
+          {
+            title: '為什麼這不只是另一則行動電源起火新聞？',
+            paragraphs: [
+              '汽車啟動電源不是把一般行動電源的行銷瓦數放大而已。它必須在短時間輸出高電流以啟動車輛，有些型號還把空氣壓縮機、照明與 USB 輸出整合在同一套電池系統內。UL Standards & Engagement 將帶 booster 功能及內建空氣壓縮機的產品納入 ANSI/CAN/UL 2743 便攜式電源範圍；UL Solutions 另行說明，單純替手機充電的行動電源則屬 UL 2056 範圍。',
+              '這個分類差異會直接影響採購文件。產品名稱就算寫著「power bank」，也不能代表整機適用哪套安全評估；實際架構、啟動輸出、電池包、保護電路、夾具、充電器與壓縮機功能，都要對回正確標準與銷售型號。CPSC 沒有說明本案產品是否持有或缺少特定認證，因此不能把這則警告延伸成未經證實的認證結論。'
+            ]
+          },
+          {
+            title: '製造商沒有回應，對買家真正改變了什麼？',
+            paragraphs: [
+              'CPSC 表示，Qianjiang Simiaole Network Technology Co., Ltd. 未回應召回或產品資料要求。缺少企業配合後，公告沒有製造商主持的登記、退款、換貨或回收方案，當下指示只剩依各地規定妥善處置。原本的技術事故，因而同時變成進口商、平台賣家與品牌方都要面對的追溯與商業應變問題。',
+              'ZIMONAI｜智蒙灣科技編輯部的判讀是，售後應變應被寫進採購交付項目。產品上架前就要固定法律製造商、美國進口商或其他商業責任方、各通路 SKU、電池與整機版本、客訴升級路徑、受影響產品搜尋方式，以及由誰負擔處置費用。這些資料無法預防所有缺陷，但會決定事故發生後，企業能否做出有範圍、可衡量的處理，而不是只留下廣泛停用與丟棄警告。'
+            ]
+          }
+        ],
+        checklist: [
+          '各上架通路的完整品牌、型號、SKU 與產品照片',
+          '法律製造商、美國進口商或責任賣家的身分',
+          '電芯與電池包供應商、型號、額定能量及生產批次追溯',
+          '整機適用標準與能對回精確型號的認證紀錄',
+          '高電流啟動、保護、充電、跌落、熱與誤用測試資料',
+          '電芯、BMS、外殼、夾具、充電器與壓縮機的工程變更管制',
+          '客訴受理、事故升級與主管機關聯繫責任',
+          '按通路執行停賣、通知、退款或處置的預算與方案'
+        ],
+        limitsText: 'CPSC 已確認型號、銷售通路、約略數量、火災與財物損失通報、製造商身分，以及未回應召回或資料要求的狀態。公告沒有公開技術根因、電芯或電池包供應商、工廠地址、生產批次範圍、認證歷史、實驗室報告、各型號與通路銷售占比，也沒有提供完整傷害紀錄。本文引用 UL 2743 是為了說明產品分類範圍，不代表 Hererod PW40 或 EW40 已通過、未通過或違反該標準。上述採購與應變做法屬於 ZIMONAI｜智蒙灣科技編輯部的產業判讀，不是 CPSC 或 UL 對其他供應商的結論。'
+      },
       ukcaCeChargerUkMarkets: {
         topic: '英國市場准入文件',
         published: '2026 年 9 月 17 日',
@@ -5135,6 +5303,67 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      hererodJumpStarterWarning: {
+        topic: '美国产品安全时事',
+        published: '2026 年 9 月 20 日',
+        readTime: '约 7 分钟',
+        title: 'Hererod PW40／EW40 报告 16 起火灾：美国 CPSC 警告停用，制造商未回应召回要求',
+        description: '美国 CPSC 警告约 12,500 台 Hererod 汽车启动电源可能爆炸起火；制造商未回应召回要求，售后责任成为事件焦点。',
+        imageAlt: '汽车发动机舱内，车载电池连接充电或跨接启动线缆的真实编辑照片。',
+        imageCaption: '车载电池与线缆的通用编辑实拍；画面不是 Hererod PW40 或 EW40，也不是事故现场、CPSC 检查、ZIMONAI 测试、客户产品或供应商证据。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '买家现在应建立哪些资料',
+          limits: '仍待确认'
+        },
+        answer: '美国 CPSC 9 月 17 日警告停止使用 Hererod PW40、EW40 汽车启动电源；官方收到 16 起火灾报告，其中 7 起造成财产损失，产品约 12,500 台。中国制造商未回应召回或资料要求，因此这是一则缺少企业退款、换货或回收方案的产品安全警告。更值得关注的是，买家和平台必须在上架前确认责任主体、事故窗口与处置预算。ZIMONAI 认为，售后响应是产品安全的一部分，不应等到起火后才拼凑。',
+        takeaways: [
+          'CPSC 点名 PW40 和 EW40 两个型号，并表示内部锂离子电池可能爆炸和起火。',
+          '官方记录 16 起火灾报告，其中 7 起涉及财产损失；产品约 12,500 台，线上销售期长达两年。',
+          '这是一则 CPSC 产品安全警告，不是企业配合执行的召回公告；公告所列中国制造商未回应召回或资料要求。'
+        ],
+        sections: [
+          {
+            title: 'CPSC 已确认 PW40、EW40 的哪些信息？',
+            paragraphs: [
+              'CPSC 第 26-768 号警告点名 Hererod PW40、EW40 汽车启动电源。两款产品均以内置锂离子电池提供汽车跨接启动和小型设备充电；PW40 另有轮胎充气功能，EW40 则没有。PW40 会在正面显示型号，EW40 机身不显示型号，因此订单记录、上架页面和产品照片对识别范围格外重要。',
+              '官方表示，约 12,500 台产品于 2024 年 8 月至 2026 年 8 月在 Amazon、CarKart 和 eBay 销售，已收到 16 起火灾报告，其中 7 起造成财产损失。CPSC 要求消费者停止使用，并按所在地危险废物程序处理，不可投入普通垃圾、一般回收系统或零售店的普通废旧电池回收箱。'
+            ],
+            items: [
+              'CPSC 点名型号：PW40、EW40',
+              '警告日期：2026 年 9 月 17 日',
+              '销售期间：2024 年 8 月至 2026 年 8 月',
+              '官方报告：16 起火灾，其中 7 起涉及财产损失',
+              '公告所列渠道：Amazon、CarKart、eBay'
+            ]
+          },
+          {
+            title: '为什么这不只是另一则移动电源起火新闻？',
+            paragraphs: [
+              '汽车启动电源并不是把普通移动电源的营销功率放大而已。它必须在短时间输出高电流以启动车辆，有些型号还把空气压缩机、照明和 USB 输出集成在同一套电池系统内。UL Standards & Engagement 将带 booster 功能及内置空气压缩机的产品纳入 ANSI/CAN/UL 2743 便携式电源范围；UL Solutions 另行说明，单纯为手机充电的移动电源则属于 UL 2056 范围。',
+              '这项分类差异会直接影响采购文件。产品名称即使写着“power bank”，也不能代表整机适用哪套安全评估；实际架构、启动输出、电池包、保护电路、夹具、充电器与压缩机功能，都要对应正确标准和销售型号。CPSC 没有说明本案产品是否持有或缺少特定认证，因此不能把这则警告延伸为未经证实的认证结论。'
+            ]
+          },
+          {
+            title: '制造商没有回应，对买家真正改变了什么？',
+            paragraphs: [
+              'CPSC 表示，Qianjiang Simiaole Network Technology Co., Ltd. 未回应召回或产品资料要求。缺少企业配合后，公告没有制造商主持的登记、退款、换货或回收方案，当前指示只剩按照各地规定妥善处置。原本的技术事故，因而同时成为进口商、平台卖家和品牌方都要面对的追溯与商业响应问题。',
+              'ZIMONAI｜智蒙湾科技编辑部的判断是，售后响应应写入采购交付项目。产品上架前就要固定法律制造商、美国进口商或其他商业责任方、各渠道 SKU、电池与整机版本、投诉升级路径、受影响产品搜索方法，以及由谁承担处置费用。这些资料无法预防所有缺陷，但会决定事故发生后，企业能否执行有范围、可衡量的处理，而不是只留下广泛停用和丢弃警告。'
+            ]
+          }
+        ],
+        checklist: [
+          '各上架渠道的完整品牌、型号、SKU 和产品照片',
+          '法律制造商、美国进口商或责任卖家的身份',
+          '电芯和电池包供应商、型号、额定能量及生产批次追溯',
+          '整机适用标准与可对应精确型号的认证记录',
+          '高电流启动、保护、充电、跌落、热与误用测试资料',
+          '电芯、BMS、外壳、夹具、充电器与压缩机的工程变更控制',
+          '投诉受理、事故升级与主管机构联系责任',
+          '按渠道执行停售、通知、退款或处置的预算和方案'
+        ],
+        limitsText: 'CPSC 已确认型号、销售渠道、大致数量、火灾和财产损失报告、制造商身份，以及未回应召回或资料要求的状态。公告没有公开技术根因、电芯或电池包供应商、工厂地址、生产批次范围、认证历史、实验室报告、各型号与渠道销售占比，也没有提供完整伤害记录。本文引用 UL 2743 是为了说明产品分类范围，不代表 Hererod PW40 或 EW40 已通过、未通过或违反该标准。上述采购与响应做法属于 ZIMONAI｜智蒙湾科技编辑部的产业判断，并非 CPSC 或 UL 对其他供应商的结论。'
+      },
       ukcaCeChargerUkMarkets: {
         topic: '英国市场准入文件',
         published: '2026 年 9 月 17 日',
