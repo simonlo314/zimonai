@@ -66,6 +66,7 @@ const sharedProtectedTerms = [
   'Test ID（TID）',
   'Certification',
   'SDoC',
+  'WEEE',
   '25W 的 Qi2.2',
   'Type Ref.',
   'ODM',
@@ -75,6 +76,11 @@ const sharedProtectedTerms = [
 
 const protectedTermsByLocale = {
   'zh-tw': [
+    'WEEE 登記',
+    '生產者登記',
+    '打叉垃圾桶',
+    '生產者紀錄',
+    '延伸生產者責任',
     '公開文件庫',
     '規格版本',
     '控制晶片',
@@ -569,6 +575,11 @@ const protectedTermsByLocale = {
     '可追溯的認證身分'
   ],
   'zh-cn': [
+    'WEEE 注册',
+    '生产者注册',
+    '打叉垃圾桶',
+    '生产者记录',
+    '生产者延伸责任',
     '公开文档库',
     '规范版本',
     '控制芯片',

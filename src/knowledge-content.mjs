@@ -8,6 +8,57 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-weee-charger-registration',
+    key: 'euWeeeChargerRegistration',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/eu-weee-charger-registration',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['european-union'],
+    keywords: {
+      en: ['EU WEEE charger registration', 'crossed-out wheeled bin charger', 'WEEE producer number power adapter', 'EU electronics producer registration', 'charger extended producer responsibility', 'WEEE compliance supplier documents'],
+      'zh-tw': ['歐盟 WEEE 充電器登記', '打叉垃圾桶標誌', '電源適配器 WEEE 生產者編號', '歐盟電子設備生產者登記', '充電器延伸生產者責任', 'WEEE 供應商文件'],
+      'zh-cn': ['欧盟 WEEE 充电器注册', '打叉垃圾桶标志', '电源适配器 WEEE 生产者编号', '欧盟电子设备生产者注册', '充电器生产者延伸责任', 'WEEE 供应商文件']
+    },
+    datePublished: '2026-09-21',
+    dateModified: '2026-09-21',
+    image: '/assets/editorial-eu-weee-charger-registration.jpg',
+    imageWidth: 2200,
+    imageHeight: 1469,
+    imageCrop: {
+      card: '52% 58%',
+      article: '53% 57%',
+      mobile: '54% 58%'
+    },
+    photo: {
+      photographer: 'ready made',
+      page: 'https://www.pexels.com/photo/composition-of-various-modern-electronic-devices-placed-on-white-marble-surface-3921707/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'Your Europe',
+        title: 'WEEE responsibilities for manufacturers and producers',
+        url: 'https://europa.eu/youreurope/business/product-rules-compliance/recycling-waste-management/weee-responsibilities/index_en.htm'
+      },
+      {
+        publisher: 'Your Europe',
+        title: 'WEEE label — EU requirements',
+        url: 'https://europa.eu/youreurope/business/product-rules-compliance/recycling-waste-management/weee-label/index_en.htm'
+      },
+      {
+        publisher: 'Official Journal of the European Union',
+        title: 'Directive 2012/19/EU on waste electrical and electronic equipment — consolidated text',
+        url: 'https://eur-lex.europa.eu/eli/dir/2012/19/2024-04-08/eng'
+      },
+      {
+        publisher: 'Official Journal of the European Union',
+        title: 'Implementing Regulation (EU) 2019/290 — registration and reporting format',
+        url: 'https://eur-lex.europa.eu/eli/reg_impl/2019/290/oj/eng'
+      }
+    ]
+  },
+  {
     id: 'knowledge-hererod-jump-starter-power-bank-warning',
     key: 'hererodJumpStarterWarning',
     contentType: 'current-affairs',
@@ -512,7 +563,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-20',
+    featuredReviewedThrough: '2026-09-21',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1682,6 +1733,63 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      euWeeeChargerRegistration: {
+        topic: 'EU WEEE producer registration',
+        published: '21 September 2026',
+        readTime: '7 minutes',
+        title: 'The crossed-out bin is not a WEEE registration: match the charger to each EU producer record',
+        description: 'A crossed-out wheeled-bin mark identifies separate collection; EU WEEE compliance also depends on the producer registered in each sales country, reporting and end-of-life financing.',
+        imageAlt: 'Flat-lay photograph of a white EU-plug charger, USB-C cable, power bank and other charging accessories on a pale marble surface.',
+        imageCaption: 'Editorial photograph of generic charging accessories by ready made under the Pexels License. It illustrates the product category only; the products are not presented as WEEE-registered, compliant, ZIMONAI client devices, supplier samples or evidence from a national register.',
+        answer: 'The crossed-out wheeled-bin symbol tells users that electrical equipment must be collected separately; it is not a registration number or proof that end-of-life obligations are complete. Under the EU WEEE framework, the relevant producer or authorised representative is registered in each Member State where the charger is sold, reports the equipment placed on that market and finances or organises waste management. A buyer therefore needs a country-by-country record linking the legal entity, brand and equipment category to the actual sales route. ZIMONAI’s editorial view is that label artwork belongs at the end of this evidence chain, not at the beginning.',
+        takeaways: [
+          'The WEEE mark and producer registration do different jobs: the mark communicates separate collection, while national registers identify the responsible producer or authorised representative.',
+          'Registration follows the Member State where equipment is placed on the market. One registration, scheme membership or supplier declaration should not be treated as an EU-wide substitute.',
+          'The useful procurement evidence is a destination matrix showing the registered entity, national number, brand, equipment category, reporting owner and financing or take-back arrangement.'
+        ],
+        sections: [
+          {
+            title: 'What does the crossed-out wheeled bin actually establish?',
+            paragraphs: [
+              'Article 14 and Annex IX of the consolidated WEEE Directive use the crossed-out wheeled bin to indicate separate collection of electrical and electronic equipment. The mark must be visible, legible and indelible; only where product size or function makes product marking necessary may it move to the packaging, instructions and warranty. Your Europe also explains that the equipment carries an identification mark and a bar or market-placement date for products placed on the market after 13 August 2005.',
+              'That visible symbol does not name the entity in a national producer register, show the countries covered, report quantities sold or demonstrate payment into a collection scheme. A factory can reproduce artwork without being the legal producer for the buyer’s route to market. The symbol is therefore a product-label checkpoint, not the complete extended-producer-responsibility file.'
+            ],
+            items: [
+              'Crossed-out wheeled-bin symbol on the product or permitted fallback location',
+              'Producer identification such as a brand or trademark',
+              'Bar below the symbol or another indication of post-13 August 2005 market placement',
+              'Permanent, visible and legible marking in the approved artwork'
+            ]
+          },
+          {
+            title: 'Who must register, and why does the destination country matter?',
+            paragraphs: [
+              'The Directive defines “producer” by the commercial route, not simply by who assembled the charger. The role can fall on a manufacturer selling under its own name, a party reselling equipment under its own brand, an importer placing equipment from another country on a Member State market, or a distance seller supplying users in another Member State. Article 16 requires Member States to maintain producer registers, while Article 17 provides for authorised representatives in specified cross-border situations.',
+              'Your Europe states the practical result plainly: the business must register with the WEEE authority in every EU country where it distributes or sells equipment, submit regular quantity reports and organise or finance collection, treatment, recycling and recovery. National implementation, registration numbers, producer-responsibility organisations and reporting cycles can differ. The correct question is therefore not “Does the Chinese supplier have WEEE?” but “Which legal entity carries the WEEE obligations for this brand and sales route in each destination country?”'
+            ]
+          },
+          {
+            title: 'How should a buyer build a usable WEEE evidence chain?',
+            paragraphs: [
+              'Start with the actual sales map and the legal entity that first places the charger on each national market. Obtain the national registration record or searchable entry where available, then match the legal name, registration number, brand, equipment category and authorised representative. Commission Implementing Regulation (EU) 2019/290 standardises core registration and reporting information, including the producer or representative identity, business-registration code, contact details and equipment categories; it does not turn the Member States’ registers into one universal EU licence.',
+              'ZIMONAI’s practical judgement is to attach the WEEE matrix to the product master record. For each destination, record who files quantities, who pays the scheme or guarantee, who handles take-back, which artwork revision carries the mark and what happens when the brand, importer or sales channel changes. This turns WEEE from a logo check into an owned operating obligation and prevents a supplier’s generic “WEEE compliant” statement from surviving after the responsible entity changes.'
+            ]
+          }
+        ],
+        checklist: [
+          'Every EU Member State where the charger will be offered or sold',
+          'The producer role created by the actual manufacturer, private-label, importer or distance-sales route',
+          'Registered legal name and national producer or authorised-representative number',
+          'Brand and electrical-equipment category shown in the registration',
+          'National register evidence or competent-authority confirmation and its current status',
+          'Producer-responsibility organisation, individual scheme or other financing arrangement',
+          'Owner and frequency of quantities-placed-on-market reporting',
+          'Distributor or seller take-back duties for the intended channel',
+          'Product, packaging and instruction artwork showing the required WEEE marking',
+          'Change control for brand, importer, sales channel, product category and market expansion'
+        ],
+        limitsText: 'The cited EU sources establish the WEEE marking, producer-registration, reporting and waste-management framework. They do not decide every product-scope question under national law, confirm a particular registration, calculate fees, approve a charger or prove electrical safety, EMC, RoHS, battery, packaging or transport compliance. A WEEE number also does not establish factory ownership, production capacity, model conformity or batch consistency. National registers and current local rules must be checked for each destination and placement date. The destination-matrix method above is analysis by the ZIMONAI Editorial Desk at Zhimengwan Technology, not a finding by an EU or national authority about a named supplier.'
+      },
       hererodJumpStarterWarning: {
         topic: 'US product-safety news',
         published: '20 September 2026',
@@ -3492,6 +3600,63 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      euWeeeChargerRegistration: {
+        topic: '歐盟 WEEE 生產者登記',
+        published: '2026 年 9 月 21 日',
+        readTime: '約 7 分鐘',
+        title: '打叉垃圾桶不是 WEEE 登記：歐盟充電器要逐國對上生產者紀錄',
+        description: '打叉垃圾桶只表示電子設備須分類回收；WEEE 合規還要逐一確認各銷售國的生產者登記、申報責任與廢棄處理安排。',
+        imageAlt: '淡色大理石桌面上的白色歐規充電器、USB-C 線材、行動電源與其他充電配件。',
+        imageCaption: 'ready made 拍攝的通用充電配件編輯照片，依 Pexels License 使用。畫面只用來說明產品類別，不代表其中產品已完成 WEEE 登記、符合相關規定，也不是 ZIMONAI 客戶產品、供應商樣品或國家登記證據。',
+        answer: '打叉垃圾桶標誌是在提醒使用者，電子電氣設備必須分類回收；它本身不是登記編號，也無法呈現後端的申報與回收責任。依歐盟 WEEE 制度，相關生產者或授權代表須在充電器實際銷售的成員國完成登記，申報投放市場的設備，並負擔或安排廢棄物管理。買家真正要取得的是逐國資料，讓法律主體、品牌、設備類別與銷售路徑彼此對得上。ZIMONAI 的編輯判讀是，標籤設計稿應該是這條證據鏈的最後一環，而不是查核起點。',
+        takeaways: [
+          'WEEE 標誌與生產者登記功能不同：標誌傳達分類回收，國家登記則識別負責的生產者或授權代表。',
+          '登記要跟著產品實際投放的成員國走，不能把單一國家的編號、回收組織會員資格或供應商聲明直接當成歐盟全境通行證。',
+          '有效的採購證據應是一張目的地矩陣，列出登記主體、國家編號、品牌、設備類別、申報負責人及回收或財務安排。'
+        ],
+        sections: [
+          {
+            title: '打叉垃圾桶究竟能證明什麼？',
+            paragraphs: [
+              'WEEE 指令合併文本第 14 條與附件 IX，用打叉垃圾桶表示電子電氣設備應分類收集。標誌原則上須清楚、可讀且不易磨滅地標在產品上；只有產品尺寸或功能不適合時，才可改放在包裝、使用說明與保固文件。Your Europe 也說明，設備須有生產者識別標誌，2005 年 8 月 13 日後投放市場的產品則要在垃圾桶下方加橫線，或以其他方式標示投放日期。',
+              '這個可見標誌不會顯示誰登記在國家生產者名冊、涵蓋哪些國家、申報了多少數量，也無法證明已加入回收制度或完成相關付費。工廠能複製一份設計稿，卻未必是買家銷售路徑中的法定生產者。因此，打叉垃圾桶只能作為產品標示檢查點，不能代替完整的延伸生產者責任資料。'
+            ],
+            items: [
+              '產品本體或符合例外條件的位置是否有打叉垃圾桶標誌',
+              '品牌或商標等生產者識別資訊',
+              '垃圾桶下方橫線或其他投放日期標示',
+              '已定稿的標誌是否清楚、可讀且不易磨滅'
+            ]
+          },
+          {
+            title: '誰要登記？為什麼一定要看銷售國家？',
+            paragraphs: [
+              'WEEE 指令是依商業路徑界定「生產者」，不只看誰組裝充電器。以自有名稱製造並銷售、用自有品牌轉售、把設備從其他國家進口到成員國，或透過遠距方式直接賣給另一成員國使用者的業者，都可能成為制度中的生產者。第 16 條要求各成員國建立生產者名冊，第 17 條則規範特定跨境情形可指定授權代表。',
+              'Your Europe 將實務責任說得很清楚：企業須在實際銷售或分銷設備的每一個歐盟國家，向當地 WEEE 主管機關登記，定期申報銷售數量，並安排或負擔收集、處理、回收及再利用。各國的編號格式、回收責任組織與申報週期可能不同。因此，正確問題不是「中國供應商有沒有 WEEE」，而是「這個品牌透過這條銷售路徑進入每一個目的地時，究竟由哪個法律主體負責」。'
+            ]
+          },
+          {
+            title: '買家要怎麼建立可用的 WEEE 證據鏈？',
+            paragraphs: [
+              '先列出實際銷售國家，以及第一個把充電器投放到各國市場的法律主體。取得國家登記資料或可公開查詢的紀錄後，再核對法律名稱、登記編號、品牌、設備類別與授權代表。Commission Implementing Regulation (EU) 2019/290 統一了登記與申報的核心資料格式，包括生產者或代表身分、商業登記代碼、聯絡方式及設備類別；但它沒有把各國名冊變成一張通用的歐盟許可證。',
+              'ZIMONAI 的實務判讀是，把 WEEE 目的地矩陣掛在產品主檔下。每個國家都記錄由誰申報數量、誰支付回收組織費用或財務保證、誰處理回收、哪一版設計稿使用標誌，以及品牌、進口商或銷售通路變更後由誰更新。這能把 WEEE 從一個圖案，轉成有人承擔的持續義務，也能避免供應商的泛稱「WEEE compliant」在責任主體改變後繼續沿用。'
+            ]
+          }
+        ],
+        checklist: [
+          '充電器預計銷售或提供的每一個歐盟成員國',
+          '製造、自有品牌、進口或遠距銷售路徑形成的生產者角色',
+          '已登記的法律名稱與國家生產者編號或授權代表編號',
+          '登記紀錄中的品牌與電子電氣設備類別',
+          '國家名冊紀錄或主管機關確認，以及目前有效狀態',
+          '生產者責任組織、個別制度或其他財務安排',
+          '投放市場數量的申報負責人與申報頻率',
+          '預定通路下的經銷商或賣方回收義務',
+          '產品、包裝與說明書上的 WEEE 標誌設計稿',
+          '品牌、進口商、通路、設備類別與新增市場的變更管制'
+        ],
+        limitsText: '本文引用的歐盟資料，說明 WEEE 標誌、生產者登記、申報及廢棄物管理的制度框架；它不會替每一款產品完成各國法規分類，也無法確認特定登記是否有效、計算費用、批准充電器，或證明電氣安全、EMC、RoHS、電池、包裝與運輸要求已符合。WEEE 編號也無法證明工廠所有權、產能、型號合規或批次一致性。實際案件仍須按目的地與投放日期查詢國家名冊及當地最新規定。本文提出的目的地矩陣方法，屬於 ZIMONAI｜智蒙灣科技編輯部的採購判讀，不是歐盟或各國主管機關對特定供應商的結論。'
+      },
       hererodJumpStarterWarning: {
         topic: '美國產品安全時事',
         published: '2026 年 9 月 20 日',
@@ -5303,6 +5468,63 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      euWeeeChargerRegistration: {
+        topic: '欧盟 WEEE 生产者注册',
+        published: '2026 年 9 月 21 日',
+        readTime: '约 7 分钟',
+        title: '打叉垃圾桶不是 WEEE 注册：欧盟充电器必须逐国对应生产者记录',
+        description: '打叉垃圾桶只表示电子设备须分类回收；WEEE 合规还要逐一确认各销售国的生产者注册、申报责任和废弃处理安排。',
+        imageAlt: '浅色大理石桌面上的白色欧规充电器、USB-C 线缆、移动电源和其他充电配件。',
+        imageCaption: 'ready made 拍摄的通用充电配件编辑照片，依据 Pexels License 使用。画面只用于说明产品类别，不代表其中产品已完成 WEEE 注册、符合相关规定，也不是 ZIMONAI 客户产品、供应商样品或国家注册证据。',
+        answer: '打叉垃圾桶标志是在提醒用户，电子电气设备必须分类回收；它本身不是注册编号，也无法呈现后端的申报和回收责任。按照欧盟 WEEE 制度，相关生产者或授权代表须在充电器实际销售的成员国完成注册，申报投放市场的设备，并承担或安排废弃物管理。买家真正需要的是逐国资料，使法律主体、品牌、设备类别和销售路径能够相互对应。ZIMONAI 的编辑判断是，标签设计稿应当是这条证据链的最后一环，而不是核查起点。',
+        takeaways: [
+          'WEEE 标志与生产者注册功能不同：标志传达分类回收，国家注册则识别负责的生产者或授权代表。',
+          '注册要跟随产品实际投放的成员国，不能把单一国家的编号、回收组织会员资格或供应商声明直接当成欧盟全境通行证。',
+          '有效的采购证据应当是一张目的地矩阵，列出注册主体、国家编号、品牌、设备类别、申报负责人以及回收或财务安排。'
+        ],
+        sections: [
+          {
+            title: '打叉垃圾桶究竟能证明什么？',
+            paragraphs: [
+              'WEEE 指令合并文本第 14 条和附件 IX，用打叉垃圾桶表示电子电气设备应当分类收集。标志原则上须清晰、可读且不易磨灭地标在产品上；只有产品尺寸或功能不适合时，才可改放在包装、使用说明和保修文件。Your Europe 还说明，设备须有生产者识别标志，2005 年 8 月 13 日后投放市场的产品则要在垃圾桶下方加横线，或以其他方式标示投放日期。',
+              '这个可见标志不会显示谁登记在国家生产者名册、覆盖哪些国家、申报了多少数量，也无法证明已经加入回收制度或完成相关付费。工厂能够复制一份设计稿，却未必是买家销售路径中的法定生产者。因此，打叉垃圾桶只能作为产品标识检查点，不能替代完整的生产者延伸责任资料。'
+            ],
+            items: [
+              '产品本体或符合例外条件的位置是否有打叉垃圾桶标志',
+              '品牌或商标等生产者识别信息',
+              '垃圾桶下方横线或其他投放日期标识',
+              '定稿标志是否清晰、可读且不易磨灭'
+            ]
+          },
+          {
+            title: '谁要注册？为什么一定要看销售国家？',
+            paragraphs: [
+              'WEEE 指令按照商业路径界定“生产者”，不只看谁组装充电器。以自有名称制造并销售、使用自有品牌转售、把设备从其他国家进口到成员国，或通过远程方式直接卖给另一成员国用户的企业，都可能成为制度中的生产者。第 16 条要求各成员国建立生产者名册，第 17 条则规定特定跨境情形可以指定授权代表。',
+              'Your Europe 对实务责任的说明很明确：企业须在实际销售或分销设备的每一个欧盟国家，向当地 WEEE 主管部门注册，定期申报销售数量，并安排或承担收集、处理、回收和再利用。各国的编号格式、生产者责任组织和申报周期可能不同。因此，正确问题不是“中国供应商有没有 WEEE”，而是“这个品牌通过这条销售路径进入每一个目的地时，究竟由哪个法律主体负责”。'
+            ]
+          },
+          {
+            title: '买家如何建立可用的 WEEE 证据链？',
+            paragraphs: [
+              '先列出实际销售国家，以及第一个把充电器投放到各国市场的法律主体。取得国家注册资料或可公开查询的记录后，再核对法律名称、注册编号、品牌、设备类别和授权代表。Commission Implementing Regulation (EU) 2019/290 统一了注册与申报的核心数据格式，包括生产者或代表身份、商业登记代码、联系方式和设备类别；但它没有把各国名册变成一张通用的欧盟许可证。',
+              'ZIMONAI 的实务判断是，把 WEEE 目的地矩阵挂在产品主档下。每个国家都记录由谁申报数量、谁支付回收组织费用或财务保证、谁处理回收、哪一版设计稿使用标志，以及品牌、进口商或销售渠道变更后由谁更新。这样才能把 WEEE 从一个图案，转为有人承担的持续义务，也能防止供应商笼统的“WEEE compliant”说法在责任主体改变后继续沿用。'
+            ]
+          }
+        ],
+        checklist: [
+          '充电器计划销售或提供的每一个欧盟成员国',
+          '制造、自有品牌、进口或远程销售路径形成的生产者角色',
+          '已注册的法律名称与国家生产者编号或授权代表编号',
+          '注册记录中的品牌与电子电气设备类别',
+          '国家名册记录或主管部门确认，以及当前有效状态',
+          '生产者责任组织、单独制度或其他财务安排',
+          '投放市场数量的申报负责人和申报频率',
+          '预定销售渠道下经销商或卖方的回收义务',
+          '产品、包装和说明书上的 WEEE 标志设计稿',
+          '品牌、进口商、渠道、设备类别和新增市场的变更控制'
+        ],
+        limitsText: '本文引用的欧盟资料，说明 WEEE 标志、生产者注册、申报和废弃物管理的制度框架；它不会替每一款产品完成各国法规分类，也无法确认特定注册是否有效、计算费用、批准充电器，或证明电气安全、EMC、RoHS、电池、包装和运输要求已经符合。WEEE 编号也无法证明工厂所有权、产能、型号合规或批次一致性。实际项目仍须按照目的地和投放日期查询国家名册及当地最新规定。本文提出的目的地矩阵方法，属于 ZIMONAI｜智蒙湾科技编辑部的采购判断，不是欧盟或各国主管部门对特定供应商的结论。'
+      },
       hererodJumpStarterWarning: {
         topic: '美国产品安全时事',
         published: '2026 年 9 月 20 日',
