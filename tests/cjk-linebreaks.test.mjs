@@ -80,6 +80,18 @@ test('known failure examples are protected as indivisible units in both locales'
   }
 });
 
+test('alkaline-battery trade terms remain intact in both Chinese versions', () => {
+  for (const [locale, terms] of Object.entries({
+    'zh-tw': ['鹼性電池', '反傾銷調查', '海關登記', '不可充電', '圓柱形', 'CN 8506 10 11'],
+    'zh-cn': ['碱性电池', '反倾销调查', '海关登记', '不可充电', '圆柱形', 'CN 8506 10 11']
+  })) {
+    const html = protectCjkHtml(`<!doctype html><html><body><p>${terms.join('、')}</p></body></html>`, locale);
+    for (const term of terms) {
+      assert.match(html, new RegExp(`<span class="cjk-keep cjk-keep--(?:phrase|word)">${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}、?<\\/span>`));
+    }
+  }
+});
+
 test('every audited dictionary term is emitted as one protected unit', () => {
   for (const locale of ['zh-tw', 'zh-cn']) {
     for (const term of cjkProtectedTerms[locale]) {

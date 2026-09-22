@@ -8,6 +8,48 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-eu-china-alkaline-battery-import-registration-2026',
+    key: 'euChinaAlkalineBatteryRegistration2026',
+    contentType: 'current-affairs',
+    slug: 'knowledge/eu-china-alkaline-battery-import-registration-2026',
+    category: 'commercial-risk',
+    products: ['general'],
+    markets: ['china', 'european-union'],
+    keywords: {
+      en: ['EU Chinese alkaline battery import registration 2026', 'EU anti-dumping alkaline batteries China', 'CN 8506 10 11', 'EU battery import duties 2026', 'non-rechargeable cylindrical batteries EU customs'],
+      'zh-tw': ['歐盟中國鹼性電池進口登記', '中國鹼性電池反傾銷', 'CN 8506 10 11', '歐盟電池關稅 2026', '不可充電圓柱電池海關登記'],
+      'zh-cn': ['欧盟中国碱性电池进口登记', '中国碱性电池反倾销', 'CN 8506 10 11', '欧盟电池关税 2026', '不可充电圆柱电池海关登记']
+    },
+    datePublished: '2026-09-22',
+    dateModified: '2026-09-22',
+    image: '/assets/editorial-eu-alkaline-cell-import-registration.jpg',
+    imageWidth: 2000,
+    imageHeight: 1500,
+    imageCrop: { card: '50% 49%', article: '50% 49%', mobile: '50% 51%' },
+    photo: {
+      photographer: 'Multicherry',
+      page: 'https://commons.wikimedia.org/wiki/File:Golden_Power_Power_Plus_AA_alkaline_batteries.jpg',
+      license: 'https://creativecommons.org/licenses/by-sa/4.0/'
+    },
+    sources: [
+      {
+        publisher: 'Official Journal of the European Union',
+        title: 'Implementing Regulation (EU) 2026/2049 — registration of specified Chinese alkaline battery imports',
+        url: 'https://eur-lex.europa.eu/eli/reg_impl/2026/2049/oj/eng'
+      },
+      {
+        publisher: 'Official Journal of the European Union',
+        title: 'C/2026/3479 — notice opening the anti-dumping investigation',
+        url: 'https://eur-lex.europa.eu/eli/C/2026/3479/oj/eng'
+      },
+      {
+        publisher: 'Germany Trade & Invest',
+        title: 'German trade agency explanation of the registration and product scope — 16 September 2026',
+        url: 'https://www.gtai.de/de/trade/eu/zoll/antidumping-batterien-china-2005294'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-weee-charger-registration',
     key: 'euWeeeChargerRegistration',
     contentType: 'industry-knowledge',
@@ -563,7 +605,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-21',
+    featuredReviewedThrough: '2026-09-22',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1733,6 +1775,54 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      euChinaAlkalineBatteryRegistration2026: {
+        topic: 'EU battery trade news',
+        published: '22 September 2026',
+        readTime: '6 minutes',
+        title: 'EU starts tracking Chinese alkaline battery imports—but has not imposed a new duty',
+        description: 'From 16 September, EU customs must register specified non-rechargeable cylindrical alkaline cells from China. The move preserves a route to possible retrospective anti-dumping duties; no rate has been decided.',
+        imageAlt: 'Four Golden Power AA alkaline cells standing against a pale background.',
+        imageCaption: 'Editorial photograph of AA alkaline cells by Multicherry, cropped and compressed under CC BY-SA 4.0. The pictured brand is not identified in the EU case, and the image is not a customs record, ZIMONAI client product or supplier evidence.',
+        labels: { summary: 'News summary', checklist: 'What importers should watch', limits: 'What remains undecided' },
+        answer: 'EU customs began registering imports of certain non-rechargeable cylindrical alkaline batteries originating in China on 16 September 2026, after the Commission opened an anti-dumping investigation in July. Registration is not a new tariff: it preserves the possibility of collecting a future duty on registered imports if the legal conditions are met. The bigger story is a shift in importers’ cost planning by product, origin and entry date, not a headline duty percentage. ZIMONAI’s editorial view is that buyers need a documented landed-cost scenario while the case is open, without confusing these primary cells with rechargeable lithium power-bank batteries.',
+        takeaways: [
+          'Implementing Regulation (EU) 2026/2049 directs EU customs to register qualifying imports from 16 September 2026; the registration period is nine months.',
+          'The defined goods are Chinese-origin, non-rechargeable cylindrical alkaline manganese-dioxide cells and batteries, currently under CN 8506 10 11—not lithium-ion cells or power banks.',
+          'The Commission has not set an anti-dumping duty or a future rate. Complaint estimates are allegations, not a price forecast or a customs bill.'
+        ],
+        sections: [
+          {
+            title: 'What changed at EU customs on 16 September?',
+            paragraphs: [
+              'The Official Journal published Implementing Regulation (EU) 2026/2049 on 15 September; it took effect the next day. Customs authorities must register imports within the product definition so a duty could, under the applicable rules, be collected retrospectively if the investigation later supports one. Germany Trade & Invest independently reported the 16 September start and the same narrow product scope.',
+              'The regulation follows the Commission’s 2 July opening notice, which arose from a 18 May complaint by VARTA Consumer Batteries on behalf of EU producers. Those steps mark an investigation and a customs record, not a finding that every Chinese battery is dumped or that a duty is already payable.'
+            ],
+            items: ['Publication: 15 September 2026', 'Registration begins: 16 September 2026', 'Registration period: nine months from entry into force', 'Current case stage: investigation; no duty rate set']
+          },
+          {
+            title: 'Which batteries are actually in scope?',
+            paragraphs: [
+              'Article 1 defines primary cells and primary batteries of alkaline manganese dioxide in cylindrical form, originating in China, currently classified under CN 8506 10 11. It expressly excludes rechargeable cells, spent batteries, waste, scrap and parts. The relevant distinction is chemistry, rechargeability, shape, origin and customs classification together—not a generic “battery” label.',
+              'That is why the story matters to importers of AA-style consumer cells and battery-powered product bundles, but should not be presented as a new tariff on lithium-ion power banks. Whether a particular packaged product or consignment falls under the registered import line requires its own classification and origin analysis; this article does not determine one shipment’s customs treatment.'
+            ]
+          },
+          {
+            title: 'Why does registration matter before a duty exists?',
+            paragraphs: [
+              'The Commission states that registration preserves a legal route for possible retroactive collection if a definitive duty is imposed and the required conditions are satisfied. It also says the complaint’s estimated dumping and injury margins cannot establish the eventual liability; at this stage the Commission cannot estimate that amount. Treating those estimates as the final tariff would misstate the official record.',
+              'ZIMONAI’s commercial interpretation is to separate confirmed cash cost from contingent exposure. For affected purchasing, an importer can preserve entry dates, CN classification, origin documents, supplier and product identifiers, pricing terms and who would bear a later duty. The next meaningful milestones are the investigation findings, any provisional measure and a definitive decision—not speculation about a percentage.'
+            ]
+          }
+        ],
+        checklist: [
+          'Confirm chemistry, rechargeability, cylindrical form and CN classification for the exact cell',
+          'Document origin, importer of record and each EU customs-entry date',
+          'Separate cell imports from finished devices and rechargeable lithium products',
+          'Preserve supplier contracts and any clause allocating later trade-remedy costs',
+          'Monitor the official case and any provisional or definitive measure before revising a quoted duty rate'
+        ],
+        limitsText: 'As of this article’s 22 September 2026 review, the cited regulation establishes registration, not an imposed anti-dumping duty, final rate, finding of dumping for a named manufacturer or classification ruling for a particular product. The complaint estimates are not a forecast. The photograph shows a generic branded alkaline cell, not an investigated shipment. ZIMONAI’s landed-cost and document-control suggestions are editorial analysis, not legal advice or an EU customs determination.'
+      },
       euWeeeChargerRegistration: {
         topic: 'EU WEEE producer registration',
         published: '21 September 2026',
@@ -3600,6 +3690,48 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      euChinaAlkalineBatteryRegistration2026: {
+        topic: '歐盟電池貿易時事',
+        published: '2026 年 9 月 22 日',
+        readTime: '約 6 分鐘',
+        title: '歐盟開始登記中國鹼性電池進口：關稅尚未定案，買家先看產品範圍',
+        description: '9 月 16 日起，歐盟海關登記特定中國製不可充電圓柱鹼性電池進口；這為未來可能追溯徵稅保留紀錄，但目前沒有新稅率。',
+        imageAlt: '淺色背景前，四顆直立擺放的 Golden Power AA 鹼性電池。',
+        imageCaption: 'Multicherry 拍攝的 AA 鹼性電池編輯照片，依 CC BY-SA 4.0 裁切、壓縮使用。照片中的品牌並未被歐盟本案點名；畫面不是海關紀錄、ZIMONAI 客戶產品或供應商證據。',
+        labels: { summary: '新聞摘要', checklist: '進口商接下來要留意什麼', limits: '哪些事情還沒定案' },
+        answer: '歐盟海關自 2026 年 9 月 16 日起，開始登記原產中國的特定不可充電圓柱鹼性電池進口；歐盟執委會已於 7 月展開反傾銷調查。登記不是課徵新關稅，而是保留未來符合條件時追溯徵稅的可能性。對採購與進口商來說，眼前最重要的是辨認哪種電池、哪批貨、哪個進口日可能受影響，而不是急著套用一個尚不存在的稅率。ZIMONAI 的編輯判讀是：這則新聞改變了成本風險的管理方式，卻沒有改變鋰電行動電源的現行稅率。',
+        takeaways: [
+          '歐盟執行規則 (EU) 2026/2049 要求從 9 月 16 日起登記指定進口，登記期間為生效後九個月。',
+          '範圍限原產中國、不可充電、圓柱形的鹼性二氧化錳原電池，現列 CN 8506 10 11；鋰離子電池與行動電源不是這條規則直接點名的商品。',
+          '執委會尚未訂出反傾銷稅率；申訴書估算的傾銷幅度不是最終稅額，也不能拿來替客戶報價。'
+        ],
+        sections: [
+          {
+            title: '9 月 16 日，歐盟海關實際改了什麼？',
+            paragraphs: [
+              '歐盟《官方公報》於 9 月 15 日公布執行規則 (EU) 2026/2049，隔日生效。符合產品定義的進口須留下海關登記紀錄；如果調查後真的課稅，且追溯徵收的法律條件成立，這些紀錄才可能成為計算依據。德國聯邦投資暨貿易署 Germany Trade & Invest 也獨立確認了 9 月 16 日的起點與商品範圍。',
+              '這項登記承接執委會 7 月 2 日啟動的反傾銷調查。調查源於 VARTA Consumer Batteries 5 月 18 日代表歐盟業者提出的申訴。申訴、立案與登記都不是判定所有中國電池涉及傾銷，更不等於今天起已有一筆新關稅。'
+            ],
+            items: ['公布日期：2026 年 9 月 15 日', '海關登記起點：2026 年 9 月 16 日', '登記期間：規則生效後九個月', '目前狀態：調查進行中，稅率未定']
+          },
+          {
+            title: '哪些電池在範圍內？行動電源也算嗎？',
+            paragraphs: [
+              '規則第 1 條鎖定原產中國、圓柱形、不可充電的鹼性二氧化錳原電池，目前對應 CN 8506 10 11。條文排除已耗盡的電池、廢料、廢碎料與零件。是否落在範圍內，須把化學體系、是否可充電、外形、原產地及海關分類放在一起看。',
+              '因此，這則新聞直接關乎 AA 等民生鹼性電池的進口鏈，卻不是「歐盟對所有中國電池課稅」。鋰離子電池與行動電源不能因為也叫 battery 就被混進來；成套商品或特定報單的分類，仍要依實際貨物與進口文件另行判斷。'
+            ]
+          },
+          {
+            title: '還沒開徵關稅，為何企業現在就要注意？',
+            paragraphs: [
+              '歐盟執委會在規則中說得很清楚：登記是為了在將來符合規定時，可能對已登記進口追溯徵收反傾銷稅。是否真的課稅，取決於後續調查與法定條件。申訴書列出的幅度只是估算；執委會明言現階段無法推算將來的稅額，也不能用那些數字形成對實際稅率的期待。',
+              'ZIMONAI｜智蒙灣科技編輯部的判讀是，把「已發生的進口成本」與「可能回頭產生的負擔」分開管理。採購端應保存進口日期、稅則分類、原產地資料、供應商與品項識別、交易價格，以及合約中由誰負擔日後新增貿易救濟成本。下一個真正值得看的，是調查結果、可能的暫時措施與最終決定，而不是猜一個百分比。'
+            ]
+          }
+        ],
+        checklist: ['核對電池化學體系、可否充電、圓柱外形與 CN 分類', '保存原產地、進口申報主體及各批海關入境日期', '把單獨進口電池與整機、可充電鋰電產品分開', '確認合約如何分配將來可能新增的貿易救濟成本', '追蹤歐盟官方調查與後續措施，不把申訴數字當成稅率'],
+        limitsText: '截至 2026 年 9 月 22 日，官方文件確認的是海關登記，並非已開徵反傾銷稅、公布最終稅率、認定特定製造商傾銷，或替某批商品做出海關分類。申訴書估算值不是預測。圖片中的品牌只是編輯照片，不代表涉案貨物。本文對成本與文件管理的建議屬 ZIMONAI 編輯判讀，不是法律意見或歐盟海關裁定。'
+      },
       euWeeeChargerRegistration: {
         topic: '歐盟 WEEE 生產者登記',
         published: '2026 年 9 月 21 日',
@@ -5468,6 +5600,48 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      euChinaAlkalineBatteryRegistration2026: {
+        topic: '欧盟电池贸易动态',
+        published: '2026 年 9 月 22 日',
+        readTime: '约 6 分钟',
+        title: '欧盟登记中国碱性电池进口：关税尚未确定，先看产品范围',
+        description: '自 9 月 16 日起，欧盟海关登记特定中国制造的不可充电圆柱碱性电池进口；此举为未来可能追溯征税保留记录，目前没有新税率。',
+        imageAlt: '浅色背景前，四节直立摆放的 Golden Power AA 碱性电池。',
+        imageCaption: 'Multicherry 拍摄的 AA 碱性电池编辑照片，依 CC BY-SA 4.0 裁切和压缩使用。照片中的品牌没有被欧盟本案点名；画面不是海关记录、ZIMONAI 客户产品或供应商证据。',
+        labels: { summary: '新闻摘要', checklist: '进口商接下来应关注什么', limits: '哪些问题尚无结论' },
+        answer: '欧盟海关从 2026 年 9 月 16 日起，对原产中国的特定不可充电圆柱碱性电池进口实施登记；欧盟委员会已于 7 月启动反倾销调查。登记不是开征新关税，而是为今后在法定条件满足时追溯征税保留记录。更值得关注的是，采购和进口商要按电池类型、原产地与入境日期管理潜在成本，而非套用尚不存在的税率。ZIMONAI 的编辑判断是，这项措施并未直接针对锂电移动电源，报价也应保留调查尚未定案的空间。',
+        takeaways: [
+          '欧盟实施条例 (EU) 2026/2049 要求从 9 月 16 日起登记指定进口，登记持续到条例生效九个月后。',
+          '范围是原产中国、不可充电、圆柱形的碱性二氧化锰原电池，目前列于 CN 8506 10 11；锂离子电池和移动电源不在该条文列明的货物范围内。',
+          '欧盟委员会尚未确定反倾销税率；申诉材料估算的倾销幅度既不是最终税额，也不宜拿来报价。'
+        ],
+        sections: [
+          {
+            title: '9 月 16 日，欧盟海关改变了什么？',
+            paragraphs: [
+              '欧盟《官方公报》9 月 15 日刊登实施条例 (EU) 2026/2049，条例次日生效。符合定义的进口货物需要留下海关登记记录。如果调查最终决定征税，而且追溯征收的法定条件成立，这些记录才可能成为依据。德国联邦机构 Germany Trade & Invest 独立确认了 9 月 16 日的实施时间和狭窄的产品范围。',
+              '登记承接欧盟委员会 7 月 2 日发起的反倾销调查。调查源于 VARTA Consumer Batteries 5 月 18 日代表欧盟生产商提交的申诉。申诉、立案和登记都不意味着所有中国电池已被认定倾销，也不意味着今天开始缴纳新关税。'
+            ],
+            items: ['刊登日期：2026 年 9 月 15 日', '海关登记开始：2026 年 9 月 16 日', '登记期限：条例生效后九个月', '目前阶段：调查进行中，税率未定']
+          },
+          {
+            title: '哪些电池在范围内？移动电源算不算？',
+            paragraphs: [
+              '条例第 1 条针对原产中国、圆柱形、不可充电的碱性二氧化锰原电池，目前归入 CN 8506 10 11。已耗尽电池、废料、废碎料和零件被排除。判断产品是否落入范围，必须同时核对化学体系、可充电性、外形、原产地和海关归类。',
+              '因此，这条消息直接影响 AA 等一次性碱性电池的进口链，却不是“欧盟对所有中国电池加税”。锂离子电池和移动电源不能因为英文名称里都有 battery 就被混为一谈；套装商品或具体报关单据仍需根据实物与申报资料分别判断。'
+            ]
+          },
+          {
+            title: '尚未征税，企业为何现在就要留意？',
+            paragraphs: [
+              '欧盟委员会在条例中明确指出，登记是为了在将来符合法律要求时，可能对已登记进口追溯征收反倾销税。是否征税仍取决于调查结果和法定条件。申诉材料中的数字只是估算；委员会明确表示现阶段无法预计最终负担，也不能据此期待某个实际税率。',
+              'ZIMONAI｜智蒙湾科技编辑部认为，企业应把已经确定的进口成本和未来可能发生的负担分开。采购团队可保存进口日期、税号、原产地文件、供应商与产品标识、价格条款，以及合同中未来新增贸易救济成本由谁承担。后续真正值得关注的是调查结论、可能的临时措施和最终决定，而非猜测税率。'
+            ]
+          }
+        ],
+        checklist: ['核对电池化学体系、可充电性、圆柱形态与 CN 归类', '保留原产地、进口申报主体以及每批货的入境日期', '区分单独进口的原电池、成品设备与可充电锂电产品', '核查合同对将来贸易救济成本的分担条款', '跟踪欧盟官方调查与后续措施，不把申诉数字当税率'],
+        limitsText: '截至 2026 年 9 月 22 日，官方文件确认的是海关登记，并非已经开征反倾销税、公布最终税率、认定某家制造商倾销，或对具体货物作出海关归类裁定。申诉材料的估算值不是预测。图片仅为碱性电池编辑照片，不代表涉案货物。本文关于成本和文件管理的建议属于 ZIMONAI 编辑判断，并非法律意见或欧盟海关裁定。'
+      },
       euWeeeChargerRegistration: {
         topic: '欧盟 WEEE 生产者注册',
         published: '2026 年 9 月 21 日',

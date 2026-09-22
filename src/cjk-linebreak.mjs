@@ -67,6 +67,7 @@ const sharedProtectedTerms = [
   'Certification',
   'SDoC',
   'WEEE',
+  'CN 8506 10 11',
   '25W 的 Qi2.2',
   'Type Ref.',
   'ODM',
@@ -76,6 +77,14 @@ const sharedProtectedTerms = [
 
 const protectedTermsByLocale = {
   'zh-tw': [
+    '鹼性電池',
+    '反傾銷稅率',
+    '反傾銷調查',
+    '海關登記',
+    '不可充電',
+    '圓柱形',
+    '原產地',
+    '進口商',
     'WEEE 登記',
     '生產者登記',
     '打叉垃圾桶',
@@ -575,6 +584,14 @@ const protectedTermsByLocale = {
     '可追溯的認證身分'
   ],
   'zh-cn': [
+    '碱性电池',
+    '反倾销税率',
+    '反倾销调查',
+    '海关登记',
+    '不可充电',
+    '圆柱形',
+    '原产地',
+    '进口商',
     'WEEE 注册',
     '生产者注册',
     '打叉垃圾桶',
