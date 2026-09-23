@@ -92,6 +92,18 @@ test('alkaline-battery trade terms remain intact in both Chinese versions', () =
   }
 });
 
+test('Korean KC record-check terms remain intact in both Chinese versions', () => {
+  for (const [locale, terms] of Object.entries({
+    'zh-tw': ['Safety Korea', 'RRA', 'KC', '國立電波研究院', '電氣用品安全紀錄', '符合性登錄', '基本型號', '衍生型號', '責任業者', '雙資料庫核對', '識別碼', '分別查'],
+    'zh-cn': ['Safety Korea', 'RRA', 'KC', '国立电波研究院', '电气用品安全记录', '符合性登记', '基本型号', '派生型号', '责任企业', '双数据库核对', '识别码', '分别查']
+  })) {
+    const html = protectCjkHtml(`<!doctype html><html><body><p>${terms.join('、')}</p></body></html>`, locale);
+    for (const term of terms) {
+      assert.match(html, new RegExp(`<span class="cjk-keep cjk-keep--(?:phrase|word)">${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}、?<\\/span>`));
+    }
+  }
+});
+
 test('every audited dictionary term is emitted as one protected unit', () => {
   for (const locale of ['zh-tw', 'zh-cn']) {
     for (const term of cjkProtectedTerms[locale]) {

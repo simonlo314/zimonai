@@ -14,6 +14,7 @@ const sharedProtectedTerms = [
   'Googlebot',
   'Cloudflare',
   'Stripe',
+  'Safety Korea',
   'Safety Gate',
   'UL Product iQ',
   'Anker MagGo Power Bank 2 Pro',
@@ -67,6 +68,8 @@ const sharedProtectedTerms = [
   'Certification',
   'SDoC',
   'WEEE',
+  'RRA',
+  'KC',
   'CN 8506 10 11',
   '25W 的 Qi2.2',
   'Type Ref.',
@@ -77,6 +80,15 @@ const sharedProtectedTerms = [
 
 const protectedTermsByLocale = {
   'zh-tw': [
+    '韓國市場',
+    '國立電波研究院',
+    '電氣用品安全紀錄',
+    '符合性登錄',
+    '衍生型號',
+    '責任業者',
+    '雙資料庫核對',
+    '識別碼',
+    '分別查',
     '鹼性電池',
     '反傾銷稅率',
     '反傾銷調查',
@@ -584,6 +596,15 @@ const protectedTermsByLocale = {
     '可追溯的認證身分'
   ],
   'zh-cn': [
+    '韩国市场',
+    '国立电波研究院',
+    '电气用品安全记录',
+    '符合性登记',
+    '派生型号',
+    '责任企业',
+    '双数据库核对',
+    '识别码',
+    '分别查',
     '碱性电池',
     '反倾销税率',
     '反倾销调查',

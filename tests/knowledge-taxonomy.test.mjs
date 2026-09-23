@@ -49,6 +49,12 @@ test('Chinese article-summary labels stay natural and format-specific', () => {
   assert.equal(knowledgeContent['zh-cn'].articles.ankerMagGo2Pro.labels.summary, '新闻摘要');
 });
 
+test('South Korea is a controlled trilingual market filter', () => {
+  assert.equal(knowledgeContent.en.taxonomy.markets['south-korea'], 'South Korea');
+  assert.equal(knowledgeContent['zh-tw'].taxonomy.markets['south-korea'], '韓國');
+  assert.equal(knowledgeContent['zh-cn'].taxonomy.markets['south-korea'], '韩国');
+});
+
 test('visible knowledge metadata exposes the same last-updated date as Article schema', () => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   for (const spec of knowledgeArticleSpecs) {

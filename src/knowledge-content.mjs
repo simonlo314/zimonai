@@ -8,6 +8,67 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-korea-kc-power-adapter-safety-rra',
+    key: 'koreaKcPowerAdapterSafetyRra',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/korea-kc-power-adapter-safety-rra',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['south-korea'],
+    keywords: {
+      en: ['Korea KC power adapter', 'Safety Korea power adapter certificate', 'RRA DC power supply registration', 'KC charger certification Korea', 'Korean power adapter model verification', 'KC mark two databases'],
+      'zh-tw': ['韓國 KC 電源適配器', 'Safety Korea 電源適配器證書', 'RRA 直流電源供應器登錄', '韓國充電器認證', '韓國電源適配器型號查核', 'KC 標誌雙資料庫'],
+      'zh-cn': ['韩国 KC 电源适配器', 'Safety Korea 电源适配器证书', 'RRA 直流电源供应器登记', '韩国充电器认证', '韩国电源适配器型号核查', 'KC 标志双数据库']
+    },
+    datePublished: '2026-09-23',
+    dateModified: '2026-09-23',
+    image: '/assets/editorial-korea-kc-power-adapter.jpg',
+    imageWidth: 2200,
+    imageHeight: 1466,
+    imageCrop: {
+      card: '69% 66%',
+      article: '68% 65%',
+      mobile: '72% 68%'
+    },
+    photo: {
+      photographer: 'Markus Winkler',
+      page: 'https://www.pexels.com/photo/white-adapter-on-a-blue-surface-4097207/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'Korean Agency for Technology and Standards',
+        title: 'Overview of the KC Mark System',
+        url: 'https://www.kats.go.kr/en/content.do?cmsid=412'
+      },
+      {
+        publisher: 'Korean Agency for Technology and Standards',
+        title: 'Electrical appliances and consumer products safety system',
+        url: 'https://www.kats.go.kr/content.do?cmsid=44'
+      },
+      {
+        publisher: 'Safety Korea',
+        title: 'Example electrical-appliance safety certification record — HU101004-18001B',
+        url: 'https://www.safetykorea.kr/release/certDetail?certNum=HU101004-18001B&certUid=5520582'
+      },
+      {
+        publisher: 'National Radio Research Agency',
+        title: 'KC certification search under the Radio Waves Act',
+        url: 'https://www.rra.go.kr/testen/view/sub201020.jsp'
+      },
+      {
+        publisher: 'National Radio Research Agency',
+        title: 'Official Q&A on conformity assessment for AC-to-DC power supplies — 20 February 2025',
+        url: 'https://www.rra.go.kr/ko/license/qnaList_view.do?cpage=18&nb_type=0&req_seq=327&searchCon=&searchTxt=&sortOrder='
+      },
+      {
+        publisher: 'National Radio Research Agency',
+        title: 'Example conformity-registration record — R-R-ass-AS019W-3605KC',
+        url: 'https://www.rra.go.kr/ko/license/A_b_popup_keyno.do?key_no=R-R-ass-AS019W-3605KC'
+      }
+    ]
+  },
+  {
     id: 'knowledge-eu-china-alkaline-battery-import-registration-2026',
     key: 'euChinaAlkalineBatteryRegistration2026',
     contentType: 'current-affairs',
@@ -605,7 +666,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-22',
+    featuredReviewedThrough: '2026-09-23',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1753,6 +1814,7 @@ export const knowledgeContent = {
         canada: 'Canada',
         australia: 'Australia',
         japan: 'Japan',
+        'south-korea': 'South Korea',
         'united-kingdom': 'United Kingdom',
         'european-union': 'European Union',
         global: 'Global standards',
@@ -1775,6 +1837,62 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      koreaKcPowerAdapterSafetyRra: {
+        topic: 'South Korea charger certification records',
+        published: '23 September 2026',
+        readTime: '7 minutes',
+        title: 'One KC logo, two record checks: Safety Korea and RRA evidence for a power adapter',
+        description: 'A Korean KC mark can sit across separate electrical-safety and Radio Waves Act systems. Match the quoted adapter model and responsible entities in Safety Korea and RRA.',
+        imageAlt: 'A white two-pin power adapter and cable resting on a textured blue surface.',
+        imageCaption: 'Real editorial photograph of a generic power adapter by Markus Winkler under the Pexels License. The pictured adapter is not presented as KC-marked, Korean-market approved, a ZIMONAI client device, a supplier sample or evidence from Safety Korea or RRA.',
+        answer: 'South Korea’s KC symbol is a shared national mark, not one certificate for every legal route. For a DC power adapter, official evidence can sit in Safety Korea for electrical-product safety and in the National Radio Research Agency database for Radio Waves Act conformity registration. Buyers should match the quoted model—including any derivative—to the record holder, manufacturer, status and date in each applicable system. ZIMONAI’s editorial view is that this two-record check exposes model or entity gaps a KC-logo photograph cannot show, while neither database proves batch quality, USB Power Delivery performance or access to another market.',
+        takeaways: [
+          'KATS describes KC as one integrated mark, while the underlying certification bodies and statutory systems continue to operate; the logo alone does not identify the applicable record.',
+          'Safety Korea and RRA answer different questions. The first exposes electrical-product safety records; the second publishes conformity-assessment records under the Radio Waves Act.',
+          'The usable evidence chain connects the quotation and product label to the base or derivative model, responsible company, manufacturer, status and dates in every applicable record.'
+        ],
+        sections: [
+          {
+            title: 'Why can one KC mark lead to two official record checks?',
+            paragraphs: [
+              'The Korean Agency for Technology and Standards explains that the KC mark integrated 13 compulsory marks into one national symbol, but did not abolish the existing certification bodies or their systems. The mark therefore gives the buyer a visual conformity signal without revealing which law, authority or record supports the particular product claim.',
+              'The split is visible in the authorities’ own search guidance. RRA states that its KC search covers conformity assessment under the Radio Waves Act and directs users to Safety Korea for products outside that scope. In a 20 February 2025 official answer, RRA said that an AC-to-DC supply converting 220 V AC to 12 V DC at 5 A falls under conformity registration as a DC power supply, while expressly warning that its answer does not cover electrical-appliance safety law. That example supports checking both routes for a comparable adapter; it is not a universal ruling for every charger design.'
+            ],
+            items: [
+              'KC logo: the shared national conformity mark',
+              'Safety Korea: electrical-appliance and consumer-product safety records',
+              'RRA: Radio Waves Act conformity-assessment records',
+              'Actual product specification: the starting point for deciding which routes apply'
+            ]
+          },
+          {
+            title: 'What should match in the Safety Korea record?',
+            paragraphs: [
+              'KATS says products subject to safety certification must receive model-based certification before domestic shipment or customs clearance, and it distinguishes that route from safety confirmation and supplier declaration of conformity. The first task is therefore to establish the applicable electrical-safety route, then search the official record rather than accept “KC certified” as a complete description.',
+              'A Safety Korea detail page can show the certification type and status, certificate number, product category, base model, derivative models, manufacturer, manufacturing country and related certificates. The cited public example illustrates those fields; it is not evidence for the buyer’s quoted adapter. Match the offered model character for character, or find it explicitly in the derivative-model list, and reconcile the named manufacturer and certificate holder with the quotation, product label and commercial documents.'
+            ]
+          },
+          {
+            title: 'How should the RRA record be matched—and discrepancies resolved?',
+            paragraphs: [
+              'An RRA conformity-registration page can identify the registrant, equipment name, model, derivative models, registration number, manufacturer, manufacturing country and registration date. Match the R-R identifier printed on the product to the official page, then compare the model scope and entities with the Safety Korea record. The cited RRA page is again an example of the database fields, not approval of an unnamed supplier’s product.',
+              'Different company names are not automatically evidence of fraud: the seller, safety-certificate holder, RRA registrant and factory may legitimately be different legal entities. The gap still needs a documented explanation, authorization where relevant and a model map showing why both records cover the unit being purchased. ZIMONAI’s practical judgement is to stop artwork approval when the model appears in one system but not the other applicable route, or when the printed identifier resolves to a different product family and no controlled relationship explains it.'
+            ]
+          }
+        ],
+        checklist: [
+          'Product function, input/output ratings, intended Korean sales route and the conformity routes that apply',
+          'Exact quoted model and every suffix on the product, label, packaging and purchase order',
+          'Safety Korea certification type, status, number, base model and derivative-model coverage',
+          'Safety Korea certificate holder, manufacturer, manufacturing country and related records',
+          'RRA registration number, equipment name, model and derivative-model coverage',
+          'RRA registrant, manufacturer, manufacturing country and registration date',
+          'A written entity and authorization map for every name that differs across the quotation and records',
+          'Current artwork showing the identifiers that resolve to those official records',
+          'Separate evidence for safety testing, EMC, USB PD claims, production changes and batch control'
+        ],
+        limitsText: 'The cited KATS, Safety Korea and RRA sources explain the unified KC mark and show how the two official record systems expose model and entity information. They do not decide the route for every adapter configuration, approve a quoted unit, confirm that a seller is authorized, identify the physical factory, verify the bill of materials or establish current-batch quality. A database match also does not prove USB PD performance, energy efficiency, radio features, battery requirements or access to markets outside South Korea. Product-specific applicability should be confirmed against current Korean rules and the competent authority. The two-record comparison above is analysis by the ZIMONAI Editorial Desk at Zhimengwan Technology, not a Korean authority’s finding about a named supplier.'
+      },
       euChinaAlkalineBatteryRegistration2026: {
         topic: 'EU battery trade news',
         published: '22 September 2026',
@@ -3668,6 +3786,7 @@ export const knowledgeContent = {
         canada: '加拿大',
         australia: '澳洲',
         japan: '日本',
+        'south-korea': '韓國',
         'united-kingdom': '英國',
         'european-union': '歐盟',
         global: '全球標準',
@@ -3690,6 +3809,62 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      koreaKcPowerAdapterSafetyRra: {
+        topic: '韓國充電器認證紀錄',
+        published: '2026 年 9 月 23 日',
+        readTime: '約 7 分鐘',
+        title: '一個 KC 標誌，不只一筆紀錄：韓國電源適配器要分別查 Safety Korea 與 RRA',
+        description: '韓國 KC 標誌橫跨不同法定制度；採購電源適配器時，要分別核對 Safety Korea 與 RRA 的型號、責任主體及紀錄狀態。',
+        imageAlt: '一顆白色雙圓腳電源適配器與線材，放在有紋理的藍色表面上。',
+        imageCaption: 'Markus Winkler 拍攝的通用電源適配器真實編輯照片，依 Pexels License 使用。圖中產品不代表已取得韓國 KC 認證，也不是 ZIMONAI 客戶產品、供應商樣品或 Safety Korea、RRA 的查核證據。',
+        answer: '韓國 KC 是跨制度共用的國家標誌，不等於一張包辦所有要求的證書。以直流電源適配器為例，相關官方證據可能分別出現在 Safety Korea 的電氣用品安全紀錄，以及韓國國立電波研究院 RRA 的《電波法》符合性登錄；買家應把報價型號及其衍生型號，逐一對回紀錄狀態、責任業者、製造商與日期。ZIMONAI 的編輯判讀是：雙資料庫核對最有價值的地方，在於揭露 KC 標誌照片看不出的型號或責任主體斷點；兩筆紀錄本身仍不能代表當批品質、USB Power Delivery 性能或其他市場准入。',
+        takeaways: [
+          '韓國技術標準院說明，KC 把 13 種強制標誌整合為同一國家標誌，但原有發證機構與制度並未消失；單看標誌無法辨認背後是哪一條法定程序。',
+          'Safety Korea 與 RRA 回答不同問題：前者公開電氣用品安全紀錄，後者公開《電波法》下的符合性評估紀錄。',
+          '真正可用的證據鏈，要把報價單與產品標籤連回基本或衍生型號、責任業者、製造商、紀錄狀態及日期。'
+        ],
+        sections: [
+          {
+            title: '為什麼同一個 KC 標誌，可能要查兩套官方紀錄？',
+            paragraphs: [
+              '韓國技術標準院指出，KC 是把 13 種強制標誌整合後形成的國家標誌，並沒有取消原有的發證機構與制度。換句話說，KC 提供一致的視覺識別，卻不會直接告訴買家這件產品受到哪一部法律、哪一個主管機關或哪一筆紀錄管理。',
+              '主管機關自己的查詢說明也呈現這項分工。RRA 表示，其 KC 查詢系統涵蓋《電波法》符合性評估，其他產品則應到 Safety Korea 查詢。RRA 在 2025 年 2 月 20 日的官方答覆中，將輸入 220V AC、輸出 12V DC／5A 的交流轉直流電源供應器列入直流電源供應器的符合性登錄範圍，同時明確提醒該答覆不包含電氣用品安全法。這個案例支持買家對相近產品分查兩條路徑，但不能拿來概括所有充電器設計。'
+            ],
+            items: [
+              'KC 標誌：跨制度共用的國家符合性標誌',
+              'Safety Korea：電氣用品與生活用品安全紀錄',
+              'RRA：依《電波法》建立的符合性評估紀錄',
+              '實際產品規格：判斷適用程序的起點'
+            ]
+          },
+          {
+            title: 'Safety Korea 的紀錄，哪些欄位要和報價產品對上？',
+            paragraphs: [
+              '韓國技術標準院說明，屬於安全認證對象的產品，須按型號在出貨或通關前取得認證；安全認證、安全確認與供應商符合性確認的程序也不相同。因此，第一步是先判斷產品適用哪一種電氣安全程序，再查官方紀錄，而不是把「有 KC」當成完整答案。',
+              'Safety Korea 的詳細頁面可列出認證類型與狀態、證書編號、品目、基本型號、衍生型號、製造商、製造國家及相關證書。本文引用的公開頁面只用來展示欄位，不是報價產品的認證證據。買家應逐字核對完整型號；若報價型號不是基本型號，就要確認它明確列在衍生型號中，並把製造商與證書持有人對回報價單、產品標籤及交易文件。'
+            ]
+          },
+          {
+            title: 'RRA 紀錄怎麼對？兩套資料名稱不同時又該怎麼處理？',
+            paragraphs: [
+              'RRA 的符合性登錄頁面可顯示登錄業者、設備名稱、基本型號、衍生型號、登錄編號、製造商、製造國家及登錄日期。買家可從產品上的 R-R 識別碼回查官方頁面，再把型號範圍與責任主體和 Safety Korea 紀錄交叉比對。本文引用的 RRA 頁面同樣只是欄位範例，不代表未具名供應商的產品已通過。',
+              '賣方、安全證書持有人、RRA 登錄業者與工廠可能是不同法律主體，名稱不同不必然等於造假；但供應商仍應提出關係說明、必要授權，以及能解釋兩筆紀錄為何涵蓋本次採購型號的對照表。ZIMONAI 的實務判讀是：若型號只出現在其中一套適用系統，或產品印刷的識別碼連到另一個產品系列，又沒有受控文件可以說明，就不應進入標籤與包裝定稿。'
+            ]
+          }
+        ],
+        checklist: [
+          '產品功能、輸入／輸出額定值、韓國銷售方式，以及實際適用的符合性程序',
+          '報價單、產品、標籤、包裝與採購單上的完整型號及所有尾碼',
+          'Safety Korea 的認證類型、紀錄狀態、證書編號、基本型號與衍生型號',
+          'Safety Korea 紀錄中的證書持有人、製造商、製造國家與相關證書',
+          'RRA 登錄編號、設備名稱、基本型號與衍生型號',
+          'RRA 登錄業者、製造商、製造國家與登錄日期',
+          '報價與兩套紀錄中各法律主體的關係說明及必要授權',
+          '目前版本的產品圖稿，以及可連回官方紀錄的識別碼',
+          '電氣安全、EMC、USB PD 宣稱、量產變更與批次管制的其他證據'
+        ],
+        limitsText: '本文引用的韓國技術標準院、Safety Korea 與 RRA 資料，說明 KC 統一標誌的制度背景，以及兩套官方系統可提供的型號與責任主體欄位。這些資料不會替每一種電源適配器判定適用程序，也不等於核准某一件報價產品、確認賣方授權、辨認實際工廠、驗證物料清單或證明當批品質。資料庫吻合也不能代替 USB PD 性能、能源效率、無線電功能、電池要求或其他國家的市場准入。個別產品仍應依當時有效的韓國規定與主管機關說明確認。本文的雙資料庫比對方法是 ZIMONAI｜智蒙灣科技編輯部的分析，不是韓國主管機關對任何具名供應商作出的結論。'
+      },
       euChinaAlkalineBatteryRegistration2026: {
         topic: '歐盟電池貿易時事',
         published: '2026 年 9 月 22 日',
@@ -5578,6 +5753,7 @@ export const knowledgeContent = {
         canada: '加拿大',
         australia: '澳大利亚',
         japan: '日本',
+        'south-korea': '韩国',
         'united-kingdom': '英国',
         'european-union': '欧盟',
         global: '全球标准',
@@ -5600,6 +5776,62 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      koreaKcPowerAdapterSafetyRra: {
+        topic: '韩国充电器认证记录',
+        published: '2026 年 9 月 23 日',
+        readTime: '约 7 分钟',
+        title: '一个 KC 标志，不止一条记录：韩国电源适配器应分别查 Safety Korea 与 RRA',
+        description: '韩国 KC 标志横跨不同法定制度；采购电源适配器时，应分别核对 Safety Korea 与 RRA 的型号、责任主体和记录状态。',
+        imageAlt: '一个白色双圆脚电源适配器和线材，放在带有纹理的蓝色表面上。',
+        imageCaption: 'Markus Winkler 拍摄的通用电源适配器真实编辑照片，依据 Pexels License 使用。图中产品不代表已取得韩国 KC 认证，也不是 ZIMONAI 客户产品、供应商样品或 Safety Korea、RRA 的核查证据。',
+        answer: '韩国 KC 是多个制度共用的国家标志，并非一张涵盖全部要求的证书。以直流电源适配器为例，相关官方证据可能分别出现在 Safety Korea 的电气用品安全记录，以及韩国国立电波研究院 RRA 的《电波法》符合性登记中；买家应将报价型号及其派生型号，逐一对应记录状态、责任企业、制造商和日期。ZIMONAI 的编辑判断是，双数据库核对的核心价值，在于发现 KC 标志照片无法呈现的型号或责任主体断点；两条记录本身仍不能代表当前批次质量、USB Power Delivery 性能或其他市场准入。',
+        takeaways: [
+          '韩国技术标准院说明，KC 将 13 种强制标志整合为统一国家标志，但原有发证机构和制度并未取消；单看标志无法辨认背后的法定程序。',
+          'Safety Korea 与 RRA 回答不同问题：前者公开电气用品安全记录，后者公开《电波法》下的符合性评估记录。',
+          '可用于采购的证据链，应把报价单和产品标签对应到基本或派生型号、责任企业、制造商、记录状态和日期。'
+        ],
+        sections: [
+          {
+            title: '为什么同一个 KC 标志，可能需要查询两套官方记录？',
+            paragraphs: [
+              '韩国技术标准院指出，KC 是将 13 种强制标志整合而成的国家标志，并没有取消原有发证机构和制度。也就是说，KC 提供统一的视觉识别，但不会直接告诉买家该产品受哪部法律、哪个监管部门或哪条记录管理。',
+              '主管部门自己的查询说明也呈现了这种分工。RRA 表示，其 KC 查询系统覆盖《电波法》符合性评估，其他产品则应到 Safety Korea 查询。RRA 在 2025 年 2 月 20 日的官方答复中，将输入 220V AC、输出 12V DC／5A 的交流转直流电源供应器列入直流电源供应器的符合性登记范围，同时明确提醒该答复不涉及电气用品安全法。这个案例支持买家对相近产品分别核查两条路径，但不能概括所有充电器设计。'
+            ],
+            items: [
+              'KC 标志：多个制度共用的国家符合性标志',
+              'Safety Korea：电气用品和生活用品安全记录',
+              'RRA：依据《电波法》建立的符合性评估记录',
+              '实际产品规格：判断适用程序的起点'
+            ]
+          },
+          {
+            title: 'Safety Korea 记录中的哪些字段必须与报价产品一致？',
+            paragraphs: [
+              '韩国技术标准院说明，属于安全认证对象的产品，须按型号在出货或通关前取得认证；安全认证、安全确认和供应商符合性确认的程序也不相同。因此，第一步是判断产品适用哪种电气安全程序，再查询官方记录，而不是把“有 KC”当作完整答案。',
+              'Safety Korea 的详情页可以列出认证类型与状态、证书编号、品目、基本型号、派生型号、制造商、制造国家和相关证书。本文引用的公开页面仅用于展示字段，不是报价产品的认证证据。买家应逐字核对完整型号；如果报价型号不是基本型号，就要确认它明确列于派生型号中，并将制造商和证书持有人对应到报价单、产品标签及交易文件。'
+            ]
+          },
+          {
+            title: 'RRA 记录如何核对？两套资料名称不同时又该怎样处理？',
+            paragraphs: [
+              'RRA 的符合性登记页面可以显示登记企业、设备名称、基本型号、派生型号、登记编号、制造商、制造国家和登记日期。买家可从产品上的 R-R 识别码回查官方页面，再将型号范围和责任主体与 Safety Korea 记录交叉核对。本文引用的 RRA 页面同样只是字段示例，不代表未具名供应商的产品已获准入。',
+              '卖方、安全证书持有人、RRA 登记企业和工厂可能是不同法律主体，名称不同并不必然说明造假；但供应商仍应提供关系说明、必要授权，以及能够解释两条记录为何覆盖本次采购型号的对照表。ZIMONAI 的实务判断是，如果型号只出现在其中一套适用系统中，或产品印刷的识别码指向另一个产品系列，又没有受控文件解释，就不应进入标签和包装定稿。'
+            ]
+          }
+        ],
+        checklist: [
+          '产品功能、输入／输出额定值、韩国销售方式，以及实际适用的符合性程序',
+          '报价单、产品、标签、包装和采购订单上的完整型号及全部后缀',
+          'Safety Korea 的认证类型、记录状态、证书编号、基本型号和派生型号',
+          'Safety Korea 记录中的证书持有人、制造商、制造国家和相关证书',
+          'RRA 登记编号、设备名称、基本型号和派生型号',
+          'RRA 登记企业、制造商、制造国家和登记日期',
+          '报价与两套记录中各法律主体的关系说明和必要授权',
+          '当前版本的产品图稿，以及可链接官方记录的识别码',
+          '电气安全、EMC、USB PD 声明、量产变更和批次管制的其他证据'
+        ],
+        limitsText: '本文引用的韩国技术标准院、Safety Korea 和 RRA 资料，说明 KC 统一标志的制度背景，以及两套官方系统可以提供的型号与责任主体字段。这些资料不会替每一种电源适配器判断适用程序，也不等于批准某一件报价产品、确认卖方授权、识别实际工厂、验证物料清单或证明当前批次质量。数据库信息一致也不能代替 USB PD 性能、能源效率、无线电功能、电池要求或其他国家的市场准入。具体产品仍应依据当时有效的韩国规定和主管部门说明确认。本文的双数据库比对方法是 ZIMONAI｜智蒙湾科技编辑部的分析，不是韩国监管部门对任何具名供应商作出的结论。'
+      },
       euChinaAlkalineBatteryRegistration2026: {
         topic: '欧盟电池贸易动态',
         published: '2026 年 9 月 22 日',
