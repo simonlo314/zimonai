@@ -8,6 +8,52 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-cambridge-audio-yoyo-m-recall-canada',
+    key: 'cambridgeAudioYoyoMRecallCanada',
+    contentType: 'current-affairs',
+    slug: 'knowledge/cambridge-audio-yoyo-m-recall-canada',
+    category: 'commercial-risk',
+    products: ['general'],
+    markets: ['canada', 'united-states'],
+    keywords: {
+      en: ['Cambridge Audio Yoyo M recall', 'Yoyo M speaker fire hazard', 'Cambridge Audio battery recall Canada', 'portable Bluetooth speaker recall 2026', 'Yoyo M no batch number', 'lithium ion speaker recall'],
+      'zh-tw': ['Cambridge Audio Yoyo M 召回', 'Yoyo M 藍牙喇叭火災風險', 'Cambridge Audio 加拿大召回', '藍牙喇叭召回 2026', 'Yoyo M 沒有批號', '鋰離子電池喇叭召回'],
+      'zh-cn': ['Cambridge Audio Yoyo M 召回', 'Yoyo M 蓝牙音箱火灾风险', 'Cambridge Audio 加拿大召回', '蓝牙音箱召回 2026', 'Yoyo M 无批次号', '锂离子电池音箱召回']
+    },
+    datePublished: '2026-09-24',
+    dateModified: '2026-09-24',
+    image: '/assets/editorial-cambridge-audio-yoyo-m-recall.png',
+    imageWidth: 478,
+    imageHeight: 360,
+    imageCrop: {
+      card: '50% 48%',
+      article: '50% 48%',
+      mobile: '50% 48%'
+    },
+    photo: {
+      photographer: 'U.S. Consumer Product Safety Commission',
+      page: 'https://www.cpsc.gov/Recalls/2026/Audio-Partnership-Recalls-Cambridge-Audio-Yoyo-M-Portable-Bluetooth-Speakers-Due-to-Fire-Hazard',
+      license: 'https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy'
+    },
+    sources: [
+      {
+        publisher: 'Health Canada',
+        title: 'Cambridge Audio Yoyo (M) portable Bluetooth speakers recalled due to fire hazard — 22 September 2026',
+        url: 'https://recalls-rappels.canada.ca/en/alert-recall/cambridge-audio-yoyo-m-portable-bluetooth-speakers-recalled-due-fire-hazard'
+      },
+      {
+        publisher: 'U.S. Consumer Product Safety Commission',
+        title: 'Audio Partnership recalls Cambridge Audio Yoyo (M) portable Bluetooth speakers — 3 September 2026',
+        url: 'https://www.cpsc.gov/Recalls/2026/Audio-Partnership-Recalls-Cambridge-Audio-Yoyo-M-Portable-Bluetooth-Speakers-Due-to-Fire-Hazard'
+      },
+      {
+        publisher: 'Cambridge Audio',
+        title: 'Yoyo (M) safety recall — global product-safety notice, updated 14 September 2026',
+        url: 'https://www.cambridgeaudio.com/usa/en/product-safety/yoyo-m'
+      }
+    ]
+  },
+  {
     id: 'knowledge-korea-kc-power-adapter-safety-rra',
     key: 'koreaKcPowerAdapterSafetyRra',
     contentType: 'industry-knowledge',
@@ -666,7 +712,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-23',
+    featuredReviewedThrough: '2026-09-24',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1837,6 +1883,65 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      cambridgeAudioYoyoMRecallCanada: {
+        topic: 'Portable-speaker recall · Canada and United States',
+        published: '24 September 2026',
+        readTime: '6 minutes',
+        title: 'Cambridge Audio recalls every Yoyo (M) speaker: Canada notice puts the missing batch number in focus',
+        description: 'Canada recalled every Cambridge Audio Yoyo (M) speaker after a lithium-ion battery fire hazard emerged; the worldwide scope and lack of a batch number turn traceability into the central story.',
+        imageAlt: 'Two light-grey Cambridge Audio Yoyo (M) portable Bluetooth speakers shown in the U.S. recall notice.',
+        imageCaption: 'Actual recalled Cambridge Audio Yoyo (M) speakers from the U.S. Consumer Product Safety Commission recall notice. The image is stored locally and used under CPSC’s stated reuse policy for recall-notice photographs. It is not ZIMONAI testing, a client product, supplier evidence or an endorsement by CPSC.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What brands and buyers should watch next',
+          limits: 'What remains unknown'
+        },
+        answer: 'Health Canada recalled about 309 Cambridge Audio Yoyo (M) speakers on 22 September because their lithium-ion batteries can overheat and cause a fire; every unit is affected because there is no batch number. The U.S. CPSC had already recalled about 714 units after four fire, smoke or ejected-battery incidents, and Cambridge Audio says the action is worldwide. What matters is that the missing batch boundary turns a battery defect into a whole-model supply-chain response for buyers and retailers. ZIMONAI’s editorial view is that durable unit, battery-pack and revision traceability determines whether future action can be narrowed without leaving affected products behind.',
+        takeaways: [
+          'Health Canada’s 22 September notice covers all Yoyo (M) units in light grey, dark grey and blue, with no batch-number exception.',
+          'The U.S. CPSC reports four incidents involving fire, smoke or ejected battery material and no injuries; Cambridge Audio says every Yoyo (M) worldwide is affected.',
+          'The public notices identify the finished model but do not disclose a cell supplier, factory, technical root cause or affected production lot.'
+        ],
+        sections: [
+          {
+            title: 'What did Canada add on 22 September?',
+            paragraphs: [
+              'Health Canada’s new notice identifies all Cambridge Audio Yoyo (M) portable Bluetooth speakers as affected because there is no batch number. It lists three finishes and codes: light grey C10930, dark grey C10931 and blue C10965, with their matching EAN and UPC identifiers. The agency says about 309 units were sold in Canada between 2016 and 2022 and records China as the country of manufacture.',
+              'The hazard is specific: the internal lithium-ion battery can overheat and create a fire risk. As of 14 September, the company had reported no Canadian incidents or injuries to Health Canada. Canadian consumers are told to stop using and charging the speakers and contact Cambridge Audio for a C$300 refund without proof of purchase. Those facts define the Canadian remedy; they do not establish the technical cause of the battery failures.'
+            ],
+            items: [
+              'Canadian recall publication: 22 September 2026',
+              'Canadian units reported sold: about 309',
+              'Sales period: 2016 through 2022',
+              'Affected colours: light grey, dark grey and blue',
+              'Scope marker: every Yoyo (M), with no batch number'
+            ]
+          },
+          {
+            title: 'How does the Canadian notice fit the wider recall?',
+            paragraphs: [
+              'The U.S. CPSC announced its recall on 3 September for about 714 speakers. It reports four incidents in which a speaker caught fire, emitted smoke or ejected battery material, with no injuries. The U.S. remedy is a full cash refund of US$218. Cambridge Audio’s own notice, updated 14 September, says every Yoyo (M) unit in every country is affected and instructs owners to disconnect and stop charging the product.',
+              'The notices describe one product problem but different market remedies and reporting totals. The Canadian and U.S. figures should not be treated as a global sales total, and the public records do not show whether any units or incidents overlap across reporting systems. For distributors and retailers, the immediate operational question is therefore not only whether inventory remains, but whether past customers can be reached under the correct national process.'
+            ]
+          },
+          {
+            title: 'Why does “no batch number” change the supply-chain story?',
+            paragraphs: [
+              'A batch number normally gives a recall team one possible boundary between affected and unaffected production. Here, the public notices cannot narrow the action that way, so the identification rule becomes the finished Yoyo (M) model itself. That does not prove Cambridge Audio kept no internal records; it shows that the published consumer-facing recall has no batch exclusion and consequently reaches every unit.',
+              'ZIMONAI’s editorial view is that the broader lesson lies in the data that survives product launch. A brand should be able to connect a sale unit to its battery-pack model and revision, cell source, factory, production window, firmware or protection-system revision, destination channel and customer record. Better traceability would not by itself explain or prevent this event, but it can determine whether a later response is precise, fast and verifiable instead of model-wide by default.'
+            ]
+          }
+        ],
+        checklist: [
+          'Confirm whether any Yoyo (M) inventory, demo units or returns remain in the channel',
+          'Use C10930, C10931 and C10965 plus the published EAN and UPC identifiers in stock searches',
+          'Segment past orders by destination so the correct local notice and refund route reaches customers',
+          'Preserve complaint, return and incident records rather than treating them as routine service tickets',
+          'For future battery products, retain unit-to-pack, cell, revision, factory and production-window traceability',
+          'Test whether recall communications can reach marketplace and distributor customers after several years'
+        ],
+        limitsText: 'Health Canada, CPSC and Cambridge Audio confirm the affected finished product, fire hazard, market remedies and the incident information stated above. Their public notices do not identify the battery-cell or pack supplier, manufacturing factory, engineering root cause, production-lot range, certification history, test records, global unit total or global incident total. No batch number in the recall notice is not proof that the company has no internal production records. The traceability and response implications in this article are ZIMONAI editorial analysis, not findings issued by either regulator and not evidence about another Cambridge Audio product or supplier.'
+      },
       koreaKcPowerAdapterSafetyRra: {
         topic: 'South Korea charger certification records',
         published: '23 September 2026',
@@ -3809,6 +3914,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      cambridgeAudioYoyoMRecallCanada: {
+        topic: '加拿大與美國產品安全時事',
+        published: '2026 年 9 月 24 日',
+        readTime: '約 6 分鐘',
+        title: 'Cambridge Audio 全面召回 Yoyo (M)：加拿大公告點出沒有批號的追溯難題',
+        description: 'Cambridge Audio Yoyo (M) 因鋰離子電池過熱起火風險在加拿大全面召回；全球範圍與沒有批號，讓產品追溯成為事件焦點。',
+        imageAlt: '美國召回公告中的兩台淺灰色 Cambridge Audio Yoyo (M) 可攜式藍牙喇叭。',
+        imageCaption: '美國消費品安全委員會召回公告中的 Cambridge Audio Yoyo (M) 實際受召回產品照片；圖片已下載至本站，依 CPSC 公開的召回照片再利用政策使用。畫面不是 ZIMONAI 測試、客戶產品或供應商證據，也不代表 CPSC 為本文背書。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '品牌與買家接下來應注意什麼',
+          limits: '仍未公開的關鍵資訊'
+        },
+        answer: '加拿大衛生部於 9 月 22 日召回約 309 台 Cambridge Audio Yoyo (M)；內建鋰離子電池可能過熱起火，且產品沒有批號，因此所有 Yoyo (M) 都受影響。美國先前已召回約 714 台並收到 4 起起火、冒煙或電池物質噴出的通報，Cambridge Audio 則表示這是全球行動。更值得注意的是，公開資料無法用批次縮小範圍，使整個型號的售後追溯成為供應鏈焦點。ZIMONAI 的編輯判讀是，買家與品牌若能長期串接產品、電池包及版本紀錄，未來矯正措施才更有機會縮小範圍，又不遺漏受影響產品。',
+        takeaways: [
+          '加拿大 9 月 22 日公告涵蓋淺灰、深灰與藍色三款 Yoyo (M)，沒有批號例外，所有產品都受影響。',
+          '美國 CPSC 收到 4 起起火、冒煙或電池物質噴出的通報，沒有受傷；Cambridge Audio 表示全球所有 Yoyo (M) 都在召回範圍內。',
+          '官方公告辨識到成品型號，卻沒有公開電芯供應商、工廠、技術根因或受影響生產批次。'
+        ],
+        sections: [
+          {
+            title: '加拿大 9 月 22 日的公告新增了哪些資訊？',
+            paragraphs: [
+              '加拿大衛生部把所有 Cambridge Audio Yoyo (M) 可攜式藍牙喇叭列入召回，理由是產品沒有批號，無法排除其中任何一批。公告列出三種顏色及代碼：淺灰 C10930、深灰 C10931、藍色 C10965，並附上對應的 EAN 與 UPC。加拿大約有 309 台於 2016 至 2022 年售出，製造國標示為中國。',
+              '危害描述相當明確：內建鋰離子電池可能過熱，造成火災風險。截至 9 月 14 日，公司向加拿大衛生部回報，加拿大沒有事故或受傷通報。當地消費者應停止使用及充電，並聯絡 Cambridge Audio 辦理 300 加幣退款，且不需要購買證明。這些資料界定了加拿大的處置方式，尚未說明電池失效的技術原因。'
+            ],
+            items: [
+              '加拿大公告日期：2026 年 9 月 22 日',
+              '加拿大通報銷售數量：約 309 台',
+              '銷售期間：2016 至 2022 年',
+              '受影響顏色：淺灰、深灰與藍色',
+              '範圍判定：所有 Yoyo (M)，沒有批號'
+            ]
+          },
+          {
+            title: '加拿大召回與美國、全球行動有什麼關係？',
+            paragraphs: [
+              '美國 CPSC 已於 9 月 3 日宣布召回約 714 台產品，並收到 4 起喇叭起火、冒煙或噴出電池物質的通報，沒有受傷。美國方案是 218 美元全額現金退款。Cambridge Audio 於 9 月 14 日更新全球安全公告，表示每個國家的所有 Yoyo (M) 都受影響，並要求使用者拔除電源、停止充電。',
+              '各地公告處理的是同一項產品風險，但退款方式與通報數字不同。加拿大與美國數量不能直接相加當成全球銷量，公開資料也沒有說明各通報系統是否存在重疊。對品牌與通路來說，眼前問題不只是在庫存中找產品，還包括能否依銷售市場找到多年前的顧客，送達正確的當地處置資訊。'
+            ]
+          },
+          {
+            title: '「沒有批號」為什麼改變了這則供應鏈新聞？',
+            paragraphs: [
+              '批號通常是召回團隊區分受影響與未受影響生產範圍的工具之一。本案公開公告無法用批號縮小行動，因此辨識標準回到 Yoyo (M) 成品型號本身。這不等於 Cambridge Audio 內部完全沒有生產紀錄；能確認的是，面向消費者的召回沒有批次排除條件，所以涵蓋所有產品。',
+              'ZIMONAI｜智蒙灣科技編輯部認為，事件真正留下的問題，是產品上市多年後還保留多少可以串接的資料。品牌應能把售出單機連回電池包型號與版本、電芯來源、工廠、生產時間、韌體或保護系統版本、目的地通路與顧客紀錄。更好的追溯本身不會解釋或預防這次事故，卻會決定下一次處置能否更快、更精準，而且可以被驗證。'
+            ]
+          }
+        ],
+        checklist: [
+          '確認通路是否仍有 Yoyo (M) 庫存、展示機或退貨品',
+          '用 C10930、C10931、C10965 及公告中的 EAN、UPC 搜尋庫存',
+          '依銷售地拆分歷史訂單，讓顧客收到正確的當地公告與退款方式',
+          '保留客訴、退貨與事故紀錄，不要只當成一般客服案件結案',
+          '未來電池產品應保留單機對應電池包、電芯、版本、工廠與生產時間的追溯資料',
+          '實際測試品牌能否在產品售出多年後，聯絡平台與經銷通路的顧客'
+        ],
+        limitsText: '加拿大衛生部、美國 CPSC 與 Cambridge Audio 已確認受影響成品、火災風險、各市場處置方式及本文列出的事故資訊。公開公告沒有揭露電芯或電池包供應商、製造工廠、工程根因、生產批次範圍、認證歷史、測試紀錄、全球銷量或全球事故總數。召回公告沒有批號，不代表公司內部完全沒有生產紀錄。本文對追溯與售後應變的分析，屬於 ZIMONAI｜智蒙灣科技編輯部的產業判讀，不是兩國主管機關的調查結論，也不能延伸到 Cambridge Audio 其他產品或其他供應商。'
+      },
       koreaKcPowerAdapterSafetyRra: {
         topic: '韓國充電器認證紀錄',
         published: '2026 年 9 月 23 日',
@@ -5776,6 +5940,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      cambridgeAudioYoyoMRecallCanada: {
+        topic: '加拿大与美国产品安全动态',
+        published: '2026 年 9 月 24 日',
+        readTime: '约 6 分钟',
+        title: 'Cambridge Audio 全面召回 Yoyo (M)：加拿大公告凸显无批次号的追溯难题',
+        description: 'Cambridge Audio Yoyo (M) 因锂离子电池过热起火风险在加拿大全面召回；全球范围与无批次号，让产品追溯成为事件焦点。',
+        imageAlt: '美国召回公告中的两台浅灰色 Cambridge Audio Yoyo (M) 便携式蓝牙音箱。',
+        imageCaption: '美国消费品安全委员会召回公告中的 Cambridge Audio Yoyo (M) 实际受召回产品照片；图片已下载至本站，依据 CPSC 公布的召回照片再利用政策使用。画面不是 ZIMONAI 测试、客户产品或供应商证据，也不代表 CPSC 为本文背书。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '品牌与买家接下来应关注什么',
+          limits: '仍未公开的关键信息'
+        },
+        answer: '加拿大卫生部于 9 月 22 日召回约 309 台 Cambridge Audio Yoyo (M)；内置锂离子电池可能过热起火，且产品没有批次号，因此所有 Yoyo (M) 均受影响。美国此前已召回约 714 台并收到 4 起起火、冒烟或电池物质喷出的报告，Cambridge Audio 则表示这是全球行动。更值得关注的是，公开资料无法按批次缩小范围，使整个型号的售后追溯成为供应链焦点。ZIMONAI 的编辑判断是，买家与品牌如能长期关联产品、电池包与版本记录，未来纠正措施才更有机会缩小范围，又不遗漏受影响产品。',
+        takeaways: [
+          '加拿大 9 月 22 日公告涵盖浅灰、深灰与蓝色三款 Yoyo (M)，没有批次号例外，所有产品均受影响。',
+          '美国 CPSC 收到 4 起起火、冒烟或电池物质喷出的报告，没有人员受伤；Cambridge Audio 表示全球所有 Yoyo (M) 均在召回范围内。',
+          '官方公告识别到成品型号，但没有公开电芯供应商、工厂、技术根因或受影响生产批次。'
+        ],
+        sections: [
+          {
+            title: '加拿大 9 月 22 日的公告新增了哪些信息？',
+            paragraphs: [
+              '加拿大卫生部将所有 Cambridge Audio Yoyo (M) 便携式蓝牙音箱列入召回，原因是产品没有批次号，无法排除任何一批。公告列出三种颜色及代码：浅灰 C10930、深灰 C10931、蓝色 C10965，并附上对应的 EAN 与 UPC。加拿大约有 309 台在 2016 至 2022 年间售出，制造国标注为中国。',
+              '危害描述很明确：内置锂离子电池可能过热，造成火灾风险。截至 9 月 14 日，公司向加拿大卫生部报告，加拿大没有事故或伤害。当地消费者应停止使用及充电，并联系 Cambridge Audio 办理 300 加元退款，无需购买凭证。这些信息界定了加拿大的处理方式，但尚未说明电池失效的技术原因。'
+            ],
+            items: [
+              '加拿大公告日期：2026 年 9 月 22 日',
+              '加拿大报告销售数量：约 309 台',
+              '销售期间：2016 至 2022 年',
+              '受影响颜色：浅灰、深灰与蓝色',
+              '范围判定：所有 Yoyo (M)，没有批次号'
+            ]
+          },
+          {
+            title: '加拿大召回与美国、全球行动有什么关系？',
+            paragraphs: [
+              '美国 CPSC 已于 9 月 3 日宣布召回约 714 台产品，并收到 4 起音箱起火、冒烟或喷出电池物质的报告，没有人员受伤。美国方案是 218 美元全额现金退款。Cambridge Audio 于 9 月 14 日更新全球安全公告，表示每个国家的所有 Yoyo (M) 均受影响，并要求用户断开电源、停止充电。',
+              '各地公告处理的是同一项产品风险，但退款方式与报告数字不同。加拿大与美国数量不能直接相加作为全球销量，公开资料也没有说明各报告系统是否存在重叠。对品牌与渠道而言，眼前问题不只是在库存中找产品，还包括能否按销售市场找到多年前的顾客，并送达正确的当地处置信息。'
+            ]
+          },
+          {
+            title: '“没有批次号”为何改变了这则供应链新闻？',
+            paragraphs: [
+              '批次号通常是召回团队区分受影响与未受影响生产范围的工具之一。本案公开公告无法按批次号缩小行动，因此识别标准回到 Yoyo (M) 成品型号本身。这不等于 Cambridge Audio 内部完全没有生产记录；能够确认的是，面向消费者的召回没有批次排除条件，因此涵盖所有产品。',
+              'ZIMONAI｜智蒙湾科技编辑部认为，事件真正留下的问题，是产品上市多年后仍保留多少能够关联的数据。品牌应能把售出单机对应到电池包型号与版本、电芯来源、工厂、生产时间、固件或保护系统版本、目的地渠道与顾客记录。更好的追溯本身不会解释或预防这次事故，却会决定下一次处置能否更快、更精准，而且可以被验证。'
+            ]
+          }
+        ],
+        checklist: [
+          '确认渠道是否仍有 Yoyo (M) 库存、展示机或退货产品',
+          '使用 C10930、C10931、C10965 以及公告中的 EAN、UPC 搜索库存',
+          '按销售地拆分历史订单，让顾客收到正确的当地公告与退款方式',
+          '保留投诉、退货与事故记录，不要只作为普通客服事项结案',
+          '未来电池产品应保留单机对应电池包、电芯、版本、工厂与生产时间的追溯资料',
+          '实际测试品牌能否在产品售出多年后，联系平台与经销渠道的顾客'
+        ],
+        limitsText: '加拿大卫生部、美国 CPSC 与 Cambridge Audio 已确认受影响成品、火灾风险、各市场处置方式以及本文列出的事故信息。公开公告没有披露电芯或电池包供应商、制造工厂、工程根因、生产批次范围、认证历史、测试记录、全球销量或全球事故总数。召回公告没有批次号，不代表公司内部完全没有生产记录。本文对追溯与售后响应的分析，属于 ZIMONAI｜智蒙湾科技编辑部的产业判断，并非两国监管机构的调查结论，也不能延伸到 Cambridge Audio 其他产品或其他供应商。'
+      },
       koreaKcPowerAdapterSafetyRra: {
         topic: '韩国充电器认证记录',
         published: '2026 年 9 月 23 日',

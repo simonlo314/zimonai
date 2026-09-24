@@ -17,6 +17,8 @@ const sharedProtectedTerms = [
   'Safety Korea',
   'Safety Gate',
   'UL Product iQ',
+  'Cambridge Audio',
+  'Yoyo (M)',
   'Anker MagGo Power Bank 2 Pro',
   'MagGo Power Bank 2 Pro',
   'EU Declaration of Conformity',
@@ -80,6 +82,14 @@ const sharedProtectedTerms = [
 
 const protectedTermsByLocale = {
   'zh-tw': [
+    '可攜式藍牙喇叭',
+    '鋰離子電池',
+    '沒有批號',
+    '電池物質',
+    '售後處置',
+    '批次排除條件',
+    '追溯能力',
+    '生產時間',
     '韓國市場',
     '國立電波研究院',
     '電氣用品安全紀錄',
@@ -596,6 +606,14 @@ const protectedTermsByLocale = {
     '可追溯的認證身分'
   ],
   'zh-cn': [
+    '便携式蓝牙音箱',
+    '锂离子电池',
+    '没有批次号',
+    '电池物质',
+    '售后处置',
+    '批次排除条件',
+    '追溯能力',
+    '生产时间',
     '韩国市场',
     '国立电波研究院',
     '电气用品安全记录',

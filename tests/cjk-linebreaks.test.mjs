@@ -104,6 +104,18 @@ test('Korean KC record-check terms remain intact in both Chinese versions', () =
   }
 });
 
+test('Cambridge Audio recall terms remain intact in both Chinese versions', () => {
+  for (const [locale, terms] of Object.entries({
+    'zh-tw': ['Cambridge Audio', 'Yoyo (M)', '可攜式藍牙喇叭', '鋰離子電池', '沒有批號', '售後處置', '批次排除條件', '追溯能力'],
+    'zh-cn': ['Cambridge Audio', 'Yoyo (M)', '便携式蓝牙音箱', '锂离子电池', '没有批次号', '售后处置', '批次排除条件', '追溯能力']
+  })) {
+    const html = protectCjkHtml(`<!doctype html><html><body><p>${terms.join('、')}</p></body></html>`, locale);
+    for (const term of terms) {
+      assert.match(html, new RegExp(`<span class="cjk-keep cjk-keep--(?:phrase|word)">${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}、?<\\/span>`));
+    }
+  }
+});
+
 test('every audited dictionary term is emitted as one protected unit', () => {
   for (const locale of ['zh-tw', 'zh-cn']) {
     for (const term of cjkProtectedTerms[locale]) {

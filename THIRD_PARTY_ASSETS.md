@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-23
+Last reviewed: 2026-09-24
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -72,6 +72,7 @@ The following photographs were downloaded from their original Unsplash pages und
 
 | Local asset | Issuing authority | Source and reuse basis | Retrieved | Website use |
 | --- | --- | --- | --- | --- |
+| `src/assets/editorial-cambridge-audio-yoyo-m-recall.png` | U.S. Consumer Product Safety Commission | Light-grey product photograph from the [Cambridge Audio Yoyo (M) recall notice](https://www.cpsc.gov/Recalls/2026/Audio-Partnership-Recalls-Cambridge-Audio-Yoyo-M-Portable-Bluetooth-Speakers-Due-to-Fire-Hazard), downloaded without generative editing. The [CPSC copyright policy](https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy) states that recall notices, including photographs of recalled items, may be freely copied and distributed without permission; CPSC is credited and no endorsement is implied. | 2026-09-24 | Current-affairs article about the Canadian, U.S. and global Cambridge Audio Yoyo (M) safety recall; actual recalled-product image, not ZIMONAI testing, a client product, supplier evidence or sponsored content |
 | `src/assets/editorial-xo-poppy-power-bank-recall.jpg` | U.S. Consumer Product Safety Commission | Three recalled-product photographs from the [XO Poppy Power Trip recall notice](https://www.cpsc.gov/Recalls/2026/Truststone-Group-Recalls-XO-Poppy-Power-Trip-Magnetic-Wireless-Power-Banks-Due-to-Fire-and-Burn-Hazards-Sold-Exclusively-at-TJX-and-Marshalls-Stores), arranged side by side and JPEG-compressed without generative editing. The [CPSC copyright policy](https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy) states that recall notices, including photographs of recalled items, may be freely copied and distributed without permission; CPSC is credited and no endorsement is implied. | 2026-09-05 | Current-affairs article about the separate US and Canadian XO Poppy magnetic power-bank recalls; actual US recalled-product images, not a complete Canadian model list, ZIMONAI testing or sponsored content |
 
 ## Representation boundary
