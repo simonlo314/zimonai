@@ -8,6 +8,62 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-canada-external-power-supply-efficiency-mark',
+    key: 'canadaExternalPowerSupplyEfficiencyMark',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/canada-external-power-supply-efficiency-mark',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['canada', 'united-states'],
+    keywords: {
+      en: ['Canada external power supply efficiency mark', 'Canada Level VI power adapter', 'DOE Roman numeral mark Canada', 'Canadian EPS model number reporting', 'NRCan external power supply rules', 'charger energy efficiency Canada'],
+      'zh-tw': ['加拿大外接電源供應器能效標示', '加拿大 Level VI 電源適配器', 'DOE 羅馬數字標示加拿大', '加拿大電源供應器型號申報', 'NRCan 外接電源規定', '充電器加拿大能源效率'],
+      'zh-cn': ['加拿大外接电源能效标记', '加拿大 Level VI 电源适配器', 'DOE 罗马数字标记加拿大', '加拿大电源供应器型号申报', 'NRCan 外接电源规定', '充电器加拿大能源效率']
+    },
+    datePublished: '2026-09-25',
+    dateModified: '2026-09-25',
+    image: '/assets/editorial-canada-external-power-supply-efficiency.jpg',
+    imageWidth: 1000,
+    imageHeight: 750,
+    imageCrop: {
+      card: '49% 49%',
+      article: '50% 49%',
+      mobile: '51% 50%'
+    },
+    photo: {
+      photographer: 'Andrey Matveev',
+      page: 'https://www.pexels.com/photo/white-67w-charger-and-cable-on-yellow-background-29407254/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      {
+        publisher: 'Natural Resources Canada',
+        title: 'External power supplies — efficiency standards, verification marks and reporting',
+        url: 'https://natural-resources.canada.ca/energy-efficiency/energy-efficiency-regulations/external-power-supplies'
+      },
+      {
+        publisher: 'Department of Justice Canada',
+        title: 'Energy Efficiency Regulations, 2016 — sections 4, 5, 7 and 586–589',
+        url: 'https://laws-lois.justice.gc.ca/eng/regulations/SOR-2016-311/FullText.html'
+      },
+      {
+        publisher: 'U.S. Department of Energy',
+        title: 'International Efficiency Marking Protocol for External Power Supplies — DOE docket EERE-2020-BT-STD-0006',
+        url: 'https://www.regulations.gov/docket/EERE-2020-BT-STD-0006'
+      },
+      {
+        publisher: 'U.S. Department of Energy',
+        title: 'External Power Supplies — current standards and test procedure',
+        url: 'https://www.energy.gov/cmei/buildings/external-power-supplies'
+      },
+      {
+        publisher: 'Health Canada',
+        title: 'Health Canada warns of safety hazards with several uncertified USB chargers',
+        url: 'https://recalls-rappels.canada.ca/en/alert-recall/health-canada-warns-safety-hazards-several-uncertified-usb-chargers'
+      }
+    ]
+  },
+  {
     id: 'knowledge-cambridge-audio-yoyo-m-recall-canada',
     key: 'cambridgeAudioYoyoMRecallCanada',
     contentType: 'current-affairs',
@@ -712,7 +768,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
     featured: true,
-    featuredReviewedThrough: '2026-09-24',
+    featuredReviewedThrough: '2026-09-25',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1883,6 +1939,70 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      canadaExternalPowerSupplyEfficiencyMark: {
+        topic: 'Canada external-power-supply efficiency requirements',
+        published: '25 September 2026',
+        readTime: '7 minutes',
+        title: 'Canada may accept a Level VI adapter mark—but the model and filing must match',
+        description: 'Canada’s narrow external-power-supply exception lets a qualifying U.S. DOE Roman-numeral efficiency mark stand in for the Canadian verification mark only when certification-body verification and the exact reported model also line up.',
+        imageAlt: 'A Xiaomi-branded 67W wall charger and cable photographed against a yellow background.',
+        imageCaption: 'Real editorial stock photograph by Andrey Matveev, used under the Pexels License. The pictured Xiaomi-branded charger is not identified as a Canadian-market model, does not display evidence assessed in this article and is not a ZIMONAI client or supplier product.',
+        labels: {
+          summary: 'Reader overview',
+          checklist: 'What an importer should match',
+          limits: 'Scope and evidence limits'
+        },
+        answer: 'Canada’s Energy Efficiency Regulations let a qualifying external power supply use the U.S. DOE protocol’s Roman-numeral mark instead of the usual Canadian efficiency verification mark. The exception requires a certification body to verify the performance information submitted to Natural Resources Canada and the label to show the same model number. Import reporting still applies; this is not electrical-safety approval or blanket market access. Buyers need to connect the label, technical variant and Canadian importer’s record. ZIMONAI’s editorial view: Level VI is a lead to investigate, not a clearance conclusion; the evidence must match the model.',
+        takeaways: [
+          'The Roman-numeral option replaces only the Canadian energy-efficiency verification mark for a qualifying external power supply; it is not a blanket Canadian approval.',
+          'The certification body must verify the energy-performance information provided to NRCan, and the product label must show the same model number used in that verification.',
+          'The dealer/importer’s reporting and import information remain separate obligations, while electrical-safety certification is a different question.'
+        ],
+        sections: [
+          {
+            title: 'What does Canada’s Roman-numeral exception actually do?',
+            paragraphs: [
+              'Section 4(4) of Canada’s Energy Efficiency Regulations, 2016 creates a narrow exception to the ordinary verification-mark rule for external power supplies. A product can use a mark made under the U.S. Department of Energy’s International Efficiency Marking Protocol if a certification body has verified the energy-performance information submitted to the Minister and the product bears the exact model number used for that verification. NRCan describes this as an alternative to the Canadian energy-efficiency verification mark—not as a waiver of every Canadian requirement.',
+              'The familiar Roman numeral, often shown as Level VI on eligible products, therefore cannot carry the case by itself. A photo of the mark does not reveal whether the same model was reported, whether the certification body verified the performance data, or whether the regulated product falls within the Canadian definition and applicable manufacture-date rules. NRCan’s searchable product-model records and its CREED reporting route are part of the evidence trail buyers should understand.'
+            ],
+            items: [
+              'Identify the product as an external power supply under the Canadian regulatory definition',
+              'Confirm the applicable efficiency standard and manufacture-date period',
+              'Match the Roman-numeral mark to the DOE protocol',
+              'Match the full labelled model number to the model verified by the certification body'
+            ]
+          },
+          {
+            title: 'Why do the model number and importer record matter?',
+            paragraphs: [
+              'The Regulations require a dealer importing a regulated energy-using product for sale or lease to provide product and manufacturer details to the Minister. For an external power supply using the exception, the filing also identifies the certification body that verified the energy-performance information. Additional technical information—such as voltage configuration, output ranges, efficiency and no-load power—forms part of the reporting framework. Import-specific information must also be available in the commercial or customs documentation before release, subject to the Regulations’ stated exceptions.',
+              'That is why a family name, retail listing or wattage printed on a carton is not a safe substitute for the exact model identity. A suffix, regional SKU, output configuration or replacement-supply designation may affect the correspondence between the item being imported and the record. Buyers should ask the Canadian importer to reconcile the quote, product label, technical file and applicable filing, while treating a supplier’s screenshot as a starting point rather than independent proof.'
+            ],
+            items: [
+              'Quoted model, nameplate model and reported model are identical or supported by a documented cross-reference',
+              'Brand and manufacturer details match the product and filing',
+              'The certification body is identified and the verified performance information covers this configuration',
+              'The importer can explain how required product details connect to its Canadian import records'
+            ]
+          },
+          {
+            title: 'An efficiency numeral is not a safety approval',
+            paragraphs: [
+              'Energy efficiency and electrical safety address different regulatory questions. Canada’s exception concerns the verification mark under the Energy Efficiency Regulations. It does not convert a DOE efficiency numeral into a CSA, cUL, cETL or other electrical-safety certification mark, and it does not establish compliance with every applicable electrical, electromagnetic-compatibility, radio or destination-market rule. Health Canada’s consumer warning on uncertified USB chargers discusses safety hazards and the need for appropriate certification; it is a separate evidence track from NRCan’s efficiency reporting.',
+              'ZIMONAI’s buyer-side interpretation is to maintain two linked but distinct checks: first, verify that the Canadian efficiency exception is supported for the precise external power supply and its model-specific report; second, determine which electrical-safety certification and other product rules apply to the intended use and sales channel. A pass in one column must not silently fill the other.'
+            ]
+          }
+        ],
+        checklist: [
+          'Confirm the product fits the Canadian definition of an external power supply and note any stated exclusion or special category',
+          'Record the manufacturing date, voltage configuration, output ratings and whether it is a direct-operation or replacement supply',
+          'Photograph the complete nameplate and transcribe the full model number, including suffixes',
+          'Ask which certification body verified the energy-performance information and how that record maps to the labelled model',
+          'Have the Canadian dealer/importer confirm the applicable NRCan report and pre-import documentation for this shipment',
+          'Separately verify electrical-safety certification and any other Canadian requirements that apply to the finished product'
+        ],
+        limitsText: 'This article explains the federal energy-efficiency route described in the cited Canadian regulations and NRCan guidance. Product scope, manufacture date, technical configuration, end-use, provincial rules and the dealer/importer’s role can change which duties apply; the general term “charger” is not enough to classify a product. The Roman-numeral exception does not itself prove electrical-safety certification, EMC compliance, product quality, batch conformity, supplier identity or approval in another market. Public guidance and a model listing also do not verify a specific shipment unless its label, technical configuration and responsible party’s records match. The buyer workflow and risk interpretation above are ZIMONAI editorial analysis, not legal advice or an NRCan decision on any unnamed model.'
+      },
       cambridgeAudioYoyoMRecallCanada: {
         topic: 'Portable-speaker recall · Canada and United States',
         published: '24 September 2026',
@@ -3914,6 +4034,70 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      canadaExternalPowerSupplyEfficiencyMark: {
+        topic: '加拿大外接電源供應器能源效率要求',
+        published: '2026 年 9 月 25 日',
+        readTime: '約 7 分鐘',
+        title: '加拿大可用 Level VI 代替能效驗證標誌，但型號與申報都要對上',
+        description: '加拿大對外接電源供應器設有特定標示替代路徑：DOE 羅馬數字標誌須搭配認證機構驗證與完全相符的產品型號，進口申報也仍要完整。',
+        imageAlt: '黃色背景上的 Xiaomi 品牌 67W 牆插式充電器與連接線。',
+        imageCaption: 'Andrey Matveev 拍攝的真實編輯用照片，依 Pexels 授權使用。圖中的 Xiaomi 品牌充電器並非本文認定的加拿大市場型號，照片也不呈現本文查核的證據；它不是 ZIMONAI 客戶或供應商產品。',
+        labels: {
+          summary: '讀者總覽',
+          checklist: '進口商應逐項對照什麼',
+          limits: '適用範圍與證據限制'
+        },
+        answer: '加拿大《能源效率規例》允許符合條件的外接電源供應器，以 DOE 羅馬數字標誌替代一般能效驗證標誌；前提是認證機構驗證已提交 NRCan 的性能資料，且標籤型號完全相同。進口申報仍適用，這也不是電氣安全認證。買家須對照實物型號、技術配置與加拿大進口商紀錄。ZIMONAI 的判讀：Level VI 是查證起點，不是放行結論。',
+        takeaways: [
+          '羅馬數字標誌只替代特定外接電源供應器的加拿大能源效率驗證標誌，不等於全面加拿大核准。',
+          '認證機構須驗證提交給 NRCan 的能源性能資料，產品標籤上的完整型號必須與受驗證型號相同。',
+          '經銷商／進口商仍負有申報與進口資訊義務；電氣安全認證則是另一條查核線。'
+        ],
+        sections: [
+          {
+            title: '加拿大的羅馬數字例外，實際上改變了什麼？',
+            paragraphs: [
+              '加拿大《2016 年能源效率規例》第 4(4) 條，為外接電源供應器的一般驗證標誌要求設下有限例外。產品若按美國能源部《外接電源國際效率標示協定》標示，認證機構已驗證提交給主管部長的能源性能資料，而且實物標籤使用受驗證時相同的產品型號，才可採用這條路徑。NRCan 將它描述為加拿大能源效率驗證標誌的替代方式，不是免除所有加拿大要求。',
+              '常見的羅馬數字，例如符合條件產品上的 Level VI，不能單獨完成證據鏈。只看標誌照片，看不出同一型號是否已申報、認證機構有沒有驗證性能資料，也看不出產品是否符合加拿大法規對外接電源供應器的定義與製造日期規則。買家還要理解 NRCan 的可查型號資料及 CREED 申報流程在證據鏈中的位置。'
+            ],
+            items: [
+              '先依加拿大法規定義確認產品是否屬於外接電源供應器',
+              '確認適用的能源效率標準與製造日期區間',
+              '確認羅馬數字標誌依照美國能源部協定使用',
+              '將標籤上的完整型號對回認證機構驗證所用型號'
+            ]
+          },
+          {
+            title: '為什麼型號與進口商紀錄同樣重要？',
+            paragraphs: [
+              '經銷商為銷售或租賃而把受管制產品進口加拿大，須依規例向主管部長提供產品與製造商資料。採用外接電源供應器例外路徑時，也須申報驗證能源性能資料的認證機構；電壓配置、輸出範圍、效率與無負載功耗等技術資訊，也在申報框架內。貨物放行前，商業發票或海關文件還要載有所需進口資訊，法規明列的例外則另行適用。',
+              '所以，產品系列名稱、零售頁面或紙箱上的瓦數，不能安全取代完整型號。尾碼、區域 SKU、輸出配置或替換用電源的用途，都可能影響實際進口品項與紀錄能否對應。買家可請加拿大進口商把報價、銘牌、技術檔案與相關申報逐一勾稽；供應商截圖適合作為查詢起點，不能直接當成獨立證明。'
+            ],
+            items: [
+              '報價型號、銘牌型號與申報型號完全相同，或有可追溯的書面對照',
+              '品牌與製造商資料能回到實物及申報紀錄',
+              '能指出驗證能源性能資料的認證機構，且紀錄涵蓋此一配置',
+              '加拿大經銷商／進口商能說明產品資料如何連到本批進口文件'
+            ]
+          },
+          {
+            title: '能效數字不是電氣安全認證',
+            paragraphs: [
+              '能源效率與電氣安全回答的是不同法規問題。加拿大例外處理的是《能源效率規例》下的驗證標誌；DOE 效率羅馬數字不會因此變成 CSA、cUL、cETL 等電氣安全認證標誌，也不會證明所有適用的電氣、電磁相容、無線電或目的地市場規則都已符合。加拿大衛生部針對未認證 USB 充電器的消費警示，談的是安全風險與適當認證，與 NRCan 能效申報是不同證據路徑。',
+              'ZIMONAI 的採購判讀是保留兩條相連、但各自獨立的檢查線：先確認特定外接電源供應器與型號報告是否支持加拿大能效例外，再確認成品的預定用途與銷售通路需要哪些電氣安全認證及其他產品要求。一欄通過，不應自動替另一欄打勾。'
+            ]
+          }
+        ],
+        checklist: [
+          '確認產品符合加拿大外接電源供應器定義，並記下任何排除條件或特殊類別',
+          '記錄製造日期、電壓配置、輸出規格，以及直供型或替換型用途',
+          '拍下完整銘牌，逐字記錄含尾碼的型號',
+          '詢問哪一家認證機構驗證能源性能資料，以及紀錄如何對應標示型號',
+          '請加拿大經銷商／進口商確認適用的 NRCan 申報及本批貨物進口文件',
+          '另外核對成品適用的電氣安全認證與其他加拿大要求'
+        ],
+        limitsText: '本文整理加拿大法規與 NRCan 指引所述的聯邦能源效率路徑。產品範圍、製造日期、技術配置、最終用途、各省規定及經銷商／進口商身分，都可能改變適用義務；日常所說的「充電器」不足以完成法規分類。羅馬數字例外本身不能證明電氣安全認證、EMC 符合性、產品品質、批次一致、供應商身分或其他市場核准。公開指引或型號名錄也不能代替本批貨物的標籤、技術配置與責任業者資料相符。本文的買家作業流程與風險解讀屬於 ZIMONAI 編輯分析，不是法律意見，也不是 NRCan 對任何未具名型號的裁定。'
+      },
       cambridgeAudioYoyoMRecallCanada: {
         topic: '加拿大與美國產品安全時事',
         published: '2026 年 9 月 24 日',
@@ -5940,6 +6124,70 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      canadaExternalPowerSupplyEfficiencyMark: {
+        topic: '加拿大外接电源能效要求',
+        published: '2026 年 9 月 25 日',
+        readTime: '约 7 分钟',
+        title: '加拿大可用 Level VI 替代能效验证标志，但型号与申报必须对应',
+        description: '加拿大为外接电源设置了特定标记替代路径：DOE 罗马数字标记必须对应经认证机构核验的精确型号，进口申报仍需齐全。',
+        imageAlt: '黄色背景上的 Xiaomi 品牌 67W 墙插式充电器与连接线。',
+        imageCaption: 'Andrey Matveev 拍摄的真实编辑用照片，依据 Pexels 许可使用。图中的 Xiaomi 品牌充电器并非本文认定的加拿大市场型号，照片也不展示本文核查的证据；它不是 ZIMONAI 客户或供应商产品。',
+        labels: {
+          summary: '读者总览',
+          checklist: '进口商应逐项核对什么',
+          limits: '适用范围与证据边界'
+        },
+        answer: '加拿大《能源效率法规》允许符合条件的外接电源使用 DOE 罗马数字标记替代常规能效验证标志，但认证机构须核验提交给 NRCan 的性能信息，标签型号也必须完全一致。进口申报仍需满足，这不等于电气安全认证或全面准入。买家应关联实物型号、技术配置和加拿大进口商记录。ZIMONAI 的判断：Level VI 是核查线索，不是放行结论。',
+        takeaways: [
+          '罗马数字标记只替代特定外接电源的加拿大能效验证标志，不等于全面加拿大批准。',
+          '认证机构必须核验提交给 NRCan 的能效信息，标签上的完整型号必须与受核验型号一致。',
+          '经销商／进口商仍须履行申报和进口信息义务；电气安全认证是另一条核查线。'
+        ],
+        sections: [
+          {
+            title: '加拿大的罗马数字例外，究竟改变了什么？',
+            paragraphs: [
+              '加拿大《2016 年能源效率法规》第 4(4) 条，为外接电源通常需要的验证标志设置了有限例外。产品须依据美国能源部《外接电源国际效率标记协议》标记，认证机构已核验提交给主管部长的能效信息，且产品标签使用核验时相同的型号，才能走这条路径。NRCan 将其描述为加拿大能效验证标志的替代方式，而非免除所有加拿大要求。',
+              '常见的罗马数字，例如符合条件产品上的 Level VI，本身不足以构成完整证据链。只看标志照片，无法看出同一型号是否已经申报、认证机构是否核验过能效信息，也无法确认产品是否符合加拿大对外接电源的法规定义及生产日期规则。买家还应了解 NRCan 可查询型号信息以及 CREED 申报流程在证据链中的作用。'
+            ],
+            items: [
+              '先按加拿大法规定义确认产品是否属于外接电源',
+              '确认适用的能效标准与生产日期区间',
+              '确认罗马数字标记符合美国能源部协议',
+              '将标签上的完整型号与认证机构核验时使用的型号对应'
+            ]
+          },
+          {
+            title: '为什么型号和进口商记录都很重要？',
+            paragraphs: [
+              '经销商为销售或租赁而将受管制的能耗产品进口加拿大，须按法规向主管部长提供产品及制造商信息。采用外接电源例外路径时，申报中也要列出核验能效信息的认证机构；电压配置、输出范围、效率与空载功率等技术信息同样属于申报框架。货物放行前，商业或海关文件还要具备所需进口信息，法规规定的例外情况另行处理。',
+              '因此，系列名称、零售页面或纸箱上的瓦数，都不能稳妥替代完整型号。后缀、区域 SKU、输出配置或替换型电源的用途，都可能影响实物与申报记录是否对应。买家可请加拿大进口商逐项比对报价、铭牌、技术档案和相关申报；供应商截图可以作为检索入口，却不能直接充当独立证明。'
+            ],
+            items: [
+              '报价型号、铭牌型号和申报型号完全相同，或有可追溯的书面对照',
+              '品牌与制造商信息能够对应实物和申报记录',
+              '能够指出核验能效信息的认证机构，且记录涵盖该配置',
+              '加拿大经销商／进口商能够说明产品信息如何关联本批进口文件'
+            ]
+          },
+          {
+            title: '能效数字不是电气安全认证',
+            paragraphs: [
+              '能效与电气安全回答的是不同法规问题。加拿大例外针对《能源效率法规》下的验证标志；DOE 能效罗马数字不会因此成为 CSA、cUL、cETL 等电气安全认证标志，也不能证明所有适用的电气、电磁兼容、无线电或目的地市场法规都已满足。加拿大卫生部关于未认证 USB 充电器的消费警示讨论的是安全风险及适当认证，与 NRCan 能效申报属于不同证据路径。',
+              'ZIMONAI 的采购判断是保留两条彼此关联、但不能相互替代的核查线：先确认这款外接电源及其型号报告是否支持加拿大能效例外，再确认成品的预定用途和销售渠道需要哪些电气安全认证及其他产品要求。一栏通过，不应自动替另一栏打勾。'
+            ]
+          }
+        ],
+        checklist: [
+          '确认产品符合加拿大外接电源定义，并记录任何排除条件或特殊类别',
+          '记录生产日期、电压配置、输出规格，以及直供型或替换型用途',
+          '拍摄完整铭牌，逐字记录包含后缀的型号',
+          '询问哪家认证机构核验了能效信息，以及记录如何对应标签型号',
+          '请加拿大经销商／进口商确认适用的 NRCan 申报和本批货物进口文件',
+          '另行核对成品适用的电气安全认证及其他加拿大要求'
+        ],
+        limitsText: '本文整理加拿大法规与 NRCan 指南中的联邦能效路径。产品范围、生产日期、技术配置、最终用途、省级规则以及经销商／进口商身份，都可能改变适用义务；日常所说的“充电器”不足以完成法规分类。罗马数字例外本身不能证明电气安全认证、EMC 符合性、产品质量、批次一致性、供应商身份或其他市场批准。公开指引或型号名录也不能代替本批货物的标签、技术配置与责任主体记录相匹配。本文的买家工作流程与风险解读属于 ZIMONAI 编辑分析，不构成法律意见，也不是 NRCan 对任何未指明型号作出的裁定。'
+      },
       cambridgeAudioYoyoMRecallCanada: {
         topic: '加拿大与美国产品安全动态',
         published: '2026 年 9 月 24 日',
