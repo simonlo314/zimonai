@@ -16,9 +16,10 @@ import { knowledgeSummaryIssues } from '../src/knowledge-summary-policy.mjs';
 import { portalContent } from '../src/portal-content.mjs';
 import { adminContent } from '../src/admin-content.mjs';
 import { cjkProtectedTerms, stripCjkProtectionMarkup } from '../src/cjk-linebreak.mjs';
+import { buildDirectory } from './build-directory.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const dist = path.join(root, 'dist');
+const dist = buildDirectory(root);
 await access(path.join(root, 'scripts', 'cjk-browser-check.playwright.js'));
 const distFiles = await readdir(dist, { recursive: true });
 const files = distFiles.filter((file) => file.endsWith('.html'));
@@ -208,11 +209,11 @@ function localTarget(raw) {
 }
 
 const requiredSections = {
-  'index.html': ['hero-cinema', 'hero-cinema__scene', 'hero-proof', 'decision-ledger', 'verification-flow', 'operating-record', 'services-preview__actions', 'consultation-quick-link', 'source-index'],
-  'services/index.html': ['service-staircase', 'consultation-inline-entry', 'service-tier-select', 'service-balance-entry', 'service-tier-panel', 'service-checkout-protocol', 'checkout-form--inline', 'sample-report', 'report-promises'],
+  'index.html': ['approved-home', 'manufacturing-hero', 'verification-evidence', 'evidence-questions', 'service-overview', 'tier-primary', 'tier-secondary', 'advanced-overview', 'report-artifact', 'material-gap', 'operating-glimpse'],
+  'services/index.html': ['service-jump', 'consultation-inline-entry', 'advanced-services', 'service-balance-entry', 'service-detail', 'service-checkout-protocol', 'checkout-form--inline', 'sample-report', 'editorial-faq'],
   'methodology/index.html': ['source-registry', 'report-anatomy'],
   'scope-limitations/index.html': ['decision-guide', 'accreditation'],
-  'about/index.html': ['page-hero__brand-mark', 'business-record', 'registration-evidence', 'office-evidence'],
+  'about/index.html': ['approved-about', 'about-intro', 'business-record', 'registration-evidence', 'office-evidence'],
   'request-verification/index.html': ['request-layout', 'data-inquiry-form', 'data-inquiry-status', 'form-trap'],
   'payments/index.html': ['payment-desk', 'payment-grid', 'payment-private', 'payment-process', 'checkout-form'],
   'payment-success/index.html': ['payment-result', 'payment-receipt', 'payment-intake', 'payment-balance-done'],
@@ -401,8 +402,8 @@ for (const spec of knowledgeArticleSpecs) {
 }
 
 for (const [prefix, htmlLang, addressLabel, proofLabel] of [
-  ['zh-tw', 'zh-Hant', '註冊暨實際接待地址', '我們實際核對什麼'],
-  ['zh-cn', 'zh-Hans', '注册及实际接待地址', '我们实际核对什么']
+  ['zh-tw', 'zh-Hant', '註冊暨實際接待地址', '直接展示現有英文範例的原始封面，不代表新的供應商查核結果。'],
+  ['zh-cn', 'zh-Hans', '注册及实际接待地址', '直接展示现有英文示例的原始封面，不代表新的供应商核查结果。']
 ]) {
   const homeHtml = await readFile(path.join(dist, prefix, 'index.html'), 'utf8');
   const aboutHtml = await readFile(path.join(dist, prefix, 'about', 'index.html'), 'utf8');
@@ -455,9 +456,14 @@ for (const file of files) {
           const service = graph.find((node) => node['@type'] === 'Service');
           const offerCatalog = graph.find((node) => node['@type'] === 'OfferCatalog');
           if (!service?.hasOfferCatalog?.['@id']) errors.push(`${label}: Service schema is not linked to an OfferCatalog`);
-          if (offerCatalog?.itemListElement?.length !== 6) errors.push(`${label}: OfferCatalog does not contain all six service tiers`);
+          if (offerCatalog?.itemListElement?.length !== 3) errors.push(`${label}: OfferCatalog must contain T1, T2 and Advanced`);
           if (offerCatalog?.itemListElement?.[0]?.priceSpecification?.price !== 149) errors.push(`${label}: T1 structured price is incorrect`);
-          if (offerCatalog?.itemListElement?.[5]?.priceSpecification?.minPrice !== 5000) errors.push(`${label}: T6 structured starting price is incorrect`);
+          if (offerCatalog?.itemListElement?.[1]?.priceSpecification?.price !== 349) errors.push(`${label}: T2 structured price is incorrect`);
+          const advanced = offerCatalog?.itemListElement?.[2];
+          if (advanced?.itemListElement?.length !== 4 || /"(?:price|minPrice|maxPrice|priceSpecification)"/.test(JSON.stringify(advanced))) errors.push(`${label}: Advanced must retain four unpriced services`);
+          for (const tier of ['t1', 't2', 't3', 't4', 't5', 't6', 'advanced']) {
+            if (!html.includes(`id="${tier}"`)) errors.push(`${label}: missing preserved service anchor ${tier}`);
+          }
         }
         const isKnowledgeArticle = knowledgeArticleOutputFiles.has(file);
         if (isKnowledgeArticle && !graph.some((node) => node['@type'] === 'Article')) errors.push(`${label}: JSON-LD missing Article entity`);
@@ -498,9 +504,11 @@ for (const [name, pattern] of forbidden) if (pattern.test(joined)) errors.push(`
 for (const phrase of ['shared office', '共享辦公', '共享办公']) if (joined.toLowerCase().includes(phrase)) errors.push(`site output contains unapproved public wording: ${phrase}`);
 if (!joined.includes('simonlo@zimonai.com')) errors.push('formal email missing');
 if (!joined.includes('19575746458')) errors.push('formal phone missing');
-if (!sourceTemplate.includes('/assets/zimonai-logo-primary.svg') || !sourceTemplate.includes('/assets/zimonai-logo-white.svg')) errors.push('new ZimonAI logo system is not wired into the site chrome');
+if (!joined.includes('/assets/zimonai-logo-primary.svg') || !joined.includes('/assets/zimonai-logo-white.svg')) errors.push('new ZimonAI logo system is not wired into the site chrome');
 if (sourceTemplate.includes('<svg viewBox="0 0 42 42"')) errors.push('retired ZimonAI header mark remains in the template');
-if (!sourceTemplate.includes("['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]")) errors.push('navigation order must place scope before about');
+for (const hook of ['data-mega-toggle', 'id="mega-services"', 'id="mega-resources"', 'data-equivalent-language']) {
+  if (!joined.includes(hook)) errors.push(`new navigation is missing ${hook}`);
+}
 for (const contact of ['+86 19575746458', '+886 988307998', 'simon3141229', 'lo17v1']) {
   if (!joined.includes(contact)) errors.push(`approved contact missing: ${contact}`);
 }
@@ -525,7 +533,7 @@ for (const address of [
 ]) {
   if (!joined.includes(address)) errors.push(`approved localized office address missing: ${address}`);
 }
-for (const phrase of ['One category only', '我們專精充電器與電源電子供應鏈', '我们专注充电器与电源电子供应链', 'Full Managed Sourcing Verification']) {
+for (const phrase of ['Charger &amp; power electronics', '基礎供應商查核', '基础供应商核查', 'Fully Managed Sourcing Verification']) {
   if (!joined.includes(phrase)) errors.push(`site output missing approved category or service content: ${phrase}`);
 }
 for (const event of ['page_view', 'session_start', 'contact_click', 'tier_select', 'request_submit', 'support_open', 'checkout_start', 'checkout_error', 'payment_confirmed', 'post_payment_intake']) {

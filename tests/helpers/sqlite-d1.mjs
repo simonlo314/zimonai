@@ -44,7 +44,8 @@ export class SqliteD1 {
       '0005_identity_email_authority.sql',
       '0006_order_lifecycle.sql',
       '0007_case_archive.sql',
-      '0008_public_inquiries.sql'
+      '0008_public_inquiries.sql',
+      '0009_inquiry_service_classification.sql'
     ]) {
       this.raw.exec(readFileSync(new URL(`../../migrations-portal/${migration}`, import.meta.url), 'utf8'));
     }

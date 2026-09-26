@@ -2,6 +2,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { DatabaseSync } from 'node:sqlite';
 import test from 'node:test';
+import path from 'node:path';
+import { tmpdir } from 'node:os';
+import { buildDirectory } from '../scripts/build-directory.mjs';
 
 import {
   PORTAL_BASE_INDEXES,
@@ -10,6 +13,18 @@ import {
 } from '../scripts/release-production.mjs';
 
 const COMMIT = '0123456789abcdef0123456789abcdef01234567';
+
+test('release artifacts use an isolated temporary dist without accepting arbitrary paths', () => {
+  assert.equal(buildDirectory('/repo', ''), '/repo/dist');
+  const allowed = path.join(tmpdir(), 'zimonai-production-aB1234', 'dist');
+  assert.equal(buildDirectory('/repo', allowed), allowed);
+  for (const unsafe of ['/', '/repo', '/repo/dist', tmpdir(), path.join(tmpdir(), 'unrelated', 'dist')]) {
+    assert.throws(() => buildDirectory('/repo', unsafe), /fresh zimonai-production/);
+  }
+  const source = readFileSync(new URL('../scripts/release-production.mjs', import.meta.url), 'utf8');
+  assert.match(source, /ZIMONAI_RELEASE_DIST: artifactDirectory/);
+  assert.match(source, /'pages', 'deploy', artifactDirectory/);
+});
 
 function fakeGit(overrides = {}) {
   const values = new Map([

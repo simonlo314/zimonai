@@ -22,7 +22,8 @@ export async function onRequestGet({ request, env }) {
   const rows = await portalDb(env).prepare(`
     SELECT id, public_reference, locale, contact_name, contact_email,
            company_name, supplier_name, supplier_url, chinese_legal_name,
-           product_category, question, consent_at, status, created_at, updated_at
+           product_category, question, consent_at, status, created_at, updated_at,
+           service_group, service_interest
     FROM public_inquiries
     WHERE (?1 = '' OR status = ?1)
     ORDER BY created_at DESC
@@ -70,7 +71,8 @@ export async function onRequestPatch({ request, env }) {
   const updated = await db.prepare(`
     SELECT id, public_reference, locale, contact_name, contact_email,
            company_name, supplier_name, supplier_url, chinese_legal_name,
-           product_category, question, consent_at, status, created_at, updated_at
+           product_category, question, consent_at, status, created_at, updated_at,
+           service_group, service_interest
     FROM public_inquiries WHERE id = ?1 LIMIT 1
   `).bind(id).first();
   return portalJson({ inquiry: publicInquiry(updated) });

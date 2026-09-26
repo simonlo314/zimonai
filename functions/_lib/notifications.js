@@ -114,7 +114,8 @@ function messageFor(row) {
   const isInquiry = row.notification_type === 'admin_public_inquiry_received';
   const subject = isInquiry ? copy.inquirySubject : isLegacy ? copy.legacySubject : isAdmin ? copy.adminSubject : isManual ? copy.manualSubject : copy.customerSubject;
   const heading = isInquiry ? copy.inquiryHeading : isLegacy ? copy.legacyHeading : isAdmin ? copy.adminHeading : isManual ? copy.manualHeading : copy.customerHeading;
-  const body = isInquiry ? copy.inquiryBody : isLegacy ? copy.legacyBody : isAdmin ? copy.adminBody : isManual ? copy.manualBody : copy.customerBody;
+  const classification = isInquiry ? ` ${locale === 'en' ? 'Service' : locale === 'zh-tw' ? '服務' : '服务'}: ${payload.serviceGroup || 'unsure'} / ${payload.serviceInterest || 'unsure'}.` : '';
+  const body = isInquiry ? copy.inquiryBody + classification : isLegacy ? copy.legacyBody : isAdmin ? copy.adminBody : isManual ? copy.manualBody : copy.customerBody;
   const portalUrl = `https://zimonai.com${locale === 'en' ? '' : `/${locale}`}/portal/`;
   const actionUrl = isInquiry
     ? `https://zimonai.com${locale === 'en' ? '' : `/${locale}`}/admin/`

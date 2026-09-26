@@ -1,4 +1,5 @@
-import { chmodSync, mkdirSync, readdirSync } from 'node:fs';
+import { chmodSync, mkdirSync, mkdtempSync, readdirSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -152,12 +153,12 @@ function fail(message) {
   throw new Error(message);
 }
 
-function run(command, args, { capture = false } = {}) {
+function run(command, args, { capture = false, env = process.env } = {}) {
   const result = spawnSync(command, args, {
     cwd: ROOT,
     encoding: 'utf8',
     stdio: capture ? ['ignore', 'pipe', 'pipe'] : 'inherit',
-    env: process.env,
+    env,
   });
 
   if (result.error) throw result.error;
@@ -367,6 +368,7 @@ function verifyPortalSchema(names, applied) {
       'supplier_name:TEXT', 'supplier_url:TEXT', 'chinese_legal_name:TEXT',
       'product_category:TEXT', 'question:TEXT', 'consent_at:TEXT', 'status:TEXT',
       'created_at:TEXT', 'updated_at:TEXT',
+      ...(applied.includes('0009_inquiry_service_classification.sql') ? ['service_group:TEXT', 'service_interest:TEXT'] : []),
     ]);
     assertTable(PORTAL_DB, names, 'public_inquiry_rate_limits', [
       'scope:TEXT', 'key_hash:TEXT', 'window_start:TEXT', 'request_count:INTEGER',
@@ -517,7 +519,11 @@ function release() {
   assertReleaseSource();
   const before = inspectRemote();
   printPlan(before);
-  run('npm', ['run', 'release:verify']);
+  const artifactDirectory = path.join(mkdtempSync(path.join(tmpdir(), 'zimonai-production-')), 'dist');
+  run('npm', ['run', 'release:verify'], {
+    env: { ...process.env, ZIMONAI_RELEASE_DIST: artifactDirectory },
+  });
+  console.log(`Verified isolated release artifact: ${artifactDirectory}`);
   assertReleaseSource();
   backupRemoteDatabases('before-production-migrations');
   assertReleaseSource();
@@ -536,7 +542,7 @@ function release() {
   console.log('Remote migration ledgers and resulting schemas verified. Deploying Pages.');
   const source = assertReleaseSource();
   run(WRANGLER, [
-    'pages', 'deploy', 'dist', '--project-name', 'zimonai', '--branch', 'main',
+    'pages', 'deploy', artifactDirectory, '--project-name', 'zimonai', '--branch', 'main',
     '--commit-hash', source.commitHash, '--commit-message', source.commitMessage,
     '--commit-dirty=false',
   ]);

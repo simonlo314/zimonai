@@ -2,6 +2,30 @@
 
 Last reviewed: 2026-09-26
 
+## Local visual polish — 2026-09-27
+
+The existing photographs below were reused in the local redesign, with their
+original Pexels pages and the Pexels license rechecked on 2026-09-27. No new AI
+photographs or fictional case documents were created. The original JPGs remain
+unchanged; 640px and 1200px WebP derivatives preserve their aspect ratios.
+Responsive CSS crops are presentation only. Each placement carries a photographer
+source link and an explicit editorial-context disclosure.
+
+- `editorial-power-supply-board`: Abolfazl Pahlavan, Pexels photo 33813265.
+  Methodology introduction; a product-category illustration, not a supplier
+  sample, product test, client assignment or compliance finding.
+- `editorial-chargers-table`: I'm Zion, Pexels photo 5948288.
+  Homepage service introduction and Services T1 explanatory column. The image
+  illustrates the product category and does not imply a site visit or inspection
+  is included in either fixed-scope service.
+- The existing Nenad Stojković / Shixart1985 manufacturing photograph (CC BY 2.0)
+  also appears beside the Advanced explanation. Its source, license, crop
+  disclosure, and non-assignment caption are retained. No claim is made about
+  the factory's location or a relationship with ZimonAI.
+
+Only the existing report **cover** is displayed. Report interiors remain outside
+this change: a publication/privacy review has not been completed for them.
+
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
 | Local asset | Photographer | Source | Website use |

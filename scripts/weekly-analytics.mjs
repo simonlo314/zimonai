@@ -131,6 +131,12 @@ export function summarizePeriod({
     contactClicks: sum(selected, (row) => row.event_name === 'contact_click'),
     topPages: grouped(selected, 'page_path', (row) => row.event_name === 'page_view'),
     locales: grouped(selected, 'locale', (row) => row.event_name === 'page_view'),
+    // Aggregate browser events, not unique-user conversion rates or accounting totals.
+    localeInteractions: Object.fromEntries(['en', 'zh-tw', 'zh-cn'].map((locale) => [locale,
+      Object.fromEntries(['page_view', 'cta_click', 'request_submit', 'checkout_start', 'checkout_error', 'payment_confirmed']
+        .map((event) => [event, sum(selected, (row) => row.locale === locale && row.event_name === event)]))
+    ])),
+    inquiryInterests: grouped(selected, 'target', (row) => row.event_name === 'inquiry_classified'),
     devices: grouped(selected, 'device', (row) => row.event_name === 'page_view'),
     referrers: grouped(selected, 'referrer', (row) => row.event_name === 'page_view'),
     serviceTiers: grouped(selected, 'target', (row) => row.event_name === 'tier_select'),

@@ -1,3 +1,5 @@
+import { SERVICE_NAMES } from '../shared/service-facts.mjs';
+
 export const adminContent = {
   en: {
     metaTitle: 'Operations workspace | ZimonAI',
@@ -54,7 +56,7 @@ export const adminContent = {
       paymentDetails: 'Update order and payment', fulfillment: 'Fulfilment status', saveOrder: 'Save order update', orderSaved: 'Order update saved.', actionError: 'This update could not be saved. No status was changed.', invitation: 'Email invitation pending', verified: 'Verified account',
       showArchivedCases: 'Show archived cases', hideArchivedCases: 'Hide archived cases', archiveCase: 'Archive closed case', unarchiveCase: 'Restore case', archivedCase: 'Closed · Archived', caseArchiveWorking: 'Updating…', caseArchived: 'Case archived.', caseUnarchived: 'Case restored.',
       showArchivedOrders: 'Show archived orders', hideArchivedOrders: 'Hide archived orders', archiveOrder: 'Archive order', unarchiveOrder: 'Restore order', cancelOrder: 'Cancel unpaid order', cancelOrderConfirm: 'Cancel this unpaid order? No payment will be taken.', orderActionWorking: 'Updating…', orderArchived: 'Order archived.', orderUnarchived: 'Order restored.', orderCancelled: 'Unpaid order cancelled.',
-      productOptions: [['consultation', 'Supplier Verification Consultation'], ['consultation-extension', 'Consultation Extension'], ['balance', 'Service Balance Payment'], ['t1', 'T1 · Certificate Verification'], ['t2', 'T2 · Remote Due Diligence'], ['t3', 'T3 · Verified Remote Interview'], ['t4', 'T4 · On-Site Verification'], ['t5', 'T5 · Verification Advisor'], ['t6', 'T6 · Managed Sourcing Verification'], ['custom', 'Other agreed service']]
+      productOptions: [['consultation', 'Supplier Verification Consultation'], ['consultation-extension', 'Consultation Extension'], ['balance', 'Service Balance Payment'], ['t1', 'T1 · Supplier Verification'], ['t2', 'T2 · Enhanced Supplier Due Diligence'], ['t3', 'T3 · Verified Remote Interview'], ['t4', 'T4 · On-Site Verification'], ['t5', 'T5 · Verification Advisor'], ['t6', 'T6 · Managed Sourcing Verification'], ['custom', 'Other agreed service']]
     },
     form: {
       eyebrow: 'Manual intake',
@@ -69,7 +71,7 @@ export const adminContent = {
       decisionContext: 'Decision this work should support',
       requestedChecks: 'Claims or documents to check',
       tier: 'Service level',
-      tiers: [['unsure', 'Not set'], ['t1', 'T1 · Certificate Verification'], ['t2', 'T2 · Remote Due Diligence'], ['t3', 'T3 · Verified Remote Interview'], ['t4', 'T4 · On-Site Verification'], ['t5', 'T5 · Verification Advisor'], ['t6', 'T6 · Managed Sourcing Verification']],
+      tiers: [['unsure', 'Not set'], ['t1', 'T1 · Supplier Verification'], ['t2', 'T2 · Enhanced Supplier Due Diligence'], ['t3', 'T3 · Verified Remote Interview'], ['t4', 'T4 · On-Site Verification'], ['t5', 'T5 · Verification Advisor'], ['t6', 'T6 · Managed Sourcing Verification']],
       fieldHint: 'Leave details blank when they have not been supplied. The case will be recorded as waiting for client information.',
       paymentNote: 'Creating a case never confirms a payment. Record and confirm Stripe, transfer or waived-payment details separately in the order record.',
       submit: 'Create case record',
@@ -135,7 +137,7 @@ export const adminContent = {
       paymentDetails: '更新訂單與付款', fulfillment: '交付狀態', saveOrder: '儲存訂單更新', orderSaved: '訂單更新已儲存。', actionError: '這次更新未能儲存，任何狀態都沒有被更動。', invitation: '等待完成 Email 驗證', verified: '已驗證帳戶',
       showArchivedCases: '顯示已封存案件', hideArchivedCases: '收起已封存案件', archiveCase: '封存已結案案件', unarchiveCase: '恢復案件', archivedCase: '已結案 · 已封存', caseArchiveWorking: '正在更新…', caseArchived: '案件已封存。', caseUnarchived: '案件已恢復。',
       showArchivedOrders: '顯示已封存訂單', hideArchivedOrders: '收起已封存訂單', archiveOrder: '封存訂單', unarchiveOrder: '恢復訂單', cancelOrder: '取消未付款訂單', cancelOrderConfirm: '確定取消這筆未付款訂單嗎？這次不會扣款。', orderActionWorking: '正在更新…', orderArchived: '訂單已封存。', orderUnarchived: '訂單已恢復。', orderCancelled: '未付款訂單已取消。',
-      productOptions: [['consultation', '供應商查核專業諮詢'], ['consultation-extension', '延長諮詢'], ['balance', '服務差額補款'], ['t1', 'T1 · 遠端證照查核'], ['t2', 'T2 · 遠端深度盡調'], ['t3', 'T3 · 電話與視訊訪查'], ['t4', 'T4 · 單次實地查核'], ['t5', 'T5 · 供應商查核顧問'], ['t6', 'T6 · 全託管採購把關'], ['custom', '其他已確認服務']]
+      productOptions: [['consultation', '供應商查核專業諮詢'], ['consultation-extension', '延長諮詢'], ['balance', '服務差額補款'], ['t1', 'T1 · 基礎供應商查核'], ['t2', 'T2 · 深度供應商盡調'], ['t3', 'T3 · 電話與視訊訪查'], ['t4', 'T4 · 單次實地查核'], ['t5', 'T5 · 供應商查核顧問'], ['t6', 'T6 · 全託管採購把關'], ['custom', '其他已確認服務']]
     },
     form: {
       eyebrow: '人工進件',
@@ -150,7 +152,7 @@ export const adminContent = {
       decisionContext: '這次案件要協助客戶做什麼決定',
       requestedChecks: '需要核對的宣稱、文件或疑點',
       tier: '服務層級',
-      tiers: [['unsure', '尚未確認'], ['t1', 'T1 · 遠端證照查核'], ['t2', 'T2 · 遠端深度盡調'], ['t3', 'T3 · 電話與視訊訪查'], ['t4', 'T4 · 單次實地查核'], ['t5', 'T5 · 供應商查核顧問'], ['t6', 'T6 · 全託管採購把關']],
+      tiers: [['unsure', '尚未確認'], ['t1', 'T1 · 基礎供應商查核'], ['t2', 'T2 · 深度供應商盡調'], ['t3', 'T3 · 電話與視訊訪查'], ['t4', 'T4 · 單次實地查核'], ['t5', 'T5 · 供應商查核顧問'], ['t6', 'T6 · 全託管採購把關']],
       fieldHint: '客戶尚未提供的內容可以留白；案件會先列為「等待資料」。',
       paymentNote: '建立案件不代表已確認付款。Stripe、轉帳或不需付款等資訊，必須另外在訂單紀錄中建立並確認。',
       submit: '建立案件紀錄',
@@ -216,7 +218,7 @@ export const adminContent = {
       paymentDetails: '更新订单与付款', fulfillment: '交付状态', saveOrder: '保存订单更新', orderSaved: '订单更新已保存。', actionError: '本次更新未能保存，任何状态都没有被更改。', invitation: '等待完成邮箱验证', verified: '已验证账户',
       showArchivedCases: '显示已归档项目', hideArchivedCases: '收起已归档项目', archiveCase: '归档已结项项目', unarchiveCase: '恢复项目', archivedCase: '已结项 · 已归档', caseArchiveWorking: '正在更新…', caseArchived: '项目已归档。', caseUnarchived: '项目已恢复。',
       showArchivedOrders: '显示已归档订单', hideArchivedOrders: '收起已归档订单', archiveOrder: '归档订单', unarchiveOrder: '恢复订单', cancelOrder: '取消未付款订单', cancelOrderConfirm: '确定取消这笔未付款订单吗？本次不会扣款。', orderActionWorking: '正在更新…', orderArchived: '订单已归档。', orderUnarchived: '订单已恢复。', orderCancelled: '未付款订单已取消。',
-      productOptions: [['consultation', '供应商核查专业咨询'], ['consultation-extension', '延长咨询'], ['balance', '服务差额补款'], ['t1', 'T1 · 远程证照核查'], ['t2', 'T2 · 远程深度尽调'], ['t3', 'T3 · 电话与视频访查'], ['t4', 'T4 · 单次实地核查'], ['t5', 'T5 · 供应商核查顾问'], ['t6', 'T6 · 全托管采购把关'], ['custom', '其他已确认服务']]
+      productOptions: [['consultation', '供应商核查专业咨询'], ['consultation-extension', '延长咨询'], ['balance', '服务差额补款'], ['t1', 'T1 · 基础供应商核查'], ['t2', 'T2 · 深度供应商尽调'], ['t3', 'T3 · 电话与视频访查'], ['t4', 'T4 · 单次实地核查'], ['t5', 'T5 · 供应商核查顾问'], ['t6', 'T6 · 全托管采购把关'], ['custom', '其他已确认服务']]
     },
     form: {
       eyebrow: '人工录入',
@@ -231,7 +233,7 @@ export const adminContent = {
       decisionContext: '本项目要协助客户做什么决定',
       requestedChecks: '需要核对的声明、文件或疑点',
       tier: '服务层级',
-      tiers: [['unsure', '尚未确认'], ['t1', 'T1 · 远程证照核查'], ['t2', 'T2 · 远程深度尽调'], ['t3', 'T3 · 电话与视频访查'], ['t4', 'T4 · 单次实地核查'], ['t5', 'T5 · 供应商核查顾问'], ['t6', 'T6 · 全托管采购把关']],
+      tiers: [['unsure', '尚未确认'], ['t1', 'T1 · 基础供应商核查'], ['t2', 'T2 · 深度供应商尽调'], ['t3', 'T3 · 电话与视频访查'], ['t4', 'T4 · 单次实地核查'], ['t5', 'T5 · 供应商核查顾问'], ['t6', 'T6 · 全托管采购把关']],
       fieldHint: '客户尚未提供的内容可以留空；项目会先记录为“等待资料”。',
       paymentNote: '创建项目不代表付款已确认。Stripe、转账或无需付款等信息，必须另外在订单记录中创建并确认。',
       submit: '创建项目记录',
@@ -243,3 +245,8 @@ export const adminContent = {
     }
   }
 };
+
+for (const [locale, copy] of Object.entries(adminContent)) {
+  copy.serviceGroups = Object.fromEntries(Object.entries(SERVICE_NAMES).map(([key, names]) => [key, names[locale]]));
+  copy.serviceGroups.unsure = copy.form.tiers.find(([key]) => key === 'unsure')[1];
+}

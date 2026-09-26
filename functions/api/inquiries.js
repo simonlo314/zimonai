@@ -63,8 +63,8 @@ export async function onRequestPost(context) {
         (id, public_reference, locale, contact_name, contact_email,
          contact_email_normalized, company_name, supplier_name, supplier_url,
          chinese_legal_name, product_category, question, consent_at, status,
-         created_at, updated_at)
-      VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, 'new', ?13, ?13)
+         created_at, updated_at, service_group, service_interest)
+      VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, 'new', ?13, ?13, ?14, ?15)
     `).bind(
       id,
       reference,
@@ -78,7 +78,9 @@ export async function onRequestPost(context) {
       inquiry.data.chineseLegalName,
       inquiry.data.product,
       inquiry.data.question,
-      timestamp
+      timestamp,
+      inquiry.data.serviceGroup,
+      inquiry.data.serviceInterest
     )];
 
     const recipients = adminNotificationEmails(env);
@@ -93,7 +95,9 @@ export async function onRequestPost(context) {
           contactEmail: inquiry.data.emailDisplay,
           companyName: inquiry.data.company,
           supplierName: inquiry.data.supplier,
-          productCategory: inquiry.data.product
+          productCategory: inquiry.data.product,
+          serviceGroup: inquiry.data.serviceGroup,
+          serviceInterest: inquiry.data.serviceInterest
         },
         dedupeKey: `admin_public_inquiry_received:${id}:${recipient}`,
         now

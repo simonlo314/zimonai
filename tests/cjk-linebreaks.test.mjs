@@ -356,7 +356,7 @@ test('grid layouts keep Chinese copy inside one structural child', () => {
     const aboutHtml = renderPage(locale, 'about', { protectCjk: false });
     const articleHtml = renderPage(locale, 'knowledge-rohs-test-report', { protectCjk: false });
     const legalHtml = renderPage(locale, 'paymentTerms', { protectCjk: false });
-    assert.match(requestHtml, /<div><p class="kicker">[^<]+<\/p><ol>(?:<li><span>0\d<\/span><p>[^<]+<\/p><\/li>)+<\/ol><\/div>/);
+    assert.match(requestHtml, /<div><p class="kicker">[^<]+<\/p><ol>(?:<li><p>[^<]+<\/p><\/li>)+<\/ol><\/div>/);
     assert.match(aboutHtml, /registration-evidence__disclosure"><span class="registration-evidence__disclosure-mark"[^>]*>!<\/span><span class="registration-evidence__disclosure-copy">[^<]+<\/span><\/p>/);
     assert.match(aboutHtml, /office-evidence__disclosure reveal"><span class="office-evidence__disclosure-mark"[^>]*>—<\/span><span class="office-evidence__disclosure-copy">[^<]+<\/span><\/p>/);
     assert.match(articleHtml, /<li><span class="buyer-checklist__mark"[^>]*>✓<\/span><span class="buyer-checklist__text">[^<]+<\/span><\/li>/);

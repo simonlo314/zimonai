@@ -1,3 +1,5 @@
+import { SERVICE_FACTS, SERVICE_NAMES } from '../../shared/service-facts.mjs';
+
 export const STRIPE_PRODUCTS = {
   consultation: {
     amount: 9900,
@@ -7,15 +9,15 @@ export const STRIPE_PRODUCTS = {
     max: 1
   },
   t1: {
-    amount: 14900,
-    names: { en: 'T1 Certificate Verification', 'zh-tw': 'T1 遠端證照查核', 'zh-cn': 'T1 远程证照核查' },
+    amount: SERVICE_FACTS.t1.amount,
+    names: Object.fromEntries(Object.entries(SERVICE_NAMES.t1).map(([locale, name]) => [locale, `T1 ${name}`])),
     descriptions: { en: 'One fixed-scope standard case', 'zh-tw': '一件固定範圍標準案件', 'zh-cn': '一个固定范围标准案件' },
     min: 1,
     max: 1
   },
   t2: {
-    amount: 34900,
-    names: { en: 'T2 Remote Due Diligence', 'zh-tw': 'T2 遠端深度盡調', 'zh-cn': 'T2 远程深度尽调' },
+    amount: SERVICE_FACTS.t2.amount,
+    names: Object.fromEntries(Object.entries(SERVICE_NAMES.t2).map(([locale, name]) => [locale, `T2 ${name}`])),
     descriptions: { en: 'One fixed-scope standard case', 'zh-tw': '一件固定範圍標準案件', 'zh-cn': '一个固定范围标准案件' },
     min: 1,
     max: 1

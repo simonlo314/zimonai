@@ -174,7 +174,9 @@ test('client and operations workspaces expose safe progress and reversible order
 test('the footer shows both offices only in the address language selected by the visitor', () => {
   const footerOf = (locale) => {
     const html = renderPage(locale, 'home');
-    return stripCjkProtectionMarkup(html.slice(html.indexOf('<footer class="site-footer">'), html.indexOf('</footer>') + 9));
+    const start = html.search(/<footer class="site-footer(?:\s[^"]*)?">/);
+    assert.ok(start > 0, 'shared footer must exist');
+    return stripCjkProtectionMarkup(html.slice(start, html.indexOf('</footer>', start) + 9));
   };
   const english = footerOf('en');
   const traditional = footerOf('zh-tw');

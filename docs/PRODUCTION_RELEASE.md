@@ -80,7 +80,9 @@ gate is repeated immediately before database writes and again before Pages
 deployment so a concurrent edit or moved `origin/main` also fails closed. It
 then:
 
-1. runs the full build, repository checks and automated tests;
+1. runs the full build, repository checks and automated tests against a fresh
+   temporary artifact directory outside the synced workspace; the local preview
+   `dist` and any sync-conflict copies are not uploaded;
 2. exports both remote D1 databases before migration;
 3. applies pending analytics migrations;
 4. applies pending portal migrations;

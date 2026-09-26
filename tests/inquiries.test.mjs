@@ -108,6 +108,8 @@ test('a valid inquiry is durably stored without creating a portal user, case or 
     assert.equal(inquiry.contact_name, '羅亦斈');
     assert.equal(inquiry.contact_email_normalized, 'buyer@example.com');
     assert.equal(inquiry.status, 'new');
+    assert.equal(inquiry.service_group, 'unsure');
+    assert.equal(inquiry.service_interest, 'unsure');
     assert.ok(inquiry.consent_at);
     assert.equal(db.raw.prepare('SELECT COUNT(*) AS count FROM portal_users').get().count, 0);
     assert.equal(db.raw.prepare('SELECT COUNT(*) AS count FROM portal_cases').get().count, 0);
@@ -123,6 +125,49 @@ test('a valid inquiry is durably stored without creating a portal user, case or 
     assert.equal(JSON.stringify(inquiry).includes('203.0.113.20'), false);
     assert.equal(JSON.stringify(inquiry).includes('Inquiry test browser'), false);
     assert.equal(JSON.stringify(inquiry).includes('ignored=1'), false);
+  } finally { db.close(); }
+});
+
+for (const locale of ['en', 'zh-tw', 'zh-cn']) {
+  test(`${locale}: advanced classification survives database, admin listing and notification`, async () => {
+    const db = new SqliteD1();
+    let delivered;
+    const env = environment(db, {
+      EMAIL_FROM: 'ZimonAI <notify@zimonai.com>',
+      EMAIL_TRANSPORT: { async sendTransactionalEmail(message) { delivered = message; return { id: 'classification-test', provider: 'test' }; } }
+    });
+    try {
+      const response = await invoke({ request: publicRequest(validPayload({ locale, serviceGroup: 'advanced', serviceInterest: 't4' })), env });
+      assert.equal(response.status, 201);
+      const row = db.raw.prepare('SELECT * FROM public_inquiries').get();
+      assert.equal(row.service_group, 'advanced');
+      assert.equal(row.service_interest, 't4');
+      assert.equal(row.locale, locale);
+      assert.match(delivered.html, /advanced \/ t4/);
+      const admin = await account(db, env, 'admin@example.com', 'classification-admin');
+      const list = await listInquiries({ request: adminRequest(admin, '/api/admin/inquiries'), env });
+      const item = (await list.json()).inquiries[0];
+      assert.equal(item.serviceGroup, 'advanced');
+      assert.equal(item.serviceInterest, 't4');
+      assert.equal(db.raw.prepare('SELECT COUNT(*) AS count FROM portal_cases').get().count, 0);
+      assert.equal(db.raw.prepare('SELECT COUNT(*) AS count FROM portal_orders').get().count, 0);
+    } finally { db.close(); }
+  });
+}
+
+test('classification rejects invalid enums and mismatched advanced interests before storing a request', async () => {
+  const db = new SqliteD1();
+  const env = environment(db);
+  try {
+    for (const selection of [
+      { serviceGroup: 't3' }, { serviceGroup: null }, { serviceGroup: [] },
+      { serviceInterest: 't4' }, { serviceGroup: 't1', serviceInterest: 't5' },
+      { serviceGroup: 'advanced', serviceInterest: 't1' }, { serviceGroup: 'advanced', serviceInterest: '<script>' }
+    ]) {
+      const response = await invoke({ request: publicRequest(validPayload(selection)), env });
+      assert.equal(response.status, 400);
+    }
+    assert.equal(db.raw.prepare('SELECT COUNT(*) AS count FROM public_inquiries').get().count, 0);
   } finally { db.close(); }
 });
 

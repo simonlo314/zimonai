@@ -411,6 +411,10 @@ if (root) {
       field(copy.fields.supplier, item.supplier),
       field(copy.fields.chineseLegalName, item.chinese),
       field(copy.fields.product, item.product),
+      field(locale === 'en' ? 'Service of interest' : locale === 'zh-tw' ? '服務需求' : '服务需求',
+        [copy.serviceGroups?.[item.serviceGroup] || tierLabels[item.serviceGroup] || item.serviceGroup || '—',
+          item.serviceInterest && item.serviceInterest !== 'unsure' ? tierLabels[item.serviceInterest] || item.serviceInterest : ''].filter(Boolean).join(' / ')),
+      field(locale === 'en' ? 'Language' : locale === 'zh-tw' ? '語言' : '语言', item.locale),
       linkedField(copy.fields.supplierLink, item.url, supplierHref, { external: true }),
       field(copy.fields.created, formatDateTime(item.createdAt)),
       field(copy.fields.question, item.question)

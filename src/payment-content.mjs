@@ -1,3 +1,5 @@
+import { fixedServiceProduct } from './service-copy.mjs';
+
 export const paymentContent = {
   en: {
     meta: {
@@ -41,22 +43,8 @@ export const paymentContent = {
           notIncluded: 'Database verification, a formal report, legal or tax advice, site work or a purchasing decision.',
           button: 'Book consultation'
         },
-        {
-          key: 't1', index: '02', label: 'Fixed-scope verification', title: 'T1 · Certificate Verification',
-          price: 'USD 149', unit: 'per standard case', timing: '24–48 hours after complete intake',
-          summary: 'A fixed starting scope for one supplier, one legal entity and one charger or power-electronics model.',
-          includes: ['One supplier and one primary legal entity', 'One product model', 'Up to two certificate or authorisation claims', 'Company-record and certificate cross-check', 'A 3–5 page report with sources and limitations'],
-          notIncluded: 'Telephone contact, site work, capacity assessment, quality inspection or additional entities and models.',
-          button: 'Purchase T1'
-        },
-        {
-          key: 't2', index: '03', label: 'Fixed-scope due diligence', title: 'T2 · Remote Due Diligence',
-          price: 'USD 349', unit: 'per standard case', timing: '3–5 business days after complete intake',
-          summary: 'T1 plus deeper corporate, address, litigation and manufacturer-versus-trader analysis.',
-          includes: ['Everything in the standard T1 scope', 'One primary supplier and up to two directly related entities', 'Address, ownership and litigation review', 'Public import/export indicators where accessible', 'Manufacturer-versus-trader and public-claim comparison'],
-          notIncluded: 'Direct supplier communication, site work, quality inspection or unrelated groups of companies and products.',
-          button: 'Purchase T2'
-        },
+        fixedServiceProduct('t1', 'en'),
+        fixedServiceProduct('t2', 'en'),
         {
           key: 'balance', index: '04', label: 'Agreed balance payment', title: 'Service Balance Payment',
           price: 'USD 10', unit: 'per unit', timing: 'Applied to the referenced service',
@@ -148,18 +136,8 @@ export const paymentContent = {
           includes: ['預設提供即時文字諮詢', '中文語音或視訊可預約', '英文語音或視訊需事前確認', '諮詢後提供簡短重點摘要'],
           notIncluded: '資料庫正式查核、正式報告、法律或稅務意見、現場工作與代替客戶作採購決定。', button: '預約諮詢'
         },
-        {
-          key: 't1', index: '02', label: '固定範圍查核', title: 'T1・遠端證照查核', price: 'USD 149', unit: '每件標準案件', timing: '資料完整後 24–48 小時',
-          summary: '針對一家供應商、一個主要法律主體與一個充電或電源電子產品型號進行標準查核。',
-          includes: ['一家供應商與一個主要法律主體', '一個產品完整型號', '最多兩項證書或認證主張', '企業登記與證書交叉比對', '3–5 頁報告，列出來源與限制'],
-          notIncluded: '電話聯絡、現場工作、產能判斷、品質檢測，以及額外公司或型號。', button: '購買 T1'
-        },
-        {
-          key: 't2', index: '03', label: '固定範圍盡調', title: 'T2・遠端深度盡調', price: 'USD 349', unit: '每件標準案件', timing: '資料完整後 3–5 個工作日',
-          summary: '包含 T1，再增加企業關係、地址、訴訟與製造商／貿易商身分判讀。',
-          includes: ['標準 T1 的全部內容', '一家主要供應商與最多兩家直接關聯企業', '地址、股權與訴訟紀錄查核', '公開可查的進出口線索', '製造商／貿易商身分與公開說法比對'],
-          notIncluded: '直接聯絡供應商、現場工作、品質檢測，以及互不相關的多組公司或產品。', button: '購買 T2'
-        },
+        fixedServiceProduct('t1', 'zh-tw'),
+        fixedServiceProduct('t2', 'zh-tw'),
         {
           key: 'balance', index: '04', label: '已確認差額', title: '服務差額補款', price: 'USD 10', unit: '每一單位', timing: '依案件或付款用途核對入帳',
           summary: '只在 ZimonAI 已確認補款金額後使用。請依通知金額選擇 USD 10 單位數量。',
@@ -233,8 +211,8 @@ export const paymentContent = {
       labels: { includes: '固定范围', notIncluded: '不包括', timing: '交付／安排时间', quantity: 'USD 10 补款单位数量', reference: '案件、预约或报价编号／付款用途', required: '必填', terms: '我已阅读固定范围与付款条款。', processing: '正在打开安全付款页面…', error: '目前无法打开付款页面，本次没有扣款。请联系 ZimonAI。', balanceReferenceError: '这组资料看起来是 ZimonAI 案件或订单编号，但不属于当前账户。请核对编号，或改填已确认的报价编号／补款原因。', extensionReferenceError: '请填写当前账户已付款的专业咨询订单编号；尚未购买咨询时，不能单独购买延长时数。', termsLink: '付款与服务条款' },
       products: [
         { key: 'consultation', index: '01', label: '专业咨询', title: '供应商核查专业咨询', price: 'USD 99', unit: '60 分钟', timing: '预约制', summary: '帮助海外买家判断供应商说法、证书、产品文件，或明确下一步应从哪一种核查开始。', includes: ['默认提供实时文字咨询', '中文语音或视频可以预约', '英文语音或视频需事先确认', '咨询后提供简短重点摘要'], notIncluded: '数据库正式核查、正式报告、法律或税务意见、现场工作和代替客户作采购决定。', button: '预约咨询' },
-        { key: 't1', index: '02', label: '固定范围核查', title: 'T1・远程证照核查', price: 'USD 149', unit: '每个标准案件', timing: '资料完整后 24–48 小时', summary: '针对一家供应商、一个主要法律主体和一个充电或电源电子产品型号进行标准核查。', includes: ['一家供应商与一个主要法律主体', '一个产品完整型号', '最多两项证书或认证主张', '企业登记与证书交叉比对', '3–5 页报告，列出来源与限制'], notIncluded: '电话联系、现场工作、产能判断、质量检测，以及额外公司或型号。', button: '购买 T1' },
-        { key: 't2', index: '03', label: '固定范围尽调', title: 'T2・远程深度尽调', price: 'USD 349', unit: '每个标准案件', timing: '资料完整后 3–5 个工作日', summary: '包括 T1，再增加企业关系、地址、诉讼与制造商／贸易商身份判断。', includes: ['标准 T1 的全部内容', '一家主要供应商与最多两家直接关联企业', '地址、股权与诉讼记录核查', '公开可查的进出口线索', '制造商／贸易商身份与公开说法比对'], notIncluded: '直接联系供应商、现场工作、质量检测，以及互不相关的多组公司或产品。', button: '购买 T2' },
+        fixedServiceProduct('t1', 'zh-cn'),
+        fixedServiceProduct('t2', 'zh-cn'),
         { key: 'balance', index: '04', label: '已确认差额', title: '服务差额补款', price: 'USD 10', unit: '每个单位', timing: '按项目或付款用途核对入账', summary: '只在 ZimonAI 已确认补款金额后使用。请按通知金额选择 USD 10 单位数量。', includes: ['公开付款项目', '可自行选择 USD 10 单位数量', '按案件、报价编号或补款原因匹配'], notIncluded: '新的核查服务、供应商订金、货款或任何尚未确认的费用。', button: '支付已确认差额', quantity: true, reference: true }
       ],
       extension: { title: '延长咨询', price: 'USD 49', unit: '30 分钟', summary: '只提供给已有咨询预约的客户，付款时必须填写预约或付款编号。', timing: '加在已有预约时段', button: '支付延长费用' },

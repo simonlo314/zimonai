@@ -1,4 +1,8 @@
 import { languages, pages } from './content.mjs';
+import { approvedCopy } from './approved-copy.mjs';
+import { approvedPicture } from './picture.mjs';
+import { marketingHome, marketingServices, marketingMethodology, approvedClosing, approvedPageIntro, megaNavigation, serviceChoices, marketingCopy } from './marketing.mjs';
+import { SERVICE_FACTS, serviceName } from '../shared/service-facts.mjs';
 import { brandProfile, hasPublishedOfficeEvidence } from './brand-profile.mjs';
 import { layoutMode } from './editorial-policy.mjs';
 import { paymentContent } from './payment-content.mjs';
@@ -57,17 +61,8 @@ function paymentProduct(t, key) {
   return t.payment.payments.products.find((product) => product.key === key);
 }
 
-const structuredTierPricing = Object.freeze({
-  t1: { price: 149 },
-  t2: { price: 349 },
-  t3: { minPrice: 449, maxPrice: 599 },
-  t4: { minPrice: 899, maxPrice: 1299 },
-  t5: { minPrice: 1500, maxPrice: 2500, unitText: 'month' },
-  t6: { minPrice: 5000 }
-});
-
 function structuredTierOffer(tier, canonical, organizationId) {
-  const pricing = structuredTierPricing[tier.id];
+  const pricing = { price: SERVICE_FACTS[tier.id].amount / 100 };
   const priceSpecification = {
     '@type': 'UnitPriceSpecification',
     priceCurrency: 'USD',
@@ -291,96 +286,7 @@ function admin(t) {
 }
 
 function home(t) {
-  const consultationProduct = paymentProduct(t, 'consultation');
-  return `<main id="main">
-    <section class="hero-cinema" aria-labelledby="hero-title" data-hero-cinema>
-      <div class="hero-cinema__scene" aria-hidden="true">
-        <div class="hero-cinema__grid"></div>
-        <div class="hero-cinema__beam"></div>
-        <div class="hero-cinema__glow hero-cinema__glow--one"></div>
-        <div class="hero-cinema__glow hero-cinema__glow--two"></div>
-        <img class="hero-cinema__shield" src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512">
-      </div>
-      <div class="hero shell">
-        <div class="hero__copy">
-          <p class="kicker">${esc(t.home.kicker)}</p>
-          <h1 id="hero-title">${esc(t.home.title)}</h1>
-          <p class="hero__category-line">${esc(t.home.categoryLine)}</p>
-          <p class="hero__lead">${esc(t.home.lead)}</p>
-          <div class="hero__actions">
-            <a class="button button--ink magnetic" href="${pathFor(t.__key, 'request')}">${esc(t.home.primary)}${arrow()}</a>
-            <a class="text-link" href="${pathFor(t.__key, 'methodology')}">${esc(t.home.secondary)}${arrow()}</a>
-          </div>
-          <p class="hero__boundary"><span aria-hidden="true">—</span><span class="hero__boundary-text">${esc(t.home.distinction)}</span></p>
-        </div>
-        <aside class="hero-proof" aria-label="${esc(t.home.proof.label)}">
-          <header><span>${esc(t.home.proof.label)}</span><img src="/assets/zimonai-shield-icon-mono-white.svg" alt="" width="512" height="512" aria-hidden="true"></header>
-          <div class="hero-proof__items">${t.home.proof.items.map(([title, text], index) => `<article><span>0${index + 1}</span><div><h2>${esc(title)}</h2><p>${esc(text)}</p></div></article>`).join('')}</div>
-          <p class="hero-proof__foot">${esc(t.home.proof.foot)}</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="category-focus" aria-labelledby="category-focus-title">
-      <div class="shell category-focus__inner reveal">
-        <div class="category-focus__heading"><p class="kicker">${esc(t.home.category.label)}</p><h2 id="category-focus-title">${esc(t.home.category.title)}</h2></div>
-        <div class="category-focus__body">
-          <ul class="category-focus__products">${t.home.category.products.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>
-          <p class="category-focus__statement">${esc(t.home.category.statement)}</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="decision-ledger shell" aria-labelledby="decision-title">
-      <div class="section-heading section-heading--dense reveal"><p class="kicker">${esc(t.home.decision.label)}</p><h2 id="decision-title">${esc(t.home.decision.title)}</h2><p>${esc(t.home.decision.lead)}</p></div>
-      <div class="decision-ledger__rows">
-        ${t.home.decision.items.map(([moment, question, check], index) => `<article class="decision-row reveal"><span class="decision-row__no">0${index + 1}</span><h3>${esc(moment)}</h3><p>${esc(question)}</p><strong>${esc(check)}</strong></article>`).join('')}
-      </div>
-    </section>
-
-    <section class="verification-flow" aria-labelledby="verification-flow-title">
-      <div class="shell verification-flow__inner">
-        <header class="verification-flow__intro reveal"><p class="kicker">${esc(t.home.story.label)}</p><h2 id="verification-flow-title">${esc(t.home.story.title)}</h2><p>${esc(t.home.story.intro)}</p></header>
-        <ol class="verification-flow__steps">${t.home.story.steps.map((step) => `<li class="reveal"><span>${esc(step.no)}</span><h3>${esc(step.title)}</h3><p>${esc(step.text)}</p></li>`).join('')}</ol>
-      </div>
-    </section>
-
-    <section class="why shell reveal">
-      <div><p class="kicker">${esc(t.home.why.label)}</p><h2>${esc(t.home.why.title)}</h2></div>
-      <p>${esc(t.home.why.text)}</p>
-    </section>
-
-    <section class="operating-record shell" aria-labelledby="operating-title">
-      <header class="operating-record__intro reveal"><p class="kicker">${esc(t.home.operating.label)}</p><h2 id="operating-title">${esc(t.home.operating.title)}</h2><p>${esc(t.home.operating.lead)}</p></header>
-      <div class="operating-record__facts">${t.home.operating.facts.map(([label, text], index) => `<article class="operating-fact reveal"><span>0${index + 1}</span><h3>${esc(label)}</h3><p>${esc(text)}</p></article>`).join('')}</div>
-    </section>
-
-    <section class="services-preview shell" aria-labelledby="services-title">
-      <div class="section-heading reveal"><p class="kicker">${esc(t.nav.services)}</p><h2 id="services-title">${esc(t.services.title)}</h2></div>
-      <div class="service-rungs">${t.services.catalog.map((service, index) => `<a class="service-rung reveal" href="${pathFor(t.__key, 'services')}#${service.id}">
-        <span class="service-rung__level">${esc(service.label)}</span><span class="service-rung__step">0${index + 1}</span>
-        <h3>${esc(service.title)}</h3><p>${esc(service.summary)}</p><strong>${esc(service.price)}</strong>
-      </a>`).join('')}</div>
-      <div class="services-preview__actions reveal">
-        <a class="text-link" href="${pathFor(t.__key, 'services')}">${esc(t.nav.services)}${arrow()}</a>
-        <a class="consultation-quick-link" href="${pathFor(t.__key, 'payments')}#pay-consultation">
-          <span>${esc(consultationProduct.title)}</span>
-          <strong>${esc(consultationProduct.price)} · ${esc(consultationProduct.unit)}</strong>
-          ${arrow()}
-        </a>
-      </div>
-    </section>
-
-    <section class="source-index shell" aria-labelledby="source-index-title">
-      <div class="section-heading section-heading--dense reveal"><p class="kicker">${esc(t.home.sources.label)}</p><h2 id="source-index-title">${esc(t.home.sources.title)}</h2><p>${esc(t.home.sources.lead)}</p></div>
-      <div class="source-index__rows">${t.home.sources.items.map(([title, text], index) => `<article class="source-row reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div>
-    </section>
-
-    <section class="limits-band">
-      <div class="shell limits-band__inner reveal"><div class="limits-band__mark">?</div><div><h2>${esc(t.home.limitsTitle)}</h2><p>${esc(t.home.limitsText)}</p><a class="text-link" href="${pathFor(t.__key, 'scope')}">${esc(t.nav.scope)}${arrow()}</a></div></div>
-    </section>
-    ${cta(t, t.home.finalTitle, t.home.finalText)}
-  </main>`;
+  return marketingHome(t, { sampleReport, cta });
 }
 
 function serviceMarketReference(reference) {
@@ -392,78 +298,20 @@ function serviceMarketReference(reference) {
 }
 
 function services(t) {
-  const consultationProduct = paymentProduct(t, 'consultation');
-  const balanceProduct = paymentProduct(t, 'balance');
-  const panels = t.services.catalog.map((service, index) => `<article class="service-tier-panel${index === 0 ? ' is-active' : ''}" id="${service.id}" data-service-panel="${service.id}" role="tabpanel" aria-labelledby="select-${service.id}" ${index === 0 ? '' : 'hidden'}>
-    <header class="service-tier-panel__header">
-      <div><p class="kicker">${esc(service.label)} · ${esc(service.englishTitle)}</p><h2>${esc(service.title)}</h2><p>${esc(service.summary)}</p></div>
-      <aside class="service-tier-panel__commercial"><dl><div><dt>${esc(t.services.labels.price)}</dt><dd>${esc(service.price)}</dd></div><div><dt>${esc(t.services.labels.timing)}</dt><dd>${esc(service.timing)}</dd></div><div><dt>${esc(t.services.labels.mode)}</dt><dd>${esc(service.mode)}</dd></div></dl>${service.purchasable ? `${serviceCheckoutProtocol(t)}${checkoutForm(t, paymentProduct(t, service.id), 'checkout-form--inline')}` : ''}</aside>
-    </header>
-    ${service.id === 't1' ? sampleReport(t) : ''}
-    ${service.upgrade ? `<p class="service-tier-panel__upgrade"><span aria-hidden="true">+</span><span class="service-tier-panel__upgrade-copy">${esc(service.upgrade)}</span></p>` : ''}
-    <div class="service-tier-panel__work">${service.groups.map((group) => `<section><h3>${esc(group.title)}</h3><ul>${group.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></section>`).join('')}</div>
-    ${serviceMarketReference(service.marketReference)}
-    ${service.note ? `<aside class="service-tier-panel__note"><strong>${esc(t.services.labels.important)}</strong><p>${esc(service.note)}</p></aside>` : ''}
-    <div class="service-tier-panel__boundary">
-      <div><span class="file-label">${esc(t.services.labels.notIncluded)}</span><p>${esc(service.notIncluded)}</p></div>
-      <div><span class="file-label">${esc(t.services.labels.consent)}</span><strong>${esc(service.consent)}</strong></div>
-    </div>
-    <footer><span class="file-label">${esc(t.services.labels.fit)}</span><p>${esc(service.fit)}</p>${service.delivery ? `<div><span class="file-label">${esc(t.ui.deliverable)}</span><p>${esc(service.delivery)}</p></div>` : ''}</footer>
-  </article>`).join('');
-  return `<main id="main">${pageHeader(t.services.kicker, t.services.title, t.services.lead)}
-    <section class="service-staircase shell" data-service-staircase>
-      <div class="service-staircase__intro reveal">
-        <p class="kicker">${esc(t.services.staircase.label)}</p>
-        <h2>${esc(t.services.staircase.title)}</h2>
-        <p class="service-staircase__lead">${esc(t.services.staircase.lead)}</p>
-        <a class="consultation-inline-entry" href="${pathFor(t.__key, 'payments')}#pay-consultation">
-          <span>${esc(consultationProduct.title)}</span>
-          <strong>${esc(consultationProduct.price)} · ${esc(consultationProduct.unit)}</strong>
-          ${arrow()}
-        </a>
-      </div>
-      <div class="service-staircase__selectors" role="tablist" aria-label="${esc(t.services.staircase.title)}">${t.services.catalog.map((service, index) => `<button id="select-${service.id}" type="button" role="tab" aria-controls="${service.id}" aria-selected="${index === 0}" class="service-tier-select${index === 0 ? ' is-active' : ''}" data-service-select="${service.id}"><span>${esc(service.label)}</span><strong>${esc(service.title)}</strong><small>${esc(service.price)}</small></button>`).join('')}</div>
-      <a class="service-balance-entry reveal" href="${pathFor(t.__key, 'payments')}#pay-balance"><span>${esc(balanceProduct.title)}</span><strong>${esc(balanceProduct.price)}</strong>${arrow()}</a>
-      <div class="service-staircase__panels">${panels}</div>
-    </section>
-    <section class="report-promises" aria-labelledby="report-promises-title"><div class="shell"><header class="report-promises__header reveal"><p class="kicker">${esc(t.services.promises.label)}</p><h2 id="report-promises-title">${esc(t.services.promises.title)}</h2><p>${esc(t.services.promises.lead)}</p></header><div class="report-promises__grid">${t.services.promises.items.map(([title, text], index) => `<article class="report-promise reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</div></div></section>
-    ${cta(t, t.services.ctaTitle, t.services.ctaText, { href: `${pathFor(t.__key, 'payments')}#pay-consultation`, label: consultationProduct.button })}</main>`;
+  return marketingServices(t, { checkoutForm, serviceCheckoutProtocol, sampleReport, serviceMarketReference, cta });
 }
 
 function methodology(t) {
-  const detail = t.methodology.nodes[0];
-  return `<main id="main">${pageHeader(t.methodology.kicker, t.methodology.title, t.methodology.lead, { media: { id: 'board', src: '/assets/editorial-power-supply-board.jpg', alt: t.methodology.visualAlt } })}
-    <section class="method-map shell" data-method-map>
-      <div class="section-heading reveal"><p class="kicker">${esc(t.methodology.mapTitle)}</p><h2>${esc(t.methodology.mapTitle)}</h2><p>${esc(t.methodology.mapLead)}</p></div>
-      <div class="method-map__system reveal">
-        <div class="method-map__nodes" role="tablist" aria-label="${esc(t.methodology.mapTitle)}">
-          ${t.methodology.nodes.map((node, index) => `<button class="method-node${index === 0 ? ' is-active' : ''}" type="button" role="tab" aria-selected="${index === 0}" data-method-node data-id="${node.id}" data-index="${index}" data-check="${esc(node.check)}" data-why="${esc(node.why)}" data-source="${esc(node.source)}" data-results="${esc(node.results)}"><span>0${index + 1}</span>${esc(node.label)}</button>`).join('<span class="method-link" aria-hidden="true"></span>')}
-        </div>
-        <article class="method-detail" aria-live="polite">
-          <div><span class="file-label">${esc(t.ui.whatWeCheck)}</span><p data-method-check>${esc(detail.check)}</p></div>
-          <div><span class="file-label">${esc(t.ui.whyItMatters)}</span><p data-method-why>${esc(detail.why)}</p></div>
-          <div><span class="file-label">${esc(t.ui.sourceType)}</span><p data-method-source>${esc(detail.source)}</p></div>
-          <div><span class="file-label">${esc(t.ui.possibleResult)}</span><p data-method-results>${esc(detail.results)}</p></div>
-        </article>
-      </div>
-    </section>
-    <section class="source-registry shell" aria-labelledby="source-registry-title"><div class="section-heading section-heading--dense reveal"><p class="kicker">${esc(t.methodology.sourceRegistry.label)}</p><h2 id="source-registry-title">${esc(t.methodology.sourceRegistry.title)}</h2></div><div class="source-registry__table">${t.methodology.sourceRegistry.items.map(([claim, source, limit]) => `<article class="source-registry__row reveal"><strong>${esc(claim)}</strong><p>${esc(source)}</p><p>${esc(limit)}</p></article>`).join('')}</div></section>
-    <section class="method-notes shell">
-      <article class="editorial-note reveal"><span>01</span><div><h2>${esc(t.methodology.sourcesTitle)}</h2><p>${esc(t.methodology.sourcesText)}</p></div></article>
-      <article class="editorial-note reveal"><span>02</span><div><h2>${esc(t.methodology.statusesTitle)}</h2><ul>${t.methodology.statusText.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></div></article>
-      <article class="editorial-note reveal"><span>03</span><div><h2>${esc(t.methodology.handlingTitle)}</h2><p>${esc(t.methodology.handlingText)}</p></div></article>
-    </section>
-    <section class="report-anatomy shell reveal"><div><p class="kicker">${esc(t.methodology.reportAnatomy.label)}</p><h2>${esc(t.methodology.reportAnatomy.title)}</h2></div><ol>${t.methodology.reportAnatomy.items.map(([title, text], index) => `<li><span>0${index + 1}</span><div><strong>${esc(title)}</strong><p>${esc(text)}</p></div></li>`).join('')}</ol></section>
-    ${cta(t, t.home.finalTitle, t.home.finalText)}</main>`;
+  return marketingMethodology(t);
 }
 
 function scope(t) {
-  return `<main id="main">${pageHeader(t.scope.kicker, t.scope.title, t.scope.lead, { media: { id: 'adapter', src: '/assets/editorial-multiport-adapter.jpg', alt: t.scope.visualAlt } })}
-    <section class="scope-split shell reveal"><article><span class="scope-split__symbol">+</span><h2>${esc(t.scope.doTitle)}</h2><ul>${t.scope.doItems.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></article><article><span class="scope-split__symbol">−</span><h2>${esc(t.scope.dontTitle)}</h2><ul>${t.scope.dontItems.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></article></section>
-    <section class="limit-ledger shell"><div class="section-heading reveal"><p class="kicker">${esc(t.scope.limitsTitle)}</p><h2>${esc(t.scope.limitsTitle)}</h2></div>${t.scope.limits.map(([title, text], index) => `<article class="limit-row reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</section>
+  return `<main id="main" class="approved-site approved-scope"><header class="approved-page-intro shell"><p class="page-context">${esc(t.scope.kicker)}</p><h1>${esc(t.scope.title)}</h1><p class="section-lead">${esc(t.scope.lead)}</p></header>
+    <section class="scope-split shell reveal"><article><h2>${esc(t.scope.doTitle)}</h2><ul>${t.scope.doItems.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></article><article><h2>${esc(t.scope.dontTitle)}</h2><ul>${t.scope.dontItems.map((item) => `<li>${esc(item)}</li>`).join('')}</ul></article></section>
+    <section class="limit-ledger shell"><div class="section-heading reveal"><p class="kicker">${esc(t.scope.limitsTitle)}</p><h2>${esc(t.scope.limitsTitle)}</h2></div>${t.scope.limits.map(([title, text], index) => `<article class="limit-row reveal"><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</section>
     <section class="decision-guide shell" aria-labelledby="decision-guide-title"><div class="section-heading section-heading--dense reveal"><p class="kicker">${esc(t.scope.decisionGuide.label)}</p><h2 id="decision-guide-title">${esc(t.scope.decisionGuide.title)}</h2></div><div class="decision-guide__rows">${t.scope.decisionGuide.items.map(([question, provider]) => `<article class="decision-guide__row reveal"><h3>${esc(question)}</h3><strong>${esc(provider)}</strong></article>`).join('')}</div></section>
     <section class="accreditation shell reveal"><div class="accreditation__mark">${esc(t.scope.accreditationMark)}</div><div><p class="kicker">${esc(t.scope.accreditationTitle)}</p><h2>${esc(t.scope.accreditationTitle)}</h2><p>${esc(t.scope.accreditationText)}</p></div></section>
-    ${cta(t, t.scope.ctaTitle, t.scope.ctaText)}</main>`;
+    ${approvedClosing(t, t.scope.ctaTitle, t.scope.ctaText)}</main>`;
 }
 
 function localizedOfficeLocations(t) {
@@ -517,25 +365,28 @@ function about(t) {
   const officeEvidence = hasPublishedOfficeEvidence() ? `<section class="office-evidence shell" id="office-evidence" aria-labelledby="office-evidence-title">
     <header class="office-evidence__header reveal"><div><p class="kicker">${esc(t.about.office.label)}</p><h2 id="office-evidence-title">${esc(t.about.office.title)}</h2></div><p>${esc(t.about.office.lead)}</p></header>
     <address class="office-evidence__address reveal"><span>${esc(t.about.office.addressLabel)}</span><strong lang="zh-Hans">${esc(brandProfile.office.address)}</strong></address>
-    <div class="office-evidence__gallery">${brandProfile.office.photos.map((photo, index) => { const copy = t.about.office.photos[photo.id]; return `<figure class="reveal"><div class="office-evidence__image"><img src="${esc(photo.src)}" alt="${esc(copy.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy"><span>0${index + 1}</span></div><figcaption>${esc(copy.caption)}</figcaption></figure>`; }).join('')}</div>
+    <div class="office-evidence__gallery">${brandProfile.office.photos.map((photo, index) => { const copy = t.about.office.photos[photo.id]; return `<figure class="reveal"><div class="office-evidence__image">${approvedPicture({ ...photo, alt: copy.alt })}</div><figcaption>${esc(copy.caption)}</figcaption></figure>`; }).join('')}</div>
     <p class="office-evidence__disclosure reveal"><span class="office-evidence__disclosure-mark" aria-hidden="true">—</span><span class="office-evidence__disclosure-copy">${esc(t.about.office.disclosure)}</span></p>
   </section>` : '';
-  return `<main id="main">${pageHeader(t.about.kicker, t.about.title, t.about.lead, true)}
+  const reception = brandProfile.office.photos[0];
+  const receptionCopy = t.about.office.photos[reception.id];
+  return `<main id="main" class="approved-site approved-about"><section class="about-intro shell">${approvedPageIntro(t, 'about')}<figure>${approvedPicture({ ...reception, alt: receptionCopy.alt, sizes: '(max-width: 760px) 90vw, 45vw' })}<figcaption>${esc(receptionCopy.caption)}<br>${esc(t.about.office.disclosure)}</figcaption></figure></section>
     <section class="about-grid shell">
-      <article class="about-lead reveal"><span class="file-label">01 · ${esc(t.ui.origin)}</span><h2>${esc(t.about.originTitle)}</h2><p>${esc(t.about.originText)}</p></article>
-      <article class="about-block reveal"><span class="file-label">02 · ${esc(t.ui.model)}</span><h2>${esc(t.about.modelTitle)}</h2><p>${esc(t.about.modelText)}</p></article>
-      <article class="about-block reveal"><span class="file-label">03 · ${esc(t.ui.footprint)}</span><h2>${esc(t.about.footprintTitle)}</h2><p>${esc(t.about.footprintText)}</p></article>
-      <article class="about-block about-block--truth reveal"><span class="file-label">04 · ${esc(t.ui.scale)}</span><h2>${esc(t.about.scaleTitle)}</h2><p>${esc(t.about.scaleText)}</p></article>
+      <article class="about-block"><h2>${esc(t.about.originTitle)}</h2><p>${esc(t.about.originText)}</p></article>
+      <article class="about-block"><h2>${esc(t.about.modelTitle)}</h2><p>${esc(t.about.modelText)}</p></article>
+      <article class="about-block"><h2>${esc(t.about.footprintTitle)}</h2><p>${esc(t.about.footprintText)}</p></article>
+      <article class="about-block"><h2>${esc(t.about.scaleTitle)}</h2><p>${esc(t.about.scaleText)}</p></article>
     </section>
-    <section class="business-record shell reveal"><div><p class="kicker">${esc(t.ui.operatingRecord)}</p><h2>${esc(t.about.record.title)}</h2></div><dl>${t.about.record.items.map(([term, description]) => `<div><dt>${esc(term)}</dt><dd>${esc(description)}</dd></div>`).join('')}</dl></section>
-    <section class="operating-locations shell" aria-labelledby="operating-locations-title">
-      <header class="operating-locations__header reveal"><div><p class="kicker">${esc(t.common.officesLabel)}</p><h2 id="operating-locations-title">${esc(t.about.locationsTitle)}</h2></div><p>${esc(t.about.locationsLead)}</p></header>
-      <div class="operating-locations__list">${officeLocations.map((office) => `<address class="operating-location reveal"><div><strong>${esc(office.label)}</strong><span>${esc(office.role)}</span>${office.note ? `<small>${esc(office.note)}</small>` : ''}</div><p lang="${office.lang}">${esc(office.address)}</p></address>`).join('')}</div>
-    </section>
+    <section class="business-record shell"><div><p class="page-context">${esc(t.ui.operatingRecord)}</p><h2>${esc(t.about.record.title)}</h2></div><dl>${t.about.record.items.map(([term, description]) => `<div><dt>${esc(term)}</dt><dd>${esc(description)}</dd></div>`).join('')}</dl></section>
     ${registrationEvidence}
+    <section class="operating-locations shell" aria-labelledby="operating-locations-title">
+      <header class="operating-locations__header"><div><p class="page-context">${esc(t.common.officesLabel)}</p><h2 id="operating-locations-title">${esc(t.about.locationsTitle)}</h2></div><p>${esc(t.about.locationsLead)}</p></header>
+      <div class="operating-locations__list">${officeLocations.map((office) => `<address class="operating-location"><div><strong>${esc(office.label)}</strong><span>${esc(office.role)}</span>${office.note ? `<small>${esc(office.note)}</small>` : ''}</div><p lang="${office.lang}">${esc(office.address)}</p></address>`).join('')}</div>
+    </section>
     ${officeEvidence}
-    <section class="principles shell">${t.about.principles.map(([title, text], index) => `<article class="principle reveal"><span>0${index + 1}</span><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</section>
-    ${cta(t, t.about.ctaTitle, t.about.ctaText)}</main>`;
+    <section class="principles shell">${t.about.principles.map(([title, text]) => `<article class="principle"><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join('')}</section>
+    ${approvedClosing(t, t.about.ctaTitle, t.about.ctaText)}</main>`;
+
 }
 
 function request(t) {
@@ -543,20 +394,21 @@ function request(t) {
   const p = t.request.placeholders;
   const field = (id, label, placeholder, type = 'text', required = false, maxLength = 240, autocomplete = '') => `<label class="form-field"><span>${esc(label)}${required ? ` <small>${esc(f.required)}</small>` : ''}</span><input id="${id}" name="${id}" type="${type}" placeholder="${esc(placeholder)}" maxlength="${maxLength}"${autocomplete ? ` autocomplete="${autocomplete}"` : ''} ${required ? 'required' : ''}></label>`;
   const status = t.request.status;
-  return `<main id="main">${pageHeader(t.request.kicker, t.request.title, t.request.lead, { media: { id: 'power-bank', src: '/assets/editorial-power-bank.jpg', alt: t.request.visualAlt } })}
+  return `<main id="main" class="approved-site approved-request">${approvedPageIntro(t, 'request')}
     <section class="request-layout shell">
       <form class="request-form reveal" data-inquiry-form data-inquiry-locale="${esc(t.__key)}" data-validation-message="${esc(status.validation)}" data-submitting-message="${esc(status.submitting)}" data-success-title="${esc(status.successTitle)}" data-success-body="${esc(status.successBody)}" data-error-message="${esc(status.error)}" data-rate-limit-message="${esc(status.rateLimit)}" novalidate>
-        <div class="form-honesty"><span aria-hidden="true">↗</span><p>${esc(t.request.honest)}</p></div>
+        <h2 class="request-form__title">${esc(approvedCopy[t.__key].formTitle)}</h2><div class="form-honesty"><p>${esc(t.request.honest)}</p></div>
+        ${serviceChoices(t)}
         <div class="form-grid">${field('name', f.name, p.name, 'text', true, 120, 'name')}${field('email', f.email, p.email, 'email', true, 254, 'email')}${field('company', f.company, p.company, 'text', false, 180, 'organization')}${field('supplier', f.supplier, p.supplier, 'text', true, 240)}${field('url', f.url, p.url, 'url', false, 500, 'url')}${field('chinese', f.chinese, p.chinese, 'text', false, 240)}${field('product', f.product, p.product, 'text', true, 240)}<label class="form-field form-field--wide"><span>${esc(f.question)} <small>${esc(f.required)}</small></span><textarea id="question" name="question" placeholder="${esc(p.question)}" rows="6" maxlength="4000" required></textarea></label></div>
         <label class="form-trap" aria-hidden="true" inert>Website<input name="website" type="text" tabindex="-1" autocomplete="off" maxlength="200"></label>
-        <label class="consent"><input type="checkbox" name="consent" required><span>${esc(f.consent)}</span></label>
+        <label class="consent"><input type="checkbox" name="consent" required><span>${esc(f.consent)} <a href="${pathFor(t.__key, 'privacy')}">${esc(approvedCopy[t.__key].privacyLink)}</a></span></label>
         <button class="button button--ink magnetic" type="submit" data-inquiry-submit><span data-inquiry-submit-label>${esc(f.send)}</span>${arrow()}</button>
         <p class="form-note">${esc(t.request.after)}</p><p class="form-error" data-form-error role="alert"></p>
         <div class="inquiry-status" data-inquiry-status role="status" aria-live="polite" tabindex="-1" hidden><strong data-inquiry-status-title></strong><p data-inquiry-status-message></p></div>
       </form>
       <aside class="request-aside reveal">
-        <div><p class="kicker">${esc(t.request.directTitle)}</p><h2>${esc(t.request.directTitle)}</h2><p>${esc(t.request.directText)}</p>${requestContactList(t)}</div>
-        <div><p class="kicker">${esc(t.request.responseTitle)}</p><ol>${t.request.responseSteps.map((item, index) => `<li><span>0${index + 1}</span><p>${esc(item)}</p></li>`).join('')}</ol></div>
+        <div><h2>${esc(t.request.directTitle)}</h2><p>${esc(t.request.directText)}</p>${requestContactList(t)}</div>
+        <div><p class="kicker">${esc(t.request.responseTitle)}</p><ol>${t.request.responseSteps.map((item, index) => `<li><p>${esc(item)}</p></li>`).join('')}</ol></div>
       </aside>
     </section>
   </main>`;
@@ -590,7 +442,7 @@ function sampleReport(t) {
   const href = '/assets/zimonai-t1-sample-report.pdf';
   return `<section class="sample-report" aria-labelledby="sample-report-title">
     <div class="sample-report__copy"><p class="kicker">${esc(report.label)}</p><h3 id="sample-report-title">${esc(report.title)}</h3><p>${esc(report.lead)}</p><ul>${report.facts.map((fact) => `<li>${esc(fact)}</li>`).join('')}</ul><div class="sample-report__actions"><a class="button sample-report__open" href="${href}" target="_blank" rel="noopener">${esc(report.open)}${arrow()}</a><a class="sample-report__download" href="${href}" download="ZimonAI-T1-Sample-Report.pdf">${esc(report.download)}</a></div></div>
-    <a class="sample-report__preview" href="${href}" target="_blank" rel="noopener" aria-label="${esc(report.open)}"><img src="/assets/zimonai-t1-sample-report-cover.png" alt="${esc(report.label)}" width="951" height="1345"><span>PDF · 8</span></a>
+    <a class="sample-report__preview" href="${href}" target="_blank" rel="noopener" aria-label="${esc(report.open)}">${approvedPicture({ src: '/assets/zimonai-t1-sample-report-cover.png', alt: report.label, width: 951, height: 1345, sizes: '210px' })}<span>PDF · 8</span></a>
   </section>`;
 }
 
@@ -915,27 +767,12 @@ function knowledgeArticle(t, page) {
 const renderers = { home, services, methodology, scope, about, portal, admin, request, payments, paymentSuccess, paymentTerms, privacy, knowledge };
 
 function header(t, pageId) {
-  const nav = [['services', t.nav.servicesBooking], ['knowledge', t.nav.knowledge], ['methodology', t.nav.methodology], ['scope', t.nav.scope], ['about', t.nav.about]];
-  const isHome = pageId === 'home';
-  const usesNightHeader = isHome;
-  return `<a class="skip-link" href="#main">${esc(t.common.skip)}</a><header class="site-header${isHome ? ' site-header--home' : ''}${usesNightHeader ? ' site-header--night' : ''}" data-header>
-    <div class="site-header__inner">
-      <a class="brand" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo" src="${usesNightHeader ? '/assets/zimonai-logo-white.svg' : '/assets/zimonai-logo-primary.svg'}" alt="ZimonAI" width="1600" height="360"><em class="brand__descriptor">${esc(t.common.brandDescriptor)}</em></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" data-nav-toggle><span>${esc(t.nav.menu)}</span><i></i><i></i></button>
-      <nav class="site-nav" id="main-nav" data-nav>
-        <span class="nav-hover-frame" aria-hidden="true" data-nav-frame></span>
-        ${nav.map(([id, label]) => `<a class="nav-link" href="${pathFor(t.__key, id)}" ${(pageId === id || (id === 'services' && pageId === 'payments') || (id === 'knowledge' && pageId.startsWith('knowledge-'))) ? `aria-current="page"` : ''}>${esc(label)}</a>`).join('')}
-        <div class="lang-switch" data-lang-switch><button type="button" aria-expanded="false" data-lang-button>${esc(t.short)}<span aria-hidden="true">⌄</span></button><div class="lang-switch__menu">${Object.entries(languages).map(([key, lang]) => `<a lang="${lang.htmlLang}" href="${pathFor(key, pageId)}" ${key === t.__key ? 'aria-current="true"' : ''}>${esc(lang.name)}</a>`).join('')}</div></div>
-        <a class="nav-portal" href="${pathFor(t.__key, 'portal')}" ${pageId === 'portal' ? 'aria-current="page"' : ''}>${esc(t.portal.navLabel)}</a>
-        <a class="nav-cta" href="${pathFor(t.__key, 'request')}">${esc(t.nav.request)}${arrow()}</a>
-      </nav>
-    </div>
-  </header>`;
+  return megaNavigation(t, pageId, { pathFor, languages });
 }
 
 function footer(t) {
   const officeLocations = localizedOfficeLocations(t);
-  return `<footer class="site-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong><span lang="zh-Hans">深圳智蒙湾科技有限公司</span> · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span><address class="footer-addresses" aria-label="${esc(t.common.officesLabel)}">${officeLocations.map((office) => `<span class="footer-office"><b>${esc(office.label)}</b><i><em>${esc(office.role)}</em><span lang="${office.lang}">${esc(office.address)}</span>${office.note ? `<small>${esc(office.note)}</small>` : ''}</i></span>`).join('')}</address></div></div>${footerContactList(t)}</div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'services')}">${esc(t.nav.servicesBooking)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
+  return `<footer class="site-footer approved-footer"><div class="shell site-footer__top"><div><a class="brand brand--footer" href="${pathFor(t.__key, 'home')}" aria-label="ZimonAI"><img class="brand__logo brand__logo--inverse" src="/assets/zimonai-logo-white.svg" alt="ZimonAI" width="1600" height="360"></a><p>${esc(t.common.footerLine)}</p><div class="footer-identity"><strong><span lang="zh-Hans">深圳智蒙湾科技有限公司</span> · ZimonAI Technology Co., Ltd.</strong><span>${esc(t.common.footerCategory)}</span><span>${esc(t.common.creditCodeLabel)} ${esc(brandProfile.registration.creditCode)}</span><address class="footer-addresses" aria-label="${esc(t.common.officesLabel)}">${officeLocations.map((office) => `<span class="footer-office"><b>${esc(office.label)}</b><i><em>${esc(office.role)}</em><span lang="${office.lang}">${esc(office.address)}</span>${office.note ? `<small>${esc(office.note)}</small>` : ''}</i></span>`).join('')}</address></div></div>${footerContactList(t)}</div><div class="shell footer-navigation"><div><h2>${esc(approvedCopy[t.__key].footerServices)}</h2>${['t1','t2','advanced'].map(id => `<a href="${pathFor(t.__key, 'services')}#${id}">${esc(serviceName(id, t.__key))}</a>`).join('')}</div><div><h2>${esc(approvedCopy[t.__key].footerResources)}</h2><a href="${pathFor(t.__key, 'methodology')}">${esc(t.nav.methodology)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'scope')}">${esc(t.nav.scope)}</a><a href="${pathFor(t.__key, 'about')}">${esc(t.nav.about)}</a></div><div><h2>${esc(t.nav.request)}</h2><a href="${pathFor(t.__key, 'request')}">${esc(approvedCopy[t.__key].discuss)}</a><a href="${pathFor(t.__key, 'portal')}">${esc(t.portal.navLabel)}</a></div></div><div class="shell site-footer__bottom"><p>© 2026 ZimonAI 智蒙灣</p><p>${esc(t.common.footerScope)}</p><div class="footer-legal"><a href="${pathFor(t.__key, 'services')}">${esc(t.nav.servicesBooking)}</a><a href="${pathFor(t.__key, 'knowledge')}">${esc(t.nav.knowledge)}</a><a href="${pathFor(t.__key, 'paymentTerms')}">${esc(t.payment.payments.labels.termsLink)}</a><a href="${pathFor(t.__key, 'privacy')}">${esc(t.common.privacy)}</a></div></div></footer><div class="cursor-label" data-cursor-label aria-hidden="true"></div>`;
 }
 
 function supportPanel(t) {
@@ -1042,7 +879,14 @@ export function renderPage(langKey, pageId, { protectCjk = true } = {}) {
       '@id': offerCatalogId,
       name: t.services.staircase.title,
       url: canonical,
-      itemListElement: t.services.catalog.map((tier) => structuredTierOffer(tier, canonical, organizationId))
+      itemListElement: [
+        ...t.services.catalog.filter(tier => tier.purchasable).map((tier) => structuredTierOffer(tier, canonical, organizationId)),
+        { '@type': 'OfferCatalog', name: serviceName('advanced', langKey), url: `${canonical}#advanced`,
+          itemListElement: t.services.catalog.filter(tier => !tier.purchasable).map(tier => ({
+            '@type': 'Service', name: tier.title, description: tier.summary, url: `${canonical}#${tier.id}`,
+            provider: { '@id': organizationId }
+          })) }
+      ]
     });
   } else if (pageId === 'home') {
     webpage.mainEntity = { '@id': organizationId };
@@ -1143,6 +987,7 @@ export function renderPage(langKey, pageId, { protectCjk = true } = {}) {
   <link rel="icon" href="/zimonai-shield-favicon.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/redesign.css">
   ${pageId === 'portal' || pageId === 'admin' ? '<link rel="stylesheet" href="/assets/portal.css">' : ''}
   ${pageId === 'admin' ? '<link rel="stylesheet" href="/assets/admin.css">' : ''}
   <script type="application/ld+json">${JSON.stringify(schema).replaceAll('<', '\\u003c')}</script>

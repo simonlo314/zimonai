@@ -1,3 +1,4 @@
+import { initializeNavigation } from './navigation.js';
 import { observeDynamicCjkText } from './cjk-runtime.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -395,73 +396,23 @@ async function initializeKnowledgeIndex(container) {
 const knowledgeIndex = document.querySelector('[data-knowledge-index]');
 if (knowledgeIndex) void initializeKnowledgeIndex(knowledgeIndex);
 
-const navToggle = document.querySelector('[data-nav-toggle]');
-const nav = document.querySelector('[data-nav]');
-const navFrame = nav?.querySelector('[data-nav-frame]');
-const navLinks = [...(nav?.querySelectorAll(':scope > .nav-link') || [])];
-const desktopNav = window.matchMedia('(min-width: 1051px)');
-
-function positionNavFrame(target) {
-  if (!nav || !navFrame || !target || !desktopNav.matches) return;
-  const navRect = nav.getBoundingClientRect();
-  const targetRect = target.getBoundingClientRect();
-  navFrame.style.width = `${targetRect.width}px`;
-  navFrame.style.height = `${targetRect.height}px`;
-  navFrame.style.transform = `translate3d(${targetRect.left - navRect.left}px, ${targetRect.top - navRect.top}px, 0)`;
-  navFrame.classList.add('is-visible');
-}
-
-function restoreNavFrame() {
-  const currentLink = navLinks.find((link) => link.getAttribute('aria-current') === 'page');
-  if (currentLink) positionNavFrame(currentLink);
-  else navFrame?.classList.remove('is-visible');
-}
-
-navLinks.forEach((link) => {
-  link.addEventListener('pointerenter', () => positionNavFrame(link));
-  link.addEventListener('focus', () => positionNavFrame(link));
-});
-nav?.addEventListener('pointerleave', restoreNavFrame);
-nav?.addEventListener('focusout', (event) => {
-  if (!nav.contains(event.relatedTarget)) restoreNavFrame();
-});
-window.addEventListener('resize', restoreNavFrame, { passive: true });
-desktopNav.addEventListener('change', (event) => {
-  if (event.matches) {
-    navToggle?.setAttribute('aria-expanded', 'false');
-    nav?.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-  restoreNavFrame();
-});
-requestAnimationFrame(restoreNavFrame);
-
-navToggle?.addEventListener('click', () => {
-  const open = navToggle.getAttribute('aria-expanded') === 'true';
-  navToggle.setAttribute('aria-expanded', String(!open));
-  nav?.classList.toggle('is-open', !open);
-  document.body.style.overflow = !open ? 'hidden' : '';
-});
-nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-  navToggle?.setAttribute('aria-expanded', 'false');
-  nav?.classList.remove('is-open');
-  document.body.style.overflow = '';
-}));
-
-const langSwitch = document.querySelector('[data-lang-switch]');
-const langButton = document.querySelector('[data-lang-button]');
-langButton?.addEventListener('click', () => {
-  const open = langButton.getAttribute('aria-expanded') === 'true';
-  langButton.setAttribute('aria-expanded', String(!open));
-  langSwitch?.classList.toggle('is-open', !open);
-});
-document.addEventListener('click', (event) => {
-  if (!langSwitch || langSwitch.contains(event.target)) return;
-  langSwitch.classList.remove('is-open');
-  langButton?.setAttribute('aria-expanded', 'false');
-});
-
+initializeNavigation();
 const serviceSelectors = [...document.querySelectorAll('[data-service-select]')];
+function syncEquivalentLinks() {
+  document.querySelectorAll('[data-equivalent-language]').forEach(link => {
+    const url = new URL(link.href);
+    url.hash = /^#[a-zA-Z0-9_-]{1,100}$/.test(location.hash) ? location.hash : '';
+    // Never propagate authentication tokens, email addresses or arbitrary query data.
+    for (const key of ['service', 'interest']) {
+      const value = new URLSearchParams(location.search).get(key);
+      if (value && /^(t[1-6]|advanced|unsure)$/.test(value)) url.searchParams.set(key, value);
+    }
+    link.href = url.href;
+  });
+}
+syncEquivalentLinks();
+window.addEventListener('hashchange', syncEquivalentLinks);
+
 const servicePanels = [...document.querySelectorAll('[data-service-panel]')];
 function selectServiceTier(id, updateUrl = false) {
   if (!serviceSelectors.some((item) => item.dataset.serviceSelect === id)) return;
@@ -536,6 +487,22 @@ if (!reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').ma
 }
 
 const inquiryForm = document.querySelector('[data-inquiry-form]');
+const serviceGroup = inquiryForm?.querySelector('[data-service-group]');
+const serviceInterest = inquiryForm?.querySelector('[data-service-interest]');
+function syncServiceInterest() {
+  if (!serviceGroup || !serviceInterest) return;
+  const advanced = serviceGroup.value === 'advanced';
+  serviceInterest.disabled = !advanced;
+  serviceInterest.closest('[data-service-interest-field]').hidden = !advanced;
+  if (!advanced) serviceInterest.value = 'unsure';
+}
+if (serviceGroup && serviceInterest) {
+  const params = new URLSearchParams(location.search);
+  if (['t1', 't2', 'advanced', 'unsure'].includes(params.get('service'))) serviceGroup.value = params.get('service');
+  if (serviceGroup.value === 'advanced' && ['t3', 't4', 't5', 't6'].includes(params.get('interest'))) serviceInterest.value = params.get('interest');
+  syncServiceInterest();
+  serviceGroup.addEventListener('change', syncServiceInterest);
+}
 inquiryForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const error = inquiryForm.querySelector('[data-form-error]');
@@ -556,6 +523,8 @@ inquiryForm?.addEventListener('submit', async (event) => {
   const value = (name) => String(formData.get(name) || '').trim();
   const payload = {
     locale: inquiryForm.dataset.inquiryLocale || 'en',
+    serviceGroup: value('serviceGroup') || 'unsure',
+    serviceInterest: value('serviceInterest') || 'unsure',
     name: value('name'),
     email: value('email'),
     company: value('company'),
@@ -585,6 +554,7 @@ inquiryForm?.addEventListener('submit', async (event) => {
       return;
     }
     inquiryForm.reset();
+    syncServiceInterest();
     if (statusTitle) statusTitle.textContent = inquiryForm.dataset.successTitle || '';
     if (statusMessage) statusMessage.textContent = `${inquiryForm.dataset.successBody || ''} ${result.reference}`.trim();
     if (status) {
@@ -592,6 +562,7 @@ inquiryForm?.addEventListener('submit', async (event) => {
       status.focus();
     }
     trackAnalytics('request_submit', 'accepted');
+    trackAnalytics('inquiry_classified', `${payload.serviceGroup}:${payload.serviceInterest}`);
   } catch {
     if (error) error.textContent = inquiryForm.dataset.errorMessage || '';
   } finally {
@@ -951,6 +922,18 @@ document.addEventListener('click', (event) => {
   let url;
   try { url = new URL(link.href, location.href); } catch { return; }
   const tier = url.hash.match(/^#(t[1-6])$/)?.[1];
+  if (link.hasAttribute('data-report-cover')) {
+    trackAnalytics('cta_click', 'sample_report_cover');
+    return;
+  }
+  if (url.pathname.endsWith('/zimonai-t1-sample-report.pdf')) {
+    trackAnalytics('cta_click', link.hasAttribute('download') ? 'sample_report_download' : 'sample_report_open');
+    return;
+  }
+  if (url.hash === '#advanced' && /\/services\/$/.test(url.pathname)) {
+    trackAnalytics('tier_select', 'advanced');
+    return;
+  }
   if (tier && /\/services\/$/.test(url.pathname)) {
     trackAnalytics('tier_select', tier);
     return;

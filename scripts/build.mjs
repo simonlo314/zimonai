@@ -6,9 +6,10 @@ import { languages, pages } from '../src/content.mjs';
 import { knowledgeArticleSpecs, knowledgeContent } from '../src/knowledge-content.mjs';
 import { cjkProtectedTerms } from '../src/cjk-linebreak.mjs';
 import { renderPage } from '../src/template.mjs';
+import { buildDirectory } from './build-directory.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const dist = path.join(root, 'dist');
+const dist = buildDirectory(root);
 const sourceAssets = path.join(root, 'src', 'assets');
 
 async function collectFiles(directory, relative = '') {
@@ -47,7 +48,12 @@ function inlineScriptHashes(html) {
     .map((match) => `'sha256-${createHash('sha256').update(match[1]).digest('base64')}'`);
 }
 
-await rm(dist, { recursive: true, force: true });
+if (process.env.ZIMONAI_RELEASE_DIST) {
+  // Never remove an externally supplied directory, including an earlier release.
+  await mkdir(dist);
+} else {
+  await rm(dist, { recursive: true, force: true });
+}
 await mkdir(path.join(dist, 'assets'), { recursive: true });
 await cp(sourceAssets, path.join(dist, 'assets'), { recursive: true });
 await writeFile(
@@ -56,6 +62,7 @@ await writeFile(
   'utf8'
 );
 for (const [file, dependency] of [
+  ['site.js', 'navigation.js'],
   ['site.js', 'cjk-runtime.js'],
   ['cjk-runtime.js', 'cjk-terms.js'],
   ['cjk-runtime.js', 'cjk-patterns.js']

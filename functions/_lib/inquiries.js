@@ -4,12 +4,15 @@ import {
   normalizeEmail,
   randomToken
 } from './auth.js';
+import { inquiryClassification } from '../../shared/service-facts.mjs';
 
 const encoder = new TextEncoder();
 
 export const INQUIRY_STATUSES = new Set(['new', 'contacted', 'qualified', 'closed', 'spam']);
 export const INQUIRY_ALLOWED_FIELDS = new Set([
   'locale',
+  'serviceGroup',
+  'serviceInterest',
   'name',
   'email',
   'company',
@@ -47,6 +50,8 @@ export function parseInquiryPayload(payload) {
   if (honeypot) return { honeypot: true };
 
   const locale = String(payload.locale || '');
+  const classification = inquiryClassification(payload.serviceGroup, payload.serviceInterest);
+  if (!classification) return { error: 'validation_failed' };
   const email = normalizeEmail(payload.email);
   const name = cleanText(payload.name, 120, true);
   const company = cleanText(payload.company, 180);
@@ -63,6 +68,7 @@ export function parseInquiryPayload(payload) {
   return {
     data: {
       locale,
+      ...classification,
       name,
       emailDisplay: email.display,
       emailNormalized: email.normalized,
@@ -177,6 +183,8 @@ export function publicInquiry(row) {
     id: row.id,
     reference: row.public_reference,
     locale: row.locale,
+    serviceGroup: row.service_group || 'unsure',
+    serviceInterest: row.service_interest || 'unsure',
     name: row.contact_name,
     email: row.contact_email,
     company: row.company_name || '',

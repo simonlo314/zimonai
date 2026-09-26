@@ -10,6 +10,7 @@ const ALLOWED_EVENTS = new Set([
   'evidence_tab',
   'request_draft',
   'request_submit',
+  'inquiry_classified',
   'support_open',
   'checkout_start',
   'checkout_error',
