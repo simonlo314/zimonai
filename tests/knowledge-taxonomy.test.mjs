@@ -331,7 +331,7 @@ test('the explicit Start here selection was reviewed against the newest publishe
   );
 
   assert.equal(featuredArticles.length, 1);
-  assert.equal(featuredArticles[0].id, 'knowledge-apple-iphone-18-pro-vapor-chamber');
+  assert.equal(featuredArticles[0].id, 'knowledge-navitas-magnachip-sic-investment');
   assert.equal(featuredArticles[0].featuredReviewedThrough, newestPublishedDate);
 });
 

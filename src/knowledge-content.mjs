@@ -8,6 +8,40 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-navitas-magnachip-sic-investment',
+    key: 'navitasMagnachipSicInvestment',
+    contentType: 'current-affairs',
+    slug: 'knowledge/navitas-magnachip-sic-investment',
+    featured: true,
+    featuredReviewedThrough: '2026-09-26',
+    category: 'commercial-risk',
+    products: ['general'],
+    markets: ['south-korea', 'global'],
+    keywords: {
+      en: ['Navitas Magnachip SiC investment', 'Magnachip silicon carbide fab qualification', 'Navitas $5 million investment', 'SiC power semiconductor supply chain', 'GeneSiC technology licensing'],
+      'zh-tw': ['Navitas Magnachip 碳化矽投資', 'Magnachip 韓國晶圓廠驗證', 'Navitas 500 萬美元投資', '碳化矽功率半導體供應鏈', 'GeneSiC 技術授權'],
+      'zh-cn': ['Navitas Magnachip 碳化硅投资', 'Magnachip 韩国晶圆厂验证', 'Navitas 500 万美元投资', '碳化硅功率半导体供应链', 'GeneSiC 技术授权']
+    },
+    datePublished: '2026-09-26',
+    dateModified: '2026-09-26',
+    image: '/assets/editorial-magnachip-navitas-sic-investment.jpg',
+    imageWidth: 886,
+    imageHeight: 638,
+    imageCrop: { card: '49% 49%', article: '50% 46%', mobile: '50% 48%' },
+    photo: {
+      photographer: 'FDominec',
+      page: 'https://commons.wikimedia.org/wiki/File:SiC_wafers_6inch.jpg',
+      license: 'https://creativecommons.org/licenses/by-sa/4.0/'
+    },
+    sources: [
+      { publisher: 'Magnachip Semiconductor', title: 'Magnachip announces strategic investment by Navitas Semiconductor', url: 'https://www.magnachip.com/magnachip-announces-strategic-investment-by-navitas-semiconductor/' },
+      { publisher: 'U.S. Securities and Exchange Commission', title: 'Magnachip Form 8-K filed 21 September 2026', url: 'https://www.sec.gov/Archives/edgar/data/1325702/000119312526396059/mx-20260729.htm' },
+      { publisher: 'U.S. Securities and Exchange Commission', title: 'Navitas Semiconductor Form 8-K filed 21 September 2026', url: 'https://www.sec.gov/Archives/edgar/data/1821769/000110465926109125/tm2625807d1_8k.htm' },
+      { publisher: 'Evertiq', title: 'Navitas takes $5 million stake in Magnachip to deepen SiC partnership — 22 September 2026', url: 'https://evertiq.com/design/2026-09-22-navitas-takes-5-million-stake-in-magnachip-to-deepen-sic-partnership' },
+      { publisher: 'Magnachip Semiconductor', title: 'Navitas and Magnachip announce strategic partnership to accelerate SiC technology development — 23 July 2026', url: 'https://investors.magnachip.com/news-releases/news-release-details/navitas-and-magnachip-announce-strategic-partnership-accelerate' }
+    ]
+  },
+  {
     id: 'knowledge-canada-external-power-supply-efficiency-mark',
     key: 'canadaExternalPowerSupplyEfficiencyMark',
     contentType: 'industry-knowledge',
@@ -767,8 +801,6 @@ export const knowledgeArticleSpecs = [
     key: 'appleIphone18ProVaporChamber',
     contentType: 'current-affairs',
     slug: 'knowledge/apple-iphone-18-pro-vapor-chamber',
-    featured: true,
-    featuredReviewedThrough: '2026-09-25',
     category: 'factory-onsite',
     products: ['general'],
     markets: ['global', 'international'],
@@ -1939,6 +1971,38 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      navitasMagnachipSicInvestment: {
+        topic: 'SiC power semiconductors · investment and manufacturing',
+        published: '26 September 2026',
+        readTime: '6 minutes',
+        title: 'Navitas backs Magnachip’s SiC push with $5M—but the factory work is still ahead',
+        description: 'Navitas agreed to invest $5 million in Magnachip as the companies pursue licensed SiC technology and Korean-fab qualification. The announced terms are clear, but transaction closing and production qualification remain separate milestones.',
+        imageAlt: 'Two six-inch silicon-carbide wafers in a protective transport box.',
+        imageCaption: 'Editorial illustration: real six-inch SiC wafers photographed by FDominec, licensed CC BY-SA 4.0. This is not a Magnachip or Navitas product, fab, supply relationship or qualification evidence.',
+        labels: { summary: 'News summary', checklist: 'What to watch next', limits: 'What the public record does not establish' },
+        answer: 'On 21 September 2026, Magnachip and Navitas announced a proposed $5 million strategic equity investment. The filings specify 1,461,988 shares at $3.42 each, with closing expected around 24 September subject to customary conditions; a later completion notice is not among the sources reviewed. Their July partnership covers licensed GeneSiC technology and planned qualification at Magnachip’s South Korean fab, not a confirmed production ramp. This matters because power-electronics buyers need repeatable manufacturing, not just design access: the investment does not establish fab qualification, capacity, yield or customer shipments.',
+        takeaways: [
+          'The 21 September filings set out a proposed $5 million equity investment: 1,461,988 shares priced at $3.42 each, with closing expected around 24 September subject to customary conditions.',
+          'The July partnership announcement describes a license for Navitas GeneSiC technology and plans to port and qualify it at Magnachip’s South Korean fab.',
+          'Fab qualification, production yield, capacity, customer orders and shipments are distinct milestones; the public announcements reviewed do not establish them as completed.'
+        ],
+        sections: [
+          { title: 'What did the companies announce on 21 September?', paragraphs: [
+            'Magnachip announced that Navitas had agreed to make a $5 million strategic equity investment. Magnachip’s SEC filing describes the proposed sale of 1,461,988 shares for $3.42 per share. The filing says the transaction was expected to close on or about 24 September, subject to customary closing conditions. Navitas filed a separate 8-K describing the agreement; neither filing’s transaction terms should be read as proof that the deal has since closed.',
+            'The investment follows a technology partnership announced on 23 July. That release describes access to Navitas’ GeneSiC Trench-Assisted Planar technology, including high-voltage device platforms, and a plan for Magnachip to port, qualify and internalize the technology at its South Korean fab. The announced target markets include energy infrastructure, storage, industrial electrification and automotive applications.'
+          ], items: ['Proposed investment: $5 million', 'Proposed share issue: 1,461,988 shares at $3.42 each', 'Expected closing stated in the filings: on or about 24 September, subject to customary conditions', 'Earlier partnership: licensed SiC technology plus planned porting and fab qualification'] },
+          { title: 'Why is qualification the more important supply-chain milestone?', paragraphs: [
+            'A technology license gives a manufacturer access to a design platform; it does not by itself show that the process has been transferred successfully, that devices meet production specifications, or that output can be repeated across lots. Porting and qualification require engineering work at the receiving fab and evidence that the resulting process is controlled and suitable for the intended device and market.',
+            'For buyers, this makes the next evidence more informative than the investment headline: qualification scope, production readiness, stable process results, capacity commitments and actual customer programs. Those are editorially relevant milestones, not claims that either company has already achieved them.'
+          ] },
+          { title: 'What should buyers watch next?', paragraphs: [
+            'The July announcement identifies energy and industrial use cases where high-voltage SiC devices may be relevant. It does not announce customer orders, production yields, qualified volumes or shipment dates. Similarly, an expected transaction closing date is not a completion confirmation unless a company or filing reports the closing.',
+            'ZIMONAI’s editorial view is that the story is about execution between licensed semiconductor technology and repeatable fab output. The investment may support that collaboration, but buyers should distinguish corporate financing, technology access, fab qualification and commercially available supply in their planning.'
+          ], items: ['A distinct notice confirming whether the equity transaction closed', 'A company update on the scope and status of SiC process qualification', 'Any disclosed production capacity, customer program, order or shipment milestone'] }
+        ],
+        checklist: ['Track closing confirmation separately from the original expected date', 'Ask which device voltage classes and process variants are included in any qualification claim', 'Request evidence that qualification relates to the intended fab, production process and orderable part number', 'Separate pilot or engineering samples from volume availability and shipment commitments', 'Check whether capacity, yield, reliability and customer qualification figures are actually disclosed before using them in a sourcing forecast'],
+        limitsText: 'The cited company releases and SEC filings establish the proposed investment terms, the parties’ stated expected closing date and the previously announced technology collaboration and plans. The sources reviewed do not establish a distinct subsequent closing confirmation, completed fab qualification, production yield, qualified capacity, customer orders, shipment dates or device-level performance beyond the announced scope. The supply-chain implications here are editorial analysis, not a forecast or a statement that Magnachip or Navitas has completed the described work.'
+      },
       canadaExternalPowerSupplyEfficiencyMark: {
         topic: 'Canada external-power-supply efficiency requirements',
         published: '25 September 2026',
@@ -4034,6 +4098,38 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      navitasMagnachipSicInvestment: {
+        topic: '碳化矽功率半導體・投資與製造',
+        published: '2026 年 9 月 26 日',
+        readTime: '約 6 分鐘',
+        title: 'Navitas 投資 500 萬美元支持 Magnachip 碳化矽計畫，韓國晶圓廠驗證才是下一關',
+        description: 'Navitas 同意投資 500 萬美元，支持 Magnachip 推進碳化矽技術授權與韓國晶圓廠驗證。投資條件已有公告，但量產驗證與交易完成仍是不同里程碑。',
+        imageAlt: '保護盒中的兩片六吋碳化矽晶圓。',
+        imageCaption: '編輯用示意照片：FDominec 拍攝的六吋碳化矽晶圓，採 CC BY-SA 4.0 授權。這不是 Magnachip 或 Navitas 的產品、廠房、供應關係或驗證證據。',
+        labels: { summary: '新聞摘要', checklist: '接下來值得觀察', limits: '公開資料尚未證明的事項' },
+        answer: 'Magnachip 與 Navitas 於 2026 年 9 月 21 日公布 500 萬美元策略性股權投資案，擬以每股 3.42 美元發行 1,461,988 股，預計 9 月 24 日前後交割，仍須符合慣常條件；目前查閱資料未另行確認交割完成。兩家公司 7 月公布 GeneSiC 技術授權及韓國晶圓廠驗證計畫，並非量產證明。更值得注意的是，投資把功率電子買家的焦點推向製程驗證與穩定產出，而非金額本身；產能、良率及出貨仍待確認。',
+        takeaways: [
+          '9 月 21 日公告列出 500 萬美元投資案，擬以每股 3.42 美元發行 1,461,988 股，並預計於 9 月 24 日前後交割，仍以慣常條件為準。',
+          '7 月合作公告提到 Navitas GeneSiC 技術授權，以及在 Magnachip 韓國晶圓廠移轉、驗證技術的計畫。',
+          '晶圓廠驗證、量產良率、可用產能、客戶訂單與出貨是不同里程碑；目前檢視的公開公告並未證明它們已完成。'
+        ],
+        sections: [
+          { title: '9 月 21 日兩家公司公布了什麼？', paragraphs: [
+            'Magnachip 公告 Navitas 同意進行 500 萬美元策略性股權投資。Magnachip 向美國證管會提交的文件載明，擬以每股 3.42 美元出售 1,461,988 股；交易預計在 9 月 24 日前後完成，仍須符合慣常交割條件。Navitas 也提交了相關 8-K 文件。這些條款說明的是預計完成時間，不能單憑原始公告視為後續交割已確認。',
+            '這筆投資接續兩家公司在 7 月 23 日公布的技術合作。公告提及取得 Navitas GeneSiC Trench-Assisted Planar 技術授權，並計畫由 Magnachip 在韓國晶圓廠移轉、驗證及內部化相關技術；列出的目標市場包括能源基礎設施、儲能、工業電氣化與汽車應用。'
+          ], items: ['投資案金額：500 萬美元', '擬發行股份：1,461,988 股，每股 3.42 美元', '文件所列預計交割時間：9 月 24 日前後，且須符合慣常條件', '先前合作內容：碳化矽技術授權，以及晶圓廠移轉與驗證計畫'] },
+          { title: '為什麼製程驗證比投資金額更值得追蹤？', paragraphs: [
+            '技術授權代表取得設計平台的使用權，不等於已成功移轉製程，也不代表元件已符合量產規格，或不同批次能持續重複生產。製程移轉與驗證需要接收端晶圓廠完成工程工作，並形成足以支持製程受控、產品符合預定規格的證據。',
+            '因此，買家下一步更該留意驗證範圍、量產準備狀態、製程穩定性、產能承諾與實際客戶專案。這些是後續應觀察的指標，不是本文宣稱兩家公司已經完成的事項。'
+          ] },
+          { title: '買家接下來可以觀察哪些訊號？', paragraphs: [
+            '7 月公告列出能源與工業等應用方向，說明高壓碳化矽元件可能切入的領域；公告沒有同時公布客戶訂單、量產良率、已驗證數量或出貨日期。交易預計交割日也不等於交割完成，除非公司或後續申報另行確認。',
+            'ZIMONAI 的編輯判讀是，這則消息的核心在於把授權的半導體技術轉為可重複的晶圓廠產出。投資可能支援合作，但採購規劃仍應分開看待公司融資、技術取得、晶圓廠驗證與可供商業採購的產品。'
+          ], items: ['是否有後續公告確認股權交易完成', '碳化矽製程驗證涵蓋哪些元件電壓等級與製程版本', '是否公開量產產能、客戶專案、訂單或出貨里程碑'] }
+        ],
+        checklist: ['將交割確認與原公告的預計日期分開追蹤', '確認任何製程驗證說法涵蓋的元件電壓等級與製程版本', '要求驗證資料對應實際晶圓廠、量產製程與可訂購料號', '區分工程樣品、試產與量產供貨及交期承諾', '在把數據納入採購預測前，確認產能、良率、可靠度及客戶驗證是否有實際披露'],
+        limitsText: '本文引用的公司公告與 SEC 申報支持投資案條件、公司所述預計交割時間，以及先前公布的技術合作與計畫。目前檢視的資料未提供後續交割確認，也未證明晶圓廠驗證完成、量產良率、已認證產能、客戶訂單、出貨日期，或超出公告範圍的個別元件性能。文中的供應鏈意義屬於編輯分析，不是市場預測，也不是 Magnachip 或 Navitas 已完成相關工作的聲明。'
+      },
       canadaExternalPowerSupplyEfficiencyMark: {
         topic: '加拿大外接電源供應器能源效率要求',
         published: '2026 年 9 月 25 日',
@@ -6124,6 +6220,38 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      navitasMagnachipSicInvestment: {
+        topic: '碳化硅功率半导体・投资与制造',
+        published: '2026 年 9 月 26 日',
+        readTime: '约 6 分钟',
+        title: 'Navitas 投资 500 万美元支持 Magnachip 碳化硅计划，韩国晶圆厂验证才是下一关',
+        description: 'Navitas 同意投资 500 万美元，支持 Magnachip 推进碳化硅技术授权与韩国晶圆厂验证。投资条款已有公告，但量产验证与交易交割仍是不同里程碑。',
+        imageAlt: '保护盒中的两片六英寸碳化硅晶圆。',
+        imageCaption: '编辑示意照片：FDominec 拍摄的六英寸碳化硅晶圆，采用 CC BY-SA 4.0 许可。这不是 Magnachip 或 Navitas 的产品、厂房、供应关系或验证证据。',
+        labels: { summary: '新闻摘要', checklist: '接下来值得关注', limits: '公开资料尚未证明的事项' },
+        answer: 'Magnachip 与 Navitas 于 2026 年 9 月 21 日公布 500 万美元战略股权投资案，拟以每股 3.42 美元发行 1,461,988 股，预计 9 月 24 日前后交割，仍须满足惯常条件；目前查阅资料未另行确认交割完成。两家公司 7 月公布 GeneSiC 技术许可及韩国晶圆厂验证计划，并非量产证明。更值得关注的是，这笔投资把功率电子买家的焦点推向制程验证与稳定产出，而非金额本身；产能、良率和出货仍待确认。',
+        takeaways: [
+          '9 月 21 日公告列出 500 万美元投资案，拟以每股 3.42 美元发行 1,461,988 股，并预计在 9 月 24 日前后交割，仍以惯常条件为准。',
+          '7 月合作公告提及 Navitas GeneSiC 技术许可，以及在 Magnachip 韩国晶圆厂移转、验证技术的计划。',
+          '晶圆厂验证、量产良率、可用产能、客户订单与出货是不同里程碑；目前查阅的公开公告并未证明这些事项已经完成。'
+        ],
+        sections: [
+          { title: '两家公司在 9 月 21 日公布了什么？', paragraphs: [
+            'Magnachip 公告称，Navitas 同意进行 500 万美元战略股权投资。Magnachip 向美国证交会提交的文件载明，拟以每股 3.42 美元出售 1,461,988 股；交易预计于 9 月 24 日前后完成，仍须满足惯常交割条件。Navitas 也提交了相关 8-K 文件。这些条款说明的是预计时间，不能仅凭原始公告就视为后续交割已经确认。',
+            '这笔投资延续了两家公司 7 月 23 日公布的技术合作。公告提及 Navitas GeneSiC Trench-Assisted Planar 技术许可，以及由 Magnachip 在韩国晶圆厂移转、验证并内部化相关技术的计划；列出的目标市场包括能源基础设施、储能、工业电气化与汽车应用。'
+          ], items: ['投资金额：500 万美元', '拟发行股份：1,461,988 股，每股 3.42 美元', '文件所列预计交割时间：9 月 24 日前后，且须满足惯常条件', '此前合作内容：碳化硅技术许可，以及晶圆厂移转与验证计划'] },
+          { title: '为什么制程验证比投资金额更值得追踪？', paragraphs: [
+            '技术许可意味着取得设计平台的使用权，并不表示制程已经成功移转，也不代表器件已符合量产规格，或不同批次都能持续重复生产。制程移转和验证需要接收方晶圆厂完成工程工作，并形成证据，支持制程受控且产品符合预定规格。',
+            '因此，买家接下来更应关注验证范围、量产准备状态、制程稳定性、产能承诺与实际客户项目。这些是后续值得观察的指标，并非本文声称两家公司已经完成的事项。'
+          ] },
+          { title: '采购方接下来可以观察哪些信号？', paragraphs: [
+            '7 月公告列出能源与工业等应用方向，说明高压碳化硅器件可能涉及的领域；公告并未同时公布客户订单、量产良率、已验证数量或出货日期。预计交割日也不等于交割完成，除非公司或后续申报另行确认。',
+            'ZIMONAI 的编辑判断是，这则消息的核心在于将获授权的半导体技术转化为可重复的晶圆厂产出。投资可能支持合作，但采购规划仍应区分公司融资、技术取得、晶圆厂验证以及可供商业采购的产品。'
+          ], items: ['是否有后续公告确认股权交易交割', '碳化硅制程验证涵盖哪些器件电压等级与制程版本', '是否披露量产产能、客户项目、订单或出货里程碑'] }
+        ],
+        checklist: ['将交割确认与原公告的预计日期分开追踪', '确认任何制程验证说法涵盖的器件电压等级与制程版本', '要求验证资料对应实际晶圆厂、量产制程与可订购料号', '区分工程样品、试产、量产供货与交期承诺', '将数据纳入采购预测前，确认产能、良率、可靠性和客户验证是否有实际披露'],
+        limitsText: '本文引用的公司公告与 SEC 申报支持投资案条款、公司所述预计交割时间，以及此前公布的技术合作与计划。目前查阅的资料未提供后续交割确认，也未证明晶圆厂验证完成、量产良率、已验证产能、客户订单、出货日期，或超出公告范围的个别器件性能。文中的供应链意义属于编辑分析，并非市场预测，也不是 Magnachip 或 Navitas 已完成相关工作的声明。'
+      },
       canadaExternalPowerSupplyEfficiencyMark: {
         topic: '加拿大外接电源能效要求',
         published: '2026 年 9 月 25 日',

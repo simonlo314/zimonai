@@ -116,6 +116,18 @@ test('Cambridge Audio recall terms remain intact in both Chinese versions', () =
   }
 });
 
+test('Magnachip and Navitas SiC investment terms remain intact in both Chinese versions', () => {
+  for (const [locale, terms] of Object.entries({
+    'zh-tw': ['碳化矽', '功率半導體', '韓國晶圓廠', '技術授權', '製程驗證', '量產良率'],
+    'zh-cn': ['碳化硅', '功率半导体', '韩国晶圆厂', '技术许可', '制程验证', '量产良率']
+  })) {
+    const html = protectCjkHtml(`<!doctype html><html><body><p>${terms.join('、')}</p></body></html>`, locale);
+    for (const term of terms) {
+      assert.ok(html.includes(`<span class="cjk-keep cjk-keep--phrase">${term}`), `${locale} did not protect ${term}`);
+    }
+  }
+});
+
 test('every audited dictionary term is emitted as one protected unit', () => {
   for (const locale of ['zh-tw', 'zh-cn']) {
     for (const term of cjkProtectedTerms[locale]) {

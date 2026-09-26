@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-25
+Last reviewed: 2026-09-26
 
 The following photographs are used under the [Pexels license](https://www.pexels.com/license/). Pexels permits free commercial use and modification without required attribution. Attribution is still recorded here so the source of each asset remains traceable.
 
@@ -36,6 +36,7 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | Local asset | Photographer | Source and licence | Website use |
 | --- | --- | --- | --- |
 | `src/assets/editorial-eu-alkaline-cell-import-registration.jpg` | Multicherry | [Golden Power Power Plus AA alkaline batteries](https://commons.wikimedia.org/wiki/File:Golden_Power_Power_Plus_AA_alkaline_batteries.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Current-affairs article about EU customs registration of specified Chinese-origin non-rechargeable alkaline cells beginning 16 September 2026. Real photo of four AA alkaline cells, resized to 2000 × 1500, JPEG-compressed and CSS-cropped without generative alteration; crop and compression disclosed. The pictured brand is not named in the EU investigation, and the photograph is not a customs entry, affected shipment, ZIMONAI client product, supplier sample or evidence of origin. Downloaded and used 2026-09-22. |
+| `src/assets/editorial-magnachip-navitas-sic-investment.jpg` | FDominec | [Six-inch SiC wafers](https://commons.wikimedia.org/wiki/File:SiC_wafers_6inch.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); attribution and source link displayed with the article. The original photo is stored locally without generative editing; CSS crop only. | Current-affairs article about the announced Navitas–Magnachip SiC investment and planned fab qualification. Editorial illustration of SiC wafers only—not either company’s product, factory, supply relationship or qualification evidence; downloaded and used 2026-09-26. |
 
 ## Wikimedia Commons public-domain editorial photograph
 
