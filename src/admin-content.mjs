@@ -1,4 +1,5 @@
 import { SERVICE_NAMES } from '../shared/service-facts.mjs';
+import { applyAdminPositioning } from './positioning-copy.mjs';
 
 export const adminContent = {
   en: {
@@ -245,6 +246,8 @@ export const adminContent = {
     }
   }
 };
+
+applyAdminPositioning(adminContent);
 
 for (const [locale, copy] of Object.entries(adminContent)) {
   copy.serviceGroups = Object.fromEntries(Object.entries(SERVICE_NAMES).map(([key, names]) => [key, names[locale]]));

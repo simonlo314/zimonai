@@ -22,6 +22,7 @@ function fixture({ desktop = true } = {}) {
   }
   root = new Element();
   root.body = { style: { overflow: 'auto' } };
+  root.documentElement = { style: { overflow: 'clip' } };
   const nav = new Element(), toggle = new Element('Menu');
   toggle.dataset.closeLabel = 'Close menu';
   toggle.setAttribute('aria-expanded', 'false');
@@ -70,16 +71,18 @@ test('ArrowDown enters links and Escape returns focus to the exact trigger', () 
   assert.equal(f.root.activeElement, f.resources.button);
 });
 
-test('mobile close restores prior body scroll, resets panels and returns focus', () => {
+test('mobile close restores viewport scroll without changing body overflow, resets panels and returns focus', () => {
   const f = fixture({ desktop: false });
   f.toggle.fire('click');
-  assert.equal(f.root.body.style.overflow, 'hidden');
+  assert.equal(f.root.documentElement.style.overflow, 'hidden');
+  assert.equal(f.root.body.style.overflow, 'auto');
   assert.equal(f.toggle.getAttribute('aria-label'), 'Close menu');
   f.services.button.fire('click');
   f.root.fire('keydown', { key: 'Escape' });
   assert.equal(f.toggle.getAttribute('aria-expanded'), 'true');
   assert.equal(f.services.panel.hidden, true);
   f.root.fire('keydown', { key: 'Escape' });
+  assert.equal(f.root.documentElement.style.overflow, 'clip');
   assert.equal(f.root.body.style.overflow, 'auto');
   assert.equal(f.root.activeElement, f.toggle);
   assert.equal(f.toggle.getAttribute('aria-label'), 'Menu');
@@ -89,12 +92,12 @@ test('leaving mobile nav with keyboard and changing breakpoint never leaves a sc
   const f = fixture({ desktop: false });
   f.toggle.fire('click');
   f.nav.fire('focusout', { relatedTarget: null });
-  assert.equal(f.root.body.style.overflow, 'auto');
+  assert.equal(f.root.documentElement.style.overflow, 'clip');
   f.toggle.fire('click');
   f.desktopMedia.matches = true;
   f.desktopMedia.fire('change');
   assert.equal(f.toggle.getAttribute('aria-expanded'), 'false');
-  assert.equal(f.root.body.style.overflow, 'auto');
+  assert.equal(f.root.documentElement.style.overflow, 'clip');
 });
 
 test('hover intent is cancelled on leave and never overrides focused menu contents', () => {
@@ -119,7 +122,7 @@ test('outside clicks and following real links close disclosures', () => {
   f.language.button.fire('click');
   f.nav.fire('click', { target: f.language.link });
   assert.equal(f.language.panel.hidden, true);
-  assert.equal(f.root.body.style.overflow, 'auto');
+  assert.equal(f.root.documentElement.style.overflow, 'clip');
   f.resources.button.fire('click');
   f.root.fire('click');
   assert.equal(f.resources.panel.hidden, true);

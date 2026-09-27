@@ -1,3 +1,5 @@
+import { applyMarketingPositioning } from './positioning-copy.mjs';
+
 export const marketingCopy = {
   en: {
     resources: 'Resources', verify: 'Verify my supplier', allServices: 'Compare services', allArticles: 'All articles', sample: 'Sample report', faq: 'Questions before you book', pricing: 'Pricing & scope',
@@ -51,3 +53,5 @@ export const marketingCopy = {
     ]
   }
 };
+
+applyMarketingPositioning(marketingCopy);

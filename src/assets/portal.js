@@ -173,6 +173,7 @@ if (root) {
     caseList.replaceChildren();
     emptyState.hidden = cases.length !== 0;
     const tiers = Object.fromEntries(copy.workspace.tierOptions || []);
+    const legacyTiers = Object.fromEntries(copy.workspace.legacyTierOptions || []);
     for (const item of cases) {
       const article = element('article', 'portal-case');
       const body = document.createElement('div');
@@ -183,7 +184,7 @@ if (root) {
       );
       const details = document.createElement('dl');
       details.append(
-        detailRow(copy.workspace.tier, tiers[item.tier || 'unsure'] || String(item.tier || 'unsure').toUpperCase()),
+        detailRow(copy.workspace.tier, (item.createdAt && item.createdAt < '2026-09-27T00:00:00.000Z' && legacyTiers[item.tier]) || tiers[item.tier || 'unsure'] || String(item.tier || 'unsure').toUpperCase()),
         detailRow(copy.workspace.updated, formatDate(item.updatedAt))
       );
       article.append(element('div', 'portal-case__ref', item.reference), body, details);

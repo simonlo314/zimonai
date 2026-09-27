@@ -1,4 +1,5 @@
 import { fixedServiceProduct } from './service-copy.mjs';
+import { applyPaymentPositioning } from './positioning-copy.mjs';
 
 export const paymentContent = {
   en: {
@@ -242,3 +243,5 @@ export const paymentContent = {
     }
   }
 };
+
+applyPaymentPositioning(paymentContent);

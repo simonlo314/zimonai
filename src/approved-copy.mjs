@@ -1,3 +1,5 @@
+import { applyApprovedPositioning } from './positioning-copy.mjs';
+
 // English is the primary content reference. Business amounts, counts and timing
 // are intentionally absent here; those come from shared/service-facts.mjs.
 export const approvedCopy = {
@@ -173,3 +175,5 @@ export const approvedCopy = {
     methodPhotoLink: '查看下方核查项目'
   }
 };
+
+applyApprovedPositioning(approvedCopy);

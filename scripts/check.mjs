@@ -533,7 +533,7 @@ for (const address of [
 ]) {
   if (!joined.includes(address)) errors.push(`approved localized office address missing: ${address}`);
 }
-for (const phrase of ['Charger &amp; power electronics', '基礎供應商查核', '基础供应商核查', 'Fully Managed Sourcing Verification']) {
+for (const phrase of ['Charger &amp; power electronics', '基礎供應商查核', '基础供应商核查', 'Advanced Enterprise Engagement']) {
   if (!joined.includes(phrase)) errors.push(`site output missing approved category or service content: ${phrase}`);
 }
 for (const event of ['page_view', 'session_start', 'contact_click', 'tier_select', 'request_submit', 'support_open', 'checkout_start', 'checkout_error', 'payment_confirmed', 'post_payment_intake']) {

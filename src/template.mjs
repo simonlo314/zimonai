@@ -865,7 +865,9 @@ export function renderPage(langKey, pageId, { protectCjk = true } = {}) {
   if (pageId === 'services') {
     const serviceId = `${canonical}#service`;
     const offerCatalogId = `${canonical}#offer-catalog`;
+    const faqId = `${canonical}#faq`;
     webpage.mainEntity = { '@id': serviceId };
+    webpage.hasPart = { '@id': faqId };
     graph.push({
       '@type': 'Service',
       '@id': serviceId,
@@ -887,6 +889,16 @@ export function renderPage(langKey, pageId, { protectCjk = true } = {}) {
             provider: { '@id': organizationId }
           })) }
       ]
+    }, {
+      '@type': 'FAQPage',
+      '@id': faqId,
+      url: `${canonical}#faq`,
+      inLanguage: original.htmlLang,
+      mainEntity: marketingCopy[langKey].questions.map(([question, answer]) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer }
+      }))
     });
   } else if (pageId === 'home') {
     webpage.mainEntity = { '@id': organizationId };

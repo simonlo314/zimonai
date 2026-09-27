@@ -1,3 +1,5 @@
+import { applyPortalPositioning } from './positioning-copy.mjs';
+
 export const portalContent = {
   en: {
     metaTitle: 'Client Portal | ZimonAI',
@@ -357,3 +359,5 @@ export const portalContent = {
     }
   }
 };
+
+applyPortalPositioning(portalContent);

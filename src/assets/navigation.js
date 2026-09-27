@@ -36,10 +36,12 @@ export function initializeNavigation(root = document, view = window) {
     toggle.setAttribute('aria-label', open ? closeLabel : openLabel);
     nav.classList.toggle('is-open', open);
     if (open) {
-      if (previousOverflow === null) previousOverflow = root.body.style.overflow;
-      root.body.style.overflow = 'hidden';
+      // Lock the document viewport, not <body>: body overflow creates a new
+      // scroll container and pulls the sticky header/menu off-screen mid-page.
+      if (previousOverflow === null) previousOverflow = root.documentElement.style.overflow;
+      root.documentElement.style.overflow = 'hidden';
     } else {
-      if (previousOverflow !== null) root.body.style.overflow = previousOverflow;
+      if (previousOverflow !== null) root.documentElement.style.overflow = previousOverflow;
       previousOverflow = null;
       closeAll();
       if (restoreFocus) toggle.focus();

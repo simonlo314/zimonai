@@ -1,5 +1,6 @@
 import { knowledgePageDefinitions } from './knowledge-content.mjs';
 import { localizedServices } from './service-copy.mjs';
+import { applyPublicPositioning } from './positioning-copy.mjs';
 
 export const pages = [
   { id: 'home', slug: '' },
@@ -297,3 +298,5 @@ export const languages = {
     privacy: { kicker: '隐私声明', title: '网站有意少收信息。', lead: '生效日期：2026 年 8 月 24 日。以下说明 ZimonAI 网站如何处理你主动提供的信息。', sections: [['浏览网站', '公开网站不使用广告 Cookie，也不建立跨网站广告档案。托管服务商可能为了安全和稳定传输处理基本系统记录。'], ['需求表单', '公开需求表单会通过 HTTPS 发送你提交的联系和业务资料，并以需求编号保存；即使通知 Email 提交失败，需求本身也不会因此丢失。'], ['你发送的内容', 'ZimonAI 会使用邮件和附件评估需求、执行双方同意的服务、回复问题，以及保存必要的商业记录。请勿提供核查不需要的信息。'], ['信息分享', 'ZimonAI 不会出售你的信息。只有在完成双方同意的工作确有需要、你要求分享，或者法律要求时，才可能提供给必要服务商或相关方。'], ['保存与权利', '商业往来只在处理需求、交付服务、保存记录和履行法律义务的合理期间内保存。你可以依法询问访问、更正或删除。'], ['联系方式', '隐私问题请发送至 simonlo@zimonai.com。']] }
   }
 };
+
+applyPublicPositioning(languages);

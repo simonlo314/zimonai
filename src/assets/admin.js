@@ -13,6 +13,8 @@ if (root) {
   const archivedOrdersToggle = root.querySelector('[data-admin-toggle-archived]');
   const caches = { cases: null, orders: null, customers: null, notifications: null, inquiries: null };
   const tierLabels = Object.fromEntries(copy.form?.tiers || []);
+  const legacyTierLabels = Object.fromEntries(copy.form?.legacyTierOptions || []);
+  const caseTierLabel = item => (item.createdAt && item.createdAt < '2026-09-27T00:00:00.000Z' && legacyTierLabels[item.tier]) || tierLabels[item.tier || 'unsure'] || '—';
   const productLabels = Object.fromEntries(copy.actions?.productOptions || []);
   let csrfToken = '';
   let emailConfigured = false;
@@ -198,7 +200,7 @@ if (root) {
     const fields = element('div', 'admin-action-fields');
     const productChoices = copy.actions.productOptions || [];
     const productField = selectField(copy.actions.orderProduct, 'product', productChoices, item.tier === 'unsure' ? 'custom' : item.tier);
-    const description = inputField(copy.actions.orderDescription, 'description', [tierLabels[item.tier], item.supplierName].filter(Boolean).join(' · '));
+    const description = inputField(copy.actions.orderDescription, 'description', [caseTierLabel(item), item.supplierName].filter(Boolean).join(' · '));
     description.querySelector('input').required = true;
     const amount = inputField(copy.actions.orderAmount, 'amount', '', 'number');
     amount.querySelector('input').min = '0';
@@ -289,7 +291,7 @@ if (root) {
     const details = element('dl', 'admin-record__details');
     details.append(
       field(copy.fields.customer, item.ownerEmail), field(copy.fields.product, [item.productCategory, item.productModel].filter(Boolean).join(' · ')),
-      field(copy.fields.service, tierLabels[item.tier || 'unsure'] || '—'), field(copy.fields.updated, formatDate(item.updatedAt))
+      field(copy.fields.service, caseTierLabel(item)), field(copy.fields.updated, formatDate(item.updatedAt))
     );
     if (queue) details.append(field(copy.fields.nextAction, copy.status[item.status] || item.status));
     const actions = element('div', 'admin-record__actions');

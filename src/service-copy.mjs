@@ -1,4 +1,5 @@
 import { SERVICE_FACTS, serviceName, servicePrice, serviceTiming } from '../shared/service-facts.mjs';
+import { applyServicePositioning } from './positioning-copy.mjs';
 
 // Each service owns its localized wording. All display and checkout surfaces read here.
 const serviceCopy = {
@@ -553,21 +554,23 @@ const serviceCopy = {
   }
 };
 
+applyServicePositioning(serviceCopy);
+
 function standardScope(id, locale) {
   const f = SERVICE_FACTS[id];
   const pages = SERVICE_FACTS.t1.reportPages.join('–');
   const wording = {
     en: {
-      t1: [`${f.primaryEntities} supplier and ${f.primaryEntities} primary legal entity`, `${f.models} product model`, `Up to ${f.certificateClaims} certificate or authorisation claims`, 'Company-record and certificate cross-check', `A ${pages} page report with sources and limitations`],
-      t2: ['Everything in the standard T1 scope', `${f.primaryEntities} primary supplier and up to ${f.relatedEntities} directly related entities`, 'Address, ownership and litigation review', 'Public import/export indicators where accessible', 'Manufacturer-versus-trader and public-claim comparison']
+      t1: [`${f.primaryEntities} supplier and ${f.primaryEntities} primary legal entity`, `${f.models} specified product model`, `Up to ${f.certificateClaims} agreed certificate or authorisation claims`, 'Agreed quotation, contract and payment-related name comparison', `A ${pages} page decision memo with sources, gaps and limits`],
+      t2: ['Everything in the standard T1 scope', `Up to ${f.relatedEntities} directly related entities when material to the question`, 'Question-led ownership, history, address and public-record research', 'Seller, exporter, manufacturer, holder or payee relationship where relevant', 'Explain which material gap is resolved and which remains open']
     },
     'zh-tw': {
-      t1: [`${f.primaryEntities} 家供應商與 ${f.primaryEntities} 個主要法律主體`, `${f.models} 個產品完整型號`, `最多 ${f.certificateClaims} 項證書或認證主張`, '企業登記與證書交叉比對', `${pages} 頁報告，列出來源與限制`],
-      t2: ['標準 T1 的全部內容', `${f.primaryEntities} 家主要供應商與最多 ${f.relatedEntities} 家直接關聯企業`, '地址、股權與訴訟紀錄查核', '公開可查的進出口線索', '製造商／貿易商身分與公開說法比對']
+      t1: [`${f.primaryEntities} 家供應商與 ${f.primaryEntities} 個主要法律主體`, `${f.models} 個指定產品型號`, `最多 ${f.certificateClaims} 項約定的證書或授權主張`, '比對約定報價、合約與收款相關名稱', `${pages} 頁附來源、疑點與限制的決策備忘`],
+      t2: ['標準 T1 的全部內容', `必要時追查最多 ${f.relatedEntities} 個直接相關主體`, '依疑點研究股權、沿革、地址及公開紀錄', '視需要釐清賣方、出口方、製造商、持證人或收款主體的關係', '說明哪些重要疑點已釐清、哪些仍未解決']
     },
     'zh-cn': {
-      t1: [`${f.primaryEntities} 家供应商与 ${f.primaryEntities} 个主要法律主体`, `${f.models} 个产品完整型号`, `最多 ${f.certificateClaims} 项证书或认证主张`, '企业登记与证书交叉比对', `${pages} 页报告，列出来源与限制`],
-      t2: ['标准 T1 的全部内容', `${f.primaryEntities} 家主要供应商与最多 ${f.relatedEntities} 家直接关联企业`, '地址、股权与诉讼记录核查', '公开可查的进出口线索', '制造商／贸易商身份与公开说法比对']
+      t1: [`${f.primaryEntities} 家供应商与 ${f.primaryEntities} 个主要法律主体`, `${f.models} 个指定产品型号`, `最多 ${f.certificateClaims} 项约定的证书或授权主张`, '比对约定报价、合同与收款相关名称', `${pages} 页附来源、疑点与限制的决策备忘`],
+      t2: ['标准 T1 的全部内容', `必要时追查最多 ${f.relatedEntities} 个直接相关主体`, '按疑点研究股权、沿革、地址及公开记录', '视需要厘清卖方、出口方、制造商、持证人或收款主体的关系', '说明哪些重要疑点已厘清、哪些仍未解决']
     }
   };
   return wording[locale][id];
@@ -577,7 +580,7 @@ export function localizedServices(locale) {
   return Object.entries(serviceCopy).map(([id, translations]) => {
     const copy = translations[locale];
     const fixed = copy.fixed ? { ...copy.fixed, includes: standardScope(id, locale) } : undefined;
-    return { ...copy, ...(fixed ? { fixed } : {}), id, label: id.toUpperCase(), title: id === 't1' || id === 't2' ? serviceName(id, locale) : copy.title, englishTitle: id === 't1' || id === 't2' ? serviceName(id) : translations.en.title, price: servicePrice(id, locale), timing: serviceTiming(id, locale) || copy.timing, purchasable: id === 't1' || id === 't2' };
+    return { ...copy, ...(fixed ? { fixed } : {}), id, label: id.toUpperCase(), title: id === 't1' || id === 't2' ? serviceName(id, locale) : copy.title, englishTitle: id === 't1' || id === 't2' ? serviceName(id) : translations.en.title, price: servicePrice(id, locale), timing: id === 't1' || id === 't2' ? serviceTiming(id, locale) : copy.timing, purchasable: id === 't1' || id === 't2' };
   });
 }
 
