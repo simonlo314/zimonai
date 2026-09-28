@@ -8,12 +8,44 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-california-maedbs-battery-charger',
+    key: 'californiaMaedbsBatteryCharger',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/california-maedbs-battery-charger',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter'],
+    markets: ['united-states'],
+    keywords: {
+      en: ['California MAEDbS battery charger', 'CEC approved charger model lookup', 'California Title 20 charger compliance', 'MAEDbS archived charger status', 'California charger efficiency database'],
+      'zh-tw': ['加州 MAEDbS 電池充電器', 'CEC Approved 充電器型號查詢', '加州 Title 20 充電器能效', 'MAEDbS Archived 型號狀態', '加州充電器能效資料庫'],
+      'zh-cn': ['加州 MAEDbS 电池充电器', 'CEC Approved 充电器型号查询', '加州 Title 20 充电器能效', 'MAEDbS Archived 型号状态', '加州充电器能效数据库']
+    },
+    datePublished: '2026-09-28',
+    dateModified: '2026-09-28',
+    image: '/assets/editorial-california-maedbs-charger.jpg',
+    imageWidth: 1028,
+    imageHeight: 1200,
+    imageCrop: { card: '50% 67%', article: '50% 68%', mobile: '50% 68%' },
+    photo: {
+      photographer: 'Fortal Fototeca',
+      page: 'https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      { publisher: 'California Energy Commission', title: 'Appliance Efficiency Support Request Form — MAEDbS search, status and certification guidance', url: 'https://www.energy.ca.gov/programs-and-topics/programs/appliance-efficiency-program-outreach-and-education/appliance' },
+      { publisher: 'California Energy Commission', title: 'Federal Battery Charger System Test Procedure Frequently Asked Questions', url: 'https://www.energy.ca.gov/programs-and-topics/programs/appliance-efficiency-program-outreach-and-education/federal-battery' },
+      { publisher: 'California Energy Commission', title: 'Appliance Efficiency Regulations — Title 20', url: 'https://www.energy.ca.gov/rules-and-regulations/appliance-efficiency-regulations-title-20' },
+      { publisher: 'California Energy Commission', title: 'Title 20 section 1601 — scope and section 1602 — definitions', url: 'https://efiling.energy.ca.gov/GetDocument.aspx?tn=220902' },
+      { publisher: 'California Energy Commission', title: 'MAEDbS Quick Search — model, brand, company, appliance type and status', url: 'https://cacertappliances.energy.ca.gov/Pages/ApplianceSearch.aspx' }
+    ]
+  },
+  {
     id: 'knowledge-navitas-magnachip-sic-investment',
     key: 'navitasMagnachipSicInvestment',
     contentType: 'current-affairs',
     slug: 'knowledge/navitas-magnachip-sic-investment',
     featured: true,
-    featuredReviewedThrough: '2026-09-26',
+    featuredReviewedThrough: '2026-09-28',
     category: 'commercial-risk',
     products: ['general'],
     markets: ['south-korea', 'global'],
@@ -1971,6 +2003,65 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      californiaMaedbsBatteryCharger: {
+        topic: 'California charger efficiency records',
+        published: '28 September 2026',
+        readTime: '6 minutes',
+        title: 'California MAEDbS charger lookup: match the model and read its status',
+        description: 'How overseas buyers can use California’s MAEDbS to check a regulated battery-charger model, understand Approved and Archived entries, and separate Title 20 efficiency status from electrical-safety evidence.',
+        imageAlt: 'Unmarked white wall adapter photographed on a yellow background as an editorial illustration for California model-record checks.',
+        imageCaption: 'Editorial stock photograph by Fortal Fototeca under the Pexels License. The pictured adapter is not identified as a California-approved model or as evidence of a ZIMONAI supplier, test or shipment.',
+        answer: 'California’s Modernized Appliance Efficiency Database System (MAEDbS) is the public directory for model certifications under Title 20. CEC says an Approved entry means the listed regulated model meets applicable efficiency rules, with no separate certificate needed to show that status. The entry still depends on product scope and does not establish electrical-safety approval or shipment identity. Buyers sourcing chargers into California should match the exact quoted model and function to the record; ZIMONAI’s editorial view is that classification and model matching matter more than a supplier screenshot.',
+        takeaways: [
+          'CEC makes public MAEDbS searches available by model, brand, company or appliance type; the Approved status is the relevant current Title 20 listing.',
+          'A database entry is model-level efficiency evidence. CEC says complete test reports are not submitted to the public record and a separate certificate is not needed to show an Approved model’s Title 20 status.',
+          'Archived does not have one universal meaning across every product history: check the appliance type, certification date and reason for the status before drawing a sales conclusion.'
+        ],
+        sections: [
+          {
+            title: 'What the public MAEDbS record tells a buyer',
+            paragraphs: [
+              'The California Energy Commission lets anyone search approved models without a login. Quick Search can use a model number, brand, company or appliance type; archived records can also be selected when reviewing historical entries. CEC describes an Approved model as currently compliant with the applicable Title 20 requirements and says no additional certificate or document is needed to show that model’s compliance status.',
+              'That is a useful regulatory record, but it is not the same object as a laboratory report. CEC says a regulated model is tested first and then submitted to MAEDbS; manufacturers enter specified performance data, while a complete test report is not required to be filed in the database. A buyer can therefore use the public record to confirm the listed model’s status without assuming that the search result contains the underlying test file or identifies a shipment.'
+            ],
+            items: [
+              'The public search supports model, brand, company and appliance-type queries.',
+              'Approved is the current Title 20 status for an applicable model listing.',
+              'The public record is not a substitute for identifying the product being quoted or shipped.'
+            ]
+          },
+          {
+            title: 'Product scope comes before the database search',
+            paragraphs: [
+              'Title 20 applies to regulated appliance types, not automatically to every item sold as a charger or power supply. California’s rules define battery-charger systems broadly, including certain products with rechargeable batteries charged through internal or external supplies, while section 1601 also lists exclusions. The product’s function and configuration therefore matter: a standalone adapter is not automatically a regulated battery-charger model merely because it has a USB port.',
+              'For federally regulated consumer battery chargers, CEC says models manufactured on or after 13 June 2018 must meet the nationwide efficiency and disclosure requirements, and from 1 January 2019 those models must be certified in MAEDbS and appear as Approved to be eligible for sale in California. Some older state-regulated small charger records have a specific historical sell-through treatment; that limited rule is not a general permission to treat every Archived entry as currently approved.'
+            ]
+          },
+          {
+            title: 'A buyer-side sequence for matching the record',
+            paragraphs: [
+              'Start with the quoted product’s exact model number, including suffixes, the charging function, whether the battery is inside the end product, and the intended California sales route. Search MAEDbS by the model and then cross-check the manufacturer or brand and appliance type shown in the result. If the first search returns nothing, try the full model and reasonable formatting variants, then search by brand or appliance type before concluding that no record exists.',
+              'For an Archived result, note when the model was certified and whether CEC identifies an updated standard, manufacturer-requested archival or another reason; consult the appliance-specific rule where the sales consequence is unclear. Keep the result URL or a dated record with the model specification and supplier correspondence. If the classification itself is uncertain, ask for the product details and have the applicable Title 20 definition resolved before treating a database hit—or the absence of one—as the entire answer.'
+            ],
+            items: [
+              'Quoted model and suffix match the MAEDbS result.',
+              'Product function and battery configuration fit the listed appliance type.',
+              'Current Approved status is distinguished from historical Archived status.',
+              'The applicable Title 20 rule and manufacturing-date treatment are checked.',
+              'Efficiency evidence is kept separate from safety, EMC and shipment identity.'
+            ]
+          }
+        ],
+        checklist: [
+          'Exact model number, suffix and product label',
+          'Battery-charger function and battery configuration',
+          'MAEDbS model, brand, manufacturer and appliance type',
+          'Approved or Archived status and relevant dates',
+          'Applicable Title 20 scope and appliance-specific rule',
+          'Separate electrical-safety and shipment-identity evidence where required'
+        ],
+        limitsText: 'MAEDbS is a California Title 20 appliance-efficiency record. It does not by itself establish electrical-safety certification, EMC compliance, USB charging performance, factory identity, batch consistency, shipment contents or access to another market. A model search also cannot classify an unclear product from a name alone; the applicable appliance definition, product configuration and dates still matter. The buying sequence and risk interpretation here are ZIMONAI editorial analysis, not a CEC determination for an unnamed product.'
+      },
       navitasMagnachipSicInvestment: {
         topic: 'SiC power semiconductors · investment and manufacturing',
         published: '26 September 2026',
@@ -4098,6 +4189,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      californiaMaedbsBatteryCharger: {
+        topic: '加州充電器能效紀錄',
+        published: '2026 年 9 月 28 日',
+        readTime: '約 6 分鐘',
+        title: '加州 MAEDbS 查充電器：核對 Approved 型號與適用範圍',
+        description: '海外買家如何用加州 MAEDbS 查詢受管制的電池充電器，理解 Approved 與 Archived 紀錄，並把 Title 20 能效狀態和電氣安全證據分開。',
+        imageAlt: '黃色背景上的白色無標示電源適配器，用作加州型號紀錄查核的編輯示意照片。',
+        imageCaption: 'Fortal Fototeca 拍攝的 Pexels 授權編輯照片。圖中電源適配器並未被識別為加州核准型號，也不是 ZIMONAI 供應商、測試或出貨證據。',
+        answer: '加州能源委員會的 MAEDbS 是 Title 20 家電能效規定所使用的公開型號資料庫。CEC 說明，資料庫中的 Approved 型號代表該受管制產品符合適用的 Title 20 要求，買家無須再索取另一張證書來證明這項狀態；不過，產品首先得落在法規定義的受管制類別，而這筆紀錄處理的是能效，不是電氣安全認證，也不會替某批實際出貨驗明身分。對要把充電相關產品賣進加州的買家，關鍵在於將報價型號與產品功能對回正確資料列。ZIMONAI 的判讀是：比起供應商轉來的截圖，型號與適用範圍的吻合度更能支撐採購判斷。',
+        takeaways: [
+          'CEC 開放民眾依型號、品牌、公司或產品類別查詢 MAEDbS；目前要看的狀態是適用型號的 Approved 紀錄。',
+          '資料庫提供型號層級的能效狀態，不等於公開完整測試報告；CEC 表示 Approved 型號不必另附證書來證明 Title 20 狀態。',
+          'Archived 在不同產品歷史中可能有不同成因；判讀銷售影響前，還要看產品類別、認證日期與移入封存的原因。'
+        ],
+        sections: [
+          {
+            title: '公開 MAEDbS 紀錄能回答什麼？',
+            paragraphs: [
+              'CEC 開放一般民眾免登入查詢核准型號。快速搜尋可用型號、品牌、公司或產品類別；需要回看歷史資料時，也能選擇 Archived 狀態。CEC 將 Approved 說明為目前符合適用 Title 20 規定的型號，並指出要證明這項型號狀態，不必再提供其他證書或文件。',
+              '資料庫紀錄和實驗室完整報告不是同一份資料。CEC 說明，受管制型號須先依規定測試，再由製造商提交性能資料至 MAEDbS；輸入的是報告中的指定數據，完整測試報告本身無須上傳。因此，買家可以用公開紀錄核對型號狀態，但不應把搜尋結果當成原始測試檔，也不應把它當作某批貨物的身分紀錄。'
+            ],
+            items: [
+              '公開搜尋可使用型號、品牌、公司或產品類別。',
+              'Approved 代表該筆適用型號目前的 Title 20 狀態。',
+              '搜尋結果仍須連回實際報價與出貨產品。'
+            ]
+          },
+          {
+            title: '先判斷產品類別，再查型號',
+            paragraphs: [
+              'Title 20 管的是法規列明的產品類別，並不是所有標成「充電器」或「電源供應器」的商品都自動納入。加州規則對電池充電器系統有自己的定義，涵蓋部分透過內建或外接電源為可充電電池供電的產品，同時也列有排除情況。產品實際功能與配置會影響分類；有 USB 輸出的獨立電源適配器，不會只因外觀或接口就自動成為受管制的電池充電器型號。',
+              'CEC 說明，2018 年 6 月 13 日起製造的聯邦管制消費型電池充電器須符合全美能效與資訊揭露規定；自 2019 年 1 月 1 日起，這類型號還須在 MAEDbS 以聯邦管制消費產品完成登錄並列為 Approved，才符合在加州銷售的資格。少數較早期、屬州管制的小型充電器有特定的歷史銷售安排；這項限定規則不能概括成所有 Archived 紀錄仍可當作現行核准。'
+            ]
+          },
+          {
+            title: '買家如何把資料列連回報價型號',
+            paragraphs: [
+              '先整理報價型號與完整後綴、產品標籤、充電功能、電池是在終端產品內還是另行搭配，以及預計銷售地是否包含加州。接著在 MAEDbS 依型號搜尋，核對結果中的製造商或品牌和產品類別。如果第一次查不到，可試完整型號及合理的空格、連字號版本，再用品牌或產品類別搜尋；一次無結果不等於沒有紀錄。',
+              '遇到 Archived 時，要記下該型號的認證時間與 CEC 所列封存原因，並依產品類別查對適用規則。將資料列網址或有日期的紀錄，和產品規格及供應商往來文件放在同一份採購檔案。若產品分類本身仍不清楚，先釐清 Title 20 定義再下結論，比單看有無資料列更可靠。'
+            ],
+            items: [
+              '報價型號、完整後綴與產品標籤一致。',
+              '充電功能、電池配置與資料庫產品類別相符。',
+              '分清目前 Approved 與歷史 Archived 狀態。',
+              '核對適用的 Title 20 條文與產品製造日期。',
+              '能效紀錄和安全、電磁相容及出貨身分證據分開管理。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整型號、後綴與產品標籤',
+          '電池充電功能與電池配置',
+          'MAEDbS 型號、品牌、製造商與產品類別',
+          'Approved 或 Archived 狀態及相關日期',
+          '適用的 Title 20 範圍與產品專屬規則',
+          '另行確認需要的電氣安全與出貨身分資料'
+        ],
+        limitsText: 'MAEDbS 是加州 Title 20 家電能效紀錄；它本身不代表電氣安全認證、電磁相容、USB 充電效能、工廠身分、批次一致性、實際出貨內容或其他市場准入。只看型號名稱也無法替分類不明的產品定案，仍須核對法規定義、產品配置與日期。本文的採購步驟與風險判讀屬 ZIMONAI 編輯分析，不是 CEC 對任何未指名產品所作的裁定。'
+      },
       navitasMagnachipSicInvestment: {
         topic: '碳化矽功率半導體・投資與製造',
         published: '2026 年 9 月 26 日',
@@ -6220,6 +6370,65 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      californiaMaedbsBatteryCharger: {
+        topic: '加州充电器能效记录',
+        published: '2026 年 9 月 28 日',
+        readTime: '约 6 分钟',
+        title: '加州 MAEDbS 查充电器：核对 Approved 型号与适用范围',
+        description: '海外买家如何用加州 MAEDbS 查询受管制的电池充电器，理解 Approved 与 Archived 记录，并将 Title 20 能效状态和电气安全证据分开。',
+        imageAlt: '黄色背景上的白色无标识电源适配器，用作加州型号记录核查的编辑示意照片。',
+        imageCaption: 'Fortal Fototeca 拍摄的 Pexels 授权编辑照片。图中适配器未被识别为加州批准型号，也不是 ZIMONAI 供应商、测试或出货证据。',
+        answer: '加州能源委员会的 MAEDbS 是 Title 20 家电能效规定所使用的公开型号数据库。CEC 说明，数据库中的 Approved 型号代表相应受监管产品符合适用的 Title 20 要求，买家无需另外索取一张证书来证明这一状态；但产品必须先属于法规定义的受监管类别，而且这项记录针对能效，不是电气安全认证，也不会替某批实际货物验明身份。对于计划把充电相关产品销售到加州的买家，重要的是将报价型号与产品用途对应到正确的数据行。ZIMONAI 的编辑判断是：与供应商转来的未标日期截图相比，型号匹配和适用范围更能支撑采购决定。',
+        takeaways: [
+          'CEC 开放公众按型号、品牌、公司或产品类别搜索 MAEDbS；适用型号目前应查看 Approved 记录。',
+          '数据库提供型号层级的能效状态，并不公开完整测试报告；CEC 表示，Approved 型号无需另交证书来证明 Title 20 状态。',
+          'Archived 在不同产品历史中可能有不同原因；判断销售影响前，应核对产品类别、认证日期和归档原因。'
+        ],
+        sections: [
+          {
+            title: '公开 MAEDbS 记录能回答哪些问题？',
+            paragraphs: [
+              '加州能源委员会允许公众免登录查询已批准型号。快速搜索可按型号、品牌、公司或产品类别查找；需要查看历史条目时，还可以选择 Archived 状态。CEC 将 Approved 说明为目前符合适用 Title 20 要求的型号，并明确表示，证明这一型号状态不需要另外提交证书或文件。',
+              '数据库记录和实验室完整报告不是同一份材料。CEC 说明，受监管型号先按要求完成测试，再由制造商向 MAEDbS 提交性能数据；数据库录入的是报告中的指定数据，完整测试报告无需上传。因此，买家可用公开记录核对型号状态，但不应把查询结果当成原始测试文件，也不应把它当成某批货物的身份记录。'
+            ],
+            items: [
+              '公开搜索支持型号、品牌、公司和产品类别。',
+              'Approved 表示适用型号当前的 Title 20 状态。',
+              '数据库结果仍要对应实际报价与出货产品。'
+            ]
+          },
+          {
+            title: '先弄清产品类别，再搜索型号',
+            paragraphs: [
+              'Title 20 管理法规列明的产品类别，并非每件标注为“充电器”或“电源”的产品都会自动纳入。加州规则对电池充电器系统有自己的定义，包括部分通过内置或外接电源为可充电电池供电的产品，同时也列出适用范围以外的情况。产品实际用途和配置会影响分类；独立电源适配器带有 USB 接口，并不会仅因此自动成为受监管的电池充电器型号。',
+              'CEC 说明，2018 年 6 月 13 日起制造的联邦监管消费类电池充电器须符合全美能效与信息披露规定；从 2019 年 1 月 1 日起，这类型号还必须作为联邦监管消费产品提交至 MAEDbS，并显示 Approved，才具备在加州销售的资格。部分早期州监管小型充电器有专门的历史销售安排，但不能据此把所有 Archived 记录都视为当前批准。'
+            ]
+          },
+          {
+            title: '买家怎样把数据行连回报价型号',
+            paragraphs: [
+              '先整理报价型号及完整后缀、产品标签、充电用途、电池是内置于终端产品还是另行搭配，以及销售计划是否覆盖加州。随后按型号查询 MAEDbS，核对结果中的制造商或品牌和产品类别。第一次没有搜到时，可尝试完整型号的空格、连字符等常见写法，再按品牌或产品类型检索；一次查询无结果，不足以得出没有记录的结论。',
+              '遇到 Archived 条目时，记录型号认证时间和 CEC 标注的归档原因，再查看对应产品规则。将记录网址或带日期的查询结果，与产品规格及供应商沟通材料保存在同一采购档案。若产品分类仍不确定，先按 Title 20 定义厘清范围，再解释数据库命中与否，能减少把搜索结果直接等同市场许可的风险。'
+            ],
+            items: [
+              '报价型号、完整后缀和产品标签一致。',
+              '充电用途、电池配置与数据库类别相符。',
+              '分清当前 Approved 和历史 Archived 状态。',
+              '核对适用 Title 20 条文和产品制造日期。',
+              '能效记录与安全、电磁兼容及出货身份资料分开保存。'
+            ]
+          }
+        ],
+        checklist: [
+          '完整型号、后缀与产品标签',
+          '电池充电用途与电池配置',
+          'MAEDbS 型号、品牌、制造商和产品类别',
+          'Approved 或 Archived 状态与相关日期',
+          '适用的 Title 20 范围与产品专属规则',
+          '另行确认适用的电气安全和出货身份资料'
+        ],
+        limitsText: 'MAEDbS 是加州 Title 20 家电能效记录；它本身不代表电气安全认证、电磁兼容、USB 充电性能、工厂身份、批次一致性、实际出货内容或其他市场准入。只凭型号名称也无法为分类不明的产品定案，还要核对法规定义、产品配置和日期。本文的采购步骤与风险判断属于 ZIMONAI 编辑分析，不是 CEC 对任何未指名产品作出的裁定。'
+      },
       navitasMagnachipSicInvestment: {
         topic: '碳化硅功率半导体・投资与制造',
         published: '2026 年 9 月 26 日',

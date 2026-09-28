@@ -392,7 +392,7 @@ html { scroll-behavior: auto; }
 .approved-footer p, .approved-footer .footer-identity, .approved-footer .footer-identity > strong { color: #d1ddec; font-size: 13px; }
 .approved-footer .footer-addresses { margin-top: 20px; }
 .approved-footer .footer-office b { color: #fff; }
-.approved-footer .footer-office :is(i,em,span,small) { color: #d1ddec; font-size: 12px; }
+.approved-footer .footer-office :is(i,em,span,small):not(.cjk-keep) { color: #d1ddec; font-size: 12px; }
 .approved-footer .footer-navigation { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-block: 25px 35px; border-top: 1px solid #4e627a; }
 .approved-footer .footer-navigation h2 { font-size: 14px; color: #fff; font-weight: 600; margin: 0 0 14px; letter-spacing: 0; }
 .approved-footer .footer-navigation a { display: block; width: fit-content; padding: 8px 0; color: #d1ddec; font-size: 13px; }
