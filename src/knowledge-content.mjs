@@ -40,12 +40,44 @@ export const knowledgeArticleSpecs = [
     ]
   },
   {
+    id: 'knowledge-newdery-zxh-pb22-power-bank-recall',
+    key: 'newderyZhxPb22PowerBankRecall',
+    contentType: 'current-affairs',
+    slug: 'knowledge/newdery-zxh-pb22-power-bank-recall',
+    featured: true,
+    featuredReviewedThrough: '2026-09-29',
+    category: 'commercial-risk',
+    products: ['power-bank'],
+    markets: ['united-states'],
+    keywords: {
+      en: ['NEWDERY ZHX-PB22 recall', 'NEWDERY power bank recall 2026', 'CPSC power bank recall September 2026', 'ZHX-PB22 lithium-ion battery fire', 'NEWDERY 2025 CPSC warning'],
+      'zh-tw': ['NEWDERY ZHX-PB22 召回', 'NEWDERY 行動電源召回 2026', 'CPSC 行動電源召回 2026', 'ZHX-PB22 鋰電池火災風險', 'NEWDERY CPSC 2025 警告'],
+      'zh-cn': ['NEWDERY ZHX-PB22 召回', 'NEWDERY 移动电源召回 2026', 'CPSC 移动电源召回 2026', 'ZHX-PB22 锂电池火灾风险', 'NEWDERY CPSC 2025 警告']
+    },
+    datePublished: '2026-09-29',
+    dateModified: '2026-09-29',
+    image: '/assets/editorial-newdery-zxh-pb22-recall.jpg',
+    imageWidth: 1468,
+    imageHeight: 1957,
+    imageCrop: { card: '50% 72%', article: '50% 69%', mobile: '50% 69%' },
+    photo: {
+      photographer: 'U.S. Consumer Product Safety Commission',
+      page: 'https://www.cpsc.gov/Recalls/2026/NEWDERY-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Risk-of-Serious-Injury-Sold-on-Amazon',
+      license: 'https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy'
+    },
+    sources: [
+      { publisher: 'U.S. Consumer Product Safety Commission', title: 'NEWDERY power banks recalled due to fire and burn hazards — 24 September 2026', url: 'https://www.cpsc.gov/Recalls/2026/NEWDERY-Power-Banks-Recalled-Due-to-Fire-and-Burn-Hazards-Risk-of-Serious-Injury-Sold-on-Amazon' },
+      { publisher: 'The Gadgeteer', title: 'NEWDERY power bank recall: check for model ZHX-PB22 before charging again — 26 September 2026', url: 'https://the-gadgeteer.com/2026/09/26/newdery-power-bank-recall-check-for-model-zhx-pb22-before-charging-again/' },
+      { publisher: 'U.S. Consumer Product Safety Commission', title: 'CPSC warning on NEWDERY ZHX-PB22 power banks — 5 June 2025', url: 'https://www.cpsc.gov/Warnings/2025/CPSC-Warns-Consumers-to-Immediately-Stop-Using-NEWDERY-Power-Banks-Due-to-Fire-and-Burn-Hazards-Risk-of-Serious-Injury-or-Death-Sold-Exclusively-on-Amazon-com' },
+      { publisher: 'NEWDERY', title: 'NEWDERY Power Bank Recalls — company notice dated 5 June 2025', url: 'https://www.newdery.com/pages/newdery-power-bank-recalls' },
+      { publisher: 'U.S. Consumer Product Safety Commission', title: 'Copyright and reuse policy for CPSC recall notices and photographs', url: 'https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy' }
+    ]
+  },
+  {
     id: 'knowledge-navitas-magnachip-sic-investment',
     key: 'navitasMagnachipSicInvestment',
     contentType: 'current-affairs',
     slug: 'knowledge/navitas-magnachip-sic-investment',
-    featured: true,
-    featuredReviewedThrough: '2026-09-28',
     category: 'commercial-risk',
     products: ['general'],
     markets: ['south-korea', 'global'],
@@ -1915,7 +1947,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Twenty-six field notes',
+      latest: 'Twenty-seven field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -2061,6 +2093,63 @@ export const knowledgeContent = {
           'Separate electrical-safety and shipment-identity evidence where required'
         ],
         limitsText: 'MAEDbS is a California Title 20 appliance-efficiency record. It does not by itself establish electrical-safety certification, EMC compliance, USB charging performance, factory identity, batch consistency, shipment contents or access to another market. A model search also cannot classify an unclear product from a name alone; the applicable appliance definition, product configuration and dates still matter. The buying sequence and risk interpretation here are ZIMONAI editorial analysis, not a CEC determination for an unnamed product.'
+      },
+      newderyZhxPb22PowerBankRecall: {
+        topic: 'U.S. power-bank recall · lithium-ion safety',
+        published: '29 September 2026',
+        readTime: '6 minutes',
+        title: 'From CPSC warning to recall: NEWDERY ZHX-PB22 now carries a refund remedy',
+        description: 'On 24 September 2026, the CPSC announced a refund-based recall of NEWDERY’s ZHX-PB22 power bank, a year after warning consumers to stop using it. The public notices give different unit estimates and sales windows without explaining the change.',
+        imageAlt: 'Back of the recalled black NEWDERY power bank, with yellow built-in cables and model ZHX-PB22 printed on its label.',
+        imageCaption: 'Actual ZHX-PB22 product photograph from the U.S. CPSC recall notice, reused under the agency’s policy allowing recall notices and recalled-item photographs to be copied. It is not ZIMONAI testing, a client product, supplier evidence or CPSC endorsement.',
+        labels: {
+          summary: 'News summary',
+          checklist: 'What buyers and brands should watch next',
+          limits: 'What remains unresolved'
+        },
+        answer: 'On 24 September 2026, the U.S. CPSC recalled about 21,380 NEWDERY ZHX-PB22 power banks after nine explosion or ignition reports, including a burn injury and a fire with about $2 million in damage. A June 2025 CPSC warning had estimated 17,670 units and said the importer refused a recall; NEWDERY’s own page calls it voluntary. The 2026 notice adds a full-refund remedy, but changes the estimate and sales window without explaining why. This matters because buyers need model-level traceability to distinguish a changed recall scope from evidence of new production; ZIMONAI’s view is that the two records should be reconciled before drawing that conclusion.',
+        takeaways: [
+          'The 24 September 2026 CPSC recall covers about 21,380 black NEWDERY ZHX-PB22 power banks with yellow cables, sold on Amazon from October 2023 to November 2024.',
+          'The new notice reports the same total of nine explosion or ignition reports described in the 2025 warning, including one burn injury and one fire associated with about $2 million in property damage.',
+          'The 2025 warning estimated 17,670 units sold from March 2023 to November 2024; the 2026 recall lists 21,380 units and October 2023 to November 2024, with no public explanation for the difference.'
+        ],
+        sections: [
+          {
+            title: 'What changed between the 2025 warning and 2026 recall?',
+            paragraphs: [
+              'In June 2025, CPSC told consumers to stop using the ZHX-PB22 after receiving nine reports of the power banks exploding or igniting. Its warning said the importer had refused to conduct a recall and estimated that about 17,670 units had been sold exclusively on Amazon from March 2023 through November 2024. NEWDERY’s company webpage, which still displays a notice dated 5 June 2025, describes the action as a voluntary recall in cooperation with CPSC. The public wording in those two records does not align, and the sources reviewed do not explain the discrepancy.',
+              'The 24 September 2026 CPSC notice now lists a recall and a full refund. It identifies about 21,380 units sold on Amazon between October 2023 and November 2024. The product identifier remains the same: a black power bank with yellow cables, NEWDERY on the front and model ZHX-PB22 on the back. The newer notice is the current source for the remedy and disposal instructions.'
+            ],
+            items: [
+              'Model: ZHX-PB22; the model number is printed on the back.',
+              '2025 CPSC warning estimate: about 17,670 units; sales window March 2023–November 2024.',
+              '2026 CPSC recall estimate: about 21,380 units; sales window October 2023–November 2024.',
+              'Current CPSC remedy: stop use and contact NEWDERY for a full refund.'
+            ]
+          },
+          {
+            title: 'Why should buyers avoid combining the two unit estimates?',
+            paragraphs: [
+              'The two notices describe different estimated totals and sales windows for the same model, but the 2026 notice does not publish a reconciliation. The figures should therefore be presented with their source dates and stated scope, not added together or interpreted as a measured increase in production. The notices repeat nine incident reports, so counting those reports as a second set of events would also overstate the record.',
+              'CPSC says the 2026 refund process requires consumers to provide a photo showing the model and serial numbers, mark the device with “recalled” and their last name, and confirm disposal under applicable rules. It also warns against ordinary rubbish and general or retail battery-recycling bins; consumers should first ask local household-hazardous-waste services whether they accept recalled lithium-ion products. These are the current U.S. instructions, not a universal disposal rule for every jurisdiction.'
+            ]
+          },
+          {
+            title: 'What does the recall reveal about battery-product supply chains?',
+            paragraphs: [
+              'The official record establishes a named finished model, the reported hazard, U.S. sales information, incident reports and a consumer remedy. It does not identify the cell or pack supplier, factory, engineering cause, production lots, test history or sales outside the stated Amazon window. Nothing in the notices establishes that another NEWDERY model—or another supplier’s power bank—shares the same defect.',
+              'ZIMONAI’s editorial reading is that the important change is operational: a safety warning has become a recall with a specific refund and disposal process, while the public unit-count history remains unreconciled. Buyers and brands should preserve a link between finished-product model and serial records, battery-pack revision, order lots and sales channels. That record cannot prevent every failure, but it can help a company identify affected stock and explain the scope of a response without turning unlike estimates into a trend.'
+            ]
+          }
+        ],
+        checklist: [
+          'If handling U.S. stock or customer questions, use the exact ZHX-PB22 model and the current CPSC notice as the affected-product reference.',
+          'Keep the 2025 warning estimate and 2026 recall estimate attached to their own dates and sales windows; do not add them together.',
+          'For battery products, retain model, serial, battery-pack revision, production-lot and destination-channel records that can be connected after sale.',
+          'Keep incident reports, returns and corrective-action decisions in a traceable file; separate confirmed facts from an engineering cause that has not been published.',
+          'For products already sold, confirm that any stop-use, refund and disposal communication matches the rules of the customer’s jurisdiction.'
+        ],
+        limitsText: 'CPSC’s 2026 notice and the independent reporting cited here support the recall date, ZHX-PB22 identifiers, U.S. sales window, about 21,380-unit estimate, nine reported incidents and stated remedy. The 2025 CPSC warning and NEWDERY webpage describe the earlier action differently, and the public material reviewed does not reconcile that wording or the 17,670 versus 21,380 estimates. The sources do not establish a cell or pack supplier, manufacturing site, technical root cause, affected production lots beyond the model scope, sales outside the stated U.S. channel, or a defect in any other product. Supply-chain observations in this article are ZIMONAI editorial analysis, not CPSC findings.'
       },
       navitasMagnachipSicInvestment: {
         topic: 'SiC power semiconductors · investment and manufacturing',
@@ -4101,7 +4190,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '二十六篇查核筆記',
+      latest: '二十七篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -4247,6 +4336,63 @@ export const knowledgeContent = {
           '另行確認需要的電氣安全與出貨身分資料'
         ],
         limitsText: 'MAEDbS 是加州 Title 20 家電能效紀錄；它本身不代表電氣安全認證、電磁相容、USB 充電效能、工廠身分、批次一致性、實際出貨內容或其他市場准入。只看型號名稱也無法替分類不明的產品定案，仍須核對法規定義、產品配置與日期。本文的採購步驟與風險判讀屬 ZIMONAI 編輯分析，不是 CEC 對任何未指名產品所作的裁定。'
+      },
+      newderyZhxPb22PowerBankRecall: {
+        topic: '美國行動電源召回・鋰電池安全',
+        published: '2026 年 9 月 29 日',
+        readTime: '約 6 分鐘',
+        title: '從 CPSC 警告到正式召回：NEWDERY ZHX-PB22 開始提供退款',
+        description: '美國 CPSC 於 2026 年 9 月 24 日公布 NEWDERY ZHX-PB22 行動電源召回，距離主管機關要求停用已逾一年。兩次公告列出的受影響數量與銷售期間不同，公開資料尚未解釋差異。',
+        imageAlt: '遭召回的黑色 NEWDERY 行動電源背面，可看到黃色內建線材及標示 ZHX-PB22 的銘牌。',
+        imageCaption: '美國 CPSC 召回公告中的 ZHX-PB22 實際產品照片；依 CPSC 可複製召回公告及受召回產品照片的政策使用。這不是 ZIMONAI 測試、客戶產品或供應商證據，也不代表 CPSC 背書。',
+        labels: {
+          summary: '新聞摘要',
+          checklist: '品牌與買家接下來應注意什麼',
+          limits: '仍待釐清的公開資訊'
+        },
+        answer: '美國 CPSC 於 2026 年 9 月 24 日召回約 21,380 台 NEWDERY ZHX-PB22 行動電源，此前 9 起爆炸或起火通報包含燒傷與約 200 萬美元財損火災。CPSC 2025 年警告曾估 17,670 台並稱進口商拒絕召回；NEWDERY 官網卻稱當時已自願召回。新公告改列數量與銷售期間，未解釋差異。這將估算口徑與型號追溯推到供應鏈焦點；ZIMONAI 的判讀是先釐清範圍，不把數字差異直接當成產量增加。',
+        takeaways: [
+          'CPSC 於 2026 年 9 月 24 日召回約 21,380 台 NEWDERY ZHX-PB22；產品為黑色機身、黃色線材，於 2023 年 10 月至 2024 年 11 月在 Amazon 銷售。',
+          '新公告列出 9 起爆炸或起火通報，包含 1 起燒傷及 1 起造成約 200 萬美元財損的火災；2025 年警告中也曾列出這 9 起通報。',
+          'CPSC 2025 年估計售出約 17,670 台，銷售期間為 2023 年 3 月至 2024 年 11 月；2026 年公告改列約 21,380 台及 2023 年 10 月至 2024 年 11 月，未公開說明差異。'
+        ],
+        sections: [
+          {
+            title: '2025 年停用警告與 2026 年召回有何變化？',
+            paragraphs: [
+              'CPSC 在 2025 年 6 月要求消費者停止使用 ZHX-PB22，原因是當時已收到 9 起行動電源爆炸或起火通報。公告指出，進口商拒絕進行召回，並估計約 17,670 台產品於 2023 年 3 月至 2024 年 11 月獨家在 Amazon 售出。NEWDERY 官網目前仍保留一則日期為 2025 年 6 月 5 日的資訊，卻將當時行動描述為與 CPSC 合作的自願召回。兩份公開紀錄的用語並不一致，現有資料沒有交代原因。',
+              '到了 2026 年 9 月 24 日，CPSC 公布正式召回與全額退款方式，列出約 21,380 台，銷售期間則為 2023 年 10 月至 2024 年 11 月。受影響產品仍是黑色 NEWDERY 行動電源，配有黃色線材；品牌刻在正面，ZHX-PB22 型號印於背面。退款與回收處置應以這次 CPSC 公告為準。'
+            ],
+            items: [
+              '型號：ZHX-PB22，印在產品背面。',
+              'CPSC 2025 年警告估算：約 17,670 台；銷售期間為 2023 年 3 月至 2024 年 11 月。',
+              'CPSC 2026 年召回估算：約 21,380 台；銷售期間為 2023 年 10 月至 2024 年 11 月。',
+              '目前處置方式：立即停用並聯絡 NEWDERY 申請全額退款。'
+            ]
+          },
+          {
+            title: '為什麼兩個銷售數字不能直接相加？',
+            paragraphs: [
+              '兩份公告針對同一型號提出不同數量與銷售區間估算，但 2026 年公告沒有公開重算方式。因此，文章應保留各自發布日期與原文範圍，不能把兩個數字相加，也不宜直接說成產量增加。兩次公告列出的都是 9 起事故通報，若把它們當成兩批新事件，也會重複計數。',
+              'CPSC 表示，申請 2026 年退款時，消費者須提供能辨認型號及序號的照片，並在產品上以油性筆寫上「recalled」與本人姓氏，再確認已依適用規定處置。公告也提醒，不可丟進一般垃圾、路邊回收或零售通路的舊電池回收箱；應先詢問當地家庭危險廢棄物收集單位是否接受遭召回的鋰電池產品。這是本次美國公告的做法，不等於全球各地都有相同流程。'
+            ]
+          },
+          {
+            title: '這次召回留下哪些電池供應鏈問題？',
+            paragraphs: [
+              '官方資料確認了受影響成品型號、危害描述、美國銷售資訊、事故通報與消費者補救方式，但沒有公布電芯或電池包供應商、製造工廠、工程根因、生產批次範圍、測試歷史或公告銷售區間以外的市場資訊。公告也不能延伸成其他 NEWDERY 型號或其他品牌行動電源存在相同缺陷的證據。',
+              'ZIMONAI 的編輯判讀是，這件事的實際轉變在於處置機制：事故警告如今成為帶有退款及廢棄物處理流程的召回，但公開數量仍未對上。買家與品牌若能把成品型號、序號、電池包版本、生產批次與銷售通路串在一起，日後才較容易定位庫存和通知對象。追溯資料無法保證事故不發生，卻能讓召回範圍有憑據可說明，而非把不同估算寫成產量趨勢。'
+            ]
+          }
+        ],
+        checklist: [
+          '若處理美國庫存或消費者詢問，以 ZHX-PB22 完整型號及最新 CPSC 公告核對受影響產品。',
+          '讓 2025 與 2026 年估算各自連回原公告、日期及銷售區間，不要直接相加。',
+          '電池產品應保留成品型號、序號、電池包版本、生產批次與目的地通路的關聯紀錄。',
+          '把事故、退貨及矯正措施留在可追溯檔案，並將已確認事實與未公開的工程根因分開。',
+          '產品已售出時，確認停用、退款及廢棄物處置資訊符合消費者所在地規定。'
+        ],
+        limitsText: 'CPSC 2026 年公告與獨立媒體報導支持本次召回日期、ZHX-PB22 識別特徵、美國銷售區間、約 21,380 台估算、9 起事故通報與公告處置方式。CPSC 2025 年警告與 NEWDERY 官網對先前行動的描述並不一致，公開資料也沒有解釋 17,670 台與 21,380 台兩個估算的差異。現有來源未確認電芯或電池包供應商、製造地、技術根因、超出公告型號範圍的批次、所列美國通路以外的銷售狀況，或其他產品是否有相同問題。本文對供應鏈的分析是 ZIMONAI 編輯判讀，不是 CPSC 調查結論。'
       },
       navitasMagnachipSicInvestment: {
         topic: '碳化矽功率半導體・投資與製造',
@@ -6282,7 +6428,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '二十六篇核查笔记',
+      latest: '二十七篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -6428,6 +6574,63 @@ export const knowledgeContent = {
           '另行确认适用的电气安全和出货身份资料'
         ],
         limitsText: 'MAEDbS 是加州 Title 20 家电能效记录；它本身不代表电气安全认证、电磁兼容、USB 充电性能、工厂身份、批次一致性、实际出货内容或其他市场准入。只凭型号名称也无法为分类不明的产品定案，还要核对法规定义、产品配置和日期。本文的采购步骤与风险判断属于 ZIMONAI 编辑分析，不是 CEC 对任何未指名产品作出的裁定。'
+      },
+      newderyZhxPb22PowerBankRecall: {
+        topic: '美国移动电源召回・锂电池安全',
+        published: '2026 年 9 月 29 日',
+        readTime: '约 6 分钟',
+        title: '从 CPSC 警告到正式召回：NEWDERY ZHX-PB22 开始提供退款',
+        description: '美国 CPSC 于 2026 年 9 月 24 日宣布召回 NEWDERY ZHX-PB22 移动电源，距离监管机构要求停用已逾一年。两次公告列出的受影响数量与销售期间不同，公开资料尚未解释差异。',
+        imageAlt: '被召回的黑色 NEWDERY 移动电源背面，可看到黄色内置线缆和标注 ZHX-PB22 的铭牌。',
+        imageCaption: '美国 CPSC 召回公告中的 ZHX-PB22 实际产品照片；依据 CPSC 允许复制召回公告及被召回产品照片的政策使用。这不是 ZIMONAI 测试、客户产品或供应商证据，也不代表 CPSC 背书。',
+        labels: {
+          summary: '新闻摘要',
+          checklist: '品牌与买家接下来应关注什么',
+          limits: '仍待澄清的公开信息'
+        },
+        answer: '美国 CPSC 于 2026 年 9 月 24 日召回约 21,380 台 NEWDERY ZHX-PB22 移动电源，此前 9 起爆炸或起火报告包括烧伤和造成约 200 万美元财损的火灾。CPSC 2025 年警告曾估计 17,670 台，并称进口商拒绝召回；NEWDERY 官网却称当时已自愿召回。新公告调整了数量和销售期间，但没有解释差异。这将估算口径与型号追溯推到供应链焦点；ZIMONAI 的判断是先厘清范围，不把数字差异直接当作产量增加。',
+        takeaways: [
+          'CPSC 于 2026 年 9 月 24 日召回约 21,380 台 NEWDERY ZHX-PB22；产品为黑色机身、黄色线缆，曾于 2023 年 10 月至 2024 年 11 月在 Amazon 销售。',
+          '新公告列出 9 起爆炸或起火报告，包括 1 起烧伤和 1 起造成约 200 万美元财损的火灾；2025 年警告中也列出了这 9 起报告。',
+          'CPSC 2025 年估计售出约 17,670 台，销售期间为 2023 年 3 月至 2024 年 11 月；2026 年公告改列约 21,380 台及 2023 年 10 月至 2024 年 11 月，未公开说明差异。'
+        ],
+        sections: [
+          {
+            title: '2025 年停用警告与 2026 年召回有哪些变化？',
+            paragraphs: [
+              'CPSC 于 2025 年 6 月要求消费者停止使用 ZHX-PB22，原因是当时已收到 9 起移动电源爆炸或起火报告。公告称进口商拒绝进行召回，并估计约 17,670 台产品于 2023 年 3 月至 2024 年 11 月仅在 Amazon 售出。NEWDERY 官网目前仍保留一则日期为 2025 年 6 月 5 日的信息，却把当时行动描述为与 CPSC 合作的自愿召回。两份公开记录的用语并不一致，现有资料没有解释原因。',
+              '到了 2026 年 9 月 24 日，CPSC 公布正式召回及全额退款方式，列出约 21,380 台，销售期间则为 2023 年 10 月至 2024 年 11 月。受影响产品仍是黑色 NEWDERY 移动电源，配有黄色线缆；品牌刻在正面，ZHX-PB22 型号印在背面。退款与回收处理应以这次 CPSC 公告为准。'
+            ],
+            items: [
+              '型号：ZHX-PB22，印在产品背面。',
+              'CPSC 2025 年警告估算：约 17,670 台；销售期间为 2023 年 3 月至 2024 年 11 月。',
+              'CPSC 2026 年召回估算：约 21,380 台；销售期间为 2023 年 10 月至 2024 年 11 月。',
+              '当前处理方式：立即停用并联系 NEWDERY 申请全额退款。'
+            ]
+          },
+          {
+            title: '为什么两个销售数字不能直接相加？',
+            paragraphs: [
+              '两份公告针对同一型号提出不同的数量与销售区间估算，但 2026 年公告没有公开重新计算的方法。因此，报道应保留各自的发布日期和原文范围，不能把两个数字相加，也不宜直接说成产量增加。两次公告列出的都是 9 起事故报告，若把它们当成两批新事件，也会重复计数。',
+              'CPSC 表示，申请 2026 年退款时，消费者须提供可辨认型号与序列号的照片，并在产品上用油性笔写上“recalled”和本人姓氏，再确认已依适用规定处理。公告也提醒，不要丢进普通垃圾、路边回收或零售渠道的旧电池回收箱；应先询问当地家庭危险废弃物收集单位是否接收被召回的锂电池产品。这是本次美国公告的做法，不代表全球各地都有相同流程。'
+            ]
+          },
+          {
+            title: '这次召回留下哪些电池供应链问题？',
+            paragraphs: [
+              '官方资料确认了受影响成品型号、危害描述、美国销售信息、事故报告与消费者补救方式，但没有公布电芯或电池包供应商、制造工厂、工程原因、生产批次范围、测试历史或公告销售区间以外的市场信息。公告也不能推导出其他 NEWDERY 型号或其他品牌移动电源存在相同缺陷。',
+              'ZIMONAI 的编辑判断是，这件事的实际变化在于处理机制：事故警告如今成为带有退款及废弃物处理流程的召回，但公开数量仍未对齐。买家与品牌若能把成品型号、序列号、电池包版本、生产批次与销售渠道串联起来，之后才更容易定位库存和通知对象。追溯资料无法保证事故不发生，却能让召回范围有依据可说明，而不是把不同估算写成产量趋势。'
+            ]
+          }
+        ],
+        checklist: [
+          '若处理美国库存或消费者询问，用完整型号 ZHX-PB22 和最新 CPSC 公告核对受影响产品。',
+          '让 2025 年与 2026 年的估算各自对应原公告、日期和销售区间，不要直接相加。',
+          '电池产品应保留成品型号、序列号、电池包版本、生产批次与目的地渠道的关联记录。',
+          '将事故、退货与纠正措施保存在可追溯档案中，并把已确认事实与尚未公开的工程原因分开。',
+          '产品已经售出时，确认停用、退款与废弃物处理信息符合消费者所在地的规定。'
+        ],
+        limitsText: 'CPSC 2026 年公告与独立媒体报道支持本次召回日期、ZHX-PB22 识别特征、美国销售区间、约 21,380 台估算、9 起事故报告及公告处理方式。CPSC 2025 年警告与 NEWDERY 官网对先前行动的描述并不一致，公开资料也没有解释 17,670 台和 21,380 台两个估算的差异。现有来源未确认电芯或电池包供应商、制造地、技术原因、超出公告型号范围的批次、所列美国渠道以外的销售情况，或其他产品是否存在相同问题。本文对供应链的分析是 ZIMONAI 编辑判断，并非 CPSC 调查结论。'
       },
       navitasMagnachipSicInvestment: {
         topic: '碳化硅功率半导体・投资与制造',
