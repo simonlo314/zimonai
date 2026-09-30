@@ -55,6 +55,13 @@ test('South Korea is a controlled trilingual market filter', () => {
   assert.equal(knowledgeContent['zh-cn'].taxonomy.markets['south-korea'], '韩国');
 });
 
+test('Brazil is a controlled trilingual market filter for the Anatel charger guide', () => {
+  assert.equal(knowledgeContent.en.taxonomy.markets.brazil, 'Brazil');
+  assert.equal(knowledgeContent['zh-tw'].taxonomy.markets.brazil, '巴西');
+  assert.equal(knowledgeContent['zh-cn'].taxonomy.markets.brazil, '巴西');
+  assert.deepEqual(knowledgeArticleSpecs.find(({ key }) => key === 'brazilAnatelPhoneCharger')?.markets, ['brazil']);
+});
+
 test('visible knowledge metadata exposes the same last-updated date as Article schema', () => {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   for (const spec of knowledgeArticleSpecs) {

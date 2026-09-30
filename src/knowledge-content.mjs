@@ -45,7 +45,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/newdery-zxh-pb22-power-bank-recall',
     featured: true,
-    featuredReviewedThrough: '2026-09-29',
+    featuredReviewedThrough: '2026-09-30',
     category: 'commercial-risk',
     products: ['power-bank'],
     markets: ['united-states'],
@@ -1910,6 +1910,39 @@ export const knowledgeArticleSpecs = [
         url: 'https://unece.org/DAM/trans/doc/2019/dgac10c3/UN-SCETDG-55-INF21e.pdf'
       }
     ]
+  },
+  {
+    id: 'knowledge-brazil-anatel-phone-charger-homologation',
+    key: 'brazilAnatelPhoneCharger',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/brazil-anatel-phone-charger-homologation',
+    category: 'certification-market-access',
+    products: ['charger', 'power-adapter'],
+    markets: ['brazil'],
+    keywords: {
+      en: ['Brazil Anatel phone charger homologation', 'Anatel charger approval lookup', 'Brazil smartphone charger model certificate', 'Ato 5155 charger requirements', 'Anatel Certifica homologation 2026'],
+      'zh-tw': ['巴西 Anatel 手機充電器核准', 'Anatel 充電器型號查詢', '巴西手機充電器證書', '第 5155 號法令充電器要求', 'Anatel Certifica 2026'],
+      'zh-cn': ['巴西 Anatel 手机充电器核准', 'Anatel 充电器型号查询', '巴西手机充电器证书', '第 5155 号法令充电器要求', 'Anatel Certifica 2026']
+    },
+    datePublished: '2026-09-30',
+    dateModified: '2026-09-30',
+    image: '/assets/editorial-brazil-anatel-charger.jpg',
+    imageWidth: 2200,
+    imageHeight: 1650,
+    imageCrop: { card: '50% 52%', article: '53% 53%', mobile: '53% 52%' },
+    photo: {
+      photographer: 'Andrey Matveev',
+      page: 'https://www.pexels.com/photo/white-mobile-charger-and-cable-on-a-grey-surface-37421859/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      { publisher: 'Anatel', title: 'Ato No. 5155 of 17 April 2024 — technical requirements for mobile-phone chargers', url: 'https://informacoes.anatel.gov.br/legislacao/atos-de-certificacao-de-produtos/2024/1947-ato-5155' },
+      { publisher: 'Anatel', title: 'Certification and homologation procedures move to the Certifica system — 8 September 2026', url: 'https://www.gov.br/anatel/pt-br/assuntos/noticias/procedimentos-de-certificacao-e-homologacao-passam-a-ser-realizados-no-sistema-certifica' },
+      { publisher: 'Anatel', title: 'Product certification and homologation — current guidance and official links', url: 'https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos' },
+      { publisher: 'Anatel', title: 'Frequently asked questions — checking an Anatel homologation by number, applicant or manufacturer', url: 'https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos/duvidas-frequentes' },
+      { publisher: 'Anatel', title: 'Own-use conformity declaration: scope and exclusions for chargers', url: 'https://www.gov.br/anatel/pt-br/regulado/certificacao-de-produtos/declaracao-de-conformidade' },
+      { publisher: 'Inmetro', title: 'Which household electrical appliances are within Portaria No. 148/2022?', url: 'https://www.gov.br/inmetro/pt-br/acesso-a-informacao/perguntas-frequentes/avaliacao-da-conformidade/aparelhos-eletrodomesticos-e-similares/quais-eletrodomesticos-estao-no-escopo-da-portaria-inmetro-ndeg-148-de-2022' }
+    ]
   }
 ];
 
@@ -1947,7 +1980,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Twenty-seven field notes',
+      latest: 'Thirty-nine field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -2016,7 +2049,8 @@ export const knowledgeContent = {
         'united-kingdom': 'United Kingdom',
         'european-union': 'European Union',
         global: 'Global standards',
-        international: 'International transport'
+        international: 'International transport',
+        brazil: 'Brazil'
       }
     },
     ui: {
@@ -4178,6 +4212,60 @@ export const knowledgeContent = {
           'Configuration match confirmed in writing'
         ],
         limitsText: 'UN 38.3 concerns transport classification testing for the lithium cell or battery type. It does not prove advertised capacity, charging performance, cycle life, electrical safety certification, factory identity or shipment-level quality.'
+      },
+      brazilAnatelPhoneCharger: {
+        topic: 'Brazil charger market access',
+        published: '30 September 2026',
+        readTime: '7 minutes',
+        title: 'How should buyers verify Anatel homologation for a phone charger sold in Brazil?',
+        description: 'Match Anatel homologation evidence to the exact phone-charger model, ratings and factory. Ato 5155 defines the scope; the mark alone does not prove shipment identity.',
+        imageAlt: 'White USB phone charger and cable photographed on a grey surface, used as a generic editorial illustration.',
+        imageCaption: 'Generic charger photograph for illustration only; it is not shown as Anatel-homologated or as evidence of Brazilian market approval.',
+        answer: 'Anatel Ato No. 5155 has applied mandatorily since 14 October 2024 to defined portable AC/DC phone chargers, inductive chargers and dedicated USB power-only interfaces; ports built into a television or computer fall outside this rule. Buyers need to match the homologation number and certificate to the offered model, ratings, manufacturer and documented family coverage: a similar case or genuine certificate for another variant does not identify the quoted unit. This affects Brazil launch plans and OEM change control; ZIMONAI’s editorial view is that the product-identity chain matters more than a mark or document title.',
+        takeaways: [
+          'Ato 5155 covers defined phone-charger types, including portable mains and vehicle chargers, inductive chargers and dedicated USB power-only interfaces.',
+          'Compare the homologation record and certificate with the exact commercial model, electrical ratings, manufacturer and production configuration.',
+          'Anatel moved certification and homologation applications to Certifica on 8 September 2026; the agency says the platform change did not change the technical rules.'
+        ],
+        sections: [
+          {
+            title: 'Which phone chargers fall under Ato 5155?',
+            paragraphs: [
+              'Anatel’s Ato No. 5155 took effect on 17 April 2024, with its annex mandatory from 14 October 2024. It covers portable chargers supplied from AC mains, portable chargers supplied from a DC source such as a vehicle socket, inductive phone chargers regardless of whether their source is AC or DC, and USB interfaces dedicated to supplying power without data transmission.',
+              'The same annex excludes USB interfaces that are part of the electrical or electronic design of another device, giving televisions, computers and vehicle multimedia units as examples. It also defines the charger as equipment that charges a mobile-phone battery; cables or equipment that do not convert or adapt electrical energy are outside that definition. These boundaries matter because the product’s function and architecture—not a supplier’s broad “adapter” label—drive classification.'
+            ]
+          },
+          {
+            title: 'What should match across the record, certificate and quoted model?',
+            paragraphs: [
+              'Start with the homologation identification shown on the product and request the corresponding Anatel homologation certificate and supporting conformity documents. Anatel’s FAQ describes checking a product by its homologation number or by the applicant or manufacturer name. Because the agency moved new applications to Certifica in September 2026, buyers should follow the current product-certification page for the live access route, then compare the complete model and suffix, brand, manufacturer, input and output ratings, plug, port layout and any model-to-family explanation with the quotation and a representative sample. The annex requires the resulting conformity document to state maximum input and output voltage and current values used in the assessment.',
+              'The technical rule is model-specific: it sets a minimum of 22 charger units for the electrical-safety tests it describes, and permits family coverage by similarity only when enclosure, printed-circuit board, interconnection diagram, board layout and internal hardware are the same. A different enclosure triggers supplementary tests for specified plug-dimension and mechanical requirements. This is a reason to request the documented family relationship and change history, not to infer coverage from a shared product photo.'
+            ],
+            items: [
+              'Anatel homologation number and the matching certificate, checked against current official information',
+              'Exact brand, model suffix, manufacturer and the party responsible for the Brazilian route',
+              'Input/output ratings, plug, port configuration and product photographs',
+              'Written model-family coverage plus the enclosure, PCB, layout and hardware basis',
+              'Change approvals or supplementary test evidence where the construction has changed'
+            ]
+          },
+          {
+            title: 'Account for the 2026 Certifica transition without confusing it with a rule change',
+            paragraphs: [
+              'Anatel announced that its Certifica platform began handling certification and homologation procedures on 8 September 2026, while the former SCH stopped accepting new applications. The agency describes this as a change to the application system and says the certification and homologation rules remain unchanged. Certifica is the current route for submitting and tracking covered procedures; the agency’s FAQ describes checking approved products by homologation number or the applicant/manufacturer name, so use the live links on its certification page rather than assuming an older SCH URL is still current. A database result does not replace the product’s certificate or model-level comparison.',
+              'For a procurement file, keep the product mark, homologation number, certificate, manufacturer authorization or relationship, model-family basis, test evidence and dated official checks together. Anatel also says its special own-use conformity-declaration route cannot substitute an overseas certificate for a mains-connected charger. That is different from the regular market route and should not be confused with a blanket allowance for importing commercial samples.'
+            ]
+          }
+        ],
+        checklist: [
+          'Classify the exact function: portable AC/DC, inductive, dedicated USB power-only or an interface built into another device',
+          'Record the Anatel mark and homologation number from the exact sample or product artwork',
+          'Obtain the current homologation certificate and verify who holds it and which model it names',
+          'Compare model suffix, ratings, plug, ports, manufacturer and sample photographs',
+          'Ask for the written basis of any model-family coverage and relevant change or supplementary-test records',
+          'Use Anatel’s current product-certification page for the live Certifica or product-check link; do not rely on an old application workflow as proof'
+        ],
+        limitsText: 'Anatel homologation evidence concerns the identified product and the applicable Brazilian telecom conformity route. It does not prove factory ownership, seller authority, unrestricted approval in other markets, every later production change or that a particular shipment matches the assessed model. A photograph of an Anatel mark, a similarity claim without its technical basis, or an empty search under one query is not a complete determination. Inmetro’s Portaria 148/2022 has its own defined household-appliance categories; this guide does not classify every external power supply or decide whether a separate requirement applies to a particular product.'
       }
     }
   },
@@ -4190,7 +4278,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '二十七篇查核筆記',
+      latest: '三十九篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -4259,7 +4347,8 @@ export const knowledgeContent = {
         'united-kingdom': '英國',
         'european-union': '歐盟',
         global: '全球標準',
-        international: '國際運輸'
+        international: '國際運輸',
+        brazil: '巴西'
       }
     },
     ui: {
@@ -6416,6 +6505,60 @@ export const knowledgeContent = {
           '書面確認本批產品使用的電池配置'
         ],
         limitsText: 'UN 38.3 處理的是鋰電芯或電池類型的運輸分類測試，不能證明標示容量、充電效能、循環壽命、電氣安全認證、工廠身分或出貨批次品質。'
+      },
+      brazilAnatelPhoneCharger: {
+        topic: '巴西充電器市場合規',
+        published: '2026 年 9 月 30 日',
+        readTime: '約 7 分鐘',
+        title: '出口巴西的手機充電器，買家該如何核對 Anatel 核准？',
+        description: '把 Anatel 核准資料連回手機充電器的精確型號、額定值與製造商。第 5155 號法令界定適用範圍，外觀標誌不等於出貨身分證明。',
+        imageAlt: '灰色桌面上的白色 USB 手機充電器與線材，作為通用編輯示意照片。',
+        imageCaption: '通用充電器示意照片，不代表照片中的產品已取得 Anatel 核准，也不是巴西市場准入證據。',
+        answer: 'Anatel 第 5155 號法令的附件自 2024 年 10 月 14 日起強制適用於特定交流／直流手機充電器、感應式充電器與專供供電的 USB 介面；電視、電腦等設備設計內建的 USB 埠不在這項要求範圍。買家應把 Anatel 核准號及證書連回報價中的精確型號、額定值、製造商與宣稱的系列關係，因為相似外殼或另一變體的真實證書都無法識別眼前這款產品。對海外採購而言，這會影響巴西市場規劃與 OEM 變更管理；ZIMONAI 的判讀是，型號身分鏈比標誌或文件標題更值得優先核對。',
+        takeaways: [
+          '第 5155 號法令列出特定手機充電器類型，包括交流插座與車用直流充電器、感應式充電器及專供供電的 USB 介面。',
+          '核准資料與證書須能對上報價型號、額定值、製造商及實際產品配置。',
+          'Anatel 自 2026 年 9 月 8 日起以 Certifica 處理認證與核准申請；主管機關說明，這次改的是作業平台，不是技術要求。'
+        ],
+        sections: [
+          {
+            title: '第 5155 號法令涵蓋哪些手機充電器？',
+            paragraphs: [
+              'Anatel 第 5155 號法令於 2024 年 4 月 17 日生效，附件要求自同年 10 月 14 日起強制適用。適用類型包括以交流市電供電的可攜式充電器、由直流電源供電的可攜式充電器（例如車用充電器）、不論交流或直流供電的感應式手機充電器，以及沒有資料傳輸功能、專供電子裝置供電的 USB 介面。',
+              '附件另排除電視、電腦及車載多媒體設備等其他產品電路設計內建的 USB 介面。它把手機充電器定義為用來充電手機電池的設備；不會轉換或調整電能的線材等產品，不在該定義內。分類應回到實際功能與架構，不宜只依供應商使用的「電源適配器」名稱判斷。'
+            ]
+          },
+          {
+            title: '核准紀錄、證書與報價型號要如何對上？',
+            paragraphs: [
+              '先從產品上的核准識別資訊取得 Anatel 核准號，再索取相對應的核准證書與符合性資料。Anatel 常見問題說明，可用核准號，或申請者、製造商名稱查詢產品。由於主管機關在 2026 年 9 月把新申請移至 Certifica，買家應從現行產品認證頁確認可用的官方查詢入口，再比對完整型號與尾碼、品牌、製造商、輸入與輸出額定值、插頭、埠位及型號系列對照，並回看報價與代表性樣品。法令也要求符合性文件列出評估時使用的最大輸入與輸出電壓、電流。',
+              '技術要求以型號為核心：相關電氣安全試驗每一受評型號至少需 22 台樣品；只有外殼、印刷電路板、互連圖、電路板佈局與內部硬體相同，才可依相似性納入同一評估系列。外殼不同時，特定插腳尺寸與機械要求須補充試驗。買家因此應索取系列涵蓋的文件依據與變更紀錄，而不是只憑共用產品照片推定。'
+            ],
+            items: [
+              'Anatel 核准號與相對應證書，並以最新官方資訊交叉確認',
+              '精確品牌、型號尾碼、製造商，以及巴西市場合規責任方',
+              '輸入／輸出額定值、插頭、埠位與產品照片',
+              '系列涵蓋的書面依據，以及外殼、電路板、佈局與硬體條件',
+              '結構變更後的核准、補充試驗或其他適用紀錄'
+            ]
+          },
+          {
+            title: '2026 年 Certifica 上線，應和法規變更分開看',
+            paragraphs: [
+              'Anatel 公告 Certifica 平台自 2026 年 9 月 8 日起受理認證與核准程序；原 SCH 系統同日起停止接收新申請。主管機關將此說明為申請作業平台更換，並表示認證與核准規則維持不變。Anatel 常見問題列出以核准號或申請者／製造商名稱查詢的方式；由於流程剛更換，應透過現行產品認證頁確認最新入口，不要假設舊 SCH 網址仍可使用。資料庫結果也不能取代產品證書與型號比對。',
+              '採購檔案宜一併保存產品標誌、核准號、證書、製造商授權或關係、系列涵蓋依據、試驗資料及有日期的官方查核紀錄。Anatel 也說明，市電連接式充電器不能以個人自用符合性聲明的例外程序，拿外國證書取代要求的評估；這和一般商品上市核准是不同路徑，也不應被解讀為商用樣品可一概免辦程序。'
+            ]
+          }
+        ],
+        checklist: [
+          '先按實際功能分類：交流／直流可攜式、感應式、專供供電的 USB，或其他設備內建介面',
+          '記錄實物或包裝上的 Anatel 標誌與核准號',
+          '取得現行核准證書，核對持有人及證書涵蓋型號',
+          '比對型號尾碼、額定值、插頭、埠位、製造商與樣品照片',
+          '要求供應商書面說明系列涵蓋依據，並提供相關變更或補充試驗紀錄',
+          '從 Anatel 現行產品認證頁進入 Certifica 或產品查詢，不把舊申請流程當成核准證據'
+        ],
+        limitsText: 'Anatel 核准資料只涉及被識別的產品與適用的巴西電信產品符合性路徑，不證明工廠所有權、賣方授權、其他國家准入、往後每次量產變更或某批出貨與受評型號完全一致。標誌照片、沒有技術依據的系列說法，或用單一搜尋條件查無結果，都不足以單獨定案。Inmetro 第 148/2022 號法令另有界定的家用電器品類；本文不替所有外接式電源產品分類，也不判斷特定產品是否另受其他要求規範。'
       }
     }
   },
@@ -6428,7 +6571,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '二十七篇核查笔记',
+      latest: '三十九篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -6497,7 +6640,8 @@ export const knowledgeContent = {
         'united-kingdom': '英国',
         'european-union': '欧盟',
         global: '全球标准',
-        international: '国际运输'
+        international: '国际运输',
+        brazil: '巴西'
       }
     },
     ui: {
@@ -8654,6 +8798,60 @@ export const knowledgeContent = {
           '书面确认本批产品使用的电池配置'
         ],
         limitsText: 'UN 38.3 针对锂电芯或电池类型的运输分类测试，不能证明标称容量、充电性能、循环寿命、电气安全认证、工厂身份或出货批次质量。'
+      },
+      brazilAnatelPhoneCharger: {
+        topic: '巴西充电器市场准入',
+        published: '2026 年 9 月 30 日',
+        readTime: '约 7 分钟',
+        title: '出口巴西的手机充电器，买家如何核对 Anatel 核准？',
+        description: '将 Anatel 核准资料对应到手机充电器的精确型号、额定值和制造商。第 5155 号法令界定适用范围，外观标志不等于出货身份依据。',
+        imageAlt: '灰色桌面上的白色 USB 手机充电器和线材，作为通用编辑示意照片。',
+        imageCaption: '通用充电器示意照片，不表示图中产品已获 Anatel 核准，也不是巴西市场准入证据。',
+        answer: 'Anatel 第 5155 号法令的附件自 2024 年 10 月 14 日起强制适用于特定交流／直流手机充电器、感应式充电器和专用供电 USB 接口；电视、电脑等设备设计内置的 USB 端口不在这项要求范围内。买家应将 Anatel 核准号和证书对应到报价中的精确型号、额定值、制造商及所称系列关系，因为外壳相似或另一变体的真实证书都无法识别眼前的产品。对海外采购来说，这会影响巴西市场规划和 OEM 变更管理；ZIMONAI 的判断是，型号身份链比标志或文件标题更值得优先核对。',
+        takeaways: [
+          '第 5155 号法令列出特定手机充电器类型，包括交流市电与车载直流充电器、感应式充电器和专用供电 USB 接口。',
+          '核准资料和证书需要对应报价型号、额定值、制造商和实际产品配置。',
+          'Anatel 从 2026 年 9 月 8 日起使用 Certifica 处理认证与核准申请；主管机构说明，改变的是办理平台，而不是技术要求。'
+        ],
+        sections: [
+          {
+            title: '第 5155 号法令覆盖哪些手机充电器？',
+            paragraphs: [
+              'Anatel 第 5155 号法令于 2024 年 4 月 17 日生效，附件要求自同年 10 月 14 日起强制适用。适用类型包括由交流市电供电的便携式充电器、由直流电源供电的便携式充电器（例如车载充电器）、不论交流或直流供电的感应式手机充电器，以及没有数据传输功能、专用于为电子设备供电的 USB 接口。',
+              '附件另行排除电视、电脑和车载多媒体设备等其他产品电路设计中内置的 USB 接口。法令将手机充电器定义为用于充电手机电池的设备；不转换或调节电能的线材等产品不属于这一定义。产品分类应回到实际功能和结构，不宜只按供应商使用的“电源适配器”名称判断。'
+            ]
+          },
+          {
+            title: '核准记录、证书和报价型号怎样对应？',
+            paragraphs: [
+              '先从产品上的核准识别信息取得 Anatel 核准号，再索取相应的核准证书和符合性资料。Anatel 的常见问题说明，可以按核准号或申请方、制造商名称查询产品。由于主管机构在 2026 年 9 月将新申请转到 Certifica，买家应从当前产品认证页面确认可用的官方查询入口，再比较完整型号及后缀、品牌、制造商、输入和输出额定值、插头、接口布局及型号系列对应关系，并与报价和代表性样品核对。法令还要求符合性文件列明评估时采用的最大输入和输出电压、电流。',
+              '技术要求以型号为核心：相关电气安全测试每个受评型号至少需要 22 台样品；只有外壳、印刷电路板、互连图、电路板布局和内部硬件相同，才能按相似性纳入同一评估系列。外壳不同时，特定插脚尺寸和机械要求需要补充测试。因此，买家应索取系列覆盖的书面依据和变更记录，而不是只凭共用产品照片推定。'
+            ],
+            items: [
+              'Anatel 核准号和对应证书，并结合最新官方信息交叉确认',
+              '精确品牌、型号后缀、制造商及巴西市场责任方',
+              '输入／输出额定值、插头、接口布局和产品照片',
+              '系列覆盖的书面依据，以及外壳、电路板、布局和硬件条件',
+              '结构变更后的核准、补充测试或其他适用记录'
+            ]
+          },
+          {
+            title: '2026 年 Certifica 上线，应与法规变化分开理解',
+            paragraphs: [
+              'Anatel 公告 Certifica 平台从 2026 年 9 月 8 日起处理认证与核准程序；原 SCH 系统自同日起停止接收新申请。主管机构将此说明为申请办理平台的更换，并表示认证与核准规则保持不变。Anatel 常见问题列出按核准号或申请方／制造商名称查询的方法；由于办理流程刚刚迁移，应通过当前产品认证页面确认最新入口，不要假设旧 SCH 网址仍可使用。数据库结果也不能替代产品证书和型号比对。',
+              '采购档案宜一并保存产品标志、核准号、证书、制造商授权或关系、系列覆盖依据、测试资料及带日期的官方核查记录。Anatel 还说明，连接市电的充电器不能通过个人自用符合性声明的例外程序，以外国证书替代所需评估；这与一般商品上市核准是不同路径，也不应理解为商用样品一概免办程序。'
+            ]
+          }
+        ],
+        checklist: [
+          '根据实际功能分类：交流／直流便携式、感应式、专用供电 USB，或其他设备内置接口',
+          '记录实物或包装上的 Anatel 标志与核准号',
+          '取得当前核准证书，核对持有人及证书覆盖型号',
+          '比较型号后缀、额定值、插头、接口、制造商和样品照片',
+          '要求供应商书面说明系列覆盖依据，并提供相关变更或补充测试记录',
+          '从 Anatel 当前产品认证页面进入 Certifica 或产品查询，不把旧申请流程当作核准证据'
+        ],
+        limitsText: 'Anatel 核准资料只涉及被识别的产品和适用的巴西电信产品符合性路径，不能证明工厂所有权、卖方授权、其他国家市场准入、后续每次量产变更或某批出货与受评型号完全一致。标志照片、缺少技术依据的系列说法，或使用单一查询条件未找到结果，都不足以单独下结论。Inmetro 第 148/2022 号法令另有界定的家用电器类别；本文不替所有外置电源产品分类，也不判断特定产品是否另受其他要求约束。'
       }
     }
   }
