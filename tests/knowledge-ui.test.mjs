@@ -105,9 +105,11 @@ test('knowledge enhancement fails open and analytics never sends query-bearing r
 test('knowledge images expose art-directed crop positions for cards and article viewports', () => {
   const hub = renderPage('zh-tw', 'knowledge');
   const article = renderPage('zh-tw', 'knowledge-iecee-cb-certificate');
+  const uaeLaunch = renderPage('zh-tw', 'knowledge-anker-maggo-2-pro-uae-launch');
 
-  assert.match(hub, /--knowledge-card-image-position:50% 72%;--knowledge-card-image-position-mobile:50% 69%/);
+  assert.match(hub, /--knowledge-card-image-position:59% 62%;--knowledge-card-image-position-mobile:59% 58%/);
   assert.match(article, /--field-note-image-position:56% 50%;--field-note-image-position-mobile:58% 52%/);
+  assert.match(uaeLaunch, /--field-note-image-position:58% 56%;--field-note-image-position-mobile:59% 58%/);
   assert.match(siteCss, /object-position: var\(--knowledge-card-image-position,50% 50%\)/);
   assert.match(siteCss, /\.field-note__image img \{[^}]*height: auto;[^}]*aspect-ratio: 16 \/ 10;/);
   assert.match(siteCss, /object-position: var\(--field-note-image-position-mobile,var\(--field-note-image-position,50% 50%\)\)/);

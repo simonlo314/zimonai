@@ -44,8 +44,6 @@ export const knowledgeArticleSpecs = [
     key: 'newderyZhxPb22PowerBankRecall',
     contentType: 'current-affairs',
     slug: 'knowledge/newdery-zxh-pb22-power-bank-recall',
-    featured: true,
-    featuredReviewedThrough: '2026-09-30',
     category: 'commercial-risk',
     products: ['power-bank'],
     markets: ['united-states'],
@@ -1315,6 +1313,50 @@ export const knowledgeArticleSpecs = [
     ]
   },
   {
+    id: 'knowledge-anker-maggo-2-pro-uae-launch',
+    key: 'ankerMagGo2ProUaeLaunch',
+    contentType: 'current-affairs',
+    slug: 'knowledge/anker-maggo-2-pro-uae-launch-price',
+    featured: true,
+    featuredReviewedThrough: '2026-10-02',
+    category: 'commercial-risk',
+    products: ['power-bank'],
+    markets: ['united-arab-emirates'],
+    keywords: {
+      en: ['Anker MagGo Power Bank 2 Pro UAE launch', 'Anker A110R UAE price', 'MagGo 2 Pro AED 349 or AED 399', 'UAE power bank launch October 2026', 'Anker UAE preorder availability'],
+      'zh-tw': ['Anker MagGo Power Bank 2 Pro 阿聯上市', 'Anker A110R 阿聯售價', 'MagGo 2 Pro AED 349 AED 399', '阿聯行動電源上市 2026', 'Anker UAE 預購出貨日期'],
+      'zh-cn': ['Anker MagGo Power Bank 2 Pro 阿联上市', 'Anker A110R 阿联售价', 'MagGo 2 Pro AED 349 AED 399', '阿联移动电源上市 2026', 'Anker UAE 预购发货日期']
+    },
+    datePublished: '2026-10-02',
+    dateModified: '2026-10-02',
+    image: '/assets/editorial-anker-maggo-2-pro.jpg',
+    imageWidth: 1600,
+    imageHeight: 2000,
+    imageCrop: { card: '59% 62%', article: '58% 56%', mobile: '59% 58%' },
+    photo: {
+      photographer: 'Anker Innovations',
+      page: 'https://www.dropbox.com/scl/fo/xo6ymq0rpxcak9ijbl21e/AFc7V47c6qJtFf1A59bIPfE/Anker%20Charging/110R-Anker%20MagGo%20Power%20Bank%20Pro%202/A110RH11_RI_TD06_EN_V1%20%281%29.jpg?rlkey=v5lytb6qesicevy3tgxmmz19k&dl=0',
+      license: 'https://www.einpresswire.com/article/939305437/anker-unveils-2026-charging-lineup-at-ifa-adding-intelligence-to-a-category-built-on-speed'
+    },
+    sources: [
+      {
+        publisher: 'Anker Innovations (company press release hosted by UAE News 24/7)',
+        title: 'Anker brings the MagGo Power Bank 2 Pro to the UAE — 30 September 2026',
+        url: 'https://uaenews247.com/2026/10/01/anker-brings-the-worlds-fastest-and-coolest-wireless-power-bank-to-the-uae/'
+      },
+      {
+        publisher: 'Anker UAE',
+        title: 'MagGo 2 Pro official UAE store listing and preorder availability',
+        url: 'https://www.store.anker.com/ae/products/a110r'
+      },
+      {
+        publisher: 'tbreak',
+        title: 'Anker MagGo Power Bank 2 Pro reaches UAE on 7 October — 1 October 2026',
+        url: 'https://tbreak.com/anker-maggo-power-bank-2-pro-uae/'
+      }
+    ]
+  },
+  {
     id: 'knowledge-reach-svhc-declaration',
     key: 'reachSvhcDeclaration',
     contentType: 'industry-knowledge',
@@ -2050,7 +2092,8 @@ export const knowledgeContent = {
         'european-union': 'European Union',
         global: 'Global standards',
         international: 'International transport',
-        brazil: 'Brazil'
+        brazil: 'Brazil',
+        'united-arab-emirates': 'United Arab Emirates'
       }
     },
     ui: {
@@ -3549,6 +3592,44 @@ export const knowledgeContent = {
         ],
         limitsText: 'As of 3 September 2026, Anker had published the US price, colour options and launch timing, and the WPC record confirmed the Qi registration fields for A110R. Independent reviews had not yet established sustained charging speed, real-world temperature, fan noise, battery endurance or long-term durability. Availability and pricing in every market were also not fully confirmed. The comments on category direction and manufacturing complexity are ZIMONAI’s analysis, not statements issued by Anker, WPC or a regulator.'
       },
+      ankerMagGo2ProUaeLaunch: {
+        topic: 'UAE product launch and channel pricing',
+        published: '2 October 2026',
+        readTime: '6 minutes',
+        title: 'Anker sets 7 October UAE launch for MagGo 2 Pro, but listed prices differ',
+        description: 'Anker announced a 7 October UAE launch at AED 349, while its current regional store listing shows AED 399 and the same shipping date. The public record establishes a channel-price mismatch, not its cause or a buyer’s final checkout price. For regional buyers, ZIMONAI’s reading is to compare dated, seller-specific offers rather than treat one launch figure as a universal quote.',
+        imageAlt: 'Anker MagGo Power Bank 2 Pro attached to a smartphone at a product event.',
+        imageCaption: 'Official Anker MagGo Power Bank 2 Pro media image from the company’s IFA 2026 press kit. The event photograph shows the product, not a UAE store, local test or ZIMONAI client device.',
+        labels: { summary: 'News summary', checklist: 'What to watch next', limits: 'What remains unclear' },
+        answer: 'On 30 September 2026, Anker announced that its MagGo Power Bank 2 Pro would reach the UAE on 7 October at AED 349, through its regional e-store and selected authorised retailers. Anker’s current UAE product listing instead displays AED 399 and also says orders ship on 7 October; independent UAE technology publication tbreak reported AED 349 on 1 October. This matters because the mismatch puts channel and date context at the centre of the UAE launch story for buyers comparing quotations: each price is a dated listing, not a universal market price. The public pages do not explain whether the figures reflect different offer terms or an update in progress.',
+        takeaways: [
+          'Anker’s 30 September announcement says UAE availability begins 7 October at AED 349 through its e-store and selected authorised retailers.',
+          'The Anker UAE listing currently shows AED 399 and an order-shipping date of 7 October; tbreak’s 1 October report gives AED 349.',
+          'The sources establish different published prices, not why they differ, which amount a buyer will pay at checkout or whether every retailer will use the same terms.'
+        ],
+        sections: [
+          { title: 'What did Anker announce for the UAE?', paragraphs: [
+            'Anker’s company announcement, carried by UAE News 24/7 with a 30 September Dubai dateline, sets 7 October as the UAE availability date for the MagGo Power Bank 2 Pro. It names the regional e-store and selected authorised retailers as sales channels and states AED 349. The same release describes the product as a 10,000 mAh magnetic power bank with Qi2.2 wireless charging up to 25 W, active cooling, a display and 45 W USB-C recharging. Those feature details are company statements, not independent performance measurements.',
+            'The current Anker UAE product page uses the name “MagGo 2 Pro Magnetic Power Bank,” lists AED 399 and says an order placed there will ship on 7 October. tbreak reported the UAE launch on 1 October and repeated the AED 349 launch price. The announcement and listing therefore align on the date but not on the displayed price.'
+          ] },
+          { title: 'Why does the price difference matter beyond one product?', paragraphs: [
+            'A launch announcement describes the stated market plan; a live product page describes what a particular sales channel currently displays. They are different records and may be updated at different times. Neither the announcement nor the current product page explains the AED 50 gap, so it would be premature to label it a price increase, discount, tax difference or error.',
+            'For regional distributors and buyers, the distinction affects quotation comparisons and launch planning. A dated screenshot or saved URL should identify the selling entity, currency, variant, shipping date and any stated offer terms. This is especially useful when manufacturer communications, a brand-operated store and retail listings are being compared as if they were one price list.'
+          ] },
+          { title: 'What should buyers and the market watch next?', paragraphs: [
+            'The clearest follow-up evidence will be the checkout total and terms shown when UAE pre-orders ship, plus the prices and stock status on the named authorised retail channels. It will also be useful to see whether Anker updates its product page or publishes a regional clarification. Until then, AED 349 is the price in the launch announcement and tbreak report, while AED 399 is the amount currently displayed on the Anker UAE product page.',
+            'ZIMONAI’s editorial reading is that the news is not simply a new accessory reaching another country: it is a useful example of how regional launch communications and live commerce records can diverge. For product sourcing, preserve the source and timestamp for each price, and compare like-for-like channel terms before treating a regional launch figure as a binding quote. The pages reviewed do not establish final checkout pricing, stock quantities, retailer-by-retailer terms or the reason for the difference.'
+          ] }
+        ],
+        checklist: [
+          'Final checkout price and any stated promotion on the Anker UAE store',
+          'Whether the 7 October ship date remains on the live listing',
+          'Price, stock and terms at each named authorised retailer',
+          'Exact model, colour and included accessories in each quotation',
+          'A dated record linking the price to its seller and sales channel'
+        ],
+        limitsText: 'The 30 September company announcement and the current Anker UAE product page publish different prices: AED 349 and AED 399 respectively. tbreak also reported AED 349 on 1 October. None of the reviewed sources explains the difference or confirms the final amount payable at checkout, retailer-specific terms, inventory, or whether the store listing will change. The interpretation of this discrepancy as a channel-and-timing issue is ZIMONAI editorial analysis, not a statement from Anker or a finding about its pricing policy.'
+      },
       reachSvhcDeclaration: {
         topic: 'EU chemical-information evidence',
         published: '4 September 2026',
@@ -4348,7 +4429,8 @@ export const knowledgeContent = {
         'european-union': '歐盟',
         global: '全球標準',
         international: '國際運輸',
-        brazil: '巴西'
+        brazil: '巴西',
+        'united-arab-emirates': '阿聯酋'
       }
     },
     ui: {
@@ -5842,6 +5924,44 @@ export const knowledgeContent = {
         ],
         limitsText: '截至 2026 年 9 月 3 日，Anker 已公布美國售價、顏色與上市時間，WPC 紀錄也能確認 A110R 的 Qi 登錄欄位；但獨立評測尚未證實長時間充電速度、實際溫度、風扇噪音、電池續航與長期耐用度，所有市場的價格與供貨情況也還沒有完整答案。本文對品類走向與製造複雜度的描述屬 ZIMONAI 編輯判讀，不是 Anker、WPC 或主管機關的結論。'
       },
+      ankerMagGo2ProUaeLaunch: {
+        topic: '阿聯新品上市與通路價格',
+        published: '2026 年 10 月 2 日',
+        readTime: '約 6 分鐘',
+        title: 'Anker MagGo 2 Pro 將於 10 月 7 日在阿聯上市，官方頁面售價不同',
+        description: 'Anker 宣布 MagGo Power Bank 2 Pro 將於 10 月 7 日在阿聯上市，公告售價 AED 349；品牌 UAE 商店目前則列 AED 399，並標示同日出貨。公開資料確認不同通路的頁面標價不一，未說明成因或買家結帳實付金額。對區域採購方而言，ZIMONAI 的判讀是應按日期、賣方與通路比較報價，不把單一上市數字當成通用報價。',
+        imageAlt: 'Anker MagGo Power Bank 2 Pro 在產品活動現場吸附於智慧型手機背面。',
+        imageCaption: 'Anker MagGo Power Bank 2 Pro 官方 IFA 2026 Press Kit 媒體圖片。畫面呈現產品發表活動，不是阿聯店面、當地測試或 ZIMONAI 客戶產品。',
+        labels: { summary: '新聞摘要', checklist: '接下來值得觀察', limits: '目前仍待釐清' },
+        answer: 'Anker 於 2026 年 9 月 30 日宣布，MagGo Power Bank 2 Pro 將在 10 月 7 日於阿聯上市，公告售價為 AED 349，銷售通路包括 UAE 線上商店與部分授權零售商。品牌目前的阿聯商品頁卻標示 AED 399，同樣寫明 10 月 7 日出貨；當地科技媒體 tbreak 在 10 月 1 日報導的上市價則是 AED 349。更值得注意的是，上市公告與品牌商品頁價格不一致，使阿聯市場的報價比較也必須看通路與更新時間；買家比價時應把價格連同日期、賣方與通路一起保存。現有公開頁面沒有說明兩個數字為何不同。',
+        takeaways: [
+          'Anker 於 9 月 30 日發布的公司公告表示產品將於 10 月 7 日在阿聯上市，售價 AED 349，透過 UAE 線上商店及部分授權零售商銷售。',
+          'Anker 阿聯商品頁目前顯示 AED 399，並標示 10 月 7 日出貨；tbreak 於 10 月 1 日報導 AED 349。',
+          '來源能確認公開頁面標價不同，卻沒有交代原因、結帳實付金額，或每家零售商是否採用相同條件。'
+        ],
+        sections: [
+          { title: 'Anker 公布了哪些阿聯上市資訊？', paragraphs: [
+            'Anker 的公司公告以 9 月 30 日杜拜為發稿地點，訂出 MagGo Power Bank 2 Pro 在阿聯的上市日為 10 月 7 日，並列出品牌 UAE 線上商店與部分授權零售商作為通路，建議售價寫為 AED 349。公告另稱產品具備 10,000mAh 容量、最高 25W Qi2.2 無線充電、主動散熱、螢幕與 45W USB-C 回充；這些屬於公司公布的產品資訊，不是獨立效能測試結果。',
+            '目前 Anker 阿聯商品頁使用「MagGo 2 Pro Magnetic Power Bank」名稱，標價 AED 399，並寫明下單後將於 10 月 7 日出貨。當地科技媒體 tbreak 在 10 月 1 日報導此次上市時，採用的售價則是 AED 349。上市日期相符，兩個公開價格紀錄不同。'
+          ] },
+          { title: '價格差異為何值得買家注意？', paragraphs: [
+            '上市公告呈現品牌對市場公布的安排，線上商品頁則是特定銷售通路當下展示的資訊；兩者是不同類型的紀錄，也可能在不同時間更新。公告和目前商品頁都沒有說明 AED 50 差額的成因，因此現階段不宜把它寫成漲價、折扣、稅額差異或標示錯誤。',
+            '對區域經銷商與採購方而言，這會影響報價比較及上市規劃。保存帶日期的頁面或畫面時，應一併記下銷售主體、幣別、產品版本、出貨日期及頁面列明的優惠條件。當品牌公告、品牌自營商店和零售通路被當成同一份價格表來比較時，這些欄位尤其重要。'
+          ] },
+          { title: '接下來應追蹤哪些變化？', paragraphs: [
+            '後續最具判斷價值的資料，是 UAE 預購出貨時實際顯示的結帳總額與條件，以及各家公告授權零售通路的售價和庫存狀態。也可留意 Anker 是否更新商品頁或發布區域說明。在此之前，AED 349 是上市公告與 tbreak 報導所載價格，AED 399 則是 Anker 阿聯商品頁目前顯示的金額。',
+            'ZIMONAI 的編輯判讀是，這不只是配件進入新市場的消息，也反映區域上市文案與即時銷售頁可能不會同步。採購時應保留每筆價格的來源與時間，再依相同通路條件比較，避免把單一上市數字直接視為可執行報價。已檢視的頁面仍未證明最終結帳價、各零售商條件、供貨量，或 AED 50 差異的原因。'
+          ] }
+        ],
+        checklist: [
+          'Anker 阿聯商店結帳頁的實付金額及優惠條件',
+          '商品頁所列 10 月 7 日出貨日期是否維持不變',
+          '各家列名授權零售商的售價、庫存與交易條件',
+          '不同報價中的確切型號、顏色及隨附配件',
+          '可把價格連回賣方、通路與查詢日期的紀錄'
+        ],
+        limitsText: 'Anker 9 月 30 日公司公告與目前的 Anker 阿聯商品頁，分別列出 AED 349 和 AED 399；tbreak 於 10 月 1 日也報導 AED 349。已查閱的來源沒有說明差異原因，也未確認結帳實付金額、各零售商條件、庫存，或商品頁之後是否更新。將差異視為通路與時間紀錄問題，屬於 ZIMONAI 編輯分析，不是 Anker 對其定價政策的說明或結論。'
+      },
       reachSvhcDeclaration: {
         topic: '歐盟化學物質文件',
         published: '2026 年 9 月 4 日',
@@ -6641,7 +6761,8 @@ export const knowledgeContent = {
         'european-union': '欧盟',
         global: '全球标准',
         international: '国际运输',
-        brazil: '巴西'
+        brazil: '巴西',
+        'united-arab-emirates': '阿联酋'
       }
     },
     ui: {
@@ -8134,6 +8255,44 @@ export const knowledgeContent = {
           '其他充电品牌跟进主动散热设计的速度'
         ],
         limitsText: '截至 2026 年 9 月 3 日，Anker 已公布美国售价、配色和上市时间，WPC 记录也能确认 A110R 的 Qi 登记字段；但独立评测尚未证实长时间充电速度、实际温度、风扇噪声、电池续航与长期耐用性，所有市场的售价和供货情况也还没有完整答案。本文对品类方向和制造复杂度的描述属于 ZIMONAI 编辑判断，并非 Anker、WPC 或监管机构的结论。'
+      },
+      ankerMagGo2ProUaeLaunch: {
+        topic: '阿联新品上市与渠道价格',
+        published: '2026 年 10 月 2 日',
+        readTime: '约 6 分钟',
+        title: 'Anker MagGo 2 Pro 将于 10 月 7 日登陆阿联，官方页面售价却不同',
+        description: 'Anker 宣布 MagGo Power Bank 2 Pro 将于 10 月 7 日在阿联上市，公告售价 AED 349；品牌 UAE 商店目前则列 AED 399，并标注同日发货。公开资料确认不同渠道的页面标价不一，但未解释原因或买家结账实付金额。对区域采购方而言，ZIMONAI 的判断是应按日期、卖方与渠道比较报价，不把单一上市数字当作通用报价。',
+        imageAlt: 'Anker MagGo Power Bank 2 Pro 在产品活动现场吸附于智能手机背面。',
+        imageCaption: 'Anker MagGo Power Bank 2 Pro 官方 IFA 2026 Press Kit 媒体图片。画面呈现产品活动，不是阿联店面、当地测试或 ZIMONAI 客户产品。',
+        labels: { summary: '新闻摘要', checklist: '接下来值得关注', limits: '目前仍待澄清' },
+        answer: 'Anker 于 2026 年 9 月 30 日宣布，MagGo Power Bank 2 Pro 将在 10 月 7 日于阿联上市，公告售价为 AED 349，销售渠道包括 UAE 线上商店和部分授权零售商。品牌目前的阿联商品页却标注 AED 399，同样写明 10 月 7 日发货；当地科技媒体 tbreak 在 10 月 1 日报道的上市价则为 AED 349。更值得关注的是，上市公告与品牌商品页价格并不一致，使阿联市场的报价比较也要看渠道与页面更新时间；买家比价时应把价格与日期、卖方及渠道放在一起保存。现有公开页面没有解释两个数字为何不同。',
+        takeaways: [
+          'Anker 于 9 月 30 日发布的公司公告称产品将于 10 月 7 日在阿联上市，售价 AED 349，通过 UAE 线上商店和部分授权零售商销售。',
+          'Anker 阿联商品页目前显示 AED 399，并注明 10 月 7 日发货；tbreak 于 10 月 1 日报道 AED 349。',
+          '这些来源能确认公开页面标价不同，但没有说明原因、结账实付金额，或各零售商是否采用相同交易条件。'
+        ],
+        sections: [
+          { title: 'Anker 公布了哪些阿联上市信息？', paragraphs: [
+            'Anker 公司公告以 9 月 30 日迪拜为发稿地点，将 MagGo Power Bank 2 Pro 在阿联的上市日期定为 10 月 7 日，并列出品牌 UAE 线上商店和部分授权零售商作为销售渠道，标价 AED 349。公告还称产品具备 10,000mAh 容量、最高 25W Qi2.2 无线充电、主动散热、显示屏与 45W USB-C 回充；这些属于公司公布的产品信息，不是独立性能测试结论。',
+            'Anker 阿联商品页目前使用“MagGo 2 Pro Magnetic Power Bank”名称，标价 AED 399，并说明现在下单将于 10 月 7 日发货。当地科技媒体 tbreak 在 10 月 1 日报道此次上市时，采用的售价则为 AED 349。上市日期相同，公开页面上的两项价格并不一致。'
+          ] },
+          { title: '为什么价格差异值得采购方留意？', paragraphs: [
+            '上市公告描述品牌向市场公布的安排，在线商品页则呈现某个销售渠道当下展示的信息；两者是不同类型的记录，也可能在不同时间更新。公告和当前商品页都没有解释 AED 50 差额的原因，因此现在将其定性为涨价、折扣、税额差异或页面错误都为时过早。',
+            '对于区域经销商和采购方，这会影响报价比较与上市规划。保存带日期的页面或截图时，应同时记录销售主体、币种、产品版本、发货日期，以及页面明确列出的优惠条款。当品牌公告、品牌自营商店和零售渠道被当成同一份价目表比较时，这些信息尤其有用。'
+          ] },
+          { title: '接下来应该关注什么？', paragraphs: [
+            '后续最有判断价值的资料，是 UAE 预购发货时显示的实际结账金额与条款，以及各家被列为授权渠道的零售商报价和库存状态。也可留意 Anker 是否更新商品页或发布区域说明。在此之前，AED 349 是上市公告与 tbreak 报道所载价格，AED 399 则是 Anker 阿联商品页当前显示的金额。',
+            'ZIMONAI 的编辑判断是，这不只是一个配件进入新市场的消息，也显示区域上市宣传与即时销售页面未必同步。采购时应保存每一笔价格的来源与时间，再按相同渠道条件比较，避免把单一上市数字直接当成可执行报价。已查看的页面仍未证明最终结账价、各零售商交易条件、供货量，或 AED 50 差异的原因。'
+          ] }
+        ],
+        checklist: [
+          'Anker 阿联商店结账页显示的实际金额和优惠条件',
+          '商品页标注的 10 月 7 日发货日期是否保持不变',
+          '各家列名授权零售商的售价、库存与交易条件',
+          '不同报价对应的准确型号、颜色及随附配件',
+          '能够关联卖方、渠道和查询日期的价格记录'
+        ],
+        limitsText: 'Anker 9 月 30 日公司公告与当前 Anker 阿联商品页分别列出 AED 349 和 AED 399；tbreak 于 10 月 1 日也报道 AED 349。已查阅来源没有解释差异原因，也未确认结账实付金额、零售商各自条款、库存，或商品页后续是否更新。把差异理解为渠道与时间记录问题，属于 ZIMONAI 编辑分析，并非 Anker 对其定价政策的说明或结论。'
       },
       reachSvhcDeclaration: {
         topic: '欧盟化学物质文件',

@@ -55,6 +55,16 @@ test('South Korea is a controlled trilingual market filter', () => {
   assert.equal(knowledgeContent['zh-cn'].taxonomy.markets['south-korea'], '韩国');
 });
 
+test('United Arab Emirates is a controlled trilingual market filter for the Anker launch', () => {
+  assert.equal(knowledgeContent.en.taxonomy.markets['united-arab-emirates'], 'United Arab Emirates');
+  assert.equal(knowledgeContent['zh-tw'].taxonomy.markets['united-arab-emirates'], '阿聯酋');
+  assert.equal(knowledgeContent['zh-cn'].taxonomy.markets['united-arab-emirates'], '阿联酋');
+  assert.deepEqual(
+    knowledgeArticleSpecs.find(({ key }) => key === 'ankerMagGo2ProUaeLaunch')?.markets,
+    ['united-arab-emirates']
+  );
+});
+
 test('Brazil is a controlled trilingual market filter for the Anatel charger guide', () => {
   assert.equal(knowledgeContent.en.taxonomy.markets.brazil, 'Brazil');
   assert.equal(knowledgeContent['zh-tw'].taxonomy.markets.brazil, '巴西');
@@ -338,7 +348,7 @@ test('the explicit Start here selection was reviewed against the newest publishe
   );
 
   assert.equal(featuredArticles.length, 1);
-  assert.equal(featuredArticles[0].id, 'knowledge-newdery-zxh-pb22-power-bank-recall');
+  assert.equal(featuredArticles[0].id, 'knowledge-anker-maggo-2-pro-uae-launch');
   assert.equal(featuredArticles[0].featuredReviewedThrough, newestPublishedDate);
 });
 
