@@ -63,6 +63,7 @@ await writeFile(
 );
 for (const [file, dependency] of [
   ['site.js', 'navigation.js'],
+  ['site.js', 'qa-mode.js'],
   ['site.js', 'cjk-runtime.js'],
   ['cjk-runtime.js', 'cjk-terms.js'],
   ['cjk-runtime.js', 'cjk-patterns.js']

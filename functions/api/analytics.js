@@ -1,3 +1,5 @@
+import { isQaRequest } from '../_lib/qa-mode.js';
+
 const ALLOWED_EVENTS = new Set([
   'page_view',
   'session_start',
@@ -140,6 +142,7 @@ function validAnalyticsPayload(payload) {
 
 export async function onRequestPost({ request, env }) {
   if (request.headers.get('DNT') === '1' || request.headers.get('Sec-GPC') === '1') return emptyResponse();
+  if (isQaRequest(request)) return new Response(null, { status: 204, headers: { 'Cache-Control': 'no-store', 'X-Zimonai-Telemetry': 'excluded-qa' } });
 
   const origin = request.headers.get('Origin');
   if (origin !== 'https://zimonai.com' && origin !== 'https://www.zimonai.com') return emptyResponse(403);

@@ -1,11 +1,15 @@
+import { initializeQaMode } from './qa-mode.js';
 import { initializeNavigation } from './navigation.js';
 import { observeDynamicCjkText } from './cjk-runtime.js';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 observeDynamicCjkText();
 
+const qaExcluded = initializeQaMode(location, document);
+
 const clientErrorEnabled = (location.hostname === 'zimonai.com' || location.hostname === 'www.zimonai.com')
   && !['portal', 'admin'].includes(document.documentElement.dataset.page)
+  && !qaExcluded
   && navigator.doNotTrack !== '1'
   && navigator.globalPrivacyControl !== true;
 const reportedClientErrors = new Set();
@@ -92,6 +96,7 @@ window.addEventListener('unhandledrejection', (event) => {
 
 const analyticsEnabled = (location.hostname === 'zimonai.com' || location.hostname === 'www.zimonai.com')
   && !['portal', 'admin'].includes(document.documentElement.dataset.page)
+  && !qaExcluded
   && navigator.doNotTrack !== '1'
   && navigator.globalPrivacyControl !== true;
 

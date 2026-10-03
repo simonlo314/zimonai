@@ -41,12 +41,15 @@ export function previousWeek(today) {
   };
 }
 
-function runQuery(sql) {
+function runQuery(sql, selectedDatabase = database) {
   const executable = process.platform === 'win32' ? 'npx.cmd' : 'npx';
   const output = execFileSync(executable, [
-    'wrangler', 'd1', 'execute', database, '--remote', '--json', '--command', sql
+    'wrangler', 'd1', 'execute', selectedDatabase, '--remote', '--json', '--command', sql
   ], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   const parsed = JSON.parse(output);
+  if (!Array.isArray(parsed) || !parsed.length || parsed.some((entry) => entry.success !== true || !Array.isArray(entry.results))) {
+    throw new Error('remote_query_failed');
+  }
   return parsed.flatMap((entry) => entry.results || []);
 }
 
@@ -126,7 +129,13 @@ export function summarizePeriod({
     pageViews: sum(selected, (row) => row.event_name === 'page_view'),
     sessions: sum(selected, (row) => row.event_name === 'session_start'),
     keyInteractions: sum(selected, (row) => keyEvents.has(row.event_name)),
+    // Kept for older consumers; this is a browser event, never a saved-record count.
     requestSubmissions: sum(selected, (row) => row.event_name === 'request_submit'),
+    browserEvents: {
+      requestSuccessSignals: sum(selected, (row) => row.event_name === 'request_submit'),
+      discussRequirementClicks: sum(selected, (row) => row.event_name === 'cta_click' && row.target === 'discuss_requirement'),
+      meaning: 'Browser events; clicks do not prove form loading or filling, success signals do not prove a retained inquiry or email delivery.'
+    },
     requestDrafts: sum(selected, (row) => row.event_name === 'request_draft'),
     contactClicks: sum(selected, (row) => row.event_name === 'contact_click'),
     topPages: grouped(selected, 'page_path', (row) => row.event_name === 'page_view'),
@@ -147,7 +156,56 @@ export function summarizePeriod({
   };
 }
 
-export function buildWeeklyReport({ today = dateInTaipei(), query = runQuery } = {}) {
+export function periodUtcBounds(start, end) {
+  return {
+    startInclusive: new Date(`${start}T00:00:00+08:00`).toISOString(),
+    endExclusive: new Date(`${addDays(end, 1)}T00:00:00+08:00`).toISOString()
+  };
+}
+
+function summarizeBusinessRecords(start, end, queryPortal) {
+  const bounds = periodUtcBounds(start, end);
+  const result = {
+    ...bounds,
+    source: 'zimonai-portal.public_inquiries / notification_outbox',
+    savedInquiries: { available: false, count: null, byStatus: [] },
+    inquiryNotifications: { available: false, count: null, byStatus: [] },
+    meaning: 'Retained inquiries created in this period, all statuses; notification rows created in this period, status at query time. One inquiry can queue multiple admin notifications; sent means provider accepted, not inbox delivery. Historical deletions cannot be reconstructed.'
+  };
+  const totals = (rows) => ({
+    available: true,
+    count: rows.reduce((total, row) => total + Number(row.count || 0), 0),
+    byStatus: rows.map((row) => ({ status: row.status, count: Number(row.count || 0) }))
+  });
+  // Independent availability: a failed lookup must never become a false zero.
+  try {
+    result.savedInquiries = totals(queryPortal(`
+      SELECT status, COUNT(*) AS count FROM public_inquiries
+      WHERE created_at >= '${bounds.startInclusive}' AND created_at < '${bounds.endExclusive}'
+      GROUP BY status ORDER BY status
+    `));
+  } catch {
+    result.savedInquiries.unavailableReason = 'portal_query_failed';
+  }
+  try {
+    result.inquiryNotifications = totals(queryPortal(`
+      SELECT status, COUNT(*) AS count FROM notification_outbox
+      WHERE notification_type = 'admin_public_inquiry_received'
+        AND created_at >= '${bounds.startInclusive}' AND created_at < '${bounds.endExclusive}'
+      GROUP BY status ORDER BY status
+    `));
+  } catch {
+    result.inquiryNotifications.unavailableReason = 'portal_query_failed';
+  }
+  return result;
+}
+
+export function buildWeeklyReport({
+  today = dateInTaipei(), query = runQuery,
+  queryPortal = (sql) => query(sql, 'zimonai-portal'),
+  now = () => new Date()
+} = {}) {
+  const queryStartedAt = now().toISOString();
   const period = previousWeek(today);
   const eventRows = query(`
     SELECT event_date, event_name, page_path, locale, target, referrer, device,
@@ -172,25 +230,35 @@ export function buildWeeklyReport({ today = dateInTaipei(), query = runQuery } =
              resource_type, browser_family
     ORDER BY event_date ASC
   `) : [];
-
+  const current = summarizePeriod({
+    start: period.start, end: period.end, eventRows, clientErrorRows,
+    clientErrorsAvailable: clientErrorTableExists
+  });
+  const previous = summarizePeriod({
+    start: period.previousStart, end: period.previousEnd, eventRows, clientErrorRows,
+    clientErrorsAvailable: clientErrorTableExists
+  });
+  current.businessRecords = summarizeBusinessRecords(period.start, period.end, queryPortal);
+  previous.businessRecords = summarizeBusinessRecords(period.previousStart, period.previousEnd, queryPortal);
+  const queryCompletedAt = now().toISOString();
   return {
-    generatedAt: new Date().toISOString(),
+    generatedAt: queryCompletedAt,
     timezone: 'Asia/Taipei',
+    dataAsOf: { queryStartedAt, queryCompletedAt, atomicSnapshot: false },
+    sources: {
+      browserEvents: 'zimonai-analytics.daily_events',
+      savedInquiries: 'zimonai-portal.public_inquiries',
+      inquiryNotifications: 'zimonai-portal.notification_outbox'
+    },
+    limitations: [
+      'QA opt-out applies only to explicitly marked future QA; historical traffic has not been deleted or reclassified and its QA share is unknown.',
+      'DNT/GPC opt out of browser telemetry, not business-record storage; browser signals and retained records are different populations.',
+      'Database lookups are sequential, not one atomic snapshot; notification statuses can change after the reporting period.',
+      'requestSubmissions is a compatibility alias for browserEvents.requestSuccessSignals, not a backend saved-inquiry count.'
+    ],
     trackingStarted: meta[0]?.value || null,
-    current: summarizePeriod({
-      start: period.start,
-      end: period.end,
-      eventRows,
-      clientErrorRows,
-      clientErrorsAvailable: clientErrorTableExists
-    }),
-    previous: summarizePeriod({
-      start: period.previousStart,
-      end: period.previousEnd,
-      eventRows,
-      clientErrorRows,
-      clientErrorsAvailable: clientErrorTableExists
-    })
+    current,
+    previous
   };
 }
 

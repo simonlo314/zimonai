@@ -1,3 +1,4 @@
+import { isQaRequest } from '../_lib/qa-mode.js';
 import {
   portalDb,
   portalJson,
@@ -28,6 +29,7 @@ export async function onRequestPost(context) {
   if (!requestOriginAllowed(request, env)) {
     return portalJson({ error: 'origin_not_allowed' }, 403);
   }
+  if (isQaRequest(request)) return portalJson({ error: 'qa_submission_disabled' }, 409);
   const parsed = await readPortalJson(request, MAX_BODY_BYTES);
   if (parsed.error) return parsed.error;
   const inquiry = parseInquiryPayload(parsed.data);

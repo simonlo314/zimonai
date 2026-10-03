@@ -45,3 +45,17 @@
 - ZimonAI 深藍 `#10263f` 作為標題色，紙白 `#f9fbfc` 與霧灰藍 `#edf2f6` 作為背景，品牌藍 `#2d64ae` 作為少量重點色；警示色只用於真正需要注意的訊號。
 - 數據卡片只呈現四個核心指標；其餘資訊以短段落、小表格或水平長條呈現。
 - 避免整封信像儀表板截圖。週報首先是一份經過判讀的營運信件，其次才是數據表。
+
+## QA 排除與資料來源（2026-10 更新）
+
+- 每次正式站 QA，先用 `https://zimonai.com/?zimonai_qa=1` 進入。匿名 session cookie 與 tab sessionStorage 維持排除；使用 `?zimonai_qa=0` 明確離開。`www` 與裸網域須各自啟用。停用兩種儲存時，不能假定跨頁保持排除，改用隔離環境或網路攔截。
+- QA 模式不送 `/api/analytics` 與 `/api/client-errors`；後端也會辨識 `zimonai_qa=1` cookie／query 或 `X-Zimonai-QA: 1`，回覆 204 與 `X-Zimonai-Telemetry: excluded-qa`，不寫資料。CLI QA 必須帶該 header。DNT/GPC 仍受尊重。
+- QA 標記的 `/api/inquiries` 會回覆 409 `qa_submission_disabled`，不保存、不通知；正式站 QA 不得送假詢問。前端成功狀態與後端保存驗證使用本機 mock 或隔離 Pages/D1。其他正式業務操作不會因 QA 模式變成 sandbox。
+- 此規則只排除明確標記的後續 QA。舊流量不刪除、不猜測重分類；QA 比例未知。部署當週也不能寫成全週已排除 QA。
+- 執行最新 main 的 `npm run analytics:weekly`。JSON 同時查詢 `zimonai-analytics` 與 `zimonai-portal`，報告必須分列：
+  1. `current.browserEvents.requestSuccessSignals`：瀏覽器成功回應訊號；`discussRequirementClicks` 是前往表單連結的點擊，不等於表單載入或填寫。
+  2. `current.businessRecords.savedInquiries.count`：期間建立且仍留存的後端詢問，包含所有狀態；不是有效詢盤或成交。
+  3. `current.businessRecords.inquiryNotifications.byStatus`：期間建立的詢問通知，在查詢當下的 queued／sending／sent／failed 狀態。一筆詢問可能有多位管理員通知；sent 僅代表寄送服務接受，不代表收件匣送達。
+- `available: false`、`count: null` 必須寫「本次無法取得」，不得寫零。舊 `requestSubmissions` 只保留相容性，仍是瀏覽器事件，禁止將它標為已保存需求。
+- 必列 `timezone`、兩週 start/end、`businessRecords.startInclusive/endExclusive` 的 UTC 邊界與 `dataAsOf.queryStartedAt/queryCompletedAt`。查詢不是跨表原子快照，通知狀態可能較統計區間晚更新；與前週比較時沿用同一口徑。
+- 本 repo 產生統計 JSON 與本規範；寄送自動化應使用最新 checkout 及這份規範，不能從舊 JSON 或記憶補出後端保存／通知數。
