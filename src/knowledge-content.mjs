@@ -8,6 +8,41 @@ export const knowledgeCategoryDefinitions = [
 
 export const knowledgeArticleSpecs = [
   {
+    id: 'knowledge-india-bis-crs-adapter-registration',
+    key: 'indiaBisCrsAdapterRegistration',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/india-bis-crs-adapter-registration',
+    category: 'certification-market-access',
+    products: ['power-adapter'],
+    markets: ['india'],
+    keywords: {
+      en: ['India BIS CRS power adapter registration', 'BIS R-number model scope lookup', 'India charger manufacturer factory registration', 'BIS CRS registered model verification', 'Power adapter IS 13252 or IS 616 scope'],
+      'zh-tw': ['印度 BIS CRS 電源適配器註冊', 'BIS R 號型號範圍查詢', '印度充電器製造工廠註冊', 'BIS CRS 型號核對', '電源適配器 IS 13252 IS 616'],
+      'zh-cn': ['印度 BIS CRS 电源适配器注册', 'BIS R 号型号范围查询', '印度充电器制造工厂注册', 'BIS CRS 型号核对', '电源适配器 IS 13252 IS 616']
+    },
+    datePublished: '2026-10-04',
+    dateModified: '2026-10-04',
+    image: '/assets/editorial-india-bis-crs-adapter.jpg',
+    imageWidth: 1600,
+    imageHeight: 1066,
+    imageCrop: { card: '50% 49%', article: '51% 50%', mobile: '51% 50%' },
+    photo: {
+      photographer: 'Pedro Paiva',
+      page: 'https://www.pexels.com/photo/close-up-of-multi-usb-port-power-adapter-29356607/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      { publisher: 'Bureau of Indian Standards', title: 'About the Compulsory Registration Scheme — legal basis, scope and eligible manufacturer', url: 'https://www.crsbis.in/BIS/about-crs.do' },
+      { publisher: 'Bureau of Indian Standards', title: 'Public CRS registration search — registration, manufacturer, product, model, brand and status fields', url: 'https://www.crsbis.in/BIS/Lims_registrationc.do?hmode=getLimsData' },
+      { publisher: 'Bureau of Indian Standards', title: 'Example public scope record for Power Adapter for IT Equipments — R-63000256', url: 'https://crsbis.in/BIS/Lims_registrationc.do?hmode=getScopeofLicense&rNumber=PTBUUG41VU1KUlVUM0ZrZU5KRE1wVlZRQnBWUlNCbmVQQlRNczFUUEFBWkVScHpPMDFsPT0%3D' },
+      { publisher: 'Bureau of Indian Standards', title: 'Guidelines for Change in Scope of Licence — manufacturing-unit scope and model inclusion', url: 'https://www.crsbis.in/BIS/app_srv/tdc/gl/docs/Guidelines_Change_in_scope_licence.pdf' },
+      { publisher: 'Bureau of Indian Standards', title: 'CRS registration steps — recognised-lab testing, foreign-applicant AIR and model inclusion', url: 'https://www.crsbis.in/BIS/howtoapply.do' },
+      { publisher: 'Bureau of Indian Standards', title: 'Advisory for applicants — government proof of manufacturing-unit identity, address and activity', url: 'https://www.crsbis.in/BIS/app_srv/tdc/gl/docs/Advisory_for_applicants_for_Grant_Of_Licence%20_under_CRS.pdf' },
+      { publisher: 'Bureau of Indian Standards', title: 'Public table of CRS product categories and Indian Standards', url: 'https://www.crsbis.in/BIS/publicdashAction.do?hmode=Standard_table' },
+      { publisher: 'Bureau of Indian Standards', title: 'Standard Mark and labelling guidelines under CRS', url: 'https://crsbis.in/BIS/app_srv/tdc/gl/jsp/standardMark.jsp' }
+    ]
+  },
+  {
     id: 'knowledge-california-maedbs-battery-charger',
     key: 'californiaMaedbsBatteryCharger',
     contentType: 'industry-knowledge',
@@ -1318,7 +1353,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/anker-maggo-2-pro-uae-launch-price',
     featured: true,
-    featuredReviewedThrough: '2026-10-02',
+    featuredReviewedThrough: '2026-10-04',
     category: 'commercial-risk',
     products: ['power-bank'],
     markets: ['united-arab-emirates'],
@@ -2022,7 +2057,7 @@ export const knowledgeContent = {
       title: 'Supplier verification knowledge, written for the moment before you commit.',
       lead: 'Source-backed briefings for overseas buyers of chargers, power adapters and power banks. Each note gives the whole issue at a glance, then shows the official sources, evidence boundary and practical meaning.',
       featured: 'Start here',
-      latest: 'Thirty-nine field notes',
+      latest: 'Forty-one field notes',
       methodLabel: 'Publishing standard',
       methodTitle: 'Useful answers, not search-engine filler.',
       methodItems: [
@@ -2092,6 +2127,7 @@ export const knowledgeContent = {
         'european-union': 'European Union',
         global: 'Global standards',
         international: 'International transport',
+        india: 'India',
         brazil: 'Brazil',
         'united-arab-emirates': 'United Arab Emirates'
       }
@@ -2112,6 +2148,65 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      indiaBisCrsAdapterRegistration: {
+        topic: 'India BIS CRS registration for power adapters',
+        published: '4 October 2026',
+        readTime: '7 minutes',
+        title: 'India BIS CRS: Does the registration cover this adapter model and factory?',
+        description: 'A practical guide to matching an Indian BIS CRS R-number to the registered manufacturer, factory address, product category, exact adapter model and current scope.',
+        imageAlt: 'A hand holding a dark multi-port USB power adapter, photographed close-up.',
+        imageCaption: 'Real product-category photograph by Pedro Paiva, retrieved from Pexels on 4 October 2026 and resized without generative edits. The pictured adapter is not identified as a BIS-registered product, an India-market model, a ZIMONAI client device or evidence for any registration discussed here.',
+        labels: { summary: 'Reader overview', checklist: 'What buyers should match', limits: 'Scope and evidence limits' },
+        answer: 'BIS’s Compulsory Registration Scheme (CRS) record links a registered manufacturer and factory to the product category, Indian Standard, brand, model scope, status and validity. The licence is granted to manufacturers for declared units and models; adding a model requires relevant test reports. Overseas buyers should treat an R-number as a starting point: the quotation, full nameplate model, production address and current scope must align, while seller authority and shipment or batch conformity need separate evidence. ZIMONAI’s editorial view is to use the public record as a factory-and-model matching tool, not proof that every seller or shipment is covered.',
+        takeaways: [
+          'CRS records identify more than a brand: the public search exposes the manufacturer, manufacturing address, product name, Indian Standard, status, validity and licence scope.',
+          'A model must appear in the applicable licence scope, including any explicitly listed series models; a similar family name or matching wattage is not a substitute.',
+          'Registration is tied to a manufacturing unit and declared scope. It does not independently establish that a reseller is authorised, that a shipment carries the correct mark or that later production lots remain consistent.'
+        ],
+        sections: [
+          {
+            title: 'First classify the adapter, then read the right CRS record',
+            paragraphs: [
+              'BIS does not treat every wall plug or USB charger as one interchangeable “adapter” category. Its public CRS standards table separates power adapters for IT equipment from adapters for audio, video and similar apparatus, and lists other product categories and Indian Standards as well. A product’s intended use and applicable notification therefore matter before a registration result can be interpreted. The name “charger,” port count or rated output alone does not establish which category applies.',
+              'The BIS search page accepts a registration number, product name, model or brand, and the public table can show the registered manufacturer, address, country, product, Indian Standard, grant date, status, validity, scope and brand. Start with the exact quoted product and the finished-product use; then confirm which CRS category and currently applicable standard the supplier says covers it. Where the standard or notification has changed, verify the operative transition or effective-date notice rather than assuming an older record or a newer standards-table entry settles the date question.'
+            ],
+            items: [
+              'Record the adapter’s intended host or use and whether it is sold as a stand-alone supply or with another product',
+              'Compare the supplier’s stated CRS product name and Indian Standard with the BIS product-category table',
+              'Check the current notification, standard revision and any effective-date or transition notice relevant to the planned import'
+            ]
+          },
+          {
+            title: 'Match the R-number to the actual factory and the full model',
+            paragraphs: [
+              'BIS states that the CRS applicant is the manufacturer or factory owner. Its registration scope is based on declarations for the manufacturing unit, brand and models; BIS also asks applicants for government-issued proof that identifies the unit’s name, address and relevant manufacturing activity. The public record is therefore useful for comparing the factory named by the supplier with the site listed under the R-number—not merely for checking whether a brand name appears somewhere in the database.',
+              'Open the scope details and compare the model character by character with the adapter nameplate, including letters, digits, suffixes and regional variants. BIS’s public example for an IT-equipment power-adapter registration lists individual models and some lead/series groupings, and shows withdrawn or deleted-model fields. Its scope-change guidance says model inclusion is based on relevant test reports and a manufacturer’s undertaking. A product family, shared casing or same wattage does not itself demonstrate that a new model was added.'
+            ],
+            items: [
+              'R-number, licence status and validity on the day the supplier’s evidence is reviewed',
+              'Registered manufacturer name and complete factory address against the supplier’s declared production site',
+              'Product category, Indian Standard, brand and exact model or expressly covered series entry',
+              'Any scope history, model withdrawal, deletion or renewal information visible in the record'
+            ]
+          },
+          {
+            title: 'What the registration does—and does not—settle for procurement',
+            paragraphs: [
+              'BIS’s CRS process includes testing through a BIS-recognised laboratory before registration. Foreign applicants without a liaison office or branch in India must appoint an Authorised Indian Representative under BIS guidance. These details help buyers understand the registration chain, but the public listing is not a substitute for the actual grant letter, test report, applicable marking instructions or importer’s shipment file when those records are needed for the transaction.',
+              'For purchasing, keep three questions separate: is the correct factory and model in the current CRS scope; is the seller or exporter entitled to supply product made under that registration; and does the delivered unit, label and production lot match the approved configuration and applicable mark? A positive database match is useful evidence for the first question, not automatic proof of the other two. ZIMONAI’s practical assessment is to use the R-number as a joining key across the quotation, label, factory identity and supporting documents, then resolve every mismatch before it becomes a shipment exception.'
+            ]
+          }
+        ],
+        checklist: [
+          'Search BIS CRS by R-number, product, model and brand; save the live result date and the complete scope detail',
+          'Confirm the CRS product category and currently applicable Indian Standard against the product’s actual use and official notices',
+          'Match the registered manufacturing-unit name and address to the factory identified in the quotation and production documents',
+          'Compare the full nameplate model and brand with the listed scope; do not infer coverage from a series name, rating or similar casing',
+          'Ask for the grant letter and relevant test report or model-inclusion evidence if the public scope is incomplete or ambiguous',
+          'Separately reconcile seller/exporter authority, product marking, shipment documentation and production-lot controls'
+        ],
+        limitsText: 'This article explains the public BIS CRS pages and guidance reviewed on 4 October 2026. Product classification, applicable Indian Standard, transition dates and marking obligations depend on the exact product and current notifications; the word “charger” alone is not a legal classification. A public registration match does not verify a seller’s commercial authority, an individual shipment, every production lot, product quality or compliance with requirements outside the listed scope. If the public record does not show the relevant model or the factory details differ, obtain clarification from the manufacturer and BIS rather than treating a search result as conclusive. This is ZIMONAI editorial analysis, not a BIS decision or legal advice.'
+      },
       californiaMaedbsBatteryCharger: {
         topic: 'California charger efficiency records',
         published: '28 September 2026',
@@ -4359,7 +4454,7 @@ export const knowledgeContent = {
       title: '供應商查核知識庫：每一篇，都要能用在付款前的判斷。',
       lead: '寫給採購充電器、電源適配器與行動電源的海外買家。每篇先用懶人包交代整體問題、重要限制與實際意義，再展開官方來源與完整證據。',
       featured: '建議先讀',
-      latest: '三十九篇查核筆記',
+      latest: '四十一篇查核筆記',
       methodLabel: '內容原則',
       methodTitle: '先把問題講清楚，再談搜尋排名。',
       methodItems: [
@@ -4429,6 +4524,7 @@ export const knowledgeContent = {
         'european-union': '歐盟',
         global: '全球標準',
         international: '國際運輸',
+        india: '印度',
         brazil: '巴西',
         'united-arab-emirates': '阿聯酋'
       }
@@ -4449,6 +4545,38 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      indiaBisCrsAdapterRegistration: {
+        topic: '印度 BIS CRS 電源適配器註冊',
+        published: '2026 年 10 月 4 日',
+        readTime: '約 7 分鐘',
+        title: '印度 BIS CRS 註冊，涵蓋這款電源適配器與實際工廠嗎？',
+        description: '從 BIS R 號查到製造工廠、產品類別、適用印度標準與完整型號範圍，分辨登記資料能支持什麼採購判斷。',
+        imageAlt: '手持深色多埠 USB 電源適配器的近照。',
+        imageCaption: 'Pedro Paiva 拍攝的真實產品類別示意照片，於 2026 年 10 月 4 日自 Pexels 重新下載並調整尺寸，未經生成式編修。照片中的適配器並非本文所述的 BIS 註冊產品、印度市場型號、ZIMONAI 客戶產品或任何登記紀錄的證據。',
+        labels: { summary: '讀者總覽', checklist: '買家應比對的資料', limits: '範圍與證據限制' },
+        answer: '印度標準局（BIS）的強制註冊計畫（CRS）公開紀錄，可把登記製造商與工廠地址連到電源適配器類別、印度標準、品牌、型號範圍、狀態與效期。BIS 說明，CRS 由製造商申請，授權範圍依製造單位、申報品牌與型號建立；新增型號還須提交相關測試報告。海外買家應把 R 號、報價型號、銘牌與登記工廠地址及現行範圍對在一起，單批貨況與量產一致性則要另外驗證。ZIMONAI 的編輯判讀是把公開紀錄視為工廠與型號比對的索引，不是賣家或每批出貨都已自動獲涵蓋的證明。',
+        takeaways: [
+          'BIS 公開查詢不只顯示品牌；登記製造商、工廠地址、產品類別、印度標準、狀態、效期與授權範圍都是比對欄位。',
+          '實際型號要出現在適用的註冊範圍，若以系列型號涵蓋，也要在紀錄中明確列出；同系列名稱或相同瓦數不足以代替。',
+          'CRS 登記對應製造單位與申報範圍，但不會自動證明轉售商有供貨授權、到貨產品標示正確，或後續批次維持一致。'
+        ],
+        sections: [
+          { title: '先判斷適配器類別，再查對應的 CRS 紀錄', paragraphs: [
+            'BIS 並未把所有插牆式電源或 USB 充電器視為同一種適配器。CRS 公開標準表分列資訊科技設備用電源適配器、影音及類似設備用適配器，也列有其他產品類別與印度標準。產品用途與適用公告會先決定查詢結果如何解讀；「充電器」名稱、埠數或額定輸出瓦數，本身都不足以分類。',
+            'BIS 查詢頁可用註冊號、產品名稱、型號或品牌搜尋；結果欄位包括製造商、地址、國家、產品、印度標準、核發日、狀態、效期、範圍與品牌。買家應先界定報價產品用途，再核對供應商主張的 CRS 類別與現行適用標準。若標準或公告曾更新，另查生效日或轉換通知，不要單靠舊登記頁或新版標準清單推斷進口日期的要求。'
+          ], items: ['記錄適配器預定搭配的設備，以及是單獨銷售或隨其他成品提供', '比對供應商申報的 CRS 產品名稱與 BIS 產品類別、印度標準', '核對進口時點適用的公告、標準修訂、生效日或過渡安排'] },
+          { title: 'R 號必須連到實際工廠與完整型號', paragraphs: [
+            'BIS 說明 CRS 由製造商或工廠所有人申請，註冊範圍依製造單位、申報品牌與型號而定；申請人還須提交政府文件證明工廠名稱、地址與相關製造活動。因此，公開紀錄適合比對供應商所稱生產地址和 R 號底下登記地點，而不只是搜尋品牌是否曾出現。',
+            '打開授權範圍後，逐字比對銘牌完整型號，包括字母、數字、尾碼和區域版本。BIS 公開的資訊科技設備用適配器案例列有個別型號、部分主型號／系列型號，以及撤回或刪除欄位。BIS 範圍變更指引指出，新增型號須有相關測試報告與製造商承諾；產品家族名稱、外殼相似或瓦數相同，都不能直接證明新型號已納入。'
+          ], items: ['核對 R 號、查詢當日的註冊狀態與效期', '將登記製造商及工廠完整地址與報價、製程文件列出的生產地比對', '確認產品類別、印度標準、品牌與完整型號，或明確列出的系列型號', '查看範圍歷程、型號撤回／刪除與續期資料'] },
+          { title: '註冊紀錄對採購有幫助，但不會替整筆交易背書', paragraphs: [
+            'BIS 的 CRS 流程包含交由 BIS 認可實驗室測試；依 BIS 指引，沒有印度聯絡處或分公司的外國申請人須指定授權印度代表（AIR）。這些程序有助了解註冊鏈，但若交易需要正式核准函、測試報告、標示規則或進口商文件，公開清單不能取代那些文件。',
+            '採購時要分開回答三件事：目前 CRS 範圍是否列有正確工廠與型號；賣方或出口商是否有權供應該工廠的產品；交貨實物、標示和生產批次是否符合所列配置及適用標示。資料庫吻合可支持第一項，卻不會自動回答另外兩項。ZIMONAI 的實務判讀是把 R 號當成串接報價、標籤、工廠身分與佐證文件的索引，所有不一致都應在出貨前釐清。'
+          ] }
+        ],
+        checklist: ['以 R 號、產品、型號及品牌搜尋 BIS CRS，保存查詢日期和完整範圍資料', '依產品實際用途及官方公告，確認 CRS 類別與現行適用印度標準', '把登記製造單位名稱、地址與報價及生產文件列出的工廠比對', '逐字核對銘牌完整型號和品牌；不要從系列名稱、額定規格或相似外觀推定涵蓋', '若公開範圍未列型號或有歧義，要求製造商提供核准函、相關測試報告或型號增列依據', '另外核實賣方／出口商供貨權、產品標示、出貨文件及生產批次管制'],
+        limitsText: '本文依據截至 2026 年 10 月 4 日查閱的 BIS CRS 公開頁面與指引。產品分類、適用印度標準、轉換日期與標示義務，須按產品本身及現行公告判斷；日常所稱「充電器」不是法規分類。公開註冊結果不會驗證賣方商業授權、單批貨物、每一生產批次、產品品質或範圍外要求。若公開紀錄沒有列出型號，或工廠資料不一致，應向製造商及 BIS 釐清，不宜把搜尋結果視為終局證明。本文是 ZIMONAI 編輯分析，不是 BIS 裁定或法律意見。'
+      },
       californiaMaedbsBatteryCharger: {
         topic: '加州充電器能效紀錄',
         published: '2026 年 9 月 28 日',
@@ -6691,7 +6819,7 @@ export const knowledgeContent = {
       title: '供应商核查知识库：每一篇，都要能用于付款前的判断。',
       lead: '写给采购充电器、电源适配器和移动电源的海外买家。每篇先用总结交代完整问题、重要边界和实际意义，再展开官方来源与完整证据。',
       featured: '建议先读',
-      latest: '三十九篇核查笔记',
+      latest: '四十一篇核查笔记',
       methodLabel: '内容原则',
       methodTitle: '先把问题讲清楚，再谈搜索排名。',
       methodItems: [
@@ -6761,6 +6889,7 @@ export const knowledgeContent = {
         'european-union': '欧盟',
         global: '全球标准',
         international: '国际运输',
+        india: '印度',
         brazil: '巴西',
         'united-arab-emirates': '阿联酋'
       }
@@ -6781,6 +6910,38 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      indiaBisCrsAdapterRegistration: {
+        topic: '印度 BIS CRS 电源适配器注册',
+        published: '2026 年 10 月 4 日',
+        readTime: '约 7 分钟',
+        title: '印度 BIS CRS 注册：查清电源适配器型号与工厂范围',
+        description: '利用 BIS R 号对照登记工厂、产品类别、印度标准和完整型号，判断公开记录能支持哪些采购结论。',
+        imageAlt: '手持深色多接口 USB 电源适配器的近照。',
+        imageCaption: 'Pedro Paiva 拍摄的真实产品类别示意照片，于 2026 年 10 月 4 日从 Pexels 重新下载并调整尺寸，没有生成式编辑。图中的适配器并非本文所述的 BIS 注册产品、印度市场型号、ZIMONAI 客户产品或任何登记记录的证据。',
+        labels: { summary: '读者总览', checklist: '买家应比对的资料', limits: '范围与证据限制' },
+        answer: '印度标准局（BIS）的强制注册计划（CRS）公开记录，可以把登记制造商与工厂地址关联到电源适配器类别、印度标准、品牌、型号范围、状态和有效期。BIS 说明，CRS 由制造商申请，许可范围围绕制造单元、申报品牌与型号建立；新增型号还要提交相关测试报告。海外采购人员应把 R 编号、报价型号、铭牌与登记工厂地址及当前许可范围逐项核对，单批货况和量产一致性则需要另外的证据。ZIMONAI 的编辑判断是：应把公开记录当作工厂与型号匹配的索引，而不是卖家或每批出货都已自动获覆盖的凭据。',
+        takeaways: [
+          'CRS 公开查询不只是品牌检索，还列出制造商、工厂地址、产品类别、印度标准、状态、有效期和许可范围。',
+          '报价上的完整型号必须落在适用范围中；系列名称相似、瓦数相同或外壳相同，都不能代替明确列出的型号记录。',
+          '登记对应的是特定制造单元和申报范围，不能单独证明经销商有供货授权、到货产品标记无误或后续批次保持一致。'
+        ],
+        sections: [
+          { title: '先弄清产品类别，再解释 CRS 查询结果', paragraphs: [
+            'BIS 不会把所有墙插电源和 USB 充电器都归为同一类适配器。公开标准表分别列出 IT 设备用电源适配器、影音及类似设备用适配器，以及其他产品类别和印度标准。产品用途和适用公告会影响分类；产品被称为“充电器”、有几个接口或标称多少瓦，都不足以决定适用类别。',
+            'CRS 查询页允许按注册号、产品名称、型号或品牌搜索，记录字段包括制造商、地址、国家、产品名称、印度标准、核发日期、状态、有效期、范围和品牌。采购人员应从报价产品的真实用途出发，核对供应商声称的 CRS 类别和现行标准。若规则或标准有过更新，还应查看生效日期及过渡通知，不能仅凭旧记录或较新的标准清单推断某个进口日期的要求。'
+          ], items: ['记录适配器预定配套的设备，以及它是单独销售还是随成品提供', '核对供应商声明的 CRS 产品名称、印度标准与 BIS 产品类别', '查明进口时有效的公告、标准版本、生效日期及过渡安排'] },
+          { title: '把 R 编号连到生产工厂和完整型号', paragraphs: [
+            'BIS 指出，CRS 申请人应是制造商或工厂所有人；许可范围依制造单元、申报品牌和型号确定。申请人还需提交政府签发的文件，证明工厂名称、地址及相关生产活动。买家因此应核对 R 编号记录里的生产地址，而不是只确认某个品牌曾在系统中出现。',
+            '打开许可范围后，要逐字符比较铭牌型号，包括字母、数字、后缀和区域版本。BIS 的公开 IT 适配器案例列有独立型号、部分主型号／系列型号，并提供撤销或删除信息。其范围变更指引也说明，新增型号须提交相关测试报告和制造商承诺。家族名称相同、外壳相似或功率相同，均不能说明新型号已正式纳入。'
+          ], items: ['记录 R 编号、查询日期、当前注册状态和有效期', '将登记制造商与工厂地址和报价、生产资料中的地点比对', '核实产品类别、印度标准、品牌和完整型号，或明确列出的系列型号', '留意许可范围变更、型号撤回／删除和续期信息'] },
+          { title: '注册记录支持部分判断，但不替整笔交易背书', paragraphs: [
+            'BIS 的 CRS 流程要求先由 BIS 认可实验室测试。按照 BIS 指引，没有印度联络处或分公司的外国申请人须指定授权印度代表（AIR）。了解这些步骤能帮助买家读懂注册链；若采购文件需要正式许可函、测试报告、标记规范或进口商资料，公开网页并不取代这些文件。',
+            '交易评估应把三个问题分开：有效许可范围是否包含正确工厂和型号；卖方或出口方是否有权销售该工厂生产的产品；实际到货的标签和生产批次是否与申报配置一致。数据库匹配有助回答第一项，但不会自动证明后两项。ZIMONAI 的实务判断是把 R 编号用作串接报价、铭牌、工厂身份和配套文件的索引，所有差异都应在出货前查明。'
+          ] }
+        ],
+        checklist: ['按 R 编号、产品、型号和品牌检索 BIS CRS，并保存查询日期与完整许可范围', '根据实际用途和官方公告确认 CRS 类别及当前适用印度标准', '核对登记制造单元名称、地址与报价和生产文件中的实际工厂', '逐字比较铭牌完整型号和品牌，不从系列名称、额定功率或外形相似推定覆盖', '公开范围没有列出型号或记录模糊时，向制造商索取许可函、测试报告或增列依据', '另行确认卖家／出口方供货权限、产品标记、出货文件和批次管理'],
+        limitsText: '本文依据截至 2026 年 10 月 4 日查阅的 BIS CRS 页面和指引。产品分类、适用印度标准、转换日期及标记要求，取决于具体产品和现行公告；日常称作“充电器”并不是法规分类。公开注册结果不证明卖方的商业授权、某一批货物、所有后续批次、产品质量或许可范围以外的合规事项。若记录未列出报价型号，或工厂资料对不上，应向制造商和 BIS 进一步核实，不能把搜索结果当作最终证明。本文属于 ZIMONAI 编辑分析，不是 BIS 裁定或法律意见。'
+      },
       californiaMaedbsBatteryCharger: {
         topic: '加州充电器能效记录',
         published: '2026 年 9 月 28 日',

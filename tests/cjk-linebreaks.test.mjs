@@ -128,6 +128,18 @@ test('Magnachip and Navitas SiC investment terms remain intact in both Chinese v
   }
 });
 
+test('India BIS CRS manufacturer and model-scope terms remain intact in both Chinese versions', () => {
+  for (const [locale, terms] of Object.entries({
+    'zh-tw': ['印度標準局（BIS）', '印度 BIS CRS', '強制註冊計畫（CRS）', '授權範圍', '登記製造單位', '實際工廠與完整型號', '銘牌與登記工廠地址', '授權印度代表（AIR）'],
+    'zh-cn': ['印度标准局（BIS）', '印度 BIS CRS', '强制注册计划（CRS）', '许可范围', '登记制造单元', '实际工厂和完整型号', '铭牌与登记工厂地址', '授权印度代表（AIR）']
+  })) {
+    const html = protectCjkHtml(`<!doctype html><html><body><p>${terms.join('、')}</p></body></html>`, locale);
+    for (const term of terms) {
+      assert.ok(html.includes(`<span class="cjk-keep cjk-keep--phrase">${term}`), `${locale} did not protect ${term}`);
+    }
+  }
+});
+
 test('every audited dictionary term is emitted as one protected unit', () => {
   for (const locale of ['zh-tw', 'zh-cn']) {
     for (const term of cjkProtectedTerms[locale]) {

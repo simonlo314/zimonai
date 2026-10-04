@@ -1,6 +1,6 @@
 # Third-party visual assets
 
-Last reviewed: 2026-09-26
+Last reviewed: 2026-10-04
 
 ## Local visual polish — 2026-09-27
 
@@ -32,7 +32,8 @@ The following photographs are used under the [Pexels license](https://www.pexels
 | --- | --- | --- | --- |
 | `src/assets/editorial-power-bank.jpg` | Markus Winkler | [White Power Bank and Blue Coated Wires](https://www.pexels.com/photo/white-power-bank-and-blue-coated-wires-4072683/) | Request-verification page category image |
 | `src/assets/editorial-power-supply-board.jpg` | Abolfazl Pahlavan | [Electronic Circuit Board with Various Components](https://www.pexels.com/photo/electronic-circuit-board-with-various-components-33813265/) | Methodology page category image |
-| `src/assets/editorial-multiport-adapter.jpg` | Pedro Paiva | [Close-up of Multi USB Port Power Adapter](https://www.pexels.com/photo/close-up-of-multi-usb-port-power-adapter-29356607/) | Scope-and-limitations page category image |
+| `src/assets/editorial-multiport-adapter.jpg` | Pedro Paiva | [Close-up of Multi USB Port Power Adapter](https://www.pexels.com/photo/close-up-of-multi-usb-port-power-adapter-29356607/), [Pexels License](https://www.pexels.com/license/) | Scope-and-limitations page category image. Existing asset first tracked in the repository on 2026-08-20; original download date was not recorded in the legacy asset ledger. |
+| `src/assets/editorial-india-bis-crs-adapter.jpg` | Pedro Paiva | [Close-up of Multi USB Port Power Adapter](https://www.pexels.com/photo/close-up-of-multi-usb-port-power-adapter-29356607/), [Pexels License](https://www.pexels.com/license/) | India BIS CRS article product-category illustration, explicitly not a registered product or compliance evidence. Retrieved from Pexels on 2026-10-04; resized to 1600 × 1066 with aspect ratio retained, with no generative edits. |
 | `src/assets/editorial-contract-document.jpg` | Pixabay | [Black Pen Placed on White Paper](https://www.pexels.com/photo/black-pen-placed-on-white-paper-261679/) | Knowledge article about supplier legal identity |
 | `src/assets/editorial-eu-power-adapter.jpg` | Markus Winkler | [White Adapter on Blue Surface](https://www.pexels.com/photo/white-adapter-on-blue-surface-4097204/) | Knowledge article about CE documentation for power adapters |
 | `src/assets/editorial-chargers-table.jpg` | I'm Zion | [Chargers on Table](https://www.pexels.com/photo/chargers-on-table-5948288/) | Knowledge article about an EU economic-operator contact on a charger; editorial illustration only |
