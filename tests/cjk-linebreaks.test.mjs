@@ -140,6 +140,13 @@ test('India BIS CRS manufacturer and model-scope terms remain intact in both Chi
   }
 });
 
+test('UAE launch headlines keep the closing comma with the place name in both Chinese versions', () => {
+  for (const [locale, term] of [['zh-tw', '阿聯，'], ['zh-cn', '阿联，']]) {
+    const html = protectCjkHtml(`<!doctype html><html><body><h2>MagGo 2 Pro 将于 10 月 7 日登陆${term}官方页面售价却不同</h2></body></html>`, locale);
+    assert.ok(html.includes(`<span class="cjk-keep cjk-keep--phrase">${term}</span>`), `${locale} should keep the comma with the place name`);
+  }
+});
+
 test('every audited dictionary term is emitted as one protected unit', () => {
   for (const locale of ['zh-tw', 'zh-cn']) {
     for (const term of cjkProtectedTerms[locale]) {

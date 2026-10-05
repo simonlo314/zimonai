@@ -87,6 +87,7 @@ const sharedProtectedTerms = [
 
 const protectedTermsByLocale = {
   'zh-tw': [
+    '阿聯，',
     '可攜式藍牙喇叭',
     '鋰離子電池',
     '沒有批號',
@@ -636,6 +637,7 @@ const protectedTermsByLocale = {
     '可追溯的認證身分'
   ],
   'zh-cn': [
+    '阿联，',
     '便携式蓝牙音箱',
     '锂离子电池',
     '没有批次号',
