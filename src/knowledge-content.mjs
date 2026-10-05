@@ -3733,7 +3733,7 @@ export const knowledgeContent = {
         topic: 'AI data-center cooling and power architecture',
         published: '5 October 2026',
         readTime: '7 minutes',
-        title: 'Trane tests an 800 V DC chiller in the lab, citing up to 2% efficiency gain',
+        title: 'Trane’s 800 V DC chiller lab demo cites up to 2% efficiency gain',
         description: 'Trane announced a laboratory proof-of-concept for an 800 V DC chiller on 30 September 2026. The company reports more than 3.5 MW of cooling capacity and potential system-efficiency improvement of up to 2% against conventional AC counterparts; neither figure establishes field performance or commercial availability. For data-center buyers, the development makes the power-to-cooling interface a procurement question, not just a chiller specification. ZIMONAI’s reading is to wait for a defined test boundary and operating evidence before comparing the headline percentage.',
         imageAlt: 'A corridor of server racks in a modern data center, shown as an editorial illustration of the setting discussed.',
         imageCaption: 'Data-center context photograph by Brett Sayles via Pexels. This is an illustrative server-room image, not Trane equipment, the laboratory demonstration, a customer facility or evidence of cooling performance.',
