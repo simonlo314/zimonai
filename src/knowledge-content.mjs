@@ -34,12 +34,12 @@ export const knowledgeArticleSpecs = [
     sources: [
       { publisher: 'Bureau of Indian Standards', title: 'About the Compulsory Registration Scheme — legal basis, scope and eligible manufacturer', url: 'https://www.crsbis.in/BIS/about-crs.do' },
       { publisher: 'Bureau of Indian Standards', title: 'Public CRS registration search — registration, manufacturer, product, model, brand and status fields', url: 'https://www.crsbis.in/BIS/Lims_registrationc.do?hmode=getLimsData' },
-      { publisher: 'Bureau of Indian Standards', title: 'Example public scope record for Power Adapter for IT Equipments — R-63000256', url: 'https://crsbis.in/BIS/Lims_registrationc.do?hmode=getScopeofLicense&rNumber=PTBUUG41VU1KUlVUM0ZrZU5KRE1wVlZRQnBWUlNCbmVQQlRNczFUUEFBWkVScHpPMDFsPT0%3D' },
+      { publisher: 'Bureau of Indian Standards', title: 'Example public scope record for Power Adapter for IT Equipments — R-63000256', url: 'https://www.crsbis.in/BIS/Lims_registrationc.do?hmode=getScopeofLicense&rNumber=PTBUUG41VU1KUlVUM0ZrZU5KRE1wVlZRQnBWUlNCbmVQQlRNczFUUEFBWkVScHpPMDFsPT0%3D' },
       { publisher: 'Bureau of Indian Standards', title: 'Guidelines for Change in Scope of Licence — manufacturing-unit scope and model inclusion', url: 'https://www.crsbis.in/BIS/app_srv/tdc/gl/docs/Guidelines_Change_in_scope_licence.pdf' },
       { publisher: 'Bureau of Indian Standards', title: 'CRS registration steps — recognised-lab testing, foreign-applicant AIR and model inclusion', url: 'https://www.crsbis.in/BIS/howtoapply.do' },
       { publisher: 'Bureau of Indian Standards', title: 'Advisory for applicants — government proof of manufacturing-unit identity, address and activity', url: 'https://www.crsbis.in/BIS/app_srv/tdc/gl/docs/Advisory_for_applicants_for_Grant_Of_Licence%20_under_CRS.pdf' },
       { publisher: 'Bureau of Indian Standards', title: 'Public table of CRS product categories and Indian Standards', url: 'https://www.crsbis.in/BIS/publicdashAction.do?hmode=Standard_table' },
-      { publisher: 'Bureau of Indian Standards', title: 'Standard Mark and labelling guidelines under CRS', url: 'https://crsbis.in/BIS/app_srv/tdc/gl/jsp/standardMark.jsp' }
+      { publisher: 'Bureau of Indian Standards', title: 'Standard Mark and labelling guidelines under CRS — 6 September 2019 circular and Scheme II requirements', url: 'https://www.crsbis.in/BIS/app_srv/tdc/BISDesign/docs/StandardMarkGuidelines.pdf' }
     ]
   },
   {
