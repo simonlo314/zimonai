@@ -1,6 +1,10 @@
 # Third-party visual assets
 
-Last reviewed: 2026-10-04
+Last reviewed: 2026-10-08
+
+## CNAS laboratory-scope guide — 2026-10-08
+
+`src/assets/editorial-cnas-laboratory-workbench.jpg` is a real photograph by IT services EU, downloaded on 8 October 2026 from [Digital Multimeter](https://www.pexels.com/photo/digital-multimeter-7639432/) under the [Pexels License](https://www.pexels.com/license/), which permits commercial website use. The original 4241 × 2829 photo was resized to 1600 × 1067 and JPEG-compressed; layout crops use separate card, desktop and mobile focal positions. No generative editing, extension or compositing was used. The visible article caption and source link credit the creator. The electronics workbench illustrates measurement equipment only: it is not identified as a CNAS-accredited laboratory, a ZIMONAI facility, client/supplier site or evidence of any charger test.
 
 ## Local visual polish — 2026-09-27
 

@@ -10,6 +10,42 @@ import { knowledgeSummaryIssues } from '../src/knowledge-summary-policy.mjs';
 import { renderPage } from '../src/template.mjs';
 
 const locales = ['en', 'zh-tw', 'zh-cn'];
+
+test('CNAS guide keeps source links beside claims without changing the string schema', () => {
+  const spec = knowledgeArticleSpecs.find(({ key }) => key === 'cnasLaboratoryScopeChargerReport');
+  assert.ok(spec);
+  for (const locale of locales) {
+    const html = renderPage(locale, spec.id);
+    const summary = html.match(/<section class="answer-first[\s\S]*?<\/section>/)?.[0] || '';
+    assert.ok(summary.includes(`href="${spec.sources[0].url}"`));
+    assert.ok(summary.includes(`href="${spec.sources[1].url}"`));
+    assert.ok(!html.includes('[[source:'));
+    assert.equal(typeof knowledgeContent[locale].articles[spec.key].answer, 'string');
+  }
+});
+
+test('source markers cannot pad an incomplete summary past its length gate', () => {
+  for (const locale of locales) {
+    const value = `ZIMONAI [[source:1]]${'[[source:2]]'.repeat(50)}`;
+    assert.ok(knowledgeSummaryIssues(locale, 'industry-knowledge', value).some((issue) => issue.startsWith('summary is shorter')));
+  }
+});
+
+test('inline source rendering escapes editorial text and rejects missing sources', () => {
+  const spec = knowledgeArticleSpecs.find(({ key }) => key === 'cnasLaboratoryScopeChargerReport');
+  const article = knowledgeContent.en.articles[spec.key];
+  const answer = article.answer;
+  try {
+    article.answer = '<script>unsafe</script> [[source:1]]';
+    const html = renderPage('en', spec.id);
+    assert.ok(html.includes('&lt;script&gt;unsafe&lt;/script&gt;'));
+    assert.ok(!html.includes('<script>unsafe</script>'));
+    article.answer = '[[source:999]]';
+    assert.throws(() => renderPage('en', spec.id), /unknown source 999/);
+  } finally {
+    article.answer = answer;
+  }
+});
 const expectedCategoryIds = [
   'supplier-identity',
   'certification-market-access',

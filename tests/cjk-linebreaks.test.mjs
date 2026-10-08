@@ -8,6 +8,21 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('CNAS report terminology is protected independently in both Chinese locales', () => {
+  const samples = {
+    'zh-tw': ['實驗室認可範圍', '非認可項目', '認可註冊號', '測試方法', '測試地點', '報告真偽', '樣品身分', '三用電表', '產品許可', '樣品對應關係'],
+    'zh-cn': ['实验室认可范围', '非认可项目', '认可注册号', '检测方法', '检测地点', '报告真伪', '样品身份', '数字万用表', '产品许可', '样品对应关系']
+  };
+  for (const [locale, terms] of Object.entries(samples)) {
+    for (const term of [...terms, 'ISO/IEC 17025', 'CNAS-R01']) {
+      const result = protectCjkText(term, locale);
+      assert.match(result, /cjk-keep/);
+      assert.ok(result.includes(`>${term}</span>`), `${locale}: ${term}`);
+      assert.equal(removeProtectionMarkup(result), term);
+    }
+  }
+});
+
 test('semantic protection preserves visible and copyable Chinese text', () => {
   const traditional = '找對人，查清楚，再確認產品。供應商說了什麼，只是第一層。';
   const simplified = '找对人，查清楚，再确认产品。供应商说了什么，只是第一层。';

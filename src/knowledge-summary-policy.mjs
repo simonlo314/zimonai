@@ -49,7 +49,8 @@ export function knowledgeSummaryIssues(locale, contentType, value) {
   const rules = summaryRules[locale];
   if (!rules) return [`unsupported summary locale: ${locale}`];
 
-  const summary = typeof value === 'string' ? value.trim() : '';
+  // Source-link notation is not narrative text and must not satisfy length gates.
+  const summary = typeof value === 'string' ? value.replace(/\[\[source:\d+\]\]/g, '').trim() : '';
   const issues = [];
 
   if (!summary) return ['summary is empty'];

@@ -28,6 +28,15 @@ function esc(value = '') {
     .replaceAll('"', '&quot;');
 }
 
+// Keep the existing string schema while linking editorial source markers locally.
+function knowledgeText(value, spec) {
+  return esc(value).replace(/\[\[source:(\d+)\]\]/g, (_, number) => {
+    const source = spec.sources[Number(number) - 1];
+    if (!source) throw new Error(`${spec.id}: unknown source ${number}`);
+    return `<a href="${esc(source.url)}" title="${esc(source.publisher + ' — ' + source.title)}" target="_blank" rel="noopener noreferrer">[${number}]</a>`;
+  });
+}
+
 function jsonForHtml(value) {
   return JSON.stringify(value).replaceAll('<', '\\u003c');
 }
@@ -744,9 +753,9 @@ function knowledgeArticle(t, page) {
           <ol>${article.sections.map((section, index) => `<li><a href="#section-${index + 1}"><span class="field-note__rail-no">0${index + 1}</span><span class="field-note__rail-title">${esc(section.title)}</span></a></li>`).join('')}</ol>
         </aside>
         <div class="field-note__body">
-          <section class="answer-first reveal" aria-labelledby="answer-title"><p class="kicker" id="answer-title">${esc(summaryLabel)}</p><p>${esc(article.answer)}</p></section>
-          <ul class="field-note__takeaways">${article.takeaways.map((item, index) => `<li class="reveal"><span>${String(index + 1).padStart(2, '0')}</span><p>${esc(item)}</p></li>`).join('')}</ul>
-          ${article.sections.map((section, index) => `<section class="field-note__section reveal" id="section-${index + 1}"><span class="field-note__section-no">${String(index + 1).padStart(2, '0')}</span><h2>${esc(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}${section.items ? `<ul>${section.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
+          <section class="answer-first reveal" aria-labelledby="answer-title"><p class="kicker" id="answer-title">${esc(summaryLabel)}</p><p>${knowledgeText(article.answer, spec)}</p></section>
+          <ul class="field-note__takeaways">${article.takeaways.map((item, index) => `<li class="reveal"><span>${String(index + 1).padStart(2, '0')}</span><p>${knowledgeText(item, spec)}</p></li>`).join('')}</ul>
+          ${article.sections.map((section, index) => `<section class="field-note__section reveal" id="section-${index + 1}"><span class="field-note__section-no">${String(index + 1).padStart(2, '0')}</span><h2>${esc(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${knowledgeText(paragraph, spec)}</p>`).join('')}${section.items ? `<ul>${section.items.map((item) => `<li>${knowledgeText(item, spec)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
           <section class="buyer-checklist reveal"><p class="kicker">${esc(checklistLabel)}</p><h2>${esc(checklistLabel)}</h2><ul>${article.checklist.map((item) => `<li><span class="buyer-checklist__mark" aria-hidden="true">✓</span><span class="buyer-checklist__text">${esc(item)}</span></li>`).join('')}</ul></section>
           <aside class="evidence-limit reveal"><span>!</span><div><p class="kicker">${esc(limitsLabel)}</p><h2>${esc(limitsLabel)}</h2><p>${esc(article.limitsText)}</p></div></aside>
         </div>

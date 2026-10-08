@@ -7,6 +7,43 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: establish whether a charger report's claimed accreditation covers the work.
+  // Related questions: lab identity and site; scope/method match; mixed results;
+  // report authenticity; overseas acceptance versus product approval.
+  {
+    id: 'knowledge-cnas-laboratory-scope-charger-report',
+    key: 'cnasLaboratoryScopeChargerReport',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/cnas-laboratory-scope-charger-report',
+    category: 'product-transport-documents',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['china', 'global'],
+    keywords: {
+      en: ['CNAS laboratory scope charger test report', 'ISO IEC 17025 accreditation scope', 'CNAS report authenticity', 'charger laboratory accredited test method', 'ILAC MRA product approval'],
+      'zh-tw': ['CNAS 實驗室認可範圍', '充電器測試報告查核', 'ISO IEC 17025 實驗室認可', 'CNAS 報告真偽', '實驗室認可與產品認證'],
+      'zh-cn': ['CNAS 实验室认可范围', '充电器检测报告核查', 'ISO IEC 17025 实验室认可', 'CNAS 报告真伪', '实验室认可与产品认证']
+    },
+    datePublished: '2026-10-08',
+    dateModified: '2026-10-08',
+    image: '/assets/editorial-cnas-laboratory-workbench.jpg',
+    imageWidth: 1600,
+    imageHeight: 1067,
+    imageCrop: { card: '47% 84%', article: '46% 78%', mobile: '43% 70%' },
+    photo: {
+      photographer: 'IT services EU',
+      page: 'https://www.pexels.com/photo/digital-multimeter-7639432/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      { publisher: 'China National Accreditation Service for Conformity Assessment', title: 'Verifying a report bearing the CNAS mark — official FAQ, 27 July 2026', url: 'https://www.cnas.org.cn/zxfwpt/bszx/art/2026/art_5f9bbd380d5544bd85d8d31ed8855443.html' },
+      { publisher: 'China National Accreditation Service for Conformity Assessment', title: 'CNAS-R01:2023 — use of accreditation symbols and claims, sections 5.1 and 5.3', url: 'https://www.cnas.org.cn/cms_files/filemanager/328304128/attach/20248/1682499270634012170.pdf' },
+      { publisher: 'China National Accreditation Service for Conformity Assessment', title: 'Online services — official testing and calibration laboratory directory entry point', url: 'https://www.cnas.org.cn/fzlm/zxfw/index.html' },
+      { publisher: 'National Association of Testing Authorities, Australia', title: 'Choosing the right lab — why the exact scope and test method matter', url: 'https://nata.com.au/news/choosing-the-right-lab/' },
+      { publisher: 'National Association of Testing Authorities, Australia', title: 'NATA test reports explained — subcontracted results and report amendments', url: 'https://nata.com.au/accreditation/nata-test-reports-explained/' },
+      { publisher: 'International Laboratory Accreditation Cooperation', title: 'ILAC MRA signatory search — accreditation bodies and accredited facilities', url: 'https://ilac.org/signatory-search/' },
+      { publisher: 'National Association of Testing Authorities, Australia', title: 'ISO/IEC 17025 testing and calibration — competence for methods in the scope', url: 'https://nata.com.au/accreditation/laboratory-accreditation-iso-iec-17025/' }
+    ]
+  },
   {
     id: 'knowledge-india-bis-crs-adapter-registration',
     key: 'indiaBisCrsAdapterRegistration',
@@ -1353,7 +1390,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/anker-maggo-2-pro-uae-launch-price',
     featured: true,
-    featuredReviewedThrough: '2026-10-05',
+    featuredReviewedThrough: '2026-10-08',
     category: 'commercial-risk',
     products: ['power-bank'],
     markets: ['united-arab-emirates'],
@@ -2190,6 +2227,48 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      cnasLaboratoryScopeChargerReport: {
+        topic: 'Laboratory accreditation and charger reports',
+        published: '8 October 2026',
+        readTime: '5 minutes',
+        title: 'CNAS on a charger test report: check the laboratory’s scope, not just the logo',
+        description: 'Match a charger report to the accredited laboratory, testing site and exact methods; separate report authenticity, out-of-scope results and destination-market acceptance.',
+        imageAlt: 'A digital multimeter on an electronics workbench, with a microscope and soldering tools behind it.',
+        imageCaption: 'Editorial illustration photographed by IT services EU, downloaded from Pexels on 8 October 2026. Resized and compressed without generative editing. This workbench is not identified as a CNAS-accredited laboratory, a ZIMONAI facility or evidence of a charger test.',
+        labels: { summary: 'Reader overview', checklist: 'Buyer review checklist', limits: 'Evidence boundaries' },
+        answer: 'Laboratory accreditation recognises competence for defined activities, rather than approving a charger. A CNAS-marked report may include clearly identified out-of-scope results; its authenticity is a separate question for the issuing laboratory [[source:1]][[source:2]]. Buyers need to match the laboratory, site and test methods to the applicable scope before relying on the report. ZIMONAI’s editorial view is to review accreditation coverage and sample-to-product identity as two separate links: a sound laboratory record does not establish that the quoted adapter is the tested configuration.',
+        takeaways: [
+          'ISO/IEC 17025 concerns laboratory competence; an accreditation scope defines which methods and activities are covered [[source:7]].',
+          'A logo on the cover does not turn every result in a mixed report into an accredited result [[source:2]].',
+          'Use the CNAS directory to check the laboratory; ask the issuing laboratory itself to confirm the report [[source:1]].'
+        ],
+        sections: [
+          { title: 'Start with the laboratory, location and exact test', paragraphs: [
+            'NATA explains that laboratories offering similar services can hold different accreditation scopes, including different methods for a related test. ISO/IEC 17025 accreditation therefore needs to be read alongside the scope, not as a blanket promise covering everything a laboratory offers [[source:4]][[source:7]].',
+            'For a Chinese laboratory claiming CNAS accreditation, follow the official online-services page to the testing and calibration laboratory directory [[source:3]]. Compare the report’s institution name and accreditation number with the record, then examine the applicable scope and testing location. A group brand or a certificate for another branch is not the same match.',
+            'ZIMONAI recommends a short matching record: report number and issue date; laboratory and site; sample model; each relevant test or parameter; method, edition and any scope restrictions. Where the report predates the current scope, request evidence of coverage at the time of testing and issue. An unavailable historical record is an unresolved point, not proof of misconduct.'
+          ] },
+          { title: 'Read the results and footnotes, not only the cover', paragraphs: [
+            'CNAS-R01 requires reports to distinguish non-accredited items and externally provided results, and prevents a multi-site claim from implying coverage at an unaccredited location. That makes the qualifications beside a result important, even when the cover carries the CNAS symbol [[source:2]].',
+            'A procurement review should identify who performed each required test, whether its accreditation coverage is supported and whether a later supplement replaces a result. NATA’s report guidance separately explains identification of subcontracted results and amendments; those are NATA requirements, not a substitute for the CNAS rules governing a Chinese report [[source:5]].',
+            'For a charger or power adapter, reconcile the tested model and sample photographs with the quoted configuration. Ask how differences in plug, enclosure, output modes or components were assessed; do not infer equivalence from wattage or exterior appearance. These are buyer evidence checks, not a claim that every difference necessarily requires retesting.'
+          ] },
+          { title: 'Keep authenticity and market acceptance as separate decisions', paragraphs: [
+            'CNAS’s July 2026 FAQ draws a useful distinction: its public information can establish whether the institution is accredited, while the issuing laboratory should be contacted to verify a particular report [[source:1]]. Use contact details reached independently through the institution’s official channel, provide the complete report number and ask about issue date, amendments and sample identity. A QR code supplied in a sales message is not independent confirmation.',
+            'ILAC’s signatory search identifies accreditation bodies, their recognised activity types and links to accredited facilities [[source:6]]. This helps locate the appropriate accreditation record; it is not a directory of approved charger models. Before commissioning or accepting testing, establish the destination scheme’s laboratory, standard and submission requirements with the recipient or competent authority.',
+            'ZIMONAI’s assessment is to keep three outcomes distinct: supported laboratory coverage, an authentic report for the identified sample, and acceptance for the intended use. Record which is established and which still needs evidence. A passed sample test is also different from proof that subsequent production batches remain identical.'
+          ] }
+        ],
+        checklist: [
+          'Obtain the complete report, including sample identification, results, notes and supplements—not only a cover screenshot.',
+          'Match the laboratory name, accreditation number and testing site through the official directory.',
+          'Identify the relevant scope entry, method edition, restrictions and coverage at the report’s date.',
+          'Separate out-of-scope items and externally provided results; resolve the coverage of each required test.',
+          'Confirm the report with the issuing laboratory through an independently located official channel.',
+          'Connect the sample to the quoted model and configuration, then separately establish destination-market acceptance.'
+        ],
+        limitsText: 'This guide uses official material reviewed on 8 October 2026. It does not authenticate any named supplier’s report, assess a particular laboratory or determine a product’s market eligibility. Current directory status does not by itself reconstruct historical accreditation coverage. Method suitability, model differences and regulatory acceptance may require laboratory or authority clarification. The photograph is illustrative, and ZIMONAI’s editorial interpretation is not a CNAS, NATA or ILAC decision.'
+      },
       indiaBisCrsAdapterRegistration: {
         topic: 'India BIS CRS registration for power adapters',
         published: '4 October 2026',
@@ -4634,6 +4713,41 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      cnasLaboratoryScopeChargerReport: {
+        topic: '實驗室認可與充電器報告',
+        published: '2026 年 10 月 8 日',
+        readTime: '約 5 分鐘',
+        title: '充電器報告有 CNAS 標誌，還要看實驗室認可範圍',
+        description: '核對出具報告的實驗室、測試地點與方法，分開判斷認可範圍、報告真偽及目的市場是否接受。',
+        imageAlt: '電子工作檯上的數位三用電表，後方有顯微鏡與焊接工具。',
+        imageCaption: 'IT services EU 拍攝的編輯示意照片，於 2026 年 10 月 8 日自 Pexels 下載，僅調整尺寸與壓縮，未經生成式編修。圖中工作檯未被識別為 CNAS 認可實驗室、ZIMONAI 設施或充電器測試證據。',
+        labels: { summary: '讀者總覽', checklist: '買家核對清單', limits: '證據邊界' },
+        answer: '實驗室認可評估的是特定活動的技術能力，不是替充電器核發產品許可。帶有 CNAS 標誌的報告，仍可能列有明確標示的非認可項目；報告真偽則須向出具報告的實驗室確認 [[source:1]][[source:2]]。海外買家採用報告前，應將機構、地點與測試方法對回適用認可範圍。ZIMONAI 的編輯判讀是將實驗室能力範圍與樣品對應關係分開審閱：可靠的實驗室紀錄，仍需連上正確的電源適配器配置，才有採購判斷價值。',
+        takeaways: [
+          'ISO/IEC 17025 處理實驗室能力；獲認可的方法與活動，須看具體範圍 [[source:7]]。',
+          '封面有標誌，不代表混合報告中的每個結果都在認可範圍內 [[source:2]]。',
+          'CNAS 公開資料用來核對實驗室，個別報告真偽則向出具報告的機構確認 [[source:1]]。'
+        ],
+        sections: [
+          { title: '先對機構、地點與測試方法', paragraphs: [
+            '澳洲認可機構 NATA 提醒，提供相似服務的實驗室，可能只獲認可不同的方法或測試。因此，ISO/IEC 17025 認可資格必須和能力範圍一起看，不能從「這間實驗室有認可」推成所有服務都有涵蓋 [[source:4]][[source:7]]。',
+            '中國實驗室若宣稱取得 CNAS 認可，可從官方線上服務頁的「检测和校准实验室」進入查詢 [[source:3]]。比對報告上的機構名稱與認可註冊號，再確認適用範圍及實際測試地點；同集團品牌、其他分公司的證書，都不等於這次出具報告的地點已吻合。',
+            'ZIMONAI 建議保存一份簡短比對紀錄：報告編號與出具日期、機構及地點、樣品型號、各項必要測試、採用方法與版本，以及範圍中的限制。若報告早於目前的能力附件，應另索取測試及出具當時的涵蓋依據。查不到歷史資料，代表證據待補，不宜直接指控造假。'
+          ] },
+          { title: '結果旁的註記，比封面更重要', paragraphs: [
+            'CNAS-R01 要求分辨非認可項目與外部提供的結果，也要求多地點機構不得讓人誤以為未獲認可地點的能力已被涵蓋。因此，報告有 CNAS 標誌，仍要讀結果旁的範圍註記 [[source:2]]。',
+            '買家審閱時，應釐清必要測試由誰執行、認可依據是否吻合，以及後續補充報告是否更動結果。NATA 另有外包結果與報告修訂的說明，可作為閱讀報告的參考；那是 NATA 的要求，不應拿來取代中國報告所適用的 CNAS 規則 [[source:5]]。',
+            '回到充電器採購，還要將受測型號、樣品照片與報價配置放在一起。插頭、外殼、輸出模式或零組件若不同，應詢問差異如何被評估，不要從相同瓦數或外觀相似就推定適用。這是證據比對建議，不表示每一項差異都必然需要重測。'
+          ] },
+          { title: '報告真偽與市場接受，分開確認', paragraphs: [
+            'CNAS 在 2026 年 7 月的官方答覆中，把兩件事分得很清楚：公開資料可查機構是否獲認可，個別報告真偽則請聯繫該實驗室 [[source:1]]。買家宜透過自行找到的官方聯絡管道，提供完整報告編號，確認出具日期、修訂紀錄與樣品身分；賣方訊息中的 QR code，不等於獨立確認。',
+            'ILAC 的簽署方查詢列出認可機構、互認活動類別，以及獲認可機構的查詢連結 [[source:6]]。這能協助找到正確的認可紀錄，並不是充電器核准型號清單。委託測試或接受報告前，仍須向文件接收方或主管機關確認目的市場制度對實驗室、標準及送件方式的要求。',
+            'ZIMONAI 的判讀是將「實驗室能力範圍有依據」「報告確由該機構出具且樣品吻合」「文件可供預定用途接受」各自記錄，避免一張封面替三種結論背書。樣品通過測試，也與後續生產批次是否維持相同配置，是不同的證據問題。'
+          ] }
+        ],
+        checklist: ['取得完整報告、樣品識別、結果註記與補充文件，不只留封面截圖', '從官方查詢比對機構名稱、認可註冊號及測試地點', '核對相關能力項目、方法版本、限制及報告當時的涵蓋依據', '分開標記非認可項目與外部結果，補足各項必要測試的依據', '透過獨立找到的官方管道，向實驗室確認報告真偽', '將樣品連回報價型號及配置，再另外確認目的市場接受條件'],
+        limitsText: '本文依截至 2026 年 10 月 8 日查閱的官方資料撰寫，未查驗任何特定供應商報告、評估個別實驗室，或認定產品具有市場准入資格。現在的查詢狀態，無法單獨重建過去的認可範圍；方法適用性、型號差異與法規接受條件，可能須由實驗室或主管機關進一步釐清。照片僅作示意，ZIMONAI 的編輯判讀不是 CNAS、NATA 或 ILAC 的裁定。'
+      },
       indiaBisCrsAdapterRegistration: {
         topic: '印度 BIS CRS 電源適配器註冊',
         published: '2026 年 10 月 4 日',
@@ -7046,6 +7160,37 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      cnasLaboratoryScopeChargerReport: {
+        topic: '实验室认可与充电器报告',
+        published: '2026 年 10 月 8 日',
+        readTime: '约 5 分钟',
+        title: '充电器报告上的 CNAS 标识，覆盖哪些检测项目？',
+        description: '从机构、检测地点和方法入手，核对实验室认可范围，并区分报告真实性与目标市场的接受条件。',
+        imageAlt: '电子工作台上的数字万用表，背景中有显微镜和焊接工具。',
+        imageCaption: 'IT services EU 拍摄的编辑示意照片，2026 年 10 月 8 日从 Pexels 下载，仅调整尺寸和压缩，没有生成式编辑。图中工作台未被确认为 CNAS 认可实验室、ZIMONAI 设施或充电器检测证据。',
+        labels: { summary: '读者总览', checklist: '采购核对清单', limits: '证据边界' },
+        answer: '实验室认可评估特定活动的技术能力，并非充电器的产品许可。带 CNAS 标识的报告中，部分项目可能明确注明不在认可范围内；具体报告的真实性还需向出具机构确认 [[source:1]][[source:2]]。海外采购人员使用报告时，应核对机构、检测地点和方法是否落在相应范围。ZIMONAI 的编辑判断是将实验室能力与产品对应关系分别审核：即使认可记录可靠，也要有证据把受测样品连到实际报价的电源适配器配置，避免用正确的报告支撑错误的型号。',
+        takeaways: ['ISO/IEC 17025 关注实验室能力，具体覆盖的方法与活动要查看认可范围 [[source:7]]。', '封面标识不等于混合报告中的所有结果均获认可 [[source:2]]。', 'CNAS 公共信息可核实机构认可资格；报告真伪须联系出具实验室 [[source:1]]。'],
+        sections: [
+          { title: '机构名称之外，还要核对地点和方法', paragraphs: [
+            'NATA 的实验室选择指南指出，同类服务可能采用不同方法，实验室获认可的范围也会不同。ISO/IEC 17025 资格因此应结合具体能力范围解读，而不是把实验室提供的所有业务都当作已获认可 [[source:4]][[source:7]]。',
+            '核查中国实验室的 CNAS 资格，可从官方在线服务页面进入“检测和校准实验室”查询 [[source:3]]。先对照报告中的机构全称和认可注册号，再查看适用范围与实际检测地点。同一集团的品牌名称，或另一分支机构的证书，不足以确认本次检测地点的覆盖情况。',
+            '采购档案宜记录报告编号、签发日期、机构及地点、样品型号、所需项目、方法版本和范围限制。报告较旧时，应要求提供检测及签发当时的认可依据，不能仅用今天的附件倒推过去的能力。历史资料缺失属于待核实事项，并不直接构成造假的证据。'
+          ] },
+          { title: '逐项阅读结果，不让标识替整份报告背书', paragraphs: [
+            'CNAS-R01 对非认可项目、外部提供的结果以及多地点机构的认可声明设有区分要求，未获认可地点的能力不能被暗示为已经覆盖。阅读带 CNAS 标识的报告时，结果旁的注释同样重要 [[source:2]]。',
+            '需要弄清每项必要检测由谁完成、认可覆盖是否有据，以及后续补充文件是否修改原结果。NATA 的报告说明也讨论了分包结果和报告修订；这是另一认可体系下的官方阅读参考，不能替代中国报告适用的 CNAS 规则 [[source:5]]。',
+            '对于充电器采购，受测型号和样品照片还应与报价配置逐项对应。插头、外壳、输出模式或元器件发生差异时，要求说明其评估依据，而不是凭相同功率或外形判断报告通用。这是文件审核建议，并非认定任何差异都必须重新检测。'
+          ] },
+          { title: '真实性、认可覆盖和市场接受各有证据', paragraphs: [
+            'CNAS 于 2026 年 7 月发布的官方答复明确区分机构查询与报告核实：官网可查机构是否获认可，报告真伪请联系该实验室 [[source:1]]。采购人员应自行定位官方联系方式，再提供完整报告编号，询问签发日期、修订情况和样品身份，不把销售消息附带的二维码当成独立验证。',
+            'ILAC 签署方查询列出认可机构及其互认活动类型，并提供获认可机构的查询入口 [[source:6]]。它有助于找到认可记录，并不是获准销售充电器的型号库。接受或安排检测前，应另向文件接收方或主管部门核实目标制度对实验室、标准和提交程序的具体要求。',
+            'ZIMONAI 建议分别记录三个结论：实验室覆盖有据、报告真实且样品对应、材料满足预定用途的接受条件。某一项查实，不应替另外两项补结论；样品检测合格与后续生产批次保持相同配置，也不能混为一谈。'
+          ] }
+        ],
+        checklist: ['索取整份报告及样品资料、结果注释和补充文件，不只接收封面截图', '通过官方渠道核对机构全称、认可注册号和检测地点', '找到所需能力项目，核对方法版本、限制及报告当时的覆盖依据', '区分非认可项目与外部结果，逐项解决所需检测的证据缺口', '使用独立找到的官方联系方式，向出具实验室核实报告', '确认样品与报价型号、配置的对应，再单独核实目标市场接受条件'],
+        limitsText: '本文依据 2026 年 10 月 8 日查阅的官方资料，不验证某家供应商的报告、不评价特定实验室，也不认定产品的市场准入资格。当前目录状态不能独立还原历史认可范围；方法适用性、型号差异及监管接受条件可能需要实验室或主管部门解释。配图仅供示意，ZIMONAI 的编辑判断不代表 CNAS、NATA 或 ILAC 的结论。'
+      },
       indiaBisCrsAdapterRegistration: {
         topic: '印度 BIS CRS 电源适配器注册',
         published: '2026 年 10 月 4 日',
