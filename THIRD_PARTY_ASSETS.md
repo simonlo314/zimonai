@@ -1,6 +1,17 @@
 # Third-party visual assets
 
-Last reviewed: 2026-10-08
+Last reviewed: 2026-10-09
+
+## Marketing-photo credit placement — 2026-10-09
+
+Homepage, Services and Methodology photo credits are consolidated into the
+page-local, collapsed “Image credits & notes” disclosure at the bottom of the
+footer. `src/image-credits.mjs` retains each photographer, original source,
+license link, crop/resizing disclosure and editorial-context limitation in the
+rendered HTML. Manufacturing-photo credits also retain the supplied original
+title and the explicit non-assignment statement. Substantive product/service
+captions remain beside the photographs. Article image credits and research
+citations are unchanged.
 
 ## CNAS laboratory-scope guide — 2026-10-08
 
@@ -12,8 +23,8 @@ The existing photographs below were reused in the local redesign, with their
 original Pexels pages and the Pexels license rechecked on 2026-09-27. No new AI
 photographs or fictional case documents were created. The original JPGs remain
 unchanged; 640px and 1200px WebP derivatives preserve their aspect ratios.
-Responsive CSS crops are presentation only. Each placement carries a photographer
-source link and an explicit editorial-context disclosure.
+Responsive CSS crops are presentation only. Each page retains the relevant
+photographer source link and editorial-context disclosure in its footer.
 
 - `editorial-power-supply-board`: Abolfazl Pahlavan, Pexels photo 33813265.
   Methodology introduction; a product-category illustration, not a supplier

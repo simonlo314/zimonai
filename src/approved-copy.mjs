@@ -12,7 +12,7 @@ export const approvedCopy = {
     focus: 'Specialist focus', products: 'Chargers, power adapters & power banks', base: 'Coordinated from', bases: 'Taiwan & Shenzhen',
     photoAlt: 'A component-placement machine working over an electronic circuit board.',
     photoCaption: 'Electronics manufacturing. Context photography, not a ZimonAI assignment.',
-    photoCredit: 'Photo source', photoChanges: 'Resized and cropped for layout. The location and any relationship with ZimonAI are not asserted.',
+    photoCredit: 'Image credits & notes', photoChanges: 'Resized and cropped for layout. The location and any relationship with ZimonAI are not asserted.',
     evidenceTitle: ['A genuine certificate.', 'But is it the right one?'],
     evidenceLead: 'A document can be authentic and still belong to a different company or exclude the model you plan to buy.',
     checks: [
@@ -69,7 +69,7 @@ export const approvedCopy = {
     focus: '專注領域', products: '充電器、電源供應器與行動電源', base: '協作據點', bases: '台灣與深圳',
     photoAlt: '電子元件貼裝設備正在電路板上作業。',
     photoCaption: '電子製造情境實拍，非 ZimonAI 委託案件或查核現場。',
-    photoCredit: '照片來源', photoChanges: '照片經縮放與版面裁切；不據此宣稱拍攝地點或與 ZimonAI 有合作關係。',
+    photoCredit: '圖片來源與說明', photoChanges: '照片經縮放與版面裁切；不據此宣稱拍攝地點或與 ZimonAI 有合作關係。',
     evidenceTitle: ['證書是真的，', '就代表適用嗎？'],
     evidenceLead: '文件本身可能是真實的，卻屬於另一家公司，或根本沒有涵蓋你打算採購的型號。',
     checks: [
@@ -126,7 +126,7 @@ export const approvedCopy = {
     focus: '专注领域', products: '充电器、电源适配器与移动电源', base: '协作地点', bases: '台湾与深圳',
     photoAlt: '电子元件贴装设备正在电路板上作业。',
     photoCaption: '电子制造实拍，用于说明行业场景，并非 ZimonAI 委托项目或核查现场。',
-    photoCredit: '照片来源', photoChanges: '照片经过缩放与版面裁切；不据此声明拍摄地点或与 ZimonAI 存在合作关系。',
+    photoCredit: '图片来源与说明', photoChanges: '照片经过缩放与版面裁切；不据此声明拍摄地点或与 ZimonAI 存在合作关系。',
     evidenceTitle: ['证书是真的，', '就代表适用吗？'],
     evidenceLead: '文件本身可能是真实的，却属于另一家公司，或者没有覆盖你计划采购的型号。',
     checks: [

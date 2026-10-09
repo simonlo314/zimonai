@@ -63,6 +63,19 @@ test('photographic additions retain sources, disclosures and responsive derivati
       assert.match(html, /-640\.webp 640w, \/assets\/editorial-[^\s]+-1200\.webp 1200w/);
       assert.ok(html.includes(approvedCopy[locale].photoContext));
       assert.match(html, /https:\/\/www\.pexels\.com\/photo\//);
+      const credits = html.match(/<details id="image-credit">([\s\S]*?)<\/details>/);
+      assert.ok(credits, `${locale}/${page}: photo credits remain discoverable`);
+      assert.ok(html.indexOf('<footer ') < html.indexOf('<details id="image-credit">'));
+      assert.ok(credits[1].includes(approvedCopy[locale].photoCredit.replace('&', '&amp;')));
+      assert.ok(credits[1].includes(approvedCopy[locale].photoContext));
+      assert.ok(credits[1].includes(approvedCopy[locale].photoChanges));
+      assert.doesNotMatch(html.slice(0, html.indexOf('<footer ')), /Nenad Stojković|Abolfazl Pahlavan|I’m Zion|image-credit/);
+      if (page !== 'methodology') {
+        assert.ok(credits[1].includes('Nenad Stojković / Shixart1985'));
+        assert.ok(credits[1].includes('CC BY 2.0'));
+        assert.ok(credits[1].includes(approvedCopy[locale].photoCaption));
+        assert.match(credits[1], /Machine places components on a circuit board/);
+      }
     }
     const method = renderPage(locale, 'methodology');
     assert.match(method, /id="verification-checks"/);
