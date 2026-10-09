@@ -116,8 +116,8 @@ html { scroll-behavior: auto; }
 .approved-site .report-artifact__caption h3 { font-size: 16px; line-height: 1.45; letter-spacing: 0; color: var(--ad-navy); }
 .approved-site .report-artifact__caption p { font-size: 13px; line-height: 1.65; margin-top: 5px; }
 .approved-site .report-artifact__caption .text-link { font-size: 13px; line-height: 1.4; }
-.approved-site .material-gap { grid-column: 1/-1; font-size: 12px; line-height: 1.6; background: var(--ad-wash); padding: 12px 15px; border-left: 3px solid #8da0b3; }
-.approved-site .material-gap strong { font: inherit; font-weight: 650; }
+.approved-site .report-artifact__actions { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 12px; align-items: flex-start; }
+.approved-site .report-artifact__note { grid-column: 1/-1; font-size: 12px; line-height: 1.6; color: var(--ad-slate); margin: 0; }
 .approved-site .service-overview { background: var(--ad-wash); padding-block: 66px 45px; }
 .approved-site .services-heading { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,.8fr); align-items: center; gap: 55px; margin-bottom: 36px; }
 .approved-site .tier-layout { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(0,1fr); gap: 62px; align-items: start; }
@@ -309,14 +309,13 @@ html { scroll-behavior: auto; }
 .approved-site .operating-locations__list { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; }
 .approved-site .operating-location { display: block; padding-block: 22px; border-top: 1px solid var(--ad-line); font-style: normal; }
 .approved-site .operating-location strong { font-size: 20px; }
-.approved-site .operating-location span, .approved-site .operating-location small { display: block; font-size: 13px; color: var(--ad-slate); }
+.approved-site .operating-location > div > span, .approved-site .operating-location > div > small { display: block; font-size: 13px; color: var(--ad-slate); }
 .approved-site .operating-location small { font-family: inherit; }
 .approved-site .operating-location p { margin-top: 15px; font-size: 15px; }
 .approved-site .office-evidence { padding-block: 20px 55px; }
 .approved-site .office-evidence__header { display: grid; grid-template-columns: .8fr 1.3fr; gap: 100px; margin-bottom: 25px; }
 .approved-site .office-evidence__address { padding-block: 20px; font-style: normal; border: 0; background: none; }
-.approved-site .office-evidence__address span { display: block; font-size: 12px; }
-.approved-site .office-evidence__address span:not(.cjk-keep) { font-family: inherit; letter-spacing: 0; }
+.approved-site .office-evidence__address > span { display: block; font-size: 12px; font-family: inherit; letter-spacing: 0; }
 .approved-site .office-evidence__address strong { font-size: 14px; font-weight: 500; }
 .approved-site .office-evidence__gallery { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 24px; align-items: start; }
 .approved-site .office-evidence__gallery figure { border: 0; background: none; padding: 0; }
@@ -474,7 +473,7 @@ html:not([lang="en"]) .approved-site .tier-primary p, html:not([lang="en"]) .app
   .approved-site .report-artifact { display: block; }
   .approved-site .report-artifact__stage { padding: 20px 45px; }
   .approved-site .report-artifact__caption { margin-top: 18px; }
-  .approved-site .material-gap { margin-top: 12px; }
+  .approved-site .report-artifact__note { margin-top: 12px; }
   .approved-site .services-heading { gap: 30px; }
   .approved-site .method-intro { gap: 35px; }
   .approved-site .method-reading > header { gap: 35px; }
@@ -535,7 +534,7 @@ html:not([lang="en"]) .approved-site .tier-primary p, html:not([lang="en"]) .app
   .approved-site .report-artifact__caption h3 { font-size: 14px; }
   .approved-site .report-artifact__caption p { font-size: 12px; margin-top: 8px; }
   .approved-site .report-artifact__caption .text-link { font-size: 12px; line-height: 1.4; margin-top: 6px; }
-  .approved-site .material-gap { grid-column: 1/-1; margin: 0; font-size: 11px; padding: 11px 13px; }
+  .approved-site .report-artifact__note { grid-column: 1/-1; margin: 0; font-size: 11px; }
   .approved-site .service-overview { padding-block: 41px 30px; }
   .approved-site .services-heading { margin-bottom: 25px; }
   .approved-site .tier-layout { display: block; }

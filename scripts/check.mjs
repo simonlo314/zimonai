@@ -24,6 +24,9 @@ await access(path.join(root, 'scripts', 'cjk-browser-check.playwright.js'));
 const distFiles = await readdir(dist, { recursive: true });
 const files = distFiles.filter((file) => file.endsWith('.html'));
 const errors = [];
+if (distFiles.includes('assets/zimonai-t1-sample-report.pdf')) errors.push('unreviewed historical report PDF was published');
+const publicSample = await readFile(path.join(dist, 'assets', 'zimonai-public-sample-report.pdf'));
+if (publicSample.subarray(0, 5).toString() !== '%PDF-') errors.push('public report sample is not a PDF');
 const knowledgeCategoryPages = knowledgePageDefinitions.filter(({ kind }) => kind === 'knowledge-category');
 const knowledgeArticleOutputFiles = new Set(
   Object.values(languages).flatMap(({ prefix }) => knowledgeArticleSpecs.map(({ slug }) => [prefix, slug, 'index.html'].filter(Boolean).join('/')))
@@ -195,7 +198,7 @@ for (const logo of ['zimonai-logo-primary.svg', 'zimonai-logo-white.svg', 'zimon
 for (const favicon of ['favicon.ico', 'zimonai-favicon.svg', 'zimonai-shield-favicon.png', 'apple-touch-icon.png']) {
   if (!distFiles.includes(favicon)) errors.push(`stable root favicon asset missing: ${favicon}`);
 }
-const approvedPublicPdfs = ['assets/zimonai-t1-sample-report.pdf'];
+const approvedPublicPdfs = ['assets/zimonai-public-sample-report.pdf'];
 const publicPdfs = distFiles.filter((file) => /\.pdf$/i.test(file));
 for (const file of publicPdfs) if (!approvedPublicPdfs.includes(file)) errors.push(`unapproved PDF included in the public build: ${file}`);
 for (const file of approvedPublicPdfs) if (!publicPdfs.includes(file)) errors.push(`approved sample report missing from the public build: ${file}`);
@@ -209,7 +212,7 @@ function localTarget(raw) {
 }
 
 const requiredSections = {
-  'index.html': ['approved-home', 'manufacturing-hero', 'verification-evidence', 'evidence-questions', 'service-overview', 'tier-primary', 'tier-secondary', 'advanced-overview', 'report-artifact', 'material-gap', 'operating-glimpse'],
+  'index.html': ['approved-home', 'manufacturing-hero', 'verification-evidence', 'evidence-questions', 'service-overview', 'tier-primary', 'tier-secondary', 'advanced-overview', 'report-artifact', 'report-artifact__note', 'operating-glimpse'],
   'services/index.html': ['service-jump', 'consultation-inline-entry', 'advanced-services', 'service-balance-entry', 'service-detail', 'service-checkout-protocol', 'checkout-form--inline', 'sample-report', 'editorial-faq'],
   'methodology/index.html': ['source-registry', 'report-anatomy'],
   'scope-limitations/index.html': ['decision-guide', 'accreditation'],
@@ -402,8 +405,8 @@ for (const spec of knowledgeArticleSpecs) {
 }
 
 for (const [prefix, htmlLang, addressLabel, proofLabel] of [
-  ['zh-tw', 'zh-Hant', '註冊暨實際接待地址', '直接展示現有英文範例的原始封面，不代表新的供應商查核結果。'],
-  ['zh-cn', 'zh-Hans', '注册及实际接待地址', '直接展示现有英文示例的原始封面，不代表新的供应商核查结果。']
+  ['zh-tw', 'zh-Hant', '註冊暨實際接待地址', '這是既有報告的格式範例，不代表新版 T1／T2 的實際交付。'],
+  ['zh-cn', 'zh-Hans', '注册及实际接待地址', '这是现有报告的格式示例，不代表新版 T1／T2 的实际交付。']
 ]) {
   const homeHtml = await readFile(path.join(dist, prefix, 'index.html'), 'utf8');
   const aboutHtml = await readFile(path.join(dist, prefix, 'about', 'index.html'), 'utf8');

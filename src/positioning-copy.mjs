@@ -292,7 +292,7 @@ const site = {
     aboutLead: 'Buyer-paid supplier verification, coordinated between Taiwan and Shenzhen. Our fee pays for the agreed review, not a favourable conclusion.',
     servicePageLead: 'T1 checks the consistency of one proposed purchase. T2 follows important unresolved questions through relevant records. Advanced work is agreed case by case.',
     requestLead: 'Tell us which supplier, product and buying decision need review. Share sensitive documents only through an agreed secure channel.',
-    reportGap: 'A publication-cleared, anonymized T1/T2 report interior is not yet available. The existing cover shows format only; it is not proof of a completed new-scope review.'
+    reportGap: 'Historical format reference, not a new supplier assessment or delivery under the current T1/T2 scope. Actual work follows the agreed assignment.'
   },
   'zh-tw': {
     heroLead: '針對你手上的採購資料，核對公司、文件與產品說法。把對得上的地方、重要矛盾，以及仍缺少的證據說清楚。',
@@ -303,7 +303,7 @@ const site = {
     aboutLead: '由買家付費的供應商查核，由台灣與深圳協作。服務費支付的是約定的查核工作，不是有利結論。',
     servicePageLead: 'T1 核對一筆採購的現有資料；T2 追查尚未解決的重要問題。進階工作依案件確認。',
     requestLead: '告訴我們供應商、產品與你要做的採購決定。敏感文件請透過確認後的安全管道提供。',
-    reportGap: '目前尚無通過公開審核的新版 T1／T2 報告內頁。既有封面僅供參考格式，不能證明新版範圍已完成交付。'
+    reportGap: '這是既有報告的格式範例，不代表新版 T1／T2 的實際交付。服務內容以雙方確認的範圍為準。'
   },
   'zh-cn': {
     heroLead: '围绕你手上的采购资料，核对企业、文件与产品说法。说明哪些信息相互印证、哪些存在重要矛盾，以及还缺少什么证据。',
@@ -314,7 +314,7 @@ const site = {
     aboutLead: '由买家付费的供应商核查，由台湾与深圳协作。服务费对应约定的核查工作，不是有利结论。',
     servicePageLead: 'T1 核对一笔采购的现有资料；T2 追查仍未解决的重要问题。进阶工作按项目确认。',
     requestLead: '告诉我们供应商、产品和你要做的采购决定。敏感文件请通过确认后的安全渠道提供。',
-    reportGap: '目前尚无通过公开审核的新版 T1／T2 报告内页。现有封面仅供参考格式，不能证明新版范围已完成交付。'
+    reportGap: '这是现有报告的格式示例，不代表新版 T1／T2 的实际交付。服务内容以双方确认的范围为准。'
   }
 };
 
@@ -362,9 +362,9 @@ export function applyMarketingPositioning(copy) {
   for (const [locale, entries] of Object.entries(questions)) {
     copy[locale].questions = [copy[locale].questions[0], ...entries];
     copy[locale].insideLead = ({
-      en: 'The existing cover illustrates report format. A publication-cleared T1/T2 report interior is not yet available; no fictional client findings stand in for one.',
-      'zh-tw': '既有封面只說明報告格式。新版 T1／T2 內頁尚未完成公開審核，也不以虛構客戶發現補位。',
-      'zh-cn': '现有封面只说明报告格式。新版 T1／T2 内页尚未通过公开审核，也不以虚构客户发现替代。'
+      en: 'Read the complete public English sample to see the evidence record, limitations and follow-up requests. It is a historical format reference, not a current supplier assessment.',
+      'zh-tw': '閱讀完整英文範例，了解證據紀錄、查核限制與後續建議的呈現方式。這是既有報告的格式參考，不是最新供應商查核結果。',
+      'zh-cn': '阅读完整英文示例，了解证据记录、核查限制与后续建议的呈现方式。这是现有报告的格式参考，不是最新供应商核查结果。'
     })[locale];
   }
 }

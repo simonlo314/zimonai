@@ -26,7 +26,7 @@ export const legalContent = {
     privacy: {
       kicker: 'Privacy notice', title: 'What enters our systems, why it is used and when it can be removed.',
       lead: 'Effective 24 August 2026. This notice covers zimonai.com, client-account sign-in, service enquiries, Stripe payments and the information used to deliver an agreed ZimonAI assignment.',
-      summaryTitle: 'The short version',
+      summaryTitle: '',
       summary: 'ZimonAI follows a data-minimisation approach: we collect what is needed to understand a request, confirm payment, deliver the agreed work and keep necessary business records. We do not sell personal information or use advertising cookies. The site does use limited first-party, aggregate analytics, described below.',
       sections: [
         {
@@ -177,7 +177,7 @@ export const legalContent = {
     privacy: {
       kicker: '隱私聲明', title: '哪些資料會進入系統、為何使用，以及何時可以刪除。',
       lead: '生效日期：2026 年 8 月 24 日。本聲明適用於 zimonai.com、客戶帳戶登入、服務詢問、Stripe 付款，以及執行雙方約定之 ZimonAI 服務所需的資料。',
-      summaryTitle: '先說結論',
+      summaryTitle: '',
       summary: 'ZimonAI 採取資料最少化原則：只處理釐清需求、確認付款、完成約定工作與保存必要商業紀錄所需的資料。我們不出售個人資料，也不使用廣告 Cookie；網站會使用有限、第一方且彙總化的流量統計，細節如下。',
       sections: [
         { title: '適用範圍與營運主體', paragraphs: ['本聲明適用於你瀏覽 zimonai.com、登入客戶中心、準備或寄出需求信、付款、預約諮詢，或提供供應商查核案件資料時的資訊處理。', '網站與 ZimonAI 服務由深圳智蒙湾科技有限公司（ZimonAI Technology Co., Ltd.）營運。供應商、平台、證書發證單位、付款服務商或其他第三方，會各自對其系統內的資料處理負責。'] },
@@ -229,7 +229,7 @@ export const legalContent = {
     privacy: {
       kicker: '隐私声明', title: '哪些资料会进入系统、为何使用，以及何时可以删除。',
       lead: '生效日期：2026 年 8 月 24 日。本声明适用于 zimonai.com、客户账户登录、服务咨询、Stripe 付款，以及执行双方约定的 ZimonAI 服务所需资料。',
-      summaryTitle: '先说结论',
+      summaryTitle: '',
       summary: 'ZimonAI 采取资料最少化原则：只处理明确需求、确认付款、完成约定工作与保存必要商业记录所需的资料。我们不出售个人信息，也不使用广告 Cookie；网站会使用有限、第一方并且汇总化的流量统计，细节如下。',
       sections: [
         { title: '适用范围与运营主体', paragraphs: ['本声明适用于你浏览 zimonai.com、登录客户中心、准备或发送需求邮件、付款、预约咨询，或提供供应商核查案件资料时的信息处理。', '网站与 ZimonAI 服务由深圳智蒙湾科技有限公司（ZimonAI Technology Co., Ltd.）运营。供应商、平台、证书签发机构、付款服务商或其他第三方，会各自对其系统内的资料处理负责。'] },

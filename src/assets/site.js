@@ -931,7 +931,7 @@ document.addEventListener('click', (event) => {
     trackAnalytics('cta_click', 'sample_report_cover');
     return;
   }
-  if (url.pathname.endsWith('/zimonai-t1-sample-report.pdf')) {
+  if (['/assets/zimonai-public-sample-report.pdf', '/assets/zimonai-t1-sample-report.pdf'].includes(url.pathname)) {
     trackAnalytics('cta_click', link.hasAttribute('download') ? 'sample_report_download' : 'sample_report_open');
     return;
   }

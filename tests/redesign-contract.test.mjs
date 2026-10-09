@@ -12,6 +12,26 @@ import { stripCjkProtectionMarkup } from '../src/cjk-linebreak.mjs';
 import { SqliteD1 } from './helpers/sqlite-d1.mjs';
 import { summarizePeriod } from '../scripts/weekly-analytics.mjs';
 import { approvedCopy } from '../src/approved-copy.mjs';
+import { legalContent } from '../src/legal-content.mjs';
+
+test('office label styles never turn nested Chinese words into block rows', () => {
+  const css = readFileSync(new URL('../src/assets/redesign.css', import.meta.url), 'utf8');
+  assert.doesNotMatch(css, /\.operating-location span\s*[,\{]/);
+  assert.doesNotMatch(css, /\.office-evidence__address span\s*\{/);
+  assert.match(css, /\.operating-location > div > span,/);
+  assert.match(css, /\.office-evidence__address > span\s*\{/);
+});
+
+test('privacy summary keeps its body without a redundant heading in all locales', () => {
+  for (const locale of Object.keys(languages)) {
+    const html = renderPage(locale, 'privacy', { protectCjk: false });
+    const rail = html.match(/<aside class="legal-document__rail reveal">([\s\S]*?)<\/aside>/)[1];
+    assert.doesNotMatch(rail, /<h2>/);
+    assert.ok(rail.includes(legalContent[locale].privacy.summary));
+    assert.ok(renderPage(locale, 'paymentTerms', { protectCjk: false })
+      .includes(`<h2>${legalContent[locale].paymentTerms.summaryTitle}</h2>`));
+  }
+});
 
 test('approved content has complete locale topology and no local price/timing copies', () => {
   const shape = value => Array.isArray(value) ? value.map(shape) : value && typeof value === 'object'
@@ -103,7 +123,23 @@ test('approved public views do not render discarded fake report or decorative ti
       const html = renderPage(locale, page, { protectCjk: false });
       assert.doesNotMatch(html, /service-staircase|evidence-flow|about-block--truth|about-lead|report-dashboard/);
       assert.doesNotMatch(html, /<h[1-6][^>]*>\s*<\/h[1-6]>/, `${locale}/${page}: empty heading`);
-      assert.doesNotMatch(html, /(?:href|src)="[^\"]*sample[^\"]*\.pdf/);
+      assert.doesNotMatch(html, /(?:href|src)="[^\"]*zimonai-t1-sample-report\.pdf/);
+    }
+  }
+});
+
+test('public sample entry offers an unauthenticated PDF and download in all marketing locales', () => {
+  const publicPdf = readFileSync(new URL('../src/assets/zimonai-public-sample-report.pdf', import.meta.url));
+  assert.equal(publicPdf.subarray(0, 5).toString(), '%PDF-');
+  for (const locale of Object.keys(languages)) {
+    for (const page of ['home', 'services', 'methodology']) {
+      const html = renderPage(locale, page, { protectCjk: false });
+      assert.match(html, /href="\/assets\/zimonai-public-sample-report\.pdf" target="_blank" rel="noopener noreferrer"/);
+      assert.match(html, /href="\/assets\/zimonai-public-sample-report\.pdf" download="ZimonAI-public-report-sample\.pdf"/);
+      assert.ok(html.includes(approvedCopy[locale].reportOpen));
+      assert.ok(html.includes(approvedCopy[locale].reportDownload));
+      assert.ok(html.includes(approvedCopy[locale].reportGap));
+      assert.doesNotMatch(html, /data-report-cover|class="material-gap"|publication-cleared.*not yet|報告預覽限制|报告预览限制/);
     }
   }
 });

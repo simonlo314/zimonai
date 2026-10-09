@@ -449,10 +449,10 @@ function serviceCheckoutProtocol(t) {
 
 function sampleReport(t) {
   const report = t.services.sampleReport;
-  const href = '/assets/zimonai-t1-sample-report.pdf';
+  const href = '/assets/zimonai-public-sample-report.pdf';
   return `<section class="sample-report" aria-labelledby="sample-report-title">
-    <div class="sample-report__copy"><p class="kicker">${esc(report.label)}</p><h3 id="sample-report-title">${esc(report.title)}</h3><p>${esc(report.lead)}</p><ul>${report.facts.map((fact) => `<li>${esc(fact)}</li>`).join('')}</ul><div class="sample-report__actions"><a class="button sample-report__open" href="${href}" target="_blank" rel="noopener">${esc(report.open)}${arrow()}</a><a class="sample-report__download" href="${href}" download="ZimonAI-T1-Sample-Report.pdf">${esc(report.download)}</a></div></div>
-    <a class="sample-report__preview" href="${href}" target="_blank" rel="noopener" aria-label="${esc(report.open)}">${approvedPicture({ src: '/assets/zimonai-t1-sample-report-cover.png', alt: report.label, width: 951, height: 1345, sizes: '210px' })}<span>PDF · 8</span></a>
+    <div class="sample-report__copy"><p class="kicker">${esc(report.label)}</p><h3 id="sample-report-title">${esc(report.title)}</h3><p>${esc(report.lead)}</p><ul>${report.facts.map((fact) => `<li>${esc(fact)}</li>`).join('')}</ul><div class="sample-report__actions"><a class="button sample-report__open" href="${href}" target="_blank" rel="noopener">${esc(report.open)}${arrow()}</a><a class="sample-report__download" href="${href}" download="ZimonAI-public-report-sample.pdf">${esc(report.download)}</a></div></div>
+    <a class="sample-report__preview" href="${href}" target="_blank" rel="noopener" aria-label="${esc(report.open)}">${approvedPicture({ src: '/assets/zimonai-t1-sample-report-cover.png', alt: report.label, width: 951, height: 1345, sizes: '210px' })}<span>PDF</span></a>
   </section>`;
 }
 
@@ -527,7 +527,7 @@ function legalDocument(t, copy, idPrefix) {
     <section class="legal-document shell">
       <aside class="legal-document__rail reveal">
         <p class="kicker">${esc(ui.document)}</p>
-        <h2>${esc(copy.summaryTitle)}</h2><p>${esc(copy.summary)}</p>
+        ${copy.summaryTitle ? `<h2>${esc(copy.summaryTitle)}</h2>` : ''}<p>${esc(copy.summary)}</p>
         <dl class="legal-document__meta">
           <div><dt>${esc(ui.effective)}</dt><dd>${esc(effective)}</dd></div>
           <div><dt>${esc(ui.operator)}</dt><dd lang="zh-Hans">${esc(brandProfile.registration.legalNameZhHans)}</dd></div>

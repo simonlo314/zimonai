@@ -24,7 +24,8 @@ export function manufacturingPhoto(t) {
 
 export function reportArtifact(t) {
   const a = approvedCopy[t.__key];
-  return `<aside class="report-artifact sample-report" aria-label="${esc(a.reportTitle)}"><div class="report-artifact__stage"><img src="/assets/zimonai-t1-sample-report-cover.png" alt="${esc(a.reportAlt)}" width="951" height="1345" loading="lazy" decoding="async"></div><div class="report-artifact__caption"><h3>${esc(a.reportTitle)}</h3><p>${esc(a.reportLead)}</p><a class="text-link" href="/assets/zimonai-t1-sample-report-cover.png" data-report-cover>${esc(a.reportOpen)}</a></div><p class="material-gap"><strong>${esc(a.reportGapTitle)}</strong><br>${esc(a.reportGap)}</p></aside>`;
+  const href = '/assets/zimonai-public-sample-report.pdf';
+  return `<aside class="report-artifact sample-report" aria-label="${esc(a.reportTitle)}"><div class="report-artifact__stage"><img src="/assets/zimonai-t1-sample-report-cover.png" alt="${esc(a.reportAlt)}" width="951" height="1345" loading="lazy" decoding="async"></div><div class="report-artifact__caption"><h3>${esc(a.reportTitle)}</h3><p>${esc(a.reportLead)}</p><div class="report-artifact__actions"><a class="text-link" href="${href}" target="_blank" rel="noopener noreferrer">${esc(a.reportOpen)}</a><a class="text-link" href="${href}" download="ZimonAI-public-report-sample.pdf">${esc(a.reportDownload)}</a></div></div><p class="report-artifact__note">${esc(a.reportGap)}</p></aside>`;
 }
 
 function evidenceSection(t) {

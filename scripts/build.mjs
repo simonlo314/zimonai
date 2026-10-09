@@ -55,7 +55,11 @@ if (process.env.ZIMONAI_RELEASE_DIST) {
   await rm(dist, { recursive: true, force: true });
 }
 await mkdir(path.join(dist, 'assets'), { recursive: true });
-await cp(sourceAssets, path.join(dist, 'assets'), { recursive: true });
+// Preserve the historical source PDF locally, but never publish its identifiers.
+await cp(sourceAssets, path.join(dist, 'assets'), {
+  recursive: true,
+  filter: file => path.basename(file) !== 'zimonai-t1-sample-report.pdf'
+});
 await writeFile(
   path.join(dist, 'assets', 'cjk-terms.js'),
   `export const cjkProtectedTerms = ${JSON.stringify(cjkProtectedTerms)};\n`,
