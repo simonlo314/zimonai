@@ -8,6 +8,32 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('Samsung guidance and memory-market terminology stays intact in each Chinese locale', () => {
+  const samples = {
+    'zh-tw': ['三星電子', '第三季', '獲利預估', '合併營業利益', '正式財報', '記憶體需求', '記憶體市場', '法說會', '產品組合', '韓聯社', '韓元', '矽谷園區', '資本支出', '報價有效期', '交付條件', '外部查核', '事業別', '配貨表', '料號'],
+    'zh-cn': ['三星电子', '三季度', '利润预估', '合并营业利润', '正式财报', '内存需求', '内存市场', '业绩说明会', '业绩预告', '产品组合', '韩联社', '韩元', '硅谷园区', '资本开支', '报价有效期', '交付条件', '外部审计', '业务拆分', '配货', '料号']
+  };
+  for (const [locale, terms] of Object.entries(samples)) {
+    const financialTerms = locale === 'zh-tw' ? ['韓國國際財務報導準則', '稅後淨利', '營業利益口徑'] : ['韩国国际财务报告准则', '净利润', '营业利润口径'];
+    for (const term of [...terms, ...financialTerms]) {
+      const result = protectCjkText(term, locale);
+      assert.ok(result.includes(`>${term}</span>`), `${locale}: ${term}`);
+      assert.equal(removeProtectionMarkup(result), term);
+    }
+  }
+});
+
+test('Korean-won amounts keep each locale\'s scale and currency attached to the number', () => {
+  for (const [locale, amounts] of Object.entries({
+    'zh-tw': ['107.4 兆韓元', '195 兆韓元', '12.17 兆韓元', '500 韓元'],
+    'zh-cn': ['107.4 万亿韩元', '195 万亿韩元', '12.17 万亿韩元', '500 韩元']
+  })) for (const amount of amounts) {
+    const result = protectCjkText(amount, locale);
+    assert.ok(result.includes(`>${amount}</span>`), `${locale}: ${amount}`);
+    assert.equal(removeProtectionMarkup(result), amount);
+  }
+});
+
 test('CNAS report terminology is protected independently in both Chinese locales', () => {
   const samples = {
     'zh-tw': ['實驗室認可範圍', '非認可項目', '認可註冊號', '測試方法', '測試地點', '報告真偽', '樣品身分', '三用電表', '產品許可', '樣品對應關係'],

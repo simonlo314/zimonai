@@ -7,6 +7,42 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand Samsung's 8 October Q3 guidance and its memory-market significance.
+  // Related questions: estimated versus final earnings; AI demand context; business mix;
+  // component pricing and allocation; the next official earnings event.
+  {
+    id: 'knowledge-samsung-q3-2026-guidance',
+    key: 'samsungQ32026Guidance',
+    contentType: 'current-affairs',
+    slug: 'knowledge/samsung-q3-2026-guidance',
+    category: 'commercial-risk',
+    products: ['general'],
+    markets: ['south-korea', 'global'],
+    keywords: {
+      en: ['Samsung Q3 2026 earnings guidance', 'Samsung operating profit forecast October 2026', 'AI memory demand procurement', 'Samsung third quarter earnings call'],
+      'zh-tw': ['三星第三季財測 2026', '三星營業利益預估', 'AI 記憶體需求', '三星法說會 10 月 29 日', '記憶體採購供貨'],
+      'zh-cn': ['三星三季度业绩预告 2026', '三星营业利润预估', 'AI 内存需求', '三星业绩说明会 10 月 29 日', '内存采购供货']
+    },
+    datePublished: '2026-10-11',
+    dateModified: '2026-10-11',
+    image: '/assets/editorial-samsung-q3-2026-guidance.jpg',
+    imageWidth: 1600,
+    imageHeight: 1200,
+    imageCrop: { card: '0% 35%', article: '30% 42%', mobile: '0% 38%' },
+    photo: {
+      photographer: 'Cristiano Tomás',
+      page: 'https://commons.wikimedia.org/wiki/File:Samsung_Headquarters_-_Silicon_Valley.jpg',
+      license: 'https://creativecommons.org/licenses/by-sa/4.0/'
+    },
+    sources: [
+      { publisher: 'Samsung Electronics', title: '3Q 2026 Pre-Earnings Guidance — official disclosure, 8 October 2026', url: 'https://www.samsung.com/global/ir/reports-disclosures/public-disclosure-view.84775/' },
+      { publisher: 'Samsung Electronics', title: 'Third-quarter 2026 guidance and comparative consolidated figures — 8 October 2026', url: 'https://news.samsung.com/global/samsung-electronics-announces-earnings-guidance-for-third-quarter-2026' },
+      { publisher: 'Yonhap News Agency', title: 'Samsung Q3 operating profit estimate and AI memory-market context — 8 October 2026', url: 'https://en.yna.co.kr/view/AEN20261008000951320' },
+      { publisher: 'Samsung Electronics', title: 'Investor-relations events — Q3 earnings conference call scheduled for 29 October 2026', url: 'https://www.samsung.com/global/ir/ir-events-presentations/events/' },
+      { publisher: 'Wikimedia Commons / Cristiano Tomás', title: 'Samsung Silicon Valley campus photograph — 16 February 2021, CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Samsung_Headquarters_-_Silicon_Valley.jpg' },
+      { publisher: 'Creative Commons', title: 'CC BY-SA 4.0 — photograph attribution, changes and share-alike terms', url: 'https://creativecommons.org/licenses/by-sa/4.0/' }
+    ]
+  },
   // Search intent: establish whether a charger report's claimed accreditation covers the work.
   // Related questions: lab identity and site; scope/method match; mixed results;
   // report authenticity; overseas acceptance versus product approval.
@@ -1390,7 +1426,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/anker-maggo-2-pro-uae-launch-price',
     featured: true,
-    featuredReviewedThrough: '2026-10-08',
+    featuredReviewedThrough: '2026-10-11',
     category: 'commercial-risk',
     products: ['power-bank'],
     markets: ['united-arab-emirates'],
@@ -2227,6 +2263,46 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      samsungQ32026Guidance: {
+        topic: 'Samsung earnings guidance and the memory market',
+        published: '11 October 2026',
+        readTime: '4 minutes',
+        title: 'Samsung forecasts a record Q3 profit: AI memory demand takes centre stage',
+        description: 'Samsung’s 8 October guidance estimates KRW 107.4 trillion in operating profit. Read the confirmed figures, AI memory context and what the 29 October earnings call may clarify.',
+        imageAlt: 'Samsung-branded buildings at its Silicon Valley campus, photographed from the street in 2021.',
+        imageCaption: 'Archival company photograph: Samsung’s Silicon Valley campus, photographed by Cristiano Tomás on 16 February 2021. CC BY-SA 4.0; resized, compressed and cropped for layout, without generative editing. This is not the October 2026 announcement venue or evidence of chip production. The local photograph retains the same licence.',
+        labels: { summary: 'News summary', checklist: 'What to watch next', limits: 'What remains unclear' },
+        answer: 'Samsung Electronics forecast third-quarter 2026 operating profit of KRW 107.4 trillion on 8 October, alongside KRW 195 trillion in sales [[source:1]]. Yonhap links the expected record to AI-driven memory demand [[source:3]]. The bigger story is the pressure this places on component procurement, although the guidance contains neither division results nor customer-specific supply commitments. ZIMONAI’s editorial view is to separate the memory-cycle signal from an individual purchase: product mix and delivery terms matter more than a group profit headline.',
+        takeaways: [
+          'The announced figures are preliminary consolidated estimates, released before the external audit is complete—not final earnings [[source:1]].',
+          'Yonhap reports AI infrastructure demand and elevated memory prices as the market backdrop; the guidance itself does not quantify each business’s contribution [[source:3]].',
+          'Samsung’s investor calendar schedules the Q3 earnings conference call for 29 October 2026 at 10:00 a.m. KST [[source:4]].'
+        ],
+        sections: [
+          { title: 'What Samsung actually announced on 8 October', paragraphs: [
+            'Samsung’s disclosure puts sales in a KRW 194–196 trillion estimate range and operating profit in a KRW 107.3–107.5 trillion range. The headline numbers are the midpoints, prepared under Korean International Financial Reporting Standards. They are operating profit, not net profit [[source:1]].',
+            'For comparison, Samsung’s newsroom lists Q3 2025 sales of KRW 86.06 trillion and operating profit of KRW 12.17 trillion. The Q2 2026 figures are KRW 171.5 trillion and KRW 89.49 trillion respectively. The new forecast therefore points to a substantial increase from both comparison periods [[source:2]].',
+            'The scale is newsworthy, but the status of the numbers matters. A preliminary group total gives a direction for earnings; it leaves the division-level explanation, final results and operational detail for subsequent disclosures. Treating the forecast as an already completed financial report would erase that distinction.'
+          ] },
+          { title: 'Why the AI memory story matters beyond the profit headline', paragraphs: [
+            'Yonhap’s independent report places the expected record against rising AI infrastructure investment, constrained semiconductor supply and high memory prices. It also notes that Samsung has not yet supplied detailed division results. That is a reported market explanation, not a product-by-product allocation statement from Samsung [[source:3]].',
+            'ZIMONAI reads this as a reason to examine product mix before applying a blanket shortage narrative. A company can earn more through different combinations of selling prices, shipment volumes, higher-value products and costs. The consolidated figure does not distinguish those mechanisms for a particular memory part.',
+            'For an electronics manufacturer, that distinction changes the purchasing conversation. A proposed price adjustment should identify the affected part, quotation validity and delivery window. A broad AI-demand story is context for negotiation, not a substitute for those terms. Extending it to power adapters, chargers or unrelated components would require separate evidence.'
+          ] },
+          { title: 'The next milestone is the 29 October earnings call', paragraphs: [
+            'Samsung’s official investor calendar lists the Q3 conference call for 29 October at 10:00 a.m. Korea time. That event is still ahead as of this article’s 11 October publication; the timing remains subject to the company’s calendar [[source:4]].',
+            'The useful questions are how the final results divide among businesses, what management says about demand and capacity, and whether it discusses pricing, shipments or capital expenditure. These are questions for the next disclosure, not promises that every requested detail will be published.',
+            'The event’s industrial significance is the strength of the memory-market signal and the need to interpret it at the right level. The next test is whether operational disclosures explain that strength—and whether commercial terms for the buyer’s actual parts change with it. A record profit forecast and an assured delivery date remain different pieces of information.'
+          ] }
+        ],
+        checklist: [
+          'Compare the final consolidated figures with the preliminary estimate after the earnings release.',
+          'Read the business breakdown before attributing the entire increase to one chip category.',
+          'Watch for management’s demand, capacity and investment commentary; distinguish statements from forecasts.',
+          'For an affected purchase, compare the exact part’s quotation, validity period, allocation and delivery commitment.'
+        ],
+        limitsText: 'Sources were reviewed on 11 October 2026. The 8 October guidance does not provide final results, a detailed business breakdown or buyer-specific prices and allocations. AI-market context is attributed to Yonhap; the procurement interpretation is ZIMONAI’s editorial assessment. The article does not predict chip prices, certify supply availability or provide investment advice. The 2021 campus photograph is archival, not a current factory or event image.'
+      },
       cnasLaboratoryScopeChargerReport: {
         topic: 'Laboratory accreditation and charger reports',
         published: '8 October 2026',
@@ -4713,6 +4789,46 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      samsungQ32026Guidance: {
+        topic: '三星財測與記憶體市場',
+        published: '2026 年 10 月 11 日',
+        readTime: '約 4 分鐘',
+        title: '三星第三季獲利預估創高：AI 記憶體需求成焦點',
+        description: '三星第三季財測創高：AI 記憶體需求與供貨訊號解析。',
+        imageAlt: '2021 年拍攝的三星矽谷園區，建築外牆可見 Samsung 標誌。',
+        imageCaption: '品牌資料照片：Cristiano Tomás 於 2021 年 2 月 16 日拍攝三星矽谷園區，採 CC BY-SA 4.0 授權。僅縮放、壓縮及配合版面裁切，未經生成式編修；本地圖片沿用相同授權。照片不是 2026 年 10 月公告現場，也不是晶片生產證據。',
+        labels: { summary: '新聞摘要', checklist: '接下來值得觀察', limits: '尚未確認事項' },
+        answer: '三星電子於 2026 年 10 月 8 日公布第三季財測，預估合併營業利益約 107.4 兆韓元、營收約 195 兆韓元 [[source:1]]。韓聯社將這波預估新高連結到 AI 帶動的記憶體需求 [[source:3]]。更值得注意的是，強勁獲利讓零組件採購的成本與供貨條件成為焦點，但這份集團財測尚未揭露各事業細項或個別買家的供貨安排。ZIMONAI 的編輯判讀是把記憶體景氣與實際訂單分開看：產品組合與交付條件，比獲利總額更接近採購決策。',
+        takeaways: [
+          '這次公布的是合併業績預估；官方說明發布時外部查核尚未完成，不是正式財報 [[source:1]]。',
+          'AI 投資與記憶體價格是韓聯社提供的市場背景；三星這份財測未量化各事業的貢獻 [[source:3]]。',
+          '官方行事曆預定於 2026 年 10 月 29 日韓國時間上午 10 點舉行第三季法說會 [[source:4]]。'
+        ],
+        sections: [
+          { title: '10 月 8 日公布了哪些數字？', paragraphs: [
+            '三星以韓國國際財務報導準則編製預估，營收區間為 194 至 196 兆韓元，營業利益區間為 107.3 至 107.5 兆韓元；公告採區間中間值呈現。107.4 兆韓元指的是營業利益，並非稅後淨利 [[source:1]]。',
+            '官方新聞稿列出的比較基期，2025 年第三季營收為 86.06 兆韓元、營業利益為 12.17 兆韓元；2026 年第二季則分別為 171.5 兆韓元與 89.49 兆韓元。這次財測相較去年同期及上一季都明顯提高 [[source:2]]。',
+            '數字規模確實值得關注，資料性質也要保留。合併財測先交代整體獲利方向，各事業的具體表現與營運解釋仍待後續揭露；若直接把預估寫成已完成的財報結果，就會混淆這兩個階段。'
+          ] },
+          { title: 'AI 熱潮之外，還要看產品組合', paragraphs: [
+            '韓聯社報導將預估新高放在全球 AI 基礎設施投資增加、半導體供應吃緊與記憶體價格偏高的背景下，並指出三星尚未提供詳細事業別結果。這是媒體對市場的解釋，不是三星針對每一種晶片公布的配貨表 [[source:3]]。',
+            'ZIMONAI 認為，這則新聞的產業價值在於提醒讀者先拆解產品組合，再談全面缺貨。售價、出貨量、高價產品占比與成本變化，都可能影響一家公司的獲利；單一集團總額並未說明特定記憶體料號是哪一項因素在變動。',
+            '對電子產品製造商而言，供應商若提出調價，應交代受影響料號、報價有效期及交付時段。AI 需求強勁是談判背景，不能代替這些商務條件。若要延伸到充電器、電源適配器或其他零組件，也需要另外的證據，而非沿用記憶體市場的敘事。'
+          ] },
+          { title: '下一個觀察點：10 月 29 日法說會', paragraphs: [
+            '截至本文 10 月 11 日發布時，三星官方行事曆將第三季法說會排在 10 月 29 日韓國時間上午 10 點。這是尚未舉行的預定活動，後續仍應以公司公布的時程為準 [[source:4]]。',
+            '值得觀察的是正式結果如何分配到各事業、管理層如何描述需求與產能，以及是否進一步談到價格、出貨或資本支出。這些是下一次揭露的觀察問題，並非保證法說會一定提供所有細項。',
+            '這波獲利預估凸顯記憶體市場的強勁訊號，真正影響製造與採購的下一步，則是營運資料如何解釋這個訊號，以及實際料號的商務條件是否跟著改變。創高的獲利預估與確定的交貨日期，仍是不同層次的資訊。'
+          ] }
+        ],
+        checklist: [
+          '正式財報發布後，對照合併結果與這次預估的差異。',
+          '先看事業別資料，再判斷哪類晶片帶動成長。',
+          '留意需求、產能與投資說明，區分已發生事項與未來預測。',
+          '涉及實際採購時，再比對料號的報價、有效期、配貨與交付承諾。'
+        ],
+        limitsText: '本文來源查閱日期為 2026 年 10 月 11 日。10 月 8 日財測尚未提供正式結果、完整事業別資料或個別買家的報價與配貨。AI 市場背景引述韓聯社；採購意義屬 ZIMONAI 編輯判讀。本文不預測晶片價格、不保證供貨，也不是投資建議。2021 年園區照片僅作品牌資料影像，不代表目前工廠狀況或本次活動現場。'
+      },
       cnasLaboratoryScopeChargerReport: {
         topic: '實驗室認可與充電器報告',
         published: '2026 年 10 月 8 日',
@@ -7160,6 +7276,46 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      samsungQ32026Guidance: {
+        topic: '三星业绩预告与内存市场',
+        published: '2026 年 10 月 11 日',
+        readTime: '约 4 分钟',
+        title: 'AI 内存需求升温，三星三季度利润预估创新高',
+        description: '三星三季度利润预估创新高：AI 内存需求与供货变化解读。',
+        imageAlt: '三星位于硅谷的园区建筑，外墙带有 Samsung 标志，照片摄于 2021 年。',
+        imageCaption: '品牌资料照片：Cristiano Tomás 于 2021 年 2 月 16 日拍摄三星硅谷园区，采用 CC BY-SA 4.0 许可。图片仅缩放、压缩和按版面裁剪，没有生成式编辑；本地图片继续使用同一许可。它不是 2026 年 10 月公告现场，也不是芯片生产的证据。',
+        labels: { summary: '新闻摘要', checklist: '后续观察重点', limits: '尚待确认的信息' },
+        answer: '2026 年 10 月 8 日，三星电子发布三季度业绩预告，预计合并营业利润约 107.4 万亿韩元、销售额约 195 万亿韩元 [[source:1]]。韩联社报道把这一预估新高与 AI 内存需求联系起来 [[source:3]]。值得关注的是，强劲利润将电子制造业的成本与供货条件推到焦点，但集团预告尚未展开各业务表现，也没有给出具体客户的供应安排。ZIMONAI 的编辑判断是分清行业景气与订单条件：采购需要产品组合和交付信息，不能只凭利润总额判断某个料号的供应。',
+        takeaways: [
+          '官方数据属于合并业绩预估，公布时外部审计尚未完成，后续正式结果仍可能不同 [[source:1]]。',
+          '韩联社提供了 AI 投资和内存价格的市场背景，预告本身未列明各业务贡献 [[source:3]]。',
+          '三星投资者日历将三季度业绩说明会安排在 2026 年 10 月 29 日韩国时间上午 10 点 [[source:4]]。'
+        ],
+        sections: [
+          { title: '先读预告：营业利润口径', paragraphs: [
+            '这份预告按韩国国际财务报告准则编制。销售额预计在 194 至 196 万亿韩元之间，营业利润预计为 107.3 至 107.5 万亿韩元，公告数字取区间中点。新闻中的 107.4 万亿韩元是营业利润口径，不是净利润 [[source:1]]。',
+            '三星新闻稿同时列出比较数据：2025 年三季度销售额为 86.06 万亿韩元、营业利润为 12.17 万亿韩元；2026 年二季度分别为 171.5 万亿韩元和 89.49 万亿韩元。与两个基期相比，本次预估都显著提高 [[source:2]]。',
+            '预告先让市场看到公司整体业绩方向，却不等于完整财报已公布。最终结果、业务拆分和营运解释仍需后续材料。报道这组数字时，应保留“预估”这一条件，而不是把尚待确认的结果写成既成事实。'
+          ] },
+          { title: '利润走强，为何不代表所有料号都缺货？', paragraphs: [
+            '韩联社把业绩走强放在 AI 基础设施投资增长、半导体供应紧张和内存价格偏高的市场背景中，也明确提到三星未提供详细业务结果。这是独立媒体的背景分析，并不是厂商对每种芯片供货状态的公告 [[source:3]]。',
+            'ZIMONAI 的判断是，先看产品组合，再评估行业叙事的适用范围。利润变化可能来自售价、出货量、高价值产品占比或成本；集团总数没有解释某个内存料号的变化机制。把强劲利润一律理解为全面缺货，会跳过这些差别。',
+            '电子制造企业面对涨价要求时，更有用的信息是受影响料号、报价有效期和交付窗口。AI 需求是商谈背景，具体订单仍要依据明确条款。对于充电器、电源适配器或其他零部件，这则新闻也不能直接替代各自的市场证据。'
+          ] },
+          { title: '10 月 29 日之后，重点看营运解释', paragraphs: [
+            '三星官方投资者日历列出的三季度业绩说明会时间是 10 月 29 日韩国时间上午 10 点。截至本文 10 月 11 日发布，活动尚未举行，安排如有变化应以公司最新日历为准 [[source:4]]。',
+            '后续值得看的是最终业绩的业务拆分、管理层对需求和产能的说明，以及价格、出货或资本开支是否有更多披露。这些只是观察方向，不意味着公司已承诺公布每个产品或客户的数据。',
+            '这次预告的意义，是给出一个强劲的内存市场信号。下一步需要营运信息解释它如何形成，再看真实订单的价格和交付条件有没有变化。利润预估创新高与某个客户已经获得可靠交期，是两种不同的结论。'
+          ] }
+        ],
+        checklist: [
+          '正式结果公布后，比较最终合并数据与本次预估。',
+          '结合业务拆分理解增长来源，不把全部增量归给单一芯片类别。',
+          '关注需求、产能及投资表述，分清已发生情况与未来预期。',
+          '涉及采购时，另行核对具体料号的报价、有效期、配货及交付约定。'
+        ],
+        limitsText: '资料查阅截至 2026 年 10 月 11 日。10 月 8 日预告没有提供最终业绩、完整业务拆分或客户专属的价格与配货信息。AI 市场背景来自韩联社，采购层面的解读属于 ZIMONAI 编辑判断。本文不预测芯片价格、不担保供应，也不构成投资建议。配图是 2021 年的园区资料照片，不反映当前工厂或本次活动现场。'
+      },
       cnasLaboratoryScopeChargerReport: {
         topic: '实验室认可与充电器报告',
         published: '2026 年 10 月 8 日',
