@@ -256,6 +256,24 @@ test('technical measurements keep their values and units together', () => {
   }
 });
 
+test('power-bank air-cargo terms preserve native phrases and UN identifiers', () => {
+  for (const [locale, values] of [
+    ['zh-tw', ['商業空運', '荷電狀態', '運輸識別號', '鋰離子電池', '額定容量', '包裝指示', '航空承運人', '貨件準備人員', '出貨資料', '單電芯電池', '電芯配置', '交期', '分開', '輸出瓦數', '貨件', '版面裁切', '訂艙', '條件', '化學種類', '電池化學種類', '運輸分類', '可追溯', '危險物品訓練', '防護包裝', '額定值', '包裝例外', 'UN 3480', 'UN 3481', 'PI 965', '49 CFR 173.185(c)(5)']],
+    ['zh-cn', ['商业空运', '荷电状态', '运输识别号', '锂离子电池', '额定容量', '包装说明', '航空承运人', '货件准备人员', '运输资料', '装箱单', '单电芯电池', '电芯配置', '交期', '分开', '输出功率', '货件', '等比例缩放', '这票货', '条件', '版面裁剪', '化学类型', '电池化学类型', '运输分类', '可追溯', '危险品培训', '防护包装', '额定值', '包装例外', 'UN 3480', 'UN 3481', 'PI 965', '49 CFR 173.185(c)(5)']]
+  ]) {
+    for (const value of values) {
+      const protectedText = protectCjkText(value, locale);
+      assert.equal(removeProtectionMarkup(protectedText), value);
+      assert.equal(protectedText, `<span class="cjk-keep cjk-keep--phrase">${value}</span>`);
+      assert.equal(protectCjkText(`${value}。`, locale), `<span class="cjk-keep cjk-keep--phrase">${value}。</span>`);
+    }
+  }
+  assert.equal(protectCjkText('Commercial air cargo under UN 3480.', 'en'), 'Commercial air cargo under UN 3480.');
+  for (const [locale, word] of [['zh-tw', '基本條件'], ['zh-cn', '基本条件']]) {
+    assert.equal(protectCjkText(`${word}。`, locale), `<span class="cjk-keep cjk-keep--phrase">${word}。</span>`);
+  }
+});
+
 test('demonstratives and non-numeric quantifiers stay attached to their measure word', () => {
   for (const [locale, values] of [
     ['zh-tw', ['這款', '這張', '這家', '這筆', '這台', '每個', '每一個', '每款', '每篇', '每項', '本批']],

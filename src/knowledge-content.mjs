@@ -7,6 +7,40 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: classify a lithium-ion power-bank order for commercial air cargo.
+  // Related questions: UN 3480 versus equipment; 100 Wh; state of charge;
+  // test-summary versus shipment evidence; carrier restrictions and handoff.
+  {
+    id: 'knowledge-power-bank-un3480-air-cargo',
+    key: 'powerBankUn3480AirCargo',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/power-bank-un3480-air-cargo',
+    category: 'product-transport-documents',
+    products: ['power-bank'],
+    markets: ['international', 'united-states'],
+    keywords: {
+      en: ['power bank UN 3480 air cargo', 'lithium ion power bank 100 Wh shipment', 'PI 965 power bank shipping', 'power bank state of charge shipment evidence'],
+      'zh-tw': ['行動電源 UN 3480 空運', '行動電源商業空運', '100 Wh 行動電源包裝', 'PI 965 包裝指示', '行動電源荷電狀態'],
+      'zh-cn': ['移动电源 UN 3480 空运', '充电宝商业空运', '100 Wh 移动电源包装', 'PI 965 包装说明', '移动电源荷电状态']
+    },
+    datePublished: '2026-10-12',
+    dateModified: '2026-10-12',
+    image: '/assets/editorial-power-bank-air-cargo.jpg',
+    imageWidth: 1800,
+    imageHeight: 1012,
+    imageCrop: { card: '45% 55%', article: '50% 52%', mobile: '32% 52%' },
+    photo: {
+      photographer: 'Eleonora Vokueva',
+      page: 'https://www.pexels.com/photo/smartphone-charging-with-portable-power-bank-37475677/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      { publisher: 'International Air Transport Association', title: 'Battery Guidance Document — 2026 edition; definitions, lithium-ion flowchart and FAQ D.02', url: 'https://www.iata.org/contentassets/05e6d8742b0047259bf3a700bc9d42b9/lithium-battery-guidance-document.pdf' },
+      { publisher: 'U.S. Electronic Code of Federal Regulations', title: '49 CFR 173.185 — testing, packaging and smaller-battery air-transport conditions', url: 'https://www.ecfr.gov/current/title-49/subtitle-B/chapter-I/subchapter-C/part-173/subpart-E/section-173.185' },
+      { publisher: 'Federal Aviation Administration', title: 'How to Ship Dangerous Goods — trained preparation, shipment documents and carrier restrictions', url: 'https://www.faa.gov/hazmat/safecargo/how_to_ship' },
+      { publisher: 'Pipeline and Hazardous Materials Safety Administration', title: 'Transporting Lithium Batteries — separate shipper and passenger resources; test-summary traceability', url: 'https://www.phmsa.dot.gov/lithiumbatteries' }
+    ]
+  },
   // Search intent: understand Samsung's 8 October Q3 guidance and its memory-market significance.
   // Related questions: estimated versus final earnings; AI demand context; business mix;
   // component pricing and allocation; the next official earnings event.
@@ -1426,7 +1460,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/anker-maggo-2-pro-uae-launch-price',
     featured: true,
-    featuredReviewedThrough: '2026-10-11',
+    featuredReviewedThrough: '2026-10-12',
     category: 'commercial-risk',
     products: ['power-bank'],
     markets: ['united-arab-emirates'],
@@ -2263,6 +2297,48 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      powerBankUn3480AirCargo: {
+        topic: 'Power-bank classification for commercial air cargo',
+        published: '12 October 2026',
+        readTime: '4 minutes',
+        title: 'Shipping power banks by air: match UN 3480 to the shipment, not just 100 Wh',
+        description: 'Power-bank air cargo: connect battery classification, the 100 Wh threshold and shipment evidence before accepting a freight quote.',
+        imageAlt: 'A black power bank charging a smartphone through an orange cable on a wooden table.',
+        imageCaption: 'Editorial photograph by Eleonora Vokueva, Pexels License; downloaded 12 October 2026, proportionally resized and compressed, with layout cropping only. This is not an approved air-cargo package, a tested battery or a ZIMONAI client product. The phone display is not evidence of the power bank’s state of charge.',
+        labels: { summary: 'Reader overview', checklist: 'Buyer handoff checklist', limits: 'Scope and evidence limits' },
+        answer: 'UN 3480 identifies lithium-ion batteries shipped as cargo; IATA treats power banks as batteries even when they have a casing and charging electronics [[source:1]]. A 100 Wh rating helps select the packing route, rather than granting general permission to fly. Buyers still need evidence for the actual battery, package and carrier acceptance. ZIMONAI’s editorial view is to join the product file to the shipment file before comparing freight quotes: a UN 38.3 summary and a booked route answer different questions.',
+        takeaways: [
+          'A lithium-ion power bank is classified as a battery, not automatically as a battery contained in equipment [[source:1]].',
+          'The 100 Wh threshold does not remove the applicable air-cargo packaging and hazard-communication requirements [[source:2]].',
+          'A test summary supports battery-design traceability; the shipment still needs its own preparation and acceptance evidence [[source:4]][[source:3]].'
+        ],
+        sections: [
+          { title: 'Start with the battery’s function and chemistry', paragraphs: [
+            'IATA’s 2026 guidance assigns power banks to the relevant battery entry: UN 3480 for lithium-ion chemistry. Its FAQ D.02 keeps the power-bank classification even in a package containing mobile phones. A retail bundle or plastic housing does not by itself create the equipment route [[source:1]].',
+            'This guide concerns ordinary rechargeable lithium-ion power banks offered as commercial cargo. Passenger baggage, other chemistries and products whose primary function is different need separate assessment. PHMSA likewise separates resources for shippers from those for airline passengers [[source:4]].',
+            'For procurement, record the finished-product model, internal battery identification, chemistry and intended package contents before requesting a route. If the supplier and freight quote use different UN numbers, obtain a documented explanation from the trained shipment preparer rather than choosing the cheaper description.'
+          ] },
+          { title: 'Read 100 Wh as a threshold, not an air-cargo permit', paragraphs: [
+            'The IATA lithium-ion flowchart uses PI 965 for UN 3480 and distinguishes Section IA from IB. It retains the ordinary cargo-aircraft-only route and a maximum 30% state of charge for standalone lithium-ion batteries. These are baseline conditions, not an airline acceptance guarantee or a treatment of special approvals [[source:1]].',
+            'For U.S.-regulated transport, 49 CFR 173.185(c)(5) retains applicable requirements for smaller standalone lithium batteries shipped by air, with a limited packaging exception subject to conditions. The same section requires protection against short circuits and package movement. Size alone is not the complete decision [[source:2]].',
+            'Ask for the manufacturer’s Wh rating, cell arrangement and supporting specification, not only a sales-page capacity or USB output wattage. A single-cell battery is treated as a cell for the applicable limits, so the 100 Wh battery threshold must not be applied to every design [[source:2]]. Separately document the shipment state of charge; a phone screen does not establish the condition of every packed unit.'
+          ] },
+          { title: 'Connect the product evidence to the actual consignment', paragraphs: [
+            'PHMSA explains that the UN 38.3 test summary provides traceability for a tested battery design. Use the existing UN 38.3 guide for the summary itself; here the additional question is whether that design matches the batteries in the order [[source:4]]. Keep the model cross-reference, specification and changes available to the shipment preparer.',
+            'FAA’s shipment workflow separately addresses trained staff, classification, quantities, packaging, markings, labels and shipping papers. It also warns that air carriers can impose additional restrictions [[source:3]]. Obtain the route-specific requirements before finalising the shipping plan; a supplier’s statement that it has shipped similar products is not a carrier commitment.',
+            'ZIMONAI recommends two linked records: a product record identifying what was tested, and a shipment record identifying what will travel. Link them through the actual model and packing list, then record the responsible preparer, packaging evidence, applicable documents and dated carrier or forwarder confirmation. Unresolved classification or route conditions belong in the delivery plan, not in an unconditional freight-price promise.'
+          ] }
+        ],
+        checklist: [
+          'Identify battery chemistry, finished-product model and internal battery model; reconcile any inconsistent UN number.',
+          'Obtain the Wh specification, cell/battery classification and model-matched UN 38.3 summary, not just a catalogue capacity.',
+          'Have the trained preparer confirm the applicable packing instruction, section and shipment state-of-charge evidence.',
+          'Match package contents, battery quantities, packaging protection, markings, labels and required documents to the actual consignment.',
+          'Confirm the proposed route and current carrier restrictions through the responsible forwarder or carrier; record conditions and date.',
+          'Exclude damaged, defective, recalled or prototype batteries from this ordinary-shipment review and obtain specialist assessment.'
+        ],
+        limitsText: 'Reviewed 12 October 2026 using IATA’s 2026 guidance and the cited U.S. sources. IATA describes its public document as guidance, not a stand-alone regulatory-compliance source. U.S. provisions apply within their jurisdiction; other states and operators may impose different or additional conditions. This article is not dangerous-goods training, packing instructions for a particular consignment, an approval for special batteries or a carrier booking. It does not validate the pictured product’s chemistry, Wh rating, test status or state of charge. ZIMONAI’s matching method is editorial interpretation, not a regulator or airline decision.'
+      },
       samsungQ32026Guidance: {
         topic: 'Samsung earnings guidance and the memory market',
         published: '11 October 2026',
@@ -4789,6 +4865,48 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      powerBankUn3480AirCargo: {
+        topic: '行動電源商業空運分類',
+        published: '2026 年 10 月 12 日',
+        readTime: '約 4 分鐘',
+        title: '行動電源商業空運：UN 3480 出貨資料核對',
+        description: '行動電源空運：分類、100 Wh 門檻與出貨資料核對。',
+        imageAlt: '木桌上的黑色行動電源，透過橘色線材替手機充電。',
+        imageCaption: '編輯用真實照片：Eleonora Vokueva／Pexels，依 Pexels License 使用，2026 年 10 月 12 日下載；僅等比例縮放、壓縮與版面裁切。照片不是合格空運包裝、測試電池或 ZIMONAI 客戶產品；手機螢幕讀數也不是行動電源荷電狀態的證據。',
+        labels: { summary: '讀者摘要', checklist: '買家交接核對清單', limits: '適用範圍與證據界線' },
+        answer: 'UN 3480 是鋰離子電池貨運使用的運輸識別號；IATA 2026 指引把以供電為主要功能的行動電源按電池處理，而不是一般含電池設備 [[source:1]]。100 Wh 用於判別包裝路徑，不是全面空運許可；個別貨件的包裝、荷電狀態與承運條件仍須另行確認。海外買家若只拿到 UN 38.3 測試摘要，尚未接上本批出貨的證據。ZIMONAI 的編輯判讀是建立產品及運送兩組紀錄，以型號及箱單串接，讓運費與交期有可查證的條件。',
+        takeaways: [
+          '鋰離子行動電源按電池分類，不因有外殼或充電電路就成為設備內含電池 [[source:1]]。',
+          '100 Wh 是門檻；符合容量條件仍有適用的空運包裝、標示與文件要求 [[source:2]]。',
+          '測試摘要支持電池設計的追溯，當次貨件的準備與承運確認是另一組證據 [[source:4]][[source:3]]。'
+        ],
+        sections: [
+          { title: '電池功能與化學種類', paragraphs: [
+            'IATA 2026 指引將行動電源分到相應的電池運輸項目；鋰離子產品為 UN 3480。FAQ D.02 以手機與行動電源同箱為例，仍維持行動電源的電池分類。零售套裝名稱或塑膠外殼，本身不會把它改成設備路徑 [[source:1]]。',
+            '本文聚焦一般可充電鋰離子行動電源的商業貨運。旅客行李、其他電池化學種類，以及主要功能不同的產品，須分開評估；PHMSA 的官方資源也把貨主與旅客資訊分開提供 [[source:4]]。',
+            '海外採購先記錄成品型號、內部電池識別、化學種類與預定裝箱內容，再詢問運送路線。若供應商文件與物流報價的 UN 編號不同，應由受訓的貨件準備人員說明分類依據，不宜直接採用價格較低的描述。'
+          ] },
+          { title: '100 Wh 門檻：貨件條件核對', paragraphs: [
+            'IATA 鋰離子電池流程圖把 UN 3480 接到 PI 965，並區分 Section IA 與 IB。一般單獨運送鋰離子電池的路徑仍要求貨機運送，荷電狀態最高為額定容量的 30%；這是基本條件，不是航空公司收貨保證，也不是特殊核准程序的完整說明 [[source:1]]。',
+            '若涉及美國管轄運輸，49 CFR 173.185(c)(5) 對較小、單獨運送的鋰電池空運仍保留適用要求，只在符合條件時提供有限的包裝例外。同一條文亦要求防止短路與貨件內位移；容量不是唯一判斷項目 [[source:2]]。',
+            '請供應商提供 Wh 額定值、電芯配置及規格依據，不只看商品頁容量或 USB 輸出瓦數。單電芯電池按電芯處理，不能把 100 Wh 電池門檻套用到每種設計 [[source:2]]。接著另問出貨荷電狀態如何建立與記錄；使用中的手機螢幕照片，無法代表裝箱後每一台產品的狀態。'
+          ] },
+          { title: '把產品文件接到本批出貨紀錄', paragraphs: [
+            'PHMSA 說明 UN 38.3 測試摘要的作用在於電池設計追溯。摘要本身可搭配既有 UN 38.3 指南閱讀；本篇新增的問題是，受測設計是否對得上訂單內的電池 [[source:4]]。型號對照、規格與變更資料應交給貨件準備人員。',
+            'FAA 的出貨流程另外列出受訓人員、分類、數量、包裝、標示、標籤與運送文件，並提醒航空承運人可能另加限制 [[source:3]]。定案前先取得該路線要求；供應商說以前運過類似產品，不等於航空公司對這批貨的承諾。',
+            'ZIMONAI 建議保留相連的兩份紀錄：產品紀錄交代測過什麼，運送紀錄交代這次要運什麼。用實際型號與箱單串接，再記錄準備責任人、包裝證據、適用文件及有日期的承運或貨運承攬確認。分類與路線尚未釐清的條件，應放進交付計畫，不宜藏在無條件的運費承諾裡。'
+          ] }
+        ],
+        checklist: [
+          '確認電池化學種類、成品型號與內部電池型號，釐清不一致的 UN 編號。',
+          '取得 Wh 規格、電芯或電池的分類，以及對應型號的 UN 38.3 測試摘要。',
+          '由受訓人員確認適用包裝指示、章節及出貨荷電狀態的紀錄方式。',
+          '把裝箱內容、電池數量、防護包裝、標示、標籤與所需文件對回當次貨件。',
+          '透過責任貨運承攬業者或承運人確認預定路線及現行限制，記錄條件與日期。',
+          '損壞、瑕疵、召回及原型電池不沿用本篇一般出貨判讀，另請專業人員評估。'
+        ],
+        limitsText: '資料查閱日為 2026 年 10 月 12 日，採 IATA 2026 指引與所列美國官方資料。IATA 明示公開文件僅供指引，不是獨立的法規符合依據；美國條文有其管轄範圍，其他國家及承運人可能有不同或追加條件。本文不替代危險物品訓練、特定貨件包裝作業、特殊電池核准或訂艙，也未查證照片產品的化學種類、Wh、測試或荷電狀態。ZIMONAI 的文件串接方法是編輯判讀，不是主管機關或航空公司決定。'
+      },
       samsungQ32026Guidance: {
         topic: '三星財測與記憶體市場',
         published: '2026 年 10 月 11 日',
@@ -7276,6 +7394,48 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      powerBankUn3480AirCargo: {
+        topic: '移动电源商业空运分类',
+        published: '2026 年 10 月 12 日',
+        readTime: '约 4 分钟',
+        title: '移动电源商业空运：核对 UN 3480 与运输资料',
+        description: '移动电源空运分类、100 Wh 门槛与承运资料核对。',
+        imageAlt: '黑色移动电源通过橙色连接线给木桌上的手机充电。',
+        imageCaption: '编辑用真实照片，摄影师 Eleonora Vokueva，来自 Pexels，按 Pexels License 使用；2026 年 10 月 12 日下载，仅等比例缩放、压缩及版面裁剪。它不是获准空运的包装、测试电池或 ZIMONAI 客户产品，手机屏幕读数也不能证明移动电源的荷电状态。',
+        labels: { summary: '读者摘要', checklist: '采购交接核对清单', limits: '适用范围与证据边界' },
+        answer: '移动电源主要为其他设备供电，IATA 2026 指引将它按电池分类；锂离子产品使用 UN 3480 运输识别号 [[source:1]]。100 Wh 影响包装路径，却不等于一张通用空运许可，实际货件的包装、荷电状态和承运条件要分别落实。海外采购收到 UN 38.3 测试概要后，还需把受测设计与此次装箱内容连接起来。ZIMONAI 的编辑判断是按型号和装箱单关联产品证据与运输记录，让物流报价建立在明确条件上，交期承诺也有可追溯的依据。',
+        takeaways: [
+          '外壳和充电电路没有改变锂离子移动电源的电池分类，不能自动套用设备内置电池路径 [[source:1]]。',
+          '100 Wh 门槛之外，商业空运仍有适用的包装、标识和文件条件 [[source:2]]。',
+          '测试概要用于电池设计追溯，货件准备及承运确认需要另外核对 [[source:4]][[source:3]]。'
+        ],
+        sections: [
+          { title: '先按功能分类，再看电池化学类型', paragraphs: [
+            'IATA 2026 指引把移动电源列入对应的电池运输类别，锂离子产品适用 UN 3480。FAQ D.02 讨论手机与移动电源放在同一包装的情况，移动电源仍按电池处理。商品套装名称或外壳，并非改用设备路径的依据 [[source:1]]。',
+            '这里讨论的是一般可充电锂离子移动电源作为商业货物运输，不是旅客随身行李。不同化学类型、主要用途不同的产品需要单独判断；PHMSA 官方页面也将托运人与旅客资源分开列出 [[source:4]]。',
+            '采购资料先列出成品型号、内部电池标识、化学类型和准备装入包装的物品，再询问物流路线。供货文件与运费报价若采用不同 UN 编号，应请经过培训的货件准备人员说明原因，不应仅凭哪个报价低就选择哪种描述。'
+          ] },
+          { title: '容量门槛之后，还有货件条件', paragraphs: [
+            'IATA 锂离子电池流程图将 UN 3480 对应到 PI 965，并区分 Section IA 和 IB。一般单独运输的锂离子电池采用货机路线，荷电状态最高为额定容量的 30%。这些是基本限制，不构成航空公司接收承诺，也没有覆盖特殊批准的全部程序 [[source:1]]。',
+            '对美国管辖的运输，49 CFR 173.185(c)(5) 保留小型独立锂电池空运的适用要求，包装例外有具体条件。同一条款要求防止短路及包装内移动；满足容量门槛，不意味着货件其他项目已经完成 [[source:2]]。',
+            '向厂家核实 Wh 额定值、电芯配置和规格依据，不能拿宣传容量或 USB 输出功率替代。单电芯电池按电芯处理，并非每种设计都能使用 100 Wh 电池门槛 [[source:2]]。出货荷电状态的判定与记录也要单独确认；手机屏幕照片不能证明整批装箱产品的状态。'
+          ] },
+          { title: '让产品资料与运输资料形成可追溯交接', paragraphs: [
+            'PHMSA 将 UN 38.3 测试概要用于电池设计的追溯；概要字段可结合已有 UN 38.3 指南阅读。本篇关注下一环：测试设计如何对应到订单中的实际电池 [[source:4]]。将型号对应、规格和变更资料一并交给货件准备人员，而不只转发一张封面。',
+            'FAA 的托运流程还涵盖培训、分类、数量、包装、标识、标签和运输文件，并指出航空承运人可能增加限制 [[source:3]]。在路线定案前核实适用条件；供货方曾经发过类似产品，只是历史陈述，不代表承运人已经接受这票货。',
+            'ZIMONAI 建议把交接分成相互连接的两份记录：产品记录说明受测对象，运输记录说明本次货件。以实际型号和装箱单建立对应，再记录准备责任人、包装证据、所需文件，以及注明日期的承运人或货代确认。未确定的分类或路线条件应进入交付计划，避免物流报价被误读为无条件交期保证。'
+          ] }
+        ],
+        checklist: [
+          '列明电池化学类型、成品与内部电池型号，解决资料中的 UN 编号差异。',
+          '取得 Wh 规格、电芯或电池分类，以及对应型号的 UN 38.3 测试概要。',
+          '由经过培训的人员确认包装说明、适用章节及出货荷电状态记录。',
+          '将实际装箱内容、电池数量、防护包装、标识、标签与文件逐项对应。',
+          '向责任货代或承运人确认路线和当前限制，保留有日期的条件说明。',
+          '损坏、缺陷、召回或原型电池另行专业评估，不套用一般货件判断。'
+        ],
+        limitsText: '资料核对截至 2026 年 10 月 12 日，依据 IATA 2026 指引及所列美国官方来源。IATA 明示该公开文件用于指导，不能单独作为法规合规依据；美国规定有管辖范围，其他国家及承运人可能规定不同或追加条件。本文不替代危险品培训、特定货件包装操作、特殊电池批准或订舱，亦未核实照片产品的电池化学类型、Wh、测试情况或荷电状态。资料连接方法属于 ZIMONAI 编辑判断，不是监管部门或航空公司结论。'
+      },
       samsungQ32026Guidance: {
         topic: '三星业绩预告与内存市场',
         published: '2026 年 10 月 11 日',
