@@ -139,6 +139,15 @@ The following photographs were downloaded from their original Unsplash pages und
 - Use: three-language current-affairs article about Samsung's 8 October 2026 Q3 earnings guidance. The real Samsung Silicon Valley campus photograph is explicitly archival, not the announcement venue, a Korean factory, current chip-production evidence, a ZIMONAI facility or a client/supplier relationship. Visible captions identify the photographer, date, changes and licence; their source link leads to the original file and licence, also linked in the article source list.
 - Preliminary crop review: desktop article `30% 42%`, mobile article `0% 38%`, card `0% 35%`; actual Samsung branding remains recognisable. Full final-page review remains a separate publication gate.
 
+## SIA supply-chain report — editorial wafer photograph, 2026-10-13
+
+- Asset: `src/assets/editorial-sia-chip-supply-chain-wafer.jpg` (2000 × 1500 JPEG).
+- Creator: 2x910; real photograph “Si wafer,” taken 17 August 2019, showing the surface of a 12-inch silicon wafer. [Original file page](https://commons.wikimedia.org/wiki/File:Si_wafer.jpg); [4032 × 3024 original](https://upload.wikimedia.org/wikipedia/commons/9/96/Si_wafer.jpg). Downloaded 13 October 2026.
+- Licence: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), verified on the original creator's file page and licence deed. The locally resized/compressed photograph and layout crops retain that licence; the article text is not licensed by this image credit.
+- Changes: proportional resizing, JPEG compression and separate CSS crops only. No AI generation, extension, compositing or factual image alteration.
+- Use: three-language news analysis of SIA's 9 October 2026 report on semiconductor equipment/materials production geography. A real semiconductor-category archival illustration, not the report's own artwork, a mapped facility, a current U.S. production sample or a ZIMONAI client/supplier product. No rights-cleared event-specific press photograph was identified in SIA's release/report; the report's graphics and portraits are not republished. Visible caption, source link and source-list licence retain attribution, date and changes.
+- Preliminary art direction: card `42% 40%`, desktop article `44% 42%`, mobile article `38% 45%`, chosen to keep recognisable circuit patterns while avoiding the lower-right glare. Final rendered visual acceptance is separate.
+
 ## Representation boundary
 
 These are editorial product/category photographs. They do not depict ZimonAI offices, personnel, clients, suppliers, inspections, case evidence or owned facilities. Images that document ZimonAI's registration and reception space remain separately identified as company-provided material on the About page.

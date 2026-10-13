@@ -7,6 +7,41 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand SIA's new headquarters-versus-production supply-chain map.
+  // Related questions: the 95%/68% denominators; Tier 1 versus upstream inputs;
+  // macro estimates versus order risk; qualified alternatives; what changes next.
+  {
+    id: 'knowledge-sia-chip-supply-chain-production-map',
+    key: 'siaChipSupplyChainProductionMap',
+    contentType: 'current-affairs',
+    slug: 'knowledge/sia-chip-supply-chain-production-map',
+    category: 'commercial-risk',
+    products: ['general'],
+    markets: ['united-states', 'global'],
+    keywords: {
+      en: ['SIA supply chain report October 2026', 'semiconductor supplier headquarters production site', 'chip equipment materials supply dependencies', 'semiconductor upstream supply risk'],
+      'zh-tw': ['SIA 半導體供應鏈報告 2026', '供應商總部與製造地', '晶片材料設備供應', '半導體上游依賴'],
+      'zh-cn': ['SIA 半导体供应链报告 2026', '供应商总部与生产地点', '芯片材料设备供应', '半导体上游依赖']
+    },
+    datePublished: '2026-10-13',
+    dateModified: '2026-10-13',
+    image: '/assets/editorial-sia-chip-supply-chain-wafer.jpg',
+    imageWidth: 2000,
+    imageHeight: 1500,
+    imageCrop: { card: '42% 40%', article: '44% 42%', mobile: '38% 45%' },
+    photo: {
+      photographer: '2x910',
+      page: 'https://commons.wikimedia.org/wiki/File:Si_wafer.jpg',
+      license: 'https://creativecommons.org/licenses/by-sa/4.0/'
+    },
+    sources: [
+      { publisher: 'Semiconductor Industry Association', title: 'Understanding Dependencies in the U.S. Semiconductor Supply Chain — October 2026; Figure 4 and methodology annex', url: 'https://www.semiconductors.org/wp-content/uploads/2026/10/SIA_2026_Supply-Chain-Report.pdf' },
+      { publisher: 'Semiconductor Industry Association', title: 'Report release and proposed supply-chain mitigation strategies — 9 October 2026', url: 'https://www.semiconductors.org/sia-report-highlights-strategies-for-strengthening-supply-chains-supporting-the-u-s-chip-ecosystem/' },
+      { publisher: 'South China Morning Post / Howard Liu', title: 'Mapping US chip supply chain: China accounts for far more than it appears, report says — 12 October 2026', url: 'https://www.scmp.com/tech/tech-trends/article/3370581/mapping-us-chip-supply-chain-china-accounts-far-more-it-appears-report-says' },
+      { publisher: 'Wikimedia Commons / 2x910', title: 'Si wafer — real 12-inch silicon-wafer photograph, 17 August 2019', url: 'https://commons.wikimedia.org/wiki/File:Si_wafer.jpg' },
+      { publisher: 'Creative Commons', title: 'CC BY-SA 4.0 — photograph attribution, changes and share-alike conditions', url: 'https://creativecommons.org/licenses/by-sa/4.0/' }
+    ]
+  },
   // Search intent: classify a lithium-ion power-bank order for commercial air cargo.
   // Related questions: UN 3480 versus equipment; 100 Wh; state of charge;
   // test-summary versus shipment evidence; carrier restrictions and handoff.
@@ -1460,7 +1495,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/anker-maggo-2-pro-uae-launch-price',
     featured: true,
-    featuredReviewedThrough: '2026-10-12',
+    featuredReviewedThrough: '2026-10-13',
     category: 'commercial-risk',
     products: ['power-bank'],
     markets: ['united-arab-emirates'],
@@ -2297,6 +2332,46 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      siaChipSupplyChainProductionMap: {
+        topic: 'Where chip-making inputs are actually produced',
+        published: '13 October 2026',
+        readTime: '4 minutes',
+        title: 'SIA redraws the chip-supply map: supplier headquarters are not production sites',
+        description: 'SIA’s 9 October report compares supplier headquarters with production locations. Why the distinction matters for chip-making materials, equipment and procurement risk.',
+        imageAlt: 'Repeated circuit patterns and rainbow reflections on the surface of a silicon wafer.',
+        imageCaption: 'Editorial archival photograph: “Si wafer” by 2x910, 17 August 2019, CC BY-SA 4.0. Downloaded 13 October 2026; proportionally resized, JPEG-compressed and cropped for layout, with no generative editing. The local photograph retains that licence. This is not an SIA report image, a mapped production site or a ZIMONAI client/supplier product.',
+        labels: { summary: 'News summary', checklist: 'What to watch next', limits: 'What remains unresolved' },
+        answer: 'The Semiconductor Industry Association released a supply-chain report on 9 October 2026 that looks beyond a supplier’s headquarters to where chip-making equipment and materials are produced [[source:2]]. The U.S., Europe and Japan account for 95% by headquarters versus 68% by production location; the comparison is not a fall in output or evidence of an already disrupted order [[source:3]]. For manufacturers, the bigger story is whether a second supplier offers a different production route. ZIMONAI’s editorial view is that diversification should be tested against the actual production chain, rather than counted by company names on a purchasing list.',
+        takeaways: [
+          'The report compares two geographic views of inputs used by the U.S. chip sector—not two years of production.',
+          'An industry-wide exposure estimate is a starting point for investigation, not an individual supplier’s delivery forecast.',
+          'A second seller is not necessarily a second manufacturing route; that relationship needs its own evidence.'
+        ],
+        sections: [
+          { title: 'The 95% and 68% figures measure different locations', paragraphs: [
+            'SCMP’s 12 October report highlights the contrast: U.S., European and Japanese companies account for 95% of roughly US$27 billion in annual equipment and materials consumption when counted by headquarters, but 68% when counted by production location. These are attributed estimates from SIA, not a measurement of finished-chip sales [[source:3]].',
+            'Figure 4 in the original report confirms that the comparison concerns Tier 1 equipment and materials. The methodology describes selective, non-exhaustive, macro-level mapping developed with McKinsey. The chart is an estimate of geographic exposure, not a complete trace of every company or shipment [[source:1]].',
+            'The distinction is easy to lose in a headline. Reading the difference as a year-on-year decline would invent a time series; reading it as a percentage of orders already delayed would invent an operational result. The useful question is which location a particular number actually describes.'
+          ] },
+          { title: 'Two vendors can still share one upstream constraint', paragraphs: [
+            'SIA also examines less-visible dependencies behind direct suppliers. Its report separates upstream inputs from the Tier 1 comparison, rather than treating a headquarters address as the end of the chain [[source:1]].',
+            'ZIMONAI’s interpretation is to distinguish commercial choice from physical redundancy. Two purchase orders addressed to different companies may still depend on the same production plant or a shared upstream input. That is a risk question to investigate—not a finding that the report establishes about any named buyer’s suppliers.',
+            'For electronics procurement, including components used in charging products, the practical follow-up is narrow: identify the actual part, the supported manufacturing route and what must happen before an alternative is accepted. A country-level chart does not establish that a particular GaN device, adapter or power bank will be late or more expensive.'
+          ] },
+          { title: 'Watch qualification and usable capacity, not announcements alone', paragraphs: [
+            'SIA’s release proposes targeted capacity and inventories, allied supply, research and recycling, and priority mineral investment. These are the association’s policy recommendations; they are not new legal requirements or confirmation that replacement supply is available [[source:2]].',
+            'For a buyer, the next useful evidence is whether a proposed alternative can supply the required specification, has completed the relevant approval process and offers dated commercial terms. A project announcement, a new seller and a usable alternative belong to different stages. The report does not supply that order-level evidence.',
+            'The report’s value is the change in perspective: the company on the invoice is only one point on the map. What matters next is whether new production and qualification evidence reveal genuinely distinct routes—and whether those routes reduce a specific delivery exposure. That is a more meaningful resilience signal than simply adding suppliers to a spreadsheet.'
+          ] }
+        ],
+        checklist: [
+          'Watch for disclosed production locations and upstream dependencies, separating estimates from company-specific evidence.',
+          'Track whether an announced alternative reaches the required specification and approval milestone.',
+          'Compare the actual part’s quotation and delivery conditions before inferring an order impact.',
+          'Keep unresolved manufacturing-route information visible when describing a second source.'
+        ],
+        limitsText: 'Reviewed 13 October 2026. SIA’s report is an industry-association analysis, not a regulator’s ruling or an exhaustive supplier register. SCMP is an independent publisher, but the reported percentages come from the same SIA analysis, not a second statistical study. The sources do not establish the manufacturing route, delay, price change or approved substitute for a particular order. ZIMONAI’s procurement interpretation is editorial, not an assertion of participation in the study or an affected project.'
+      },
       powerBankUn3480AirCargo: {
         topic: 'Power-bank classification for commercial air cargo',
         published: '12 October 2026',
@@ -4865,6 +4940,46 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      siaChipSupplyChainProductionMap: {
+        topic: '晶片材料與設備的實際製造地',
+        published: '2026 年 10 月 13 日',
+        readTime: '約 4 分鐘',
+        title: 'SIA 重畫晶片供應地圖：總部所在地不等於製造地',
+        description: 'SIA 10 月 9 日報告比較供應商總部與實際製造地，解析晶片材料、設備採購與第二來源的風險。',
+        imageAlt: '矽晶圓表面的重複電路圖案，反射出彩虹色光線。',
+        imageCaption: '編輯用資料照片：2x910 於 2019 年 8 月 17 日拍攝的「Si wafer」，採 CC BY-SA 4.0 授權，本地圖片沿用相同授權。2026 年 10 月 13 日下載，僅等比例縮放、JPEG 壓縮與版面裁切，未經生成式編修；不是 SIA 報告圖片、研究中的製造地，或 ZIMONAI 客戶／供應商產品。',
+        labels: { summary: '新聞摘要', checklist: '接下來值得觀察', limits: '尚待釐清事項' },
+        answer: '美國半導體產業協會 SIA 於 2026 年 10 月 9 日發布供應鏈報告，將晶片製造所需設備與材料的供應商總部，和實際製造地分開分析 [[source:2]]。美國、歐洲與日本在總部口徑合占 95%，製造地口徑則為 68%；這並非產量下滑，也不是特定訂單已經中斷的紀錄 [[source:3]]。對製造業買家而言，更值得注意的是第二來源是否真的具有不同生產路徑。ZIMONAI 的編輯判讀是，供應分散應看實際製造鏈，而不只計算採購名單上的公司數量。',
+        takeaways: [
+          '報告比較美國晶片業投入品的兩種地理口徑，不是兩個年度的產量。',
+          '產業層級的曝險估計可引導進一步研究，不能直接當成某家供應商的交期預測。',
+          '多一家賣方，不一定多一條製造路徑；兩者的關係仍須有具體資料支持。'
+        ],
+        sections: [
+          { title: '95% 與 68%：地理口徑有別', paragraphs: [
+            '《南華早報》10 月 12 日報導指出，依 SIA 估計，美國晶片業每年約 270 億美元的設備與材料消耗，按供應商總部計算時，美國、歐洲與日本合占 95%；改按製造地計算則為 68%。這是設備與材料的估計值，不是成品晶片銷售占比 [[source:3]]。',
+            '原始報告圖 4 確認比較範圍為第一層設備與材料；方法附錄說明，SIA 與 McKinsey 合作進行選擇性、非全面的產業層級盤點。這張圖估計地理曝險，並未完整追溯所有企業與貨件 [[source:1]]。',
+            '標題若省略統計口徑，很容易把這個差距讀成年度衰退；若再推成有多少訂單已延誤，又多加了一個不存在的營運結果。閱讀這則新聞，先分清楚數字在描述哪一個地點，比急著判斷供應是否崩潰更重要。'
+          ] },
+          { title: '兩家供應商，可能共用上游瓶頸', paragraphs: [
+            'SIA 也討論直接供應商背後較不容易看見的依賴，將上游投入品與第一層統計分開處理，而非把公司總部地址視為供應鏈終點 [[source:1]]。',
+            'ZIMONAI 的判讀是把商務選擇與實體備援分開看。訂單雖開給不同公司，製造廠或上游投入品仍可能相同；這是需要調查的風險問題，不是報告已替任何特定買家確認的供應關係。',
+            '對電子產品採購，包括充電產品使用的零組件，實際延伸問題應限於料號、可支持的製造路徑，以及替代來源還須完成哪些認可程序。國別統計本身，沒有證明某款 GaN 元件、電源適配器或行動電源將延遲或漲價。'
+          ] },
+          { title: '下一步：可用產能與認可進度', paragraphs: [
+            'SIA 的發布說明提出重點產能與庫存、盟友供應、研發及回收，以及關鍵礦物投資等方向。這些是產業協會的政策建議，不是新法規，也不是替代供應已可使用的確認 [[source:2]]。',
+            '回到買家層級，接下來有價值的資訊是候選來源能否提供所需規格、相關認可程序是否完成，以及報價與交付條件有沒有日期。投資公告、新增賣方與可用替代來源，分屬不同階段；這份報告沒有提供個別訂單的完整證據。',
+            '報告帶來的改變，是把發票上的公司看成供應地圖的一個節點。後續值得觀察的新產線與認可資料，是否能支持真正不同的供應路徑，並降低特定交付曝險。這比採購表格多列幾家公司，更接近有意義的韌性訊號。'
+          ] }
+        ],
+        checklist: [
+          '追蹤公開的製造地與上游依賴，分清產業估計及個別公司資料。',
+          '觀察替代來源是否完成所需規格與認可里程碑。',
+          '涉及實際訂單時，再比對料號報價、交期及適用條件。',
+          '描述第二來源時，保留製造路徑尚未釐清的資訊。'
+        ],
+        limitsText: '來源查閱日為 2026 年 10 月 13 日。SIA 報告是產業協會分析，不是主管機關裁定或全面供應商名冊。《南華早報》是獨立發布者，但報導的百分比仍來自同一份 SIA 研究，並非另一套統計。現有資料未確認特定訂單的製造路徑、延誤、調價或已核准替代品；採購意義屬 ZIMONAI 編輯判讀，不暗示參與研究或相關專案。'
+      },
       powerBankUn3480AirCargo: {
         topic: '行動電源商業空運分類',
         published: '2026 年 10 月 12 日',
@@ -7394,6 +7509,46 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      siaChipSupplyChainProductionMap: {
+        topic: '芯片材料与设备的生产地点',
+        published: '2026 年 10 月 13 日',
+        readTime: '约 4 分钟',
+        title: 'SIA 重绘芯片供应地图：供应商总部之外的制造依赖',
+        description: 'SIA 10 月 9 日发布新报告，比较供应商总部与生产地点，解释芯片材料、设备采购及第二来源的风险边界。',
+        imageAlt: '硅晶圆表面密集的电路图案和虹彩反射。',
+        imageCaption: '编辑资料照片：“Si wafer”，2x910 摄于 2019 年 8 月 17 日，依据 CC BY-SA 4.0 使用，本地图片保留同一许可。2026 年 10 月 13 日下载，仅等比例缩放、JPEG 压缩和版式裁切，未做生成式修改。图片不是 SIA 报告配图、研究所涉及的生产地点，也不是 ZIMONAI 客户或供应商的产品。',
+        labels: { summary: '新闻摘要', checklist: '后续观察重点', limits: '仍待确认的信息' },
+        answer: 'SIA 美国半导体行业协会在 2026 年 10 月 9 日发布报告，重新审视芯片制造所用设备和材料的地理来源 [[source:2]]。按供应商总部统计，美国、欧洲和日本合占 95%；改看生产地点则为 68%，反映的是统计视角差异，而非产量下降或某笔订单已经断供 [[source:3]]。对制造企业而言，第二来源是否具备不同的生产路径，比供应商名单是否变长更值得关注。ZIMONAI 的编辑判断是，应把采购主体与实际制造链分开核实，再讨论供应分散的效果。',
+        takeaways: [
+          '比较对象是美国芯片行业投入品的两种地理来源口径，而非年度产量变化。',
+          '行业暴露估计用于提出问题，不等于某家供应商的交货预测。',
+          '卖方数量和制造路径应分别核实。新增公司是否提供独立路线，仍需证据。'
+        ],
+        sections: [
+          { title: '95% 和 68%：统计对象没有换', paragraphs: [
+            '《南华早报》10 月 12 日介绍了报告中的对比：美国芯片业每年约 270 亿美元的设备和材料消耗，按供应商总部所在地计算，美国、欧洲和日本占 95%；按生产地点计算，三者合计为 68%。这些是 SIA 对投入品的估计，不是成品芯片销售份额 [[source:3]]。',
+            '原报告图 4 限定于第一层设备和材料。方法附录指出，这项分析由 SIA 与 McKinsey 合作完成，采用选择性、非穷尽的行业层面映射，而不是逐一还原全部企业和每次运输 [[source:1]]。',
+            '因此，两个百分比之间的差距，反映的是换了地理观察点。把它写成一年间供应规模减少，或推算成已延期订单比例，都会额外加入原资料没有提供的结论。'
+          ] },
+          { title: '第二来源与上游依赖', paragraphs: [
+            'SIA 进一步关注直接供应商背后的上游依赖，并将其与第一层投入品的地理比较分开。报告讨论的供应网络，比合同上列出的公司地址更深 [[source:1]]。',
+            'ZIMONAI 的解读是：商业选项不等同于实体冗余。即使两份采购合同对应不同企业，它们也可能共用生产厂或某项上游投入品。这是需要进一步调查的关系，不能拿行业报告替某个买家确认。',
+            '电子产品制造商，包括采购充电产品零部件的企业，可据此关注具体料号、制造路径和替代来源的批准条件。国别数据没有直接证明某款 GaN 器件、电源适配器或移动电源会涨价、延迟交付。'
+          ] },
+          { title: '替代供给的可用进度', paragraphs: [
+            'SIA 在发布说明中建议围绕重点产能、库存、盟友供应、研发回收及关键矿物进行协调。这是协会提出的政策方向，既不是新增法律义务，也没有确认替代供给已经到位 [[source:2]]。',
+            '采购层面的下一步，应看候选来源能否满足所需规格、相关批准程序是否完成，以及报价和交付承诺对应什么日期。项目宣布、新增交易主体与具备可用替代供给，不能放在同一个进度栏里。',
+            '这份报告的意义，在于提醒行业把发票上的公司放回整条生产网络。后续若出现新的生产地点和批准记录，值得观察它们是否支持独立路线，以及是否降低了具体交付风险；这比单纯扩大供应商名单更有实际价值。'
+          ] }
+        ],
+        checklist: [
+          '关注公开生产地点与上游依赖，区分行业估计和企业事实。',
+          '追踪候选来源的规格与批准进度，不把项目宣布当作供货完成。',
+          '针对实际订单，比较料号的报价、交期和适用条件。',
+          '保留第二来源制造路径尚未确认的部分，避免把未知写成独立供给。'
+        ],
+        limitsText: '资料核阅日期为 2026 年 10 月 13 日。SIA 提供的是行业分析，而非监管决定或完整供应商名录。《南华早报》虽由独立出版方发布，所引比例仍来自 SIA，并不是另一项统计。个别订单的生产路径、交期与价格尚未确认。替代品批准情况需另行查证。ZIMONAI 的采购解读属于编辑判断，不代表参与该研究或相关项目。'
+      },
       powerBankUn3480AirCargo: {
         topic: '移动电源商业空运分类',
         published: '2026 年 10 月 12 日',

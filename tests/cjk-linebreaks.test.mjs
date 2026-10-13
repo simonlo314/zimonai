@@ -8,6 +8,25 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('SIA production-geography and second-source terms stay intact in both Chinese versions', () => {
+  const samples = {
+    'zh-tw': ['半導體產業協會', '晶片供應地圖', '總部所在地', '供應商總部', '實際製造地', '製造地', '總部口徑', '製造地口徑', '地理口徑', '統計口徑', '產業層級', '地理曝險', '第二來源', '製造路徑', '生產路徑', '實際製造鏈', '供應分散', '上游投入品', '實體備援', '上游瓶頸', '矽晶圓', '認可進度', '可用產能', '關鍵礦物', '韌性訊號'],
+    'zh-cn': ['半导体行业协会', '芯片供应地图', '供应商总部', '生产地点', '地理来源', '统计口径', '总部统计', '行业层面', '第一层', '第二来源', '生产路径', '制造路径', '实际制造链', '上游依赖', '上游投入品', '实体冗余', '替代供给', '硅晶圆', '批准进度', '交付风险', '独立制造路径', '关键矿物', '国别数据']
+  };
+  for (const [locale, terms] of Object.entries(samples)) {
+    for (const term of [...terms, locale === 'zh-tw' ? '南華早報' : '南华早报', 'SIA', 'McKinsey', 'Tier 1', 'Tier-n', '2x910']) {
+      const result = protectCjkText(term, locale);
+      assert.ok(result.includes(`>${term}</span>`), `${locale}: ${term}`);
+      assert.equal(removeProtectionMarkup(result), term);
+    }
+    const combined = locale === 'zh-tw' ? '供應商總部統計' : '供应商总部统计';
+    const sentence = locale === 'zh-tw' ? `按${combined}，美國、歐洲和日本合計占 95%。` : `按${combined}，美国、欧洲和日本合计占 95%。`;
+    const protectedSentence = protectCjkText(sentence, locale);
+    assert.ok(protectedSentence.includes(`>${combined}，</span>`), `${locale}: overlapping headquarters terms`);
+    assert.equal(removeProtectionMarkup(protectedSentence), sentence);
+  }
+});
+
 test('Samsung guidance and memory-market terminology stays intact in each Chinese locale', () => {
   const samples = {
     'zh-tw': ['三星電子', '第三季', '獲利預估', '合併營業利益', '正式財報', '記憶體需求', '記憶體市場', '法說會', '產品組合', '韓聯社', '韓元', '矽谷園區', '資本支出', '報價有效期', '交付條件', '外部查核', '事業別', '配貨表', '料號'],
