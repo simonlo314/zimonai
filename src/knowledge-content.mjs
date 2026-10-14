@@ -7,6 +7,42 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: interpret a Chinese AEO certificate in an overseas charger purchase.
+  // Related questions: the two 2026 AEO grades; enterprise versus branch;
+  // old/new certificates and void notices; public-history limits; exporter versus product evidence.
+  {
+    id: 'knowledge-china-aeo-enterprise-certificate',
+    key: 'chinaAeoEnterpriseCertificate',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/china-aeo-enterprise-certificate',
+    category: 'supplier-identity',
+    products: ['general', 'charger', 'power-adapter'],
+    markets: ['china', 'global'],
+    keywords: {
+      en: ['China AEO enterprise certificate 2026', 'Chinese customs certified enterprise grade', 'AEO certificate branch identity', 'AEO versus charger product certification'],
+      'zh-tw': ['中國 AEO 企業證書', '海關企業信用等級 2026', 'AEO 分支機構認證', '企業認證與產品認證'],
+      'zh-cn': ['中国 AEO 企业证书', '海关企业信用等级 2026', 'AEO 分支机构认证', '企业信用与产品认证']
+    },
+    datePublished: '2026-10-14',
+    dateModified: '2026-10-14',
+    image: '/assets/editorial-china-aeo-port.jpg',
+    imageWidth: 2000,
+    imageHeight: 1230,
+    imageCrop: { card: '53% 64%', article: '54% 62%', mobile: '58% 65%' },
+    photo: {
+      photographer: 'Dinkun Chen',
+      page: 'https://commons.wikimedia.org/wiki/File:MAWAN_PORT,_SHENZHEN_(4).jpg',
+      license: 'https://creativecommons.org/licenses/by-sa/4.0/'
+    },
+    sources: [
+      { publisher: 'General Administration of Customs of China / Hong Kong Trade and Industry Department', title: 'GACC Order No. 282 — enterprise credit management; issued 13 January 2026, effective 1 April 2026; official reproduced PDF', url: 'https://www.tid.gov.hk/en/tradecircular/files/2026/ci722026a.pdf' },
+      { publisher: 'General Administration of Customs of China / Ministry of Commerce', title: 'Order No. 282 — official reproduced text, including Articles 12, 14, 17, 32, 35 and 39', url: 'https://www.mofcom.gov.cn/zcfb/zgdwjjmywg/art/2026/art_d69ba97af14347fcae4072292b54eb7e.html' },
+      { publisher: 'General Administration of Customs of China / Hong Kong Trade and Industry Department', title: 'GACC Announcement No. 32 of 2026 — implementation and certificate transition; issued 27 March 2026, effective 1 April 2026; official reproduced PDF', url: 'https://www.tid.gov.hk/en/tradecircular/files/2026/ci3232026a.pdf' },
+      { publisher: 'General Administration of Customs of China / Ministry of Commerce', title: 'Announcement No. 32 of 2026 — official reproduced text, paragraphs (13), (14), (21) and (26)', url: 'https://www.mofcom.gov.cn/zcfb/zgdwjjmywg/art/2026/art_640c838b5f354efda7f3dc8820c6a86b.html' },
+      { publisher: 'Wikimedia Commons / Dinkun Chen', title: 'Mawan Port, Shenzhen — archival photograph taken 12 December 2020', url: 'https://commons.wikimedia.org/wiki/File:MAWAN_PORT,_SHENZHEN_(4).jpg' },
+      { publisher: 'Creative Commons', title: 'CC BY-SA 4.0 — attribution, change disclosure and share-alike conditions for the photograph', url: 'https://creativecommons.org/licenses/by-sa/4.0/' }
+    ]
+  },
   // Search intent: understand SIA's new headquarters-versus-production supply-chain map.
   // Related questions: the 95%/68% denominators; Tier 1 versus upstream inputs;
   // macro estimates versus order risk; qualified alternatives; what changes next.
@@ -1495,7 +1531,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/anker-maggo-2-pro-uae-launch-price',
     featured: true,
-    featuredReviewedThrough: '2026-10-13',
+    featuredReviewedThrough: '2026-10-14',
     category: 'commercial-risk',
     products: ['power-bank'],
     markets: ['united-arab-emirates'],
@@ -2332,6 +2368,48 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      chinaAeoEnterpriseCertificate: {
+        topic: 'China customs status and supplier identity',
+        published: '14 October 2026',
+        readTime: '4 minutes',
+        title: 'China AEO certificates: customs status is not charger approval',
+        description: 'Read China’s 2026 AEO grades, branch identity and certificate-transition rules; keep enterprise customs status separate from charger-model approval and order evidence.',
+        imageAlt: 'A red container truck at a Shenzhen Mawan Port depot entrance, surrounded by stacked shipping containers.',
+        imageCaption: 'Archival Mawan Port photograph by Dinkun Chen, taken 12 December 2020; downloaded 14 October 2026. Cropped, resized, JPEG-compressed and layout-cropped under CC BY-SA 4.0, without generative editing. Logistics context only—not an AEO assessment, evidence of any pictured enterprise’s status or a ZIMONAI client or supplier site.',
+        labels: { summary: 'Reader overview', checklist: 'Buyer evidence checklist', limits: 'Scope and research limits' },
+        answer: 'China’s AEO system recognises enterprises for customs purposes, with both advanced-certified and certified grades covered under rules effective 1 April 2026 [[source:1]]. The certificate concerns a specific enterprise, not approval of a charger model. Overseas buyers need to connect the current grade and entity to the actual exporter, while assessing product and factory evidence separately. ZIMONAI’s editorial view is that AEO adds useful customs context to a purchase file only when its holder, status and transaction role are traceable.',
+        takeaways: [
+          'The 2026 rules recognise two AEO grades; ordinary customs management is not a certification result [[source:1]][[source:2]].',
+          'Separately registered or filed branches receive their own grades; a group name does not transfer status [[source:3]].',
+          'Certificate design, current customs status and approval of the quoted product are three different questions.'
+        ],
+        sections: [
+          { title: 'Read the grade before the sales claim', paragraphs: [
+            'GACC Order No. 282 took effect on 1 April 2026 and replaced Order No. 251. Article 4 sets five categories: advanced-certified enterprises (高级认证企业), certified enterprises (认证企业), conventional enterprises (常规企业), discredited enterprises (失信企业) and seriously discredited enterprises (严重失信企业). Article 8 identifies the first two as China’s Authorised Economic Operators, or AEOs [[source:1]]. Older guidance that describes only the advanced grade as AEO is therefore an unsafe starting point for a current review.',
+            'Article 14 covers internal controls, financial standing, legal compliance and trade security, with detailed standards separately published. Articles 18–21 provide for an application, Customs review and on-site certification, followed by a grade-specific enterprise certificate [[source:1]][[source:2]]. This is an enterprise customs assessment, not a product test report or an independent confirmation of charger production capacity.',
+            'Article 17 makes conventional management the residual category; it does not mean an enterprise passed AEO certification. Article 32 distinguishes facilitative, conventional and stricter management, while specific measures are separately prescribed [[source:2]]. Treat mutual recognition and facilitation as scheme-specific arrangements, not universal inspection exemptions or guaranteed clearance dates.'
+          ] },
+          { title: 'Match the holder, branch and certificate history', paragraphs: [
+            'Start with the full registered Chinese name and unified social credit code. Announcement No. 32 says an enterprise and its branches are graded separately when separately registered or filed with Customs. Following a split or merger, the surviving enterprise retains its grade if its unified social credit code is unchanged; a changed code triggers reassessment under the rules [[source:3]]. A certificate for a parent company therefore needs an explained relationship to the entity on the purchase.',
+            'The transition rules preserve earlier advanced-certified and discredited grades. From 1 April 2026 Customs issues a new advanced-certificate format, and holders may apply to exchange an older certificate. Replacement of a lost or damaged certificate results in public voiding of the original; a grade change that invalidates a certificate also leads to public voiding [[source:3]][[source:4]]. An older design is not automatically invalid, and a polished new scan is not proof of current status.',
+            'For a real order, save the certificate, exact holder identifiers, grade, issue or replacement documents and the date and source of status confirmation. Reconcile these with the seller, exporter, manufacturer and payment recipient. Where different entities appear, request a documented role relationship rather than assuming that a shared brand or group transfers certification.'
+          ] },
+          { title: 'Keep customs history and product evidence in separate files', paragraphs: [
+            'Public information has its own boundary. Article 12 provides for publication of registration or filing details, grades, licences and other specified information, subject to legal restrictions. Articles 35 and 39 provide for non-disclosure of minor adverse information and cessation of disclosure after the applicable period or approved repair [[source:2]]. A currently visible record is not a complete lifetime compliance history.',
+            'For chargers and power adapters, make the product file model-specific: the quoted configuration, applicable destination requirements, supporting certificates or reports, production location and order-specific controls belong there. An AEO enterprise certificate does not establish these relationships. ZIMONAI’s procurement interpretation is to link the files by enterprise identity, without allowing a customs credential to fill a missing product-evidence field.',
+            'The public enterprise-credit portal named in Announcement No. 32 did not finish loading during this editorial review [[source:4]]. This article consequently reports the official rules, not a live result for any company or a tested search-interface procedure. An incomplete lookup remains unresolved; it is neither a clean result nor evidence that an enterprise is absent from the register.'
+          ] }
+        ],
+        checklist: [
+          'Record the certificate holder’s full Chinese name, unified social credit code and claimed grade.',
+          'Confirm whether the actual exporter is the holder, a separately registered branch or another entity.',
+          'Check current status and any relevant replacement or void notice; retain the source and review date.',
+          'Document how seller, exporter, manufacturer and payment recipient relate when they differ.',
+          'Match charger or adapter evidence to the exact model, configuration, factory and destination.',
+          'Mark an unavailable status check as incomplete; do not convert it into a positive finding.'
+        ],
+        limitsText: 'Official rules reviewed on 14 October 2026. The linked government reproductions publish GACC documents; the Hong Kong PDF host is not the issuing authority for the mainland scheme. No enterprise status, certificate authenticity, factory or shipment was verified in this review. Customs decides grades and applicable measures; the transaction and product-file recommendations are ZIMONAI’s editorial assessment, not a regulatory decision or a promise of delivery, compliance or quality. The 2020 port photo supplies archival logistics context only.'
+      },
       siaChipSupplyChainProductionMap: {
         topic: 'Where chip-making inputs are actually produced',
         published: '13 October 2026',
@@ -4940,6 +5018,48 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      chinaAeoEnterpriseCertificate: {
+        topic: '中國海關信用與企業身分',
+        published: '2026 年 10 月 14 日',
+        readTime: '4 分鐘',
+        title: '中國 AEO 證書：海關身分不等於產品認證',
+        description: '理解中國 2026 年 AEO 信用等級、分支機構與證書換版規則，將企業海關身分與充電器型號、製造工廠及訂單證據分開核對。',
+        imageAlt: '深圳媽灣港堆場入口的紅色貨櫃車，周圍堆放多層貨櫃。',
+        imageCaption: 'Dinkun Chen 攝於 2020 年 12 月 12 日的深圳媽灣港照片，於 2026 年 10 月 14 日下載。依 CC BY-SA 4.0 授權裁切、縮圖、JPEG 壓縮及版面裁切，未做生成式修改。僅提供物流情境，不是 AEO 認證現場、畫面中企業的信用證據，或 ZIMONAI 客戶及供應商場址。',
+        labels: { summary: '讀者摘要', checklist: '買家證據核對清單', limits: '研究限制' },
+        answer: '中國 AEO 制度用於海關企業信用管理，2026 年 4 月 1 日生效的新規將高級認證企業與認證企業都列為 AEO [[source:1]]。證書對應特定企業的海關身分，而非充電器型號的產品認證。海外買家採購時，應把目前等級與實際出口商連起來，再另行核對產品及工廠證據。ZIMONAI 的編輯判讀是，企業身分、現況與交易角色都能追溯的 AEO 文件，才有助於理解這筆訂單的海關背景。',
+        takeaways: [
+          '新規有兩個 AEO 等級；常規企業不代表通過企業認證 [[source:1]][[source:2]]。',
+          '企業與分支機構若分別辦理海關登記或備案，信用等級也分開認定 [[source:3]]。',
+          '證書版式、目前海關狀態與報價產品的認證，是三個不同的核對問題。'
+        ],
+        sections: [
+          { title: '信用等級：認證範圍', paragraphs: [
+            '海關總署令第 282 號於 2026 年 4 月 1 日生效，同時廢止第 251 號令。第 4 條將企業分為高級認證企業、認證企業、常規企業、失信企業與嚴重失信企業；第 8 條明定前兩者都屬中國經認證的經營者（AEO）[[source:1]]。沿用只把高級認證企業稱為 AEO 的舊說明，可能誤讀現在的制度。',
+            '第 14 條列出的認證面向包括內部控制、財務狀況、守法規範與貿易安全，具體標準另行公布。第 18 至 21 條規定申請、海關資料審查、實地認證及依等級核發企業證書的程序 [[source:1]][[source:2]]。這項程序由海關進行，不是產品測試報告，也不等於確認充電器工廠的量產能力。',
+            '第 17 條把未列入其他等級的企業按常規企業管理，因此常規等級不是認證合格結果。第 32 條區分便利、常規與嚴格管理，具體措施另有規定 [[source:2]]。AEO 互認與便利措施應依適用制度理解，不能延伸為所有市場都免查驗，或保證某一天通關。'
+          ] },
+          { title: '主體核對：換證紀錄', paragraphs: [
+            '先以完整中文企業名稱及統一社會信用代碼確認證書持有人。海關總署 2026 年第 32 號公告規定，分別辦理海關登記或備案的企業及分支機構，信用等級分開認定。企業分立或合併後，存續企業的代碼未變更，才繼續適用原等級；代碼變更則重新認定 [[source:3]]。母公司的證書，與本筆交易出現的另一個主體之間仍須有清楚關係。',
+            '公告保留舊辦法下已認定的高級認證企業及失信企業等級。海關自 2026 年 4 月 1 日起核發新版高級認證企業證書，原持有人可申請換版。證書遺失或損毀後申請補發，原證書會公示作廢；等級調整造成失效的證書也會公示作廢 [[source:3]][[source:4]]。舊版外觀不代表自動失效，新版掃描檔也不代表目前狀態已確認。',
+            '實際採購時，保留證書、持有人識別資料、等級、發證或補發文件，以及確認狀態的來源和日期。再對照賣方、出口商、製造商與收款人；若主體不同，請對方提出交易角色的書面關係說明，不因品牌相同或屬同一集團就推定認證移轉。'
+          ] },
+          { title: '海關紀錄與產品證據，各有邊界', paragraphs: [
+            '公開紀錄也有顯示範圍。第 12 條規定公示登記或備案、信用等級、行政許可等資訊，並受法定限制；第 35 與 39 條另規定輕微失信資訊不公示，以及公示期滿或准予信用修復後停止公示 [[source:2]]。目前可見的畫面，不等於企業完整的歷年守法紀錄。',
+            '充電器及電源適配器的產品資料，應圍繞本次報價型號整理：配置、目的市場要求、佐證文件、製造地點與訂單品質控制，都須有各自證據。AEO 企業證書不會建立這些對應關係。ZIMONAI 的採購判讀是，用企業身分串接海關資料與產品資料，但不要拿海關資格填補缺漏的產品證據。',
+            '第 32 號公告指定的企業信用公示平台，在本次編輯查閱時未完成載入 [[source:4]]。本文因此解讀官方規則，未提供任何公司的即時查詢結果，也不宣稱已驗證查詢介面操作。尚未完成的查詢就是待確認，既不是查無紀錄，也不是沒有風險的結論。'
+          ] }
+        ],
+        checklist: [
+          '記錄證書持有人的完整中文名稱、統一社會信用代碼及主張等級。',
+          '辨識實際出口商是持有人、另行登記的分支機構，或其他主體。',
+          '確認目前狀態及相關補發、作廢紀錄，保留來源與查閱日期。',
+          '賣方、出口商、製造商與收款人不同時，取得交易關係說明。',
+          '將充電器或電源適配器文件對上型號、配置、工廠及目的市場。',
+          '狀態查詢無法完成時，明確註記待確認，不轉寫成正面發現。'
+        ],
+        limitsText: '官方規則查閱日期為 2026 年 10 月 14 日。所連結的政府轉載頁與 PDF 刊載海關總署文件；香港工業貿易署提供附錄，不是中國境內制度的發文機關。本次未驗證任何企業狀態、證書真偽、工廠或貨件。等級及適用措施由海關認定；交易與產品資料的建議是 ZIMONAI 編輯判讀，不是主管機關結論，也不保證交付、合規或品質。2020 年港口照片僅提供物流背景。'
+      },
       siaChipSupplyChainProductionMap: {
         topic: '晶片材料與設備的實際製造地',
         published: '2026 年 10 月 13 日',
@@ -7509,6 +7629,48 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      chinaAeoEnterpriseCertificate: {
+        topic: '中国海关信用与企业身份',
+        published: '2026 年 10 月 14 日',
+        readTime: '4 分钟',
+        title: '中国 AEO 证书：海关身份不等于产品认证',
+        description: '从 2026 年海关新规理解 AEO 等级、分支机构和证书换版，区分企业信用身份与充电器型号、生产工厂及订单证据。',
+        imageAlt: '深圳妈湾港堆场入口的一辆红色集装箱卡车，周围是层叠的集装箱。',
+        imageCaption: 'Dinkun Chen 于 2020 年 12 月 12 日拍摄的深圳妈湾港资料照片，下载于 2026 年 10 月 14 日。按 CC BY-SA 4.0 许可裁剪、缩放、JPEG 压缩及版面裁剪，未使用生成式编辑。仅作物流背景，不是 AEO 认证现场、所摄企业的信用证明或 ZIMONAI 客户及供应商场地。',
+        labels: { summary: '读者摘要', checklist: '采购证据核对清单', limits: '研究限制' },
+        answer: '中国 AEO 是海关企业信用管理制度中的认证身份，2026 年 4 月 1 日起施行的新规将高级认证企业和认证企业都纳入 AEO [[source:1]]。企业证书针对持有人的海关身份，充电器型号是否符合销售地要求属于另一套产品证据。海外买家需要核对当前等级与实际出口主体，产品文件和工厂信息仍应单独建立关联。ZIMONAI 的编辑判断是，只有把证书持有人、现行状态和订单角色对应起来，AEO 资料才对采购决策有具体价值。',
+        takeaways: [
+          '新规的两个认证等级都属于 AEO；常规企业并非通过企业认证的结论 [[source:1]][[source:2]]。',
+          '企业与分支机构分别办理海关登记或备案时，其信用等级分开认定 [[source:3]]。',
+          '证书版本、当前海关状态和报价型号的产品认证，需要分别核对。'
+        ],
+        sections: [
+          { title: '信用等级：认证范围', paragraphs: [
+            '海关总署令第 282 号自 2026 年 4 月 1 日施行，第 251 号令同时废止。第 4 条规定五个等级：高级认证企业、认证企业、常规企业、失信企业、严重失信企业。第 8 条将前两类明确列为中国经认证的经营者（AEO）[[source:1]]。仍把 AEO 等同于高级认证企业的旧介绍，不能完整解释现行分类。',
+            '第 14 条列出内部控制、财务状况、守法规范和贸易安全等认证内容，具体标准另行制定。第 18 至 21 条要求企业提出申请，由海关审查资料并赴企业实地认证，符合相应标准后颁发对应等级的企业证书 [[source:1]][[source:2]]。这一海关程序不等同于产品检测，也没有直接证明充电器工厂的量产能力。',
+            '按照第 17 条，未被认定为其他四类的企业按常规企业管理，常规等级本身不是认证通过记录。第 32 条区分便利、常规和严格管理，具体措施另行公布 [[source:2]]。采购方应按适用安排理解 AEO 互认及通关便利，不把它扩写为全球免检或确定的清关时限。'
+          ] },
+          { title: '主体关系：证书换版', paragraphs: [
+            '核对从证书持有人的完整中文名称、统一社会信用代码开始。海关总署 2026 年第 32 号公告规定：企业与分支机构分别在海关登记或备案的，信用等级分别认定；企业分立、合并后，存续企业代码未变更则沿用原等级，代码变更则重新认定 [[source:3]]。集团品牌不能代替本次出口主体的身份。',
+            '过渡安排保留旧办法下的高级认证企业和失信企业等级。自 2026 年 4 月 1 日起，海关签发新版高级认证企业证书，原持有人可申请换发。遗失或损毁后补发的原证书，以及因等级调整而失效的证书，均按公告公示作废 [[source:3]][[source:4]]。因此，旧版不必然无效，新版扫描件也不等于当前状态已经确认。',
+            '面向具体订单，把持有人标识、等级、证书及换发资料、状态确认来源和日期留在同一核对记录里。再梳理销售方、出口方、生产方与收款方的关系。名称不同就索取角色及授权关系说明，避免将关联企业的资格直接套给另一家公司。'
+          ] },
+          { title: '公开历史与产品文件都有证据边界', paragraphs: [
+            '第 12 条规定海关公示登记或备案、等级、行政许可等信息，同时保留法定限制。第 35 条对轻微失信信息不予公示，并规定公示期满后停止公示；第 39 条要求在准予信用修复后停止公示相关失信信息 [[source:2]]。当前公开记录不是企业全部历史的完整档案。',
+            '采购充电器或电源适配器，产品文件仍须围绕报价型号、配置、目标市场、相关证书或报告、生产地点及订单质量控制建立对应关系。AEO 企业证书没有替代这些证据。ZIMONAI 的采购判断是，用主体信息把海关资料与产品资料连接起来，但每项结论继续依靠对应文件，而不是由一个企业资质包办。',
+            '本次编辑查阅时，第 32 号公告所指定的企业信用公示平台未能完成加载 [[source:4]]。文章据此限定为官方制度解读，没有开展某家企业的实时状态核实，也未验证查询界面的操作步骤。一次未完成的查询应保留为待确认事项，不能写成查无记录或风险已排除。'
+          ] }
+        ],
+        checklist: [
+          '保存证书持有人完整中文名称、统一社会信用代码及所称等级。',
+          '明确实际出口方是持有人、单独登记的分支机构还是其他企业。',
+          '核实当前状态和相关补发、作废信息，记录来源与查询日期。',
+          '销售方、出口方、生产方及收款方不一致时，取得关系说明。',
+          '产品文件逐项对应充电器或电源适配器的型号、配置、工厂与销售地。',
+          '无法完成状态查询时标注待确认，不将资料缺口写成正面结论。'
+        ],
+        limitsText: '官方文件查阅于 2026 年 10 月 14 日。文中政府转载网页及 PDF 发布的是海关总署文件；香港工业贸易署提供文件附录，并非内地制度的制定机关。本次未核实任何企业状态、证书真实性、生产工厂或货件。信用等级及措施由海关认定，采购资料建议属于 ZIMONAI 编辑判断，不构成监管结论，也不承诺交付、合规或质量。2020 年港口资料照片仅用于物流情境说明。'
+      },
       siaChipSupplyChainProductionMap: {
         topic: '芯片材料与设备的生产地点',
         published: '2026 年 10 月 13 日',

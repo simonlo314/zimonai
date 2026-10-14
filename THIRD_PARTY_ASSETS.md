@@ -1,5 +1,14 @@
 # Third-party visual assets
 
+## China AEO enterprise-certificate article — 2026-10-14
+
+- Asset: `src/assets/editorial-china-aeo-port.jpg`, 2000 × 1230 pixels.
+- Photographer: Dinkun Chen; real archival photograph taken 2020-12-12.
+- Original source: [MAWAN PORT, SHENZHEN (4)](https://commons.wikimedia.org/wiki/File:MAWAN_PORT,_SHENZHEN_(4).jpg), with the original 6960 × 4640 JPEG supplied by the author on Wikimedia Commons.
+- Licence: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), checked on 2026-10-14. The cropped derivative remains available under this same licence. The visible article attribution links to the author/source and licence and discloses modifications; no endorsement is implied.
+- Downloaded: 2026-10-14. Non-generative processing only: a 5200 × 3200 crop beginning at row 1400 / column 200, resized to 2000 × 1230 and JPEG-compressed. Responsive presentation crops use separately reviewed card, desktop and mobile focal positions of 53% 64%, 54% 62% and 58% 65%.
+- Use: existing three-language knowledge article and its cards, illustrating Shenzhen port logistics. Not an AEO certification visit, Customs office, identified certified enterprise, charger inspection, ZIMONAI facility, customer or supplier relationship. Visible company marks do not establish AEO status. No AI generation, extension, compositing or photograph-content alteration.
+
 Last reviewed: 2026-10-09
 
 ## Marketing-photo credit placement — 2026-10-09

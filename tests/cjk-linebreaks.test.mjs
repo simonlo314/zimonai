@@ -8,6 +8,25 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('China AEO enterprise grades and certificate terms stay intact in each Chinese locale', () => {
+  const samples = {
+    'zh-tw': ['企業信用管理', '海關身分', '企業認證', '企業證書', '企業信用', '信用等級', '高級認證企業', '認證企業', '常規企業', '失信企業', '嚴重失信企業', '經認證的經營者', '海關總署', '海關登記', '分支機構', '證書持有人', '存續企業', '實地認證', '守法規範', '貿易安全', '便利措施', '信用修復', '行政許可', '公示作廢', '交易角色', '換證紀錄', '證書換版', '產品資料', '媽灣港', '貨櫃車', '企業信用公示平台', '香港工業貿易署', '換版', '補發', '作廢'],
+    'zh-cn': ['企业信用管理', '海关身份', '企业认证', '企业证书', '企业信用', '信用等级', '高级认证企业', '认证企业', '常规企业', '失信企业', '严重失信企业', '经认证的经营者', '海关总署', '海关登记', '分支机构', '证书持有人', '存续企业', '实地认证', '守法规范', '贸易安全', '便利措施', '信用修复', '行政许可', '公示作废', '订单角色', '产品资料', '证书换版', '资料照片', '妈湾港', '集装箱', '企业信用公示平台', '香港工业贸易署', '换发', '补发', '作废']
+  };
+  for (const [locale, terms] of Object.entries(samples)) {
+    const productionTerms = locale === 'zh-tw' ? ['量產能力', '財務狀況', '內部控制', '產品測試報告', '縮圖', 'JPEG 壓縮', '認證移轉', '佐證文件', '目的市場', '不等於', '製造工廠'] : ['量产能力', '财务状况', '内部控制', '产品检测报告', '缩放', 'JPEG 压缩', '认证转移', '关联企业', '企业资质', '目标市场', '相关证书', '不等于', '生产工厂'];
+    for (const term of [...terms, ...productionTerms, 'AEO', 'Dinkun Chen', 'CC BY-SA 4.0']) {
+      const result = protectCjkText(term, locale);
+      assert.ok(result.includes(`>${term}</span>`), `${locale}: ${term}`);
+      assert.equal(removeProtectionMarkup(result), term);
+    }
+    const sentence = locale === 'zh-tw' ? '高級認證企業與認證企業，信用等級分開核對。' : '高级认证企业和认证企业，信用等级分别核对。';
+    const rendered = protectCjkText(sentence, locale);
+    assert.ok(rendered.includes(`>${terms[6]}</span>`), `${locale}: overlapping enterprise grade`);
+    assert.equal(removeProtectionMarkup(rendered), sentence);
+  }
+});
+
 test('SIA production-geography and second-source terms stay intact in both Chinese versions', () => {
   const samples = {
     'zh-tw': ['半導體產業協會', '晶片供應地圖', '總部所在地', '供應商總部', '實際製造地', '製造地', '總部口徑', '製造地口徑', '地理口徑', '統計口徑', '產業層級', '地理曝險', '第二來源', '製造路徑', '生產路徑', '實際製造鏈', '供應分散', '上游投入品', '實體備援', '上游瓶頸', '矽晶圓', '認可進度', '可用產能', '關鍵礦物', '韌性訊號'],

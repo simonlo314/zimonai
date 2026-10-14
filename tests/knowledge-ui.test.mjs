@@ -66,8 +66,11 @@ test('knowledge hub and category pages expose progressive, crawlable collection 
   const page = schema['@graph'].find((entry) => entry['@type'] === 'CollectionPage');
   const list = schema['@graph'].find((entry) => entry['@type'] === 'ItemList');
   assert.equal(page.url, 'https://zimonai.com/knowledge/supplier-identity/');
-  assert.equal(list.numberOfItems, 1);
-  assert.equal(list.itemListElement[0].url, 'https://zimonai.com/knowledge/chinese-supplier-legal-entity/');
+  const expected = knowledgeArticleSpecs.filter((spec) => spec.category === 'supplier-identity');
+  assert.equal(list.numberOfItems, expected.length);
+  assert.deepEqual(list.itemListElement.map((item) => item.url), expected.map((spec) => `https://zimonai.com/${spec.slug}/`));
+  assert.ok(list.itemListElement.some((item) => item.url === 'https://zimonai.com/knowledge/china-aeo-enterprise-certificate/'));
+  assert.ok(list.itemListElement.some((item) => item.url === 'https://zimonai.com/knowledge/chinese-supplier-legal-entity/'));
 });
 
 test('knowledge search normalizes codes, full-width forms and power-bank aliases', () => {
