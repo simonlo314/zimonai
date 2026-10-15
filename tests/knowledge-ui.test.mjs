@@ -110,7 +110,9 @@ test('knowledge images expose art-directed crop positions for cards and article 
   const article = renderPage('zh-tw', 'knowledge-iecee-cb-certificate');
   const uaeLaunch = renderPage('zh-tw', 'knowledge-anker-maggo-2-pro-uae-launch');
 
-  assert.match(hub, /--knowledge-card-image-position:59% 62%;--knowledge-card-image-position-mobile:59% 58%/);
+  const featuredSpec = knowledgeArticleSpecs.find((spec) => spec.featured);
+  assert.equal(featuredSpec.id, 'knowledge-asml-2027-2028-capacity-upgrades');
+  assert.ok(hub.includes(`--knowledge-card-image-position:${featuredSpec.imageCrop.card};--knowledge-card-image-position-mobile:${featuredSpec.imageCrop.mobile}`));
   assert.match(article, /--field-note-image-position:56% 50%;--field-note-image-position-mobile:58% 52%/);
   assert.match(uaeLaunch, /--field-note-image-position:58% 56%;--field-note-image-position-mobile:59% 58%/);
   assert.match(siteCss, /object-position: var\(--knowledge-card-image-position,50% 50%\)/);

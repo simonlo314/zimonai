@@ -1,5 +1,14 @@
 # Third-party visual assets
 
+## ASML capacity and upgrades article — 2026-10-15
+
+- Asset: `src/assets/editorial-asml-2028-capacity.jpg`, 2200 × 1026 JPEG.
+- Photographer: 4300streetcar; real photograph taken in Tainan on 27 May 2025. [Original file page](https://commons.wikimedia.org/wiki/File:ASML_air_freight_containers_in_Tainan_May_2025_1.jpg); [8256 × 5504 original JPEG](https://upload.wikimedia.org/wikipedia/commons/6/6c/ASML_air_freight_containers_in_Tainan_May_2025_1.jpg). Downloaded 15 October 2026.
+- Licence: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), verified on the photographer's file page and Creative Commons deed. The visible caption credits the photographer, links to the original source and licence, and discloses changes. Neither photographer nor ASML endorsement is implied.
+- Changes: cropped to 8256 × 3850 from row 1400 / column 0, then proportionally resized to 2200 × 1026 and JPEG-compressed. Separate CSS focal positions: card `52% 54%`, desktop article `55% 52%`, mobile `58% 54%`. No AI generation, extension, compositing or photograph-content alteration. Final rendered crop review is a separate publication gate.
+- Use: trilingual current-affairs analysis of ASML's 14 October 2026 supply outlook and installed-tool upgrades. The archival image shows ASML-branded transport containers, not visible lithography machines, a 2026 shipment, expanded production capacity, the announcement venue or a ZIMONAI client/supplier assignment.
+- Image selection: ASML's [official media library](https://investor.asml.com/news/media-library) permits editorial use but expressly excludes promotional or commercial use, so those images were not adopted for this commercial website. An older unbranded 2008 headquarters photograph was considered but rejected in favour of this directly identifiable, rights-cleared real photograph.
+
 ## China AEO enterprise-certificate article — 2026-10-14
 
 - Asset: `src/assets/editorial-china-aeo-port.jpg`, 2000 × 1230 pixels.

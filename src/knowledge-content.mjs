@@ -7,6 +7,43 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand ASML's 14 October 2026 equipment-supply outlook.
+  // Related questions: the 2027/2028 gap; low-NA EUV and immersion DUV scope;
+  // expansion plans versus completed capacity; installed-tool upgrades; order interest versus delivery.
+  {
+    id: 'knowledge-asml-2027-2028-capacity-upgrades',
+    key: 'asml2028CapacityUpgrades',
+    contentType: 'current-affairs',
+    slug: 'knowledge/asml-2027-2028-capacity-upgrades',
+    featured: true,
+    featuredReviewedThrough: '2026-10-15',
+    category: 'commercial-risk',
+    products: ['general'],
+    markets: ['global'],
+    keywords: {
+      en: ['ASML October 2026 capacity outlook', 'ASML 2027 2028 supply demand', 'lithography productivity upgrades', 'low NA EUV immersion DUV capacity'],
+      'zh-tw': ['ASML 2027 2028 供給', 'ASML 第三季 2026', '微影設備擴產', '既有機台升級 晶圓產能'],
+      'zh-cn': ['ASML 2027 2028 供应', 'ASML 2026 三季度', '光刻设备扩产', '存量设备升级 晶圆产能']
+    },
+    datePublished: '2026-10-15',
+    dateModified: '2026-10-15',
+    image: '/assets/editorial-asml-2028-capacity.jpg',
+    imageWidth: 2200,
+    imageHeight: 1026,
+    imageCrop: { card: '52% 54%', article: '55% 52%', mobile: '58% 54%' },
+    photo: {
+      photographer: '4300streetcar',
+      page: 'https://commons.wikimedia.org/wiki/File:ASML_air_freight_containers_in_Tainan_May_2025_1.jpg',
+      license: 'https://creativecommons.org/licenses/by/4.0/'
+    },
+    sources: [
+      { publisher: 'ASML', title: 'Q3 2026 results — 14 October 2026; supply outlook, productivity upgrades and capacity-scope footnote', url: 'https://www.investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026' },
+      { publisher: 'Reuters / Euronext', title: 'ASML’s strong orders ease fears AI spending boom is running out of steam — Nathan Vifflin and Toby Sterling, 14 October 2026', url: 'https://live.euronext.com/en/financial-news/asmls-strong-orders-ease-fears-ai-spending-boom-running-out-steam' },
+      { publisher: 'ASML', title: 'Q2 2026 results — 15 July 2026; low-NA EUV and immersion DUV expansion baseline', url: 'https://www.investor.asml.com/news-releases/news-release-details/q2-2026-financial-results' },
+      { publisher: 'Wikimedia Commons / 4300streetcar', title: 'ASML air freight containers in Tainan — photograph taken 27 May 2025, CC BY 4.0', url: 'https://commons.wikimedia.org/wiki/File:ASML_air_freight_containers_in_Tainan_May_2025_1.jpg' },
+      { publisher: 'Creative Commons', title: 'CC BY 4.0 — attribution, licence link and modification disclosure for the photograph', url: 'https://creativecommons.org/licenses/by/4.0/' }
+    ]
+  },
   // Search intent: interpret a Chinese AEO certificate in an overseas charger purchase.
   // Related questions: the two 2026 AEO grades; enterprise versus branch;
   // old/new certificates and void notices; public-history limits; exporter versus product evidence.
@@ -1530,8 +1567,6 @@ export const knowledgeArticleSpecs = [
     key: 'ankerMagGo2ProUaeLaunch',
     contentType: 'current-affairs',
     slug: 'knowledge/anker-maggo-2-pro-uae-launch-price',
-    featured: true,
-    featuredReviewedThrough: '2026-10-14',
     category: 'commercial-risk',
     products: ['power-bank'],
     markets: ['united-arab-emirates'],
@@ -2368,6 +2403,54 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      asml2028CapacityUpgrades: {
+        topic: 'Lithography supply and usable wafer capacity',
+        published: '15 October 2026',
+        readTime: '4 minutes',
+        title: 'ASML forecasts tight supply: expansion and upgrades move in parallel',
+        description: 'ASML’s 14 October outlook puts new lithography tools and installed-machine upgrades on parallel tracks. What the capacity plans mean—and what remains a forecast.',
+        imageAlt: 'ASML-branded air-freight containers photographed in Tainan, with distinctive angled container roofs and blue lettering.',
+        imageCaption: 'Archival photograph by 4300streetcar, Tainan, 27 May 2025; CC BY 4.0. Downloaded 15 October 2026; cropped, proportionally resized, JPEG-compressed and layout-cropped, without generative editing. These are transport containers, not visible lithography machines, a 2026 shipment record, new factory capacity or a ZIMONAI assignment.',
+        labels: { summary: 'News summary', checklist: 'What to watch next', limits: 'What remains unresolved' },
+        answer: 'Lithography-equipment maker ASML said on 14 October 2026 that its planned supply for 2027 and 2028 would not fully meet customer demand, and it is exploring a larger 2028 capacity increase [[source:1]]. The outlook is management’s forecast, not a measured shortfall in all chips. For manufacturers, the bigger story is that new machines and upgrades to installed tools are being pursued together. ZIMONAI’s editorial view is that usable wafer capacity—not equipment demand alone—is the supply-chain milestone to watch.',
+        takeaways: [
+          'ASML is investigating more 2028 capacity; the additional expansion is not already completed.',
+          'The cited expansion baseline concerns low-NA EUV and immersion DUV, not a blanket target for every tool.',
+          'Higher productivity on installed tools is a separate lever from shipping more new machines.'
+        ],
+        sections: [
+          {
+            title: 'The warning concerns planned equipment supply',
+            paragraphs: [
+              'ASML’s third-quarter release reported net sales of about €11.7 billion and said AI-related investment was driving customers to raise their equipment forecasts. Management expects its currently planned supply to fall short of demand in both 2027 and 2028 [[source:1]]. That is a forward-looking assessment, not a count of late chip orders.',
+              'The reference point matters. In July, ASML planned a 30% increase over its 2026 low-NA EUV and immersion DUV capacity for 2027 and was investigating another 30% for 2028 [[source:3]]. October’s release explores going beyond the previously communicated 2028 increase [[source:1]]. It does not announce a finished expansion or a single growth target covering High-NA EUV and every other product.'
+            ]
+          },
+          {
+            title: 'Installed machines offer a second capacity lever',
+            paragraphs: [
+              'The company also points to productivity upgrades as a way to add wafer capacity at customers. Installed Base Management sales reached €3.289 billion in Q3; that category includes net service and field-option sales, rather than upgrades alone [[source:1]]. Reuters separately reported that ASML would address the pressure through existing-tool upgrades and new machines with higher throughput [[source:2]].',
+              'ZIMONAI reads the two tracks as a distinction between adding equipment and getting more useful output from equipment already installed. For a manufacturer, an upgrade must fit its production process and operating schedule. The announcement does not quantify the resulting output for an individual fab, so service revenue should not be converted into an invented number of extra wafers.',
+              'This matters for procurement because an equipment-capacity headline and usable component supply sit at different points in the chain. Installation, process acceptance and stable production of the relevant part remain separate milestones; that sequence is editorial interpretation, not an ASML delivery promise.'
+            ]
+          },
+          {
+            title: 'Long-range interest still has to become usable output',
+            paragraphs: [
+              'Reuters’ 14 October reporting describes customer interest extending to orders for 2029 and 2030. The company’s release also distinguishes interest in placing orders from actual orders in its risk discussion [[source:2]][[source:1]]. A distant planning signal is useful, but it is not a completed purchase, shipment or production ramp.',
+              'For downstream electronics buyers, the implication is to watch where additional supply becomes usable, rather than assume every chip or charging component will face the same shortage. The public material does not identify a particular adapter, GaN device, factory allocation or buyer’s lead-time change.',
+              'The development broadens the capacity story beyond new-machine deliveries. What matters next is whether revised expansion plans and productivity upgrades translate into accepted, operating capacity—and how that changes the specific manufacturing routes buyers depend on.'
+            ]
+          }
+        ],
+        checklist: [
+          'Watch for a firm 2028 expansion scope, timing and product mix, separating investigation from commitment.',
+          'Track installed-tool upgrade availability and the output customers actually disclose.',
+          'Distinguish order interest, confirmed orders, machine acceptance and production ramp-up.',
+          'Use part-specific supply and quotation evidence before changing an individual purchase plan.'
+        ],
+        limitsText: 'Reviewed 15 October 2026. The 2027–2028 gap is ASML management’s outlook; Reuters is an independent publisher, not an independent audit of capacity. The sources do not settle the final size or completion date of additional 2028 expansion, a customer’s upgrade outcome or an individual component’s price and delivery. Q3 financial statements are unaudited. ZIMONAI’s supply-chain interpretation does not imply involvement with ASML or an affected project.'
+      },
       chinaAeoEnterpriseCertificate: {
         topic: 'China customs status and supplier identity',
         published: '14 October 2026',
@@ -5018,6 +5101,54 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      asml2028CapacityUpgrades: {
+        topic: '微影設備供給與晶圓產能',
+        published: '2026 年 10 月 15 日',
+        readTime: '4 分鐘',
+        title: 'ASML 預期供給吃緊：擴產、升級並進',
+        description: 'ASML 10 月 14 日表示，原規劃的 2027、2028 年供給仍難滿足需求。解析低 NA EUV、浸潤式 DUV 擴產與既有機台升級的不同角色。',
+        imageAlt: '台南拍攝的 ASML 空運貨櫃，箱體有斜角頂部與藍色 ASML 字樣。',
+        imageCaption: '4300streetcar 於 2025 年 5 月 27 日在台南拍攝的資料照片，採 CC BY 4.0 授權。2026 年 10 月 15 日下載，僅裁切、等比例縮圖、JPEG 壓縮及版面裁切，未做生成式編修。畫面為運輸貨櫃，不是可見的微影機台、2026 年出貨紀錄、新增工廠產能或 ZIMONAI 專案。',
+        labels: { summary: '新聞摘要', checklist: '接下來值得觀察', limits: '尚待釐清事項' },
+        answer: '微影設備商 ASML 於 2026 年 10 月 14 日公布第三季結果時表示，原規劃的 2027、2028 年供給仍難滿足客戶需求，正研究擴大 2028 年產能增幅 [[source:1]]。這是管理階層的展望，並非所有晶片已出現缺口的統計。對半導體製造業更值得注意的是，新機交付與既有機台升級正同時承擔增加供給的任務。ZIMONAI 的編輯判讀是，設備需求何時轉成可用晶圓產能，才是下游採購應追蹤的關鍵進度。',
+        takeaways: [
+          'ASML 正研究加大 2028 年產能增幅，不代表新增產能已完成。',
+          '引用的擴產基準是低 NA EUV 與浸潤式 DUV，不是所有設備共用一個目標。',
+          '提升既有機台生產力，與增加新機出貨，是兩條不同的供給路徑。'
+        ],
+        sections: [
+          {
+            title: '供給展望：設備範圍要分清',
+            paragraphs: [
+              'ASML 公布第三季營收約 117 億歐元，並表示 AI 相關投資帶動客戶上修設備需求預測。公司預期，即使照目前計畫供應，2027、2028 年仍難完全滿足客戶需求 [[source:1]]。這是面向未來的判斷，不是晶片訂單已經延遲的清點結果。',
+              '回看 7 月公告，ASML 計畫在 2027 年將低 NA EUV 與浸潤式 DUV 產能各較 2026 年增加 30%，另研究 2028 年再增加 30% [[source:3]]。10 月的新訊息，是研究超過先前公布的 2028 年增幅 [[source:1]]。這不表示擴產已落實，也不應把同一增幅套到高 NA EUV 或所有產品。'
+            ]
+          },
+          {
+            title: '既有機台，也是一條增產路徑',
+            paragraphs: [
+              '公司同時把生產力升級列為增加客戶晶圓產能的方法。第三季 Installed Base Management 營收為 32.89 億歐元；其定義是服務與現場選配的淨銷售額，不全是升級收入 [[source:1]]。路透的獨立報導也提到，ASML 將透過升級既有設備、供應吞吐量更高的新機回應需求壓力 [[source:2]]。',
+              'ZIMONAI 的判讀是，增加設備數量與提升已裝機設備的有效產出，應分開看待。對製造商而言，升級仍須配合製程及營運排程；公告沒有量化特定晶圓廠可增加的產出，因此不宜把服務營收換算成自行推估的晶圓數量。',
+              '對採購的意義也在這個時間差：機台供給增加，和特定零組件已可交付，位於供應鏈的不同階段。機台安裝、製程認可及對應料號的穩定量產，各有自己的進度。這是編輯分析，不是 ASML 對個別訂單的交付承諾。'
+            ]
+          },
+          {
+            title: '長期意向，仍須落到可用產出',
+            paragraphs: [
+              '路透 10 月 14 日報導指出，客戶的下單興趣已延伸到 2029、2030 年；ASML 新聞稿的風險說明，也把有意下單與實際訂單分開處理 [[source:2]][[source:1]]。長期規劃訊號值得注意，但不是採購、出貨或量產已完成的紀錄。',
+              '對下游電子產品買家，實際意義是觀察新增供給在哪個環節變得可用，而非推定每種晶片與充電零組件都會同樣缺貨。公開資料沒有指向特定電源適配器、GaN 元件、工廠配額或買家交期的變化。',
+              '這次消息讓產能故事不再只看新機交付。後續真正有價值的變化，是加碼擴產與生產力升級，是否轉成已認可、能運作的產能，以及它們如何改變買家實際依賴的製造路徑。'
+            ]
+          }
+        ],
+        checklist: [
+          '追蹤 2028 年加碼擴產的範圍、時程及產品配置，區分研究與確定承諾。',
+          '觀察既有機台升級何時可用，以及客戶實際揭露的產出效果。',
+          '分清下單意向、正式訂單、機台驗收與量產爬坡各階段。',
+          '調整個別採購計畫前，再比對料號層級的供貨與報價資料。'
+        ],
+        limitsText: '查閱日期為 2026 年 10 月 15 日。2027、2028 年的供需缺口屬 ASML 管理階層展望；路透是獨立發布者，不是產能稽核機構。2028 年加碼擴產的最終幅度與完成日期、個別客戶升級效果，以及特定零組件價格與交期，均未由這些資料確定。第三季財務報表未經查核。ZIMONAI 的供應鏈判讀不表示參與 ASML 或相關專案。'
+      },
       chinaAeoEnterpriseCertificate: {
         topic: '中國海關信用與企業身分',
         published: '2026 年 10 月 14 日',
@@ -7629,6 +7760,54 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      asml2028CapacityUpgrades: {
+        topic: '光刻设备供给与晶圆产能',
+        published: '2026 年 10 月 15 日',
+        readTime: '4 分钟',
+        title: 'ASML 预期供应吃紧：扩产、升级并行',
+        description: 'ASML 10 月 14 日公布供给展望：原有计划仍难覆盖 2027、2028 年需求。理解低 NA EUV、浸没式 DUV 扩产与存量设备升级的不同作用。',
+        imageAlt: '摄于台南的 ASML 航空运输集装箱，箱顶呈斜角，外侧印有蓝色 ASML 标识。',
+        imageCaption: '资料照片由 4300streetcar 于 2025 年 5 月 27 日在台南拍摄，按 CC BY 4.0 许可使用。下载于 2026 年 10 月 15 日，仅裁剪、等比例缩放、JPEG 压缩及版式裁切，未作生成式修改。图中是运输集装箱，并非可见的光刻机、2026 年出货记录、新增工厂产能或 ZIMONAI 项目。',
+        labels: { summary: '新闻摘要', checklist: '后续观察重点', limits: '仍待确认事项' },
+        answer: '光刻设备制造商 ASML 在 2026 年 10 月 14 日发布三季度业绩时称，按现有计划提供的设备仍难满足 2027 和 2028 年客户需求，公司正在研究进一步提高 2028 年产能 [[source:1]]。这份判断是管理层的预测，并非全行业芯片已经短缺的统计。更值得关注的是，新机交付与存量设备提效正在共同应对制造环节的供应压力。ZIMONAI 的编辑判断是，下游采购应跟踪需求如何转化为可用晶圆产能，而不是把设备需求预期直接当作零部件交期。',
+        takeaways: [
+          '2028 年进一步扩产仍在研究阶段，不能写成新增产能已经交付。',
+          '原有增产基准针对低 NA EUV 和浸没式 DUV，并未覆盖全部设备类别。',
+          '存量设备提效与新增机器交付是不同路径，需要分别观察产出。'
+        ],
+        sections: [
+          {
+            title: '供需判断：先看设备类别',
+            paragraphs: [
+              'ASML 披露三季度净销售额约 117 亿欧元，称 AI 相关投资促使客户继续调高设备需求预测。公司预计，当前规划的供应无法完全覆盖 2027、2028 年需求 [[source:1]]。这是面向未来的管理层判断，不是已延期芯片订单的统计。',
+              '7 月的原计划，是在 2026 年基准上将低 NA EUV 和浸没式 DUV 的 2027 年产能分别增加 30%，并研究 2028 年再增长 30% [[source:3]]。10 月公告进一步提出，探索超过此前披露的 2028 年增幅 [[source:1]]。相关数字不是全部产品通用的扩产比例，也没有确认高 NA EUV 同样适用。'
+            ]
+          },
+          {
+            title: '存量设备：提效也是供给路径',
+            paragraphs: [
+              'ASML 还把生产率升级作为增加客户晶圆产能的一种手段。三季度 Installed Base Management 销售额为 32.89 亿欧元，定义是服务与现场选配的净销售额，不能全部归为升级收入 [[source:1]]。路透独立报道指出，公司将通过既有机器升级及吞吐量更高的新设备缓解压力 [[source:2]]。',
+              'ZIMONAI 的解读是，机器数量增加和已安装设备的有效产出提升，是两项不同工作。对制造企业，升级要与工艺条件及生产安排衔接。公告没有给出具体工厂的增产结果，服务收入也无法直接换算成新增晶圆数量。',
+              '采购端需要留意这一层时间差：新增设备可供交付，并不意味着相关零部件已经形成稳定供货。安装、工艺认可及对应料号的量产进度各不相同。这属于供应链分析，而不是 ASML 向某个买家作出的交期承诺。'
+            ]
+          },
+          {
+            title: '远期意向：关注落地进度',
+            paragraphs: [
+              '路透 10 月 14 日的报道提到，客户的订单兴趣已经延伸至 2029、2030 年。ASML 在公告的风险说明中也区分了下单兴趣与实际订单 [[source:2]][[source:1]]。远期规划提供了需求线索，但不等于合同、出货或产线爬坡已经完成。',
+              '对电子产品买家，这条消息提示的是中长期设备约束，而不是所有芯片或充电零部件都将面临同样短缺。公开资料没有确定某款电源适配器、GaN 器件、工厂分配量或具体采购交期发生变化。',
+              '因此，后续产能故事既要看新设备交付，也要看升级能否形成可运行、已认可的产出。扩产方案和提效措施最终落在哪条制造路径，比单纯延长需求预测的年份更能说明下游供应何时发生实际变化。'
+            ]
+          }
+        ],
+        checklist: [
+          '观察 2028 年追加扩产的最终范围、时间和产品安排，不把研究写成确定投资。',
+          '跟踪存量设备升级的可用时间，以及客户披露的实际产出。',
+          '分别记录下单意向、正式订单、设备验收和量产爬坡的进度。',
+          '针对具体采购，另行比较料号对应的供货、报价和交期条件。'
+        ],
+        limitsText: '资料核阅日期为 2026 年 10 月 15 日。2027、2028 年供需缺口是 ASML 管理层的预测；路透由独立出版方发布报道，不等于独立核实产能。追加扩产的最终规模与完成日期、客户设备升级成效、具体零部件的价格及交货时间仍未确定。三季度财务报表未经审计。ZIMONAI 的解读不代表参与 ASML 或相关项目。'
+      },
       chinaAeoEnterpriseCertificate: {
         topic: '中国海关信用与企业身份',
         published: '2026 年 10 月 14 日',

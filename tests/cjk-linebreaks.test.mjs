@@ -8,6 +8,26 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('ASML capacity and installed-tool upgrade terms keep native Chinese phrases intact', () => {
+  const samples = {
+    'zh-tw': ['微影設備', '低 NA EUV', '浸潤式 DUV', '高 NA EUV', '既有機台', '機台升級', '可用晶圓產能', '晶圓產能', '供給展望', '預期供給吃緊', '設備範圍', '產能增幅', '設備需求預測', '生產力升級', '現場選配', '淨銷售額', '升級收入', '吞吐量', '有效產出', '已裝機設備', '機台安裝', '製程認可', '穩定量產', '長期意向', '下單興趣', '下單意向', '供給路徑', '運輸貨櫃', '空運貨櫃', '加碼擴產', '產品配置', '機台驗收', '量產爬坡', '產能稽核', '管理階層', '擴產', '提效'],
+    'zh-cn': ['光刻设备', '低 NA EUV', '浸没式 DUV', '高 NA EUV', '存量设备', '设备升级', '可用晶圆产能', '晶圆产能', '供给展望', '预期供应吃紧', '设备类别', '产能增幅', '设备需求预测', '生产率升级', '现场选配', '净销售额', '升级收入', '吞吐量', '有效产出', '已安装设备', '工艺认可', '稳定供货', '远期意向', '下单兴趣', '下单意向', '供给路径', '航空运输集装箱', '运输集装箱', '追加扩产', '设备验收', '量产爬坡', '管理层', '供需缺口', '工厂分配量', '扩产', '提效']
+  };
+  for (const [locale, terms] of Object.entries(samples)) {
+    const contextualTerms = locale === 'zh-tw' ? ['既有機台升級', '微影機台', '營運排程', '等比例縮圖', '等比例縮放', '產出', '供貨', '報價'] : ['存量设备升级', '光刻机', '生产安排', '等比例缩放', '产出', '供货', '报价'];
+    for (const term of [...terms, ...contextualTerms, 'ASML', 'Installed Base Management', '4300streetcar', 'CC BY 4.0']) {
+      const result = protectCjkText(term, locale);
+      assert.ok(result.includes(`>${term}</span>`), `${locale}: ${term}`);
+      assert.equal(removeProtectionMarkup(result), term);
+    }
+    const sentence = locale === 'zh-tw' ? 'ASML 預期供給吃緊：擴產、升級並進。' : 'ASML 预期供应吃紧：扩产、升级并行。';
+    assert.equal(removeProtectionMarkup(protectCjkText(sentence, locale)), sentence);
+    const compound = locale === 'zh-tw' ? '既有機台升級' : '存量设备升级';
+    const protectedCompound = protectCjkText(`${compound}的不同角色。`, locale);
+    assert.ok(protectedCompound.includes(`>${compound}</span>`), `${locale}: overlapping upgrade terms`);
+  }
+});
+
 test('China AEO enterprise grades and certificate terms stay intact in each Chinese locale', () => {
   const samples = {
     'zh-tw': ['企業信用管理', '海關身分', '企業認證', '企業證書', '企業信用', '信用等級', '高級認證企業', '認證企業', '常規企業', '失信企業', '嚴重失信企業', '經認證的經營者', '海關總署', '海關登記', '分支機構', '證書持有人', '存續企業', '實地認證', '守法規範', '貿易安全', '便利措施', '信用修復', '行政許可', '公示作廢', '交易角色', '換證紀錄', '證書換版', '產品資料', '媽灣港', '貨櫃車', '企業信用公示平台', '香港工業貿易署', '換版', '補發', '作廢'],

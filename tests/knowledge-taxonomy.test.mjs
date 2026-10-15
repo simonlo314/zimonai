@@ -384,7 +384,7 @@ test('the explicit Start here selection was reviewed against the newest publishe
   );
 
   assert.equal(featuredArticles.length, 1);
-  assert.equal(featuredArticles[0].id, 'knowledge-anker-maggo-2-pro-uae-launch');
+  assert.equal(featuredArticles[0].id, 'knowledge-asml-2027-2028-capacity-upgrades');
   assert.equal(featuredArticles[0].featuredReviewedThrough, newestPublishedDate);
 });
 
