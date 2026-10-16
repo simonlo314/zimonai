@@ -7,6 +7,43 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: interpret an AQL lot-acceptance report before shipment release.
+  // Related questions: AQL versus a lot defect rate; sample size and acceptance number;
+  // random selection; counting units versus nonconformities; inspection scope and lot traceability.
+  {
+    id: 'knowledge-aql-lot-acceptance-inspection-report',
+    key: 'aqlLotAcceptanceInspectionReport',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/aql-lot-acceptance-inspection-report',
+    category: 'factory-onsite',
+    products: ['general', 'charger', 'power-adapter'],
+    markets: ['global'],
+    keywords: {
+      en: ['AQL inspection report meaning', 'lot acceptance sampling', 'AQL acceptance number sample size', 'charger shipment inspection report'],
+      'zh-tw': ['AQL 抽樣驗收', '抽樣檢驗報告', '允收數與樣本數', '充電器出貨批次'],
+      'zh-cn': ['AQL 抽样检验', '批次接收结论', '接收数与样本量', '充电器验货报告']
+    },
+    datePublished: '2026-10-16',
+    dateModified: '2026-10-16',
+    image: '/assets/editorial-cnas-laboratory-workbench.jpg',
+    imageWidth: 1600,
+    imageHeight: 1067,
+    imageCrop: { card: '47% 84%', article: '46% 78%', mobile: '43% 70%' },
+    photo: {
+      photographer: 'IT services EU',
+      page: 'https://www.pexels.com/photo/digital-multimeter-7639432/',
+      license: 'https://www.pexels.com/license/'
+    },
+    sources: [
+      { publisher: 'NIST/SEMATECH', title: 'e-Handbook 6.2.1 — acceptance sampling decides lot disposition, rather than estimating lot quality', url: 'https://www.itl.nist.gov/div898/handbook/pmc/section2/pmc21.htm' },
+      { publisher: 'American Society for Quality', title: 'Quality glossary — acceptance quality limit, sampling plan and random selection', url: 'https://asq.org/quality-resources/quality-glossary' },
+      { publisher: 'American Society for Quality', title: 'ANSI/ASQ Z1.4-2003 (R2018) — attributes, counting basis and switching rules for continuing lots', url: 'https://asq.org/quality-resources/z14-z19' },
+      { publisher: 'ISO', title: 'ISO 2859-1:2026 — official catalogue, third edition published January 2026; public overview only', url: 'https://www.iso.org/standard/85464.html' },
+      { publisher: 'NIST/SEMATECH', title: 'e-Handbook 6.2.2 — single and multiple sampling plans, acceptance numbers and operating-characteristic curves', url: 'https://www.itl.nist.gov/div898/handbook/pmc/section2/pmc22.htm' },
+      { publisher: 'Pexels / IT services EU', title: 'Digital Multimeter — real electronics-workbench photograph, editorial illustration only', url: 'https://www.pexels.com/photo/digital-multimeter-7639432/' },
+      { publisher: 'Pexels', title: 'Pexels License — website reuse permitted; no implied endorsement', url: 'https://www.pexels.com/license/' }
+    ]
+  },
   // Search intent: understand ASML's 14 October 2026 equipment-supply outlook.
   // Related questions: the 2027/2028 gap; low-NA EUV and immersion DUV scope;
   // expansion plans versus completed capacity; installed-tool upgrades; order interest versus delivery.
@@ -16,7 +53,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/asml-2027-2028-capacity-upgrades',
     featured: true,
-    featuredReviewedThrough: '2026-10-15',
+    featuredReviewedThrough: '2026-10-16',
     category: 'commercial-risk',
     products: ['general'],
     markets: ['global'],
@@ -2403,6 +2440,48 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      aqlLotAcceptanceInspectionReport: {
+        topic: 'Sampling evidence and shipment decisions',
+        published: '16 October 2026',
+        readTime: '4 minutes',
+        title: 'AQL inspection reports: what lot acceptance actually means',
+        description: 'Read an AQL inspection result through its sample, counting rules, test scope and shipment lot—not as a guarantee of zero defects or product approval.',
+        imageAlt: 'A digital multimeter in front of a microscope and soldering tools on an electronics workbench.',
+        imageCaption: 'Electronics-workbench illustration by IT services EU / Pexels, reused under the Pexels License. Downloaded 8 October 2026; licence rechecked 16 October. Resizing, JPEG compression and layout crops only. This is not an AQL inspection, a charger safety test or a ZIMONAI facility, client or supplier.',
+        labels: { summary: 'Reader overview', checklist: 'Buyer report checklist', limits: 'Scope and evidence limits' },
+        answer: 'Acceptance sampling uses a sample to decide whether to accept a defined lot, rather than certify every unit or measure its exact defect rate [[source:1]]. An AQL result therefore matters to overseas buyers only alongside the agreed plan, inspected features and shipment identity. ZIMONAI’s editorial view is to treat “accepted” as a traceable decision record: a missing link between the sample and the goods can matter more than the headline AQL number.',
+        takeaways: [
+          'AQL is a sampling-system parameter, not a promised defect percentage for each shipment [[source:2]].',
+          'The sample size, counting basis and acceptance criteria are essential to interpreting a result [[source:3]][[source:5]].',
+          'A report applies to the defined lot and inspected features; its conclusion should not silently expand to another batch or an untested requirement.'
+        ],
+        sections: [
+          { title: 'Separate the AQL, the sample and the lot', paragraphs: [
+            'ASQ defines AQL in relation to a satisfactory process average across a continuing series of lots [[source:2]]. Reading it as permission for that percentage of defective goods in every carton confuses a scheme parameter with a shipment specification. NIST makes the central distinction explicit: acceptance sampling supports a lot decision, not an estimate of the lot’s quality [[source:1]].',
+            'In a single-sample attributes plan, the sample size and acceptance number determine the decision from the observed count. Other plans can require further sampling before a decision [[source:5]]. A report that lists only an AQL number omits the rule needed to interpret its conclusion. Even a plan accepting only a sample with no observed nonconforming units leaves unexamined units; zero findings in the sample are not proof of zero defects in the lot.',
+            'For procurement, ask a qualified quality professional to assess the plan’s acceptance probabilities and risks for the intended use; NIST describes these through an operating-characteristic curve [[source:5]]. This article deliberately supplies no universal AQL, inspection level or sample-size recommendation for chargers.'
+          ] },
+          { title: 'Read the complete plan behind “accepted”', paragraphs: [
+            'ASQ describes Z1.4 as a system for continuing lots, with switching rules and normal, tightened and reduced inspection. It supports either percent nonconforming or nonconformities per 100 units [[source:3]]. A unit with several recorded problems can affect those counts differently. Agree the counting basis and problem classifications before inspecting, not after seeing an inconvenient result.',
+            'Record the exact standard and edition. ISO’s catalogue lists ISO 2859-1:2026, third edition, published in January 2026 [[source:4]]. That catalogue fact does not establish which edition a purchase contract adopted. Avoid silently swapping tables or treating an older report as invalid solely because a new edition exists; resolve the applicable plan with the responsible parties.',
+            'The buyer’s review file should identify the lot size and boundaries, inspection level, applicable regime, sample size, acceptance and rejection criteria, observed counts and random-selection method. ASQ’s glossary explains the equal-selection-probability assumption behind published sampling tables [[source:2]]. A few convenient demonstration units selected by the seller do not establish that the agreed random-selection procedure occurred.'
+          ] },
+          { title: 'Connect the result to the goods being released', paragraphs: [
+            'ZIMONAI’s procurement interpretation is to reconcile the report with the purchase order, model and revision, production lot, carton identifiers, quantity and inspection date. Record who selected the units and which stock was available. If cartons are added, substituted or reworked afterward, obtain a documented assessment of whether the original decision still covers the goods to be shipped.',
+            'Keep inspection scope explicit. For a charger order, an appearance check, label comparison, dimensional check and specified electrical test answer different questions. A pass for listed features supplies no result for an omitted feature. Ask for the agreed requirements, methods, individual findings and any exclusions, rather than inferring electrical safety or destination-market approval from “AQL passed”.',
+            'Agree what happens after rejection, rework or a disputed finding, including disposition authority and any required reinspection. Preserve the original report and the subsequent decision trail. The useful handoff is an explainable release decision for identifiable goods—not a green badge detached from the order.'
+          ] }
+        ],
+        checklist: [
+          'Match the purchase order, model, revision, lot quantity and carton identifiers.',
+          'Identify the agreed standard, edition, inspection level and current inspection regime.',
+          'Record sample size, counting basis, classifications, acceptance/rejection criteria and actual counts.',
+          'Retain the random-selection record and identify who selected the samples.',
+          'Compare inspected features and methods with the order requirements; flag exclusions.',
+          'Document later lot changes, rejection/rework decisions and reinspection where required.'
+        ],
+        limitsText: 'Public primary sources reviewed on 16 October 2026. This is a buyer’s reading guide, not the full text or sampling tables of ISO 2859-1 or ANSI/ASQ Z1.4, a statistical plan design, regulatory advice or an inspection service claim. No supplier, sample, factory or shipment was inspected. Contract, traceability and release-file recommendations are ZIMONAI’s editorial assessment; market access, product safety and uninspected characteristics require their own evidence. The workbench photo illustrates an electronics context only.'
+      },
       asml2028CapacityUpgrades: {
         topic: 'Lithography supply and usable wafer capacity',
         published: '15 October 2026',
@@ -5101,6 +5180,48 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      aqlLotAcceptanceInspectionReport: {
+        topic: '抽樣證據與出貨決策',
+        published: '2026 年 10 月 16 日',
+        readTime: '4 分鐘',
+        title: 'AQL 抽樣驗收：合格結果如何對回整批貨',
+        description: '讀懂 AQL 抽樣驗收報告的樣本數、計數方式、允收條件與批次對應，區分整批接收決策、零缺點宣稱及產品認證。',
+        imageAlt: '電子工作桌上的數位三用電表，後方有顯微鏡與焊接工具。',
+        imageCaption: 'IT services EU／Pexels 拍攝的電子工作桌示意照片，依 Pexels 授權重用。2026 年 10 月 8 日下載，10 月 16 日重新確認授權；僅等比例縮圖、JPEG 壓縮及版面裁切。畫面不是 AQL 驗貨、充電器安全測試或 ZIMONAI 的設施、客戶與供應商。',
+        labels: { summary: '讀者摘要', checklist: '買家報告核對清單', limits: '研究限制' },
+        answer: '抽樣驗收是從界定好的批次抽取樣本，依約定規則決定整批是否接收，而非逐件認證或測出整批的精確不良率 [[source:1]]。對海外買家而言，AQL 合格結果的價值，取決於抽樣計畫、實際檢驗項目與出貨批次是否連得起來。ZIMONAI 的編輯判讀是，把「合格」讀成一份可追溯的決策紀錄：若樣本與交付貨物之間缺了一段證據，再醒目的 AQL 數值也補不上這個缺口。',
+        takeaways: [
+          'AQL 是抽樣制度的參數，不是每批貨的不良比例承諾 [[source:2]]。',
+          '樣本數、計數方式與允收條件，共同決定報告如何判讀 [[source:3]][[source:5]]。',
+          '結論只對應界定的批次與已檢項目，不應自動延伸到另一批貨或未測的要求。'
+        ],
+        sections: [
+          { title: '先分清 AQL、樣本與整批貨', paragraphs: [
+            'ASQ 對 AQL 的定義，放在連續多批貨的製程平均品質脈絡中 [[source:2]]。把它解讀成「每箱都容許這個比例的不良品」，就把制度參數誤當成了交貨規格。NIST 也明確區分：抽樣驗收的主要用途是決定整批是否接收，不是估計整批的品質水準 [[source:1]]。',
+            '以單次計數抽樣為例，判定會使用樣本數、允收數與實際觀察到的數量；其他計畫也可能需要再抽樣才作決定 [[source:5]]。只有 AQL 數字而沒有判定規則，讀者無從重建結論。即使採用樣本未發現不合格品才接收的計畫，未檢查的貨物仍然存在，樣本零發現並不等於整批零缺點。',
+            '買家需要的不是套用一組熱門數字，而是由具備統計與品質專業的人員，評估計畫對不同品質批次的接收機率與風險。NIST 以操作特性曲線說明這項關係 [[source:5]]。本文因此不推薦適用所有充電器的 AQL、檢驗水準或樣本數。'
+          ] },
+          { title: '把「合格」接回完整抽樣計畫', paragraphs: [
+            'ASQ 說明，Z1.4 是連續批次使用的抽樣制度，包含轉換規則，以及正常、加嚴與減量檢驗；計數基礎可採不合格品百分比，或每百單位不符合事項數 [[source:3]]。同一件產品若有多項問題，兩種口徑的數量可能不同。計數方式與問題分類應在檢驗前約定，不宜事後變更。',
+            '標準名稱還要帶上版本。ISO 官方目錄已列出 2026 年 1 月發布的第三版 ISO 2859-1:2026 [[source:4]]；這項出版資訊，並不表示每份採購合約都已採用新版。檢視舊報告時，應先確認雙方約定，避免默默換用另一版表格，也不要只因新版問世就宣告舊報告無效。',
+            '買家留存的資料，應涵蓋批次範圍與數量、檢驗水準、當次採用的檢驗狀態、樣本數、允收與拒收條件、實際計數，以及隨機抽取方式。ASQ 詞彙表指出，已公布抽樣表的性質建立在等機率隨機抽樣的假設上 [[source:2]]。賣方挑出的幾件展示品，本身不足以佐證約定的抽樣程序已完成。'
+          ] },
+          { title: '讓報告對得上實際交付貨物', paragraphs: [
+            'ZIMONAI 的採購判讀是，把報告連回訂單、型號與版本、生產批次、箱號、數量及檢驗日期，並留下誰選樣、當時哪些貨物可供抽取的紀錄。若檢驗後增加箱數、更換貨品或重工，應取得書面評估，確認原來的接收決定是否仍涵蓋最後出貨的內容。',
+            '檢驗範圍必須另外看。充電器訂單的外觀、標示、尺寸與指定電氣測試，各自回答不同問題；已列項目的合格，沒有替未測項目產生結果。應對照約定規格、方法、逐項發現與排除項目，不要從「AQL 合格」自行推導電氣安全或目的市場准入。',
+            '拒收、重工與爭議發現如何處理，也應預先約定，包括誰有權決定處置、何時需要重新檢驗。保存原報告與後續決策，而不是只換一張綠色合格標籤。真正有用的交接，是說得清楚、對得上貨的放行紀錄。'
+          ] }
+        ],
+        checklist: [
+          '核對訂單、型號、版本、批次數量與箱號。',
+          '確認約定標準、版本、檢驗水準與當次檢驗狀態。',
+          '記錄樣本數、計數方式、問題分類、允收與拒收條件及實際數量。',
+          '保留隨機抽取紀錄，確認由誰選取樣本。',
+          '逐項對照訂單要求與實際檢驗方法，標明未檢範圍。',
+          '留下後續批次變動、拒收、重工與必要重新檢驗的決策。'
+        ],
+        limitsText: '本文於 2026 年 10 月 16 日查閱公開一手資料，是買家的報告閱讀指南，不是 ISO 2859-1 或 ANSI/ASQ Z1.4 的完整標準、抽樣表、統計計畫設計、法規意見或檢驗服務承諾。本次沒有檢驗任何供應商、樣本、工廠或貨物。合約、追溯與放行資料的建議屬 ZIMONAI 編輯判讀；產品安全、市場准入及未檢特性仍須各自的證據。配圖僅提供電子工作情境。'
+      },
       asml2028CapacityUpgrades: {
         topic: '微影設備供給與晶圓產能',
         published: '2026 年 10 月 15 日',
@@ -7760,6 +7881,48 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      aqlLotAcceptanceInspectionReport: {
+        topic: '验货记录与批次接收',
+        published: '2026 年 10 月 16 日',
+        readTime: '4 分钟',
+        title: 'AQL 抽样检验：读懂批次接收结论',
+        description: '从样本量、计数口径、接收规则和批次追溯理解 AQL 验货报告，避免把接收结论误读为整批零缺陷或产品准入证明。',
+        imageAlt: '电子工作台上摆着数字万用表，背景可见显微镜和焊接工具。',
+        imageCaption: 'IT services EU／Pexels 的电子工作台实拍，按 Pexels 许可用于编辑示意。2026 年 10 月 8 日下载，10 月 16 日复核许可；仅等比例缩放、JPEG 压缩和版面裁切。照片不展示 AQL 验货、充电器安全试验或 ZIMONAI 的场所、客户与供应商。',
+        labels: { summary: '读者概要', checklist: '采购审核清单', limits: '证据边界' },
+        answer: 'AQL 抽样检验以约定的样本和判定规则，支持对特定批次作出接收决定，其用途并非逐台认证或测定整批货的精确不良率 [[source:1]]。海外买家拿到报告后，真正需要衔接的是抽样方案、已检项目和最终交付批次。ZIMONAI 的编辑判断是，一份有价值的合格报告应当让接收决定可以追溯；相比单独展示 AQL 数字，说明样本来自哪批货、查了哪些要求，更能减少采购交接中的误读。',
+        takeaways: [
+          'AQL 用于抽样制度，不等于供应商承诺每批货的不良百分比 [[source:2]]。',
+          '样本量、计数口径及接收条件缺一项，判定就难以复核 [[source:3]][[source:5]]。',
+          '报告覆盖特定批次与列明项目，不应被扩展成其他批次或未检要求的证明。'
+        ],
+        sections: [
+          { title: '接收一批货，不等于测清全部质量', paragraphs: [
+            'ASQ 将 AQL 放在连续批次的过程平均质量框架下定义 [[source:2]]。采购中若把它直接写成“每箱允许多少不良品”，会混淆抽样制度与交货要求。NIST 对验收抽样的定位也很清楚：它服务于批次接收或拒收的决定，而不是估算该批质量水平 [[source:1]]。',
+            '单次计数抽样需要样本量、接收数和实测计数一起参与判定；有些方案还会要求追加抽样，再形成结论 [[source:5]]。所以，报告上的 AQL 数字并不能单独解释一次合格。即便规定样本中未发现不合格品才接收，仍有货物没有被检查；样本中的零发现，不是整批零缺陷的证据。',
+            '抽样方案的风险也值得单独讨论。NIST 用操作特性曲线描述不同质量水平下的批次接收概率 [[source:5]]。采购应让具备质量和统计能力的人员评估方案，而不是直接照搬一组常见数值；本文不为所有充电器推荐统一 AQL、检验水平或样本量。'
+          ] },
+          { title: '审核判定规则，而不只看结果栏', paragraphs: [
+            'ASQ 对 Z1.4 的介绍包含连续批次、转移规则及正常、加严、放宽检验，并区分不合格品百分比与每百单位不合格数两种计数口径 [[source:3]]。一台产品存在多个问题时，两者的统计结果可能不同。问题分类和计数规则应提前谈清，不能为了让某次结果通过而临时调整。',
+            '版本也会影响如何阅读依据。ISO 官方目录显示，ISO 2859-1:2026 第三版于 2026 年 1 月发布 [[source:4]]。但目录更新不等于某份订单自动改用新版。对现有报告，应先查合同选定的标准和版本，不宜混用不同版本的表格，也不应仅凭新版发布就否定旧报告。',
+            '一份便于复核的采购档案，需要写明批次边界、数量、检验水平、当前检验状态、样本量、接收与拒收条件、实测计数及随机选样办法。ASQ 词汇表说明，公开抽样表的性质以等概率随机抽样为假设 [[source:2]]。供应商拿出几台方便展示的样机，尚不能说明约定选样程序已经执行。'
+          ] },
+          { title: '出货前，把样本与最终批次接起来', paragraphs: [
+            'ZIMONAI 的采购建议是建立清晰的对照链：订单、型号和版本、生产批次、箱号、数量、检验日期，以及谁从哪些可用货物中选样。检验之后如有补货、换货或返工，应留存书面判断，说明原接收结论是否仍适用于最终交付的货物。',
+            '检验范围与抽样判定是两件事。以充电器为例，外观、标签、尺寸和指定电气试验分别对应不同要求。已检项目通过，不会为未做的试验产生结果。采购应查看约定要求、方法、逐项发现和除外范围，不要由“AQL 通过”推导电气安全或目的市场准入。',
+            '拒收批次如何处置、返工后何时复检、争议由谁决定，都需要预先安排。原报告和后续处置记录应一起保存。可靠的放行依据来自可解释、可追溯的决定，而不是一张脱离货物身份的合格标识。'
+          ] }
+        ],
+        checklist: [
+          '将订单、型号、版本、批次数量和箱号逐一对应。',
+          '明确合同采用的标准、版本、检验水平与当前检验状态。',
+          '核实样本量、计数口径、分类、接收与拒收条件及实测数量。',
+          '保存随机选样记录，标明选样责任人。',
+          '对照订单要求和实际检验方法，列出未检项目。',
+          '记录检验后批次变动、拒收处置、返工及必要复检。'
+        ],
+        limitsText: '公开一手资料复核日期为 2026 年 10 月 16 日。本文用于帮助采购阅读报告，不提供 ISO 2859-1 或 ANSI/ASQ Z1.4 全文、抽样表、统计方案设计、法规意见或检验服务承诺。本次未检查任何供应商、样本、工厂或货物。合同、追溯与放行档案建议属于 ZIMONAI 编辑分析；产品安全、市场准入及未检特性仍需专门证据。工作台照片仅为电子行业情境示意。'
+      },
       asml2028CapacityUpgrades: {
         topic: '光刻设备供给与晶圆产能',
         published: '2026 年 10 月 15 日',

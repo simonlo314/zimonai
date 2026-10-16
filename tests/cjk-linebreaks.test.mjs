@@ -8,6 +8,26 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('AQL lot-acceptance terminology preserves independent Chinese reading units', () => {
+  const samples = {
+    'zh-tw': ['抽樣驗收', '抽樣計畫', '樣本數', '允收數', '計數方式', '判定規則', '檢驗水準', '隨機抽取', '等機率', '不合格品', '不符合事項', '操作特性曲線', '接收機率', '整批貨', '零缺點', '出貨批次', '電子工作桌', '放行紀錄'],
+    'zh-cn': ['抽样检验', '抽样方案', '样本量', '接收数', '计数口径', '判定规则', '检验水平', '随机选样', '等概率', '不合格品', '不合格数', '操作特性曲线', '接收概率', '整批货', '零缺陷', '批次追溯', '电子工作台', '放行依据']
+  };
+  for (const [locale, terms] of Object.entries(samples)) {
+    const contextualTerms = locale === 'zh-tw' ? ['事後變更'] : ['选样责任人', '批次接收概率'];
+    for (const term of [...terms, ...contextualTerms, 'AQL', 'ISO 2859-1:2026', 'ANSI/ASQ Z1.4-2003 (R2018)', 'ANSI/ASQ Z1.4', 'IT services EU']) {
+      const result = protectCjkText(term, locale);
+      assert.ok(result.includes(`>${term}</span>`), `${locale}: ${term}`);
+      assert.equal(removeProtectionMarkup(result), term);
+    }
+    const title = locale === 'zh-tw' ? 'AQL 抽樣驗收：合格結果如何對回整批貨' : 'AQL 抽样检验：读懂批次接收结论';
+    assert.equal(removeProtectionMarkup(protectCjkText(title, locale)), title);
+    if (locale === 'zh-cn') {
+      assert.ok(protectCjkText('不同质量水平下的批次接收概率。', locale).includes('>批次接收概率。</span>'));
+    }
+  }
+});
+
 test('ASML capacity and installed-tool upgrade terms keep native Chinese phrases intact', () => {
   const samples = {
     'zh-tw': ['微影設備', '低 NA EUV', '浸潤式 DUV', '高 NA EUV', '既有機台', '機台升級', '可用晶圓產能', '晶圓產能', '供給展望', '預期供給吃緊', '設備範圍', '產能增幅', '設備需求預測', '生產力升級', '現場選配', '淨銷售額', '升級收入', '吞吐量', '有效產出', '已裝機設備', '機台安裝', '製程認可', '穩定量產', '長期意向', '下單興趣', '下單意向', '供給路徑', '運輸貨櫃', '空運貨櫃', '加碼擴產', '產品配置', '機台驗收', '量產爬坡', '產能稽核', '管理階層', '擴產', '提效'],
