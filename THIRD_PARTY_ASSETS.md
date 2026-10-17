@@ -166,13 +166,13 @@ The following photographs were downloaded from their original Unsplash pages und
 - Use: three-language news analysis of SIA's 9 October 2026 report on semiconductor equipment/materials production geography. A real semiconductor-category archival illustration, not the report's own artwork, a mapped facility, a current U.S. production sample or a ZIMONAI client/supplier product. No rights-cleared event-specific press photograph was identified in SIA's release/report; the report's graphics and portraits are not republished. Visible caption, source link and source-list licence retain attribution, date and changes.
 - Preliminary art direction: card `42% 40%`, desktop article `44% 42%`, mobile article `38% 45%`, chosen to keep recognisable circuit patterns while avoiding the lower-right glare. Final rendered visual acceptance is separate.
 
-## AQL lot-acceptance guide — reused electronics-workbench photograph, 2026-10-16
+## AQL lot-acceptance guide — reused electronics-workbench photograph, 2026-10-17
 
 - Reused asset: `src/assets/editorial-cnas-laboratory-workbench.jpg` (1600 × 1067 JPEG), originally downloaded 8 October 2026. Creator: IT services EU. [Original Pexels photograph 7639432](https://www.pexels.com/photo/digital-multimeter-7639432/) shows a multimeter, microscope and soldering tools; original dimensions 4241 × 2829.
-- [Pexels License](https://www.pexels.com/license/) and original creator page rechecked 16 October 2026; website reuse is permitted, with no implied endorsement. No new download or generative edit. Existing proportional resizing/JPEG compression and separate CSS crops only.
+- [Pexels License](https://www.pexels.com/license/) and original creator page rechecked 17 October 2026; website reuse is permitted, with no implied endorsement. No new download or generative edit. Existing proportional resizing/JPEG compression and separate CSS crops only.
 - New use: three-language AQL inspection-report reading guide. Electronics-context illustration, not evidence of random sampling, a charger test, a ZIMONAI inspection, client, supplier or facility. Visible caption identifies creator, source, original download date, current licence review and evidence boundary; the source list links the licence.
 - Crop review targets: card `47% 84%`, desktop article `46% 78%`, mobile article `43% 70%`. The multimeter and electronic-workbench context must remain recognisable in each. Actual rendered review is a separate release gate.
-- Editorial lead reviewed through 16 October: ASML remains featured because of the fresh equipment-supply development and directly identifiable logistics photograph. AQL uses the existing regular knowledge-card template; no navigation or article layout changes.
+- Editorial lead reviewed through 17 October: ASML remains featured because of the fresh equipment-supply development and directly identifiable logistics photograph. AQL uses the existing regular knowledge-card template; no navigation or article layout changes.
 
 ## Representation boundary
 

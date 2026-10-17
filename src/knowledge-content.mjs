@@ -23,8 +23,8 @@ export const knowledgeArticleSpecs = [
       'zh-tw': ['AQL 抽樣驗收', '抽樣檢驗報告', '允收數與樣本數', '充電器出貨批次'],
       'zh-cn': ['AQL 抽样检验', '批次接收结论', '接收数与样本量', '充电器验货报告']
     },
-    datePublished: '2026-10-16',
-    dateModified: '2026-10-16',
+    datePublished: '2026-10-17',
+    dateModified: '2026-10-17',
     image: '/assets/editorial-cnas-laboratory-workbench.jpg',
     imageWidth: 1600,
     imageHeight: 1067,
@@ -53,7 +53,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/asml-2027-2028-capacity-upgrades',
     featured: true,
-    featuredReviewedThrough: '2026-10-16',
+    featuredReviewedThrough: '2026-10-17',
     category: 'commercial-risk',
     products: ['general'],
     markets: ['global'],
@@ -2442,12 +2442,12 @@ export const knowledgeContent = {
     articles: {
       aqlLotAcceptanceInspectionReport: {
         topic: 'Sampling evidence and shipment decisions',
-        published: '16 October 2026',
+        published: '17 October 2026',
         readTime: '4 minutes',
         title: 'AQL inspection reports: what lot acceptance actually means',
         description: 'Read an AQL inspection result through its sample, counting rules, test scope and shipment lot—not as a guarantee of zero defects or product approval.',
         imageAlt: 'A digital multimeter in front of a microscope and soldering tools on an electronics workbench.',
-        imageCaption: 'Electronics-workbench illustration by IT services EU / Pexels, reused under the Pexels License. Downloaded 8 October 2026; licence rechecked 16 October. Resizing, JPEG compression and layout crops only. This is not an AQL inspection, a charger safety test or a ZIMONAI facility, client or supplier.',
+        imageCaption: 'Electronics-workbench illustration by IT services EU / Pexels, reused under the Pexels License. Downloaded 8 October 2026; licence rechecked 17 October. Resizing, JPEG compression and layout crops only. This is not an AQL inspection, a charger safety test or a ZIMONAI facility, client or supplier.',
         labels: { summary: 'Reader overview', checklist: 'Buyer report checklist', limits: 'Scope and evidence limits' },
         answer: 'Acceptance sampling uses a sample to decide whether to accept a defined lot, rather than certify every unit or measure its exact defect rate [[source:1]]. An AQL result therefore matters to overseas buyers only alongside the agreed plan, inspected features and shipment identity. ZIMONAI’s editorial view is to treat “accepted” as a traceable decision record: a missing link between the sample and the goods can matter more than the headline AQL number.',
         takeaways: [
@@ -2480,7 +2480,7 @@ export const knowledgeContent = {
           'Compare inspected features and methods with the order requirements; flag exclusions.',
           'Document later lot changes, rejection/rework decisions and reinspection where required.'
         ],
-        limitsText: 'Public primary sources reviewed on 16 October 2026. This is a buyer’s reading guide, not the full text or sampling tables of ISO 2859-1 or ANSI/ASQ Z1.4, a statistical plan design, regulatory advice or an inspection service claim. No supplier, sample, factory or shipment was inspected. Contract, traceability and release-file recommendations are ZIMONAI’s editorial assessment; market access, product safety and uninspected characteristics require their own evidence. The workbench photo illustrates an electronics context only.'
+        limitsText: 'Public primary sources reviewed on 17 October 2026. This is a buyer’s reading guide, not the full text or sampling tables of ISO 2859-1 or ANSI/ASQ Z1.4, a statistical plan design, regulatory advice or an inspection service claim. No supplier, sample, factory or shipment was inspected. Contract, traceability and release-file recommendations are ZIMONAI’s editorial assessment; market access, product safety and uninspected characteristics require their own evidence. The workbench photo illustrates an electronics context only.'
       },
       asml2028CapacityUpgrades: {
         topic: 'Lithography supply and usable wafer capacity',
@@ -5182,12 +5182,12 @@ export const knowledgeContent = {
     articles: {
       aqlLotAcceptanceInspectionReport: {
         topic: '抽樣證據與出貨決策',
-        published: '2026 年 10 月 16 日',
+        published: '2026 年 10 月 17 日',
         readTime: '4 分鐘',
         title: 'AQL 抽樣驗收：合格結果如何對回整批貨',
         description: '讀懂 AQL 抽樣驗收報告的樣本數、計數方式、允收條件與批次對應，區分整批接收決策、零缺點宣稱及產品認證。',
         imageAlt: '電子工作桌上的數位三用電表，後方有顯微鏡與焊接工具。',
-        imageCaption: 'IT services EU／Pexels 拍攝的電子工作桌示意照片，依 Pexels 授權重用。2026 年 10 月 8 日下載，10 月 16 日重新確認授權；僅等比例縮圖、JPEG 壓縮及版面裁切。畫面不是 AQL 驗貨、充電器安全測試或 ZIMONAI 的設施、客戶與供應商。',
+        imageCaption: 'IT services EU／Pexels 拍攝的電子工作桌示意照片，依 Pexels 授權重用。2026 年 10 月 8 日下載，10 月 17 日重新確認授權；僅等比例縮圖、JPEG 壓縮及版面裁切。畫面不是 AQL 驗貨、充電器安全測試或 ZIMONAI 的設施、客戶與供應商。',
         labels: { summary: '讀者摘要', checklist: '買家報告核對清單', limits: '研究限制' },
         answer: '抽樣驗收是從界定好的批次抽取樣本，依約定規則決定整批是否接收，而非逐件認證或測出整批的精確不良率 [[source:1]]。對海外買家而言，AQL 合格結果的價值，取決於抽樣計畫、實際檢驗項目與出貨批次是否連得起來。ZIMONAI 的編輯判讀是，把「合格」讀成一份可追溯的決策紀錄：若樣本與交付貨物之間缺了一段證據，再醒目的 AQL 數值也補不上這個缺口。',
         takeaways: [
@@ -5220,7 +5220,7 @@ export const knowledgeContent = {
           '逐項對照訂單要求與實際檢驗方法，標明未檢範圍。',
           '留下後續批次變動、拒收、重工與必要重新檢驗的決策。'
         ],
-        limitsText: '本文於 2026 年 10 月 16 日查閱公開一手資料，是買家的報告閱讀指南，不是 ISO 2859-1 或 ANSI/ASQ Z1.4 的完整標準、抽樣表、統計計畫設計、法規意見或檢驗服務承諾。本次沒有檢驗任何供應商、樣本、工廠或貨物。合約、追溯與放行資料的建議屬 ZIMONAI 編輯判讀；產品安全、市場准入及未檢特性仍須各自的證據。配圖僅提供電子工作情境。'
+        limitsText: '本文於 2026 年 10 月 17 日查閱公開一手資料，是買家的報告閱讀指南，不是 ISO 2859-1 或 ANSI/ASQ Z1.4 的完整標準、抽樣表、統計計畫設計、法規意見或檢驗服務承諾。本次沒有檢驗任何供應商、樣本、工廠或貨物。合約、追溯與放行資料的建議屬 ZIMONAI 編輯判讀；產品安全、市場准入及未檢特性仍須各自的證據。配圖僅提供電子工作情境。'
       },
       asml2028CapacityUpgrades: {
         topic: '微影設備供給與晶圓產能',
@@ -7883,12 +7883,12 @@ export const knowledgeContent = {
     articles: {
       aqlLotAcceptanceInspectionReport: {
         topic: '验货记录与批次接收',
-        published: '2026 年 10 月 16 日',
+        published: '2026 年 10 月 17 日',
         readTime: '4 分钟',
         title: 'AQL 抽样检验：读懂批次接收结论',
         description: '从样本量、计数口径、接收规则和批次追溯理解 AQL 验货报告，避免把接收结论误读为整批零缺陷或产品准入证明。',
         imageAlt: '电子工作台上摆着数字万用表，背景可见显微镜和焊接工具。',
-        imageCaption: 'IT services EU／Pexels 的电子工作台实拍，按 Pexels 许可用于编辑示意。2026 年 10 月 8 日下载，10 月 16 日复核许可；仅等比例缩放、JPEG 压缩和版面裁切。照片不展示 AQL 验货、充电器安全试验或 ZIMONAI 的场所、客户与供应商。',
+        imageCaption: 'IT services EU／Pexels 的电子工作台实拍，按 Pexels 许可用于编辑示意。2026 年 10 月 8 日下载，10 月 17 日复核许可；仅等比例缩放、JPEG 压缩和版面裁切。照片不展示 AQL 验货、充电器安全试验或 ZIMONAI 的场所、客户与供应商。',
         labels: { summary: '读者概要', checklist: '采购审核清单', limits: '证据边界' },
         answer: 'AQL 抽样检验以约定的样本和判定规则，支持对特定批次作出接收决定，其用途并非逐台认证或测定整批货的精确不良率 [[source:1]]。海外买家拿到报告后，真正需要衔接的是抽样方案、已检项目和最终交付批次。ZIMONAI 的编辑判断是，一份有价值的合格报告应当让接收决定可以追溯；相比单独展示 AQL 数字，说明样本来自哪批货、查了哪些要求，更能减少采购交接中的误读。',
         takeaways: [
@@ -7921,7 +7921,7 @@ export const knowledgeContent = {
           '对照订单要求和实际检验方法，列出未检项目。',
           '记录检验后批次变动、拒收处置、返工及必要复检。'
         ],
-        limitsText: '公开一手资料复核日期为 2026 年 10 月 16 日。本文用于帮助采购阅读报告，不提供 ISO 2859-1 或 ANSI/ASQ Z1.4 全文、抽样表、统计方案设计、法规意见或检验服务承诺。本次未检查任何供应商、样本、工厂或货物。合同、追溯与放行档案建议属于 ZIMONAI 编辑分析；产品安全、市场准入及未检特性仍需专门证据。工作台照片仅为电子行业情境示意。'
+        limitsText: '公开一手资料复核日期为 2026 年 10 月 17 日。本文用于帮助采购阅读报告，不提供 ISO 2859-1 或 ANSI/ASQ Z1.4 全文、抽样表、统计方案设计、法规意见或检验服务承诺。本次未检查任何供应商、样本、工厂或货物。合同、追溯与放行档案建议属于 ZIMONAI 编辑分析；产品安全、市场准入及未检特性仍需专门证据。工作台照片仅为电子行业情境示意。'
       },
       asml2028CapacityUpgrades: {
         topic: '光刻设备供给与晶圆产能',
