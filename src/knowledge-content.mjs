@@ -7,6 +7,42 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand TSMC's 15 October 2026 results as evidence of a 2nm revenue ramp.
+  // Related questions: the 8% denominator; the Q2 comparison; process versus platform mix;
+  // reported results versus Q4 guidance; what remains unknown about usable downstream supply.
+  {
+    id: 'knowledge-tsmc-q3-2026-2nm-ramp',
+    key: 'tsmcQ32026TwoNmRamp',
+    contentType: 'current-affairs',
+    slug: 'knowledge/tsmc-q3-2026-2nm-ramp',
+    category: 'commercial-risk',
+    products: ['general'],
+    markets: ['global'],
+    keywords: {
+      en: ['TSMC Q3 2026 2nm revenue', 'TSMC 2nm wafer revenue share', '2nm manufacturing ramp October 2026', 'TSMC process mix versus HPC revenue'],
+      'zh-tw': ['台積電 2026 第三季', '2 奈米 晶圓銷售金額', '台積電 量產爬坡', '先進製程 營收占比'],
+      'zh-cn': ['台积电 2026 三季度', '2 纳米 晶圆收入', '2 纳米 量产爬坡', '工艺占比 高性能计算']
+    },
+    datePublished: '2026-10-18',
+    dateModified: '2026-10-18',
+    image: '/assets/editorial-tsmc-q3-2026-2nm.jpg',
+    imageWidth: 1600,
+    imageHeight: 1071,
+    imageCrop: { card: '28% 38%', article: '30% 40%', mobile: '0% 34%' },
+    photo: {
+      photographer: 'Peellden',
+      page: 'https://commons.wikimedia.org/wiki/File:TSMC_Fab5.JPG',
+      license: 'https://creativecommons.org/licenses/by-sa/3.0/'
+    },
+    sources: [
+      { publisher: 'TSMC / U.S. SEC', title: 'Q3 2026 results, 15 October 2026 — original news release filed as Form 6-K Exhibit 99.1', url: 'https://www.sec.gov/Archives/edgar/data/1046179/000104617926000726/a3q26e_withguidancexfinal.htm' },
+      { publisher: 'TSMC / U.S. SEC', title: 'Q3 2026 presentation — original Exhibit 99.2; slides 4 and 5 show technology and platform revenue mix', url: 'https://www.sec.gov/Archives/edgar/data/1046179/000104617926000726/a3q26presentatione.htm' },
+      { publisher: 'TSMC / U.S. SEC', title: 'Q2 2026 results, 16 July 2026 — 2nm baseline of 3% of total wafer revenue', url: 'https://www.sec.gov/Archives/edgar/data/1046179/000104617926000451/a2q26e_withguidancexfinal.htm' },
+      { publisher: 'Reuters / CTech', title: 'TSMC’s AI-fueled growth continues with record $23.6 billion quarterly profit — 15 October 2026', url: 'https://www.calcalistech.com/ctechnews/article/5tvgmgn61' },
+      { publisher: 'Wikimedia Commons / Peellden', title: 'TSMC Fab5 — archival photograph taken 5 September 2010; CC BY-SA 3.0', url: 'https://commons.wikimedia.org/wiki/File:TSMC_Fab5.JPG' },
+      { publisher: 'Creative Commons', title: 'CC BY-SA 3.0 — attribution, change disclosure and share-alike conditions for the photograph', url: 'https://creativecommons.org/licenses/by-sa/3.0/' }
+    ]
+  },
   // Search intent: interpret an AQL lot-acceptance report before shipment release.
   // Related questions: AQL versus a lot defect rate; sample size and acceptance number;
   // random selection; counting units versus nonconformities; inspection scope and lot traceability.
@@ -53,7 +89,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/asml-2027-2028-capacity-upgrades',
     featured: true,
-    featuredReviewedThrough: '2026-10-17',
+    featuredReviewedThrough: '2026-10-18',
     category: 'commercial-risk',
     products: ['general'],
     markets: ['global'],
@@ -2440,6 +2476,46 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      tsmcQ32026TwoNmRamp: {
+        topic: 'Advanced-process manufacturing and revenue mix',
+        published: '18 October 2026',
+        readTime: '4 minutes',
+        title: 'TSMC’s 2nm ramp reaches 8% of wafer revenue in Q3',
+        description: 'TSMC’s 15 October results put 2nm at 8% of Q3 wafer revenue, up from 3% in Q2. A commercial ramp is visible; capacity, yield and buyer allocation remain separate questions.',
+        imageAlt: 'Archival view of TSMC Fab5 in Hsinchu, with the red TSMC logo visible on the building behind trees.',
+        imageCaption: 'Archival photograph of TSMC Fab5 in Hsinchu by Peellden, 5 September 2010; CC BY-SA 3.0. Downloaded 18 October 2026; proportionally resized, JPEG-compressed and layout-cropped. The photograph and its adaptations remain under that licence. This is not a 2nm production line, a 2026 capacity record or a ZIMONAI assignment.',
+        labels: { summary: 'News summary', checklist: 'What to watch next', limits: 'What remains unresolved' },
+        answer: 'TSMC reported on 15 October 2026 that 2nm accounted for 8% of third-quarter wafer revenue, against 3% in the second quarter [[source:1]][[source:3]]. The bigger story is a commercial ramp now visible in sales, although the percentage does not measure wafer capacity or yield. For electronics manufacturers, a growing process business and supply for a particular product remain distinct. ZIMONAI’s editorial view is that the next meaningful milestone is how the revenue ramp translates into usable downstream output—not treating a sales share as a delivery promise.',
+        takeaways: [
+          'The 8% figure is a share of wafer revenue, not a share of capacity, chip units or the global market [[source:1]].',
+          'The separate 68% HPC platform figure describes a different revenue grouping; it does not identify the users of every 2nm wafer [[source:2]].',
+          'Fourth-quarter revenue guidance of US$52.3–54.3 billion is management’s outlook, not a completed quarter [[source:1]].'
+        ],
+        sections: [
+          { title: 'The commercial ramp now has a reported sales share', paragraphs: [
+            'The foundry’s 15 October release put Q3 revenue at US$46.72 billion. Within wafer revenue, 2nm represented 8%, 3nm 33%, 5nm 28% and 7nm 10%; technologies at 7nm and below together accounted for 79% [[source:1]]. The 2nm comparison is especially notable: the July release reported a 3% share for Q2 [[source:3]]. The increase is five percentage points, not five percent.',
+            'This is evidence of a changing sales mix. It does not disclose the number of 2nm wafers, their selling price or their yield. A larger revenue share can reflect more than physical volume, so converting 8% into a wafer-capacity estimate would add assumptions the release does not supply.',
+            'The release says the consolidated figures were prepared under TIFRS and notes that the Q3 figures had not yet been approved by the board [[source:1]]. They are reported company results at that date, not an independent inspection of a fabrication plant.'
+          ] },
+          { title: 'Process mix and AI demand answer different questions', paragraphs: [
+            'TSMC’s presentation separately assigns 68% of Q3 revenue to high-performance computing, or HPC, and 21% to smartphones [[source:2]]. The technology chart groups wafer revenue by process; the platform chart groups revenue by application platform. Those percentages should not be multiplied to invent an “AI 2nm” sales figure.',
+            'Reuters’ reporting, carried by CTech on 15 October, places the results in continued AI-related demand and discusses leading-edge chips and advanced packaging [[source:4]]. That is independent reporting, not an independent audit of TSMC’s numbers. Neither the cited charts nor that coverage provides a cross-tabulation assigning every 2nm sale to a named customer or application.',
+            'ZIMONAI reads the development as a manufacturing transition with a measurable commercial contribution. For downstream buyers, a leading-edge process ramp still sits upstream of a usable component. Packaging, testing and the relevant product’s production schedule remain separate milestones; the public results do not specify how much supply any individual buyer can obtain.'
+          ] },
+          { title: 'The next quarter is still an outlook', paragraphs: [
+            'Management expects Q4 revenue of US$52.3–54.3 billion and says continued demand for leading-edge technologies, including a steep 2nm ramp, should support the business [[source:1]]. The range is forward-looking. It should stay visibly separate from Q3’s reported revenue and process mix.',
+            'The useful follow-up is whether subsequent disclosures show the ramp continuing and clarify its manufacturing contribution. A further rise in sales share would still need its own denominator; it would not automatically settle yield, customer allocation, component prices or lead times.',
+            'This is why the event matters beyond an earnings headline: 2nm is becoming a larger part of the foundry’s reported business. What changes next is the relationship between that commercial growth and usable product output, rather than an assumed easing or tightening of every electronics supply chain.'
+          ] }
+        ],
+        checklist: [
+          'Keep the reported Q3 mix separate from management’s Q4 forecast.',
+          'Check the denominator whenever a later report cites a process or platform percentage.',
+          'Look for product-specific packaging, test and production milestones before inferring available supply.',
+          'Treat buyer allocation, component prices and delivery dates as unresolved unless separately disclosed.'
+        ],
+        limitsText: 'Sources reviewed on 18 October 2026; the event date is 15 October. The cited material establishes company-reported financial and mix figures plus management guidance, not process yield, fab-level capacity, named-buyer allocation or a purchasing commitment. Procurement implications are ZIMONAI’s editorial interpretation. No factory, supplier, customer order or shipment was inspected, and no participation in TSMC projects is claimed. The 2010 Fab5 photograph is an archival illustration, not evidence of 2nm manufacturing. This is industry reporting, not investment advice.'
+      },
       aqlLotAcceptanceInspectionReport: {
         topic: 'Sampling evidence and shipment decisions',
         published: '17 October 2026',
@@ -5180,6 +5256,46 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      tsmcQ32026TwoNmRamp: {
+        topic: '先進製程與量產爬坡',
+        published: '2026 年 10 月 18 日',
+        readTime: '4 分鐘',
+        title: '台積電第三季：2 奈米占晶圓營收 8%',
+        description: '台積電 10 月 15 日公布第三季業績，2 奈米占晶圓銷售金額 8%，高於第二季的 3%。讀懂量產爬坡的商業訊號，以及產能、良率與個別供貨仍待釐清的部分。',
+        imageAlt: '新竹台積電晶圓五廠的歷史照片，樹木後方的廠房外牆可見紅色 TSMC 標誌。',
+        imageCaption: 'Peellden 於 2010 年 9 月 5 日拍攝的新竹台積電晶圓五廠資料照片，採 CC BY-SA 3.0 授權。2026 年 10 月 18 日下載；僅等比例縮圖、JPEG 壓縮及版面裁切，照片與其改作沿用同一授權。畫面為歷史示意，不是 2 奈米產線，也不代表當期產能或 ZIMONAI 專案。',
+        labels: { summary: '新聞摘要', checklist: '接下來值得觀察', limits: '尚待釐清的事項' },
+        answer: '台積電於 2026 年 10 月 15 日公布第三季業績，2 奈米占晶圓銷售金額 8%，較第二季的 3% 明顯提高 [[source:1]][[source:3]]。更值得注意的是，新製程的商業貢獻已反映在業績中，但營收占比與晶圓產能、製程良率是不同指標。對電子製造業而言，量產爬坡帶來的收入，仍要與特定產品實際可用的供給分開看。ZIMONAI 的編輯判讀是，接下來更有價值的訊號，是這股營收成長如何落到可交付的產品，而非把銷售占比讀成供貨承諾。',
+        takeaways: [
+          '8% 的分母是晶圓銷售金額，不是產能、晶片顆數或全球市占率 [[source:1]]。',
+          '高效能運算占營收 68%，屬於另一種分類，沒有揭露每片 2 奈米晶圓的用途 [[source:2]]。',
+          '第四季營收預估為 523 億至 543 億美元，是管理階層展望，不是已完成的業績 [[source:1]]。'
+        ],
+        sections: [
+          { title: '2 奈米的商業貢獻進入財報', paragraphs: [
+            '台積電第三季營收為 467.2 億美元。按晶圓銷售金額計算，2 奈米占 8%、3 奈米占 33%、5 奈米占 28%、7 奈米占 10%；7 奈米及更先進製程合計占 79% [[source:1]]。對照 7 月公布的第二季資料，2 奈米當時占 3% [[source:3]]，本季提高了 5 個百分點，不是增加 5%。',
+            '最值得注意的是營收組合正在改變。這個比例沒有提供 2 奈米的晶圓片數、單價或良率，因此不宜直接換算成產能。金額占比的變動，可能涉及數量以外的因素；目前揭露不足以拆解各項原因。',
+            '新聞稿說明，合併數據依臺灣認可的國際財務報導準則編製，並註明第三季數字當時尚未經董事會通過 [[source:1]]。本文將它視為公司當日公布的業績，不擴大稱為對個別晶圓廠的獨立查驗。'
+          ] },
+          { title: '先進製程與 AI 需求要分開讀', paragraphs: [
+            '台積電簡報另列高效能運算，也就是 HPC，占第三季營收 68%，智慧型手機占 21% [[source:2]]。製程圖表按技術節點區分晶圓收入，平台圖表則按應用平台分類；兩者不是同一張交叉表。把兩個比例相乘，並不能得出「AI 使用的 2 奈米營收」。',
+            '路透 10 月 15 日的報導由 CTech 刊出，將業績放在 AI 相關需求持續成長的脈絡，並討論先進晶片與先進封裝需求 [[source:4]]。這是獨立新聞報導，不是另一次財報查核；上述來源也沒有把每筆 2 奈米收入逐一對應到特定客戶與用途。',
+            'ZIMONAI 認為，這次變化的產業價值，在於量產轉換已有可觀察的商業貢獻。對下游買家而言，製程收入成長，與零組件能否依產品排程交付，仍隔著封裝、測試及產品量產等環節。這是編輯判讀，不是台積電替任何買家公布的分配量。'
+          ] },
+          { title: '下一季展望還要等實際結果', paragraphs: [
+            '管理階層預估第四季營收為 523 億至 543 億美元，並表示先進製程需求及 2 奈米快速爬坡將支撐業務 [[source:1]]。這是一項前瞻展望，應與第三季已公布的收入和製程占比分開呈現。',
+            '後續值得追蹤的，是新資料是否延續這股爬坡趨勢，以及公司如何補充製造貢獻的說明。即使下一次營收占比繼續提高，也仍須看清分母；良率、客戶分配、零組件價格與交期，需要各自的證據。',
+            '這則新聞不只是一個財報數字：2 奈米正成為台積電業務中更大的一部分。接下來的關鍵，是商業成長與可交付產品之間的連結如何變化，而不是據此推論整個電子產業的供需走向。'
+          ] }
+        ],
+        checklist: [
+          '區分第三季已公布數據與第四季管理階層預測。',
+          '追蹤製程或平台占比時，同時確認統計分母。',
+          '觀察特定產品的封裝、測試與量產進度，再判讀可用供給。',
+          '個別買家的分配量、價格與交期，以另行公布或約定的資料為準。'
+        ],
+        limitsText: '資料查閱日為 2026 年 10 月 18 日，事件發生日為 10 月 15 日。本文依據公司公布的業績、營收分類及管理階層展望撰寫，未取得製程良率、個別廠產能、買家分配量或採購承諾。採購意涵屬 ZIMONAI 編輯判讀；未查驗工廠、供應商、客戶訂單或出貨，也未宣稱參與台積電專案。2010 年晶圓五廠照片僅為歷史示意，不是 2 奈米製造證據。本文為產業報導，不構成投資建議。'
+      },
       aqlLotAcceptanceInspectionReport: {
         topic: '抽樣證據與出貨決策',
         published: '2026 年 10 月 17 日',
@@ -7881,6 +7997,46 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      tsmcQ32026TwoNmRamp: {
+        topic: '先进工艺与商业化进度',
+        published: '2026 年 10 月 18 日',
+        readTime: '4 分钟',
+        title: '台积电三季度：2 纳米占晶圆收入 8%',
+        description: '台积电 10 月 15 日业绩显示，2 纳米占三季度晶圆收入 8%，二季度为 3%。收入结构呈现量产爬坡，具体产能、良率和客户可得供应仍需另看证据。',
+        imageAlt: '台积电新竹晶圆五厂的历史实拍，厂房外墙的红色 TSMC 标志位于树木后方。',
+        imageCaption: 'Peellden 于 2010 年 9 月 5 日拍摄的台积电新竹晶圆五厂资料照片，按 CC BY-SA 3.0 使用。2026 年 10 月 18 日下载；只做等比例缩放、JPEG 压缩和版面裁切，照片及其改编继续采用该许可。它不展示 2 纳米生产线、2026 年产能状况或 ZIMONAI 项目。',
+        labels: { summary: '新闻概要', checklist: '后续观察点', limits: '尚未披露的边界' },
+        answer: '台积电 2026 年 10 月 15 日发布的三季度业绩显示，2 纳米占晶圆收入的比例已达到 8%，二季度这一数字为 3% [[source:1]][[source:3]]。值得关注的是，量产爬坡已体现为更明显的销售贡献，但收入结构并不直接给出晶圆产能或生产良率。对电子制造企业来说，工艺商业化与具体产品能拿到多少供应，是需要分开判断的两件事。ZIMONAI 的编辑判断是，下一步应关注收入增长如何转化为可交付产品，而不是把工艺占比当成交期承诺。',
+        takeaways: [
+          '2 纳米的 8% 指晶圆收入占比，不是产能份额、芯片数量或全球市场份额 [[source:1]]。',
+          'HPC 占营收 68% 属于平台分类，不能据此认定全部 2 纳米收入来自 AI [[source:2]]。',
+          '四季度 523 亿至 543 亿美元的收入区间是管理层预测，尚不是实际业绩 [[source:1]]。'
+        ],
+        sections: [
+          { title: '工艺爬坡，先看收入结构的变化', paragraphs: [
+            '台积电公布三季度收入 467.2 亿美元。按晶圆收入划分，2 纳米占 8%，3 纳米占 33%，5 纳米占 28%，7 纳米占 10%；7 纳米及更先进工艺合计为 79% [[source:1]]。7 月发布的二季度数据中，2 纳米占比为 3% [[source:3]]。两季相差 5 个百分点，不是增长 5%。',
+            '这一变化把新工艺的商业化进度呈现在收入端，但没有同时披露 2 纳米晶圆数量、单价或良率。收入比例受物理产量之外的因素影响，因此不能仅用 8% 反推对应产能，也不能把它理解为全行业的市场份额。',
+            '公告说明合并数据按台湾认可的国际财务报告准则编制，并注明三季度数字在发布时尚未获董事会批准 [[source:1]]。报道依据是公司的当日披露，而不是对某座晶圆厂进行的独立核验。'
+          ] },
+          { title: 'HPC 需求与 2 纳米占比不是同一口径', paragraphs: [
+            '公司简报还列出，HPC 即高性能计算占三季度营收 68%，智能手机为 21% [[source:2]]。工艺图表按技术节点归类晶圆收入，平台图表按应用平台归类营收。这两组数据没有提供交叉明细，相乘并不能产生可靠的“AI 2 纳米收入”。',
+            'CTech 刊载的路透 10 月 15 日报道，把业绩增长放在 AI 相关需求的背景下，涉及先进芯片和先进封装 [[source:4]]。独立报道提供新闻背景，并不意味着路透重新审计了财务数字；这些来源也未把每笔 2 纳米销售对应到具体客户或应用。',
+            'ZIMONAI 的行业解读是，先进工艺转入量产后的商业贡献正在扩大。对采购端而言，上游销售收入与下游可用器件之间，还有封装、测试及具体产品的生产安排。收入增长是一个观察信号，不是某家客户已经获得产能配额的证明。'
+          ] },
+          { title: '四季度预测，仍需后续披露验证', paragraphs: [
+            '管理层给出四季度收入 523 亿至 543 亿美元的区间，并预计先进工艺需求及 2 纳米快速爬坡继续支持业务 [[source:1]]。这是对未来季度的判断，不能和三季度已报告收入、工艺结构放在同一类实际结果中。',
+            '接下来可观察后续披露是否显示爬坡延续，以及制造贡献是否得到更具体的说明。即使收入占比继续上升，也需要单独识别其统计口径；良率、客户配额、器件价格和交付周期仍要依靠对应证据。',
+            '这次业绩的产业意义，在于 2 纳米已成为公司业务中更显著的一部分。下一阶段值得跟踪的是商业化增长怎样落实为产品供应，而非据此推断所有电子产品都会同时缺货或供应宽松。'
+          ] }
+        ],
+        checklist: [
+          '后续阅读时，将三季度实际披露和四季度预测分别标注。',
+          '比较工艺与平台百分比前，先确认各自统计口径。',
+          '关注具体产品的封装、测试和量产进度，再判断可用供应。',
+          '客户配额、器件报价和交付周期，等待相关披露或订单证据。'
+        ],
+        limitsText: '资料核对截至 2026 年 10 月 18 日，报道事件发生于 10 月 15 日。文章使用公司业绩、收入分类及管理层预测，不提供工艺良率、单厂产能、客户配额或采购承诺的验证。采购影响为 ZIMONAI 编辑分析；没有核查工厂、供应商、客户订单或出货，也未参与文中所述台积电项目。2010 年晶圆五厂照片仅作历史示意，不证明 2 纳米制造情况。本文为产业报道，不是投资建议。'
+      },
       aqlLotAcceptanceInspectionReport: {
         topic: '验货记录与批次接收',
         published: '2026 年 10 月 17 日',

@@ -8,6 +8,44 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('TSMC process ramp and platform mix retain independent Chinese reading units', () => {
+  const samples = {
+    'zh-tw': ['台積電', '晶圓五廠', '先進製程', '量產爬坡', '晶圓營收', '晶圓銷售金額', '營收占比', '商業貢獻', '高效能運算', '製程良率', '技術節點', '先進封裝', '分配量', '供貨承諾', '國際財務報導準則'],
+    'zh-cn': ['台积电', '晶圆五厂', '先进工艺', '商业化进度', '晶圆收入', '收入结构', '收入占比', '销售贡献', '高性能计算', '生产良率', '技术节点', '先进封装', '产能配额', '交期承诺', '国际财务报告准则']
+  };
+  for (const [locale, terms] of Object.entries(samples)) {
+    for (const term of [...terms, 'TSMC', 'HPC', 'TIFRS', 'Peellden', 'CC BY-SA 3.0', 'CTech']) {
+      const rendered = protectCjkText(term, locale);
+      assert.ok(rendered.includes(`>${term}</span>`), `${locale}: ${term}`);
+      assert.equal(removeProtectionMarkup(rendered), term);
+    }
+    const title = locale === 'zh-tw' ? '台積電第三季：2 奈米占晶圓營收 8%' : '台积电三季度：2 纳米占晶圆收入 8%';
+    assert.equal(removeProtectionMarkup(protectCjkText(title, locale)), title);
+    const summary = locale === 'zh-tw' ? '2 奈米占晶圓銷售金額 8%，不等於晶圓產能。' : '2 纳米占晶圆收入 8%，不等于产能份额。';
+    assert.equal(removeProtectionMarkup(protectCjkText(summary, locale)), summary);
+    for (const quarter of locale === 'zh-tw' ? ['第二季', '第三季', '第四季'] : ['二季度', '三季度', '四季度']) {
+      assert.ok(protectCjkText(quarter, locale).includes(`>${quarter}</span>`), `${locale}: ${quarter}`);
+      const context = `${quarter}${locale === 'zh-tw' ? '資料' : '数据'}`;
+      assert.ok(protectCjkText(context, locale).includes(`>${quarter}</span>`), `${locale}: quarter in context`);
+    }
+    for (const size of [2, 3, 5, 7]) {
+      const term = `${size} ${locale === 'zh-tw' ? '奈米' : '纳米'}`;
+      assert.ok(protectCjkText(term, locale).includes(`>${term}</span>`), `${locale}: ${term}`);
+      const context = locale === 'zh-tw' ? `業績，${term}占晶圓收入` : `业绩，${term}占晶圆收入`;
+      assert.ok(protectCjkText(context, locale).includes(`>${term}</span>`), `${locale}: measurement in context`);
+    }
+    const amounts = locale === 'zh-tw' ? ['467.2 億美元', '523 億', '543 億美元', '5 個百分點'] : ['467.2 亿美元', '523 亿', '543 亿美元', '5 个百分点'];
+    for (const amount of amounts) {
+      assert.ok(protectCjkText(amount, locale).includes(`>${amount}</span>`), `${locale}: ${amount}`);
+      assert.ok(protectCjkText(`${amount}。`, locale).includes(`>${amount}。</span>`), `${locale}: amount with punctuation`);
+    }
+    if (locale === 'zh-tw') {
+      for (const term of ['歷史示意', '當期產能', '電子產業', '供需走向']) assert.ok(protectCjkText(term, locale).includes(`>${term}</span>`));
+      assert.ok(protectCjkText('整個電子產業的供需走向。', locale).includes('>供需走向。</span>'));
+    }
+  }
+});
+
 test('AQL lot-acceptance terminology preserves independent Chinese reading units', () => {
   const samples = {
     'zh-tw': ['抽樣驗收', '抽樣計畫', '樣本數', '允收數', '計數方式', '判定規則', '檢驗水準', '隨機抽取', '等機率', '不合格品', '不符合事項', '操作特性曲線', '接收機率', '整批貨', '零缺點', '出貨批次', '電子工作桌', '放行紀錄'],

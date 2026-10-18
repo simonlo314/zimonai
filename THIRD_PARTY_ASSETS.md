@@ -174,6 +174,16 @@ The following photographs were downloaded from their original Unsplash pages und
 - Crop review targets: card `47% 84%`, desktop article `46% 78%`, mobile article `43% 70%`. The multimeter and electronic-workbench context must remain recognisable in each. Actual rendered review is a separate release gate.
 - Editorial lead reviewed through 17 October: ASML remains featured because of the fresh equipment-supply development and directly identifiable logistics photograph. AQL uses the existing regular knowledge-card template; no navigation or article layout changes.
 
+## TSMC Q3 2026 2nm revenue ramp — archival Fab5 photograph, 2026-10-18
+
+- Asset: `src/assets/editorial-tsmc-q3-2026-2nm.jpg` (1600 × 1071 JPEG).
+- Creator: Peellden; real photograph of TSMC Fab5, Hsinchu, taken 5 September 2010. [Original Commons file page](https://commons.wikimedia.org/wiki/File:TSMC_Fab5.JPG); [2000 × 1339 original](https://upload.wikimedia.org/wikipedia/commons/8/8a/TSMC_Fab5.JPG). Downloaded 18 October 2026.
+- Licence chosen from the original file's dual licensing: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Original page, authorship, date, commercial reuse, attribution and share-alike conditions checked. The resized/compressed photograph and its layout crops retain CC BY-SA 3.0; this image licence does not extend to the article text. Visible caption identifies the creator, date, modifications and continuing licence; the photograph credit links the original and the sources link the licence.
+- Changes: proportional resizing, JPEG compression and independent CSS crops only. No AI generation, extension, compositing or changes to factual image content.
+- Use: three-language reporting on TSMC's 15 October 2026 results. Identifiable archival company illustration, not a 2nm line, current capacity record, earnings-event photograph, or ZIMONAI assignment/client/supplier. The official TSMC media library was checked, but its editing restriction and registration flow were not used or assumed to permit our layout adaptations; the independently licensed photograph was selected instead.
+- Crop review targets: card `28% 38%`, desktop article `30% 40%`, mobile article `0% 34%`, preserving the red TSMC building sign in each. Actual rendered review remains a separate release gate.
+- Featured editorial lead reviewed through 18 October: retain ASML's fresh equipment-supply story and directly identifiable logistics photograph. This TSMC story uses the existing regular article/card templates; no global navigation or page architecture changes.
+
 ## Representation boundary
 
 These are editorial product/category photographs. They do not depict ZimonAI offices, personnel, clients, suppliers, inspections, case evidence or owned facilities. Images that document ZimonAI's registration and reception space remain separately identified as company-provided material on the About page.
