@@ -8,6 +8,139 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('instrument calibration evidence retains native Chinese measurement units', () => {
+  for (const [locale, terms] of Object.entries({
+    'zh-tw': ['不確定度', '追溯性', '校正日期', '實際儀器', '檢驗日期', '量測條件', '再校正間隔', '儀器穩定性', '環境影響'],
+    'zh-cn': ['不确定度', '溯源性', '校准日期', '实际仪器', '检验日期', '测量条件', '再校准间隔', '设备稳定性', '环境因素']
+  })) {
+    for (const term of terms) {
+      assert.ok(protectCjkText(`${term}。`, locale).includes(`>${term}。</span>`));
+      assert.equal(removeProtectionMarkup(protectCjkText(`${term}。`, locale)), `${term}。`);
+    }
+  }
+  for (const [locale, terms] of Object.entries({
+    'zh-tw': ['調整前後', '量測數據', '準確度', '充電器測試系統', '充電器檢驗紀錄', '批次接收結論'],
+    'zh-cn': ['调整前后', '测量数据', '充电器测试系统', '充电器检验记录', '批次接收结论']
+  })) {
+    for (const term of terms) {
+      assert.ok(protectCjkText(`${term}。`, locale).includes(`>${term}。</span>`));
+      assert.equal(removeProtectionMarkup(protectCjkText(`${term}。`, locale)), `${term}。`);
+    }
+  }
+  const samples = {
+    "zh-tw": [
+      "儀器校正證書",
+      "校正證書",
+      "儀器校正",
+      "校正紀錄",
+      "校正項目",
+      "校正點",
+      "校正鏈",
+      "完整校正鏈",
+      "校正週期",
+      "校正間隔",
+      "校正歷史",
+      "量測追溯性",
+      "量測不確定度",
+      "量測證據",
+      "量測結果",
+      "量測範圍",
+      "量測過程",
+      "量測需求",
+      "量程",
+      "示值",
+      "參考值",
+      "儀器序號",
+      "儀器身分",
+      "設備身分",
+      "唯一序號",
+      "使用期間",
+      "檢驗期間",
+      "充電器檢驗",
+      "檢驗紀錄",
+      "檢驗方法",
+      "檢驗檔案",
+      "允收限值",
+      "直流電壓",
+      "交流功能",
+      "精度需求",
+      "精密度",
+      "符合性判定規則",
+      "管理程序",
+      "期間查核",
+      "調整前後數據",
+      "受影響量測",
+      "送校時",
+      "下次校正日期",
+      "訂定",
+      "熟悉",
+      "如何對回",
+      "支持依據",
+      "校正涵蓋範圍"
+    ],
+    "zh-cn": [
+      "仪器校准证书",
+      "校准证书",
+      "仪器校准",
+      "校准记录",
+      "校准项目",
+      "校准点",
+      "校准链",
+      "完整校准链",
+      "校准周期",
+      "校准间隔",
+      "校准历史",
+      "计量溯源性",
+      "测量不确定度",
+      "测量依据",
+      "测量结果",
+      "测量项目",
+      "测量过程",
+      "测量需求",
+      "量程",
+      "示值",
+      "参考值",
+      "设备编号",
+      "设备身份",
+      "唯一序列号",
+      "使用时段",
+      "检验时段",
+      "充电器检验",
+      "检验记录",
+      "检验方法",
+      "检验档案",
+      "接收限值",
+      "直流电压",
+      "交流功能",
+      "精度需求",
+      "准确度",
+      "精密度",
+      "符合性判定规则",
+      "管理程序",
+      "期间核查",
+      "调整前后数据",
+      "受影响结果",
+      "送校状态",
+      "下次校准日期",
+      "制定",
+      "熟悉",
+      "怎样对应",
+      "适用依据",
+      "校准覆盖范围"
+    ]
+  };
+  for (const [locale, terms] of Object.entries(samples)) {
+    for (const term of [...terms, 'VIM', 'JCGM', 'BIPM', 'ILAC G24:2022']) {
+      const rendered = protectCjkText(term, locale);
+      assert.ok(rendered.includes(`>${term}</span>`), `${locale}: ${term}`);
+      assert.equal(removeProtectionMarkup(rendered), term);
+      assert.ok(protectCjkText(`${term}。`, locale).includes(`>${term}。</span>`), `${locale}: contextual ${term}`);
+    }
+    const title = locale === 'zh-tw' ? '儀器校正證書：如何對回充電器檢驗' : '仪器校准证书：怎样对应充电器检验';
+    assert.equal(removeProtectionMarkup(protectCjkText(title, locale)), title);
+  }
+});
+
 test('TSMC process ramp and platform mix retain independent Chinese reading units', () => {
   const samples = {
     'zh-tw': ['台積電', '晶圓五廠', '先進製程', '量產爬坡', '晶圓營收', '晶圓銷售金額', '營收占比', '商業貢獻', '高效能運算', '製程良率', '技術節點', '先進封裝', '分配量', '供貨承諾', '國際財務報導準則'],

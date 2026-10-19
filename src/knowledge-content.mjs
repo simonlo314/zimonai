@@ -7,6 +7,96 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: connect a measuring-instrument calibration certificate to a charger inspection.
+  // Related questions: serial-number identity; quantity/range coverage; uncertainty and traceability;
+  // calibration versus adjustment/verification; interval rationale and the period of use.
+  {
+    "id": "knowledge-calibration-certificate-charger-inspection",
+    "key": "calibrationCertificateChargerInspection",
+    "contentType": "industry-knowledge",
+    "slug": "knowledge/calibration-certificate-charger-inspection",
+    "category": "factory-onsite",
+    "products": [
+      "charger",
+      "power-adapter",
+      "general"
+    ],
+    "markets": [
+      "global"
+    ],
+    "keywords": {
+      "en": [
+        "calibration certificate charger inspection",
+        "instrument serial number calibration",
+        "measurement traceability uncertainty",
+        "recalibration interval supplier quality"
+      ],
+      "zh-tw": [
+        "儀器校正證書",
+        "充電器檢驗 儀器序號",
+        "量測追溯性 不確定度",
+        "校正週期 供應商品質"
+      ],
+      "zh-cn": [
+        "仪器校准证书",
+        "充电器检验 仪器编号",
+        "计量溯源性 测量不确定度",
+        "校准周期 供应商质量"
+      ]
+    },
+    "datePublished": "2026-10-19",
+    "dateModified": "2026-10-19",
+    "image": "/assets/editorial-cnas-laboratory-workbench.jpg",
+    "imageWidth": 1600,
+    "imageHeight": 1067,
+    "imageCrop": {
+      "card": "47% 84%",
+      "article": "46% 78%",
+      "mobile": "43% 70%"
+    },
+    "photo": {
+      "photographer": "IT services EU",
+      "page": "https://www.pexels.com/photo/digital-multimeter-7639432/",
+      "license": "https://www.pexels.com/license/"
+    },
+    "sources": [
+      {
+        "publisher": "JCGM / BIPM",
+        "title": "International Vocabulary of Metrology, VIM3 2.39 — calibration and its distinction from adjustment and verification",
+        "url": "https://jcgm.bipm.org/vim/en/2.39.html"
+      },
+      {
+        "publisher": "NIST",
+        "title": "Metrological Traceability: Frequently Asked Questions and NIST Policy — sections 3.2, 5.1.1 and 6",
+        "url": "https://www.nist.gov/metrology/metrological-traceability"
+      },
+      {
+        "publisher": "NIST",
+        "title": "Recommended Calibration Interval — no universal interval; customer needs, contracts, stability and environment",
+        "url": "https://www.nist.gov/calibrations/recommended-calibration-interval"
+      },
+      {
+        "publisher": "ILAC",
+        "title": "ILAC guidance catalogue — G24:2022 on determining and reviewing recalibration intervals; G8 on decision rules",
+        "url": "https://ilac.org/publications-and-resources/ilac-guidance-series/"
+      },
+      {
+        "publisher": "JCGM / BIPM",
+        "title": "International Vocabulary of Metrology, VIM3 2.44 — verification against specified requirements",
+        "url": "https://jcgm.bipm.org/vim/en/2.44.html"
+      },
+      {
+        "publisher": "Pexels / IT services EU",
+        "title": "Digital Multimeter — real electronics-workbench photograph; editorial illustration only",
+        "url": "https://www.pexels.com/photo/digital-multimeter-7639432/"
+      },
+      {
+        "publisher": "Pexels",
+        "title": "Pexels License — website reuse permitted; no implied endorsement",
+        "url": "https://www.pexels.com/license/"
+      }
+    ]
+  },
   // Search intent: understand TSMC's 15 October 2026 results as evidence of a 2nm revenue ramp.
   // Related questions: the 8% denominator; the Q2 comparison; process versus platform mix;
   // reported results versus Q4 guidance; what remains unknown about usable downstream supply.
@@ -89,7 +179,7 @@ export const knowledgeArticleSpecs = [
     contentType: 'current-affairs',
     slug: 'knowledge/asml-2027-2028-capacity-upgrades',
     featured: true,
-    featuredReviewedThrough: '2026-10-18',
+    featuredReviewedThrough: '2026-10-19',
     category: 'commercial-risk',
     products: ['general'],
     markets: ['global'],
@@ -2476,6 +2566,61 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      calibrationCertificateChargerInspection: {
+        "topic": "Measurement evidence in charger inspection",
+        "published": "19 October 2026",
+        "readTime": "5 minutes",
+        "title": "Calibration certificates: connect the instrument to the charger test",
+        "description": "Read the instrument identity, calibrated quantities, uncertainty and period of use behind a charger inspection. A calibration certificate is not product approval.",
+        "imageAlt": "A digital multimeter with leads on an electronics workbench, with a microscope and soldering tools behind it.",
+        "imageCaption": "Electronics-workbench photograph by IT services EU, downloaded from Pexels on 8 October 2026; licence rechecked 19 October 2026. Existing proportional resizing, JPEG compression and layout crops only. The illustration is not a calibration record, an accredited measurement, a charger test or a ZIMONAI facility or assignment.",
+        "labels": {
+          "summary": "Reader overview",
+          "checklist": "Buyer checklist",
+          "limits": "Evidence boundaries"
+        },
+        "answer": "A calibration certificate records an identified instrument’s response under stated conditions, with results and measurement uncertainty [[source:1]]. That supports measurement evidence, not approval of the charger tested with it; traceability also needs a documented calibration chain [[source:2]]. Overseas buyers should connect the instrument, measurement range and period of use to the inspection record. ZIMONAI’s editorial view is that the useful evidence is this connection—not a recent date or a familiar laboratory name on a certificate.",
+        "takeaways": [
+          "Match the physical instrument and its serial number, then the quantity, range and calibration points used in the inspection.",
+          "Calibration, adjustment and verification are different operations; a result needs specified requirements before a pass/fail statement has meaning [[source:1]][[source:5]].",
+          "NIST sets no general fixed recalibration interval; the intended application and any contractual or regulatory requirements matter [[source:3]]."
+        ],
+        "sections": [
+          {
+            "title": "Start with the instrument used, not the certificate cover",
+            "paragraphs": [
+              "VIM describes calibration as relating an instrument’s indications to reference values and their uncertainties under specified conditions [[source:1]]. For procurement review, first join the certificate number and instrument make, model and serial number to the equipment entry in the inspection record. A certificate for another unit of the same model leaves that link unresolved.",
+              "Then compare the quantities, ranges, calibration points and stated conditions with the actual test. As an editorial example, a record covering DC voltage does not establish the calibration coverage of every AC measurement or every range the meter can display. Ask the testing party to explain coverage of the intended measurement rather than infer it from the instrument’s catalogue specification.",
+              "Keep the charger identity separate: quoted model, configuration, sample or lot, test method and acceptance limits still belong in the inspection file. The instrument certificate is supporting evidence for the measurement process, not a replacement for that file."
+            ]
+          },
+          {
+            "title": "Read uncertainty and traceability alongside the result",
+            "paragraphs": [
+              "NIST treats traceability as a property of a measurement result, established through a documented, unbroken calibration chain. It also warns that traceability alone does not establish fitness for a particular measurement need [[source:2]]. A statement such as “NIST traceable” therefore needs supporting evidence; it is not, by itself, a NIST endorsement of another laboratory’s result.",
+              "Ask the testing party how reported uncertainty and any applicable corrections are handled for the required measurement. A calibration uncertainty is not automatically the uncertainty of the complete charger test setup. Where a pass/fail statement is needed, identify the specification and decision rule rather than inventing a universal margin. VIM distinguishes verification against requirements from calibration, while ILAC lists separate guidance on conformity decision rules [[source:5]][[source:4]].",
+              "ZIMONAI’s practical assessment is to record two separate answers: whether the measurement has adequate support, and whether the tested charger meets the stated requirement. A credible instrument record cannot settle both on its own."
+            ]
+          },
+          {
+            "title": "Connect calibration dates to the period of inspection",
+            "paragraphs": [
+              "NIST does not generally prescribe a fixed interval. It identifies customer accuracy needs, contractual or regulatory requirements, instrument stability and environmental effects as relevant factors [[source:3]]. ILAC G24:2022 provides guidance on determining and reviewing intervals; the public catalogue is guidance, not a blanket annual-calibration rule [[source:4]].",
+              "Compare the inspection date with the equipment’s calibration history and the owner’s documented control programme. Ask for the basis of any due date and relevant intermediate checks. NIST also recommends retaining as-submitted and post-calibration accuracy and precision data to help review the interval [[source:3]]. Where adjustment occurred, clarify which results describe the instrument before and after that work.",
+              "If a later result raises concerns about earlier use, ask the testing party for a documented review of the affected measurements and proposed disposition. This is a buyer-side evidence request, not a finding that an entire shipment failed—or that a new certificate automatically validates earlier results."
+            ]
+          }
+        ],
+        "checklist": [
+          "Match the certificate number, issuing party, instrument model and unique serial number.",
+          "Link the same equipment identity to the dated charger inspection record.",
+          "Compare the calibrated quantities, ranges, points and conditions with the test method.",
+          "Ask how uncertainty, corrections, requirements and any conformity decision rule are applied.",
+          "Review calibration history, interval rationale, relevant checks and before/after results where applicable.",
+          "Retain the separate charger configuration, sample or lot identity, test results and unresolved questions."
+        ],
+        "limitsText": "Sources reviewed on 19 October 2026. This guide does not authenticate a certificate, assess an instrument, calculate a test’s uncertainty or approve a charger or shipment. Calibration coverage, laboratory competence, report authenticity and destination-market acceptance remain distinct questions. Contractual, legal or scheme-specific requirements may add controls; the general NIST advice does not replace them. The examples and buyer-review sequence are ZIMONAI editorial interpretation, not a laboratory or authority decision."
+      },
       tsmcQ32026TwoNmRamp: {
         topic: 'Advanced-process manufacturing and revenue mix',
         published: '18 October 2026',
@@ -5256,6 +5401,61 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      calibrationCertificateChargerInspection: {
+        "topic": "充電器檢驗與量測證據",
+        "published": "2026 年 10 月 19 日",
+        "readTime": "約 5 分鐘",
+        "title": "儀器校正證書：如何對回充電器檢驗",
+        "description": "從儀器序號、校正項目、量測不確定度及使用期間，判讀充電器檢驗的支持證據；儀器有證書，不等於產品已合格。",
+        "imageAlt": "電子工作桌上的數位三用電表與測試線，後方有顯微鏡和焊接工具。",
+        "imageCaption": "IT services EU 拍攝的電子工作桌示意照片，2026 年 10 月 8 日自 Pexels 下載，10 月 19 日重核授權。僅沿用等比例縮圖、JPEG 壓縮及版面裁切。照片不是校正紀錄、獲認可的量測、充電器測試或 ZIMONAI 設施與專案證據。",
+        "labels": {
+          "summary": "讀者總覽",
+          "checklist": "買家核對清單",
+          "limits": "證據邊界"
+        },
+        "answer": "儀器校正證書記錄特定設備在列明條件下的示值、參考值關係與量測不確定度，是量測證據的一環 [[source:1]]。證書的作用不等於替受測充電器核發合格證明；量測追溯性還須有文件連起完整校正鏈 [[source:2]]。海外買家採用檢驗結果時，應將儀器身分、量測範圍及使用期間對回檢驗紀錄。ZIMONAI 的編輯判讀是，真正有用的是這段對應關係，而不只是證書日期很新，或出具機構的名稱很熟悉。",
+        "takeaways": [
+          "先對實際儀器與序號，再看檢驗所用的量、範圍及校正點是否有支持依據。",
+          "校正、調整與符合要求的查證是不同工作，合格判定還須有明確要求 [[source:1]][[source:5]]。",
+          "NIST 沒有訂出一般通用的固定校正週期；預定用途及契約、法規要求仍須另外確認 [[source:3]]。"
+        ],
+        "sections": [
+          {
+            "title": "先找實際儀器，再看校正項目",
+            "paragraphs": [
+              "VIM 將校正描述為在特定條件下，建立儀器示值與參考值及其不確定度的關係 [[source:1]]。買家審閱時，先把證書編號、廠牌、型號及儀器序號，連到檢驗紀錄中的設備欄位。同型號的另一台儀器，即使證書真實，也還缺少這段對應。",
+              "接著比較校正的量、範圍、校正點與條件，是否支持實際檢驗方法。以編輯示例而言，列有直流電壓的校正結果，不代表電表能顯示的所有交流功能與量程都已涵蓋。應請執行檢驗的一方說明適用依據，不要從產品型錄自行補足證書範圍。",
+              "充電器身分則另行保留：報價型號、配置、樣品或批次、檢驗方法及允收限值，都應在檢驗檔案中有依據。校正證書支持的是量測過程，不會取代產品檢驗紀錄。"
+            ]
+          },
+          {
+            "title": "追溯性之外，還要看不確定度",
+            "paragraphs": [
+              "NIST 說明，量測追溯性屬於量測結果，須透過文件化且不中斷的校正鏈建立；具備追溯性，也不會自動代表量測適合特定用途 [[source:2]]。因此，「可追溯至 NIST」字樣仍需支持文件，不等於 NIST 替其他實驗室的結果背書。",
+              "請檢驗方說明不確定度及適用修正如何納入該項量測結果。儀器校正的不確定度，不會自動等於整套充電器測試系統的不確定度。需要合格判定時，應先確認規格與判定規則，不能自行套一個通用安全餘裕。VIM 將符合指定要求的查證與校正分開定義；ILAC 也另列符合性判定規則的指引 [[source:5]][[source:4]]。",
+              "ZIMONAI 建議分別記錄「這項量測是否有足夠支持」及「受測充電器是否符合指定要求」。前者的儀器文件可信，不代表後者已經有答案。"
+            ]
+          },
+          {
+            "title": "把校正日期連到檢驗期間",
+            "paragraphs": [
+              "NIST 一般不要求或建議固定的再校正間隔，而是列出客戶對準確度的要求、契約或法規、儀器穩定性與環境影響等因素 [[source:3]]。ILAC G24:2022 提供訂定及檢討間隔的指引；公開目錄的說明，並不是所有儀器一律每年校正的規定 [[source:4]]。",
+              "將檢驗日期對回設備的校正歷史及使用方訂定的管理程序，並詢問下次校正日期的依據與相關期間查核紀錄。NIST 另建議保留送校時及校正後的準確度與精密度資料，以檢討校正間隔 [[source:3]]。若曾調整儀器，應分清調整前後的量測數據。",
+              "後續結果若讓先前使用情形受到質疑，買家可請檢驗方提出受影響量測的書面評估與處置建議。這是補足證據的要求，不是逕行認定整批貨不合格，也不是用一張新證書倒推過去結果都有效。"
+            ]
+          }
+        ],
+        "checklist": [
+          "證書編號、出具機構、儀器廠牌型號與唯一序號相符",
+          "同一設備身分連到有日期的充電器檢驗紀錄",
+          "校正的量、範圍、校正點及條件支持檢驗方法",
+          "釐清不確定度、修正、要求及符合性判定規則的用法",
+          "檢視校正歷史、週期依據、期間查核及適用的調整前後數據",
+          "另外保存充電器配置、樣品或批次、結果與待釐清事項"
+        ],
+        "limitsText": "本文依 2026 年 10 月 19 日查閱的官方資料撰寫，未驗證個別證書真偽、評估儀器、計算測試不確定度，或批准充電器與出貨批次。校正涵蓋範圍、實驗室能力、報告真偽及目的市場接受條件，仍是不同問題。契約、法規或特定制度可能另有要求，NIST 一般建議不會取代這些條件。示例與買家審閱順序屬 ZIMONAI 編輯判讀，不是實驗室或主管機關結論。"
+      },
       tsmcQ32026TwoNmRamp: {
         topic: '先進製程與量產爬坡',
         published: '2026 年 10 月 18 日',
@@ -7997,6 +8197,61 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      calibrationCertificateChargerInspection: {
+        "topic": "充电器检验与测量依据",
+        "published": "2026 年 10 月 19 日",
+        "readTime": "约 5 分钟",
+        "title": "仪器校准证书：怎样对应充电器检验",
+        "description": "把设备编号、校准范围、不确定度和使用时段连到充电器检验记录，分清仪器校准与产品合格结论。",
+        "imageAlt": "电子工作台上的数字万用表与测试线，背景为显微镜及焊接工具。",
+        "imageCaption": "电子工作台示意照片由 IT services EU 拍摄，2026 年 10 月 8 日从 Pexels 下载，10 月 19 日复核许可。仅保留等比例缩放、JPEG 压缩和版面裁剪。图片并非校准记录、获认可的测量、充电器测试或 ZIMONAI 场所及项目证据。",
+        "labels": {
+          "summary": "读者概览",
+          "checklist": "买家核对清单",
+          "limits": "证据边界"
+        },
+        "answer": "校准证书说明的是某台仪器在规定条件下，示值与参考值之间的关系及测量不确定度，为测量结果提供支持 [[source:1]]。这类设备文件与充电器合格结论承担不同角色，计量溯源性还需要文件化的完整校准链 [[source:2]]。海外采购采用检验数据时，须把设备身份、使用量程和检验时段连在一起看。ZIMONAI 的编辑判断是，证书是否接得上实际检验，比一张新日期的封面或熟悉的实验室名称更有决策价值。",
+        "takeaways": [
+          "核对执行检验的设备编号，再确认所用测量项目、量程和校准点。",
+          "校准不等于调整，也不同于确认符合指定要求；合格判定须说明要求是什么 [[source:1]][[source:5]]。",
+          "NIST 没有对一般仪器统一规定校准周期，应用需要、合同及法规条件应分别确认 [[source:3]]。"
+        ],
+        "sections": [
+          {
+            "title": "从设备编号查到具体测量项目",
+            "paragraphs": [
+              "按照 VIM 的定义，校准是在规定条件下建立仪器示值与参考值及其不确定度之间的关系 [[source:1]]。审阅供货资料时，先核对证书编号、仪器厂家、型号与序列号，再到检验记录中找到同一设备。另一台同款仪器的真实证书，仍不足以建立这次检验的对应关系。",
+              "下一步看校准项目、量程、校准点及条件，如何对应实际测量。作为编辑举例，证书中出现直流电压项目，并不意味着万用表所有交流功能、所有可选量程都已得到覆盖。应让检验执行方说明适用依据，而不是依据仪器宣传参数推定。",
+              "充电器本身也要单独识别：报价型号、实际配置、样品或批次、检验方法和接收限值，应留在检验档案。设备校准文件是测量过程的支持资料，不能代替产品检验记录。"
+            ]
+          },
+          {
+            "title": "溯源说明还须结合不确定度",
+            "paragraphs": [
+              "NIST 将计量溯源性视为测量结果的属性，需要由文件记录连续的校准链；具备溯源性并不自动表明结果适用于某项具体用途 [[source:2]]。供应商写着“可溯源至 NIST”，仍需提供相应依据，这不等于 NIST 为其他实验室的测量结果作认证。",
+              "要求检验方解释测量不确定度及适用修正的处理方式。校准证书上的不确定度，并非整套充电器测试系统不确定度的现成答案。如果要给出合格结论，应明确规范和判定规则，不宜自行设定一个通用余量。VIM 将针对指定要求的验证与校准区分开来，ILAC 公开目录也单列符合性判定规则指引 [[source:5]][[source:4]]。",
+              "ZIMONAI 的建议是把两个结论分开保存：测量是否有充分依据，受检充电器是否达到指定要求。可靠的设备记录只解决其中一部分，不能独自替整个产品结论背书。"
+            ]
+          },
+          {
+            "title": "校准日期要对应实际检验时段",
+            "paragraphs": [
+              "NIST 一般不要求或推荐固定再校准间隔，而是提示考虑客户精度需求、合同或法规、设备稳定性与环境因素 [[source:3]]。ILAC G24:2022 的公开介绍说明其用途是帮助确定和复核间隔，不是为所有仪器规定一年一次的统一期限 [[source:4]]。",
+              "将检验日期与设备校准历史、使用方的管理程序放在一起，询问下次校准日期的制定依据，以及相关期间核查记录。NIST 还建议利用送校状态和校准后的准确度、精密度资料来复核间隔 [[source:3]]。设备经过调整时，应区分调整前后的数据，避免只留下恢复后的结果。",
+              "如果后续测量使先前使用情况存疑，可向检验方索取受影响结果的书面评估和处置意见。这属于买家补齐证据的安排，不是直接判断整批产品不合格，更不能凭新证书把过去的检验一并认定有效。"
+            ]
+          }
+        ],
+        "checklist": [
+          "证书编号、出具机构、设备厂家型号和唯一序列号对应",
+          "在注明日期的充电器检验记录中找到同一设备",
+          "确认测量项目、量程、校准点和条件对检验方法的支持",
+          "明确不确定度、修正、指定要求及符合性判定规则",
+          "查看校准历史、周期依据、期间核查及适用的调整前后数据",
+          "保留独立的产品配置、样品或批次、检验结果和待确认问题"
+        ],
+        "limitsText": "本篇资料复核于 2026 年 10 月 19 日，不鉴定具体证书真伪、不评估设备、不计算测试不确定度，也不认定充电器或出货批次合格。校准覆盖范围、实验室能力、报告真实性和目的市场接受条件须分别处理。合同、法规或特定制度可能提出额外要求，NIST 的一般建议不能替代。文中的示例和采购审阅方法是 ZIMONAI 编辑判断，并非实验室或监管机构决定。"
+      },
       tsmcQ32026TwoNmRamp: {
         topic: '先进工艺与商业化进度',
         published: '2026 年 10 月 18 日',

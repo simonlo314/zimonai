@@ -1,5 +1,13 @@
 # Third-party visual assets
 
+## Instrument-calibration certificate guide — 2026-10-19
+
+- Reused local asset: `src/assets/editorial-cnas-laboratory-workbench.jpg`, 1600 × 1067 JPEG. Real photograph by IT services EU, originally downloaded 8 October 2026 from [Digital Multimeter, Pexels 7639432](https://www.pexels.com/photo/digital-multimeter-7639432/), original 4241 × 2829. Original source, creator and [Pexels License](https://www.pexels.com/license/) rechecked 19 October 2026; website reuse is permitted without implying endorsement.
+- Existing proportional resizing, JPEG compression and separate CSS layout crops only; no new download, AI generation, extension, compositing or factual alteration.
+- Use: trilingual buyer guide connecting an instrument calibration certificate to a charger inspection. The multimeter is a directly relevant measurement-context illustration, not a calibrated or accredited instrument, a traceable measurement result, a product test, or a ZIMONAI facility, client, supplier or assignment. These boundaries and the creator/source credit are visible beside the photograph.
+- Crop targets: card `47% 84%`, desktop `46% 78%`, mobile `43% 70%`, reviewed separately to preserve the multimeter, display and leads. Actual rendered-page acceptance remains a separate release gate. Ordinary knowledge cards retain the existing text-only template.
+- Editorial lead reviewed through 19 October: retain ASML's recent equipment-supply article and identifiable licensed logistics photograph; no global page, navigation or architecture changes.
+
 ## ASML capacity and upgrades article — 2026-10-15
 
 - Asset: `src/assets/editorial-asml-2028-capacity.jpg`, 2200 × 1026 JPEG.
