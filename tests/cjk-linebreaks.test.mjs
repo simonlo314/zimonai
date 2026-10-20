@@ -8,6 +8,27 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('Erlangen industrial AI keeps independently edited Chinese technical terms intact', () => {
+  // Shorter overlapping terms must remain intact inside these complete compounds.
+  const compounds = {
+    'zh-tw': ['生產規劃人員', '視覺檢測準備'],
+    'zh-cn': ['生产计划人员', '视觉检测准备']
+  };
+  const samples = {
+    'zh-tw': ["分開看","編輯判讀","提前準備","前移","持續運作","新產品","實體電路板","檢測訓練影像","電子工廠","視覺系統","工廠 AI","投產準備","實體樣機","視覺檢測","數位分身","生產排程","工廠自動化","工程投入","訓練影像","檢測準備","自動化比例","代理式","生產規劃","關鍵績效指標","規劃人員","新產品導入","辨識能力","缺陷檢出","誤報","比較基準","候選方案","運作條件","模型維護","廠區","產線","電路板","組件","投產","自動化","製造決策","並行","逼真影像","檢測就緒","實際運作","歷史照片","提早取得","接下來值得觀察","仍待確認的資訊","工廠 AI 與投產準備"],
+    'zh-cn': ["分开理解","编辑判断","提前准备","持续生产","新产品","实体电路板","合成影像","电子工厂","视觉系统","生产规划","西门子","英伟达","埃尔朗根","工厂 AI","工业 AI","投产准备","实体样机","视觉检测","数字孪生","生产排程","工厂自动化","工程投入","训练影像","检测准备","生产计划","计划人员","自动化愿景","绩效影响","适用产品","电路板","漏检","误报","运行条件","模型维护","厂区","产线","组件","投产","自动化","制造决策","并行","逼真影像","检测就绪","实际运行","资料照片","生产准备","生产方案","代理式","后续观察重点","尚未披露的信息","工业 AI 与生产准备"]
+  };
+  const shared = ["30%–40%","70%–80%","Siemens","NVIDIA","PCB","Janericloebe","CC BY 3.0","Erlangen","Büchenbach","Gerätewerk","Cedrik Neike"];
+  for (const [locale, nativeTerms] of Object.entries(samples)) {
+    for (const term of [...compounds[locale], ...nativeTerms, ...shared]) {
+      const rendered = protectCjkText(term, locale);
+      assert.ok(rendered.includes(`>${term}</span>`), `${locale}: ${term}`);
+      assert.equal(removeProtectionMarkup(rendered), term);
+      assert.ok(protectCjkText(`${term}。`, locale).includes(`>${term}。</span>`), `${locale}: punctuation ${term}`);
+    }
+  }
+});
+
 test('instrument calibration evidence retains native Chinese measurement units', () => {
   for (const [locale, terms] of Object.entries({
     'zh-tw': ['不確定度', '追溯性', '校正日期', '實際儀器', '檢驗日期', '量測條件', '再校正間隔', '儀器穩定性', '環境影響'],

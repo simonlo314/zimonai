@@ -24,6 +24,23 @@ test('CNAS guide keeps source links beside claims without changing the string sc
   }
 });
 
+test('Erlangen reporting preserves dated event, independent reporting and archival photograph boundaries', () => {
+  const spec = knowledgeArticleSpecs.find(({ key }) => key === 'siemensNvidiaErlangenPcbAi');
+  assert.equal(spec.contentType, 'current-affairs');
+  assert.equal(spec.datePublished, '2026-10-20');
+  assert.equal(new URL(spec.sources[0].url).hostname, 'press.siemens.com');
+  assert.equal(new URL(spec.sources[1].url).hostname, 'live.euronext.com');
+  assert.equal(spec.photo.photographer, 'Janericloebe');
+  assert.equal(spec.photo.license, 'https://creativecommons.org/licenses/by/3.0/');
+  for (const locale of ['en', 'zh-tw', 'zh-cn']) {
+    const article = knowledgeContent[locale].articles[spec.key];
+    assert.deepEqual(knowledgeSummaryIssues(locale, spec.contentType, article.answer), []);
+    assert.ok(article.answer.includes('[[source:1]]') && article.answer.includes('[[source:2]]'));
+    assert.ok(article.imageCaption.includes('2011') && article.imageCaption.includes('CC BY 3.0'));
+    assert.equal(article.sections.length, 3);
+  }
+});
+
 test('source markers cannot pad an incomplete summary past its length gate', () => {
   for (const locale of locales) {
     const value = `ZIMONAI [[source:1]]${'[[source:2]]'.repeat(50)}`;
@@ -384,7 +401,7 @@ test('the explicit Start here selection was reviewed against the newest publishe
   );
 
   assert.equal(featuredArticles.length, 1);
-  assert.equal(featuredArticles[0].id, 'knowledge-asml-2027-2028-capacity-upgrades');
+  assert.equal(featuredArticles[0].id, 'knowledge-siemens-nvidia-erlangen-pcb-ai');
   assert.equal(featuredArticles[0].featuredReviewedThrough, newestPublishedDate);
 });
 

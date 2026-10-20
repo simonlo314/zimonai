@@ -7,6 +7,78 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the 19 October Erlangen industrial-AI demonstration.
+  // Related questions: inspection before prototypes; synthetic data versus inspection results;
+  // workflow savings; planners and digital twins; automation ambition versus deployment.
+  {
+    "id": "knowledge-siemens-nvidia-erlangen-pcb-ai",
+    "key": "siemensNvidiaErlangenPcbAi",
+    "contentType": "current-affairs",
+    "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
+    "featured": true,
+    "featuredReviewedThrough": "2026-10-20",
+    "category": "factory-onsite",
+    "products": [
+      "general"
+    ],
+    "markets": [
+      "global"
+    ],
+    "keywords": {
+      "en": [
+        "Siemens NVIDIA Erlangen October 2026",
+        "PCB inspection synthetic training data",
+        "digital twin production planning"
+      ],
+      "zh-tw": [
+        "Siemens NVIDIA 工廠 AI",
+        "PCB 視覺檢測 投產準備",
+        "數位分身 生產排程"
+      ],
+      "zh-cn": [
+        "西门子 英伟达 埃尔朗根",
+        "PCB 检测准备 合成训练数据",
+        "数字孪生 生产排程"
+      ]
+    },
+    "datePublished": "2026-10-20",
+    "dateModified": "2026-10-20",
+    "image": "/assets/editorial-siemens-erlangen-pcb-ai.jpg",
+    "imageWidth": 2200,
+    "imageHeight": 1196,
+    "imageCrop": {
+      "card": "55% 43%",
+      "article": "52% 42%",
+      "mobile": "58% 39%"
+    },
+    "photo": {
+      "photographer": "Janericloebe",
+      "page": "https://commons.wikimedia.org/wiki/File:Erlangen_B%C3%BCchenbach_Siemens_Ger%C3%A4tewerk_001.JPG",
+      "license": "https://creativecommons.org/licenses/by/3.0/"
+    },
+    "sources": [
+      {
+        "publisher": "Siemens",
+        "title": "Siemens partners with NVIDIA to advance AI-driven, autonomous factories — 19 October 2026; company-reported application scope and potential benefits",
+        "url": "https://press.siemens.com/global/en/pressrelease/siemens-partners-nvidia-advance-ai-driven-autonomous-factories"
+      },
+      {
+        "publisher": "Reuters / Euronext",
+        "title": "Siemens targets up to 80% factory automation with AI, board member says — Alexander Huebner and Cian Muenster, 19 October 2026",
+        "url": "https://live.euronext.com/en/financial-news/siemens-targets-80-factory-automation-ai-board-member-says"
+      },
+      {
+        "publisher": "Wikimedia Commons / Janericloebe",
+        "title": "Erlangen Büchenbach Siemens Gerätewerk — archival photograph, October 2011, CC BY 3.0; not the 2026 demonstration",
+        "url": "https://commons.wikimedia.org/wiki/File:Erlangen_B%C3%BCchenbach_Siemens_Ger%C3%A4tewerk_001.JPG"
+      },
+      {
+        "publisher": "Creative Commons",
+        "title": "CC BY 3.0 — photograph attribution, licence and modification disclosure",
+        "url": "https://creativecommons.org/licenses/by/3.0/"
+      }
+    ]
+  },
   // Search intent: connect a measuring-instrument calibration certificate to a charger inspection.
   // Related questions: serial-number identity; quantity/range coverage; uncertainty and traceability;
   // calibration versus adjustment/verification; interval rationale and the period of use.
@@ -178,8 +250,6 @@ export const knowledgeArticleSpecs = [
     key: 'asml2028CapacityUpgrades',
     contentType: 'current-affairs',
     slug: 'knowledge/asml-2027-2028-capacity-upgrades',
-    featured: true,
-    featuredReviewedThrough: '2026-10-19',
     category: 'commercial-risk',
     products: ['general'],
     markets: ['global'],
@@ -2566,6 +2636,59 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      siemensNvidiaErlangenPcbAi: {
+        "topic": "Industrial AI and production preparation",
+        "published": "20 October 2026",
+        "readTime": "4 minutes",
+        "title": "Siemens and NVIDIA move PCB inspection preparation ahead of prototypes",
+        "description": "Siemens’ 19 October Erlangen showcase puts AI into inspection preparation and production planning. The applications are concrete; factory-wide automation remains a goal.",
+        "imageAlt": "Archival exterior view of the Siemens Gerätewerk in Erlangen-Büchenbach, across fields, photographed in October 2011.",
+        "imageCaption": "Erlangen Gerätewerk, October 2011: archival photograph by Janericloebe / Wikimedia Commons, CC BY 3.0. Downloaded 20 October 2026; cropped, proportionally resized and JPEG-compressed, with responsive layout crops only. Not the 2026 AI demonstration, an interior production view or a ZIMONAI assignment.",
+        "labels": {
+          "summary": "News summary",
+          "checklist": "What to watch next",
+          "limits": "What remains unconfirmed"
+        },
+        "answer": "Siemens showcased new factory AI applications developed with NVIDIA in Erlangen on 19 October 2026, including PCB inspection preparation before physical prototypes and simulated production planning [[source:1]]. Reported savings are company claims for defined workflows, while higher factory automation remains a goal [[source:2]]. The bigger story for electronics manufacturing is less waiting between design and production. ZIMONAI’s editorial view is that earlier inspection readiness—not an automation percentage—is the milestone worth watching.",
+        "takeaways": [
+          "AI-generated training images bring inspection preparation forward; they are not inspection results for manufactured boards.",
+          "Production scenarios are compared in a digital twin before implementation, with planners still part of the described workflow.",
+          "The reported 70%–80% automation ambition is a target, not the current achievement of the Erlangen plant [[source:2]]."
+        ],
+        "sections": [
+          {
+            "title": "What Siemens showed in Erlangen",
+            "paragraphs": [
+              "Siemens’ 19 October announcement describes applications developed with NVIDIA and tested during live production at its Erlangen electronics factory. One prepares visual inspection for new printed circuit board assemblies using training images generated from digital twins; the other supports production planning [[source:1]]. The change is in when preparation happens: engineers can work on inspection before physical prototypes arrive.",
+              "For the PCB preparation workflow, Siemens cites potential reductions of up to 85% in engineering effort and up to 40% in time-to-market. For agent-based production planning, it cites potential cost savings of up to 20% [[source:1]]. Those are different measures with different scopes. They should not be added together, treated as independently audited results or presented as a saving on every product.",
+              "Reuters separately reported board member Cedrik Neike’s ambition to lift manufacturing automation from roughly 30%–40% to 70%–80%, alongside planned investment of €500 million in the Erlangen site through 2030 [[source:2]]. This is the strategic direction around the demonstration, not evidence that the plant has already reached 80% automation."
+            ]
+          },
+          {
+            "title": "Why preparing inspection earlier matters",
+            "paragraphs": [
+              "The inspection workflow uses generated representations of PCB assemblies to train vision systems before physical prototypes are available [[source:1]]. ZIMONAI reads this as an attempt to reduce a waiting dependency: inspection preparation can run alongside product development rather than begin only when sample hardware is ready.",
+              "That distinction matters to electronics manufacturers introducing a new board or revision. Starting earlier could expose missing design information and preparation work sooner. It does not remove the need to establish how the inspection performs on real assemblies. A useful next disclosure would connect preparation time with actual defect detection, false alarms and the range of products covered; the announcement does not provide that full comparison.",
+              "The planning application addresses another dependency. It generates alternative schedules and shows their KPI consequences to planners, then tests proposals against a digital twin before execution [[source:1]]. The industrial value is the chance to examine a material shortage or order change before it disrupts the real line—not proof that an AI agent can resolve every missing component."
+            ]
+          },
+          {
+            "title": "From a showcase to repeatable manufacturing",
+            "paragraphs": [
+              "ZIMONAI’s supply-chain interpretation is that inspection readiness and response to schedule changes deserve separate attention. The first concerns preparation for a product; the second concerns how a factory reacts when orders, materials or capacity move. Buyers gain more from evidence about those specific capabilities than from a single factory-wide automation label.",
+              "For a charger or power-adapter purchase, this event does not establish that the quoted factory uses these tools, has shorter lead times or has improved shipment quality. A meaningful follow-up would identify the affected product revision, the preparation milestone and the operational result. This is an editorial application of the news, not a claim that Siemens demonstrated a charger project.",
+              "Next, watch for results across more products and operating conditions, including the effort needed to maintain the models when designs and lines change. The broader significance of Erlangen is a shift toward testing manufacturing decisions before physical execution. Its lasting value will depend on whether that head start survives contact with real production, rather than on an ambitious automation headline."
+            ]
+          }
+        ],
+        "checklist": [
+          "Look for workflow-specific baselines, measurement periods and the products included in each savings claim.",
+          "Watch for inspection performance on real boards, not only synthetic training images or preparation-time figures.",
+          "Track implemented schedules and operational results separately from simulated alternatives.",
+          "Keep automation targets, planned investment and completed deployment as separate milestones."
+        ],
+        "limitsText": "Reviewed 20 October 2026. Siemens is the primary source for the application descriptions and potential savings; Reuters supplies independent reporting of the strategy, not an independent technical audit. The reviewed sources do not disclose a complete test methodology, comparative real-board inspection results, deployment pricing or outcomes for an individual buyer. ZIMONAI did not visit the factory, test the systems or participate in the project. The photograph records the site in 2011, not its present equipment or condition."
+      },
       calibrationCertificateChargerInspection: {
         "topic": "Measurement evidence in charger inspection",
         "published": "19 October 2026",
@@ -5401,6 +5524,59 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      siemensNvidiaErlangenPcbAi: {
+        "topic": "工廠 AI 與投產準備",
+        "published": "2026 年 10 月 20 日",
+        "readTime": "4 分鐘",
+        "title": "Siemens 攜手 NVIDIA：提前準備 PCB 檢測",
+        "description": "Siemens 於 10 月 19 日在德國展示工廠 AI，讓 PCB 檢測準備走在實體樣機之前，也以數位分身比較生產排程。應用進展與自動化目標應分開看。",
+        "imageAlt": "2011 年 10 月從農田遠望德國 Erlangen-Büchenbach 的 Siemens Gerätewerk 廠房。",
+        "imageCaption": "Siemens Erlangen 廠房歷史照片，攝於 2011 年 10 月；攝影：Janericloebe／Wikimedia Commons，CC BY 3.0。2026 年 10 月 20 日下載，僅裁切、等比例縮放、JPEG 壓縮及版面裁切。這不是 2026 年 AI 展示、產線內部或 ZIMONAI 專案紀錄。",
+        "labels": {
+          "summary": "新聞摘要",
+          "checklist": "接下來值得觀察",
+          "limits": "仍待確認的資訊"
+        },
+        "answer": "Siemens 於 2026 年 10 月 19 日在德國 Erlangen 展示與 NVIDIA 開發的工廠 AI，涵蓋實體樣機完成前的 PCB 視覺檢測準備，以及透過數位分身比較生產排程 [[source:1]]。公告效益屬特定流程的公司說明，更高的工廠自動化比例仍是目標 [[source:2]]。更值得注意的是，電子製造的改善焦點開始往投產前移。ZIMONAI 的編輯判讀是，檢測能否及早就緒，比單一自動化比例更能說明新產品導入的實際價值。",
+        "takeaways": [
+          "AI 產生的是檢測訓練影像，不是已製造電路板的檢驗結果。",
+          "生產排程先在數位分身中比較；公告描述的流程仍包含規劃人員。",
+          "70%–80% 自動化是管理階層提出的方向，不是 Erlangen 工廠已達成的比例 [[source:2]]。"
+        ],
+        "sections": [
+          {
+            "title": "已確認的兩項應用",
+            "paragraphs": [
+              "Siemens 10 月 19 日公告，與 NVIDIA 在 Erlangen 電子工廠共同開發並於實際生產中測試新應用。一項從 PCB 組件的數位分身產生訓練影像，提前準備視覺檢測；另一項協助生產排程 [[source:1]]。新聞重點不是讓 AI 代替一切，而是讓部分準備工作不再等到實體樣機出現才開始。",
+              "針對 PCB 投產準備，Siemens 表示工程投入最多可減少 85%、上市所需時間最多可縮短 40%；針對代理式生產規劃，則提出最多可節省 20% 成本的效益 [[source:1]]。三個數字衡量不同事項，應保留「最多」及適用流程，不能相加，也不宜寫成每項產品皆已實現的節省。",
+              "路透社同日報導，Siemens 董事會成員 Cedrik Neike 提出把製造自動化程度由約 30%–40% 提高至 70%–80% 的目標，並提到公司計畫於 2030 年前投資 5 億歐元擴充 Erlangen 廠區 [[source:2]]。這些是展示背後的策略方向，與工廠目前已完成多少自動化是不同問題。"
+            ]
+          },
+          {
+            "title": "檢測準備為何前移",
+            "paragraphs": [
+              "新流程利用數位分身產生 PCB 組件影像，供視覺系統訓練，讓工程師在取得實體樣機前就能準備檢測 [[source:1]]。ZIMONAI 將此解讀為減少一道等待關係：產品開發與檢測準備得以並行，而不是先做出樣品，再啟動所有檢測設定。",
+              "對需要導入新版電路板的電子製造商，提早準備的可能價值，是及早發現設計資料缺口及尚未完成的工作。準備速度與真實電路板上的辨識能力仍是兩項指標；後續若公布缺陷檢出、誤報及適用產品範圍，才更容易判斷改善是否延伸至實際檢驗。現有公告未提供完整比較。",
+              "生產規劃處理的則是另一種變動。AI 產生不同排程方案，向規劃人員呈現各方案的關鍵績效指標，再以工廠數位分身驗證，之後才實施 [[source:1]]。其產業價值在於先看見缺料或訂單變動的後果，而不是保證 AI 能解決所有零組件供給問題。"
+            ]
+          },
+          {
+            "title": "從展示走向持續運作",
+            "paragraphs": [
+              "ZIMONAI 的供應鏈判讀是，檢測就緒與排程應變值得分開觀察：前者關乎一項產品何時備妥投產條件，後者關乎工廠如何回應訂單、材料及產能變化。對買家而言，這兩種具體能力的證據，比籠統的工廠自動化標籤更有助於理解交付風險。",
+              "若將新聞連回充電器或電源適配器採購，這場展示沒有替報價工廠證明工具導入、交期縮短或出貨品質改善。後續有價值的資料應指出產品版本、準備里程碑及實際運作結果。這是編輯部對新聞的應用判讀，不代表 Siemens 本次展示了充電器專案。",
+              "接下來可觀察更多產品及不同運作條件下的結果，以及設計、產線變更後維護模型所需的投入。Erlangen 的意義，是把製造決策的試驗往實際執行之前移動；這段提早取得的時間，能否在真實生產中持續發揮作用，才是比自動化目標更值得追蹤的進展。"
+            ]
+          }
+        ],
+        "checklist": [
+          "觀察節省數字的比較基準、衡量期間與涵蓋產品，分開理解各流程。",
+          "追蹤真實電路板的檢測表現，不只看訓練影像或準備時間。",
+          "區分排程模擬、實際採用方案與後續生產結果。",
+          "把自動化目標、投資計畫與已完成部署分別記錄。"
+        ],
+        "limitsText": "資料查閱至 2026 年 10 月 20 日。應用細節及可能效益主要來自 Siemens；路透社提供獨立新聞報導，並非技術成效的獨立稽核。已查閱來源未揭露完整測試方法、真實電路板的比較檢測結果、導入價格或個別買家的成果。ZIMONAI 未到廠、未測試系統，也未參與本案。照片呈現 2011 年廠房，不代表目前設備或現況。"
+      },
       calibrationCertificateChargerInspection: {
         "topic": "充電器檢驗與量測證據",
         "published": "2026 年 10 月 19 日",
@@ -8197,6 +8373,59 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      siemensNvidiaErlangenPcbAi: {
+        "topic": "工业 AI 与生产准备",
+        "published": "2026 年 10 月 20 日",
+        "readTime": "4 分钟",
+        "title": "西门子携手英伟达：提前准备 PCB 检测",
+        "description": "西门子 10 月 19 日在埃尔朗根展示工业 AI：样机尚未完成，检测准备先行；生产方案也先经过数字孪生验证。具体应用与自动化愿景需要分开理解。",
+        "imageAlt": "2011 年 10 月拍摄的西门子埃尔朗根 Büchenbach 厂房外景，前方为农田。",
+        "imageCaption": "埃尔朗根厂房资料照片，摄于 2011 年 10 月。摄影：Janericloebe／Wikimedia Commons，采用 CC BY 3.0。2026 年 10 月 20 日下载，仅裁切、等比例缩放、JPEG 压缩与响应式版面裁切。照片不是本次 AI 演示、车间内部或 ZIMONAI 项目记录。",
+        "labels": {
+          "summary": "新闻摘要",
+          "checklist": "后续观察重点",
+          "limits": "尚未披露的信息"
+        },
+        "answer": "西门子于 2026 年 10 月 19 日在德国埃尔朗根公布与英伟达合作开发的工厂 AI 应用：提前准备 PCB 视觉检测，并在数字孪生中评估生产排程 [[source:1]]。相关节省数字来自公司对特定流程的说明，扩大工厂自动化仍属于目标 [[source:2]]。更值得关注的是，电子制造的改善正在延伸到投产准备阶段。ZIMONAI 的编辑判断是，新产品检测何时就绪，比一个笼统的自动化百分比更接近采购方关心的交付能力。",
+        "takeaways": [
+          "合成影像用于训练检测系统，并不是某批实体电路板的合格记录。",
+          "排程方案先模拟、后实施；公开描述仍保留生产计划人员的参与。",
+          "提高至 70%–80% 的自动化水平是管理层愿景，不是埃尔朗根工厂的现状结论 [[source:2]]。"
+        ],
+        "sections": [
+          {
+            "title": "埃尔朗根展示了什么",
+            "paragraphs": [
+              "西门子 10 月 19 日发布的消息介绍了两类与英伟达共同开发、在实际生产环境中测试的应用：根据 PCB 组件的数字孪生生成训练影像，提前开展视觉检测准备；以及借助 AI 辅助制定生产计划 [[source:1]]。前者将部分准备工作放到实体样机完成之前，后者面向生产中的订单、物料与产线约束。",
+              "公司称，PCB 生产准备可使工程投入最多减少 85%、上市时间最多缩短 40%；代理式生产规划则可能带来最多 20% 的成本节省 [[source:1]]。这些数字对应的对象与口径不同，保留上限及流程范围非常重要。把它们汇总成整座工厂的降本比例，或者当作所有产品的既成结果，都会扩大原公告的结论。",
+              "路透社独立报道了董事会成员 Cedrik Neike 的战略表述：西门子希望把制造自动化水平由约 30%–40% 提升至 70%–80%，并计划到 2030 年为埃尔朗根厂区投入 5 亿欧元 [[source:2]]。目标与投资计划提供背景，但没有证明该厂今天已经达到八成自动化。"
+            ]
+          },
+          {
+            "title": "变化发生在投产之前",
+            "paragraphs": [
+              "检测准备往往需要等待可以使用的硬件。公告描述的办法，是以数字孪生生成 PCB 组件的逼真影像，提前训练视觉系统 [[source:1]]。从 ZIMONAI 的角度看，值得重视的是开发与准备之间的衔接：一部分工作能够并行推进，项目不必把所有检测准备都压到样机到位之后。",
+              "对电子制造企业，这可能意味着更早暴露设计资料缺项和准备工作的阻塞点。不过，准备完成得快，与真实产品上检出缺陷的能力并不是同一个指标。后续需要关注实体电路板上的漏检、误报以及不同型号的表现；已查阅公告没有给出完整对比结果。",
+              "排程应用的价值在另一处：系统给出不同生产方案及其绩效影响，交由计划人员比较，并在工厂数字孪生中验证后再实施 [[source:1]]。这使缺料或订单变化的后果有机会提前被看见。它改善的是决策准备，不等于系统能够创造缺失物料，或消除所有供应限制。"
+            ]
+          },
+          {
+            "title": "采购端应关注哪些进展",
+            "paragraphs": [
+              "ZIMONAI 认为，这次展示值得拆成两条后续观察线索：新产品的检测准备是否更早完成，以及订单、物料或产能变动时，计划调整是否更有效。两者各有衡量方法，单独追踪比套用一个全厂自动化百分比更有信息价值。",
+              "对于充电器、电源适配器等电子产品采购，这则新闻并未证明某家报价工厂已经采用相关系统，也没有确认买家的交期或到货质量发生变化。若供应方引用这类进展，有意义的补充应是对应产品版本、准备节点及实际运行结果。这是编辑分析的延伸，不是西门子本次演示了充电器项目的事实。",
+              "接下来更值得看的，是不同产品和运行条件下的结果，以及设计、产线调整后模型的维护工作。埃尔朗根把一个产业议题具体化：在真正改变生产之前，先测试决策。最终价值取决于这份提前量能否在持续生产中兑现，而不只是展示当天的自动化愿景。"
+            ]
+          }
+        ],
+        "checklist": [
+          "跟踪各项效益的基准、统计周期与适用产品，避免混用口径。",
+          "关注真实电路板的检测表现，而非仅看训练影像或准备速度。",
+          "区分候选排程、实际实施方案与后续运行结果。",
+          "分别记录自动化愿景、投资安排和已完成的部署。"
+        ],
+        "limitsText": "查阅日期：2026 年 10 月 20 日。应用机制与潜在节省依据西门子公告；路透社为独立新闻来源，并不构成独立技术验证。现有资料没有披露完整测试方法、真实电路板的检测对比、系统采购价格或具体买家的收益。ZIMONAI 未进入该工厂、未测试系统，也未参与项目。2011 年资料照片不用于证明当前设备及厂区状态。"
+      },
       calibrationCertificateChargerInspection: {
         "topic": "充电器检验与测量依据",
         "published": "2026 年 10 月 19 日",

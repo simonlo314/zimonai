@@ -1,5 +1,16 @@
 # Third-party visual assets
 
+## Siemens Erlangen PCB inspection preparation article — 20 October 2026
+
+- Local asset: `src/assets/editorial-siemens-erlangen-pcb-ai.jpg` (2200 × 1196).
+- Photographer: Janericloebe; own-work real exterior photograph, October 2011 (EXIF 15 October 2011), depicting Siemens Gerätewerk in Erlangen-Büchenbach.
+- Original file page: https://commons.wikimedia.org/wiki/File:Erlangen_B%C3%BCchenbach_Siemens_Ger%C3%A4tewerk_001.JPG ; original 3784 × 2147 JPEG: https://upload.wikimedia.org/wikipedia/commons/8/86/Erlangen_B%C3%BCchenbach_Siemens_Ger%C3%A4tewerk_001.JPG .
+- Selected licence: Creative Commons Attribution 3.0 Unported, https://creativecommons.org/licenses/by/3.0/ (file is dual-licensed; CC BY 3.0 selected). Source and licence verified; downloaded 20 October 2026.
+- Processing: crop (left 900, top 400, width 2300, height 1250), proportional resize to width 2200, JPEG compression; responsive layout crops. No generative editing, compositing, enlargement or factual alteration.
+- Use: all three language versions of `knowledge/siemens-nvidia-erlangen-pcb-ai`, article hero and existing knowledge-card image slot. Independently chosen focal positions: card 55% 43%, desktop 52% 42%, mobile 58% 39%; rendered crops reviewed separately in all three languages, on desktop and mobile.
+- Visible captions identify the 2011 archival date, author, CC BY 3.0, modifications and source link; the sources list links the licence. Not a 2026 event photograph, a current equipment/condition record, a ZIMONAI visit or a relationship claim. Siemens press photographs were not reused because the English commercial-use restriction did not establish compatible website rights.
+- Editorial lead reviewed through 20 October: select the fresh Erlangen story for its specific PCB inspection-preparation and production-planning implications. This changes only the existing knowledge-hub lead, not site navigation, routes or templates.
+
 ## Instrument-calibration certificate guide — 2026-10-19
 
 - Reused local asset: `src/assets/editorial-cnas-laboratory-workbench.jpg`, 1600 × 1067 JPEG. Real photograph by IT services EU, originally downloaded 8 October 2026 from [Digital Multimeter, Pexels 7639432](https://www.pexels.com/photo/digital-multimeter-7639432/), original 4241 × 2829. Original source, creator and [Pexels License](https://www.pexels.com/license/) rechecked 19 October 2026; website reuse is permitted without implying endorsement.
