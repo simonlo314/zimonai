@@ -1,5 +1,12 @@
 # Third-party visual assets
 
+## Supplier bank-detail change guide — 21 October 2026
+
+- Reused local photograph: `src/assets/editorial-contract-document.jpg`, 1200 × 900. Creator/source account: Pixabay on Pexels, [Black Pen Placed on White Paper](https://www.pexels.com/photo/black-pen-placed-on-white-paper-261679/), published 20 December 2016, original 4608 × 3456. First tracked locally 20 August 2026; the original download date was not recorded in the legacy asset ledger and is not reconstructed.
+- Original source, creator and [Pexels License](https://www.pexels.com/license/) rechecked 21 October 2026. Website use and modification permitted; no implied endorsement. Reuse only, no new download, AI editing, synthesis or factual alteration; existing proportional resize and responsive CSS crops.
+- Use: trilingual procurement guide to changed supplier payment instructions. The pen and printed clauses supply document context only, not a supplier invoice, bank certificate, verified signature, authorised payment instruction or ZIMONAI assignment. This limitation and source credit are visible beside the image.
+- Independently selected crop targets: card `57% 54%`, desktop `55% 51%`, mobile `61% 49%`; actual rendered acceptance remains a separate gate. Ordinary knowledge entries retain the existing text-only card. Keep the Siemens/NVIDIA story as editorial lead for its current manufacturing relevance and identifiable image; review through 21 October, without architecture or navigation changes.
+
 ## Siemens Erlangen PCB inspection preparation article — 20 October 2026
 
 - Local asset: `src/assets/editorial-siemens-erlangen-pcb-ai.jpg` (2200 × 1196).

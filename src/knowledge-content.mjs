@@ -7,6 +7,37 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: verify a supplier bank-detail change before releasing an order payment.
+  // Related questions: genuine mailbox versus genuine authority; independent callback channel;
+  // seller/payee mismatch; internal approval record; response after a suspected diverted transfer.
+  {
+    id: 'knowledge-supplier-bank-detail-change',
+    key: 'supplierBankDetailChange',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/supplier-bank-detail-change',
+    category: 'commercial-risk',
+    products: ['general', 'charger', 'power-adapter', 'power-bank'],
+    markets: ['global'],
+    keywords: {
+      en: ['supplier bank details changed', 'supplier payment diversion', 'verify supplier payment instructions', 'business email compromise procurement'],
+      'zh-tw': ['供應商更換收款帳戶', '付款指示查核', '商務郵件詐騙', '收款人與簽約方'],
+      'zh-cn': ['供应商变更收款账户', '付款指令核实', '商业邮件诈骗', '收款方与合同主体']
+    },
+    datePublished: '2026-10-21',
+    dateModified: '2026-10-21',
+    image: '/assets/editorial-contract-document.jpg',
+    imageWidth: 1200,
+    imageHeight: 900,
+    imageCrop: { card: '57% 54%', article: '55% 51%', mobile: '61% 49%' },
+    photo: { photographer: 'Pixabay', page: 'https://www.pexels.com/photo/black-pen-placed-on-white-paper-261679/', license: 'https://www.pexels.com/license/' },
+    sources: [
+      { publisher: 'FBI', title: 'Business Email Compromise — compromised correspondence, independent contact and immediate bank notification', url: 'https://www.fbi.gov/how-we-can-help-you/common-frauds-and-scams/business-email-compromise' },
+      { publisher: 'Report Fraud', title: 'Mandate fraud — payment diversion, verifiable supplier contact and controlled payment-detail changes', url: 'https://www.reportfraud.police.uk/mandate-fraud' },
+      { publisher: 'FBI', title: 'Business E-Mail Compromise — previously known callback numbers and secondary personnel sign-off, 2017 prevention guidance', url: 'https://www.fbi.gov/news/stories/business-e-mail-compromise-on-the-rise' },
+      { publisher: 'Pexels / Pixabay', title: 'Black Pen Placed on White Paper — real document-context photograph, not a supplier banking record', url: 'https://www.pexels.com/photo/black-pen-placed-on-white-paper-261679/' },
+      { publisher: 'Pexels', title: 'Pexels License — website use and modification, without implied endorsement', url: 'https://www.pexels.com/license/' }
+    ]
+  },
   // Search intent: understand the 19 October Erlangen industrial-AI demonstration.
   // Related questions: inspection before prototypes; synthetic data versus inspection results;
   // workflow savings; planners and digital twins; automation ambition versus deployment.
@@ -16,7 +47,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-20",
+    "featuredReviewedThrough": "2026-10-21",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -2636,6 +2667,44 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      supplierBankDetailChange: {
+        topic: 'Supplier payment-instruction changes',
+        published: '21 October 2026',
+        readTime: '4 minutes',
+        title: 'Supplier bank-detail changes: verify the instruction before paying',
+        description: 'A familiar email thread does not authenticate new bank details. Separate the supplier request, independent confirmation and internal approval before paying an order.',
+        imageAlt: 'A black pen resting on a printed document, used only as a paperwork illustration.',
+        imageCaption: 'Document-context photograph by Pixabay / Pexels, source published December 2016. Existing local image, proportionally resized and cropped for layout; source and Pexels licence reviewed 21 October 2026. This is not a supplier invoice, banking certificate, verified signature or ZIMONAI assignment.',
+        answer: 'A supplier’s bank-detail change is a new payment instruction, even when it arrives inside familiar correspondence. FBI guidance explains how criminals can enter genuine email threads and recommends confirming changes through independently obtained contact details [[source:1]]. For overseas buyers, the instruction must connect to the seller, the order and the authorised payee; a callback alone does not establish account ownership. ZIMONAI’s editorial view is to keep the request, independent confirmation and internal approval as three distinct records before releasing payment.',
+        takeaways: [
+          'A genuine-looking message or stamped attachment is a request to examine, not proof that a new payee is authorised.',
+          'Confirm through a contact channel established independently of the change request, then record exactly what was confirmed.',
+          'Keep supplier-master changes and payment approval separate; unresolved seller/payee differences need an accountable decision.'
+        ],
+        sections: [
+          { title: 'Familiar correspondence can carry an unfamiliar instruction', paragraphs: [
+            'Business email compromise can involve a look-alike address or access to a real mailbox and an existing billing conversation. The FBI therefore advises verification of account-number or payment-procedure changes and warns about pressure to act quickly [[source:1]]. Correct order details or fluent language should not become the authentication test.',
+            'For a charger deposit or balance payment, ZIMONAI suggests comparing the new instruction with the last approved supplier record: seller name, beneficiary name, account identifier, bank, currency and affected purchase order. Record which fields changed. This comparison identifies a discrepancy; it does not determine whether the change is legitimate or fraudulent.'
+          ] },
+          { title: 'Use a separate route, then define the confirmation', paragraphs: [
+            'Call a previously established number, or obtain the company’s contact independently rather than using the number or link in the change message. FBI guidance explicitly distinguishes previously known numbers from those supplied in the request [[source:3]]. Report Fraud likewise recommends official, verifiable supplier contact details [[source:2]]. Replying in the same thread leaves the original channel as its own witness.',
+            'The procurement record should identify who was reached, their role, the contact’s independent origin, the time, and the exact order and changed fields confirmed. If the beneficiary differs from the contracting seller, ask for the commercial reason and documented authority connecting them. ZIMONAI treats that relationship as a separate review question, not something settled by a logo, a company stamp or a successful phone call.'
+          ] },
+          { title: 'Approve the change before approving the transfer', paragraphs: [
+            'Report Fraud recommends controlled payment-detail changes by designated staff; the FBI describes secondary personnel sign-off as another safeguard [[source:2]] [[source:3]]. A practical buyer-side arrangement is for one person to collect the change evidence and another authorised person to review it before updating the supplier record or releasing the affected payment. This is an editorial workflow recommendation, not a universal legal requirement.',
+            'Save the original request, prior approved version, confirmation note and approval together, with access restricted to people who need the financial details. If a payment may already have been diverted, contact the sending bank immediately and follow its incident procedure; the FBI also points victims to IC3 [[source:1]]. Use the appropriate reporting channel in the relevant jurisdiction. A report or recall request does not promise recovery.'
+          ] }
+        ],
+        checklist: [
+          'Identify the order, payment stage and precise fields that changed.',
+          'Keep the prior approved supplier and beneficiary record available for comparison.',
+          'Obtain a callback number independently of the change request and record its origin.',
+          'Record the contact’s identity, role, confirmation time and specific instruction confirmed.',
+          'Resolve seller/payee differences and obtain the required internal approval before changing records or paying.',
+          'Retain evidence securely; if a transfer is suspect, contact the bank promptly and preserve correspondence.'
+        ],
+        limitsText: 'Official prevention guidance reviewed 21 October 2026; this is an evergreen procurement guide, not a new fraud alert. No account, supplier, signature or payment has been authenticated here. Independent contact and dual review reduce reliance on one channel but do not prove account ownership, legal authority, supplier solvency, product quality or recoverability. Bank procedures and legal/reporting obligations depend on the transaction and jurisdiction; obtain the relevant bank or professional advice. ZIMONAI is not claiming bank-account verification, payment custody or recovery services.'
+      },
       siemensNvidiaErlangenPcbAi: {
         "topic": "Industrial AI and production preparation",
         "published": "20 October 2026",
@@ -5524,6 +5593,44 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      supplierBankDetailChange: {
+        topic: '供應商收款資料變更',
+        published: '2026 年 10 月 21 日',
+        readTime: '4 分鐘',
+        title: '供應商更換收款帳戶：付款前怎麼核對',
+        description: '熟悉的郵件對話不等於新的收款指示已獲授權。從獨立聯絡管道、收款人與簽約方關係，到內部核准紀錄，拆解付款前的變更查核。',
+        imageAlt: '黑色原子筆放在印有條款的文件上，作為文件往來的編輯示意照片。',
+        imageCaption: '文件情境照片：Pixabay／Pexels，來源發布於 2016 年 12 月。沿用本機等比例縮圖及版面裁切；2026 年 10 月 21 日重核來源與 Pexels 授權。照片不是供應商發票、銀行證明、已驗證簽名或 ZIMONAI 專案文件。',
+        answer: '供應商更換收款帳戶，是一項需要重新確認的付款指示，即使通知出現在原本的郵件對話中也一樣。FBI 提醒，詐騙者可能侵入真實郵件往來，並建議透過獨立取得的聯絡方式核對變更 [[source:1]]。海外買家還要把新指示對回簽約方、訂單與收款人關係，因為一次回撥並不證明帳戶所有權。ZIMONAI 的編輯判讀是，將變更請求、獨立確認及內部核准分成三份紀錄，才能看清付款依據是否完整。',
+        takeaways: [
+          '原有郵件、公司章或附件只能提供待查內容，不能單獨證明新收款人已獲授權。',
+          '確認管道要獨立於變更通知，並記下聯絡來源、確認對象及具體核對內容。',
+          '收款資料更新與付款核准應分開處理；簽約方與收款人不一致時，先釐清關係。'
+        ],
+        sections: [
+          { title: '熟悉的對話，也可能夾帶新指示', paragraphs: [
+            '商務郵件詐騙可能使用近似網域，也可能透過真實信箱進入既有的請款往來。FBI 因此提醒，要核對帳號或付款程序的變更，並留意催促立即匯款的壓力 [[source:1]]。對方說得出訂單細節、信件語氣自然，並不是足夠的身分確認。',
+            '以充電器訂金或尾款為例，ZIMONAI 建議先與上一次核准的供應商資料比對：簽約名稱、收款人名稱、帳號識別資料、銀行、幣別及適用訂單。逐欄標出變更，比籠統詢問「這份資料是真的嗎」更有用。比對只能指出差異，尚未判定變更合理或涉及詐騙。'
+          ] },
+          { title: '換一條管道，說清楚確認了什麼', paragraphs: [
+            '回撥原先已建立的聯絡電話，或自行從獨立來源取得公司聯絡方式，不使用變更信件新附的電話或連結。FBI 的預防指引明確區分原已知電話與請求內提供的號碼 [[source:3]]；英國 Report Fraud 也要求使用官方且可核實的供應商聯絡資料 [[source:2]]。只在原信件回覆，等於讓同一管道替自己作證。',
+            '確認紀錄要寫清楚聯絡到誰、職務、電話如何取得、確認時間，以及核對的訂單和變更欄位。若收款人與簽約公司不同，另要求說明商業理由與授權關係。這是 ZIMONAI 的採購判讀：文件上有公司章，或電話那端表示沒問題，都沒有取代這層關係的審查。'
+          ] },
+          { title: '先核准變更，再安排付款', paragraphs: [
+            'Report Fraud 建議由指定人員管理付款資料變更；FBI 也把第二位人員簽核列為防範方式之一 [[source:2]] [[source:3]]。買家可採一人蒐集資料、另一位有權責者覆核的安排，確認後才更新供應商檔案及處理該筆付款。這是編輯提出的作業建議，不是宣稱所有交易都有相同法定程序。',
+            '將原始請求、前一版核准資料、獨立確認及簽核留在同一份受控紀錄，只讓有需要的人員接觸財務資訊。若款項疑似已匯入錯誤帳戶，立即聯絡匯款銀行並依其程序處理；FBI 另提供 IC3 通報入口 [[source:1]]。通報應依所在地與交易情況選擇適當機關，提出通報或要求追回款項都不代表一定能追回。'
+          ] }
+        ],
+        checklist: [
+          '列明訂單、付款階段及實際變更的欄位。',
+          '保留原先核准的供應商與收款人資料，逐項比較。',
+          '獨立取得確認用電話，記錄來源，不沿用變更通知的新號碼。',
+          '記錄確認對象、職務、時間與具體核對內容。',
+          '釐清簽約方與收款人的差異，完成內部核准後再更新資料或付款。',
+          '安全保存證據；若懷疑款項遭轉移，立即聯絡銀行並保留郵件。'
+        ],
+        limitsText: '官方預防指引查閱日為 2026 年 10 月 21 日；本文是採購知識，不是新的詐騙警報。本次沒有驗證任何帳戶、供應商、簽名或匯款。獨立聯絡與雙人覆核可降低對單一管道的依賴，但不證明帳戶所有權、法律授權、償付能力、產品品質或款項可追回。銀行程序及法律、通報義務須依交易與所在地確認，必要時洽銀行或合格專業人士；本文也不宣稱 ZIMONAI 提供銀行帳戶驗證、代管款項或追款服務。'
+      },
       siemensNvidiaErlangenPcbAi: {
         "topic": "工廠 AI 與投產準備",
         "published": "2026 年 10 月 20 日",
@@ -8373,6 +8480,44 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      supplierBankDetailChange: {
+        topic: '供应商收款信息变更',
+        published: '2026 年 10 月 21 日',
+        readTime: '4 分钟',
+        title: '供应商变更收款账户：付款前如何核实',
+        description: '原来的邮件链和盖章通知，不代表新的收款安排已经得到授权。分别核实联系渠道、合同主体与收款方关系，并留下变更审批依据。',
+        imageAlt: '一支黑色笔横放在印有合同条款的纸张上，用于说明文件往来场景。',
+        imageCaption: '文件场景示意照片，来源 Pixabay／Pexels，原始页面发布于 2016 年 12 月。沿用本地等比例缩图与版面裁切，2026 年 10 月 21 日复核来源和 Pexels 许可。画面不是供应商发票、银行证明、已核实的签名或 ZIMONAI 项目文件。',
+        answer: '收款账户变更通知的作用，是提出新的付款安排，而不是自动替换已经核准的供应商资料。FBI 的防范指引指出，犯罪者可能进入真实邮件往来，因此账户及付款流程的变化需要另行确认 [[source:1]]。对于海外采购，联系渠道核实之外，还要查清合同主体、订单与新收款方的关系；电话确认本身没有证明账户归属。ZIMONAI 的编辑判断是，把变更申请、独立确认和内部审批分别留档，才能判断一笔付款依赖哪些证据。',
+        takeaways: [
+          '邮件链、印章和附件提供的是待核实信息，不是收款授权的完整证据。',
+          '用独立于变更通知的渠道联系供应商，记录实际确认的事项和依据。',
+          '供应商资料维护与付款审批分开；合同主体和收款方不同，应先解释并审查关系。'
+        ],
+        sections: [
+          { title: '邮件真实，不代表付款指令真实', paragraphs: [
+            '商业邮件诈骗既可能冒用相近的邮箱地址，也可能利用已被入侵的真实邮箱和业务对话。FBI 建议核实账户号码或付款程序的任何变更，并警惕催促立即行动的要求 [[source:1]]。邮件中有正确的订单内容，或者措辞与熟悉的业务员相似，都不构成充分核验。',
+            '准备支付充电器货款时，可先把新通知与已审批的供应商档案逐项比较：合同主体、收款方名称、账户识别信息、银行、币种以及适用订单。ZIMONAI 建议逐项记录变更内容，而不是只收集一份新盖章函。差异是进一步核实的起点，不是认定合法变更或诈骗的结论。'
+          ] },
+          { title: '独立联系，要落实到具体变更', paragraphs: [
+            '使用业务关系建立时已留存的电话，或自行取得可验证的公司联系方式，不采用通知中新增的号码和链接。FBI 的指引要求使用此前已知的号码，而非付款请求提供的号码 [[source:3]]；英国 Report Fraud 同样强调官方、可核实的供应商联系资料 [[source:2]]。沿原邮件链询问，仍然依赖同一个信息渠道。',
+            '把联系对象、岗位、号码来源、核实时间和确认的订单及账户字段记下来。收款方若不是合同中的卖方，还需要商业理由和授权关系的书面说明。ZIMONAI 将“消息是谁确认的”和“收款方为何有权收款”视为两个审查问题；一次通话、一个印章都没有自动解决后者。'
+          ] },
+          { title: '先审批变更，再处理付款', paragraphs: [
+            'Report Fraud 建议只由指定人员变更付款资料，FBI 则将另一名人员的复核签批列为防范措施 [[source:2]] [[source:3]]。在买家内部，可由一人整理申请及核实材料，再由另一位有权限的人员审核，通过后才维护供应商档案并处理付款。这是采购控制建议，并非适用于所有国家和交易的法定义务。',
+            '原始通知、旧版已核准资料、独立确认记录及审批应一并妥善保存，财务信息限有工作需要的人员访问。款项如已疑似转入错误账户，应立即联系汇出银行，按其事件处理流程行动；FBI 还提供 IC3 报案渠道 [[source:1]]。其他地区须选择适当的本地通报渠道，报案或申请追回不等于款项必然返还。'
+          ] }
+        ],
+        checklist: [
+          '确定采购订单、付款节点，以及新旧资料的具体差异。',
+          '调出此前审批通过的供应商及收款方信息用于比对。',
+          '从变更通知以外取得联系号码，记录其可验证来源。',
+          '留下确认人、岗位、时间和已核实字段的完整记录。',
+          '查清合同主体与收款方关系，完成内部审批后再改资料或付款。',
+          '限制财务资料访问；发现可疑汇款后及时联系银行并保存通信记录。'
+        ],
+        limitsText: '官方预防资料复核于 2026 年 10 月 21 日，本文不是新发布的诈骗通报，也未认证任何供应商、账户、签名或付款。独立渠道和双人审核只是减少单一信息源风险，不能证明账户归属、法律授权、企业偿付能力、产品质量或资金可追回。银行处理方式及法律、报案要求取决于所在地和具体交易，必要时向银行或合格专业人士咨询。本文不表示 ZIMONAI 提供银行账户认证、资金托管或追款服务。'
+      },
       siemensNvidiaErlangenPcbAi: {
         "topic": "工业 AI 与生产准备",
         "published": "2026 年 10 月 20 日",

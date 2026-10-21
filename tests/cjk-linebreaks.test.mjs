@@ -8,6 +8,31 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('supplier payment-change terms retain independent Traditional and Simplified Chinese phrasing', () => {
+  for (const [locale, clauses] of Object.entries({
+    'zh-tw': ['先核准變更', '再安排付款'],
+    'zh-cn': ['先审批变更', '再处理付款']
+  })) for (const clause of clauses) assert.ok(protectCjkText(clause, locale).includes('>' + clause + '</span>'));
+  assert.ok(protectCjkText('但不證明帳戶所有權。', 'zh-tw').includes('>帳戶所有權。</span>'));
+  for (const [locale, terms] of Object.entries({
+    'zh-tw': ['郵件往來', '郵件對話', '預防指引', '防範指引', '商業理由', '付款安排', '內部審查', '變更內容'],
+    'zh-cn': ['邮件往来', '业务对话', '防范指引', '预防指引', '商业理由', '付款安排', '内部审查', '变更内容']
+  })) for (const term of terms) {
+    const rendered = protectCjkText(term + '。', locale);
+    assert.ok(rendered.includes('>' + term + '。</span>'), locale + ': ' + term);
+    assert.equal(removeProtectionMarkup(rendered), term + '。');
+  }
+  const samples = {"zh-tw":["供應商更換收款帳戶","付款前怎麼核對","供應商收款資料變更","收款帳戶","收款資料","付款指示","付款程序","付款核准","付款階段","付款依據","變更請求","獨立確認","內部核准","獨立聯絡","獨立來源","聯絡管道","聯絡電話","聯絡方式","確認管道","確認紀錄","確認對象","核對內容","簽約方","簽約公司","收款人","帳戶所有權","帳號識別資料","商務郵件詐騙","既有郵件","原有郵件","原始請求","原先核准","付款資料變更","供應商資料","供應商檔案","雙人覆核","財務資訊","財務資料","財務狀況","匯款銀行","匯款","帳號","帳戶","簽核","回撥","訂金","尾款","幣別","網域","信箱","償付能力","代管款項","追款服務","指定人員","有權責者","單一管道","說清楚","夾帶","獲授權","受控紀錄"],"zh-cn":["供应商变更收款账户","付款前如何核实","供应商收款信息变更","收款账户","收款信息","付款指令","付款程序","付款流程","付款审批","付款节点","变更申请","独立确认","内部审批","独立渠道","独立来源","联系渠道","联系方式","联系资料","确认记录","确认事项","核实字段","核实时间","核验","核实","合同主体","收款方","账户归属","账户识别信息","商业邮件诈骗","已有邮件","原邮件链","邮件链","原始通知","付款资料","供应商档案","双人审核","财务信息","财务资料","汇出银行","汇款","账户","账号","签批","核准","订金","尾款","币种","邮箱","偿付能力","资金托管","追款服务","指定人员","工作需要","单一信息源","妥善保存","印章","盖章通知","已被入侵"]};
+  for (const [locale, terms] of Object.entries(samples)) {
+    for (const term of [...terms, 'FBI', 'IC3', 'Report Fraud', 'Pixabay', 'BEC']) {
+      const text = term + '。';
+      const rendered = protectCjkText(text, locale);
+      assert.ok(rendered.includes('>' + text + '</span>'), locale + ': ' + term);
+      assert.equal(removeProtectionMarkup(rendered), text);
+    }
+  }
+});
+
 test('Erlangen industrial AI keeps independently edited Chinese technical terms intact', () => {
   // Shorter overlapping terms must remain intact inside these complete compounds.
   const compounds = {
