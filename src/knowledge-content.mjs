@@ -7,6 +7,79 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  {
+    "id": "knowledge-yttrium-japan-supply-disruption",
+    "key": "yttriumJapanSupplyDisruption",
+    "contentType": "current-affairs",
+    "slug": "knowledge/yttrium-japan-supply-disruption",
+    "category": "commercial-risk",
+    "products": [
+      "general"
+    ],
+    "markets": [
+      "global",
+      "japan"
+    ],
+    "keywords": {
+      "en": [
+        "Japan yttrium supply October 2026",
+        "yttria semiconductor equipment coatings",
+        "rare earth export controls supply chain"
+      ],
+      "zh-tw": [
+        "日本釔供應受阻",
+        "氧化釔 半導體設備塗層",
+        "稀土 出口管制"
+      ],
+      "zh-cn": [
+        "日本钇供应受阻",
+        "氧化钇 半导体设备涂层",
+        "稀土 出口管制"
+      ]
+    },
+    "datePublished": "2026-10-22",
+    "dateModified": "2026-10-22",
+    "image": "/assets/editorial-yttrium-japan-supply.jpg",
+    "imageWidth": 2200,
+    "imageHeight": 1467,
+    "imageCrop": {
+      "card": "47% 56%",
+      "article": "48% 53%",
+      "mobile": "52% 55%"
+    },
+    "photo": {
+      "photographer": "Jan Anskeit",
+      "page": "https://commons.wikimedia.org/wiki/File:Piece_of_Yttrium.jpg",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "sources": [
+      {
+        "publisher": "AFP / Insider Paper",
+        "title": "Japan says supplies of rare earth yttrium have stalled — 21 October 2026; anonymous ministry official and reported customs figures",
+        "url": "https://insiderpaper.com/japan-says-supplies-of-rare-earth-yttrium-have-stalled/"
+      },
+      {
+        "publisher": "Ministry of Foreign Affairs of China",
+        "title": "Regular press conference, 21 October 2026 — official response on export controls; not a shipment or inventory disclosure",
+        "url": "https://www.fmprc.gov.cn/mfa_eng/xw/fyrbt/202610/t20261021_12044543.html"
+      },
+      {
+        "publisher": "AGC",
+        "title": "Yttrium Coating (Y2O3/Y5O4F7) — manufacturer-described semiconductor-equipment applications, not a shortage notice",
+        "url": "https://www.agc.com/en/products/new_markets/detail/yttria-coating.html"
+      },
+      {
+        "publisher": "Wikimedia Commons / Jan Anskeit",
+        "title": "Piece of Yttrium — real archival photograph, 30 August 2019, CC BY-SA 4.0",
+        "url": "https://commons.wikimedia.org/wiki/File:Piece_of_Yttrium.jpg"
+      },
+      {
+        "publisher": "Creative Commons",
+        "title": "CC BY-SA 4.0 — attribution, changes and continuing share-alike licence for the photograph",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ]
+  },
   // Search intent: verify a supplier bank-detail change before releasing an order payment.
   // Related questions: genuine mailbox versus genuine authority; independent callback channel;
   // seller/payee mismatch; internal approval record; response after a suspected diverted transfer.
@@ -47,7 +120,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-21",
+    "featuredReviewedThrough": "2026-10-22",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -2667,6 +2740,58 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      yttriumJapanSupplyDisruption: {
+        "topic": "Yttrium supply and industrial materials",
+        "published": "22 October 2026",
+        "readTime": "4 minutes",
+        "title": "Japanese official flags yttrium supply disruption: why equipment materials matter",
+        "description": "A Japanese official told AFP on 21 October that yttrium shipments were disrupted. The industrial exposure reaches equipment coatings, while inventories and recovery dates remain unclear.",
+        "imageAlt": "A piece of yttrium metal photographed by Jan Anskeit in August 2019 on a light background.",
+        "imageCaption": "Yttrium metal, photographed 30 August 2019 by Jan Anskeit / Wikimedia Commons, CC BY-SA 4.0. Downloaded 22 October 2026; proportionally resized, JPEG-compressed and cropped for layout under the same licence. Archival material illustration, not a 2026 shipment, yttria coating, AGC product or ZIMONAI assignment.",
+        "labels": {
+          "summary": "News summary",
+          "checklist": "What to watch next",
+          "limits": "What remains unknown"
+        },
+        "answer": "A Japanese industry-ministry official told AFP on 21 October 2026 that yttrium exports were disrupted globally, with Japan facing shipment delays [[source:1]]. China’s foreign ministry separately reaffirmed its export controls on Japan without publishing a recovery timetable [[source:2]]. Yttrium-based coatings used in semiconductor equipment illustrate why the risk extends beyond a small metal market, although the reports establish neither factory-level inventories nor particular chip shortages [[source:3]]. ZIMONAI’s editorial view is that usable coated components—not policy assurances—are the milestone worth watching.",
+        "takeaways": [
+          "AFP attributes the supply warning to an unnamed Japanese official; it is not a published inventory audit [[source:1]].",
+          "AGC lists yttrium-based coatings for semiconductor-equipment chamber parts; its product description is not a shortage announcement [[source:3]].",
+          "Follow shipments, processing and usable replacement parts separately; an export-control statement is not a delivery date."
+        ],
+        "sections": [
+          {
+            "title": "What was reported on 21 October",
+            "paragraphs": [
+              "AFP reported that an unnamed Japanese industry-ministry official described disrupted yttrium exports and delays in shipments to Japan. The report cites Chinese customs figures showing September yttrium-oxide exports to Japan of 4,000 kg, against 51,000 kg a year earlier [[source:1]]. These are reported flows for one material and destination, not a measure of all yttrium supply or Japanese stock.",
+              "In its own 21 October briefing, China’s foreign ministry said it implements export controls on Japan and reiterated its stated position on stable critical-mineral supply chains [[source:2]]. That primary record confirms the official response, not the inventory estimates embedded in the journalist’s question. The reviewed response gives no yttrium shipment allocation or date for restored supply."
+            ]
+          },
+          {
+            "title": "The connection runs through equipment parts",
+            "paragraphs": [
+              "The industrial relevance is more specific than saying that electronics need rare earths. AGC’s product page describes Y2O3 and Y5O4F7 coatings for plasma-facing parts in semiconductor manufacturing equipment, including etching and deposition chambers, stages and heater components [[source:3]]. This is an example of an equipment-material application, not a claim that every chip contains yttrium.",
+              "AGC presents resistance to plasma and reduced particle generation as benefits of its coating technology [[source:3]]. Those are manufacturer descriptions, not independent performance results or evidence that AGC currently lacks material. The relevant distinction is between metal, a specified compound, a coating process and the component ultimately installed in equipment. A shipment of one does not establish readiness of all the others."
+            ]
+          },
+          {
+            "title": "Watch the handover from material to usable component",
+            "paragraphs": [
+              "ZIMONAI’s supply-chain interpretation is that a recovery has several milestones: a supplier can identify material, an authorised shipment can move, a processor can make the required grade, and a component can meet its intended equipment requirements. These are analytical checkpoints, not a disclosed sequence at any named company.",
+              "For an electronics buyer, the useful question comes after this upstream route is identified: has the component or equipment supplier reported an impact on the relevant order or maintenance need? The current sources do not establish a delay, price rise or quality problem for any charger, GaN device or power-bank purchase. A sector-wide concern should not become an unsupported promise or warning about a particular delivery.",
+              "Next, watch for dated shipment disclosures and manufacturer updates that connect material availability with actual components. The broader significance is that a small input can matter through the equipment it supports. Whether this disruption becomes a production constraint depends on stock, processing and qualified alternatives that the reviewed reports do not quantify."
+            ]
+          }
+        ],
+        "checklist": [
+          "Look for material-specific shipment data, keeping yttrium metal and yttrium oxide distinct.",
+          "Track disclosed inventories with a date and scope, rather than extrapolating a national stock deadline.",
+          "Watch processors’ and equipment suppliers’ own updates before inferring an affected order.",
+          "Separate an alternative material announcement from qualification for its intended equipment.",
+          "Look for a documented recovery timetable, not only policy statements."
+        ],
+        "limitsText": "Reviewed 22 October 2026. The news event is the 21 October AFP report and official Chinese response. AFP’s Japanese ministry source is anonymous; its customs figures were not independently downloaded here. China’s briefing is not confirmation of the inventory claim in the reporter’s question. AGC supplies technical context, not evidence of a shortage at AGC or an independent coating audit. The sources do not disclose company-level stock, affected orders, replacement qualification, prices for a specific purchase or a reliable recovery date. ZIMONAI has not tested materials, visited plants or verified a supplier’s exposure."
+      },
       supplierBankDetailChange: {
         topic: 'Supplier payment-instruction changes',
         published: '21 October 2026',
@@ -5593,6 +5718,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      yttriumJapanSupplyDisruption: {
+        "topic": "釔供應與半導體設備材料",
+        "published": "2026 年 10 月 22 日",
+        "readTime": "4 分鐘",
+        "title": "日本官員稱釔供應受阻：設備材料成焦點",
+        "description": "法新社 10 月 21 日引述日本官員說明釔出貨受阻。從半導體設備塗層看上游影響，分清材料流量、可用零件與尚未公開的庫存資訊。",
+        "imageAlt": "Jan Anskeit 於 2019 年 8 月拍攝的釔金屬塊，放在淺色背景上。",
+        "imageCaption": "釔金屬資料照，Jan Anskeit 於 2019 年 8 月 30 日拍攝，來源 Wikimedia Commons，CC BY-SA 4.0。2026 年 10 月 22 日下載，僅等比縮圖、JPEG 壓縮與版面裁切，照片沿用相同授權。不是當期出貨、氧化釔塗層、AGC 產品或 ZIMONAI 專案。",
+        "labels": {
+          "summary": "新聞摘要",
+          "checklist": "接下來值得觀察",
+          "limits": "仍待確認的資訊"
+        },
+        "answer": "法新社於 2026 年 10 月 21 日引述一名日本經產省官員，指出釔出口在全球受阻，日本也面臨出貨延誤 [[source:1]]。中國外交部同日重申對日出口管制立場，沒有公布恢復供貨的時間表 [[source:2]]。值得注意的是，含釔塗層用於半導體設備的實例，讓這項材料的影響不只停留在金屬市場，但現有報導尚未交代個別工廠庫存或晶片缺貨情況 [[source:3]]。ZIMONAI 的編輯判讀是，後續應看材料如何轉成可用塗層與設備零件，而不只看供應穩定的政策表態。",
+        "takeaways": [
+          "日本供應警訊來自法新社引述的匿名官員，並非公開的庫存稽核報告 [[source:1]]。",
+          "AGC 列出的含釔塗層用途涵蓋半導體設備腔體零件，但產品介紹不是缺料公告 [[source:3]]。",
+          "材料出貨、後段加工與合用零件是不同節點，出口管制回應不等於交貨承諾。"
+        ],
+        "sections": [
+          {
+            "title": "先看新聞已確認的內容",
+            "paragraphs": [
+              "法新社報導，一名不具名日本經產省官員說明釔出口受阻，以及輸日貨物延誤。該報導引述中國海關數據，稱 9 月輸日氧化釔為 4,000 公斤，去年同期為 51,000 公斤 [[source:1]]。這是特定材料與目的地的流量，不是全部釔供應或日本庫存總量。",
+              "中國外交部 10 月 21 日的官方逐字稿，則記錄發言人重申對日出口管制及關鍵礦產供應鏈立場 [[source:2]]。這份一手紀錄支持的是中方回應，並未證實記者提問中的庫存估計，也未交代釔的放行數量與供應恢復日期。"
+            ]
+          },
+          {
+            "title": "影響藏在設備零件裡",
+            "paragraphs": [
+              "這件事與電子製造的連結，從設備材料看會更具體。AGC 的官方產品頁列出 Y2O3 與 Y5O4F7 塗層，可用於半導體蝕刻、沉積設備的腔體頂板、側壁，以及載台和加熱元件 [[source:3]]。這提供了設備材料用途的具體實例。",
+              "AGC 將耐電漿、減少微粒等列為該技術的效益 [[source:3]]；這是廠商對產品的說明，不是獨立測試，也不代表 AGC 已發生缺料。釔金屬、指定化合物、塗層製程與裝入設備的零件必須分開理解；前一項有貨，並不自動完成後面的加工與適用性確認。"
+            ]
+          },
+          {
+            "title": "從材料到可用零件",
+            "paragraphs": [
+              "ZIMONAI 的供應鏈判讀是，供應恢復至少有幾種不同訊號：找到料源、貨物實際運出、加工成所需等級，以及零件符合設備要求。這些是分析節點，不是任何特定公司的已公開作業流程。",
+              "對電子產品買家，問題要接到自己的訂單或設備維護需求：相關零件或設備供應方是否已說明影響？目前資料沒有證明某款充電器、GaN 元件或行動電源已延誤、漲價或出現品質問題。產業風險值得追蹤，但不宜跳過中間環節，直接替個別交期下結論。",
+              "接下來值得看的，是有日期與材料範圍的出貨資訊，以及製造商如何把料源進展連到實際零件。這項事件提醒產業，小宗材料的價值可能透過設備放大；是否演變成生產限制，仍取決於未公開的庫存、加工安排與替代來源認可。"
+            ]
+          }
+        ],
+        "checklist": [
+          "追蹤有明確期間的材料出貨，釔金屬與氧化釔分開看。",
+          "檢視庫存數字的日期與範圍，不把全國耗盡期限當作工廠現況。",
+          "先看加工商及設備供應方的公開更新，再判斷特定訂單影響。",
+          "替代料源公告與設備適用性認可分開記錄。",
+          "留意可驗證的供應恢復時程，而非只有政策表態。"
+        ],
+        "limitsText": "資料覆核日為 2026 年 10 月 22 日，新聞事件為 10 月 21 日的法新社報導及中方回應。日方消息人士未具名；海關數字是媒體引述，本次沒有獨立下載原始統計。中方逐字稿不等於確認提問中的庫存主張，AGC 產品頁也不表示該公司缺料。現有來源未公布個別公司庫存、受影響訂單、替代料認可、特定採購價格或可靠的供應恢復日。ZIMONAI 未測試材料、走訪工廠或驗證個別供應商的曝險。"
+      },
       supplierBankDetailChange: {
         topic: '供應商收款資料變更',
         published: '2026 年 10 月 21 日',
@@ -8480,6 +8657,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      yttriumJapanSupplyDisruption: {
+        "topic": "钇供应与半导体设备材料",
+        "published": "2026 年 10 月 22 日",
+        "readTime": "4 分钟",
+        "title": "日本官员称钇供应受阻：关注设备材料",
+        "description": "10 月 21 日法新社报道日本官员对钇供应的担忧。设备涂层提供了产业关联，但材料出口、可用部件与企业库存不能混为一谈。",
+        "imageAlt": "2019 年 8 月，Jan Anskeit 拍摄的一块钇金属，背景为浅色。",
+        "imageCaption": "钇金属资料照片，摄影 Jan Anskeit，拍摄于 2019 年 8 月 30 日，来自 Wikimedia Commons，采用 CC BY-SA 4.0。2026 年 10 月 22 日下载，仅按比例缩放、JPEG 压缩和排版裁切，照片继续采用同一许可。并非近期货物、氧化钇涂层、AGC 产品或 ZIMONAI 项目。",
+        "labels": {
+          "summary": "新闻摘要",
+          "checklist": "后续观察重点",
+          "limits": "尚未披露的信息"
+        },
+        "answer": "法新社 2026 年 10 月 21 日报道，一名日本经济产业省官员表示，钇出口在全球受阻，发往日本的货物也存在延迟 [[source:1]]。中国外交部当天重申对日出口管制立场，没有给出供货恢复时间 [[source:2]]。值得关注的是，半导体设备使用含钇涂层的实例说明，风险可能沿设备材料传递，而报道本身没有揭示具体工厂库存或芯片短缺 [[source:3]]。ZIMONAI 的编辑判断是，应把观察重点放在材料能否形成适用的涂层及设备部件，政策表态之外还要有实际交付。",
+        "takeaways": [
+          "法新社引述的是不具名日方官员，不能据此建立企业库存倒计时 [[source:1]]。",
+          "AGC 的官方页面展示含钇涂层在设备腔体部件上的用途，不是该公司的缺料通告 [[source:3]]。",
+          "材料发货、加工完成和部件可用是不同状态，需要分别观察。"
+        ],
+        "sections": [
+          {
+            "title": "报道与官方回应各说了什么",
+            "paragraphs": [
+              "法新社称，一名匿名日本经济产业省官员谈到钇出口受阻及对日交付延误。报道援引中国海关数字：9 月向日本出口氧化钇 4,000 公斤，上年同期为 51,000 公斤 [[source:1]]。数字对应一种材料的跨境流量，不能直接代表日本还剩多少库存。",
+              "中国外交部 10 月 21 日发布的记者会记录中，发言人就相关提问重申对日出口管制及关键矿产供应链立场 [[source:2]]。记者提问所述的库存期限并未因此成为官方确认的事实；回应也没有列出钇的出口配额或恢复交付日期。"
+            ]
+          },
+          {
+            "title": "为何要看到设备部件这一层",
+            "paragraphs": [
+              "AGC 在其产品页面介绍 Y2O3 和 Y5O4F7 涂层，用途包括半导体刻蚀及沉积设备的腔体顶板、侧壁、载台和加热部件 [[source:3]]。这展示了设备材料的具体用途，而不是芯片成分的普遍说明。",
+              "耐等离子体和减少颗粒是 AGC 描述的产品效益 [[source:3]]，不是本文独立测量的结果，更不是 AGC 自身供应中断的证据。金属、指定化合物、涂层工艺与最终设备部件之间仍有加工和适用要求，原料出现供应并不等于合用部件已经交付。"
+            ]
+          },
+          {
+            "title": "观察恢复，要看实际交付",
+            "paragraphs": [
+              "ZIMONAI 认为，判断供应改善可以区分几个节点：找到材料来源、取得实际出货、加工达到所需等级，以及部件满足设备要求。这是编辑分析框架，并非对任何企业内部流程的调查结论。",
+              "对采购方，更有意义的信号是相关部件或设备供应商是否披露了具体订单、维护安排受到的影响。现有报道没有证明某款充电器、GaN 器件或移动电源已经涨价、延期或出现质量问题；从上游材料风险推到成品订单，中间的关系仍需证据。",
+              "后续应留意注明时间和材料范围的发货数据，以及制造企业对可用部件的更新。小宗材料可能通过设备形成较大的生产影响，但库存、加工能力和合格替代来源会决定实际约束有多大。报道的价值在于提示这条传递路径，而不是提前宣布普遍停产。"
+            ]
+          }
+        ],
+        "checklist": [
+          "区分钇金属与氧化钇，观察明确期间的出货变化。",
+          "核对库存数字的日期、材料种类和企业范围。",
+          "留意加工商、设备商自身披露的交付影响。",
+          "把新增料源与通过设备适用性确认分开观察。",
+          "等待有依据的恢复时间表，不把政策回应当作发货记录。"
+        ],
+        "limitsText": "核阅截至 2026 年 10 月 22 日，事件为前一天法新社报道及中方回应。法新社未披露日方官员姓名，本次也未独立下载其引述的海关统计原表。记者会记录并未证实提问中的库存估计。AGC 页面只用于说明技术用途，不证明该企业缺料或产品效益经过独立审计。来源未披露公司库存、受影响订单、替代材料认证、单笔采购价格或确定的恢复日期。ZIMONAI 未测试材料、访问工厂或核验企业的供应风险。"
+      },
       supplierBankDetailChange: {
         topic: '供应商收款信息变更',
         published: '2026 年 10 月 21 日',

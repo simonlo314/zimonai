@@ -1,5 +1,14 @@
 # Third-party visual assets
 
+## Japan yttrium-supply news — 22 October 2026
+
+- Real archival photograph by Jan Anskeit, taken 30 August 2019: [Piece of Yttrium](https://commons.wikimedia.org/wiki/File:Piece_of_Yttrium.jpg). Original 6169 × 4115 JPEG: https://upload.wikimedia.org/wikipedia/commons/9/90/Piece_of_Yttrium.jpg . Downloaded from the original file on 22 October 2026.
+- Licence verified on the creator's file page and [CC BY-SA 4.0 deed](https://creativecommons.org/licenses/by-sa/4.0/). Attribution, original source, licence and changes remain visible; the resized/cropped photograph retains CC BY-SA 4.0, not the article text. No endorsement is implied.
+- Local `src/assets/editorial-yttrium-japan-supply.jpg`, 2200 × 1467, proportional downsize and JPEG compression; separate CSS crops only. No AI generation, extension, compositing or factual alteration. The original file describes a metal specimen; the article does not independently certify its purity.
+- The material is directly related to the reported supply issue. Archival illustration only: not an October 2026 shipment, an oxide or coating sample, an AGC product, a Japanese inventory record or a ZIMONAI client/supplier assignment. No news-site or AGC product image is copied.
+- Crop targets selected separately: card 47% 56%, desktop 48% 53%, mobile 52% 55%. Real rendered visual acceptance is a separate gate. Ordinary knowledge cards retain their text-only layout.
+- Editorial lead reviewed through 22 October: retain the recent Siemens/NVIDIA manufacturing story with an identifiable site photograph; this specialist material story uses the existing normal card. No architecture, navigation or template changes.
+
 ## Supplier bank-detail change guide — 21 October 2026
 
 - Reused local photograph: `src/assets/editorial-contract-document.jpg`, 1200 × 900. Creator/source account: Pixabay on Pexels, [Black Pen Placed on White Paper](https://www.pexels.com/photo/black-pen-placed-on-white-paper-261679/), published 20 December 2016, original 4608 × 3456. First tracked locally 20 August 2026; the original download date was not recorded in the legacy asset ledger and is not reconstructed.

@@ -8,6 +8,20 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('yttrium equipment-material news keeps native Chinese technical phrases intact', () => {
+  for (const [locale, terms] of Object.entries({'zh-tw':['電子製造','官員姓名','未披露','具體實例'],'zh-cn':['电子制造','官员姓名','未披露','具体用途','芯片成分','普遍说明']})) for (const term of terms) {
+    assert.ok(protectCjkText(term + '。', locale).includes('>' + term + '。</span>'));
+    assert.equal(removeProtectionMarkup(protectCjkText(term, locale)), term);
+  }
+  const samples = {"zh-tw":["日本官員稱","釔供應受阻","設備材料成焦點","釔供應","半導體設備材料","含釔塗層","釔金屬","氧化釔","經產省","法新社","出貨延誤","出口管制","設備零件","設備材料","關鍵礦產","供應恢復","供應中斷","庫存稽核","庫存估計","庫存總量","政策表態","可用塗層","可用零件","材料流量","後段加工","指定化合物","塗層製程","設備腔體","腔體頂板","蝕刻","沉積","載台","耐電漿","微粒","加工安排","替代來源認可","設備適用性認可","供應方","受影響訂單","實際交付","原始統計","逐字稿","不具名","資料照"],"zh-cn":["日本官员称","钇供应受阻","关注设备材料","钇供应","半导体设备材料","含钇涂层","钇金属","氧化钇","经济产业省","法新社","交付延误","出口管制","设备部件","设备材料","关键矿产","供货恢复","供应中断","库存倒计时","库存估计","政策表态","可用部件","材料流量","指定化合物","涂层工艺","设备腔体","腔体顶板","刻蚀","沉积","载台","耐等离子体","颗粒","加工能力","合格替代来源","设备适用性","恢复时间表","受影响订单","实际交付","统计原表","记者会记录","不具名","资料照片"]};
+  for (const [locale, terms] of Object.entries(samples)) for (const term of [...terms, 'AFP', 'AGC', 'Y2O3', 'Y5O4F7', 'Jan Anskeit']) {
+    const text = term + '。';
+    const rendered = protectCjkText(text, locale);
+    assert.ok(rendered.includes('>' + text + '</span>'), locale + ': ' + term);
+    assert.equal(removeProtectionMarkup(rendered), text);
+  }
+});
+
 test('supplier payment-change terms retain independent Traditional and Simplified Chinese phrasing', () => {
   for (const [locale, clauses] of Object.entries({
     'zh-tw': ['先核准變更', '再安排付款'],
