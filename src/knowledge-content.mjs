@@ -7,6 +7,34 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: connect a semiconductor PCN to a charger purchase order before implementation.
+  // Related questions: PCN versus discontinuance; affected part numbers; notice and response dates;
+  // component qualification versus finished-product review; old/new stock and shipment traceability.
+  {
+    id: 'knowledge-pcn-component-change-charger-order',
+    key: 'pcnComponentChangeChargerOrder',
+    contentType: 'industry-knowledge',
+    slug: 'knowledge/pcn-component-change-charger-order',
+    category: 'factory-onsite',
+    products: ['charger', 'power-adapter', 'gan-charger'],
+    markets: ['global'],
+    keywords: {
+      en: ['product change notification PCN', 'charger component change', 'PCN affected part numbers', 'BOM change control'],
+      'zh-tw': ['PCN 零件變更通知', '充電器物料表', '零件變更評估', '量產變更管理'],
+      'zh-cn': ['PCN 元器件变更', '充电器物料清单', '变更通知期限', '量产变更管理']
+    },
+    datePublished: '2026-10-23', dateModified: '2026-10-23',
+    image: '/assets/editorial-power-supply-board.jpg', imageWidth: 1600, imageHeight: 954,
+    imageCrop: { card: '55% 68%', article: '53% 65%', mobile: '59% 65%' },
+    photo: { photographer: 'Abolfazl Pahlavan', page: 'https://www.pexels.com/photo/electronic-circuit-board-with-various-components-33813265/', license: 'https://www.pexels.com/license/' },
+    sources: [
+      { publisher: 'Texas Instruments', title: 'Product change notification — notice content and separate discontinuance process', url: 'https://www.ti.com/quality-reliability/quality/product-change-notification.html' },
+      { publisher: 'Infineon Technologies', title: 'Product change notification — company notification and acknowledgement policy', url: 'https://www.infineon.com/quality/quality-management/product-change-notification' },
+      { publisher: 'Infineon Technologies', title: 'Supplier Product Change Notification — agreed timelines, before/after comparison and qualification evidence', url: 'https://www.infineon.com/quality/quality-management/supplier-product-change-notification' },
+      { publisher: 'Pexels / Abolfazl Pahlavan', title: 'Electronic Circuit Board with Various Components — real photograph, editorial illustration only', url: 'https://www.pexels.com/photo/electronic-circuit-board-with-various-components-33813265/' },
+      { publisher: 'Pexels', title: 'Pexels License — website reuse without implied endorsement', url: 'https://www.pexels.com/license/' }
+    ]
+  },
   {
     "id": "knowledge-yttrium-japan-supply-disruption",
     "key": "yttriumJapanSupplyDisruption",
@@ -120,7 +148,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-22",
+    "featuredReviewedThrough": "2026-10-23",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -2740,6 +2768,45 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      pcnComponentChangeChargerOrder: {
+        topic: 'Component change control', published: '23 October 2026', readTime: '4 minutes',
+        title: 'PCN notices: connect component changes to the charger order',
+        description: 'Read a semiconductor PCN against affected part numbers, the charger BOM and the shipment transition. Notice, qualification and buyer approval answer different questions.',
+        imageAlt: 'A real electronic power-supply board with capacitors, a transformer and heatsinks on a table.',
+        imageCaption: 'Electronics illustration by Abolfazl Pahlavan / Pexels, photographed January 2025. Existing local photograph; source and Pexels licence reviewed 23 October 2026. Proportional resizing and layout cropping only. Not an affected component, a PCN comparison, a charger test or a ZIMONAI assignment. Original download date was not recorded.',
+        answer: 'A product/process change notification (PCN) identifies an upstream change and the parts it affects; TI lists qualification information and planned shipment dates among its notice fields [[source:1]]. That record describes component-level evidence, not approval of the finished charger. Overseas buyers need the affected part linked to the charger BOM and the order’s transition plan. ZIMONAI’s editorial view is to connect three records—notification, product-level review and shipment traceability—rather than treat receipt of the PCN as permission to ship.',
+        takeaways: [
+          'Match the complete affected part number to the approved charger BOM; a shared brand or package is too broad.',
+          'Read notification, response, sample and first-shipment dates separately under the applicable supplier policy.',
+          'Record the finished-product review and the old/new stock transition before releasing the affected order.'
+        ],
+        sections: [
+          { title: 'Identify the change before deciding its significance', paragraphs: [
+            'TI describes PCNs for major changes affecting a product’s form, fit, function, quality or reliability. Its published notice fields include the reason, affected products, expected impact, qualification evidence or schedule, sample availability and projected shipment date [[source:1]]. Read the notice revision and full part-number list, not just its email subject.',
+            'For a charger purchase, ask the assembler to map those part numbers to the approved bill of materials (BOM), board revision and finished-product model. A component-maker PCN for an existing part and an assembler’s proposal to substitute a different part are separate changes. The latter needs its own review; a supplier’s “equivalent” description does not settle it.',
+            'A discontinuance notice addresses a different decision: last ordering and delivery opportunities, and any replacement. TI publishes that process separately from product changes [[source:1]]. Avoid turning an ordinary PCN into an unsupported claim that a part is obsolete or that an immediate bulk purchase is necessary.'
+          ] },
+          { title: 'Keep the response clock separate from product approval', paragraphs: [
+            'Infineon’s published customer policy gives at least 90 days before the proposed first shipment of changed product, and says lack of acknowledgement within 30 days constitutes acceptance [[source:2]]. This is an attributed company policy, not a universal statutory deadline for every charger supplier. Check the actual notice, contractual terms and contact responsible for responding.',
+            'The other direction of the supply chain also matters. Infineon’s supplier-notification guidance points to agreed written timelines and requests before/after comparisons, qualification evidence and transition information [[source:3]]. These are requirements for suppliers dealing with Infineon, not terms automatically imposed on the reader’s factory.',
+            'ZIMONAI recommends logging receipt, response due date, sample availability and proposed implementation separately. An acknowledgement records receipt; an internal review records the buyer’s decision about the finished charger. Do not assume a reply to a component manufacturer also updates the assembler’s BOM or releases a purchase order.'
+          ] },
+          { title: 'Connect the evaluation to the goods that will ship', paragraphs: [
+            'Ask the responsible engineering or quality team to define the product-level evaluation. Depending on the change, questions might include fit, temperature behaviour, electrical performance or the effect on existing compliance evidence. These are review questions, not a claim that every PCN requires the same tests or that this article establishes a retesting obligation.',
+            'Record the evaluated configuration, evidence reviewed, unresolved conditions, decision owner and approved implementation point. Infineon’s supplier guidance includes samples and a date-code plan among transition information [[source:3]]. At the charger level, ZIMONAI suggests asking how old and new stock will be distinguished and which production lots or orders may contain each configuration.',
+            'A proposed first-shipment date is a planning milestone, not proof of the contents of a particular carton. Carry the agreed configuration into the order and inspection record, and document any mixed-stock arrangement. The useful outcome is a traceable transition from notice to evaluated product to delivered goods—not a larger collection of unconnected PDFs.'
+          ] }
+        ],
+        checklist: [
+          'Original PCN number, revision, issuer and affected full part numbers.',
+          'Mapping to the charger model, board revision and approved BOM.',
+          'Before/after description, reason, qualification evidence and any remaining schedule.',
+          'Applicable response deadline, sample date and proposed implementation date.',
+          'Named owner and written decision for the finished-product evaluation.',
+          'Old/new stock identification, affected lots and purchase orders, including any agreed mixing.'
+        ],
+        limitsText: 'Sources reviewed 23 October 2026; this is an industry guide, not a new PCN announcement. TI and Infineon describe their own processes and cite JEDEC standards; this article has not reproduced or independently assessed the full standards. Their policies are not universal contract terms. No specific part, supplier, BOM, qualification result or shipment has been verified. A PCN is neither finished-product certification nor evidence of every delivered unit’s configuration; required engineering and market-access decisions depend on the actual change and destination.'
+      },
       yttriumJapanSupplyDisruption: {
         "topic": "Yttrium supply and industrial materials",
         "published": "22 October 2026",
@@ -5718,6 +5785,45 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      pcnComponentChangeChargerOrder: {
+        topic: '零件變更與量產管理', published: '2026 年 10 月 23 日', readTime: '4 分鐘',
+        title: 'PCN 零件變更通知：如何對回充電器訂單',
+        description: '從受影響料號、物料表與切換批次讀懂 PCN。分清上游零件通知、整機評估與買家核准，讓變更紀錄真正接到充電器訂單。',
+        imageAlt: '桌面上的真實電源電路板，可見電容、變壓器與散熱片。',
+        imageCaption: 'Abolfazl Pahlavan／Pexels 電路板示意照片，拍攝於 2025 年 1 月。沿用本機照片，2026 年 10 月 23 日重核原頁與 Pexels 授權；僅等比例縮圖與版面裁切。不是受影響零件、PCN 前後對照、充電器測試或 ZIMONAI 專案。原始下載日期未留存。',
+        answer: '產品／製程變更通知（PCN）用來交代上游零件改了什麼、影響哪些料號；TI 公開列出的通知欄位包含驗證資料與預計出貨日期 [[source:1]]。這份紀錄的證據層級在零件端，整台充電器的適用性與買家核准仍是另一項決策。海外買家應把受影響料號接回物料表、整機評估及訂單切換安排，才知道後續交貨採用哪個配置。ZIMONAI 的編輯判讀是，通知、評估與批次追溯應形成三份相連的紀錄，收到 PCN 本身不宜被當成出貨放行依據。',
+        takeaways: [
+          '以完整料號對回核准物料表，不只比品牌、封裝或零件外觀。',
+          '通知、回覆、樣品與首次出貨日期各有作用，應依實際通知及約定分開記錄。',
+          '整機評估結果要接到新舊料切換與訂單，避免文件已更新，交貨配置卻不清楚。'
+        ],
+        sections: [
+          { title: '先辨認改了什麼，再談影響', paragraphs: [
+            'TI 對 PCN 的公開說明涵蓋影響外形、配合、功能、品質或可靠度的重大變更。通知會列出原因、受影響產品、預期影響、驗證計畫與結果或尚待完成的時程，以及樣品和預計出貨日期 [[source:1]]。閱讀時先找通知編號、版本與完整料號清單，不把郵件主旨當作變更範圍。',
+            '對充電器採購而言，下一步是請組裝供應商指出這些料號在核准物料表（BOM）的位置、電路板版本與對應整機型號。原零件製造商調整既有料號，與組裝廠打算改用另一顆零件，是兩件事；後者需要自己的變更評估，不能只以規格相當帶過。',
+            '停產通知處理的是末次下單、最後交付及可能的替代產品。TI 將這套程序與產品變更分開說明 [[source:1]]。一般 PCN 不應被直接解讀為零件停產，更不是必須立刻大量備貨的證據。'
+          ] },
+          { title: '回覆期限與整機核准分開', paragraphs: [
+            'Infineon 的客戶通知政策寫明，至少在變更後產品預計首次出貨前 90 天通知；30 天內未確認收到 PCN，會被視為接受變更 [[source:2]]。這是有明確歸屬的公司政策，不是所有充電器供應商都適用的法定期限。仍要讀實際通知、合約約定，以及誰負責在期限內回覆。',
+            '反向看上游管理，Infineon 對自家供應商的通知指引要求依書面約定時程辦理，並提供變更前後對照、驗證與切換資料 [[source:3]]。這些是與 Infineon 往來的供應商要求，不會自動成為讀者與中國組裝廠之間的契約條款。',
+            'ZIMONAI 建議分別記下收件、回覆期限、樣品可供日期及預計導入時間。確認收件是在留下溝通紀錄；內部核准則是買家對整機配置的決策。回覆了零件廠，不代表組裝廠已更新物料表，也不代表訂單已放行。'
+          ] },
+          { title: '把評估結果接到實際交貨', paragraphs: [
+            '請負責工程或品質的人員，依變更內容訂出整機評估範圍。例如尺寸配合、溫升、電氣性能，以及既有合規資料是否受影響，可能是要釐清的問題。這些是評估方向，不是每份 PCN 一律重測的清單；本文也不替特定產品判定法定重測義務。',
+            '紀錄宜包含受評配置、採用證據、未解決條件、決策負責人與核准導入點。Infineon 的供應商指引將樣品和日期碼安排列入切換資料 [[source:3]]。回到充電器訂單，ZIMONAI 建議問清楚新舊庫存如何區分，哪些生產批次與訂單可能採用各自配置。',
+            '預計首次出貨日期只是規劃節點，並未識別某一箱貨的內部零件。應將同意的配置帶入訂單與檢驗紀錄，混用新舊料時另留明確約定。真正有價值的成果，是從通知、受評產品一路追到交貨批次，而不是累積更多彼此無關的 PDF。'
+          ] }
+        ],
+        checklist: [
+          '保存原始通知編號、版本、發布者與完整受影響料號。',
+          '對回充電器型號、電路板版本及核准物料表。',
+          '取得變更前後對照、原因、驗證資料與尚待完成事項。',
+          '分列適用回覆期限、樣品日期與預計導入時間。',
+          '確認整機評估負責人與書面決策，以及未解決條件。',
+          '記錄新舊料識別方式、批次與訂單，混用時保留雙方約定。'
+        ],
+        limitsText: '資料覆核日期為 2026 年 10 月 23 日，本文是知識指引，不是新的 PCN 事件。TI 與 Infineon 說明各自程序並引用 JEDEC 標準；本文未重製或獨立評估標準全文，也不把公司政策當成通用合約條款。未核實任何特定零件、供應商、物料表、驗證結果或出貨。PCN 不等於整機產品認證，也不識別每件交貨配置；工程判定與市場准入仍須依實際變更、產品及目的地處理。'
+      },
       yttriumJapanSupplyDisruption: {
         "topic": "釔供應與半導體設備材料",
         "published": "2026 年 10 月 22 日",
@@ -8657,6 +8763,45 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      pcnComponentChangeChargerOrder: {
+        topic: '元器件变更与量产衔接', published: '2026 年 10 月 23 日', readTime: '4 分钟',
+        title: 'PCN 元器件变更：怎样对应充电器订单',
+        description: '收到 PCN 后，按受影响料号、物料清单、整机评估和切换批次追踪变更。通知时限与元器件验证，不等于采购订单已经获准出货。',
+        imageAlt: '实拍电源电路板，桌面上可见电容、变压器和金属散热片。',
+        imageCaption: '电路板场景照片：Abolfazl Pahlavan／Pexels，2025 年 1 月拍摄。使用现有本地图片，2026 年 10 月 23 日复核来源及 Pexels 许可；仅等比例缩放和版面裁切。图片不是变更涉及的元器件、PCN 对照材料、充电器测试或 ZIMONAI 项目；最初下载日期没有记录。',
+        answer: '产品／工艺变更通知（PCN）负责说明元器件发生的变化及涉及料号；TI 列出的公开通知内容包括验证资料和计划出货时间 [[source:1]]。元器件层面的说明与整台充电器是否适用，属于不同层次的判断，收到通知也不等于买家已经批准。海外采购需要追踪料号在物料清单中的位置、整机评估结果，以及订单从旧配置转向新配置的安排。ZIMONAI 的编辑判断是，把上游通知、产品评审和批次追溯连接起来，比单独保存一份 PCN 更能说明交货状态。',
+        takeaways: [
+          '核对完整料号和已批准的物料清单，同品牌或同封装不足以确定影响范围。',
+          '分别管理回复、样品和导入时间，按实际通知与合同安排处理。',
+          '让整机评审结论对应新旧库存、生产批次和采购订单，而不只更新文件。'
+        ],
+        sections: [
+          { title: '从受影响料号划定变更范围', paragraphs: [
+            'TI 表示，影响产品外形、配合、功能、质量或可靠性的重大变更，会按其 PCN 程序通知客户。公开列出的信息有变更原因、涉及产品、预期影响、验证计划与结果或后续时间表、样品可供日期及计划出货日期 [[source:1]]。先核实通知编号、修订版本和完整料号，不以一行邮件标题代替正文。',
+            '请充电器组装方说明，该料号用于哪一版物料清单（BOM）、哪块电路板和哪个整机型号。原厂对现有元器件的工艺调整，与组装方提出换用另一料号，应分别审查。即使供应商称两者参数接近，也需要解释替代关系和评估依据。',
+            '停产通知另有用途，重点是最后订购、交付及替代产品安排；TI 将停产与产品变更流程分开介绍 [[source:1]]。普通 PCN 不能直接用来认定零件停产，也不足以支持立即大规模囤货。'
+          ] },
+          { title: '通知时限不等于整机审批', paragraphs: [
+            'Infineon 的客户政策规定，在变更产品计划首次发货前至少 90 天通知；30 天内未确认收到 PCN，将被视为接受该变更 [[source:2]]。这里描述的是 Infineon 的政策，不是面向所有充电器制造商的统一法定时限。采购应查阅具体通知、合同条款，并明确由谁负责及时回复。',
+            'Infineon 对其自身供应商的变更指引，则要求遵守书面协议中的时间安排，提交前后对比、验证和切换信息 [[source:3]]。这是该公司的上游管理要求，不能直接当作买家与另一家组装厂已经约定的条件。',
+            'ZIMONAI 建议建立一张时间记录，分别列出收件、回复期限、样品日期和计划导入点。确认收件解决信息交接，整机评审解决买家的产品决策；给元器件原厂回复，并不会自动修改组装厂的物料清单或批准采购订单出货。'
+          ] },
+          { title: '让评审结论落到交货批次', paragraphs: [
+            '由相应工程或质量人员确定整机评估内容。根据变化性质，可能需要关注尺寸匹配、温升、电气表现以及已有合规证据的适用性。这些是判断方向，不是所有 PCN 都必须照搬的测试项目，也不是本文对某款产品作出的法定复测结论。',
+            '把受评配置、所用证据、待解决条件、决策责任人及批准导入点留下来。Infineon 对供应商的说明包含样品和日期代码切换计划 [[source:3]]。对于充电器采购，ZIMONAI 建议进一步记录新旧库存的区分方法，以及两种配置各自涉及的生产批次和订单。',
+            '计划发货日不是某一箱货的内部配置证明。将同意采用的版本写入订单和检验记录，若允许新旧料混用，应明确范围与识别方式。变更管理的落点，是能够从通知追到评审对象，再追到交付产品，而不是文件夹里又多一份 PDF。'
+          ] }
+        ],
+        checklist: [
+          '核实原始 PCN 编号、修订版、出具方及完整受影响料号。',
+          '请组装方标明整机型号、电路板版本和已批准的物料清单。',
+          '保留前后差异、变更理由、验证证据及待完成事项。',
+          '分别登记回复期限、样品可供日期和计划导入时间。',
+          '保存整机评审的责任人、书面结论及尚未关闭的条件。',
+          '确认新旧库存、批次和订单的对应方式，记录允许混用的约定。'
+        ],
+        limitsText: '本文于 2026 年 10 月 23 日复核资料，是采购知识指引，不报道新的 PCN。TI 和 Infineon 的公开流程引用了 JEDEC 标准；本文没有重制或独立评估标准全文，也没有将企业政策推广为统一合同条件。未验证任何具体元器件、供应商、物料清单、验证结果或货物。PCN 不构成整机认证或逐件配置证明；工程与市场准入判断仍取决于实际变更、产品和目的市场。'
+      },
       yttriumJapanSupplyDisruption: {
         "topic": "钇供应与半导体设备材料",
         "published": "2026 年 10 月 22 日",

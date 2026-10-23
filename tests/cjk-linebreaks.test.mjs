@@ -771,6 +771,20 @@ test('footer address components keep city, district, road and building numbers i
   }
 });
 
+test('PCN guide preserves native component-change and order-transition units', () => {
+  const cases = {
+    'zh-tw': ['零件變更通知', '產品／製程變更通知', '核准物料表', '整機評估', '整機評估範圍', '訂單切換安排', '充電器訂單', '回覆期限', '新舊料切換', '批次追溯', '電路板版本', '受影響料號', '這些證據', '不能證明什麼'],
+    'zh-cn': ['元器件变更', '元器件', '原厂', '充电器订单', '采购订单', '产品／工艺变更通知', '已批准的物料清单', '整机评审', '通知时限', '新旧库存', '批次追溯', '电路板版本', '受影响料号', '这些证据', '不能证明什么', '不能说明什么']
+  };
+  for (const [locale, terms] of Object.entries(cases)) {
+    for (const term of terms) {
+      const result = protectCjkText(`${term}。`, locale);
+      assert.equal(removeProtectionMarkup(result), `${term}。`);
+      assert.match(result, new RegExp(`<span class="cjk-keep cjk-keep--(?:phrase|word)">${term}。<\\/span>`));
+    }
+  }
+});
+
 test('English output is not rewritten by the Chinese line-break layer', () => {
   const html = '<!doctype html><html><body><p>Supplier verification</p></body></html>';
   assert.equal(protectCjkHtml(html, 'en'), html);

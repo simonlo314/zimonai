@@ -219,6 +219,14 @@ The following photographs were downloaded from their original Unsplash pages und
 - Crop review targets: card `28% 38%`, desktop article `30% 40%`, mobile article `0% 34%`, preserving the red TSMC building sign in each. Actual rendered review remains a separate release gate.
 - Featured editorial lead reviewed through 18 October: retain ASML's fresh equipment-supply story and directly identifiable logistics photograph. This TSMC story uses the existing regular article/card templates; no global navigation or page architecture changes.
 
+## PCN component-change guide — reused board photograph, 2026-10-23
+
+- Reused asset: `src/assets/editorial-power-supply-board.jpg`, 1600 × 954 JPEG. Creator: Abolfazl Pahlavan. [Original Pexels photograph](https://www.pexels.com/photo/electronic-circuit-board-with-various-components-33813265/) records a real circuit board photographed 15 January 2025, original dimensions 6000 × 3579. Existing asset first tracked 20 August 2026; original download date was not recorded and is not reconstructed.
+- Original creator page and [Pexels License](https://www.pexels.com/license/) reviewed 23 October 2026. Website reuse and layout cropping permitted without implying endorsement. No new download, AI generation, extension, synthesis or factual image alteration; existing proportional resizing and JPEG compression, plus CSS crops only.
+- Use: trilingual industry-knowledge guide connecting component PCNs to charger BOMs, product review and order transitions. Visible caption credits the creator and source, identifies the licence review and changes, and states that this is not an affected component, PCN before/after comparison, charger test or ZIMONAI project/client/supplier evidence.
+- Art direction: card `55% 68%`, desktop `53% 65%`, mobile `59% 65%`; retain transformer, capacitors and heatsinks without stretching. Actual rendered-page review is a separate release gate. Ordinary index cards remain text-only; the card image slot is reviewed separately without changing the template.
+- Editorial lead reviewed through 23 October: retain Siemens/NVIDIA's recent manufacturing story and identifiable archival company photograph; no automatic promotion of the newest guide or site architecture change.
+
 ## Representation boundary
 
 These are editorial product/category photographs. They do not depict ZimonAI offices, personnel, clients, suppliers, inspections, case evidence or owned facilities. Images that document ZimonAI's registration and reception space remain separately identified as company-provided material on the About page.
