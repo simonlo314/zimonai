@@ -7,6 +7,34 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the US helium critical-material designation and its supply significance.
+  // Related questions: announcement versus signed notice; critical material versus critical mineral;
+  // resource deposits versus refining capacity; policy action versus commissioned output;
+  // evidence needed before attributing a delivery or cost impact to electronics orders.
+  {
+    id: 'knowledge-helium-critical-material-semiconductor-supply',
+    key: 'heliumCriticalMaterialSemiconductorSupply',
+    contentType: 'current-affairs',
+    slug: 'knowledge/helium-critical-material-semiconductor-supply',
+    category: 'commercial-risk', products: ['general'], markets: ['global', 'united-states'],
+    keywords: {
+      en: ['helium critical material October 2026', 'helium refining capacity', 'semiconductor material supply'],
+      'zh-tw': ['美國氦關鍵材料', '氦精煉產能', '半導體材料供應'],
+      'zh-cn': ['美国氦关键材料', '氦精炼能力', '半导体材料供应']
+    },
+    datePublished: '2026-10-24', dateModified: '2026-10-24',
+    image: '/assets/editorial-helium-critical-material.jpg', imageWidth: 1650, imageHeight: 2200,
+    imageCrop: { card: '60% 25%', article: '55% 28%', mobile: '62% 24%' },
+    photo: { photographer: 'Adville', page: 'https://commons.wikimedia.org/wiki/File:Liquid_helium_dewars.jpg', license: 'https://creativecommons.org/licenses/by-sa/4.0/' },
+    sources: [
+      { publisher: 'U.S. Department of Energy', title: 'Helium designation notice — public posting 23 October 2026; signed 21 October; Federal Register text controls if different', url: 'https://www.energy.gov/sites/default/files/2026-10/fed-register-notice-helium.pdf' },
+      { publisher: 'U.S. Department of Energy', title: 'Energy Department Designates Helium as Critical Material — 23 October 2026 announcement and stated refining constraints', url: 'https://www.energy.gov/articles/energy-department-designates-helium-critical-material-strengthen-american-manufacturing' },
+      { publisher: 'U.S. Department of Energy', title: 'What are critical minerals and materials? — different policy definitions and supply-chain stages', url: 'https://www.energy.gov/cmm/what-are-critical-minerals-and-materials' },
+      { publisher: 'Associated Press', title: 'Jennifer McDermott and Alexa St. John — independent reporting on the helium designation, 23 October 2026', url: 'https://apnews.com/article/43da160adc1bad389fba0b9ffbd14c3c' },
+      { publisher: 'Wikimedia Commons / Adville', title: 'Liquid helium dewars — real archival photograph, 15 January 2025, CC BY-SA 4.0', url: 'https://commons.wikimedia.org/wiki/File:Liquid_helium_dewars.jpg' },
+      { publisher: 'Creative Commons', title: 'CC BY-SA 4.0 — attribution, modifications and continuing share-alike licence for the photograph', url: 'https://creativecommons.org/licenses/by-sa/4.0/' }
+    ]
+  },
   // Search intent: connect a semiconductor PCN to a charger purchase order before implementation.
   // Related questions: PCN versus discontinuance; affected part numbers; notice and response dates;
   // component qualification versus finished-product review; old/new stock and shipment traceability.
@@ -148,7 +176,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-23",
+    "featuredReviewedThrough": "2026-10-24",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -2768,6 +2796,42 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      heliumCriticalMaterialSemiconductorSupply: {
+        topic: 'Helium and semiconductor supply', published: '24 October 2026', readTime: '4 minutes',
+        title: 'US adds helium to critical materials: refining is the next test',
+        description: 'The US Energy Department announced helium’s critical-material designation on 23 October 2026. Its own refining-capacity warning explains why policy recognition is not new supply.',
+        imageAlt: 'Stainless-steel liquid-helium transport dewars, with a helium label and gauges visible.',
+        imageCaption: 'Archival liquid-helium transport containers, photographed 15 January 2025 by Adville / Wikimedia Commons. Downloaded 24 October 2026; orientation normalised, proportionally resized, JPEG-compressed and cropped for layout. The photograph retains CC BY-SA 4.0. Material-context illustration, not a US facility, the announcement event or a ZIMONAI assignment.',
+        labels: { summary: 'News summary', checklist: 'What to watch next', limits: 'What remains unconfirmed' },
+        answer: 'The US Energy Department announced on 23 October 2026 that helium had been designated a critical material, citing its role in semiconductor manufacturing [[source:2]]. The signed notice establishes the designation, rather than new plant output or an award of funding [[source:1]]. This raises refining capacity as a supply-chain priority: DOE itself identifies processing and permitting constraints despite domestic resources [[source:2]]. ZIMONAI’s editorial view is that manufacturers should watch commissioned output and reliable delivery, not equate a policy milestone with additional usable supply.',
+        takeaways: [
+          'The announcement is dated 23 October; the posted designation notice was signed on 21 October [[source:1]].',
+          'DOE distinguishes critical materials from the Interior Department’s critical-minerals framework [[source:3]].',
+          'New supply should be assessed through actual capacity and delivery milestones, not the designation alone.'
+        ],
+        sections: [
+          { title: 'A policy decision, with two dates to keep straight', paragraphs: [
+            'The public announcement came on 23 October. DOE’s accompanying notice, signed two days earlier, adds helium to its critical-materials list [[source:1]]. This is a materials-policy announcement, rather than a company’s production update.',
+            'The document reviewed here is DOE’s public posting. Its cover says the Federal Register version controls if the texts differ; this review has not separately authenticated that final publication [[source:1]]. The distinction matters when quoting the legal record, rather than simply reporting the announcement.'
+          ] },
+          { title: 'Resources and usable capacity are different stories', paragraphs: [
+            'AP quoted Semiconductor Industry Association representative David Isaacs identifying cooling, photolithography and leak detection among helium’s chipmaking roles [[source:4]]. These are manufacturing applications, not a claim about helium remaining in a finished chip.',
+            'DOE’s assessment connects helium’s manufacturing importance with supply risk. Its separate explanatory page distinguishes a DOE critical material from a critical mineral identified through the Interior Department’s framework [[source:3]]. Readers should keep the responsible agency and list clear, rather than treating every “critical” label as the same policy instrument.',
+            'The announcement’s most consequential industrial detail is its acknowledgement of limited refining capacity and lengthy permitting timelines [[source:2]]. ZIMONAI reads this as a warning against using resource availability as a proxy for industrial readiness. A resource claim, an approved project, an operating facility and material delivered to a user describe different stages. Progress at one stage should not be reported as completion of the next.'
+          ] },
+          { title: 'The next milestone belongs in a production update', paragraphs: [
+            'ZIMONAI’s analysis is that the useful follow-up is a dated account of capacity entering service, the output it can supply and the intended industrial users. Announced investment and permitted capacity are intermediate signals; an operating update would answer a different question from today’s designation. These are editorial observation points, not projects disclosed in the reviewed notice.',
+            'For downstream electronics procurement, a broad materials policy becomes order-specific only when the relevant manufacturer identifies an effect on its production or delivery. The sources reviewed here establish no delay or cost change for a particular charger, GaN device or power-bank order. The story to follow is whether policy attention becomes dependable industrial supply—not whether the new label alone sounds reassuring.'
+          ] }
+        ],
+        checklist: [
+          'Follow the final Federal Register record and any separately announced implementation measures.',
+          'Separate proposed projects, permits, commissioned facilities and sustained output in company updates.',
+          'Look for the material specification and customer application behind a capacity claim.',
+          'Require an order-specific manufacturer update before attributing a downstream delivery or cost change.'
+        ],
+        limitsText: 'Reviewed 24 October 2026; announcement 23 October, notice signed 21 October. DOE supplies the policy record and capacity assessment; AP is independent reporting, not a plant audit. The reviewed notice is not a funding award or commissioning report, and this article establishes neither site-level stock nor a specific buyer’s exposure. No quantified production gain, delivery forecast or price effect is inferred. ZIMONAI did not inspect a facility or participate in a helium project. Supply-chain interpretation is editorial analysis, not a regulator’s finding.'
+      },
       pcnComponentChangeChargerOrder: {
         topic: 'Component change control', published: '23 October 2026', readTime: '4 minutes',
         title: 'PCN notices: connect component changes to the charger order',
@@ -5785,6 +5849,42 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      heliumCriticalMaterialSemiconductorSupply: {
+        topic: '氦與半導體供應', published: '2026 年 10 月 24 日', readTime: '4 分鐘',
+        title: '美國將氦列為關鍵材料：精煉產能成焦點',
+        description: '美國能源部 2026 年 10 月 23 日宣布將氦列為關鍵材料。官方同時點出精煉與許可限制，供應鏈接下來要看的，是產能與交付進展。',
+        imageAlt: '不鏽鋼液氦運輸容器的真實照片，可見氦標籤、壓力表與閥件。',
+        imageCaption: '液氦運輸容器資料照，Adville／Wikimedia Commons 攝於 2025 年 1 月 15 日。2026 年 10 月 24 日下載；僅校正原檔方向、等比例縮圖、JPEG 壓縮及版面裁切，照片維持 CC BY-SA 4.0 授權。這是材料情境示意，不是美國設施、本次公告現場或 ZIMONAI 專案。',
+        labels: { summary: '新聞摘要', checklist: '接下來值得觀察', limits: '仍待確認的資訊' },
+        answer: '美國能源部於 2026 年 10 月 23 日宣布將氦列為關鍵材料，理由包含它在半導體製造中的重要角色 [[source:2]]。官方通知確認了這項政策決定，並非新廠投產或補助核定紀錄 [[source:1]]。值得注意的是，能源部也點出精煉產能與許可時程限制，讓資源條件與穩定供應之間的落差成為產業焦點 [[source:2]]。ZIMONAI 的編輯判讀是，後續應觀察實際投產與交付成果；政策地位的提升，尚須經過供應能力的檢驗，才對製造端有實質意義。',
+        takeaways: [
+          '公告日期是 10 月 23 日；能源部公開的通知在 10 月 21 日簽署，兩個日期用途不同 [[source:1]]。',
+          '能源部的關鍵材料，與內政部體系的關鍵礦產有不同定義，不宜混為同一張政策清單 [[source:3]]。',
+          '判斷供應進展應看產能啟用與實際交付，不把列入清單直接當成新增供給。'
+        ],
+        sections: [
+          { title: '先看公告內容與通知日期', paragraphs: [
+            '能源部在 10 月 23 日對外公布這項決定，隨附通知的簽署日則是 10 月 21 日，內容將氦加入關鍵材料清單 [[source:1]]。這次新聞的核心是政策認定，不是某座工廠的產能公告。',
+            '本文核讀的是能源部公開的通知原件。封面載明，若與《聯邦公報》刊登版本有差異，應以公報為準；本次未另行確認最終刊登文本 [[source:1]]。報導公告與引用最終法定紀錄，應保留這個區別。'
+          ] },
+          { title: '有資源，為何還要談精煉產能？', paragraphs: [
+            '美聯社引述半導體產業協會代表 David Isaacs，將冷卻、微影與洩漏偵測列為氦在晶片製造中的用途 [[source:4]]。這些用途發生在製造環節，不宜延伸成每顆成品晶片都含有氦的說法。',
+            '能源部的說明將製造用途與供應風險連在一起。其官方解釋頁也區分能源部的關鍵材料，以及內政部體系辨識的關鍵礦產 [[source:3]]。閱讀這類政策時，主管機關、清單名稱與認定範圍應一併看清楚，而不是只記住「關鍵」二字。',
+            '更有產業意義的細節，是公告直接承認精煉產能有限、許可時程較長 [[source:2]]。ZIMONAI 的判讀是，資源存在與工業供應就緒之間，還隔著實際建設與運作。資源說明、計畫獲准、設施啟用、材料交到使用端，是不同階段；前一階段有進展，不宜寫成下一階段已完成。'
+          ] },
+          { title: '下一個重點：投產與交付', paragraphs: [
+            '依 ZIMONAI 的供應鏈分析，後續較有資訊價值的消息，會是設施何時投入運作、可供應哪些規格，以及服務什麼工業用途。投資宣布與取得許可，仍屬中間訊號；持續產出的紀錄，才回答另一層問題。這些是編輯觀察方向，不是本次通知已披露的建設成果。',
+            '對下游電子採購而言，材料政策要接到訂單風險，還需要相關製造商說明自己的生產或交貨受到什麼影響。本次來源未確認任何特定充電器、GaN 元件或行動電源訂單延誤，也未建立其成本變動。接下來值得追的是政策關注如何轉成可靠供應，而不是清單多了一個名稱，交期就已改善。'
+          ] }
+        ],
+        checklist: [
+          '追蹤《聯邦公報》最終紀錄，以及另外公布的執行措施。',
+          '區分企業消息中的規劃、許可、設施啟用與持續產出。',
+          '留意產能說法對應的材料規格與實際用途。',
+          '有製造商針對訂單的說明後，再判斷下游交期或成本影響。'
+        ],
+        limitsText: '資料核讀於 2026 年 10 月 24 日；事件公告為 23 日，通知簽署為 21 日。能源部提供政策紀錄與產能評估，美聯社提供獨立報導，兩者均非個別設施的現場稽核。所核讀的通知不是補助核定或投產報告；本文未確認廠區庫存、個別買家的曝險、新增產量、價格效果或交貨預測。ZIMONAI 未參與氦專案或查核相關設施。供應鏈觀點屬編輯分析，不是主管機關結論。'
+      },
       pcnComponentChangeChargerOrder: {
         topic: '零件變更與量產管理', published: '2026 年 10 月 23 日', readTime: '4 分鐘',
         title: 'PCN 零件變更通知：如何對回充電器訂單',
@@ -8763,6 +8863,42 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      heliumCriticalMaterialSemiconductorSupply: {
+        topic: '氦与芯片制造供应', published: '2026 年 10 月 24 日', readTime: '4 分钟',
+        title: '美国将氦列为关键材料：精炼能力受到关注',
+        description: '美国能源部于 2026 年 10 月 23 日公布氦的关键材料认定。资源储备与可用供应并非一回事，下一步要关注精炼设施的实际运行和交付。',
+        imageAlt: '液氦运输杜瓦容器实拍，可看到不锈钢罐体、氦标识及压力表。',
+        imageCaption: '液氦运输容器资料照片，Adville／Wikimedia Commons，拍摄于 2025 年 1 月 15 日。2026 年 10 月 24 日下载；仅纠正原文件方向、等比例缩放、JPEG 压缩和版面裁切，照片继续采用 CC BY-SA 4.0 许可。用于说明材料运输场景，不代表美国工厂、本次公告活动或 ZIMONAI 项目。',
+        labels: { summary: '新闻摘要', checklist: '后续观察重点', limits: '尚未确认的信息' },
+        answer: '美国能源部 2026 年 10 月 23 日宣布将氦认定为关键材料，强调其对半导体制造的重要性 [[source:2]]。公开通知记录的是政策认定，而不是新设施投产或资金获批 [[source:1]]。更值得关注的是，能源部同时指出精炼能力和许可周期的限制，凸显资源储备与工业供应之间的差距 [[source:2]]。ZIMONAI 的编辑判断是，制造业接下来要看的，是设施运行后能否形成稳定交付；政策优先级的变化，需要用实际供应进展来衡量，尚不宜据此推断具体订单的交期或成本。',
+        takeaways: [
+          '对外公告在 10 月 23 日发布，所附通知的签署日期是 10 月 21 日，应分别记录 [[source:1]]。',
+          '能源部的关键材料与内政部体系的关键矿产定义不同，不能笼统当成一项认定 [[source:3]]。',
+          '评估新增供应应跟踪设施运行和实际产出，不只看材料是否进入政策清单。'
+        ],
+        sections: [
+          { title: '这次公布了什么，日期如何理解', paragraphs: [
+            '美国能源部 10 月 23 日公布氦的关键材料认定；一并公开的通知签署于 21 日，将氦加入相应清单 [[source:1]]。新闻事实首先是一项政策动作，而非企业新增产能的进度披露。',
+            '本次阅读的是能源部发布的通知原件。文件封面提示，如与《联邦公报》的刊登文本不一致，以公报版本为准；本文没有另行核实最终刊登文本 [[source:1]]。引用政策公告时，应说明自己依据的是哪份记录，避免混淆不同发布日期。'
+          ] },
+          { title: '资源储备之外：精炼这一关', paragraphs: [
+            '美联社采访中，半导体行业协会代表 David Isaacs 提到氦在冷却、光刻和检漏等芯片制造环节中的作用 [[source:4]]。这里讨论的是制造工艺，不是在描述成品芯片的材料组成。',
+            '能源部把制造需求与供应风险联系起来。其政策说明页还区分了本部门的关键材料与内政部体系的关键矿产 [[source:3]]。对产业读者而言，理解主管部门和具体清单，比把所有认定归结为同一个“关键资源”标签更有用。',
+            '公告提到的精炼能力不足和许可周期较长，是理解这次认定的重要线索 [[source:2]]。ZIMONAI 认为，地下资源、获准建设、设施投入运行和产品送到使用方，是四种不同状态。资源条件有优势，并不自动意味着后面的环节已经准备妥当；跟踪产能时，应分别记录每个阶段的实际进展。'
+          ] },
+          { title: '从政策关注，走向实际供应', paragraphs: [
+            'ZIMONAI 的产业分析是，后续更应留意带日期的运行更新：设施是否启用、能提供什么规格、面向哪些工业用途。投资计划和许可进度有参考价值，持续产出则属于下一步证据。这是本文提出的观察框架，并非通知已经确认某个项目完成。',
+            '电子采购要判断订单是否受影响，还需要相关制造商对生产或交货作出具体说明。当前来源没有证实某笔充电器、GaN 器件或移动电源订单出现延误，也没有建立对应的成本变化。事件真正值得继续追踪的，是政策地位提升后，能形成多少可靠供应，而不是把认定本身写成供货改善的结果。'
+          ] }
+        ],
+        checklist: [
+          '查看《联邦公报》最终记录及后续单独发布的实施安排。',
+          '把项目规划、许可、设施启用与持续产出分开跟踪。',
+          '确认产能信息对应的材料规格和工业用途。',
+          '取得制造商对相关订单的说明，再评估交期与成本传导。'
+        ],
+        limitsText: '资料核读日期为 2026 年 10 月 24 日；公告发布于 23 日，通知签署于 21 日。能源部是政策记录和产能判断的来源；美联社提供独立报道，并未对工厂作产能审计。所读通知不是资金批复或投产报告。本文未核实企业库存、具体买家风险、新增产量、价格效果或交付预测；ZIMONAI 未参与氦项目或检查有关设施。产业影响部分为编辑分析，不代表监管结论。'
+      },
       pcnComponentChangeChargerOrder: {
         topic: '元器件变更与量产衔接', published: '2026 年 10 月 23 日', readTime: '4 分钟',
         title: 'PCN 元器件变更：怎样对应充电器订单',

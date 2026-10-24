@@ -227,6 +227,16 @@ The following photographs were downloaded from their original Unsplash pages und
 - Art direction: card `55% 68%`, desktop `53% 65%`, mobile `59% 65%`; retain transformer, capacitors and heatsinks without stretching. Actual rendered-page review is a separate release gate. Ordinary index cards remain text-only; the card image slot is reviewed separately without changing the template.
 - Editorial lead reviewed through 23 October: retain Siemens/NVIDIA's recent manufacturing story and identifiable archival company photograph; no automatic promotion of the newest guide or site architecture change.
 
+## Helium critical-material designation — archival transport-dewar photograph, 2026-10-24
+
+- Asset: `src/assets/editorial-helium-critical-material.jpg` (1650 × 2200 JPEG, upright EXIF orientation normalised).
+- Creator: Adville; real photograph “Liquid helium dewars,” taken 15 January 2025. [Original creator/file page](https://commons.wikimedia.org/wiki/File:Liquid_helium_dewars.jpg); [3024 × 4032 displayed original](https://upload.wikimedia.org/wikipedia/commons/5/5f/Liquid_helium_dewars.jpg). Downloaded 24 October 2026; original SHA-1 `eac960d164cdc35cff33aaa719586543215971f7` matches Commons metadata.
+- Licence: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), checked against the author's own-work declaration and licence deed. Attribution, changes and continuing share-alike terms apply to the resized photograph and layout crops, not the article text. Visible captions name the creator, archive date, modifications and licence; adjacent photo credits link the source and the source list links the licence. No endorsement implied.
+- Changes: correct the original EXIF display orientation, proportional resizing, JPEG compression and separate CSS crops only. No AI generation, extension, synthesis or alteration of factual content.
+- Use: trilingual news analysis of DOE's 23 October 2026 helium designation. Direct material/transport-context illustration; not a US facility, an event photograph, a current stock record, semiconductor fabrication evidence or a ZIMONAI client, supplier or assignment. No rights-cleared event-specific image was identified in the official announcement; its image was not republished on an assumption of government ownership.
+- Art direction: card `60% 25%`, desktop `55% 28%`, mobile `62% 24%`, preserving the container necks, gauges and right-hand HELIUM label. Final rendered review remains a separate gate. Ordinary cards retain the existing text-only template; the image card slot is reviewed separately without changing site architecture.
+- Featured lead reviewed through 24 October: retain Siemens/NVIDIA's recent manufacturing story and identifiable company photograph. The helium policy article does not automatically replace it merely for being newest.
+
 ## Representation boundary
 
 These are editorial product/category photographs. They do not depict ZimonAI offices, personnel, clients, suppliers, inspections, case evidence or owned facilities. Images that document ZimonAI's registration and reception space remain separately identified as company-provided material on the About page.

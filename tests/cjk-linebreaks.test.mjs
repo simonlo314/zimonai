@@ -8,6 +8,28 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('helium news protects native policy, processing and transport terminology', () => {
+  assert.ok(protectCjkText('產能公告。', 'zh-tw').includes('>產能公告。</span>'));
+  assert.ok(protectCjkText('投產與交付。', 'zh-tw').includes('>投產與交付。</span>'));
+  assert.ok(protectCjkText('产能公告。', 'zh-cn').includes('>产能公告。</span>'));
+  assert.ok(protectCjkText('实际进展。', 'zh-cn').includes('>实际进展。</span>'));
+  assert.ok(protectCjkText('材料组成。', 'zh-cn').includes('>材料组成。</span>'));
+  assert.ok(protectCjkText('工業供應就緒。', 'zh-tw').includes('>工業供應就緒。</span>'));
+  assert.ok(protectCjkText('許可。', 'zh-tw').includes('>許可。</span>'));
+  assert.ok(protectCjkText('许可。', 'zh-cn').includes('>许可。</span>'));
+  for (const [locale, terms] of Object.entries({'zh-tw':['冷卻','微影','洩漏偵測','晶片製造','成品晶片','資源條件','穩定供應'],'zh-cn':['冷却','光刻','检漏','芯片制造','成品芯片','芯片制造环节']})) for (const term of [...terms,'David Isaacs']) assert.ok(protectCjkText(term+'。', locale).includes('>'+term+'。</span>'));
+  const samples = {
+    'zh-tw': ['美國將氦列為', '精煉產能成焦點', '美國能源部', '關鍵材料', '精煉產能', '半導體製造', '液氦', '杜瓦容器', '運輸容器', '壓力表', '補助核定', '許可時程', '聯邦公報', '工業供應', '設施啟用', '持續產出', '廠區庫存', '新增產量', '可靠供應'],
+    'zh-cn': ['美国将氦列为', '精炼能力', '受到关注', '美国能源部', '关键材料', '半导体制造', '液氦', '杜瓦容器', '运输容器', '压力表', '资金获批', '资源储备', '许可周期', '联邦公报', '地下资源', '投入运行', '持续产出', '资金批复', '可靠供应']
+  };
+  for (const [locale, terms] of Object.entries(samples)) for (const term of [...terms, 'DOE', 'AP', 'Adville', 'UN 1963']) {
+    const text = term + '。';
+    const html = protectCjkText(text, locale);
+    assert.ok(html.includes('>' + text + '</span>'), locale + ': ' + term);
+    assert.equal(removeProtectionMarkup(html), text);
+  }
+});
+
 test('yttrium equipment-material news keeps native Chinese technical phrases intact', () => {
   for (const [locale, terms] of Object.entries({'zh-tw':['電子製造','官員姓名','未披露','具體實例'],'zh-cn':['电子制造','官员姓名','未披露','具体用途','芯片成分','普遍说明']})) for (const term of terms) {
     assert.ok(protectCjkText(term + '。', locale).includes('>' + term + '。</span>'));
