@@ -235,7 +235,8 @@ The following photographs were downloaded from their original Unsplash pages und
 - Changes: correct the original EXIF display orientation, proportional resizing, JPEG compression and separate CSS crops only. No AI generation, extension, synthesis or alteration of factual content.
 - Use: trilingual news analysis of DOE's 23 October 2026 helium designation. Direct material/transport-context illustration; not a US facility, an event photograph, a current stock record, semiconductor fabrication evidence or a ZIMONAI client, supplier or assignment. No rights-cleared event-specific image was identified in the official announcement; its image was not republished on an assumption of government ownership.
 - Art direction: card `60% 25%`, desktop `55% 28%`, mobile `62% 24%`, preserving the container necks, gauges and right-hand HELIUM label. Final rendered review remains a separate gate. Ordinary cards retain the existing text-only template; the image card slot is reviewed separately without changing site architecture.
-- Featured lead reviewed through 24 October: retain Siemens/NVIDIA's recent manufacturing story and identifiable company photograph. The helium policy article does not automatically replace it merely for being newest.
+- Original creator page and CC BY-SA 4.0 terms rechecked 25 October before the delayed first publication; the original download remains 24 October. No new photo or alteration.
+- Featured lead reviewed through 25 October: retain Siemens/NVIDIA's recent manufacturing story and identifiable company photograph. The helium policy article does not automatically replace it merely for being newest.
 
 ## Representation boundary
 

@@ -1,8 +1,9 @@
-import { chmodSync, mkdirSync, mkdtempSync, readdirSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { exportDatabaseBackup } from './d1-backup.mjs';
 
 const SCRIPT_FILE = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(SCRIPT_FILE), '..');
@@ -435,7 +436,7 @@ function timestamp() {
   return new Date().toISOString().replaceAll(':', '-').replace(/\.\d{3}Z$/, 'Z');
 }
 
-function backupRemoteDatabases(label) {
+function backupRemoteDatabases(label, state) {
   const directory = path.resolve(ROOT, '..', 'release-backups', `${timestamp()}-${label}`);
   mkdirSync(directory, { recursive: true, mode: 0o700 });
 
@@ -444,10 +445,8 @@ function backupRemoteDatabases(label) {
     [PORTAL_DB, 'zimonai-portal.sql'],
   ]) {
     const output = path.join(directory, file);
-    run(WRANGLER, [
-      'd1', 'export', database, '--remote', '--skip-confirmation', '--output', output,
-    ]);
-    chmodSync(output, 0o600);
+    const expectedObjects = [...(database === ANALYTICS_DB ? state.analytics.names : state.portal.names)];
+    exportDatabaseBackup({ database, output, expectedObjects, wrangler: WRANGLER, cwd: ROOT });
   }
   console.log(`Private local backup directory: ${directory}`);
   console.log('These SQL exports may contain customer data. Keep them private and delete them under the retention policy.');
@@ -487,7 +486,7 @@ function repairAnalyticsLedger() {
     return;
   }
 
-  backupRemoteDatabases('before-analytics-ledger-repair');
+  backupRemoteDatabases('before-analytics-ledger-repair', state);
   assertReleaseSource();
   const values = missing.map((name) => `('${name}')`).join(', ');
   const sql = `INSERT INTO d1_migrations (name) VALUES ${values} ON CONFLICT(name) DO NOTHING;`;
@@ -525,7 +524,7 @@ function release() {
   });
   console.log(`Verified isolated release artifact: ${artifactDirectory}`);
   assertReleaseSource();
-  backupRemoteDatabases('before-production-migrations');
+  backupRemoteDatabases('before-production-migrations', before);
   assertReleaseSource();
 
   if (before.analytics.pending.length > 0) {

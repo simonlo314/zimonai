@@ -22,7 +22,7 @@ export const knowledgeArticleSpecs = [
       'zh-tw': ['美國氦關鍵材料', '氦精煉產能', '半導體材料供應'],
       'zh-cn': ['美国氦关键材料', '氦精炼能力', '半导体材料供应']
     },
-    datePublished: '2026-10-24', dateModified: '2026-10-24',
+    datePublished: '2026-10-25', dateModified: '2026-10-25',
     image: '/assets/editorial-helium-critical-material.jpg', imageWidth: 1650, imageHeight: 2200,
     imageCrop: { card: '60% 25%', article: '55% 28%', mobile: '62% 24%' },
     photo: { photographer: 'Adville', page: 'https://commons.wikimedia.org/wiki/File:Liquid_helium_dewars.jpg', license: 'https://creativecommons.org/licenses/by-sa/4.0/' },
@@ -176,7 +176,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-24",
+    "featuredReviewedThrough": "2026-10-25",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -2797,7 +2797,7 @@ export const knowledgeContent = {
     },
     articles: {
       heliumCriticalMaterialSemiconductorSupply: {
-        topic: 'Helium and semiconductor supply', published: '24 October 2026', readTime: '4 minutes',
+        topic: 'Helium and semiconductor supply', published: '25 October 2026', readTime: '4 minutes',
         title: 'US adds helium to critical materials: refining is the next test',
         description: 'The US Energy Department announced helium’s critical-material designation on 23 October 2026. Its own refining-capacity warning explains why policy recognition is not new supply.',
         imageAlt: 'Stainless-steel liquid-helium transport dewars, with a helium label and gauges visible.',
@@ -2830,7 +2830,7 @@ export const knowledgeContent = {
           'Look for the material specification and customer application behind a capacity claim.',
           'Require an order-specific manufacturer update before attributing a downstream delivery or cost change.'
         ],
-        limitsText: 'Reviewed 24 October 2026; announcement 23 October, notice signed 21 October. DOE supplies the policy record and capacity assessment; AP is independent reporting, not a plant audit. The reviewed notice is not a funding award or commissioning report, and this article establishes neither site-level stock nor a specific buyer’s exposure. No quantified production gain, delivery forecast or price effect is inferred. ZIMONAI did not inspect a facility or participate in a helium project. Supply-chain interpretation is editorial analysis, not a regulator’s finding.'
+        limitsText: 'Reviewed 25 October 2026; announcement 23 October, notice signed 21 October. DOE supplies the policy record and capacity assessment; AP is independent reporting, not a plant audit. The reviewed notice is not a funding award or commissioning report, and this article establishes neither site-level stock nor a specific buyer’s exposure. No quantified production gain, delivery forecast or price effect is inferred. ZIMONAI did not inspect a facility or participate in a helium project. Supply-chain interpretation is editorial analysis, not a regulator’s finding.'
       },
       pcnComponentChangeChargerOrder: {
         topic: 'Component change control', published: '23 October 2026', readTime: '4 minutes',
@@ -5850,7 +5850,7 @@ export const knowledgeContent = {
     },
     articles: {
       heliumCriticalMaterialSemiconductorSupply: {
-        topic: '氦與半導體供應', published: '2026 年 10 月 24 日', readTime: '4 分鐘',
+        topic: '氦與半導體供應', published: '2026 年 10 月 25 日', readTime: '4 分鐘',
         title: '美國將氦列為關鍵材料：精煉產能成焦點',
         description: '美國能源部 2026 年 10 月 23 日宣布將氦列為關鍵材料。官方同時點出精煉與許可限制，供應鏈接下來要看的，是產能與交付進展。',
         imageAlt: '不鏽鋼液氦運輸容器的真實照片，可見氦標籤、壓力表與閥件。',
@@ -5883,7 +5883,7 @@ export const knowledgeContent = {
           '留意產能說法對應的材料規格與實際用途。',
           '有製造商針對訂單的說明後，再判斷下游交期或成本影響。'
         ],
-        limitsText: '資料核讀於 2026 年 10 月 24 日；事件公告為 23 日，通知簽署為 21 日。能源部提供政策紀錄與產能評估，美聯社提供獨立報導，兩者均非個別設施的現場稽核。所核讀的通知不是補助核定或投產報告；本文未確認廠區庫存、個別買家的曝險、新增產量、價格效果或交貨預測。ZIMONAI 未參與氦專案或查核相關設施。供應鏈觀點屬編輯分析，不是主管機關結論。'
+        limitsText: '資料核讀於 2026 年 10 月 25 日；事件公告為 23 日，通知簽署為 21 日。能源部提供政策紀錄與產能評估，美聯社提供獨立報導，兩者均非個別設施的現場稽核。所核讀的通知不是補助核定或投產報告；本文未確認廠區庫存、個別買家的曝險、新增產量、價格效果或交貨預測。ZIMONAI 未參與氦專案或查核相關設施。供應鏈觀點屬編輯分析，不是主管機關結論。'
       },
       pcnComponentChangeChargerOrder: {
         topic: '零件變更與量產管理', published: '2026 年 10 月 23 日', readTime: '4 分鐘',
@@ -8864,7 +8864,7 @@ export const knowledgeContent = {
     },
     articles: {
       heliumCriticalMaterialSemiconductorSupply: {
-        topic: '氦与芯片制造供应', published: '2026 年 10 月 24 日', readTime: '4 分钟',
+        topic: '氦与芯片制造供应', published: '2026 年 10 月 25 日', readTime: '4 分钟',
         title: '美国将氦列为关键材料：精炼能力受到关注',
         description: '美国能源部于 2026 年 10 月 23 日公布氦的关键材料认定。资源储备与可用供应并非一回事，下一步要关注精炼设施的实际运行和交付。',
         imageAlt: '液氦运输杜瓦容器实拍，可看到不锈钢罐体、氦标识及压力表。',
@@ -8897,7 +8897,7 @@ export const knowledgeContent = {
           '确认产能信息对应的材料规格和工业用途。',
           '取得制造商对相关订单的说明，再评估交期与成本传导。'
         ],
-        limitsText: '资料核读日期为 2026 年 10 月 24 日；公告发布于 23 日，通知签署于 21 日。能源部是政策记录和产能判断的来源；美联社提供独立报道，并未对工厂作产能审计。所读通知不是资金批复或投产报告。本文未核实企业库存、具体买家风险、新增产量、价格效果或交付预测；ZIMONAI 未参与氦项目或检查有关设施。产业影响部分为编辑分析，不代表监管结论。'
+        limitsText: '资料核读日期为 2026 年 10 月 25 日；公告发布于 23 日，通知签署于 21 日。能源部是政策记录和产能判断的来源；美联社提供独立报道，并未对工厂作产能审计。所读通知不是资金批复或投产报告。本文未核实企业库存、具体买家风险、新增产量、价格效果或交付预测；ZIMONAI 未参与氦项目或检查有关设施。产业影响部分为编辑分析，不代表监管结论。'
       },
       pcnComponentChangeChargerOrder: {
         topic: '元器件变更与量产衔接', published: '2026 年 10 月 23 日', readTime: '4 分钟',

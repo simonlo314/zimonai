@@ -95,6 +95,29 @@ The SQL exports may contain customer information. They are written under
 `../release-backups/` with restrictive permissions. Keep that directory
 private and delete old exports according to the retention policy.
 
+### Backup connection-loss handling
+
+The D1 export service can return `Network connection lost.` while creating an
+export, before it issues a download URL. This is distinct from a local SQL-file
+download failure. The backup step alone retries that exact transient error at
+most twice, waiting 2 and 5 seconds. Authentication, schema, configuration,
+unknown errors and failed backup validation stop immediately. There is no
+retry wrapper around migrations or Pages deployment, and no backup fallback
+that omits data, tables or either database.
+
+Every successful full export must be non-empty, private (0600), restore into a
+local in-memory SQLite database, pass integrity and foreign-key checks, and
+contain the objects from the inspected remote schema. Foreign-key enforcement
+is disabled only during that local restore to accommodate dump table order;
+all foreign keys are checked after the restore. SHA-256 and byte counts are
+recorded without logging SQL or signed download URLs. Failed attempts remain
+private; only a validated export is promoted to the final backup filename.
+Platform-managed `_cf_` and `sqlite_` objects are excluded only from the schema
+inventory comparison; the export still requests every user table and its data.
+Both databases must pass before any existing migration or deployment gate can
+continue. Git, confirmation, isolated-artifact and schema protections remain
+unchanged.
+
 ## Failure behavior
 
 - A schema mismatch, ledger gap, failed test, failed export or failed migration
