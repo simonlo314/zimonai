@@ -7,6 +7,32 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: connect an EU BTI decision to the holder and an actual charger shipment.
+  // Related questions: supplier code versus customs decision; third-party decisions;
+  // public versus confidential fields; matching goods; validity at declaration; remaining import requirements.
+  {
+    id: 'knowledge-eu-bti-charger-import', key: 'euBtiChargerImport',
+    contentType: 'industry-knowledge', slug: 'knowledge/eu-bti-charger-import',
+    category: 'product-transport-documents', products: ['charger', 'power-adapter'], markets: ['european-union'],
+    keywords: {
+      en: ['EU BTI charger import', 'binding tariff information holder', 'charger tariff classification', 'EBTI decision validity'],
+      'zh-tw': ['歐盟 BTI 決定', '充電器稅則分類', 'BTI 持有人', '歐盟進口文件'],
+      'zh-cn': ['欧盟 BTI 决定', '充电器税则归类', 'BTI 持有人', '欧盟进口资料']
+    },
+    datePublished: '2026-10-26', dateModified: '2026-10-26',
+    image: '/assets/editorial-china-aeo-port.jpg', imageWidth: 2000, imageHeight: 1230,
+    imageCrop: { card: '57% 63%', article: '56% 60%', mobile: '60% 62%' },
+    photo: { photographer: 'Dinkun Chen', page: 'https://commons.wikimedia.org/wiki/File:MAWAN_PORT,_SHENZHEN_(4).jpg', license: 'https://creativecommons.org/licenses/by-sa/4.0/' },
+    sources: [
+      { publisher: 'European Commission', title: 'European Binding Tariff Information — current overview, holder, validity and public-record boundaries', url: 'https://taxation-customs.ec.europa.eu/online-services/online-services-and-databases-customs/european-binding-tariff-information-ebti_en' },
+      { publisher: 'European Commission', title: 'Administrative Guidance on the BTI Process, 14 March 2024 — sections 8.3 and 10, Annex 6; explanatory guidance, not legislation', url: 'https://taxation-customs.ec.europa.eu/document/download/3301552d-3dfd-422b-b6ca-06212d3dd821_en?filename=bti_guidance_en.pdf' },
+      { publisher: 'Irish Revenue', title: 'Using Binding Tariff Information — declaration references and validity; published 24 March 2026', url: 'https://www.revenue.ie/en/customs/businesses/importing-exporting/bti/using-bti.aspx' },
+      { publisher: 'European Commission', title: 'EU Customs Tariff (TARIC) — tariff and trade measures; national VAT and excise rates excluded', url: 'https://taxation-customs.ec.europa.eu/online-services/online-services-and-databases-customs/eu-customs-tariff-taric_en' },
+      { publisher: 'European Commission', title: 'Public EBTI database — access and limits on disclosure of an existing decision', url: 'https://ec.europa.eu/taxation_customs/dds2/ebti/ebti_home.jsp' },
+      { publisher: 'Wikimedia Commons / Dinkun Chen', title: 'Mawan Port, Shenzhen — real archival logistics photograph, 12 December 2020', url: 'https://commons.wikimedia.org/wiki/File:MAWAN_PORT,_SHENZHEN_(4).jpg' },
+      { publisher: 'Creative Commons', title: 'CC BY-SA 4.0 — attribution, modification disclosure and continuing licence for the photograph', url: 'https://creativecommons.org/licenses/by-sa/4.0/' }
+    ]
+  },
   // Search intent: understand the US helium critical-material designation and its supply significance.
   // Related questions: announcement versus signed notice; critical material versus critical mineral;
   // resource deposits versus refining capacity; policy action versus commissioned output;
@@ -176,7 +202,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-25",
+    "featuredReviewedThrough": "2026-10-26",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -2796,6 +2822,43 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      euBtiChargerImport: {
+        topic: 'EU customs classification', published: '26 October 2026', readTime: '4 minutes',
+        title: 'EU BTI decisions: match the holder, goods and shipment',
+        description: 'Read an EU binding tariff decision against its holder, goods description and current validity before connecting it to a charger shipment. Public records have limits.',
+        imageAlt: 'A red container truck leaving a depot at Mawan Port in Shenzhen, with stacked shipping containers behind it.',
+        imageCaption: 'Archival logistics photograph by Dinkun Chen / Wikimedia Commons, taken 12 December 2020; downloaded 14 October 2026. Existing crop, proportional resizing, JPEG compression and layout crops; retained under CC BY-SA 4.0, rechecked 26 October. Context only, not an EU customs examination, a BTI-covered shipment or a ZIMONAI assignment.',
+        labels: { summary: 'Reader overview', checklist: 'Buyer checklist', limits: 'Scope of this review' },
+        answer: 'An EU Binding Tariff Information (BTI) decision establishes the customs classification of specified goods and binds customs authorities and its holder [[source:1]]. Its value rests on the holder and the goods matching the decision; a public entry omits confidential details [[source:2]]. Overseas buyers therefore need more than a supplier’s tariff code or a similar-looking charger record. ZIMONAI’s editorial view is to connect the decision, the product specification and the declaration file before using it to support shipment planning.',
+        takeaways: [
+          'A BTI is a customs decision tied to its holder; a supplier’s suggested code is a different kind of information.',
+          'Use the full goods description and supporting specification, not the charger’s name or enclosure alone.',
+          'Check status and dates for the shipment; classification does not settle every import requirement or cost.'
+        ],
+        sections: [
+          { title: 'Identify whose decision it is', paragraphs: [
+            'The Commission describes BTI as a legal decision issued by an EU country’s customs authority, generally valid for three years across the EU [[source:1]]. An entry found in another trader’s file can be useful classification context. It does not, merely by being public, make your importer the holder. Keep the issuer and decision reference separate from the supplier’s own code recommendation.',
+            'Annex 6 of the Commission’s guidance identifies the holder, including name, address and EORI number, as well as the decision reference and validity fields. Its confidentiality rules explain why the public record may not expose the complete commercial file [[source:2]]. Obtain the necessary holder-supplied documents through the transaction’s authorised contacts. A missing public identity field is not proof of a mismatch—or proof of a match.'
+          ] },
+          { title: 'Connect the goods description to the charger', paragraphs: [
+            'The guidance requires the goods and classification circumstances to correspond to the decision and distinguishes the public description from confidential commercial information. It also identifies the classification justification and the applicant’s supporting material [[source:2]]. Read those parts together rather than treating a search-result photograph as the decision’s entire scope.',
+            'For a charger purchase, ZIMONAI recommends preserving its functions, input and output ratings, whether it contains a battery, and the configuration presented for import. Link the supplier’s model and specification revision to the decision’s goods description and the invoice or packing information. These are comparison fields, not a rule that one specification alone determines the code. An unexplained difference belongs with the importer and competent customs authority before the decision is relied on.'
+          ] },
+          { title: 'Check the decision again when preparing the shipment', paragraphs: [
+            'The normal three-year period can end early, and an old copy does not establish current validity. Irish Revenue requires the decision reference on relevant customs documentation for covered goods and identifies changes that may invalidate a BTI [[source:3]]. Retain the status-check date alongside the intended declaration date, and resolve any invalidation or extended-use question rather than assuming that a printed end date settles it.',
+            'Classification is one input to the import file. TARIC brings together tariff and trade measures, while excluding national VAT and excise rates [[source:4]]. ZIMONAI’s procurement assessment is to keep classification, the applicable measures and product-compliance evidence as separate work items. A valid BTI is useful for a documented shipment relationship; it is not a fixed landed-cost quotation, electrical-safety assessment or promise of release.'
+          ] }
+        ],
+        checklist: [
+          'Save the issuing authority, complete decision reference and source of the copy.',
+          'Identify the holder and EORI, and document the relationship to the importer and representative.',
+          'Compare the goods description and supporting material with the current charger specification.',
+          'Reconcile the model, imported configuration and shipment documents; record unresolved differences.',
+          'Check current status and relevant dates, and retain the reference in the declaration file.',
+          'Review applicable tariff measures, national taxes and product requirements separately.'
+        ],
+        limitsText: 'Sources reviewed 26 October 2026. This guide explains published procedures; it does not classify a charger, authenticate a decision or verify a holder, EORI or shipment. The Commission’s 2024 administrative guidance is explanatory and does not replace legislation. No private trader file, application or live product-specific decision was assessed. Transaction-document recommendations are ZIMONAI’s editorial assessment; the competent authority determines the applicable customs treatment.'
+      },
       heliumCriticalMaterialSemiconductorSupply: {
         topic: 'Helium and semiconductor supply', published: '25 October 2026', readTime: '4 minutes',
         title: 'US adds helium to critical materials: refining is the next test',
@@ -5849,6 +5912,43 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      euBtiChargerImport: {
+        topic: '歐盟海關與稅則分類', published: '2026 年 10 月 26 日', readTime: '4 分鐘',
+        title: '歐盟 BTI 決定：如何對回充電器進口',
+        description: '供應商提供歐盟 BTI 紀錄時，先核對持有人、貨品描述與目前效力，再連到充電器規格及本次報關資料；相似產品的稅號不是完整依據。',
+        imageAlt: '深圳媽灣港堆場入口的一輛紅色貨櫃車，背景是多層堆放的貨櫃。',
+        imageCaption: 'Dinkun Chen／Wikimedia Commons 攝於 2020 年 12 月 12 日的深圳媽灣港資料照，2026 年 10 月 14 日下載。沿用裁切、等比縮圖與 JPEG 壓縮，另依版面裁切；照片維持 CC BY-SA 4.0 授權，2026 年 10 月 26 日覆核。僅提供物流情境，不是歐盟海關查驗、BTI 適用貨件或 ZIMONAI 專案。',
+        labels: { summary: '讀者摘要', checklist: '買家核對清單', limits: '本文查閱範圍' },
+        answer: '歐盟 BTI 是海關對特定貨品作成的稅則分類決定，對海關與決定持有人具有約束力 [[source:1]]。這項效力須連到持有人及相符貨品，公開紀錄也不顯示完整機密資料 [[source:2]]。海外買家採購充電器時，應將決定文件、產品規格與本次報關資料接在一起，避免把供應商建議的稅號直接當成適用依據。ZIMONAI 的編輯判讀是，BTI 最有價值的部分，是讓這批貨的分類關係可追溯，而非替相似外觀或其他進口要求背書。',
+        takeaways: [
+          'BTI 對海關及決定持有人具有約束力，供應商建議的稅號須另行核對。',
+          '比對貨品描述及佐證規格，不只看充電器名稱、照片或外殼。',
+          '出貨前確認目前效力與日期；分類決定仍須搭配其他進口資料。'
+        ],
+        sections: [
+          { title: '先確認決定持有人', paragraphs: [
+            '歐盟委員會現行說明指出，BTI 由成員國海關核發，通常在歐盟全境有效三年 [[source:1]]。供應商傳來另一家業者的紀錄，或買家自行查到相似貨品，能提供分類線索；公開可讀這件事，並不會使本次進口商自動成為持有人。發文海關、決定編號與供應商自填的稅號，應分別記錄。',
+            '委員會行政指引附錄六列出持有人的名稱、地址與 EORI 識別資料，以及決定編號、有效期間等欄位；保密規定則說明公開頁面與完整商業資料的差別 [[source:2]]。需要補齊的文件，應由交易中有權提供資料的對象交付。公開畫面少一個識別欄位，不宜直接推定主體相同或不同。'
+          ] },
+          { title: '再把貨品描述對回規格', paragraphs: [
+            '行政指引要求，實際貨品及影響分類的情況須與決定相符，並區分公開貨品描述與機密商業資訊。決定也有分類理由及申請時所用佐證資料 [[source:2]]。閱讀時要把這些部分連起來，不能只用搜尋結果中的照片推定涵蓋範圍。',
+            '對充電器採購，ZIMONAI 建議保留功能、輸入與輸出規格、是否含電池，以及進口時的實際組合，再將型號與規格版本對回貨品描述、發票及裝箱資料。這些是比對欄位，不是憑單一規格判定稅號的公式。差異無法解釋時，應由進口商向有權處理的海關確認，再決定是否依該文件安排申報。'
+          ] },
+          { title: '準備出貨時，再看效力', paragraphs: [
+            '一般三年期間可能提前結束，舊掃描檔不足以顯示目前效力。愛爾蘭稅務局要求，申報決定涵蓋的貨品時，在相關海關文件填列決定編號，也列出可能使 BTI 失效的變化 [[source:3]]。買家宜將確認狀態的日期與預計申報日期並列；遇失效或延續使用問題，先釐清適用安排，不只讀原來印出的到期日。',
+            '分類只是進口資料的一部分。TARIC 整合歐盟稅則與貿易措施，並不提供各國加值稅及消費稅稅率 [[source:4]]。ZIMONAI 的採購判讀是，把分類、適用措施及產品合規資料分開處理，再以本次貨件串接。BTI 有助於建立分類依據，卻不是固定的到岸成本報價、電氣安全評估或放行承諾。'
+          ] }
+        ],
+        checklist: [
+          '保存發文海關、完整決定編號，以及取得文件的來源。',
+          '確認持有人與 EORI，說明其與進口商、代理人的關係。',
+          '將貨品描述及佐證資料對回目前充電器規格。',
+          '核對型號、進口組合與出貨文件，記錄尚待釐清的差異。',
+          '查閱目前狀態與相關日期，將決定編號留在報關資料中。',
+          '另外確認適用稅則措施、各國稅負及產品要求。'
+        ],
+        limitsText: '資料查閱於 2026 年 10 月 26 日。本文解讀官方公開程序，未替任何充電器分類，也未驗證個別決定、持有人、EORI 或貨件。委員會 2024 年行政指引屬解釋文件，不取代法律文本；本次未查閱私人業者檔案、提出申請或評估特定產品的即時決定。交易文件建議是 ZIMONAI 編輯判讀，實際海關待遇由有權機關認定。'
+      },
       heliumCriticalMaterialSemiconductorSupply: {
         topic: '氦與半導體供應', published: '2026 年 10 月 25 日', readTime: '4 分鐘',
         title: '美國將氦列為關鍵材料：精煉產能成焦點',
@@ -8863,6 +8963,43 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      euBtiChargerImport: {
+        topic: '欧盟海关与税则归类', published: '2026 年 10 月 26 日', readTime: '4 分钟',
+        title: '欧盟 BTI 决定：怎样对应充电器进口',
+        description: '核对欧盟 BTI 决定的持有人、货物描述与有效状态，再对应充电器规格和本票申报资料，避免照搬其他产品税号。',
+        imageAlt: '深圳妈湾港集装箱堆场前的一辆红色卡车，后方排列着多层集装箱。',
+        imageCaption: '深圳妈湾港物流资料照片，Dinkun Chen／Wikimedia Commons，摄于 2020 年 12 月 12 日，2026 年 10 月 14 日下载。沿用裁剪、等比缩放和 JPEG 压缩，并作版面裁剪；照片继续采用 CC BY-SA 4.0 许可，2026 年 10 月 26 日复核。不是欧盟海关查验、适用某份 BTI 的货物或 ZIMONAI 项目。',
+        labels: { summary: '读者摘要', checklist: '采购核对清单', limits: '本文查阅范围' },
+        answer: '欧盟 BTI 是海关针对特定货物作出的税则归类决定，对海关和决定持有人具有约束力 [[source:1]]。适用关系取决于持有人及货物是否对应，公开数据库也不会展示全部保密信息 [[source:2]]。对海外采购方而言，供应商提供的税号或相似充电器记录，应继续与产品规格、本票申报资料核对。ZIMONAI 的编辑判断是，BTI 的实际价值在于形成可追溯的归类依据；文件真实存在，并不等于本次进口关系已经建立，也没有包办其他准入要求。',
+        takeaways: [
+          '先识别决定持有人，再判断与本次进口的关系，不把公开记录当成通用许可。',
+          '货物描述和佐证规格比外观相似更重要，型号名称不能代替完整比对。',
+          '申报前重核有效状态与日期，归类之外的税费和产品要求另行处理。'
+        ],
+        sections: [
+          { title: '持有人是谁，先核清楚', paragraphs: [
+            '欧盟委员会介绍，BTI 由成员国海关作出，通常在整个欧盟有效三年 [[source:1]]。供方推荐税号与其他企业的决定，只能提供参考。本次进口方与决定的适用关系，仍需单独确认；公开展示不会将决定转给另一家进口商。',
+            '委员会行政指引附录六列有持有人名称、地址、EORI，以及决定编号和有效期间；指引同时说明了公开描述与保密商业资料的区别 [[source:2]]。采购档案应通过有权提供资料的交易联系人，补齐确认身份所需的文件。公开页面没有展示某项信息，应记为资料缺口，而不是直接认定相符或不符。'
+          ] },
+          { title: '货物描述与规格怎样衔接', paragraphs: [
+            '行政指引要求实际货物及影响归类的情况与决定相符，并列出货物描述、归类理由和申请人提交的材料等内容 [[source:2]]。因此，核对不应止于数据库中的图片或产品俗称；公开字段也未必包含商业附件中的全部细节。',
+            '面向充电器订单，ZIMONAI 建议先固定功能、输入输出参数、是否含电池，以及进口时呈现的组合，再将供方型号、规格版本与货物描述、发票和装箱资料相互对应。这是一份比对资料清单，并非按某个参数直接给出税号。发现描述差异后，由进口方与主管海关确认如何处理，避免先照搬编号，再补解释。'
+          ] },
+          { title: '把有效状态接到本票申报', paragraphs: [
+            '正常三年期限可能提前终止，扫描件上的截止日期并不能独立反映当前状态。爱尔兰税务局要求，在申报决定所涵盖的货物时，相关海关单证应填写决定编号，并说明了可能导致失效的变化 [[source:3]]。保存状态核对日期和计划申报日期；若涉及失效或延续使用，先核实适用条件。',
+            'TARIC 汇集欧盟关税及贸易措施，但不包括各国增值税与消费税税率 [[source:4]]。ZIMONAI 的采购判断是，归类、适用措施与产品合规各自保留依据，再围绕这票货连接。有效 BTI 并没有给出固定到岸成本，也不是电气安全结论或海关放行保证。'
+          ] }
+        ],
+        checklist: [
+          '保留签发海关、完整决定编号和文件取得渠道。',
+          '核实持有人、EORI，以及其与进口方和代理人的关系。',
+          '把货物描述及支持材料对应到当前充电器规格。',
+          '逐项衔接型号、进口组合与出货文件，列明未解差异。',
+          '复核有效状态及相关日期，在申报资料中保留决定编号。',
+          '另外确认适用关税措施、各国税费和产品要求。'
+        ],
+        limitsText: '官方资料查阅日期为 2026 年 10 月 26 日。文章解释公开程序，没有为具体充电器确定归类，也没有核实任何决定、持有人、EORI 或货物。委员会 2024 年行政指引是解释性文件，不替代法律文本。本次未获取企业保密档案、递交申请或评估特定产品的实时决定。交易资料建议属于 ZIMONAI 编辑判断，实际海关处理由主管机关认定。'
+      },
       heliumCriticalMaterialSemiconductorSupply: {
         topic: '氦与芯片制造供应', published: '2026 年 10 月 25 日', readTime: '4 分钟',
         title: '美国将氦列为关键材料：精炼能力受到关注',

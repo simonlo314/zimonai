@@ -1,5 +1,13 @@
 # Third-party visual assets
 
+## EU BTI charger-import guide — reused port photograph, 26 October 2026
+
+- Reused `src/assets/editorial-china-aeo-port.jpg`, 2000 × 1230 JPEG. Dinkun Chen's real own-work photograph of Mawan Port, Shenzhen, taken 12 December 2020. [Original file page](https://commons.wikimedia.org/wiki/File:MAWAN_PORT,_SHENZHEN_(4).jpg), original 6960 × 4640; downloaded 14 October 2026. No new download or inferred date.
+- Original creator page and [CC BY-SA 4.0 terms](https://creativecommons.org/licenses/by-sa/4.0/) rechecked 26 October. The existing 5200 × 3200 crop from row 1400 / column 200, proportional resize and JPEG compression are retained, with separate CSS crops only. The photograph and its layout adaptations retain CC BY-SA 4.0; this does not license the article text. Attribution, modifications, archive date and source/licence links remain visible. No AI generation, synthesis, extension or factual alteration; no endorsement implied.
+- Use: trilingual industry-knowledge guide connecting EU tariff-classification decisions to their holder, goods and shipment. Archival logistics context only, not an EU customs inspection, a BTI-covered consignment, classification evidence or a ZIMONAI customer, supplier or assignment. Visible business marks do not identify a decision holder.
+- Independently selected focal positions: card `57% 63%`, desktop `56% 60%`, mobile `60% 62%`, retaining the red cab and container context. Actual rendered crops remain a publication gate. Regular knowledge cards retain the text-only template; a separate 16:10 crop preview checks the existing image slot.
+- Editorial lead reviewed through 26 October: retain the Siemens/NVIDIA manufacturing article and identifiable archival photograph. This specialist reference guide does not automatically become featured. No navigation or template changes.
+
 ## Japan yttrium-supply news — 22 October 2026
 
 - Real archival photograph by Jan Anskeit, taken 30 August 2019: [Piece of Yttrium](https://commons.wikimedia.org/wiki/File:Piece_of_Yttrium.jpg). Original 6169 × 4115 JPEG: https://upload.wikimedia.org/wikipedia/commons/9/90/Piece_of_Yttrium.jpg . Downloaded from the original file on 22 October 2026.

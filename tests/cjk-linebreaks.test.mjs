@@ -8,6 +8,21 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('EU BTI evidence preserves independent Chinese classification and holder terminology', () => {
+  const native = {
+    'zh-tw': ['歐盟 BTI 決定', '如何對回充電器進口', '稅則分類決定', '稅則分類', '決定持有人', '貨品描述', '報關資料', '目前效力', '有效期間', '行政指引', '機密商業資訊', '預計申報日期', '到岸成本', '再把貨品描述', '對回規格', '準備出貨時', '再看效力', '本文查閱範圍'],
+    'zh-cn': ['欧盟 BTI 决定', '怎样对应充电器进口', '税则归类决定', '税则归类', '决定持有人', '货物描述', '申报资料', '有效状态', '有效期间', '行政指引', '保密商业资料', '计划申报日期', '到岸成本', '持有人是谁', '先核清楚', '货物描述与规格', '怎样衔接', '把有效状态', '接到本票申报', '本票申报', '本文查阅范围']
+  };
+  native['zh-tw'].push('深圳媽灣港', '物流情境', '等比縮圖', '這批貨', '稅號');
+  native['zh-cn'].push('深圳妈湾港', '等比缩放', '主管机关', '认定', '税号', '本票申报资料');
+  for (const [locale, terms] of Object.entries(native)) for (const term of [...terms, 'BTI', 'EBTI', 'EORI', 'TARIC']) {
+    const text = `${term}。`;
+    const html = protectCjkText(text, locale);
+    assert.ok(html.includes(`>${text}</span>`), `${locale}: ${term}`);
+    assert.equal(removeProtectionMarkup(html), text);
+  }
+});
+
 test('helium news protects native policy, processing and transport terminology', () => {
   assert.ok(protectCjkText('產能公告。', 'zh-tw').includes('>產能公告。</span>'));
   assert.ok(protectCjkText('投產與交付。', 'zh-tw').includes('>投產與交付。</span>'));
