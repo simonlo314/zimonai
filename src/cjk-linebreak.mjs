@@ -9,6 +9,7 @@ import {
 } from './assets/cjk-patterns.js';
 
 const sharedProtectedTerms = [
+  '3.2 Version 1.2',
   'BTI', 'EBTI', 'EORI', 'TARIC',
   'DOE', 'AP', 'Adville', 'UN 1963', 'David Isaacs',
   'PCN', 'BOM', 'TI', 'Infineon', 'JEDEC', 'J-STD-046', 'J-STD-048', 'Abolfazl Pahlavan',
