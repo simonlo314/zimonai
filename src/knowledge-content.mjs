@@ -7,6 +7,81 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand Applied Materials’ proposed Besi stake increase and its manufacturing significance.
+  // Related questions: target versus delivered shares; board influence; existing technical partnership;
+  // process integration value; customer qualification; evidence for a downstream cost or delivery effect.
+  {
+    "id": "knowledge-applied-materials-besi-stake",
+    "key": "appliedMaterialsBesiStake",
+    "contentType": "current-affairs",
+    "slug": "knowledge/applied-materials-besi-stake",
+    "category": "commercial-risk",
+    "products": [
+      "general"
+    ],
+    "markets": [
+      "global"
+    ],
+    "keywords": {
+      "en": [
+        "Applied Materials Besi stake October 2026",
+        "Besi 20 percent investment",
+        "advanced packaging equipment partnership"
+      ],
+      "zh-tw": [
+        "應用材料增持 Besi",
+        "Besi 約20%持股",
+        "先進封裝設備合作"
+      ],
+      "zh-cn": [
+        "应用材料增持 Besi",
+        "Besi 约20%持股",
+        "先进封装设备合作"
+      ]
+    },
+    "datePublished": "2026-10-27",
+    "dateModified": "2026-10-27",
+    "image": "/assets/editorial-applied-besi-stake.jpg",
+    "imageWidth": 2000,
+    "imageHeight": 1449,
+    "imageCrop": {
+      "card": "53% 45%",
+      "article": "52% 43%",
+      "mobile": "55% 46%"
+    },
+    "photo": {
+      "photographer": "Olaf2",
+      "page": "https://commons.wikimedia.org/wiki/File:Sitz_von_Applied_Materials_in_Santa_Clara.jpg",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "sources": [
+      {
+        "publisher": "Applied Materials",
+        "title": "Strategic investment in Besi — 26 October 2026; proposed stake and share-delivery condition",
+        "url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-increase-its-strategic-investment-be"
+      },
+      {
+        "publisher": "Reuters / Investing.com",
+        "title": "Applied Materials to raise BESI stake to about 20% — independent reporting, 26 October 2026",
+        "url": "https://www.investing.com/news/stock-market-news/applied-materials-to-raise-besi-stake-to-about-20-4973756"
+      },
+      {
+        "publisher": "Applied Materials and Besi",
+        "title": "Expanded strategic partnership — 1 October 2026; process and assembly cooperation, not new production capacity",
+        "url": "https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-and-besi-expand-strategic-partnership-advance"
+      },
+      {
+        "publisher": "Wikimedia Commons / Olaf2",
+        "title": "Applied Materials building in Santa Clara — archival photograph, 18 April 2023; Maydan Technology Center sign visible",
+        "url": "https://commons.wikimedia.org/wiki/File:Sitz_von_Applied_Materials_in_Santa_Clara.jpg"
+      },
+      {
+        "publisher": "Creative Commons",
+        "title": "CC BY-SA 4.0 — commercial reuse, attribution and share-alike terms for the photograph",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ]
+  },
   // Search intent: connect an EU BTI decision to the holder and an actual charger shipment.
   // Related questions: supplier code versus customs decision; third-party decisions;
   // public versus confidential fields; matching goods; validity at declaration; remaining import requirements.
@@ -202,7 +277,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-26",
+    "featuredReviewedThrough": "2026-10-27",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -2822,6 +2897,56 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      appliedMaterialsBesiStake: {
+        "topic": "Advanced packaging and equipment",
+        "published": "27 October 2026",
+        "readTime": "4 minutes",
+        "title": "Applied Materials targets a 20% Besi stake as packaging ties deepen",
+        "description": "Applied Materials announced a larger Besi investment on 26 October 2026. The agreement strengthens packaging ties; share delivery and manufacturing progress remain separate milestones.",
+        "imageAlt": "Applied Materials Maydan Technology Center entrance in Santa Clara, with the company and building names visible above the doors.",
+        "imageCaption": "Archival company-site photograph by Olaf2 / Wikimedia Commons, taken 18 April 2023. Downloaded 27 October 2026; proportionally resized, JPEG-compressed and cropped for layout, retaining CC BY-SA 4.0. The visible sign identifies the Maydan Technology Center; this is not the investment announcement, the EPIC Center, a Besi installation or a ZIMONAI assignment.",
+        "labels": {
+          "summary": "News summary",
+          "checklist": "What to watch next",
+          "limits": "What remains unconfirmed"
+        },
+        "answer": "Applied Materials announced on 26 October 2026 an agreement to increase its Besi investment to approximately 20%, with share delivery still subject to a US antitrust waiting-period condition [[source:1]]. The commitment brings joint process development into focus, rather than reporting new production capacity. For equipment users, the industrial question is how that cooperation improves an entire manufacturing process. ZIMONAI’s editorial assessment is to watch customer qualification and production performance alongside the ownership milestone.",
+        "takeaways": [
+          "The announced stake is a target under an agreement, rather than evidence that share delivery has finished [[source:1]].",
+          "The partners had already expanded their process-and-assembly collaboration earlier in October [[source:3]].",
+          "Equipment qualification, stable output and customer adoption remain distinct from an equity investment."
+        ],
+        "sections": [
+          {
+            "title": "A larger stake in an existing relationship",
+            "paragraphs": [
+              "Reuters independently reported the proposed increase from 9% to about 20% [[source:2]]. Applied says it is not seeking a Besi board seat [[source:1]]. The announcement concerns an investment agreement; it should not be described as a completed takeover.",
+              "That distinction changes how the news should be read. Ownership is a financial milestone. A research partnership is an arrangement for development work. Neither, by itself, establishes the availability or performance of a customer’s production line. Combining those three stories into one would make the announcement sound more operationally complete than the disclosed evidence supports."
+            ]
+          },
+          {
+            "title": "The manufacturing value lies between process steps",
+            "paragraphs": [
+              "On 1 October, the partners described a broader programme linking Applied’s wafer-processing expertise with Besi’s placement and assembly technology. The scope includes hybrid bonding, thermo-compression bonding and several chip-integration architectures [[source:3]]. That earlier announcement supplies the technical context for the new investment.",
+              "ZIMONAI reads the cooperation as an effort to improve the interfaces between equipment and processes. Precision placement has to work with prepared surfaces, cleanliness and process control; a strong result at one step is less useful if it is lost at the next. The practical value for manufacturers would be a repeatable process that fits their product and production conditions. This is an editorial interpretation of the collaboration, not a measured yield or throughput result."
+            ]
+          },
+          {
+            "title": "The next useful update is a customer milestone",
+            "paragraphs": [
+              "The announcement is relevant to companies planning advanced-packaging equipment and qualification work. A procurement team would learn more from a defined process scope, an acceptance milestone and a supported production configuration than from the ownership percentage alone. These are observation points, not customer commitments disclosed by the companies.",
+              "The downstream effect also needs a bridge of evidence. Nothing reviewed establishes a delivery or cost change for a particular charger, GaN component or power-bank order. The development to follow is whether closer equipment cooperation becomes qualified, repeatable manufacturing—and whether a customer documents that transition. A larger shareholding gives that follow-up a reason to matter; it does not supply the production result."
+            ]
+          }
+        ],
+        "checklist": [
+          "Watch for confirmation of share delivery and any change to the stated transaction conditions.",
+          "Look for named process platforms and a clear account of what has been jointly qualified.",
+          "Distinguish demonstration results from customer acceptance and sustained production.",
+          "Connect any delivery or cost claim to a particular product and manufacturer update."
+        ],
+        "limitsText": "Reviewed 27 October 2026; event announced 26 October. The reviewed release does not disclose a purchase price or completed share delivery, and provides no customer-level qualification, yield, throughput or delivery result. The 1 October partnership release is background, not another announcement on 26 October. Reuters is independent reporting, not a factory audit. ZIMONAI did not participate in the transaction or inspect the equipment; the manufacturing assessment is editorial analysis."
+      },
       euBtiChargerImport: {
         topic: 'EU customs classification', published: '26 October 2026', readTime: '4 minutes',
         title: 'EU BTI decisions: match the holder, goods and shipment',
@@ -5912,6 +6037,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      appliedMaterialsBesiStake: {
+        "topic": "先進封裝與設備合作",
+        "published": "2026 年 10 月 27 日",
+        "readTime": "4 分鐘",
+        "title": "應用材料擬增持 Besi 至約 20%",
+        "description": "應用材料 2026 年 10 月 26 日宣布增持 Besi 的協議，目標持股約 20%。先進封裝合作再添資金承諾，股份交付與製程量產仍是不同進度。",
+        "imageAlt": "應用材料位於聖塔克拉拉的 Maydan Technology Center 入口，門上方可辨識公司與建築名稱。",
+        "imageCaption": "Olaf2／Wikimedia Commons 於 2023 年 4 月 18 日拍攝的公司設施資料照。2026 年 10 月 27 日下載，等比縮圖、JPEG 壓縮及版面裁切，照片沿用 CC BY-SA 4.0。招牌為 Maydan Technology Center，並非本次公告現場、EPIC Center、Besi 裝機或 ZIMONAI 執行案件。",
+        "labels": {
+          "summary": "新聞摘要",
+          "checklist": "接下來值得觀察",
+          "limits": "尚待公布的資訊"
+        },
+        "answer": "應用材料於 2026 年 10 月 26 日宣布增持 Besi 的協議，目標持股約 20%，股份交付仍有美國反托拉斯等待期條件 [[source:1]]。這筆投資讓既有先進封裝合作再添資金承諾，尚非新增產能的公告。對製造商而言，更值得注意的是兩家公司的技術，能否接成可穩定運作的製程。ZIMONAI 的編輯判讀是，持股進度應與客戶認可、量產表現分開觀察，才能看清合作的實際價值。",
+        "takeaways": [
+          "約 20% 是協議目標，公告與股份交付完成仍有差別 [[source:1]]。",
+          "兩家公司已於 10 月初擴大製程與組裝合作，這次是新的投資進展 [[source:3]]。",
+          "設備認可、穩定產出與客戶導入，各有自己的驗證進度。"
+        ],
+        "sections": [
+          {
+            "title": "先看這次宣布了什麼",
+            "paragraphs": [
+              "路透獨立報導指出，持股擬由 9% 提高至約 20% [[source:2]]。應用材料另表示沒有尋求 Besi 董事席次的計畫 [[source:1]]。目前的消息是增持協議，不宜寫成已完成收購。",
+              "讀者需要區分財務、研發與生產三條進度。持股是財務關係，合作計畫描述開發方向，生產線能否用在客戶產品上則有另一套條件。若把三者合成同一個「合作成果」，就容易把尚在推進的工作寫成現成能力。"
+            ]
+          },
+          {
+            "title": "合作價值在製程銜接",
+            "paragraphs": [
+              "10 月 1 日的合作公告已說明，雙方將連結應用材料的晶圓製程專長與 Besi 的晶粒放置、組裝技術，範圍包括混合鍵合、熱壓鍵合及多種晶片整合架構 [[source:3]]。這份先前公告提供了理解增持消息所需的技術背景。",
+              "ZIMONAI 認為，值得注意的是設備之間如何配合。精準放置晶粒，還要接得上表面處理、潔淨度與製程控制；單一步驟表現好，並不代表整段流程都能重複做好。若合作能減少這些銜接落差，對製造商才有具體價值。這是對合作方向的編輯分析，尚非已量測的良率或產出改善。"
+            ]
+          },
+          {
+            "title": "下一步看客戶端的進展",
+            "paragraphs": [
+              "對正在規劃先進封裝設備的廠商，製程適用範圍、驗收節點與可支援的生產配置，比持股比例更能幫助安排導入。這些是後續觀察方向，並非本次公告已承諾的客戶時程。",
+              "下游影響也需要具體連結。現有資料沒有指出特定充電器、GaN 元件或行動電源訂單將改變價格或交期。接下來的重點，是更緊密的設備合作能否形成經客戶認可、可重複的製造流程；股權投入讓這件事值得追蹤，量產結果仍要由後續進展回答。"
+            ]
+          }
+        ],
+        "checklist": [
+          "追蹤股份交付及交易條件的後續公告。",
+          "留意具名製程平台，以及共同認可的實際範圍。",
+          "區分展示成果、客戶驗收與持續量產。",
+          "將成本或交期說法對回特定產品與製造商更新。"
+        ],
+        "limitsText": "資料查閱於 2026 年 10 月 27 日，事件公告日為 10 月 26 日。所讀公告未揭露買入價格或股份交付完成，也未提供個別客戶的認可、良率、產出或交期成果。10 月 1 日合作公告是背景，並非 26 日另有一次技術發表。路透為獨立報導，非工廠稽核。ZIMONAI 未參與交易或檢查設備，文中製造影響屬編輯分析。"
+      },
       euBtiChargerImport: {
         topic: '歐盟海關與稅則分類', published: '2026 年 10 月 26 日', readTime: '4 分鐘',
         title: '歐盟 BTI 決定：如何對回充電器進口',
@@ -8963,6 +9138,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      appliedMaterialsBesiStake: {
+        "topic": "先进封装与设备合作",
+        "published": "2026 年 10 月 27 日",
+        "readTime": "4 分钟",
+        "title": "应用材料拟将 Besi 持股增至约 20%",
+        "description": "应用材料于 2026 年 10 月 26 日披露增持 Besi 的协议，目标持股约 20%。资金投入加深先进封装合作，股份交付和客户量产进展仍需分别跟踪。",
+        "imageAlt": "美国圣克拉拉的应用材料 Maydan Technology Center 入口，可见公司名称及建筑标识。",
+        "imageCaption": "公司设施历史照片，Olaf2／Wikimedia Commons 摄于 2023 年 4 月 18 日。2026 年 10 月 27 日下载，仅作等比缩放、JPEG 压缩和版式裁切，照片保留 CC BY-SA 4.0 许可。画面标识为 Maydan Technology Center，并非本次投资活动、EPIC Center、Besi 装机或 ZIMONAI 项目。",
+        "labels": {
+          "summary": "新闻摘要",
+          "checklist": "后续观察重点",
+          "limits": "仍待披露的信息"
+        },
+        "answer": "应用材料在 2026 年 10 月 26 日公布增持 Besi 的协议，拟将持股提高至约 20%；股份交付仍取决于美国反垄断等待期条件 [[source:1]]。这使既有先进封装合作获得更深的资金投入，尚不是新增产能的消息。制造企业更值得关注的是，工艺与组装技术能否形成稳定的整体流程。ZIMONAI 的编辑判断是，应把股权进展与客户验证、量产表现分别跟踪，避免用持股比例代替工业成果。",
+        "takeaways": [
+          "目标持股与股份实际交付是两个节点，协议公告并不代表后者已经完成 [[source:1]]。",
+          "双方在 10 月初已扩大工艺和组装合作，增持消息有其既有技术背景 [[source:3]]。",
+          "从设备验证走到稳定生产，还需要客户采用及实际运行的证据。"
+        ],
+        "sections": [
+          {
+            "title": "股权消息与交易状态",
+            "paragraphs": [
+              "路透的独立报道将这次变化概括为从 9% 增至约 20% [[source:2]]。应用材料称，目前没有争取 Besi 董事会席位的打算 [[source:1]]。新闻所确认的是增持安排，不是已经完成的整体收购。",
+              "这件事涉及三种不同进度：投资建立财务关系，研发安排界定合作方向，客户生产则检验设备是否适用。将这些节点分开，才能解释公告的分量；把资金投入直接写成生产能力，反而会遗漏制造企业真正关心的问题。"
+            ]
+          },
+          {
+            "title": "为什么需要工艺与组装配合",
+            "paragraphs": [
+              "双方 10 月 1 日的公告介绍了应用材料的晶圆加工能力与 Besi 的芯片放置、组装技术如何合作，涉及混合键合、热压键合及不同芯片集成架构 [[source:3]]。这说明本次投资的背景是已经存在的技术协作。",
+              "ZIMONAI 的理解是，合作的价值应落在工序衔接上。芯片放置精度需要与表面处理、清洁度、工艺控制相匹配，一道工序的优良结果还要能保留到下一道。对制造企业，有用的成果应是适合自身产品、可以重复运行的流程。上述判断解释合作可能解决的问题，并未认定良率或产出已经提高。"
+            ]
+          },
+          {
+            "title": "量产意义要看客户进展",
+            "paragraphs": [
+              "计划采购先进封装设备的企业，更需要了解适用工艺、验收节点和可支持的生产配置。这些信息能帮助安排导入和验证，股权数字本身无法代替。它们是后续值得观察的内容，并非公司已披露的客户交付承诺。",
+              "向下游推导也应保留证据链。目前资料没有建立特定充电器、GaN 器件或移动电源订单的成本、交期变化。后续报道真正值得补上的，是合作如何走到客户验证和可重复生产。投资增加了观察这条路径的理由，工业结果仍有待具体进展。"
+            ]
+          }
+        ],
+        "checklist": [
+          "关注股份交付是否完成，以及交易条件有无更新。",
+          "寻找明确的工艺平台和共同验证范围。",
+          "分清演示结果、客户验收与持续量产。",
+          "将成本或交付变化对应到具体产品和制造商说明。"
+        ],
+        "limitsText": "资料核阅日期为 2026 年 10 月 27 日，投资公告发布于 10 月 26 日。所核阅公告没有披露购买价格或股份交付完成，也没有个别客户验证、良率、产出、交期的实绩。10 月 1 日的技术合作属于背景资料，不应并成 26 日的新发布。路透提供独立新闻核对，不构成工厂审计。ZIMONAI 未参与投资或检查设备，制造影响为编辑分析。"
+      },
       euBtiChargerImport: {
         topic: '欧盟海关与税则归类', published: '2026 年 10 月 26 日', readTime: '4 分钟',
         title: '欧盟 BTI 决定：怎样对应充电器进口',

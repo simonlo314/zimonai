@@ -8,6 +8,28 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('Besi investment news keeps company names and native process terms intact without changing copy', () => {
+  const terms = {
+    'zh-tw': ['應用材料', '擬增持', '先進封裝', '股份交付', '反托拉斯', '等待期', '晶圓製程', '晶粒放置', '混合鍵合', '熱壓鍵合', '製程銜接', '潔淨度', '客戶認可', '驗收節點', '聖塔克拉拉'],
+    'zh-cn': ['应用材料', '增持', '先进封装', '股份交付', '反垄断', '等待期', '晶圆加工', '芯片放置', '混合键合', '热压键合', '工序衔接', '清洁度', '客户验证', '验收节点', '圣克拉拉']
+  };
+  for (const [locale, values] of Object.entries(terms)) for (const term of [...values, 'Applied Materials', 'Besi', 'EPIC Center', 'Maydan Technology Center', 'Olaf2']) {
+    const text = term + '。';
+    const html = protectCjkText(text, locale);
+    assert.ok(html.includes('>' + text + '</span>'), locale + ': ' + term);
+    assert.equal(removeProtectionMarkup(html), text);
+  }
+  const overlapCases = {
+    'zh-tw': [['公告與股份交付完成仍有差別。', '股份交付完成'], ['多種晶片整合架構。', '晶片整合架構']],
+    'zh-cn': [['应用材料的晶圆加工能力与组装技术。', '晶圆加工能力'], ['芯片放置精度需要匹配清洁度。', '芯片放置精度'], ['不同芯片集成架构。', '芯片集成架构']]
+  };
+  for (const [locale, cases] of Object.entries(overlapCases)) for (const [text, compound] of cases) {
+    const html = protectCjkText(text, locale);
+    assert.ok(html.includes('>' + compound), locale + ': overlap must preserve ' + compound);
+    assert.equal(removeProtectionMarkup(html), text);
+  }
+});
+
 test('EU BTI pages preserve native customs terms and related technical revision labels', () => {
   const native = {
     'zh-tw': ['歐盟 BTI 決定', '如何對回充電器進口', '稅則分類決定', '稅則分類', '決定持有人', '貨品描述', '報關資料', '目前效力', '有效期間', '行政指引', '機密商業資訊', '預計申報日期', '到岸成本', '再把貨品描述', '對回規格', '準備出貨時', '再看效力', '本文查閱範圍'],
