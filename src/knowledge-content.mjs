@@ -7,6 +7,95 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: connect a charger GTIN lookup to the company, ordered item and production party.
+  // Related questions: GS1 lookup output; brand owner versus factory; prefix versus origin;
+  // packaging level; serial versus product number; handling a missing or mismatched record.
+  {
+    "id": "knowledge-gs1-gtin-charger-supplier",
+    "key": "gs1GtinChargerSupplier",
+    "contentType": "industry-knowledge",
+    "slug": "knowledge/gs1-gtin-charger-supplier",
+    "category": "supplier-identity",
+    "products": [
+      "charger",
+      "power-adapter"
+    ],
+    "markets": [
+      "global"
+    ],
+    "keywords": {
+      "en": [
+        "charger GTIN lookup",
+        "Verified by GS1 supplier identity",
+        "barcode company factory",
+        "GTIN country of origin"
+      ],
+      "zh-tw": [
+        "充電器 GTIN 條碼",
+        "GS1 公司查詢",
+        "條碼與生產工廠",
+        "條碼前置碼與產地"
+      ],
+      "zh-cn": [
+        "充电器 GTIN 条码",
+        "GS1 企业查询",
+        "条码与制造工厂",
+        "条码前缀与原产地"
+      ]
+    },
+    "datePublished": "2026-10-28",
+    "dateModified": "2026-10-28",
+    "image": "/assets/editorial-gs1-gtin-packaging.jpg",
+    "imageWidth": 2000,
+    "imageHeight": 1500,
+    "imageCrop": {
+      "card": "44% 72%",
+      "article": "47% 67%",
+      "mobile": "49% 64%"
+    },
+    "photo": {
+      "photographer": "Solomon203",
+      "page": "https://commons.wikimedia.org/wiki/File:Samsung_BD-D5500-ZA_box_barcode_tag.jpg",
+      "license": "https://creativecommons.org/licenses/by-sa/3.0/"
+    },
+    "sources": [
+      {
+        "publisher": "GS1 GO",
+        "title": "How can I know which company assigned a GS1 GTIN to a product? — lookup output and explanatory messages",
+        "url": "https://support.gs1.org/support/solutions/articles/43000734115-how-can-i-know-which-company-assigned-a-gs1-gtin-to-a-product-"
+      },
+      {
+        "publisher": "GS1 GO",
+        "title": "Who is responsible for numbering trade items? — brand owner, manufacturer, importer and retailer roles",
+        "url": "https://support.gs1.org/support/solutions/articles/43000734414/"
+      },
+      {
+        "publisher": "GS1 GO",
+        "title": "Does the GS1 Prefix show the country of origin? — prefix allocation is not manufacturing origin",
+        "url": "https://support.gs1.org/support/solutions/articles/43000734188"
+      },
+      {
+        "publisher": "GS1 Australia",
+        "title": "Global Trade Item Number — packaging levels and individual identification",
+        "url": "https://www.gs1au.org/what-we-do/standards/global-trade-item-number-gtin"
+      },
+      {
+        "publisher": "GS1 GO",
+        "title": "How does serialisation differ from unique identification? — GTIN plus serial number",
+        "url": "https://support.gs1.org/support/solutions/articles/43000734238-how-does-serialisation-differ-from-unique-identification-in-the-gs1-system-"
+      },
+      {
+        "publisher": "Wikimedia Commons / Solomon203",
+        "title": "Samsung BD-D5500-ZA box barcode tag — real archival packaging photograph, 12 July 2012",
+        "url": "https://commons.wikimedia.org/wiki/File:Samsung_BD-D5500-ZA_box_barcode_tag.jpg"
+      },
+      {
+        "publisher": "Creative Commons",
+        "title": "CC BY-SA 3.0 — attribution, title, change disclosure and share-alike terms for the photograph",
+        "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    ]
+  },
   // Search intent: understand Applied Materials’ proposed Besi stake increase and its manufacturing significance.
   // Related questions: target versus delivered shares; board influence; existing technical partnership;
   // process integration value; customer qualification; evidence for a downstream cost or delivery effect.
@@ -277,7 +366,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-27",
+    "featuredReviewedThrough": "2026-10-28",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -2897,6 +2986,58 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      gs1GtinChargerSupplier: {
+        "topic": "GTIN and supplier identity",
+        "published": "28 October 2026",
+        "readTime": "4 minutes",
+        "title": "GTIN on a charger box: match the company, then verify the factory",
+        "description": "Use Verified by GS1 to connect a charger barcode with company and product data, then separate the brand owner, factory, packaging level and individual serial number.",
+        "imageAlt": "Photograph of an older Samsung BD-D5500/ZA player carton label, showing a model code, serial-number barcode and separate UPC barcode.",
+        "imageCaption": "Solomon203 / Wikimedia Commons, “Samsung BD-D5500-ZA box barcode tag”, photographed 12 July 2012. Downloaded 28 October 2026; proportionally resized, JPEG-compressed and cropped for layout under CC BY-SA 3.0. Archival packaging illustration from a player, not a charger, a GS1 lookup result or ZIMONAI case evidence. The pictured product and number have not been independently verified here.",
+        "labels": {
+          "summary": "Reader overview",
+          "checklist": "Before approving the packaging",
+          "limits": "Scope of this guide"
+        },
+        "answer": "GS1’s GTIN identifies a trade item, and Verified by GS1 connects the number with its assigning company and available product data [[source:1]]. That company may be a brand owner rather than the factory, while a barcode prefix does not establish origin [[source:2]][[source:3]]. For buyers sourcing chargers from China, the next step is to connect the record to the quoted model and production party. ZIMONAI’s editorial view is to treat the lookup as one link in an identity chain, then document the missing relationships before approving packaging.",
+        "takeaways": [
+          "Read the full GTIN and available product details, rather than interpreting the first digits as a factory location [[source:1]][[source:3]].",
+          "A brand owner can arrange manufacture elsewhere; an importer or retailer can also hold that role [[source:2]].",
+          "A product number, its packaging level and an individual serial number answer different identification questions [[source:4]][[source:5]]."
+        ],
+        "sections": [
+          {
+            "title": "Start with the number on the ordered item",
+            "paragraphs": [
+              "Ask for a legible label image and the complete GTIN in text. Search that number in Verified by GS1 and save the date, returned company and any available product information. GS1 describes company information as the core return, with corresponding product information where available; a failed search produces an explanatory message [[source:1]].",
+              "For a charger order, compare the result with the quotation’s brand, model and packaging description. Record missing fields as missing. A matching company name is useful identity evidence, but a product description alone is not a test report, an inspection or confirmation that the goods in the shipment match it. This is a document-comparison step, not a product-authentication finding."
+            ]
+          },
+          {
+            "title": "Explain the relationship with the factory",
+            "paragraphs": [
+              "GS1 Australia uses the term GTIN allocator for the party that warrants the trade item declarations; brand owner is an equivalent term where it is familiar [[source:4]]. GS1’s role guidance includes manufacturers that commission production, own-brand importers and retailers [[source:2]]. The GS1 prefix identifies the allocating member organisation, not a manufacturing country or factory [[source:3]].",
+              "If the returned company differs from the Chinese seller, ask what each party does. Connect the brand owner, contracting company and named production site through order documents and the relevant production or authorisation records. ZIMONAI’s assessment is to investigate an unexplained gap rather than label every difference suspicious: a documented private-label arrangement is a different proposition from a supplier claiming to own a factory without supporting records."
+            ]
+          },
+          {
+            "title": "Keep packaging and serial numbers separate",
+            "paragraphs": [
+              "GS1 Australia explains that GTINs can identify trade-item types at different packaging levels, including a consumer unit or case [[source:4]]. GS1 also distinguishes the base product’s GTIN from an individual instance identified by a GTIN plus serial number [[source:5]]. A carton photograph can contain several barcodes; first identify what each printed field represents.",
+              "Ask the supplier to map the retail unit and case to the purchase order’s quantities and configuration. Keep batch or serial references alongside the shipment records when that is needed for traceability. Scanning a code is a way to obtain an identifier; evidence that the correct product and quantity were actually packed must come from the shipment checks. Agree that mapping before packaging approval, when a mistaken label is still straightforward to correct."
+            ]
+          }
+        ],
+        "checklist": [
+          "Capture the complete GTIN, label photograph, quotation model and intended packaging unit.",
+          "Retain the dated GS1 result and distinguish returned information from fields that are absent.",
+          "Explain how the numbering company relates to the seller, brand owner and named factory.",
+          "Compare retail-unit and case identifiers with the order’s configuration and quantities.",
+          "Keep batch or serial references separate from the product-level GTIN.",
+          "Resolve material inconsistencies before approving labels; assess product compliance and shipment conformity separately."
+        ],
+        "limitsText": "Sources reviewed 28 October 2026. This guide explains GS1 identification records and proposes a buyer workflow; it does not verify a particular GTIN, pictured product, supplier, factory, origin, trademark entitlement or regulatory approval. GS1 product data is included where available. A missing or mismatched result needs clarification against the service’s explanation and supporting documents; it is not, by itself, a finding of fraud."
+      },
       appliedMaterialsBesiStake: {
         "topic": "Advanced packaging and equipment",
         "published": "27 October 2026",
@@ -6037,6 +6178,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      gs1GtinChargerSupplier: {
+        "topic": "GTIN 與供應商身分",
+        "published": "2026 年 10 月 28 日",
+        "readTime": "4 分鐘",
+        "title": "充電器 GTIN 條碼：公司紀錄如何對回工廠",
+        "description": "用 Verified by GS1 核對充電器條碼對應的公司與產品資料，再釐清品牌商、簽約公司、生產工廠、包裝層級與單件序號的關係。",
+        "imageAlt": "三星 BD-D5500/ZA 播放機舊外盒標籤，分別可見型號、序號條碼與 UPC 條碼。",
+        "imageCaption": "Solomon203／Wikimedia Commons 攝影，原作名「Samsung BD-D5500-ZA box barcode tag」，攝於 2012 年 7 月 12 日。2026 年 10 月 28 日下載，等比縮圖、JPEG 壓縮與版面裁切，沿用 CC BY-SA 3.0。這是播放機包裝的歷史示意照，並非充電器、GS1 查詢結果或 ZIMONAI 案件證據；本文未驗證照片中的產品或編號。",
+        "labels": {
+          "summary": "讀者摘要",
+          "checklist": "包裝核准前的核對清單",
+          "limits": "本文查閱範圍"
+        },
+        "answer": "GTIN 是識別交易品項的編號，Verified by GS1 可查編號對應的公司及資料庫已有的產品資料 [[source:1]]。這家公司可能是品牌商、進口商或零售商，條碼前置碼也不是產地證明 [[source:2]][[source:3]]。海外買家採購中國充電器時，實際要釐清的是這筆紀錄如何連到報價型號、簽約公司與生產工廠。ZIMONAI 的編輯判讀是，先把條碼當成產品身分的連結點，再補齊各方關係與訂單資料，才能降低包裝標示與實際交貨對不上的風險。",
+        "takeaways": [
+          "查完整 GTIN 及可取得的產品資料，別把條碼前幾碼當成工廠所在地 [[source:1]][[source:3]]。",
+          "品牌商可能委託製造；進口商或零售商也可能負責產品編號 [[source:2]]。",
+          "產品編號、包裝層級與單件序號要分開對照，各自回答不同問題 [[source:4]][[source:5]]。"
+        ],
+        "sections": [
+          {
+            "title": "先把完整編號對回訂購品項",
+            "paragraphs": [
+              "請供應商提供清楚的標籤照片與文字版 GTIN，以完整編號查 Verified by GS1，保留查詢日期、公司名稱及有顯示的產品資料。GS1 說明，查詢提供分配編號的公司等資訊；對應產品資料則視資料庫是否已有內容而定，未查到時會附簡短說明 [[source:1]]。",
+              "對充電器訂單，接著比較報價的品牌、型號與包裝描述。沒有顯示的欄位就記為未取得，別自行補上。公司名稱相符是有用的身分線索；產品描述本身仍不是測試報告、驗貨結果，也沒有證明箱內實物與紀錄相同。這一步是在比對資料。"
+            ]
+          },
+          {
+            "title": "再釐清公司與工廠的關係",
+            "paragraphs": [
+              "GS1 Australia 將對品項聲明負責的一方稱為 GTIN allocator（編號分配方）；在慣用品牌商一詞的產業，兩者視為同義 [[source:4]]。GS1 列出的角色包括自行生產或委託生產的製造商，以及採自有品牌的進口商、批發商或零售商 [[source:2]]。條碼前置碼指出分配前置碼的會員組織，並非製造國家或特定工廠 [[source:3]]。",
+              "查到的公司若與中國賣方不同，先問各方分別負責什麼，再以訂單、委託或授權資料，連起品牌商、簽約公司與具名生產據點。ZIMONAI 認為，值得追查的是缺乏說明的關係；有文件支持的自有品牌代工，與宣稱自有工廠卻拿不出資料，是兩種不同情況。"
+            ]
+          },
+          {
+            "title": "包裝層級與序號分開核對",
+            "paragraphs": [
+              "GS1 Australia 說明，GTIN 可識別零售單位、整箱等不同包裝層級的交易品項 [[source:4]]。GS1 另將品項的 GTIN，與加上序號後識別的個別實物分開說明 [[source:5]]。同一張外盒照片可能有多個條碼。先辨認欄位用途，再確認正在對照的編號。",
+              "請供應商把零售包裝、整箱編號與訂單的數量及配置列成對照，必要時另留批次或序號，接到出貨紀錄。掃到條碼只是取得識別資料，是否裝入正確產品、數量是否相符，仍靠實際出貨查核。包裝核准前先完成這個對照，才能及早處理貼錯標籤的問題。"
+            ]
+          }
+        ],
+        "checklist": [
+          "保留完整 GTIN、標籤照片、報價型號及預計使用的包裝單位。",
+          "保存查詢日期與 GS1 結果，區分已有資料與未顯示的欄位。",
+          "說明編號使用公司如何連到賣方、品牌商與具名工廠。",
+          "將零售與整箱編號對回訂單的配置及數量。",
+          "批次或單件序號另外留存，避免與產品編號混用。",
+          "重要差異釐清後再核准標籤，產品合規與實際交貨另行確認。"
+        ],
+        "limitsText": "資料查閱日為 2026 年 10 月 28 日。本文說明 GS1 識別紀錄並提出買家核對流程，未驗證特定 GTIN、照片產品、供應商、工廠、產地、商標權利或產品核准。產品資料以系統可提供的內容為限；查無結果或內容不符，應按服務說明與補充文件釐清，單憑差異不足以認定詐欺。"
+      },
       appliedMaterialsBesiStake: {
         "topic": "先進封裝與設備合作",
         "published": "2026 年 10 月 27 日",
@@ -9138,6 +9331,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      gs1GtinChargerSupplier: {
+        "topic": "GTIN 与供应商身份",
+        "published": "2026 年 10 月 28 日",
+        "readTime": "4 分钟",
+        "title": "充电器 GTIN 条码：登记企业与工厂怎样对应",
+        "description": "查询充电器 GTIN 后，还要把登记企业、品牌方、交易主体和制造工厂连起来，并区分商品编号、包装层级及单件序列号。",
+        "imageAlt": "三星 BD-D5500/ZA 播放机旧包装上的标签，可见型号、序列号条码及另一个 UPC 条码。",
+        "imageCaption": "历史包装照片，Solomon203／Wikimedia Commons 摄于 2012 年 7 月 12 日，原作名为「Samsung BD-D5500-ZA box barcode tag」。2026 年 10 月 28 日下载，仅作等比缩放、JPEG 压缩与版式裁切，照片保留 CC BY-SA 3.0 许可。画面为播放机包装，并非充电器、GS1 查询记录或 ZIMONAI 项目；文中未核验所示产品或编号。",
+        "labels": {
+          "summary": "内容摘要",
+          "checklist": "确认包装前逐项核对",
+          "limits": "本文资料范围"
+        },
+        "answer": "GTIN 为交易商品提供统一标识，Verified by GS1 可返回分配编号的企业，以及系统中已有的商品信息 [[source:1]]。登记企业与制造工厂各有不同角色，号码前缀也不代表原产地 [[source:2]][[source:3]]。对采购中国充电器的海外买家，查询的价值在于把包装信息连到采购订单，而不是直接认定供应商拥有工厂。ZIMONAI 的编辑判断是，应先建立编号、型号和交易主体的对应关系，再用生产资料说明由谁制造，避免把商品身份记录当成工厂证明。",
+        "takeaways": [
+          "用完整 GTIN 核对企业和现有商品信息，号码前缀不表示制造地点 [[source:1]][[source:3]]。",
+          "编号通常由品牌方分配，品牌方可能安排代工，也可能是进口商或零售商 [[source:2]]。",
+          "同一商品、不同包装层级与单件序列号，需要分别建立对应关系 [[source:4]][[source:5]]。"
+        ],
+        "sections": [
+          {
+            "title": "从订单上的完整编号开始",
+            "paragraphs": [
+              "先拿到清晰的包装标签照片和文字编号，用完整 GTIN 查询 Verified by GS1，记录查询时间、企业名称及返回的商品信息。按 GS1 的说明，查询提供分配编号的企业等资料；商品详情以数据库已有内容为前提。号码不属于 GS1 或未找到时，服务会给出简短解释 [[source:1]]。",
+              "把查询结果与充电器报价的品牌、型号及包装说明逐项比对，未显示的内容单独列出。名称对应有助于辨认商品身份，但一段商品描述不是检验报告，也没有确认待交付的实物与页面一致。采购应保留原始结果，避免在内部转述时把资料查询写成产品验真。"
+            ]
+          },
+          {
+            "title": "把品牌方连到实际制造企业",
+            "paragraphs": [
+              "GS1 Australia 用 GTIN allocator 指对商品声明负责的编号分配方；品牌方在适用行业中视为同义称谓 [[source:4]]。GS1 列出的角色中，制造商可以委托生产，进口商、批发商或零售商也可以经营自己的品牌 [[source:2]]。登记企业不必与制造工厂相同，前缀指向的会员组织也不代表产品制造国家 [[source:3]]。",
+              "若登记企业不是报价卖方，要求说明品牌归属、签约主体和生产地点，再用订单及相应的委托、授权或生产资料支持这些关系。ZIMONAI 的判断是，核查应追问尚未解释的环节；有文件衔接的贴牌生产，与只有口头自称工厂的情形，应分别处理。"
+            ]
+          },
+          {
+            "title": "区分包装层级与单件身份",
+            "paragraphs": [
+              "GS1 Australia 介绍，GTIN 可用于零售单元、整箱等不同包装层级的交易商品 [[source:4]]。产品的基础编号与某一件实物的身份也有区别：GS1 以 GTIN 加序列号说明单件识别 [[source:5]]。包装上常有多个条码。查询前先辨认字段，区分商品 GTIN 与序列号。",
+              "在确认标签前，让供应商列清零售单元和整箱的编号、对应数量与订单配置；批次或单件序列号按追溯需要另行保留，并与出货记录关联。扫描成功只说明读出了一个标识，装箱内容和数量仍需检查。提前把这份对应关系确认下来，才便于在出货前纠正错贴或混用标签。"
+            ]
+          }
+        ],
+        "checklist": [
+          "取得完整 GTIN、清晰标签、报价型号及本次采购的包装单位。",
+          "留存带查询日期的原始结果，把缺失字段单独标明。",
+          "说明登记企业、卖方、品牌方与具名制造工厂之间的关系。",
+          "对照零售单元和整箱的编号、数量及订单配置。",
+          "将批次或单件序列号作为另一层追溯信息保存。",
+          "处理影响身份对应的差异后再确认标签，合规和交货检查另做判断。"
+        ],
+        "limitsText": "资料核阅日期为 2026 年 10 月 28 日。本文依据 GS1 公开资料解释编号用途，核对步骤属于编辑建议，未查询或认证某个编号、照片产品、供应商、工厂、原产地、商标权属或市场准入。商品信息取决于系统已有内容；查询缺失或不一致时，应结合服务提示及补充文件查明，不宜仅据此作出欺诈认定。"
+      },
       appliedMaterialsBesiStake: {
         "topic": "先进封装与设备合作",
         "published": "2026 年 10 月 27 日",

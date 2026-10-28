@@ -850,6 +850,18 @@ test('PCN guide preserves native component-change and order-transition units', (
   }
 });
 
+test('GTIN guide distinguishes complete native identification and packaging units', () => {
+  const cases = {
+    'zh-tw': { text: '核對生產工廠、產品編號與條碼前置碼，說明包裝層級、單件序號及編號分配方，作為產品身分的連結點。', units: ['生產工廠', '產品編號', '條碼前置碼', '包裝層級', '單件序號', '編號分配方', '連結點'] },
+    'zh-cn': { text: '记录查询时间，核对包装标签照片和登记企业与工厂怎样对应，区分包装层级和单件序列号，说明编号分配方。', units: ['查询时间', '包装标签照片', '登记企业与工厂', '怎样对应', '包装层级', '单件序列号', '编号分配方'] }
+  };
+  for (const [locale, { text, units }] of Object.entries(cases)) {
+    const protectedText = protectCjkText(text, locale);
+    assert.equal(removeProtectionMarkup(protectedText), text);
+    for (const unit of units) assert.match(protectedText, new RegExp(`>${unit}[，。、]?<\\/span>`), `${locale}: ${unit}`);
+  }
+});
+
 test('English output is not rewritten by the Chinese line-break layer', () => {
   const html = '<!doctype html><html><body><p>Supplier verification</p></body></html>';
   assert.equal(protectCjkHtml(html, 'en'), html);
