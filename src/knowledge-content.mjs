@@ -7,6 +7,81 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand SK hynix long-term memory commitments announced 28 October 2026.
+  // Related questions: signed 2027–28 coverage; 2029 discussions; product allocation; pricing mechanism;
+  // capacity investment milestones; implications for actual memory-product delivery.
+  {
+    "id": "knowledge-sk-hynix-memory-long-term-agreements",
+    "key": "skHynixMemoryLongTermAgreements",
+    "contentType": "current-affairs",
+    "slug": "knowledge/sk-hynix-memory-long-term-agreements",
+    "category": "commercial-risk",
+    "products": [
+      "general"
+    ],
+    "markets": [
+      "global"
+    ],
+    "keywords": {
+      "en": [
+        "SK hynix long-term agreements",
+        "memory supply 2027 2028",
+        "DRAM HBM supply commitments"
+      ],
+      "zh-tw": [
+        "SK hynix 長期供貨協議",
+        "記憶體產能 2027 2028",
+        "DRAM HBM 供貨承諾"
+      ],
+      "zh-cn": [
+        "SK海力士长期供货协议",
+        "存储产能 2027 2028",
+        "DRAM HBM 供应安排"
+      ]
+    },
+    "datePublished": "2026-10-29",
+    "dateModified": "2026-10-29",
+    "image": "/assets/editorial-sk-hynix-memory-lta.jpg",
+    "imageWidth": 2200,
+    "imageHeight": 1375,
+    "imageCrop": {
+      "card": "49% 28%",
+      "article": "48% 25%",
+      "mobile": "52% 22%"
+    },
+    "photo": {
+      "photographer": "4300streetcar",
+      "page": "https://commons.wikimedia.org/wiki/File:SK_Hynix_SOCAMM_module_Computex_2025.jpg",
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "sources": [
+      {
+        "publisher": "SK hynix Newsroom",
+        "title": "SK hynix Announces 3Q26 Financial Results — 28 October 2026; signed agreements, pricing mechanism and investment outlook",
+        "url": "https://news.skhynix.com/en/q3-2026-business-results/"
+      },
+      {
+        "publisher": "Reuters, via Moneycontrol",
+        "title": "SK Hynix Q3 profit jumps sevenfold to record high — 28 October 2026; independent reporting of agreements and outlook",
+        "url": "https://www.moneycontrol.com/news/business/earnings/sk-hynix-q3-profit-jumps-sevenfold-to-record-high-nvidia-supplier-unveils-75-billion-shareholder-return-plan-14061687.html"
+      },
+      {
+        "publisher": "Korea JoongAng Daily / Lee Jae-lim",
+        "title": "SK hynix says DRAM, HBM booked through 2029 — 28 October 2026; the company includes demand under discussion",
+        "url": "https://www.koreajoongangdaily.com/business/sk-hynix-says-dram-hbm-booked-through-2029-as-profit-soars-to-62b/12942008"
+      },
+      {
+        "publisher": "Wikimedia Commons / 4300streetcar",
+        "title": "SK Hynix SOCAMM module Computex 2025 — own-work photograph, 23 May 2025",
+        "url": "https://commons.wikimedia.org/wiki/File:SK_Hynix_SOCAMM_module_Computex_2025.jpg"
+      },
+      {
+        "publisher": "Creative Commons",
+        "title": "CC BY 4.0 — commercial reuse, attribution and change disclosure for the photograph",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ]
+  },
   // Search intent: connect a charger GTIN lookup to the company, ordered item and production party.
   // Related questions: GS1 lookup output; brand owner versus factory; prefix versus origin;
   // packaging level; serial versus product number; handling a missing or mismatched record.
@@ -366,7 +441,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-28",
+    "featuredReviewedThrough": "2026-10-29",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -2986,6 +3061,56 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      skHynixMemoryLongTermAgreements: {
+        "topic": "Memory supply agreements",
+        "published": "29 October 2026",
+        "readTime": "4 minutes",
+        "title": "SK hynix secures long-term deals for over half of 2027 and 2028 capacity",
+        "description": "SK hynix says agreements with 14 customers cover over half of 2027–28 capacity. What signed commitments, 2029 demand discussions and flexible prices mean for memory procurement.",
+        "imageAlt": "An SK hynix SOCAMM module with visible company branding on display at Computex 2025.",
+        "imageCaption": "4300streetcar / Wikimedia Commons, “SK Hynix SOCAMM module Computex 2025”, photographed 23 May 2025. Downloaded 29 October 2026; proportionally resized, JPEG-compressed and cropped for layout under CC BY 4.0. Archival company-product illustration, not HBM4, an October 2026 announcement photograph, a contracted product allocation or a ZIMONAI assignment.",
+        "labels": {
+          "summary": "News overview",
+          "checklist": "What to watch next",
+          "limits": "What remains undisclosed"
+        },
+        "answer": "SK hynix said on 28 October 2026 that agreements with 14 major customers cover more than half of its 2027–28 production capacity [[source:1]][[source:2]]. The announcement moves long-term demand commitments into the centre of memory-industry investment planning. Product allocations and actual contract prices remain undisclosed. For procurement teams, ZIMONAI’s editorial view is that better visibility supports capacity planning, while delivery commitments still need to be established for each order.",
+        "takeaways": [
+          "The disclosed signed-agreement figure concerns 2027–28 capacity; it is not a percentage for every memory product [[source:1]].",
+          "The company’s broader 2029 demand statement also includes discussions with customers [[source:3]].",
+          "A long contract can offer planning visibility while leaving prices responsive to market conditions [[source:1]]."
+        ],
+        "sections": [
+          {
+            "title": "Signed deals give investment a longer horizon",
+            "paragraphs": [
+              "In its third-quarter release on 28 October, SK hynix named a group of 14 major customers, including leading cloud service providers, without identifying them individually. Reuters independently reported the agreements and the coverage of more than 50% of 2027–28 capacity [[source:1]][[source:2]]. The release does not provide a product-by-product allocation schedule.",
+              "That matters because an aggregate capacity commitment and a usable delivery promise answer different questions. For a supplier, contracted demand can support decisions about where to invest. For a server buyer, what matters is when the approved memory configuration can arrive in the required quantity. ZIMONAI reads the announcement as a stronger basis for production planning, rather than a published allocation for any particular downstream order."
+            ]
+          },
+          {
+            "title": "The 2029 demand claim has a different boundary",
+            "paragraphs": [
+              "Korea JoongAng Daily reported the company’s earnings-call assessment that DRAM and HBM volumes were effectively sold out through 2029, based on both secured agreements and demand still under discussion [[source:3]]. The company separately forecasts demand exceeding supply through 2030 [[source:1]][[source:2]]. These are different measures: signed coverage, a demand assessment and a market forecast.",
+              "Treating all three as completed sales would overstate the evidence. The practical implication is to ask which part of a supplier’s delivery explanation rests on a signed allocation, which depends on further negotiations and which is simply an outlook. The wider statement does not establish that every memory category is unavailable, or determine a particular buyer’s price or lead time."
+            ]
+          },
+          {
+            "title": "Longer terms still allow prices to move",
+            "paragraphs": [
+              "SK hynix says the agreements use a mechanism reflecting market conditions within a price range agreed with customers. It also says the scale and timing of investment will remain flexible [[source:1]]. The disclosed structure therefore combines a longer planning horizon with adjustment, rather than publishing one fixed price or an unconditional capacity-expansion timetable.",
+              "ZIMONAI’s assessment is that procurement should connect the commercial commitment to the product and shipment: the approved part, required quantity, delivery window and applicable price-review terms. An alternative memory part also needs the buyer’s product review; it is not an interchangeable allocation merely because it belongs to the same broad category. The next meaningful development will be evidence that these longer commitments translate into qualified products and deliveries, alongside clearer investment milestones."
+            ]
+          }
+        ],
+        "checklist": [
+          "Further disclosure separating signed volumes from customer discussions and forecasts.",
+          "Product-level supply arrangements and delivery windows relevant to an actual purchase.",
+          "How agreed pricing ranges respond to market changes over the contract term.",
+          "Capacity-investment milestones, product qualification and subsequent shipment updates."
+        ],
+        "limitsText": "Sources reviewed 29 October 2026. The agreements and outlook are company disclosures, corroborated by independent reporting; their private contracts have not been inspected. The release does not identify each customer, product allocation, price range or cancellation terms. The 2029 demand assessment includes discussions; the 2030 shortage view is a forecast. Procurement implications are ZIMONAI editorial analysis, not proof of a specific shortage, delivery, price outcome or company relationship."
+      },
       gs1GtinChargerSupplier: {
         "topic": "GTIN and supplier identity",
         "published": "28 October 2026",
@@ -6178,6 +6303,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      skHynixMemoryLongTermAgreements: {
+        "topic": "記憶體長期供貨",
+        "published": "2026 年 10 月 29 日",
+        "readTime": "4 分鐘",
+        "title": "SK hynix：逾半數 2027–2028 年產能簽長約",
+        "description": "SK hynix 10 月 28 日表示，14 家客戶長約涵蓋逾半數 2027–2028 年產能。拆解已簽協議、2029 年需求判斷與價格調整機制，說明記憶體採購意義。",
+        "imageAlt": "2025 年 Computex 展出的 SK hynix SOCAMM 記憶體模組，模組上可辨識公司品牌。",
+        "imageCaption": "4300streetcar／Wikimedia Commons 攝影，原作名「SK Hynix SOCAMM module Computex 2025」，攝於 2025 年 5 月 23 日。2026 年 10 月 29 日下載，僅等比縮圖、JPEG 壓縮與版面裁切，採 CC BY 4.0。這是該公司產品的歷史示意照，並非 HBM4、此次公告現場、長約指定供貨產品或 ZIMONAI 專案。",
+        "labels": {
+          "summary": "新聞摘要",
+          "checklist": "接下來值得觀察",
+          "limits": "仍未公開的資訊"
+        },
+        "answer": "SK hynix 在 2026 年 10 月 28 日財報公告中表示，已與 14 家主要客戶簽訂長期協議，涵蓋逾半數 2027–2028 年產能 [[source:1]][[source:2]]。這把長期需求承諾帶入記憶體產業投資規劃的核心，但各產品分配量與實際合約價格尚未公開。對採購端而言，較長的規劃期間有助於安排供應，卻仍需對回特定產品與交貨條件。ZIMONAI 的編輯判讀是，這次公告最有價值的訊號是需求能見度提高，後續要看承諾如何落實為合格產品與出貨。",
+        "takeaways": [
+          "已簽協議涵蓋的是 2027–2028 年整體產能，不代表每種記憶體都有相同比例 [[source:1]]。",
+          "公司對 2029 年的需求說法，還納入與客戶洽談中的部分 [[source:3]]。",
+          "長約提供規劃依據，價格仍可依約定機制反映市場變化 [[source:1]]。"
+        ],
+        "sections": [
+          {
+            "title": "長約讓投資規劃看得更遠",
+            "paragraphs": [
+              "10 月 28 日第三季公告列出的 14 家主要客戶包含大型雲端服務業者，但沒有逐一具名。Reuters 另行報導長約及其涵蓋逾半數 2027–2028 年產能的資訊 [[source:1]][[source:2]]。公開資料未提供各類產品的分配明細。",
+              "這項發展值得注意，因為供應商掌握的長期需求，與下游買家取得的交貨承諾，回答不同問題。前者可作為投資配置的依據；後者要落到已核准的記憶體規格、數量與交貨時間。ZIMONAI 認為，公告強化了生產規劃的基礎，但並未替某張伺服器訂單公布配額。"
+            ]
+          },
+          {
+            "title": "2029 年需求說法涵蓋洽談",
+            "paragraphs": [
+              "Korea JoongAng Daily 引述法說會內容指出，公司判斷至 2029 年的 DRAM 與 HBM 供應量實質上已售罄，依據包含已取得長約及仍在討論的客戶需求 [[source:3]]。另有「需求大於供給延續至 2030 年」的公司市場預測 [[source:1]][[source:2]]。已簽約比例、需求判斷與市場預測，是三種不同資訊。",
+              "把這些資訊全部視為已完成銷售，會超出公開證據。採購端應分清交期說明的依據：已簽分配、後續協商，或市場展望。個別記憶體是否缺貨，以及買家能取得的價格與交期，仍須對回具體供貨資訊。"
+            ]
+          },
+          {
+            "title": "供貨期間拉長，價格仍有調整",
+            "paragraphs": [
+              "SK hynix 說明，長約在與客戶議定的價格區間內，設計反映市場狀況的機制；投資規模與時點也將保留彈性 [[source:1]]。這種安排結合長期規劃與條件調整，與公開固定價格、無條件保證擴產進度仍有差別。",
+              "ZIMONAI 的判讀是，商業承諾應連到具體出貨：已核准料號、所需數量、交貨窗口與價格檢討條件。替代記憶體還須經買家的產品評估，不能只因屬於同一大類，就視為能互換的配額。接下來更有意義的進展，是長期承諾如何變成合格產品與實際交付，以及投資里程碑是否更明確。"
+            ]
+          }
+        ],
+        "checklist": [
+          "已簽供貨量、洽談中需求與市場預測是否有更清楚的分列。",
+          "特定採購所需產品的供貨安排與交貨窗口。",
+          "價格區間與調整機制如何反映合約期間的市場變動。",
+          "產能投資里程碑、產品評估及後續出貨資訊。"
+        ],
+        "limitsText": "資料查閱日為 2026 年 10 月 29 日。長約與展望來自公司公開資訊，並有獨立報導交叉核對，本文未查閱私人合約。客戶逐一名單、產品配額、價格區間數值與取消條件均未取得。2029 年需求判斷包含洽談，2030 年供需說法屬公司預測；採購影響是 ZIMONAI 編輯分析，不是特定缺貨、交付、價格結果或公司關係的證明。"
+      },
       gs1GtinChargerSupplier: {
         "topic": "GTIN 與供應商身分",
         "published": "2026 年 10 月 28 日",
@@ -9331,6 +9506,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      skHynixMemoryLongTermAgreements: {
+        "topic": "存储芯片长期供货",
+        "published": "2026 年 10 月 29 日",
+        "readTime": "4 分钟",
+        "title": "SK海力士：逾半 2027–2028 年产能签长协",
+        "description": "SK海力士 10 月 28 日披露，14 家客户的长期协议覆盖逾半数 2027–2028 年产能。已签约数量、2029 年需求及价格机制，对存储芯片采购各有何意义？",
+        "imageAlt": "SK海力士在 2025 年 Computex 展出的 SOCAMM 内存模组，品牌标识清晰可见。",
+        "imageCaption": "历史展品照片，4300streetcar／Wikimedia Commons 摄于 2025 年 5 月 23 日，原作名为「SK Hynix SOCAMM module Computex 2025」。2026 年 10 月 29 日下载，仅作等比缩放、JPEG 压缩与版式裁切，采用 CC BY 4.0。图中并非 HBM4、此次公告现场、长协指定产品或 ZIMONAI 项目。",
+        "labels": {
+          "summary": "新闻摘要",
+          "checklist": "后续关注",
+          "limits": "尚待披露的信息"
+        },
+        "answer": "SK海力士于 2026 年 10 月 28 日发布第三季度业绩时披露，14 家主要客户的长期协议已覆盖逾半数 2027–2028 年产能 [[source:1]][[source:2]]。这凸显长期需求承诺在存储产业投资规划中的价值，具体产品配额和成交价格仍未公开。采购团队因此获得更长的供需观察窗口，但订单能否按期交付，还取决于对应产品及合同条款。ZIMONAI 的编辑判断是，应关注需求可见度如何转化为生产与交付安排，避免把总量承诺理解成所有型号都已有确定供货。",
+        "takeaways": [
+          "逾半产能的口径对应 2027–2028 年整体产能，并非各产品的统一签约比例 [[source:1]]。",
+          "关于 2029 年的需求判断，同时包含已签长协和仍在商谈的需求 [[source:3]]。",
+          "长期合作有利于排产，协议价格仍有反映市场变化的机制 [[source:1]]。"
+        ],
+        "sections": [
+          {
+            "title": "长期订单成为投资规划依据",
+            "paragraphs": [
+              "在 10 月 28 日的第三季度公告中，SK海力士表示签约客户包括大型云服务商，但未逐个披露名称。Reuters 的独立报道同样确认了 14 家客户及逾半数 2027–2028 年产能这一口径 [[source:1]][[source:2]]。各产品对应多少份额，公开资料尚无明细。",
+              "供应商有了更长的需求规划期，下游采购却仍要落实自己的交付安排：采用哪种已认可的内存、数量多少、什么时候到货。ZIMONAI 认为，长协能为生产投资提供依据，其商业意义并不等于某个服务器项目已经获得具体配额。总量信息与订单执行，需要分别看待。"
+            ]
+          },
+          {
+            "title": "2029 年需求判断包含商谈",
+            "paragraphs": [
+              "据 Korea JoongAng Daily 对业绩说明会的报道，公司称到 2029 年的 DRAM 和 HBM 供货量实质上已售罄，依据既有已签协议，也有与现有客户讨论中的需求 [[source:3]]。公司还另行预计，需求超过供应的格局将延续至 2030 年 [[source:1]][[source:2]]。签约覆盖率、需求判断和供需预测的口径由此需要分开。",
+              "若直接把三者都写为已落实销售，会把仍待商定的部分提前算成确定订单。采购可要求供应商说明交期依据：已分配的数量、待谈的供货安排，还是行业预测。公司整体判断也不足以推导每种存储芯片都买不到，更没有给出某张订单的最终价格或交期。"
+            ]
+          },
+          {
+            "title": "长协并不等于价格固定",
+            "paragraphs": [
+              "按 SK海力士公告，协议在客户同意的价格区间内设置反映市场状况的机制，投资规模和时间安排也保留调整空间 [[source:1]]。延长合作期限的同时，仍存在随条件变化而调整的部分；公告没有公布固定售价或无条件的扩产时间表。",
+              "ZIMONAI 的编辑判断是，采购应把长期承诺接到可执行的订单条件，包括认可料号、需求数量、交货窗口和价格复核方式。替代型号仍需经过买方的产品评审，同类芯片不代表配额可以直接互换。后续值得跟进的是，长协能否衔接到合格产品和实际出货，以及投资节点是否逐步具体化。"
+            ]
+          }
+        ],
+        "checklist": [
+          "已签数量、商谈需求及供需预测是否进一步分别披露。",
+          "实际采购型号的供应安排和交货窗口。",
+          "约定价格区间如何随市场条件调整。",
+          "产能投资节点、产品评审与后续出货进展。"
+        ],
+        "limitsText": "资料核阅于 2026 年 10 月 29 日。本文以公司公告及独立报道交叉核对，未查看私人协议；客户明细、产品配额、价格区间数值和取消条款仍未获得。2029 年表述包含商谈需求，2030 年供需判断属于公司预测。采购含义为 ZIMONAI 编辑分析，未确认特定型号缺货、交付结果、价格变化或任何公司关系。"
+      },
       gs1GtinChargerSupplier: {
         "topic": "GTIN 与供应商身份",
         "published": "2026 年 10 月 28 日",

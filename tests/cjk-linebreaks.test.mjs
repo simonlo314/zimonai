@@ -866,3 +866,34 @@ test('English output is not rewritten by the Chinese line-break layer', () => {
   const html = '<!doctype html><html><body><p>Supplier verification</p></body></html>';
   assert.equal(protectCjkHtml(html, 'en'), html);
 });
+
+test('Memory supply news preserves native agreement and delivery terms', () => {
+  const cases = {
+  "zh-tw": [
+    "SK hynix",
+    "長期協議",
+    "公開證據", "供貨資訊", "2027–2028 年", "需求能見度",
+    "長期需求承諾",
+    "產品配額",
+    "價格區間",
+    "交貨窗口",
+    "價格檢討條件"
+  ],
+  "zh-cn": [
+    "SK海力士",
+    "长期协议",
+    "公开证据", "供货信息", "2027–2028 年", "需求可见度",
+    "长期需求承诺",
+    "产品配额",
+    "价格区间",
+    "交货窗口",
+    "签约覆盖率"
+  ]
+};
+  for (const [locale, terms] of Object.entries(cases)) for (const term of terms) {
+    const text = term + '。';
+    const protectedText = protectCjkText(text, locale);
+    assert.equal(removeProtectionMarkup(protectedText), text);
+    assert.match(protectedText, new RegExp('>' + term + '。<\\/span>'), locale + ': ' + term);
+  }
+});
