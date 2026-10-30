@@ -902,7 +902,7 @@ test('Memory supply news preserves native agreement and delivery terms', () => {
 test('USB-C cable procurement keeps independent native power and data terms intact', () => {
   const cases = {
   "zh-tw": [
-    "功率與傳輸速率", "線材", "瓦數", "報價品", "版面裁切", "MacBook Pro",
+    "功率與傳輸速率", "線材", "瓦數", "報價品", "版面裁切", "MacBook Pro", "TID",
     "線材採購規格",
     "傳輸速率",
     "資料速率",
@@ -928,7 +928,7 @@ test('USB-C cable procurement keeps independent native power and data terms inta
     "持續供電"
   ],
   "zh-cn": [
-    "额定功率与数据速率", "线缆", "版式裁切", "MacBook Pro",
+    "额定功率与数据速率", "线缆", "版式裁切", "MacBook Pro", "TID",
     "线缆采购规格",
     "额定功率",
     "数据速率",
@@ -959,5 +959,13 @@ test('USB-C cable procurement keeps independent native power and data terms inta
     const protectedText = protectCjkText(text, locale);
     assert.equal(removeProtectionMarkup(protectedText), text);
     assert.ok(protectedText.includes('>' + term + '。</span>'), locale + ': ' + term);
+  }
+  for (const [locale, text] of Object.entries({
+    'zh-tw': '若有認證主張，保存 USB-IF 紀錄、TID 與公司關係。',
+    'zh-cn': '认证主张对应 USB-IF 记录、TID 和登记公司关系。'
+  })) {
+    const html = protectCjkText(text, locale);
+    assert.equal(removeProtectionMarkup(html), text);
+    assert.ok(html.includes('>TID</span>'), locale + ': full TID must outrank TI prefix');
   }
 });

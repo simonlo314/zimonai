@@ -9,6 +9,7 @@ import {
 } from './assets/cjk-patterns.js';
 
 const sharedProtectedTerms = [
+  'TID',
   'MacBook Pro',
   "USB 2.0 Type-C", "USB 2.0", "480Mbps", "20Gbps", "60W", "240W", "Tony Webster", "CC BY-SA 2.0",
   '2027–2028 年',
