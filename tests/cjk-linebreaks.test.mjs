@@ -897,3 +897,67 @@ test('Memory supply news preserves native agreement and delivery terms', () => {
     assert.match(protectedText, new RegExp('>' + term + '。<\\/span>'), locale + ': ' + term);
   }
 });
+
+
+test('USB-C cable procurement keeps independent native power and data terms intact', () => {
+  const cases = {
+  "zh-tw": [
+    "功率與傳輸速率", "線材", "瓦數", "報價品", "版面裁切", "MacBook Pro",
+    "線材採購規格",
+    "傳輸速率",
+    "資料速率",
+    "功率能力",
+    "額定能力",
+    "採購規格",
+    "接頭體系",
+    "接頭形式",
+    "充電線",
+    "插頭外形",
+    "認證計畫",
+    "商標授權協議",
+    "產品紀錄",
+    "線材型號",
+    "線材認證",
+    "相連產品",
+    "組態紀錄",
+    "擴充基座",
+    "驗收方式",
+    "樣品識別",
+    "替代線材",
+    "實際傳輸量",
+    "持續供電"
+  ],
+  "zh-cn": [
+    "额定功率与数据速率", "线缆", "版式裁切", "MacBook Pro",
+    "线缆采购规格",
+    "额定功率",
+    "数据速率",
+    "功率能力",
+    "额定能力",
+    "数据规格",
+    "采购规格",
+    "连接器体系",
+    "接口形状",
+    "接口外形",
+    "认证计划",
+    "合规计划",
+    "商标许可协议",
+    "产品记录",
+    "线缆型号",
+    "认证线缆",
+    "配置记录",
+    "扩展坞",
+    "验收方法",
+    "样品识别",
+    "替代配置",
+    "持续供电",
+    "实际吞吐量"
+  ]
+};
+  for (const [locale, terms] of Object.entries(cases)) for (const term of terms) {
+    const text = term + '。';
+    const protectedText = protectCjkText(text, locale);
+    assert.equal(removeProtectionMarkup(protectedText), text);
+    assert.ok(protectedText.includes('>' + term + '。</span>'), locale + ': ' + term);
+  }
+});

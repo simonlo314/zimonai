@@ -7,6 +7,86 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: specify USB-C cable power and data capability independently for charger procurement.
+  // Related questions: 60W and 240W markings; USB 2.0 speed; combined logos; certification record; equipment pairing; order acceptance.
+  {
+  "id": "knowledge-usb-c-cable-power-data-rating",
+  "key": "usbCCablePowerDataRating",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/usb-c-cable-power-data-rating",
+  "category": "product-transport-documents",
+  "products": [
+    "charger",
+    "power-adapter"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "USB-C cable power data rating",
+      "60W 240W cable markings",
+      "USB 2.0 240W cable"
+    ],
+    "zh-tw": [
+      "USB-C 線材功率",
+      "240W 傳輸速率",
+      "線材採購規格"
+    ],
+    "zh-cn": [
+      "USB-C 线缆额定功率",
+      "240W 数据速率",
+      "线缆采购规格"
+    ]
+  },
+  "datePublished": "2026-10-30",
+  "dateModified": "2026-10-30",
+  "image": "/assets/editorial-usb-c-cable-ratings.jpg",
+  "imageWidth": 2200,
+  "imageHeight": 1448,
+  "imageCrop": {
+    "card": "70% 32%",
+    "article": "68% 30%",
+    "mobile": "74% 29%"
+  },
+  "photo": {
+    "photographer": "Tony Webster",
+    "page": "https://commons.wikimedia.org/wiki/File:USB_Type-C_Charging_Cable_for_Apple_MacBook_Pro_(45718811934).jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  "sources": [
+    {
+      "publisher": "USB-IF",
+      "title": "Cables and Connectors — cable certification scope, power and data-rate marking requirements",
+      "url": "https://www.usb.org/cable_connector"
+    },
+    {
+      "publisher": "USB-IF",
+      "title": "USB Type-C Cable Logo Usage Guidelines — September 2024; especially PDF pages 2–5",
+      "url": "https://www.usb.org/sites/default/files/usb_type-c_cable_logo_usage_guidelines_20240903.pdf"
+    },
+    {
+      "publisher": "USB-IF",
+      "title": "USB-IF Logo License — product testing, current Integrators List and trademark agreement",
+      "url": "https://www.usb.org/logo-license"
+    },
+    {
+      "publisher": "USB-IF",
+      "title": "USB Type-C Cable and Connector Specification — connector scope and separate compliance programme",
+      "url": "https://www.usb.org/usb-type-cr-cable-and-connector-specification"
+    },
+    {
+      "publisher": "Wikimedia Commons / Tony Webster",
+      "title": "USB Type-C Charging Cable for Apple MacBook Pro (45718811934) — real photograph, 16 December 2018; Flickr CC BY-SA 2.0 grant reviewed by Commons in 2019",
+      "url": "https://commons.wikimedia.org/wiki/File:USB_Type-C_Charging_Cable_for_Apple_MacBook_Pro_(45718811934).jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "CC BY-SA 2.0 — attribution, modification disclosure and continuing share-alike licence for the photograph",
+      "url": "https://creativecommons.org/licenses/by-sa/2.0/"
+    }
+  ]
+},
   // Search intent: understand SK hynix long-term memory commitments announced 28 October 2026.
   // Related questions: signed 2027–28 coverage; 2029 discussions; product allocation; pricing mechanism;
   // capacity investment milestones; implications for actual memory-product delivery.
@@ -441,7 +521,7 @@ export const knowledgeArticleSpecs = [
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
     "featured": true,
-    "featuredReviewedThrough": "2026-10-29",
+    "featuredReviewedThrough": "2026-10-30",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -3061,6 +3141,63 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+    usbCCablePowerDataRating: {
+  "topic": "USB-C cable purchasing specifications",
+  "published": "30 October 2026",
+  "readTime": "4 minutes",
+  "title": "USB-C cable ratings: specify power and data separately",
+  "description": "Read 60W and 240W cable markings alongside the data-rate claim. Keep cable capability, USB-IF certification and the charger-device combination separate in the order.",
+  "imageAlt": "Tony Webster’s real close-up photograph of a USB-C charging-cable plug and coiled white cable; not evidence of a particular rating or certification.",
+  "imageCaption": "Tony Webster / Wikimedia Commons, “USB Type-C Charging Cable for Apple MacBook Pro (45718811934)”, photographed 16 December 2018. Downloaded 30 October 2026; proportionally resized, JPEG-compressed and cropped for layout. Photograph and crops remain under CC BY-SA 2.0. Archival connector illustration: the pictured cable’s rating and certification have not been verified; it is not a ZIMONAI product, supplier sample or test result.",
+  "labels": {
+    "summary": "Reader overview",
+    "checklist": "Before approving the cable specification",
+    "limits": "Scope of this guide"
+  },
+  "answer": "USB-C cable markings describe power capability and, where required, data rate as separate attributes [[source:1]]. A 240W marking alone leaves data performance unresolved: USB-IF also provides for USB 2.0 cables with that power rating [[source:2]]. Buyers bundling a cable with a charger therefore need both requirements in the order. ZIMONAI’s editorial view is to approve a defined cable configuration and intended device combination, rather than let a high wattage stand in for the complete specification.",
+  "takeaways": [
+    "The USB-IF programme requires 60W or 240W power markings on USB-C-to-USB-C cables; this is a certification-programme rule, not a verdict on every cable sold [[source:1]].",
+    "USB 2.0 Type-C cables can carry a 60W or 240W rating while supporting data at up to 480Mbps [[source:2]].",
+    "Cable certification neither replaces certification of the connected products nor increases their capabilities [[source:1]]."
+  ],
+  "sections": [
+    {
+      "title": "Read watts and data rate as two fields",
+      "paragraphs": [
+        "USB-C names the connector ecosystem; the plug shape does not provide the full purchasing specification [[source:4]]. The USB-IF cable rules distinguish power capability from supported data rate. Except for USB 2.0 Type-C cables, the programme requires an appropriate data-rate marking alongside the power marking [[source:1]].",
+        "The September 2024 logo guide explicitly covers USB 2.0 Type-C cables rated 60W or 240W. Their data capability is up to 480Mbps, which need not appear in the power logo [[source:2]]. A quotation saying only “240W USB-C cable” therefore leaves an important field open. Ask for the separate data specification; do not interpret an absent speed marking alone as evidence of a failed product."
+      ],
+      "items": [
+        "60W or 240W: power-capability category, not a data-transfer rate.",
+        "20Gbps/60W: the USB-IF example combines two different attributes [[source:1]].",
+        "USB 2.0 Type-C 240W: high power capability and a lower data-rate class can coexist [[source:2]]."
+      ]
+    },
+    {
+      "title": "Keep the certification claim product-specific",
+      "paragraphs": [
+        "The USB-IF says logo rights depend on passing compliance testing, inclusion on the current Integrators List and the company’s trademark licence agreement [[source:3]]. Its cable rules require the relevant marking before testing so the laboratory can inspect it [[source:1]]. Printed watts in a supplier listing are not, on their own, that record.",
+        "For a claimed certified cable, request the exact company, product/model, TID and supporting listing, then connect them to the quoted length, construction and revision. Preserve the supplier’s explanation when names differ. This is a buyer document trail, not a claim that every product variant automatically needs a different TID. A sample with a similar jacket or plug is insufficient to establish the offered configuration’s status."
+      ]
+    },
+    {
+      "title": "Approve the cable with the intended equipment",
+      "paragraphs": [
+        "USB-IF cautions that a certified cable does not add capabilities to the products connected to it [[source:1]]. The rating should therefore be read as one part of the charger, cable and device combination, rather than as a promise that a device will draw that wattage or deliver a particular transfer result.",
+        "ZIMONAI’s practical assessment is to keep one configuration record: cable model and length, required power capability, data-rate class, intended charger and device, and the agreed acceptance method. If the purchase includes display use or a dock, state that use separately instead of inferring it from watts. Compare the approved sample and shipment identifiers with this record; where the claimed behaviour matters to the product, agree how it will be demonstrated before accepting a substitution."
+      ]
+    }
+  ],
+  "checklist": [
+    "Record whether both ends are USB-C; this guide concerns detachable C-to-C cables.",
+    "Write power capability and data-rate class in separate quotation and order fields.",
+    "Match model, length, revision and construction to the offered cable.",
+    "If certification is claimed, preserve the exact USB-IF listing, TID and company relationship.",
+    "Name the charger, device and any display/dock use relevant to acceptance.",
+    "Agree sample identification, acceptance evidence and how substitutions will be reviewed."
+  ],
+  "limitsText": "Sources reviewed 30 October 2026. This guide explains USB-IF marking and programme requirements and proposes a procurement workflow. It does not test a cable, verify a particular listing, determine legal market access or establish sustained power, data throughput, display support or shipment quality. The logo requirements cited here concern the USB-IF compliance programme; a bare wattage claim or a missing marking alone is not a complete conformity finding. USB-C and USB Type-C are registered trademarks of USB Implementers Forum."
+},
       skHynixMemoryLongTermAgreements: {
         "topic": "Memory supply agreements",
         "published": "29 October 2026",
@@ -6303,6 +6440,63 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+    usbCCablePowerDataRating: {
+  "topic": "USB-C 線材採購規格",
+  "published": "2026 年 10 月 30 日",
+  "readTime": "4 分鐘",
+  "title": "USB-C 線材：功率與傳輸速率分開看",
+  "description": "採購 USB-C 線材時，把 60W／240W 功率、傳輸速率與認證主張分開核對，再對回充電器、裝置及訂單規格。",
+  "imageAlt": "Tony Webster 實拍的 USB-C 充電線接頭與白色線身特寫，不作額定能力或認證證據。",
+  "imageCaption": "Tony Webster／Wikimedia Commons 攝影，原作「USB Type-C Charging Cable for Apple MacBook Pro (45718811934)」，拍攝於 2018 年 12 月 16 日。2026 年 10 月 30 日下載，僅等比縮圖、JPEG 壓縮與版面裁切，照片及裁切版本維持 CC BY-SA 2.0。這是歷史接頭示意，未查證圖中線材的額定能力或認證，也不是 ZIMONAI 產品、供應商樣品或測試結果。",
+  "labels": {
+    "summary": "讀者摘要",
+    "checklist": "核准線材規格前",
+    "limits": "本文的適用範圍"
+  },
+  "answer": "USB-C 線材標示把功率能力與傳輸速率分成不同資訊，方便採購確認用途 [[source:1]]。USB-IF 指引也包含標示 240W、資料能力仍屬 USB 2.0 的線材，因此高瓦數本身未交代完整傳輸規格 [[source:2]]。海外買家為充電器搭配線材時，應把這兩項需求一起寫進訂單，再對回預定裝置。ZIMONAI 的編輯判讀是，採購的重點在於核准明確組態與使用情境，避免把較大的功率數字當成整條線材的性能結論。",
+  "takeaways": [
+    "USB-IF 認證計畫要求 C 對 C 線材標示 60W 或 240W；這是計畫要求，不是對所有市售線材的個別判定 [[source:1]]。",
+    "USB 2.0 Type-C 線材可有 60W 或 240W 額定能力，資料速率最高為 480Mbps [[source:2]]。",
+    "線材認證不會替相連產品取得認證，也不會提高那些產品原有的能力 [[source:1]]。"
+  ],
+  "sections": [
+    {
+      "title": "先分清功率與傳輸速率",
+      "paragraphs": [
+        "USB-C 描述接頭體系，插頭外形沒有列出完整採購規格 [[source:4]]。USB-IF 將線材的功率與資料速率分開處理；除了 USB 2.0 Type-C 線材之外，認證計畫要求線材在功率標示之外，也標示對應的資料速率 [[source:1]]。",
+        "2024 年 9 月的標誌指引明列 USB 2.0 Type-C 的 60W 與 240W 線材，資料能力最高為 480Mbps，這項速率不必放進功率標誌 [[source:2]]。因此，報價若只寫「240W USB-C 線」，傳輸規格仍留白。買家應請供應商補上資料速率，而非僅憑缺少速率標示，就認定產品測試不合格。"
+      ],
+      "items": [
+        "60W／240W：功率能力分類，沒有直接交代傳輸速率。",
+        "20Gbps／60W：USB-IF 以此示範兩種能力合併標示 [[source:1]]。",
+        "USB 2.0 Type-C 240W：高功率能力與較低資料速率可以同時存在 [[source:2]]。"
+      ]
+    },
+    {
+      "title": "認證主張要對回具體線材",
+      "paragraphs": [
+        "USB-IF 的標誌使用資格連結到產品通過測試、列入目前的 Integrators List，以及公司的商標授權協議 [[source:3]]。線材也須在送測前具備相關標示，讓實驗室確認 [[source:1]]。供應商網頁印出的瓦數，與這套產品紀錄是不同證據。",
+        "若報價主張通過認證，請索取公司、產品型號、TID 與對應紀錄，再連回線長、結構及版本。名稱不同時，保留供應商對關係的說明。這是採購文件的對照流程，不表示每一種差異都必然需要另一個 TID；外被或插頭看起來相似，也不足以確認所報組態的認證狀態。"
+      ]
+    },
+    {
+      "title": "連同充電器與裝置一起核准",
+      "paragraphs": [
+        "USB-IF 提醒，使用認證線材不會增加相連產品的能力 [[source:1]]。線材額定值因此要放回充電器、線材與裝置的組合中閱讀，不能解讀為裝置一定以該瓦數充電，或一定達到某種實際傳輸表現。",
+        "ZIMONAI 的實務判讀是，建立同一份組態紀錄：線材型號與長度、功率需求、資料速率、預定充電器與裝置，以及驗收方式。若用途包含顯示器或擴充基座，另列使用需求，避免由瓦數推定影像能力。核准樣品與出貨識別應對回這份紀錄；性能影響產品用途時，先約定如何驗證，再接受替代線材。"
+      ]
+    }
+  ],
+  "checklist": [
+    "確認兩端接頭；本文討論可分離的 C 對 C 線材。",
+    "在報價及訂單中，分列功率能力與資料速率。",
+    "將型號、線長、版本及結構連回實際報價品。",
+    "若有認證主張，保存 USB-IF 紀錄、TID 與公司關係。",
+    "列明充電器、裝置及顯示器或擴充基座用途。",
+    "約定樣品識別、驗收證據及替代品的審查方式。"
+  ],
+  "limitsText": "資料查閱日為 2026 年 10 月 30 日。本文說明 USB-IF 標示與認證計畫，採購流程為 ZIMONAI 編輯建議；未測試線材、驗證特定紀錄或判定市場准入。持續供電、實際傳輸量、影像支援與出貨品質，仍須由相應證據確認。所引標誌規則適用於 USB-IF 認證計畫，單一瓦數宣稱或缺少標示，都不是完整的符合性結論。USB-C 與 USB Type-C 為 USB Implementers Forum 的註冊商標。"
+},
       skHynixMemoryLongTermAgreements: {
         "topic": "記憶體長期供貨",
         "published": "2026 年 10 月 29 日",
@@ -9506,6 +9700,63 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+    usbCCablePowerDataRating: {
+  "topic": "USB-C 线缆采购规格",
+  "published": "2026 年 10 月 30 日",
+  "readTime": "4 分钟",
+  "title": "USB-C 线缆：额定功率与数据速率",
+  "description": "USB-C 线缆的 60W 或 240W 标识没有包办数据性能。把功率、数据速率、认证记录及配套设备对应到采购规格。",
+  "imageAlt": "Tony Webster 拍摄的 USB-C 充电线插头与白色线身特写，不代表已核实的功率、速率或认证。",
+  "imageCaption": "Tony Webster 摄影，来自 Wikimedia Commons，原名为“USB Type-C Charging Cable for Apple MacBook Pro (45718811934)”，拍摄日期为 2018 年 12 月 16 日。2026 年 10 月 30 日下载，仅作等比例缩放、JPEG 压缩和版式裁切，照片与裁切版本继续采用 CC BY-SA 2.0。历史接口示意，未核实该线缆的额定能力和认证，也不是 ZIMONAI 产品、供应商样品或测试证据。",
+  "labels": {
+    "summary": "读者摘要",
+    "checklist": "确认线缆规格前",
+    "limits": "本文适用范围"
+  },
+  "answer": "USB-C 线缆通过功率及数据速率标识表达不同的能力，采购时需要分别阅读 [[source:1]]。USB-IF 的标识指南明确包含 240W 的 USB 2.0 线缆，高额定功率与较低数据速率并不矛盾 [[source:2]]。对采购充电器配套线缆的海外买家，关键是把两项需求写清，并与目标设备的用途对应。ZIMONAI 的编辑判断是，应确认一套有型号、长度及验收条件的线缆配置，避免让瓦数代替完整规格，也避免把线缆能力当成整机使用结果。",
+  "takeaways": [
+    "USB-IF 合规计划要求 C 对 C 线缆标注 60W 或 240W；该要求有明确的计划范围，不是对所有在售线缆作出结论 [[source:1]]。",
+    "USB 2.0 Type-C 的 60W 和 240W 线缆，数据速率最高为 480Mbps [[source:2]]。",
+    "认证线缆不会替连接的设备完成认证，也不会提升设备自身的功能 [[source:1]]。"
+  ],
+  "sections": [
+    {
+      "title": "功率与数据要分成两项",
+      "paragraphs": [
+        "USB-C 定义连接器体系，接口形状本身没有给出完整的采购参数 [[source:4]]。USB-IF 的线缆规则分别处理功率能力和数据速率：除 USB 2.0 Type-C 线缆外，参加其认证计划的线缆还须标明对应的数据速率 [[source:1]]。",
+        "USB-IF 在 2024 年 9 月的指南中分别列出 60W 和 240W 的 USB 2.0 Type-C 线缆。这两类线缆的数据能力最高为 480Mbps，充电功率标识不必体现这一速率 [[source:2]]。如果报价只写 240W USB-C 线缆，数据规格仍然留白。请供应商补充对应字段，再决定是否满足用途。缺少速率标识本身，不等于产品已在测试中被判不合格。"
+      ],
+      "items": [
+        "60W／240W：说明功率类别，未同时说明数据速率。",
+        "20Gbps／60W：USB-IF 举例说明两项能力的组合标识 [[source:1]]。",
+        "USB 2.0 Type-C 240W：较高功率与较低数据速率并不冲突 [[source:2]]。"
+      ]
+    },
+    {
+      "title": "认证记录对应到报价配置",
+      "paragraphs": [
+        "USB-IF 要求使用认证标志的产品通过相应测试并列入当前 Integrators List，相关公司还需具备商标许可协议 [[source:3]]。线缆送测前就应具备对应标识，供实验室核对 [[source:1]]。电商页面或报价单中的功率数字，不等同于这些记录。",
+        "采购遇到认证主张时，可收集登记公司、产品型号、TID 及对应记录，与报价中的长度、结构和版本一起核查。公司或型号名称不同，应记录供应商提供的对应说明。这并非认定每一种变化都必须另取 TID，而是避免把外观相似的样品，直接作为另一配置的认证证明。"
+      ]
+    },
+    {
+      "title": "用配套设备定义验收条件",
+      "paragraphs": [
+        "USB-IF 明确提醒，认证线缆不会增强所连接产品的能力 [[source:1]]。因此，额定值需要放到充电器、线缆和设备的实际组合中理解，不能视为设备必然取得同样充电功率或实测速率的承诺。",
+        "ZIMONAI 认为，采购文件应把线缆型号、长度、功率要求、数据速率、目标充电器及设备放在同一配置记录中，并约定验收方法。涉及显示器或扩展坞时，另写清用途，避免从功率推导视频支持。批准样品、包装识别与出货信息应当互相对应；接受替代配置前，先确认如何证明影响用途的性能。"
+      ]
+    }
+  ],
+  "checklist": [
+    "先确认两端接口；本文范围为可拆卸的 C 对 C 线缆。",
+    "在报价和订单中分别填写功率能力及数据速率。",
+    "固定型号、长度、结构及版本，避免只记外观。",
+    "认证主张对应 USB-IF 记录、TID 和登记公司关系。",
+    "记录配套充电器、目标设备及显示器或扩展坞用途。",
+    "约定批准样品、验收证据及替代配置的评审方式。"
+  ],
+  "limitsText": "资料核阅于 2026 年 10 月 30 日。本文介绍 USB-IF 标识及认证计划，采购步骤属于编辑建议，未对具体线缆、认证记录或市场准入作出核验结论。持续供电、实际吞吐量、视频能力和出货质量需要各自的证据。文中标识要求有 USB-IF 计划范围，不能仅凭瓦数宣称或缺少标识就完成符合性判断。USB-C 和 USB Type-C 是 USB Implementers Forum 的注册商标。"
+},
       skHynixMemoryLongTermAgreements: {
         "topic": "存储芯片长期供货",
         "published": "2026 年 10 月 29 日",
