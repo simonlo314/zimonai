@@ -111,7 +111,7 @@ test('knowledge images expose art-directed crop positions for cards and article 
   const uaeLaunch = renderPage('zh-tw', 'knowledge-anker-maggo-2-pro-uae-launch');
 
   const featuredSpec = knowledgeArticleSpecs.find((spec) => spec.featured);
-  assert.equal(featuredSpec.id, 'knowledge-siemens-nvidia-erlangen-pcb-ai');
+  assert.equal(featuredSpec.id, 'knowledge-infineon-villach-300mm-gan');
   assert.ok(hub.includes(`--knowledge-card-image-position:${featuredSpec.imageCrop.card};--knowledge-card-image-position-mobile:${featuredSpec.imageCrop.mobile}`));
   assert.match(article, /--field-note-image-position:56% 50%;--field-note-image-position-mobile:58% 52%/);
   assert.match(uaeLaunch, /--field-note-image-position:58% 56%;--field-note-image-position-mobile:59% 58%/);

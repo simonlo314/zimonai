@@ -401,7 +401,7 @@ test('the explicit Start here selection was reviewed against the newest publishe
   );
 
   assert.equal(featuredArticles.length, 1);
-  assert.equal(featuredArticles[0].id, 'knowledge-siemens-nvidia-erlangen-pcb-ai');
+  assert.equal(featuredArticles[0].id, 'knowledge-infineon-villach-300mm-gan');
   assert.equal(featuredArticles[0].featuredReviewedThrough, newestPublishedDate);
 });
 

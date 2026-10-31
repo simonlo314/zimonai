@@ -7,6 +7,84 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand Infineon’s 300 mm GaN manufacturing investment and its supply timeline.
+  // Related questions: investment horizon; production start; aid approval; wafer-size economics; product availability; buyer delivery implications.
+  {
+  "id": "knowledge-infineon-villach-300mm-gan",
+  "key": "infineonVillach300mmGan",
+  "contentType": "current-affairs",
+  "slug": "knowledge/infineon-villach-300mm-gan",
+  "category": "commercial-risk",
+  "products": [
+    "gan-charger",
+    "power-adapter"
+  ],
+  "markets": [
+    "european-union",
+    "global"
+  ],
+  "featured": true,
+  "featuredReviewedThrough": "2026-10-31",
+  "keywords": {
+    "en": [
+      "Infineon Villach 300mm GaN",
+      "GaN production 2027",
+      "power semiconductor manufacturing"
+    ],
+    "zh-tw": [
+      "Infineon Villach GaN 量產",
+      "300 mm 氮化鎵",
+      "功率半導體擴產"
+    ],
+    "zh-cn": [
+      "英飞凌菲拉赫GaN量产",
+      "300 mm 氮化镓",
+      "功率半导体扩产"
+    ]
+  },
+  "datePublished": "2026-10-31",
+  "dateModified": "2026-10-31",
+  "image": "/assets/editorial-infineon-villach-300mm-gan.jpg",
+  "imageWidth": 2126,
+  "imageHeight": 1418,
+  "imageCrop": {
+    "card": "49% 24%",
+    "article": "50% 18%",
+    "mobile": "0% 22%"
+  },
+  "photo": {
+    "photographer": "Infineon/APA-Fotoservice/Krisztian Juhasz",
+    "page": "https://www.apa-fotoservice.at/galerie/40217",
+    "license": "https://www.apa-fotoservice.at/support/faq"
+  },
+  "sources": [
+    {
+      "publisher": "Infineon Technologies",
+      "title": "300-millimeter GaN manufacturing investment in Villach — 27 October 2026; company timeline and funding boundary",
+      "url": "https://www.infineon.com/press-release/2026/infpr202610-021"
+    },
+    {
+      "publisher": "European Commission",
+      "title": "Approval of €319 million Austrian State aid — 27 October 2026; existing 200 mm capacity and the 300 mm transition",
+      "url": "https://digital-strategy.ec.europa.eu/en/news/commission-approves-eu319-million-austrian-state-aid-first-kind-semiconductor-manufacturing"
+    },
+    {
+      "publisher": "Reuters, via MarketScreener",
+      "title": "Infineon to invest EUR1.1 billion in Austria chip site — Danny Callaghan and Hakan Ersen, 27 October 2026",
+      "url": "https://uk.marketscreener.com/news/infineon-to-invest-eur1-1-billion-in-austria-chip-site-ce785cddd981f224"
+    },
+    {
+      "publisher": "Infineon / APA-Fotoservice",
+      "title": "27 October 2026 press-conference gallery — real event photograph and explicit editorial reporting rights; credit Krisztian Juhasz",
+      "url": "https://www.apa-fotoservice.at/galerie/40217"
+    },
+    {
+      "publisher": "APA-Fotoservice",
+      "title": "Image-use FAQ — editorial use by third parties, mandatory photographic credit and separate terms for advertising",
+      "url": "https://www.apa-fotoservice.at/support/faq"
+    }
+  ]
+},
   // Search intent: specify USB-C cable power and data capability independently for charger procurement.
   // Related questions: 60W and 240W markings; USB 2.0 speed; combined logos; certification record; equipment pairing; order acceptance.
   {
@@ -520,8 +598,6 @@ export const knowledgeArticleSpecs = [
     "key": "siemensNvidiaErlangenPcbAi",
     "contentType": "current-affairs",
     "slug": "knowledge/siemens-nvidia-erlangen-pcb-ai",
-    "featured": true,
-    "featuredReviewedThrough": "2026-10-30",
     "category": "factory-onsite",
     "products": [
       "general"
@@ -3141,6 +3217,56 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+    infineonVillach300mmGan: {
+  "topic": "GaN power-chip manufacturing",
+  "published": "31 October 2026",
+  "readTime": "4 minutes",
+  "title": "Infineon plans €1.1bn investment in 300mm GaN production",
+  "description": "Infineon targets late-2027 production in Villach, with investment through 2034. EU aid approval and larger wafers matter, but neither sets a buyer’s price or delivery date.",
+  "imageAlt": "Four participants at Infineon’s 27 October 2026 investment announcement holding a wafer, with Infineon branding behind them.",
+  "imageCaption": "Official photograph of the 27 October 2026 announcement: Infineon/APA-Fotoservice/Krisztian Juhasz. Downloaded 31 October 2026 from Infineon’s linked press media; JPEG compression and layout crops only. APA’s event gallery permits related editorial reporting with this credit. The photograph documents the announcement, not a running 300 mm GaN line, qualified shipment or ZIMONAI assignment.",
+  "labels": {
+    "summary": "News overview",
+    "checklist": "What to watch next",
+    "limits": "What remains unconfirmed"
+  },
+  "answer": "Infineon announced on 27 October 2026 that it plans to invest about €1.1 billion in 300 mm gallium nitride (GaN) production at Villach, Austria, through 2034, targeting a late-2027 start [[source:1]][[source:3]]. The EU approved €319 million in Austrian aid; Infineon said the formal national commitment was still awaited [[source:2]][[source:1]]. The project signals a change in European power-chip manufacturing scale, while product allocations and prices remain undisclosed. ZIMONAI’s editorial assessment is that buyers should watch the transition to qualified parts and delivery commitments, rather than plan orders from an investment total.",
+  "takeaways": [
+    "The investment uses existing cleanroom space and runs through 2034; late 2027 is the planned production start, not the completion date for every investment stage [[source:1]].",
+    "The Commission approved Austrian State aid; approval is distinct from a completed national funding commitment or payment [[source:2]][[source:1]].",
+    "Larger wafers create room for more chips, while usable output and downstream purchasing economics depend on the manufacturing and product ramp."
+  ],
+  "sections": [
+    {
+      "title": "An investment programme, with two different dates",
+      "paragraphs": [
+        "The plan concerns Villach’s existing facilities, not an announcement that the new line is already supplying customers. Infineon gives the end of 2027 as its production target and 2034 as the investment horizon. Reuters separately reported the €1.1 billion expansion on 27 October [[source:1]][[source:3]]. Reading those dates together avoids treating the first production milestone as the completion of the entire programme.",
+        "The Commission’s own notice confirms €319 million in Austrian aid for the upgrade. It describes a transition from the site’s existing 200 mm power-GaN capabilities to 300 mm manufacturing [[source:2]]. Infineon says the formal Austrian funding commitment is expected within the applicable time limits [[source:1]]. A regulatory approval establishes the permitted support; it is not a receipt for funds or evidence that the production target has been met."
+      ]
+    },
+    {
+      "title": "Why the wafer size matters to power electronics",
+      "paragraphs": [
+        "Infineon attributes a 2.3-times chip count per wafer to the move from 200 mm to 300 mm [[source:1]]. The significance is manufacturing scale: more chip positions can be processed on each wafer. That statement does not say finished devices will cost 2.3 times less, or that every device position will become a usable part.",
+        "ZIMONAI reads this as a potential change in the economics of the manufacturing platform. Its value to a charger or power-supply design will depend on the actual device offered, manufacturing yield, packaging and the buyer’s product evaluation. These are questions for the ramp and the specific application, rather than savings established by wafer diameter alone."
+      ]
+    },
+    {
+      "title": "From manufacturing scale to a purchasable part",
+      "paragraphs": [
+        "The announced applications span AI infrastructure, energy systems, mobility and other power uses [[source:1]][[source:2]]. The release does not divide the planned output among them. A charger buyer therefore has no basis here for assuming a dedicated consumer-device allocation, an immediate lead-time improvement or a price reduction.",
+        "For procurement planning, ZIMONAI’s assessment is to follow the chain from a named device to its production site, qualification status and available delivery window. If an existing design is offered a replacement component, its electrical, thermal and acceptance requirements need their own review. The wider story is a move toward industrial-scale GaN manufacturing in Europe; its next meaningful evidence will be production milestones and usable products, rather than another repetition of the investment total."
+      ]
+    }
+  ],
+  "checklist": [
+    "The formal Austrian funding commitment and any published conditions.",
+    "Progress toward the planned late-2027 production start and subsequent ramp.",
+    "Named devices, qualification milestones and application-specific availability.",
+    "Order-specific quantities, lead times and prices when suppliers actually quote them."
+  ],
+  "limitsText": "Sources reviewed 31 October 2026; the event date is 27 October. Production timing and investment are company plans, while aid approval is independently recorded by the Commission. Annual wafer capacity, yield, product allocation, achieved unit costs and customer delivery commitments are not disclosed in the reviewed material. The formal national funding commitment has not been independently confirmed here. Procurement implications are ZIMONAI editorial analysis; no relationship, product test, completed ramp or market-wide price outcome is asserted."
+},
     usbCCablePowerDataRating: {
   "topic": "USB-C cable purchasing specifications",
   "published": "30 October 2026",
@@ -6440,6 +6566,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+    infineonVillach300mmGan: {
+  "topic": "GaN 功率半導體製造",
+  "published": "2026 年 10 月 31 日",
+  "readTime": "4 分鐘",
+  "title": "Infineon 投資 11 億歐元，推進 GaN 量產",
+  "description": "Infineon 10 月 27 日公布 Villach 的 300 mm GaN 投資計畫，目標 2027 年底投產。分清 2034 年投資期限、歐盟補助核准與實際供貨意義。",
+  "imageAlt": "Infineon 2026 年 10 月 27 日投資發布會，四位與會者手持晶圓，背景可見公司標誌。",
+  "imageCaption": "2026 年 10 月 27 日發布會官方照片，署名 Infineon/APA-Fotoservice/Krisztian Juhasz。10 月 31 日自公司連出的新聞素材下載，僅作 JPEG 壓縮與版面裁切；APA 原圖庫准許相關新聞報導使用，須保留署名。照片記錄公告現場，不代表 300 mm GaN 產線已運轉、產品已合格出貨，也不是 ZIMONAI 專案。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "尚待確認的資訊"
+  },
+  "answer": "Infineon 在 2026 年 10 月 27 日宣布，規劃至 2034 年投入約 11 億歐元，在奧地利 Villach 推進 300 mm 氮化鎵功率半導體量產，目標於 2027 年底開始生產 [[source:1]][[source:3]]。歐盟已核准奧地利提供 3.19 億歐元補助，公司則表示仍待正式補助承諾 [[source:2]][[source:1]]。這項投資推動歐洲電源產業擴大製造規模，產品配額與售價尚未公開。ZIMONAI 的編輯判讀是，產業意義在於量產基礎向前推進，買家接下來要看它如何轉為合格零件及可執行的交貨安排。",
+  "takeaways": [
+    "計畫利用既有無塵室，投資期間延續至 2034 年；2027 年底是預定投產時間，兩個日期意義不同 [[source:1]]。",
+    "歐盟核准的是奧地利國家補助，與正式補助承諾或款項撥付仍有差別 [[source:2]][[source:1]]。",
+    "較大晶圓帶來更多晶粒位置，實際產出與採購成本仍取決於製造及產品導入進度。"
+  ],
+  "sections": [
+    {
+      "title": "投產目標與投資期限",
+      "paragraphs": [
+        "這次規劃使用 Villach 既有設施，不是宣布新產線已開始供貨。公司列出 2027 年底投產、至 2034 年投入約 11 億歐元的安排；Reuters 在 10 月 27 日另行報導這項投資 [[source:1]][[source:3]]。首批生產的里程碑，與整個投資計畫完成，是不同時間點。",
+        "歐盟執委會的獨立公告確認核准 3.19 億歐元補助，並說明計畫由既有 200 mm 氮化鎵製造能力，轉向 300 mm 晶圓 [[source:2]]。Infineon 則表示，奧地利的正式補助承諾預期於規定期間內完成 [[source:1]]。監管核准提供資助依據，並未證明款項已入帳或投產目標已達成。"
+      ]
+    },
+    {
+      "title": "晶圓放大，製造平台有何改變",
+      "paragraphs": [
+        "Infineon 表示，從 200 mm 轉到 300 mm，每片晶圓可容納的晶片數約為原來的 2.3 倍 [[source:1]]。這個數字指向同片晶圓可處理更多晶粒位置的製造規模，沒有直接給出成品降價幅度，也沒有保證每個位置都成為可用零件。",
+        "ZIMONAI 認為，這項發展值得注意之處，是製造平台的經濟規模可能改變。對充電器或電源適配器設計而言，價值仍須落到具體元件、製造良率、封裝及買家的產品評估；單憑晶圓直徑，尚不足以計算整台電源產品的成本節省。"
+      ]
+    },
+    {
+      "title": "擴產訊號如何走到實際供貨",
+      "paragraphs": [
+        "公告提及 AI 基礎設施、能源、交通等電力應用，但沒有公開各用途將分到多少產量 [[source:1]][[source:2]]。因此，充電器買家目前還沒有消費性產品專屬配額、即時交期改善或降價幅度的依據。這些資訊要等實際產品及供貨安排出現。",
+        "從採購規劃來看，ZIMONAI 建議追蹤具體料號、生產據點、產品評估與可交貨期間之間的連結。若供應商提出替代零件，電氣、散熱及驗收需求仍應另行審查。這次事件的意義，是歐洲 GaN 製造走向更大規模；下一個有價值的進展，將是生產里程碑與可用產品逐步明確，而非再次重述投資總額。"
+      ]
+    }
+  ],
+  "checklist": [
+    "奧地利正式補助承諾及後續公布的條件。",
+    "2027 年底預定投產與後續爬坡的實際進度。",
+    "具體元件、產品評估里程碑及各用途的供貨資訊。",
+    "供應商正式報價時，對應訂單的數量、交期與價格。"
+  ],
+  "limitsText": "資料查閱日為 2026 年 10 月 31 日，事件發生日為 10 月 27 日。投資與投產時間屬公司計畫，補助核准則有歐盟文件獨立確認。所讀資料尚未披露年度晶圓產能、良率、產品分配、已實現的單位成本或客戶交貨承諾；本文也未另外確認奧地利正式補助承諾已完成。採購影響屬 ZIMONAI 編輯分析，不代表公司關係、產品測試、已完成量產或全市場價格結果。"
+},
     usbCCablePowerDataRating: {
   "topic": "USB-C 線材採購規格",
   "published": "2026 年 10 月 30 日",
@@ -9700,6 +9876,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+    infineonVillach300mmGan: {
+  "topic": "GaN 功率半导体制造",
+  "published": "2026 年 10 月 31 日",
+  "readTime": "4 分钟",
+  "title": "英飞凌投 11 亿欧元，推进 GaN 量产",
+  "description": "英飞凌拟在菲拉赫发展 300 mm GaN 制造，目标 2027 年底投产，投资延续至 2034 年。欧盟补助获批意味着什么，何时才与具体订单有关？",
+  "imageAlt": "英飞凌 2026 年 10 月 27 日投资发布会现场，四位与会者展示晶圆，背后可见 Infineon 标志。",
+  "imageCaption": "官方发布会照片，拍摄于 2026 年 10 月 27 日，署名 Infineon/APA-Fotoservice/Krisztian Juhasz。10 月 31 日从公司所链接的新闻素材下载，仅作 JPEG 压缩和版式裁切；APA 图库允许在相关报道中使用，须标明署名。图片记录的是宣布投资的现场，并非 300 mm GaN 产线运转、合格出货或 ZIMONAI 项目的证据。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续关注",
+    "limits": "仍待确认的信息"
+  },
+  "answer": "英飞凌于 2026 年 10 月 27 日公布奥地利菲拉赫的 300 mm 氮化镓功率半导体计划，拟在 2034 年前投入约 11 亿欧元，争取 2027 年底启动生产 [[source:1]][[source:3]]。欧盟委员会已批准奥地利提供 3.19 亿欧元援助，公司当时表示正式资助承诺仍待完成 [[source:2]][[source:1]]。这项投资推动欧洲电源产业扩大制造规模，具体型号的产量分配和售价尚无明细。ZIMONAI 的编辑判断是，下一步应关注制造平台如何落实为合格器件和实际交付，采购排期仍需依靠对应产品的供货安排。",
+  "takeaways": [
+    "项目利用现有洁净室，2027 年底是预计投产节点，2034 年则是投资期限 [[source:1]]。",
+    "欧盟批准国家援助，与奥地利正式资助承诺、实际拨款属于不同环节 [[source:2]][[source:1]]。",
+    "晶圆尺寸扩大增加可布置的芯片数量，实际合格产出与采购成本还要看制造和产品导入。"
+  ],
+  "sections": [
+    {
+      "title": "两个日期对应不同进度",
+      "paragraphs": [
+        "菲拉赫项目沿用现有设施，并非宣告新产线已经交付产品。英飞凌将预计投产时间放在 2027 年底，约 11 亿欧元投资则延续至 2034 年；Reuters 于 10 月 27 日另行报道了该项扩产 [[source:1]][[source:3]]。开始生产与完成整个投资计划，不应合并成同一个节点。",
+        "欧盟委员会公告确认了 3.19 亿欧元国家援助的批准，并将技术路径描述为从现有 200 mm GaN 制造能力转向 300 mm 晶圆 [[source:2]]。英飞凌称，奥地利正式资助承诺预计在规定期限内作出 [[source:1]]。因此，监管批准提供支持依据，既不等于资金已经到账，也未证明量产目标已实现。"
+      ]
+    },
+    {
+      "title": "晶圆尺寸与合格产出",
+      "paragraphs": [
+        "英飞凌表示，相较于 200 mm 晶圆，300 mm 晶圆可容纳的芯片数量约为 2.3 倍 [[source:1]]。这说明制造平台可以在一片晶圆上处理更多芯片位置，未给出成品价格会下降多少，也未说明所有位置都能转化成可用器件。",
+        "ZIMONAI 认为，潜在变化在于制造规模和经济性，而采购真正关心的是具体器件。充电器、电源适配器设计仍须结合制造良率、封装和产品评审，判断拟用型号是否适用。仅凭晶圆直径，无法推算整机成本节省，更不足以直接接受替代料。"
+      ]
+    },
+    {
+      "title": "量产平台与订单交付",
+      "paragraphs": [
+        "公布的应用方向包括 AI 基础设施、能源及交通等电力领域，资料尚未列出各用途的产量份额 [[source:1]][[source:2]]。消费电源采购因而没有现成依据，推断自己会得到专门配额、交期马上缩短或售价确定下调。具体供货仍要看后续型号和商业安排。",
+        "ZIMONAI 的采购解读是，把料号、生产地点、产品评审与可交货时间放在同一条证据链上。供应商若提出替换器件，电气性能、散热和验收条件都需要单独审查。此次投资把欧洲 GaN 制造推向更大的产业化规模；真正值得继续跟进的，是生产节点和可采购产品逐步落地，而不只是投资金额本身。"
+      ]
+    }
+  ],
+  "checklist": [
+    "奥地利正式资助承诺及相关条件是否公布。",
+    "2027 年底投产目标和后续产能爬坡进展。",
+    "具体器件、产品评审节点及各应用领域的供应安排。",
+    "正式报价中对应订单的数量、交期和价格。"
+  ],
+  "limitsText": "资料核阅于 2026 年 10 月 31 日，所述事件发生于 10 月 27 日。投资及投产节点来自公司计划，援助批准由欧盟文件独立确认。年度晶圆产能、良率、型号分配、已实现的单位成本和客户交付承诺，所读资料尚未披露。本文未独立确认奥地利正式资助承诺已经完成。采购含义属于 ZIMONAI 编辑分析，未证明公司关系、产品测试、已完成量产或全市场价格变化。"
+},
     usbCCablePowerDataRating: {
   "topic": "USB-C 线缆采购规格",
   "published": "2026 年 10 月 30 日",
