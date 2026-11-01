@@ -7,6 +7,95 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: verify the registration of a private-label Qi wireless charger.
+  // Related questions: separate variant Qi-ID; original certificate; permissible re-branding; design changes; component evidence; order acceptance.
+  {
+  "id": "knowledge-qi-private-label-registration",
+  "key": "qiPrivateLabelRegistration",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/qi-private-label-registration",
+  "category": "certification-market-access",
+  "products": [
+    "charger"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "private label Qi charger",
+      "Qi-ID product registration",
+      "OEM ODM wireless charger certification"
+    ],
+    "zh-tw": [
+      "Qi 充電器貼牌",
+      "Qi-ID 品牌登錄",
+      "無線充電器認證"
+    ],
+    "zh-cn": [
+      "Qi 充电器贴牌",
+      "Qi-ID 品牌登记",
+      "无线充电器认证"
+    ]
+  },
+  "datePublished": "2026-11-01",
+  "dateModified": "2026-11-01",
+  "image": "/assets/editorial-qi-private-label-registration.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 1250,
+  "imageCrop": {
+    "card": "49% 50%",
+    "article": "51% 48%",
+    "mobile": "53% 45%"
+  },
+  "photo": {
+    "photographer": "Matti Blume",
+    "page": "https://commons.wikimedia.org/wiki/File:Samsung_Wireless_Charger_Pad,_IFA_2018,_Berlin_(P1070294).jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "Wireless Power Consortium",
+      "title": "Re-branding identical products — separate registration, own Qi-ID and changes requiring re-testing",
+      "url": "https://www.wirelesspowerconsortium.com/knowledge-base/testing-and-certification/re-branding-identical-products/"
+    },
+    {
+      "publisher": "Wireless Power Consortium",
+      "title": "Qi Certified Products — match the certificate URL to the product, brand, name and type number",
+      "url": "https://www.wirelesspowerconsortium.com/knowledge-base/testing-and-certification/qi-certified-products/"
+    },
+    {
+      "publisher": "Wireless Power Consortium",
+      "title": "Trademark Licenses — public registration and exact brand, type number and picture match",
+      "url": "https://www.wirelesspowerconsortium.com/knowledge-base/patents-and-trademarks/trademark-licenses/"
+    },
+    {
+      "publisher": "Wireless Power Consortium",
+      "title": "Qi Certification Process — compliance testing, interoperability testing and WPC review",
+      "url": "https://www.wirelesspowerconsortium.com/knowledge-base/testing-and-certification/qi-certification-process/"
+    },
+    {
+      "publisher": "Wireless Power Consortium",
+      "title": "Qi components and subsystems — components, integration conditions and technical differences",
+      "url": "https://www.wirelesspowerconsortium.com/knowledge-base/testing-and-certification/qi-components-and-subsystems/"
+    },
+    {
+      "publisher": "Wireless Power Consortium",
+      "title": "Qi Product Database — public product-registration search",
+      "url": "https://jpsapi.wirelesspowerconsortium.com/products/qi"
+    },
+    {
+      "publisher": "Matti Blume / Wikimedia Commons",
+      "title": "Samsung Wireless Charger Pad, IFA 2018, Berlin (P1070294) — own-work photograph, 2 September 2018",
+      "url": "https://commons.wikimedia.org/wiki/File:Samsung_Wireless_Charger_Pad,_IFA_2018,_Berlin_(P1070294).jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 4.0 International — image attribution, changes and continuing licence",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+},
   // Search intent: understand Infineon’s 300 mm GaN manufacturing investment and its supply timeline.
   // Related questions: investment horizon; production start; aid approval; wafer-size economics; product availability; buyer delivery implications.
   {
@@ -24,7 +113,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-10-31",
+  "featuredReviewedThrough": "2026-11-01",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3217,6 +3306,52 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+    qiPrivateLabelRegistration: {
+  "topic": "Qi private-label registration",
+  "published": "1 November 2026",
+  "readTime": "4 minutes",
+  "title": "Private-label Qi chargers: verify the branded product registration",
+  "description": "An identical Qi charger may qualify for registration without re-testing, but each branded variant still needs its own Qi-ID. Connect the record to the order.",
+  "imageAlt": "A round Samsung wireless charging pad displayed at IFA 2018 in Berlin, with its Fast Charge wording visible.",
+  "imageCaption": "Archival product illustration: Matti Blume, “Samsung Wireless Charger Pad, IFA 2018, Berlin (P1070294),” photographed 2 September 2018. Downloaded 1 November 2026; cropped, proportionally resized and JPEG-compressed. The photograph and layout crops retain CC BY-SA 4.0. The pictured item’s certification was not checked; this is not a private-label sample, current shipment or ZIMONAI assignment.",
+  "answer": "WPC’s Qi registration identifies a certified wireless-charging product and its brand. Its re-branding route lets technically identical variants with the same shape avoid re-testing, while requiring a separate registration and Qi-ID for each variant [[source:1]][[source:2]]. For overseas buyers, the base product’s record therefore leaves the proposed private-label version to be matched. ZIMONAI’s editorial view is to connect the branded registration, agreed design and purchase order before approving packaging; a database match supports product identity, rather than acceptance of an entire shipment.",
+  "takeaways": [
+    "A permitted re-branding variant still needs its own registration and Qi-ID; the original record is a starting point [[source:1]].",
+    "WPC identifies housing-shape, power-connector and charger-surface-material changes as reasons for re-testing [[source:1]].",
+    "Match the certificate’s live destination, brand, product name, type number and appearance to the item being ordered [[source:2]][[source:3]]."
+  ],
+  "sections": [
+    {
+      "title": "Separate the original product from the branded variant",
+      "paragraphs": [
+        "WPC describes a substantially similar registration route for re-branding an already certified product. Technical identity and the same shape are conditions; permitted differences concern colour, printing, brand or type number. Every variant is registered separately and receives its own Qi-ID [[source:1]]. A supplier showing the base product’s certificate has supplied useful background, but the buyer’s branded version still needs its own matching record.",
+        "Ask for both identities: the original registered product and the final branded variant. Record who will arrange registration and when the final listing must be available. ZIMONAI’s practical interpretation is to make that handover an agreed purchasing milestone, especially before packaging carrying a certification claim is approved. This is an order-control recommendation, not an extra WPC certification rule."
+      ]
+    },
+    {
+      "title": "Review design changes before treating them as a rebrand",
+      "paragraphs": [
+        "The official re-branding page expressly calls for re-testing if the housing shape changes, the power connector is replaced, or the charger surface material changes [[source:1]]. A similar-looking enclosure or the same advertised wattage does not answer whether the proposed configuration stays within that route. Keep a written comparison of the original and ordered versions, with photographs and identified changes.",
+        "WPC also explains that coils, shielding and ICs alone are not certifiable products, and that using components from a certified design does not automatically make a new product compliant [[source:5]]. Its certified-subsystem route has integration conditions and deserves its own review. For a changed design, obtain a route assessment from the responsible certification party or test laboratory rather than infer approval from a component brochure."
+      ]
+    },
+    {
+      "title": "Close the gap between the live record and the order",
+      "paragraphs": [
+        "Follow the URL on the supplied certificate to the WPC website. WPC says it should show the same product visually, with the same brand, product name and type number; its trademark guidance also requires an exact brand, type and picture match [[source:2]][[source:3]]. Search the public database as a second path [[source:6]]. Save the dated record and compare it with the quotation, product label and approved packaging.",
+        "The certification process involves compliance and interoperability testing followed by WPC review [[source:4]]. A matching listing is useful evidence about the registered product; it does not identify which units a supplier will pack into this order. ZIMONAI recommends carrying the final model and approved configuration into the order and inspection requirements, with written review of substitutions. Legal market access, the supplier’s identity and shipment acceptance remain separate evidence questions."
+      ]
+    }
+  ],
+  "checklist": [
+    "Obtain the base product’s Qi-ID and the final branded variant’s registration.",
+    "Compare appearance, brand, product name and type number through the certificate’s live WPC URL.",
+    "List housing, connector, surface and other design differences; obtain a documented certification-route assessment where needed.",
+    "Agree who handles registration and when the final record must be available before packaging approval.",
+    "Carry the agreed model, configuration and substitution controls into the purchase order and acceptance requirements."
+  ],
+  "limitsText": "Primary WPC guidance reviewed 1 November 2026. This guide concerns re-branding a complete Qi charger; embedded subsystems and changed technical designs have additional conditions. No particular supplier, Qi-ID, pictured product or shipment has been verified. Public registration is not a factory audit, a finding on every production unit or a complete destination-market compliance assessment. Purchasing milestones and order controls are ZIMONAI editorial recommendations, not a certification decision."
+},
     infineonVillach300mmGan: {
   "topic": "GaN power-chip manufacturing",
   "published": "31 October 2026",
@@ -6566,6 +6701,52 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+    qiPrivateLabelRegistration: {
+  "topic": "Qi 貼牌認證",
+  "published": "2026 年 11 月 1 日",
+  "readTime": "4 分鐘",
+  "title": "Qi 充電器貼牌：核對品牌登錄",
+  "description": "原型已有 Qi 認證，貼上自有品牌後仍有登錄工作。從獨立 Qi-ID、外殼與接頭變更，到包裝核准及訂單版本，整理買家應銜接的證據。",
+  "imageAlt": "2018 年柏林 IFA 展出的 Samsung 圓形無線充電盤，中央可見 Fast Charge 字樣。",
+  "imageCaption": "歷史產品示意照片：Matti Blume 拍攝的 Samsung Wireless Charger Pad, IFA 2018, Berlin (P1070294)，攝於 2018 年 9 月 2 日。2026 年 11 月 1 日下載，經裁切、等比例縮小與 JPEG 壓縮；照片及版面裁切沿用 CC BY-SA 4.0。本文未核對圖中產品的認證，照片不是貼牌樣品、當期出貨或 ZIMONAI 專案。",
+  "answer": "WPC 的 Qi 登錄把無線充電產品與品牌身分連在一起。官方貼牌途徑讓技術及外形相同的變體有機會免重測，但每款仍須獨立登錄並取得 Qi-ID [[source:1]][[source:2]]。海外買家因此應把供應商原型證書與自有品牌版本分開對照，尤其要釐清外殼、接頭或表面材料是否變更。ZIMONAI 的編輯判讀是，在核准包裝前接好品牌登錄、確認設計與採購訂單之間的證據，讓認證身分落到實際訂購的產品；整批出貨的驗收仍有另外的工作。",
+  "takeaways": [
+    "符合貼牌途徑的變體仍有自己的登錄與 Qi-ID，原型紀錄只是查核起點 [[source:1]]。",
+    "WPC 明列外殼形狀、電源接頭及充電器表面材料變更涉及重測 [[source:1]]。",
+    "證書連到的即時頁面，須與品牌、產品名稱、型號及外觀一致 [[source:2]][[source:3]]。"
+  ],
+  "sections": [
+    {
+      "title": "原型與貼牌版本分開核對",
+      "paragraphs": [
+        "WPC 的相似產品登錄途徑，處理已認證產品的貼牌變體。技術相同、外形完全相同是前提；可接受的差異限於顏色、印刷、品牌或型號等貼牌項目，每款仍須登錄並取得獨立 Qi-ID [[source:1]]。供應商出示原型證書有參考價值，卻沒有完成自有品牌版本的對照。",
+        "買家可同時索取原型與最終貼牌產品的身分資料，並約定誰負責登錄、何時交付最終紀錄。ZIMONAI 建議把這項交接放進採購里程碑，尤其是在核准帶有認證宣稱的包裝之前。這是訂單管理建議，不是額外創設的 WPC 認證要求。"
+      ]
+    },
+    {
+      "title": "設計變更與重測判斷",
+      "paragraphs": [
+        "官方貼牌說明明列，更動外殼形狀、更換電源接頭或改用不同充電器表面材料，需要重新測試 [[source:1]]。外觀近似、標示功率相同，尚不足以交代這些變更。較有用的文件，是把原型與訂購版本逐項比較，附上照片並標明差異。",
+        "WPC 也說明，線圈、屏蔽材料或 IC 本身不是可認證的完整產品；沿用已認證設計的零件，也不會讓新產品自動符合規範 [[source:5]]。已認證子系統另有整合條件，應另行審查。設計有變動時，宜取得認證負責方或測試實驗室對適用途徑的書面說明，避免把元件型錄當成整機核准。"
+      ]
+    },
+    {
+      "title": "登錄紀錄如何接到訂單",
+      "paragraphs": [
+        "從證書上的網址進入 WPC 官方頁面。官方要求該頁面呈現相同外觀、品牌、產品名稱及型號；商標指引也要求品牌、型號和圖片精確對應 [[source:2]][[source:3]]。再從公開資料庫搜尋，可多留一條查閱途徑 [[source:6]]。保存查閱日期及紀錄，接著與報價、產品標籤和核准包裝比較。",
+        "Qi 認證流程包含符合性測試、互通性測試及 WPC 審查 [[source:4]]。吻合的登錄紀錄有助於確認產品身分，但不會指出供應商這次裝箱的是哪些個體。ZIMONAI 建議將最終型號、確認設計及替代品審查條件寫進訂單與驗收要求。目的市場的法規、供應商身分與整批驗收，仍須各自建立證據。"
+      ]
+    }
+  ],
+  "checklist": [
+    "取得原型 Qi-ID，以及最終自有品牌產品的登錄紀錄。",
+    "透過證書的 WPC 即時網址，對照外觀、品牌、產品名稱及型號。",
+    "列出外殼、接頭、表面材料及其他設計差異，必要時取得適用認證途徑的書面評估。",
+    "約定登錄負責方與最終紀錄交付時間，銜接包裝核准。",
+    "讓訂單與驗收要求載明確認型號、設計版本及替代品審查條件。"
+  ],
+  "limitsText": "本文於 2026 年 11 月 1 日查閱 WPC 一手指引，範圍是完整 Qi 充電器的貼牌登錄；嵌入式子系統及技術變更另有條件。本文沒有驗證特定供應商、Qi-ID、圖中產品或出貨批次。公開登錄不是工廠稽核、每個量產個體的檢驗結果，也不構成完整的目的市場合規評估。採購里程碑與訂單管理屬 ZIMONAI 編輯建議，不是認證決定。"
+},
     infineonVillach300mmGan: {
   "topic": "GaN 功率半導體製造",
   "published": "2026 年 10 月 31 日",
@@ -9876,6 +10057,52 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+    qiPrivateLabelRegistration: {
+  "topic": "Qi 贴牌认证",
+  "published": "2026 年 11 月 1 日",
+  "readTime": "4 分钟",
+  "title": "Qi 充电器贴牌：核对品牌登记",
+  "description": "供应商原产品已有 Qi 证书，贴牌版本还需单独登记。梳理 Qi-ID、设计变更、证书链接和订单之间的对应关系。",
+  "imageAlt": "Samsung 在柏林 IFA 2018 展出的圆形无线充电板，中心标有 Fast Charge。",
+  "imageCaption": "资料照片：Matti Blume 摄，原题为 Samsung Wireless Charger Pad, IFA 2018, Berlin (P1070294)，拍摄日期为 2018 年 9 月 2 日。2026 年 11 月 1 日下载后裁切、等比例缩小并作 JPEG 压缩，照片及版式裁切继续采用 CC BY-SA 4.0。本文未核验图中产品的认证；它并非贴牌样品、本次出货或 ZIMONAI 项目。",
+  "answer": "WPC 的 Qi 登记用于识别获认证的无线充电产品及其品牌。针对技术一致、外形相同的贴牌变体，官方设有免重测的登记途径，但各变体仍需独立登记并获得自己的 Qi-ID [[source:1]][[source:2]]。海外采购据此应分别核对供应商原产品和拟售品牌版本，同时关注外壳、接口及表面材料变化。ZIMONAI 的编辑判断是，把品牌登记、确认设计和采购订单连起来，在批准包装前完成证据交接；登记所确认的产品身份，与整批货物的验收有不同范围。",
+  "takeaways": [
+    "贴牌变体即使符合免重测条件，也要单独登记并取得 Qi-ID [[source:1]]。",
+    "外壳形状、电源接口或充电器表面材料发生变化，属于 WPC 明列的重测情形 [[source:1]]。",
+    "证书网址所展示的外观、品牌、产品名称和型号，需要与拟购产品一致 [[source:2]][[source:3]]。"
+  ],
+  "sections": [
+    {
+      "title": "原产品与贴牌产品的关系",
+      "paragraphs": [
+        "WPC 为已认证产品的贴牌变体设置了相似产品登记途径：技术必须一致，外形必须相同；差异限于颜色、印刷、品牌名称或型号等贴牌事项。每个变体均须登记，并获配自己的 Qi-ID [[source:1]]。供应商提供原产品证书后，买家还需要核对最终品牌版本，不能把两种身份混为一项记录。",
+        "采购可要求供应商分别提供原产品和最终贴牌产品的信息，并写清登记由谁办理、最终记录何时交付。ZIMONAI 建议将其纳入采购节点，在批准使用认证宣称的包装前完成交接。这是订单控制建议，不代表 WPC 额外规定了某种付款或交货安排。"
+      ]
+    },
+    {
+      "title": "哪些变化涉及重新测试",
+      "paragraphs": [
+        "WPC 的贴牌说明指出，外壳形状改变、电源接口替换以及充电器表面材料改变，需要重新测试 [[source:1]]。仅凭外观相似或额定功率相同，难以确定拟购版本是否仍适用原路径。采购应保留原产品与订单版本的差异表，用照片和明确描述对应实际变化。",
+        "另一个常见证据层级是元件。WPC 说明，线圈、屏蔽和 IC 本身无法作为完整产品获认证，使用已认证设计中的元件也不会自动让新产品符合规范 [[source:5]]。获认证子系统有专门的集成条件，需要单独审查。发生设计变化时，应向认证责任方或测试实验室取得书面路径评估，而不是依据元件宣传页确认整机状态。"
+      ]
+    },
+    {
+      "title": "让登记记录对应采购订单",
+      "paragraphs": [
+        "先打开证书上的 WPC 官方网址，检查页面是否显示同一外观、品牌、产品名称和型号；WPC 商标指引同样要求品牌、型号和图片精确匹配 [[source:2]][[source:3]]。再经公开数据库检索，保留查询日期及记录 [[source:6]]。这些信息应与报价单、产品标签及批准的包装逐项对应。",
+        "官方认证流程包括符合性测试、互操作性测试和 WPC 审查 [[source:4]]。一致的登记有助于识别获认证产品，却不识别本订单中实际装箱的每件货。ZIMONAI 建议在订单和验收要求中写明确认的型号、设计版本及替代品审核条件。供应商身份、目的市场法规和批次验收，仍是需要分别核实的问题。"
+      ]
+    }
+  ],
+  "checklist": [
+    "索取原产品 Qi-ID，并取得最终贴牌品牌版本的独立登记。",
+    "经证书上的 WPC 网址核对外观、品牌、产品名称和型号。",
+    "整理外壳、接口、表面材料及其他设计变化，必要时取得书面认证路径评估。",
+    "明确登记责任方及最终记录交付时间，再衔接包装批准。",
+    "将确认型号、设计版本和替代品审核条件列入订单及验收要求。"
+  ],
+  "limitsText": "一手指引查阅日期为 2026 年 11 月 1 日。本文讨论完整 Qi 充电器的贴牌登记，嵌入式子系统及技术变更还需考虑各自条件。本文未验证任何特定供应商、Qi-ID、照片中的产品或出货批次。公开登记不是工厂审核、全部量产个体的检验结果或完整的目的市场合规判断。采购节点及订单控制属于 ZIMONAI 编辑建议，不是认证结论。"
+},
     infineonVillach300mmGan: {
   "topic": "GaN 功率半导体制造",
   "published": "2026 年 10 月 31 日",
