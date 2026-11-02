@@ -7,6 +7,81 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the US robotics import negotiations announced on 28 October 2026.
+  // Related questions: immediate measures; machinery scope; 180-day reporting; downstream production; equipment substitution; evidence to watch.
+  {
+  "id": "knowledge-us-robotics-import-talks",
+  "key": "usRoboticsImportTalks",
+  "contentType": "current-affairs",
+  "slug": "knowledge/us-robotics-import-talks",
+  "category": "commercial-risk",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "united-states",
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "US robotics import talks",
+      "industrial machinery Section 232",
+      "robotics tariff proclamation October 2026"
+    ],
+    "zh-tw": [
+      "美國機器人進口談判",
+      "工業機械 232 條款",
+      "設備關稅風險"
+    ],
+    "zh-cn": [
+      "美国机器人进口谈判",
+      "工业机械232条款",
+      "设备关税风险"
+    ]
+  },
+  "datePublished": "2026-11-02",
+  "dateModified": "2026-11-02",
+  "image": "/assets/editorial-us-robotics-import-talks.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 1311,
+  "imageCrop": {
+    "card": "46% 55%",
+    "article": "48% 57%",
+    "mobile": "43% 60%"
+  },
+  "photo": {
+    "photographer": "Falco / NIST",
+    "page": "https://commons.wikimedia.org/wiki/File:NIST_Dexterous_Manipulation_Testbed_(9502902636).jpg",
+    "license": "https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications"
+  },
+  "sources": [
+    {
+      "publisher": "The White House",
+      "title": "28 October 2026 proclamation — robotics and industrial machinery import negotiations and possible future remedies",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/10/adjusting-imports-of-robotics-industrial-machinery-and-their-parts-and-components-into-the-united-states/"
+    },
+    {
+      "publisher": "Reuters / Investing.com",
+      "title": "David Shepardson, 28 October 2026 — Trump says imported robotics pose national security risks but does not impose tariffs",
+      "url": "https://www.investing.com/news/world-news/trump-says-imported-robotics-pose-national-security-risks-but-does-not-impose-tariffs-4981090"
+    },
+    {
+      "publisher": "The White House",
+      "title": "28 October 2026 fact sheet — joint Commerce and USTR negotiations, monitoring and potential further action",
+      "url": "https://www.whitehouse.gov/fact-sheets/2026/10/fact-sheet-president-donald-j-trump-adjusts-imports-of-robotics-industrial-machinery-and-their-parts-and-components-into-the-united-states/"
+    },
+    {
+      "publisher": "Falco / NIST / Wikimedia Commons",
+      "title": "NIST Dexterous Manipulation Testbed — photograph dated 10 July 2013, public-domain US government work",
+      "url": "https://commons.wikimedia.org/wiki/File:NIST_Dexterous_Manipulation_Testbed_(9502902636).jpg"
+    },
+    {
+      "publisher": "NIST",
+      "title": "Copyright and licensing — employee works, worldwide reuse grant, acknowledgement and modification notice",
+      "url": "https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications"
+    }
+  ]
+},
   // Search intent: verify the registration of a private-label Qi wireless charger.
   // Related questions: separate variant Qi-ID; original certificate; permissible re-branding; design changes; component evidence; order acceptance.
   {
@@ -113,7 +188,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-01",
+  "featuredReviewedThrough": "2026-11-02",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3306,6 +3381,56 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      usRoboticsImportTalks: {
+  "topic": "US robotics import negotiations",
+  "published": "2 November 2026",
+  "readTime": "4 minutes",
+  "title": "US opens robotics import talks, keeping tariff options open",
+  "description": "The 28 October proclamation orders talks on robotics and industrial machinery, with an update within 180 days. Future tariffs and equipment costs remain unsettled.",
+  "imageAlt": "An orange robot arm with a three-fingered metal hand holding a machined part in NIST’s dexterous manipulation testbed.",
+  "imageCaption": "Archival illustration: Falco/NIST, NIST Dexterous Manipulation Testbed, dated 10 July 2013. US government employee work, public domain in the United States; NIST grants worldwide reuse of its non-SRD works. Downloaded 2 November 2026 and proportionally resized and JPEG-compressed; layout crops only. This is a research photograph, not an identified shipment covered by the proclamation or a ZIMONAI assignment. Provided by NIST as a public service, as is.",
+  "labels": {
+    "summary": "News overview",
+    "checklist": "What to watch next",
+    "limits": "What remains unsettled"
+  },
+  "answer": "President Donald Trump on 28 October 2026 ordered talks on imports of robotics, industrial machinery and components, with an update within 180 days [[source:1]]. Reuters confirms the decision imposed no immediate new tariffs [[source:2]]. The move brings factory equipment into sharper trade-policy focus; future rates remain unsettled. ZIMONAI’s editorial assessment is that manufacturers gain a planning window: separate today’s quoted equipment cost from a later policy adjustment and the work needed to commission a replacement. This matters because a different machine’s price alone does not establish readiness for production.",
+  "takeaways": [
+    "The announced action is negotiation and monitoring; potential tariffs, quotas and fees are future options in this proclamation [[source:1]].",
+    "An update is due within 180 days. The text does not prescribe a tariff that automatically starts when that period ends [[source:1]].",
+    "For a manufacturing project, an alternative machine’s purchase price and its readiness to perform the required process are different planning questions."
+  ],
+  "sections": [
+    {
+      "title": "A security finding followed by negotiations",
+      "paragraphs": [
+        "The President concurred with the Commerce Secretary’s Section 232 finding concerning these imports and instructed Commerce and the US Trade Representative to pursue agreements jointly. Commerce is also to monitor imports and advise if further action appears necessary [[source:1]][[source:3]]. Reuters independently reported the decision on 28 October and described the immediate reprieve from new duties for manufacturers [[source:2]].",
+        "The operative text keeps several possible responses open, including tariffs, quotas, fees and incentives for US production. It sets no new tariff rate or implementation schedule for those measures [[source:1]]. Treating the announcement as an already effective machinery surcharge would therefore add a cost that this particular action has not established."
+      ]
+    },
+    {
+      "title": "Why the story reaches beyond robot makers",
+      "paragraphs": [
+        "The proclamation frames the issue around equipment used to manufacture other goods. It cites dependence on foreign supply and uses in industries including electrical and electronics manufacturing [[source:1]]. Those are the administration’s stated grounds for action; they are not a finding that any named foreign supplier or particular machine is unsafe.",
+        "ZIMONAI’s industrial reading is that the exposure has two layers: the imported machine and the production programme that depends on it. A line planned around a particular welding, handling or assembly process may need installation, tooling and acceptance work if equipment is substituted. That is a project-planning implication, not evidence that this announcement has already delayed a line or raised its cost."
+      ]
+    },
+    {
+      "title": "The next evidence is an agreement or a concrete measure",
+      "paragraphs": [
+        "The 180-day requirement is a progress update, while further action remains subject to the President’s decisions and the status or outcome of negotiations [[source:1]]. An actual agreement, a later proclamation or implementation instructions would provide firmer evidence about affected goods and timing. The present text alone does not support a model-specific duty calculation.",
+        "For equipment orders, ZIMONAI recommends making the commercial uncertainty explicit: distinguish the current quotation from a conditional policy adjustment, and identify what any proposed substitute would need before production acceptance. Allocating the commercial exposure and preparing a usable substitute are separate tasks. The larger development is that factory capital equipment is moving through a trade negotiation whose practical outcome will be measured in concrete terms, equipment availability and usable production capacity."
+      ]
+    }
+  ],
+  "checklist": [
+    "Named negotiating partners, published agreements and their stated scope.",
+    "The progress update required within 180 days and any earlier official action.",
+    "Product coverage, rates, effective dates and transition provisions if a later measure is issued.",
+    "For live projects, documented quotation changes and the commissioning requirements of any alternative equipment."
+  ],
+  "limitsText": "Event: 28 October 2026; sources reviewed 2 November. This account concerns this proclamation, not every existing US tariff or other import restriction. The reviewed text does not set future rates, exemptions or an entry date for a new duty. A specific machine’s classification, origin and treatment require their own current evidence. Project-cost, substitution and commissioning implications are ZIMONAI editorial analysis; no particular supplier, order, delay or cost increase has been verified."
+},
     qiPrivateLabelRegistration: {
   "topic": "Qi private-label registration",
   "published": "1 November 2026",
@@ -6701,6 +6826,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      usRoboticsImportTalks: {
+  "topic": "美國設備進口談判",
+  "published": "2026 年 11 月 2 日",
+  "readTime": "4 分鐘",
+  "title": "美國機器人進口案：啟動談判",
+  "description": "美國 10 月 28 日公告要求就機器人、工業機械及零組件進口展開談判，180 天內回報進度。後續關稅未定，製造設備採購面臨哪些變數？",
+  "imageAlt": "NIST 靈巧操作測試平台中的橘色機械手臂，以三指金屬夾爪握住加工零件。",
+  "imageCaption": "歷史研究示意照片：Falco／NIST，NIST Dexterous Manipulation Testbed，標示日期為 2013 年 7 月 10 日。美國政府雇員作品，在美國屬公共領域；NIST 另授予非 SRD 作品全球再利用權。2026 年 11 月 2 日下載，等比例縮小、JPEG 壓縮及版面裁切。照片不是已確認受公告涵蓋的出貨，也不是 ZIMONAI 專案。NIST 以公共服務按原狀提供。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "仍待釐清的事項"
+  },
+  "answer": "美國總統川普於 2026 年 10 月 28 日發布公告，要求官員就機器人、工業機械及相關零組件進口與貿易夥伴談判，並在 180 天內回報進度 [[source:1]]。Reuters 報導指出，這次決定未立即加徵新關稅，但保留後續課稅選項 [[source:2]]。這項行動把工廠設備帶入貿易談判焦點，未來稅率及個別產品待遇仍未確定。ZIMONAI 的編輯判讀是，這段期間有助於規劃，買家應把當下設備報價、日後政策調整，以及替代機台投入生產前的準備工作分開估算，避免把談判消息直接當成已發生的成本變化。",
+  "takeaways": [
+    "本次公告先要求談判與監測；關稅、配額及費用列為後續可能採取的措施 [[source:1]]。",
+    "180 天內須回報進度，公告沒有設定期滿自動生效的新稅率 [[source:1]]。",
+    "設備換購不只比較售價，還要評估安裝、製程銜接與驗收準備。"
+  ],
+  "sections": [
+    {
+      "title": "認定安全風險後，先推進談判",
+      "paragraphs": [
+        "川普同意商務部長依《1962 年貿易擴張法》第 232 條所作的進口風險認定，指示商務部與美國貿易代表共同推進協議談判。商務部也須持續監測，必要時建議進一步行動 [[source:1]][[source:3]]。Reuters 於 10 月 28 日獨立報導這項決定，指出美國製造商暫時沒有承擔這次調查帶來的立即新增關稅 [[source:2]]。",
+        "公告保留關稅、配額、費用及鼓勵美國生產等選項，但沒有為這些措施訂出新稅率或實施時程 [[source:1]]。因此，報價若因這份公告而直接多列一筆已生效的機械附加稅，仍缺少本次行動的具體依據；日後措施須另看正式文件。"
+      ]
+    },
+    {
+      "title": "影響不只落在機器人製造商",
+      "paragraphs": [
+        "公告關注的是製造其他產品所需的設備，理由包括依賴海外供應，以及電機、電子等產業的生產用途 [[source:1]]。這是美國政府提出的政策理由，不是對某家外國供應商或特定機台安全性的個別結論。",
+        "ZIMONAI 的產業判讀分成兩層：一層是進口機台，另一層是依賴它的生產計畫。原本依特定焊接、搬運或組裝製程規劃的產線，若更換設備，還有安裝、工裝及驗收工作需要銜接。這項規劃提醒不代表公告已造成某條產線延誤，也沒有證據可據此量化成本增幅。"
+      ]
+    },
+    {
+      "title": "後續協議與措施",
+      "paragraphs": [
+        "180 天是其中一次進度回報的期限；後續行動仍取決於總統決定及談判狀態或結果 [[source:1]]。正式協議、後續公告或執行指引，才會帶來更具體的產品範圍與時間資訊。僅憑目前文本，還無法計算某一型號機械的新關稅。",
+        "對仍在洽談的設備訂單，ZIMONAI 建議讓商業條件說清楚：目前報價與附條件的政策調價分別記錄，若提出替代機台，也要交代投產前的準備與驗收要求。整起事件值得關注的，是工廠資本設備正進入一輪貿易談判；接下來應看具體條款、設備供應與可投入使用的產能，如何把政策方向轉成實際結果。"
+      ]
+    }
+  ],
+  "checklist": [
+    "官方公布的談判對象、協議內容及適用範圍。",
+    "180 天內的進度回報，以及在此之前可能發布的正式措施。",
+    "若後續推出措施，核對產品範圍、稅率、生效日及過渡安排。",
+    "進行中的採購案，留意書面報價變更及替代設備的投產條件。"
+  ],
+  "limitsText": "事件日期為 2026 年 10 月 28 日，來源於 11 月 2 日查閱。本文只解讀這份公告，不涵蓋美國既有各項關稅或其他進口限制。現有文本未設定未來新稅率、豁免或課稅生效日；特定機台的稅則分類、原產地與待遇仍須另以當時資料確認。成本、設備替代及投產準備屬 ZIMONAI 編輯分析，本文未驗證特定供應商、訂單、延誤或成本上升。"
+},
     qiPrivateLabelRegistration: {
   "topic": "Qi 貼牌認證",
   "published": "2026 年 11 月 1 日",
@@ -10057,6 +10232,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      usRoboticsImportTalks: {
+  "topic": "美国设备进口谈判",
+  "published": "2026 年 11 月 2 日",
+  "readTime": "4 分钟",
+  "title": "美国机器人进口案：启动谈判",
+  "description": "10 月 28 日美国公告要求就机器人、工业机械及零部件进口谈判，180 天内提交进展。关税选项保留，设备采购该怎样规划？",
+  "imageAlt": "NIST 灵巧操作测试平台上的橙色机械臂，三指金属抓手正握持一个加工零件。",
+  "imageCaption": "资料照片：Falco／NIST，NIST Dexterous Manipulation Testbed，标注日期为 2013 年 7 月 10 日。美国政府雇员作品，在美国属于公有领域；NIST 另为非 SRD 作品提供全球再使用权。2026 年 11 月 2 日下载后等比例缩小、JPEG 压缩并作版式裁切。图中设备并非已经确认受公告覆盖的货物，也不是 ZIMONAI 项目。NIST 作为公共服务按原样提供。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "尚未明确的事项"
+  },
+  "answer": "美国总统特朗普于 2026 年 10 月 28 日发布公告，指示官员围绕机器人、工业机械及相关零部件进口与贸易伙伴开展谈判，并在 180 天内汇报进展 [[source:1]]。Reuters 的报道确认，本次决定没有立即新增关税，后续征税仍是保留选项 [[source:2]]。公告将工厂设备置于贸易谈判焦点，未来税率及具体产品待遇尚未确定。ZIMONAI 的编辑判断是，企业可先梳理设备投资，把现有报价、可能的政策调价和替代设备的投产准备分别评估，避免将潜在风险提前写成已经发生的成本。",
+  "takeaways": [
+    "公告首先安排谈判和监测，关税、配额及收费属于后续备选措施 [[source:1]]。",
+    "180 天内提交的是进展报告，文件没有规定届时自动实施某个新税率 [[source:1]]。",
+    "替代设备的价格之外，还需考虑安装、工艺衔接及验收所需准备。"
+  ],
+  "sections": [
+    {
+      "title": "安全认定之后，行动落在谈判",
+      "paragraphs": [
+        "特朗普接受商务部长依据《1962 年贸易扩展法》第 232 条提出的进口风险认定，要求商务部与美国贸易代表共同推进协议谈判。商务部同时继续监测进口，必要时提出进一步行动建议 [[source:1]][[source:3]]。Reuters 10 月 28 日的独立报道指出，这项决定暂未让制造企业承担当次调查引出的立即新增关税 [[source:2]]。",
+        "公告列出的后续选项包括关税、配额、收费以及鼓励美国境内生产，但未为这些措施设定新税率或实施时间表 [[source:1]]。因此，若把它直接计成已经生效的机械进口附加税，便超出了这份文件确定的内容。未来出现具体措施后，还要再核对其适用条件。"
+      ]
+    },
+    {
+      "title": "设备政策为何关系到下游工厂",
+      "paragraphs": [
+        "文件的着眼点是生产其他产品所需的设备，政策理由涉及对境外供应的依赖，以及电气、电子等制造行业的用途 [[source:1]]。这些是美国政府陈述的行动依据，不等于已经认定某个外国供应商或某款设备存在安全问题。",
+        "ZIMONAI 认为，工业影响需要沿两条线观察：进口设备本身，以及围绕设备安排的生产计划。若一条产线按特定焊接、搬运或装配工艺配置，更换机器还涉及安装、工装与验收。这里讨论的是项目规划中的依赖关系，并非确认某个项目已因公告延期，或已经增加了多少成本。"
+      ]
+    },
+    {
+      "title": "后续协议与措施",
+      "paragraphs": [
+        "180 天是提交一次进展报告的时限，后续措施仍与总统决定及谈判情况有关 [[source:1]]。正式协议、后续公告或执行指引，才可能进一步明确产品覆盖和执行时间。现阶段文本不足以为某一型号设备算出新的应缴税额。",
+        "针对尚在商谈的设备订单，ZIMONAI 建议把条件写得明确一些：当前报价与附条件的政策调价分开记录，供应商提出替代设备时，同步说明投产准备和验收安排。此次事件的产业意义在于，工厂资本设备正进入新的贸易谈判阶段；后续要观察的，是具体条款如何影响设备供应，以及这些设备最终形成的可用产能。"
+      ]
+    }
+  ],
+  "checklist": [
+    "正式公布的谈判对象、协议条款和适用范围。",
+    "180 天内的进展报告，以及更早出台的官方措施。",
+    "如有后续措施，确认产品覆盖、税率、生效日期和过渡安排。",
+    "现有采购项目的书面报价变更，以及替代设备投入生产的条件。"
+  ],
+  "limitsText": "事件发生于 2026 年 10 月 28 日，来源查阅日期为 11 月 2 日。本文聚焦这份公告，不概括美国现有全部关税或其他进口限制。所审阅文本尚未确定未来税率、豁免或新增征税的生效日；具体设备的税则归类、原产地及待遇需要单独核实。成本、设备替换和投产准备的讨论属于 ZIMONAI 编辑分析，未验证任何特定供应商、订单、延期或成本增长。"
+},
     qiPrivateLabelRegistration: {
   "topic": "Qi 贴牌认证",
   "published": "2026 年 11 月 1 日",
