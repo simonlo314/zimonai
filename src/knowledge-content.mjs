@@ -7,6 +7,87 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: assess a DDP charger quote through its delivery point and workable import arrangement.
+  // Related questions: rule version; unloading; seller import capacity; DAP allocation; shipment records; acceptance and payment.
+  {
+  "id": "knowledge-ddp-charger-delivery-import-clearance",
+  "key": "ddpChargerDeliveryImport",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/ddp-charger-delivery-import-clearance",
+  "category": "commercial-risk",
+  "products": [
+    "charger",
+    "power-adapter"
+  ],
+  "markets": [
+    "global",
+    "international"
+  ],
+  "keywords": {
+    "en": [
+      "DDP charger quote",
+      "Incoterms 2020 import clearance",
+      "DDP DAP delivery point"
+    ],
+    "zh-tw": [
+      "DDP 充電器報價",
+      "進口清關責任",
+      "Incoterms 2020 交貨地點"
+    ],
+    "zh-cn": [
+      "DDP 充电器报价",
+      "进口清关责任",
+      "Incoterms 2020 交货地点"
+    ]
+  },
+  "datePublished": "2026-11-03",
+  "dateModified": "2026-11-03",
+  "image": "/assets/editorial-china-aeo-port.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 1230,
+  "imageCrop": {
+    "card": "56% 62%",
+    "article": "54% 59%",
+    "mobile": "61% 64%"
+  },
+  "photo": {
+    "photographer": "Dinkun Chen",
+    "page": "https://commons.wikimedia.org/wiki/File:MAWAN_PORT,_SHENZHEN_(4).jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "International Chamber of Commerce",
+      "title": "Incoterms® 2020 — DDP explanatory notes and obligations A2, A6, A7, A9, B7 and B9",
+      "url": "https://library.iccwbo.org/content/tfb/BOOKS/BK_0049/BK_0049_04_RulesAny.htm"
+    },
+    {
+      "publisher": "International Chamber of Commerce",
+      "title": "Incoterms® 2020 Checklist and Flowcharts — pp. 4–5 and 10: costs, documents and import-clearance feasibility",
+      "url": "https://library.iccwbo.org/content/clp/Others/incoterms_2020_checklist_2024-update.pdf"
+    },
+    {
+      "publisher": "ICC Academy",
+      "title": "Miguel Angel Bustamante, 25 February 2025 — DAP and DDP: import formalities and unloading",
+      "url": "https://academy.iccwbo.org/incoterms/article/incoterms-2020-dap-or-ddp/"
+    },
+    {
+      "publisher": "ICC Digital Library / Charles Debattista",
+      "title": "Introduction to Incoterms® 2020 — paras. 4–15: scope, contractual incorporation and named place",
+      "url": "https://library.iccwbo.org/content/tfb/BOOKS/BK_0049/BK_0049_03_Introduction.htm"
+    },
+    {
+      "publisher": "Dinkun Chen / Wikimedia Commons",
+      "title": "MAWAN PORT, SHENZHEN (4) — own-work photograph, 12 December 2020",
+      "url": "https://commons.wikimedia.org/wiki/File:MAWAN_PORT,_SHENZHEN_(4).jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 4.0 International — image licence, attribution and changes",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+},
   // Search intent: understand the US robotics import negotiations announced on 28 October 2026.
   // Related questions: immediate measures; machinery scope; 180-day reporting; downstream production; equipment substitution; evidence to watch.
   {
@@ -188,7 +269,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-02",
+  "featuredReviewedThrough": "2026-11-03",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3381,6 +3462,52 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      ddpChargerDeliveryImport: {
+  "topic": "DDP delivery and import clearance",
+  "published": "3 November 2026",
+  "readTime": "4 minutes",
+  "title": "DDP charger quotes: check the delivery point and import arrangement",
+  "description": "Compare a DDP charger quote through its named delivery point, import-clearance arrangement and documents. Keep unloading and product acceptance explicit.",
+  "imageAlt": "A red truck beside stacked freight containers at Mawan Port in Shenzhen, photographed in 2020.",
+  "imageCaption": "Archival logistics illustration: Dinkun Chen, “MAWAN PORT, SHENZHEN (4),” photographed 12 December 2020. Reused from the local image downloaded 14 October 2026; source and licence rechecked 3 November. Cropped, proportionally resized and JPEG-compressed; photograph and layout crops retain CC BY-SA 4.0. This is not an identified DDP consignment, charger shipment, customs inspection or ZIMONAI assignment. No endorsement is implied.",
+  "answer": "DDP under Incoterms® 2020 assigns the seller delivery to an agreed destination and responsibility for import clearance and applicable duties and taxes [[source:1]]. The term allocates obligations; it does not establish that a particular seller can fulfil them [[source:2]]. For overseas charger buyers, the named delivery point and workable import arrangement are therefore part of comparing quotes. ZIMONAI’s editorial view is to separate the agreed responsibility from evidence of its performance, while specifying unloading, payment and product acceptance in the relevant agreements.",
+  "takeaways": [
+    "Name the destination point and rule version; DDP delivery is ready for unloading, rather than an unloading service [[source:1]][[source:4]].",
+    "DDP places import-clearance responsibility on the seller; destination-country feasibility still needs checking [[source:1]][[source:2]].",
+    "A delivery term leaves product specifications, payment terms and ownership transfer for separate contractual provision [[source:4]]."
+  ],
+  "sections": [
+    {
+      "title": "Define where delivery finishes",
+      "paragraphs": [
+        "The DDP rule describes goods cleared for import and available to the buyer on the arriving vehicle at the agreed destination, ready to unload. That point matters to delivery, risk and cost allocation [[source:1]]. A quote naming only a city leaves more uncertainty than an agreed warehouse address and receiving point. Put the place and Incoterms® 2020 version into the sale agreement [[source:4]].",
+        "Unloading deserves its own line in the comparison. The buyer normally bears unloading costs, except where the seller’s carriage contract already puts them on the seller; the DDP text also addresses separately recovering those costs [[source:1]]. Ask what the freight arrangement actually includes. ZIMONAI recommends agreeing access, receiving hours and unloading arrangements before treating two destination quotes as equivalent."
+      ]
+    },
+    {
+      "title": "Test whether the import arrangement is workable",
+      "paragraphs": [
+        "DDP puts applicable import formalities, duties and taxes on the seller as between the sale parties. The buyer still has a duty to assist with required documents or information at the seller’s request, risk and cost [[source:1]]. ICC cautions that practical constraints can prevent a seller from undertaking import clearance [[source:2]]. A freight quote promising tax-paid delivery is therefore a commitment to examine, rather than proof of a completed customs process.",
+        "Before dispatch, ask who will act in the import process, which broker or representative is involved, what authority is required and which records will be available for this order. Confirm the arrangement against current destination-country requirements. ICC Academy’s comparison explains that DAP instead places import clearance on the buyer [[source:3]]. If the intended arrangement changes, revise the sale terms deliberately; do not quietly leave the DDP label on a different allocation."
+      ]
+    },
+    {
+      "title": "Connect the quote to records and acceptance",
+      "paragraphs": [
+        "Incoterms® rules allocate delivery obligations, risks and costs. The introduction separately identifies product specifications, payment arrangements and transfer of ownership as matters they do not settle [[source:4]]. A DDP quotation is consequently separate from evidence that a charger model meets its destination’s product requirements or that the shipment passed agreed inspection.",
+        "ZIMONAI recommends a compact order record: agreed delivery point and term; named import participants; fee inclusions and any express variations; documents to be handed over; and separate inspection, payment and acceptance milestones. Compare the commercial invoice, transport or delivery record and agreed import evidence against the ordered model and quantity. This is a purchasing-control recommendation, not an ICC-prescribed universal document list. Specify how exceptional charges or failed clearance will be handled, rather than infer that every later invoice has already been resolved by three letters [[source:2]]."
+      ]
+    }
+  ],
+  "checklist": [
+    "Write the precise destination point and Incoterms® 2020 version into the sale terms.",
+    "Confirm the proposed import participants, their authority and destination-country feasibility before dispatch.",
+    "Clarify duty/tax treatment, unloading, exceptional charges and any express departure from the chosen rule.",
+    "Agree which shipment and import records will be handed over, and match them to the order.",
+    "Keep model requirements, inspection, payment and ownership provisions explicit in the relevant agreements."
+  ],
+  "limitsText": "ICC materials reviewed 3 November 2026. This guide addresses DDP quotation and document review for chargers and power adapters; it does not determine a country’s current customs, VAT or product rules, a tariff amount, tax recoverability or a dispute outcome. The cited ICC Academy article and introduction carry their authors’ explanatory views. No seller, broker, shipment or pictured cargo has been verified. The checklist is ZIMONAI editorial guidance; the full chosen rule, agreed contract and applicable law require their own review."
+},
       usRoboticsImportTalks: {
   "topic": "US robotics import negotiations",
   "published": "2 November 2026",
@@ -6826,6 +6953,52 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      ddpChargerDeliveryImport: {
+  "topic": "DDP 交貨條件",
+  "published": "2026 年 11 月 3 日",
+  "readTime": "4 分鐘",
+  "title": "DDP 充電器報價：交貨與清關",
+  "description": "供應商報 DDP 價格，買家仍要釐清交貨地點、進口清關安排、卸貨費用與文件交付。從 Incoterms® 2020 看報價的責任與證據。",
+  "imageAlt": "2020 年深圳媽灣港的貨櫃與紅色卡車，呈現港區陸路運輸情境。",
+  "imageCaption": "歷史物流示意照片：Dinkun Chen 拍攝的 MAWAN PORT, SHENZHEN (4)，攝於 2020 年 12 月 12 日。沿用 2026 年 10 月 14 日下載的本地照片，11 月 3 日重新核對來源與授權。經裁切、等比例縮小及 JPEG 壓縮；照片與版面裁切沿用 CC BY-SA 4.0。圖中不是已確認的 DDP 貨物、充電器出貨、海關查驗或 ZIMONAI 專案，亦不表示攝影者背書。",
+  "answer": "Incoterms® 2020 的 DDP 條件，把約定目的地的交貨，以及進口清關、適用關稅與稅費的責任交給賣方 [[source:1]]。這項約定說明責任如何分配，賣方在當地能否實際辦理，仍須另外確認 [[source:2]]。海外買家比較充電器報價時，應把交貨位置與可執行的清關安排一起看。ZIMONAI 的編輯判讀是，先分清約定責任與履行證據，再把卸貨、付款與產品驗收寫清楚，才有基礎比較看似相同的到貨價格。",
+  "takeaways": [
+    "DDP 要寫明交貨位置與適用版本；準備好卸貨，與已完成卸貨是不同階段 [[source:1]][[source:4]]。",
+    "進口清關由賣方負責，不代表報價已證實當地執行安排可行 [[source:1]][[source:2]]。",
+    "產品規格、付款及所有權移轉，仍須在契約另外約定 [[source:4]]。"
+  ],
+  "sections": [
+    {
+      "title": "交貨位置與卸貨安排",
+      "paragraphs": [
+        "依 DDP 規則，貨物已完成進口清關，在約定目的地的到達運輸工具上，交由買方處置並準備好卸貨，才是其交貨情境。這個位置也牽動風險與費用分配 [[source:1]]。只寫一座城市，與寫清楚倉庫地址及收貨位置，留下的解釋空間不同；採購契約應納入確切地點與 Incoterms® 2020 版本 [[source:4]]。",
+        "卸貨費用值得單獨確認。原則上由買方負擔，但賣方的運送契約若已包含由賣方負擔的卸貨費，另有相應規定；DDP 文本也處理這類費用能否另外收回的情況 [[source:1]]。ZIMONAI 建議比較報價時，另外說清楚收貨時段、車輛進出及卸貨安排，避免把不同的運送服務當成同價條件。"
+      ]
+    },
+    {
+      "title": "確認進口安排能夠執行",
+      "paragraphs": [
+        "DDP 在買賣雙方之間，將適用的進口手續、關稅與稅費交由賣方負責；買方仍須依規則，在賣方要求、風險及費用下協助取得必要文件或資訊 [[source:1]]。ICC 的選用指引提醒，實際條件可能使賣方無法辦理進口清關 [[source:2]]。因此，「包稅到貨」報價是要被檢視的承諾，尚不是已完成清關的證據。",
+        "出貨前宜釐清進口程序的參與主體、報關業者或代表、所需授權，以及這筆訂單能取得哪些紀錄，並對照當地現行要求。ICC Academy 的比較說明，DAP 則由買方辦理進口清關 [[source:3]]。若實際安排改由買方承接，應明確修訂買賣條件，讓責任與文字一致；不宜保留 DDP 標籤，卻默默換掉其分工。"
+      ]
+    },
+    {
+      "title": "報價文件接到訂單驗收",
+      "paragraphs": [
+        "Incoterms® 規則處理交貨義務、風險與費用；其導言另外指出，產品規格、付款安排及所有權移轉等事項，要在契約另作規定 [[source:4]]。因此，DDP 報價與充電器型號的目的市場合規證據，以及這批貨是否通過約定檢驗，是不同的工作。",
+        "ZIMONAI 建議留下精簡但完整的訂單紀錄：交貨位置與條件、進口參與主體、費用包含項目及明列的變更、交付文件，以及檢驗、付款和驗收里程碑。再把商業發票、運輸或交貨紀錄與約定的進口資料，對回訂購型號及數量。這是採購管理建議，不是 ICC 規定的通用文件清單。異常費用或清關受阻時如何處理，也應另外寫清楚，而非只靠三個字母推定後續帳單都已解決 [[source:2]]。"
+      ]
+    }
+  ],
+  "checklist": [
+    "在買賣條件寫入確切交貨位置與 Incoterms® 2020 版本。",
+    "出貨前確認進口參與主體、授權及當地執行安排。",
+    "釐清關稅與稅費、卸貨、異常收費，以及任何明列的條件變更。",
+    "約定交付哪些運輸及進口文件，並對回採購訂單。",
+    "另行寫明產品規格、檢驗、付款、驗收與所有權移轉條件。"
+  ],
+  "limitsText": "本文於 2026 年 11 月 3 日查閱 ICC 資料，範圍是充電器與電源適配器的 DDP 報價及文件判讀，不判定各國現行海關、營業稅或產品法規、應繳稅額、稅額能否扣抵或爭議結果。引用的 ICC Academy 文章及導言含作者的解釋觀點。本文未驗證特定賣方、報關業者、出貨或圖中貨物；核對清單屬 ZIMONAI 編輯建議，完整規則、實際契約與適用法律仍須另行審查。"
+},
       usRoboticsImportTalks: {
   "topic": "美國設備進口談判",
   "published": "2026 年 11 月 2 日",
@@ -10232,6 +10405,52 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      ddpChargerDeliveryImport: {
+  "topic": "DDP 交货条件",
+  "published": "2026 年 11 月 3 日",
+  "readTime": "4 分钟",
+  "title": "DDP 充电器报价：交货与清关",
+  "description": "DDP 报价怎样落到实际交付？围绕指定交货地点、进口清关、卸货费用和单证，梳理海外采购充电器时需要写明的安排。",
+  "imageAlt": "深圳妈湾港堆放的集装箱旁，一辆红色卡车驶过港区道路，照片摄于 2020 年。",
+  "imageCaption": "历史物流示意照片：Dinkun Chen，MAWAN PORT, SHENZHEN (4)，拍摄日期为 2020 年 12 月 12 日。沿用 2026 年 10 月 14 日下载的本地图片，11 月 3 日复核来源及许可。图片经过裁切、等比例缩小与 JPEG 压缩，照片和版面裁切继续适用 CC BY-SA 4.0。图中货物并未确认为 DDP 货物或充电器订单，也不代表海关查验、ZIMONAI 项目或摄影者认可。",
+  "answer": "DDP 是 Incoterms® 2020 中分配交货责任的规则：卖方将货物送至约定目的地，并承担进口清关及适用关税、税费 [[source:1]]。责任写进报价之后，还需要落实当地能够执行的进口安排，ICC 的指引也提醒卖方可能面临实际限制 [[source:2]]。对海外充电器买家而言，比较价格应以相同交货地点和明确分工为前提。ZIMONAI 的编辑判断是，把合同中的责任承诺与后续履行单证分开核对，并另行约定卸货、付款和产品验收，能够减少到货价比较中的遗漏。",
+  "takeaways": [
+    "写明指定交货地点及规则版本，DDP 的交付状态是到达车辆上准备卸货 [[source:1]][[source:4]]。",
+    "卖方承担进口清关责任，但仍需核实当地手续和执行主体 [[source:1]][[source:2]]。",
+    "报价中的交货规则，不代替产品规格、支付安排和所有权条款 [[source:4]]。"
+  ],
+  "sections": [
+    {
+      "title": "把交货地点具体化",
+      "paragraphs": [
+        "DDP 所说的交货，是货物完成进口清关，到达约定目的地，在运输工具上交由买方处置并准备卸货。指定地点关系到交付、风险及费用 [[source:1]]。采购合同宜写清地址和接收位置，并注明采用 Incoterms® 2020；只标目的城市，往往还留下最后一段运输的解释空间 [[source:4]]。",
+        "卸货也需要核对承运安排。通常由买方支付卸货费用，但若卖方的运输合同已将这笔费用计入卖方承担的部分，DDP 有相应规定，并涉及能否再次向买方收取 [[source:1]]。ZIMONAI 建议，比较两份到货报价前，把车辆进入、接收时段及卸货方式讲清楚，先确认比较的是相同交付条件。"
+      ]
+    },
+    {
+      "title": "清关责任对应执行主体",
+      "paragraphs": [
+        "选择 DDP 后，进口手续及适用关税、税费由卖方在买卖关系中承担。买方并非完全无需配合，仍须按规则协助取得卖方要求的必要文件或信息，相关风险和费用由卖方承担 [[source:1]]。ICC 也提示，实际条件可能使卖方无法完成进口清关 [[source:2]]。写有“包税”的报价，因而需要进一步核实执行安排。",
+        "询问谁参与进口申报、由哪家报关机构或代表执行、需要哪些授权，以及这笔订单可交付哪些记录，再与目的地现行要求核实。ICC Academy 介绍的 DAP 分工则将进口清关交给买方 [[source:3]]。若双方决定改由买方承担，应同步修订成交条件，不应仅在操作上变更，却沿用原来的 DDP 文字。"
+      ]
+    },
+    {
+      "title": "单证与验收分别约定",
+      "paragraphs": [
+        "Incoterms® 规则说明交付中的义务、风险及成本。导言同时说明，货物规格、付款方式及所有权转移等问题，需要另作合同安排 [[source:4]]。用于充电器采购时，交货条件与型号合规、出货检验并不互相替代；报了 DDP 价格，也不等于已完成这些工作。",
+        "ZIMONAI 建议将报价整理成可交接的订单记录，写明交付地点、进口参与方、费用范围及明确约定的调整、单证交付，以及检验、付款和验收节点。随后把商业发票、运输或交付记录及约定的进口资料，与订购型号和数量对应。这里提出的是采购控制方法，并非 ICC 要求所有交易采用同一套单证。异常收费和清关受阻的处理也应写明，避免在货到之后才争论报价覆盖哪些事项 [[source:2]]。"
+      ]
+    }
+  ],
+  "checklist": [
+    "明确指定交货地点，并在成交条款注明 Incoterms® 2020。",
+    "装运前核实进口参与方、授权及当地办理条件。",
+    "说明关税和税费、卸货及异常收费的安排，记录任何明确变更。",
+    "约定运输、交付及进口资料的交接，再与订单核对。",
+    "分别写明型号要求、检验、付款、验收及所有权条款。"
+  ],
+  "limitsText": "资料查阅日期为 2026 年 11 月 3 日。本文讨论充电器、电源适配器的 DDP 报价与单证，不对具体国家的现行海关、增值税和产品要求、税额、抵扣资格或争议作出判断。ICC Academy 文章及导言包含作者的解释意见。本文未核实具体卖方、报关机构、订单或图片中的货物；清单属于 ZIMONAI 编辑建议，完整规则、实际合同和适用法律仍需分别审阅。"
+},
       usRoboticsImportTalks: {
   "topic": "美国设备进口谈判",
   "published": "2026 年 11 月 2 日",

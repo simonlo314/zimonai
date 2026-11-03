@@ -8,6 +8,23 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('DDP quotation context preserves native import compounds and copyable trade terms', () => {
+  const cases = [
+    ['zh-tw', 'DDP 充電器報價：交貨與清關。進口清關安排、卸貨費用、履行證據與所有權移轉。Incoterms® 2020。', ['DDP 充電器報價：', '交貨與清關。', '進口清關安排、', '卸貨費用、', '履行證據', '所有權移轉。', 'Incoterms® 2020。']],
+    ['zh-cn', 'DDP 充电器报价：交货与清关。指定交货地点、进口清关责任、卸货费用与履行单证。Incoterms® 2020。', ['DDP 充电器报价：', '交货与清关。', '指定交货地点、', '进口清关责任、', '卸货费用', '履行单证。', 'Incoterms® 2020。']]
+  ];
+  for (const [locale, text, phrases] of cases) {
+    const html = protectCjkText(text, locale);
+    assert.equal(removeProtectionMarkup(html), text);
+    for (const phrase of phrases) assert.ok(html.includes('>' + phrase + '</span>'), locale + ': ' + phrase);
+  }
+  for (const [locale, text, phrase] of [['zh-tw', '比較報價與單證，先釐清責任。', '單證，'], ['zh-cn', 'DDP 报价与单证，不对具体国家的现行海关要求作判断。', '单证，']]) {
+    const html = protectCjkText(text, locale);
+    assert.equal(removeProtectionMarkup(html), text);
+    assert.ok(html.includes('>' + phrase + '</span>'), locale + ': punctuation follows the complete document term');
+  }
+});
+
 test('Besi investment news keeps company names and native process terms intact without changing copy', () => {
   const terms = {
     'zh-tw': ['應用材料', '擬增持', '先進封裝', '股份交付', '反托拉斯', '等待期', '晶圓製程', '晶粒放置', '混合鍵合', '熱壓鍵合', '製程銜接', '潔淨度', '客戶認可', '驗收節點', '聖塔克拉拉'],
