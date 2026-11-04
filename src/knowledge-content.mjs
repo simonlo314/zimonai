@@ -7,6 +7,85 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the announced Ferric deal and its significance for AI processor power delivery.
+  // Related questions: base and contingent price; closing conditions; IVR integration; manufacturing validation; product availability; evidence to watch.
+  {
+  "id": "knowledge-onsemi-ferric-power-delivery",
+  "key": "onsemiFerricPowerDelivery",
+  "contentType": "current-affairs",
+  "slug": "knowledge/onsemi-ferric-power-delivery",
+  "category": "commercial-risk",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "united-states"
+  ],
+  "keywords": {
+    "en": [
+      "onsemi Ferric acquisition",
+      "integrated voltage regulator",
+      "AI processor power delivery"
+    ],
+    "zh-tw": [
+      "onsemi 收購 Ferric",
+      "整合式電壓調節器",
+      "AI 處理器供電"
+    ],
+    "zh-cn": [
+      "安森美收购 Ferric",
+      "集成稳压器",
+      "AI 处理器供电"
+    ]
+  },
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "image": "/assets/editorial-onsemi-ferric-office.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 1250,
+  "imageCrop": {
+    "card": "53% 37%",
+    "article": "51% 40%",
+    "mobile": "57% 35%"
+  },
+  "photo": {
+    "photographer": "BrokenSegue",
+    "page": "https://commons.wikimedia.org/wiki/File:Onsemi_office_in_Sunnyvale,_CA.jpg",
+    "license": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "ON Semiconductor Corporation",
+      "title": "Form 8-K, 2 November 2026 — Item 1.01: merger agreement, consideration and closing conditions",
+      "url": "https://investor.onsemi.com/static-files/a59f685d-98cf-4979-8b55-6c29e058fee1"
+    },
+    {
+      "publisher": "onsemi",
+      "title": "Ferric acquisition announcement, 2 November 2026 — proposed transaction and company account of IVR technology",
+      "url": "https://www.onsemi.com/company/newsroom/news-and-insights/onsemi-to-acquire-ferric-establishing-leadership-in-power-delivery-for-next-generation-ai-processors"
+    },
+    {
+      "publisher": "Evertiq",
+      "title": "onsemi to acquire Ferric for $600 million — 3 November 2026; independently owned trade publication reporting the announcement",
+      "url": "https://evertiq.com/design/2026-11-03-onsemi-to-acquire-ferric-for-600-million"
+    },
+    {
+      "publisher": "Benzinga / Erica Kollmann",
+      "title": "On Semi Shares Slip After Q3 Earnings, Deal to Acquire Ferric — 2 November 2026; acquisition section",
+      "url": "https://www.benzinga.com/markets/earnings/26/11/62800093/on-semi-shares-slip-after-q3-earnings-deal-to-acquire-ferric"
+    },
+    {
+      "publisher": "BrokenSegue / Wikimedia Commons",
+      "title": "Onsemi office in Sunnyvale, CA — own-work photograph, 12 January 2024; CC BY 4.0",
+      "url": "https://commons.wikimedia.org/wiki/File:Onsemi_office_in_Sunnyvale,_CA.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution 4.0 International — reuse, attribution and changes",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+},
   // Search intent: assess a DDP charger quote through its delivery point and workable import arrangement.
   // Related questions: rule version; unloading; seller import capacity; DAP allocation; shipment records; acceptance and payment.
   {
@@ -269,7 +348,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-03",
+  "featuredReviewedThrough": "2026-11-04",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3462,6 +3541,56 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      onsemiFerricPowerDelivery: {
+  "topic": "Processor power integration",
+  "published": "4 November 2026",
+  "readTime": "4 minutes",
+  "title": "onsemi agrees to buy Ferric for processor power delivery",
+  "description": "onsemi announced a $600 million Ferric deal on 2 November, with up to $175 million contingent on revenue. Why IVR integration matters, and what remains unsettled.",
+  "imageAlt": "The onsemi sign above the entrance to an office building in Sunnyvale, California, photographed in January 2024.",
+  "imageCaption": "Archival company illustration: BrokenSegue, “Onsemi office in Sunnyvale, CA,” 12 January 2024, CC BY 4.0. Downloaded 4 November 2026; cropped, proportionally resized and JPEG-compressed, with separate layout crops. This office photograph does not depict Ferric, the signing or a production line. No connection to a ZIMONAI assignment or endorsement is implied.",
+  "labels": {
+    "summary": "News overview",
+    "checklist": "What to watch next",
+    "limits": "What remains unsettled"
+  },
+  "answer": "onsemi announced an agreement to buy Ferric on 2 November 2026 for $600 million in cash, plus up to $175 million tied to revenue milestones [[source:1]]. Ferric’s integrated voltage regulators target power delivery close to AI processors [[source:2]]. Closing remains conditional. The deal brings package-level power integration into sharper industry focus. ZIMONAI’s editorial assessment is that the manufacturing challenge extends beyond compact components to validating the combined electrical and thermal design; the agreement alone establishes no delivery timetable for a new product.",
+  "takeaways": [
+    "The agreed base consideration is $600 million, subject to customary adjustments; the additional $175 million is conditional, not a fixed purchase price [[source:1]].",
+    "onsemi describes Ferric’s IVR approach as integrating several power-conversion elements in one package close to the processor [[source:2]].",
+    "The company expects a fourth-quarter 2026 closing, subject to conditions. Product qualification and availability are separate milestones [[source:1]]."
+  ],
+  "sections": [
+    {
+      "title": "An agreement, with conditions still ahead",
+      "paragraphs": [
+        "The 2 November Form 8-K identifies an onsemi subsidiary as the purchaser under the merger agreement. Its Item 1.01 separates the $600 million cash consideration, customary purchase-price adjustments and up to $175 million payable if specified revenue milestones are achieved [[source:1]]. Evertiq and Benzinga separately reported the announced deal [[source:3]][[source:4]]. Adding the two figures produces a possible maximum before adjustments, rather than an unconditional payment at signing.",
+        "The filing says closing is subject to customary conditions, including expiry or early termination of the applicable US antitrust waiting period. onsemi expects completion in the fourth quarter of 2026 [[source:1]]. That is a company expectation. A signed agreement and a completed transfer remain different events, so the announcement is best read as a proposed addition to onsemi’s power portfolio."
+      ]
+    },
+    {
+      "title": "Why voltage regulation is moving closer to compute",
+      "paragraphs": [
+        "onsemi describes integrated voltage regulation, or IVR, as moving power conversion into the processor package or substrate. Its account of Ferric combines a controller, field-effect transistors, inductors and capacitors in a compact package [[source:2]]. The relevant change is where conversion happens and how the elements are integrated. This concerns power delivered near the processor, rather than a complete replacement for a data centre’s upstream power system.",
+        "The company links proximity to reduced losses and faster response to changing processor loads [[source:2]]. Those are its technical claims, not measurements independently established by this report. ZIMONAI’s manufacturing interpretation is that closer integration makes the power circuit, package layout and heat-removal arrangement a joint design problem. Comparing an integrated solution with discrete parts therefore calls for a defined workload and system boundary, rather than package size alone."
+      ]
+    },
+    {
+      "title": "From buying technology to qualifying a product",
+      "paragraphs": [
+        "ZIMONAI’s editorial view is that the industrial value will depend on carrying the architecture through a repeatable product and manufacturing process. When functions are combined, a buyer also needs clarity about the supplied unit, its test conditions and responsibility for a package-level change. This is an implication for product introduction and procurement, not evidence that a named customer has adopted Ferric’s design or that an existing supply contract has changed.",
+        "The next useful evidence is a closing announcement followed by product documentation, qualification information and a stated availability schedule. The materials reviewed for this article establish the transaction terms and the company’s technology direction, not a model-specific delivery commitment [[source:1]][[source:2]]. The story to follow is how that direction becomes a product customers can evaluate and order, with performance claims tied to disclosed test conditions."
+      ]
+    }
+  ],
+  "checklist": [
+    "A formal closing announcement and any change to the expected timing or transaction conditions.",
+    "Named products, package interfaces and published electrical and thermal test conditions.",
+    "Qualification evidence, manufacturing arrangements and availability dates for a specific product.",
+    "Comparable system-level results, with workload, operating point and measurement boundary disclosed."
+  ],
+  "limitsText": "Event date: 2 November 2026; sources reviewed 4 November. This report uses Item 1.01 of the 8-K for the announced terms, rather than offering a legal review of the full merger agreement. Evertiq and Benzinga are independently owned reporting sources; their coverage does not independently validate performance. Customer adoption, product-level qualification, production yield, allocation, prices and delivery dates are not established by the cited announcements. Manufacturing implications are ZIMONAI editorial analysis. The office image is archival illustration, not evidence of IVR production."
+},
       ddpChargerDeliveryImport: {
   "topic": "DDP delivery and import clearance",
   "published": "3 November 2026",
@@ -6953,6 +7082,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      onsemiFerricPowerDelivery: {
+  "topic": "處理器供電整合",
+  "published": "2026 年 11 月 4 日",
+  "readTime": "4 分鐘",
+  "title": "onsemi 擬收購 Ferric，布局晶片供電",
+  "description": "onsemi 11 月 2 日宣布以 6 億美元現金收購 Ferric，另有最高 1.75 億美元的條件式對價。從 IVR 看晶片供電整合、交割條件與量產資訊邊界。",
+  "imageAlt": "2024 年 1 月拍攝的加州 Sunnyvale 辦公室外觀，入口上方有 onsemi 招牌。",
+  "imageCaption": "歷史企業示意照片：BrokenSegue，Onsemi office in Sunnyvale, CA，攝於 2024 年 1 月 12 日，授權 CC BY 4.0。2026 年 11 月 4 日下載，經裁切、等比例縮小與 JPEG 壓縮，並依版面另作裁切。這是辦公室實景，不是 Ferric、簽約現場或生產線，亦不代表 ZIMONAI 專案或攝影者背書。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "尚待確認的事項"
+  },
+  "answer": "onsemi 於 2026 年 11 月 2 日宣布簽約收購 Ferric，約定現金對價 6 億美元，另有最高 1.75 億美元與營收里程碑連動的款項 [[source:1]]。Ferric 的整合式電壓調節器，著眼於貼近 AI 處理器的供電整合 [[source:2]]。交易仍有交割條件，卻已把封裝內供電帶入產業競爭焦點。ZIMONAI 的編輯判讀是，製造價值將取決於電氣、散熱與封裝能否共同驗證；簽約本身尚未給出特定產品的交貨時程。",
+  "takeaways": [
+    "6 億美元為約定的基本現金對價，仍有慣常調整；額外款項須達成營收里程碑，不是固定成交總額 [[source:1]]。",
+    "依 onsemi 說明，Ferric 的 IVR 將多項電力轉換元件整合於小型封裝，讓調節電壓的位置更靠近處理器 [[source:2]]。",
+    "公司預計 2026 年第四季完成交易，仍須滿足交割條件；產品驗證與供貨是後續不同里程碑 [[source:1]]。"
+  ],
+  "sections": [
+    {
+      "title": "收購協議的價格與條件",
+      "paragraphs": [
+        "11 月 2 日的 Form 8-K 申報指出，買方為 onsemi 子公司。文件第 1.01 項把 6 億美元現金對價、慣常價格調整，以及達成指定營收里程碑後最高 1.75 億美元的追加款分別列明 [[source:1]]。Evertiq 與 Benzinga 也各自報導這項協議 [[source:3]][[source:4]]。兩筆數字相加是調整前的可能上限，並非簽約時就無條件支付的總額。",
+        "申報文件列出的交割條件，包括適用的美國反托拉斯等待期屆滿或提前終止；公司預期在 2026 年第四季完成 [[source:1]]。這是公司對時程的預期。已簽協議與已完成收購，仍是不同階段；目前可確認的是 onsemi 擬把 Ferric 技術納入其電源產品布局。"
+      ]
+    },
+    {
+      "title": "電壓調節為何靠近晶片",
+      "paragraphs": [
+        "onsemi 將 IVR 描述為把電力轉換整合到處理器封裝或基板內的方向，並表示 Ferric 技術可在小型封裝中結合控制器、場效電晶體、電感與電容 [[source:2]]。重點是轉換位置與元件整合方式的改變；它處理的是靠近運算端的供電，不等於取代資料中心完整的上游電源系統。",
+        "公司把這個方向連結到降低損耗，以及更快回應處理器負載變化 [[source:2]]。這些仍屬公司技術說明，本文沒有進行獨立實測。ZIMONAI 的產業判讀是，當供電更靠近晶片，電路、封裝布局與散熱安排就更需要一起設計；比較整合方案與分立元件，應同時交代工作負載和系統範圍，才不會只剩封裝大小的比較。"
+      ]
+    },
+    {
+      "title": "下一步是可驗證的產品",
+      "paragraphs": [
+        "從製造與採購角度，ZIMONAI 認為後續價值在於能否形成可重複生產的產品與製程。功能整合後，供應商交付的是哪個單元、測試條件為何，以及封裝變更由誰負責，都需要更清楚的分工。這是對產品導入的合理判讀，不表示已確認特定客戶採用，也不表示既有供貨合約已經改變。",
+        "接下來值得追蹤的是交割公告，以及具體產品文件、驗證資訊與供貨時程。本文查閱的資料說明交易條件與公司技術方向，尚未建立特定型號的交貨承諾 [[source:1]][[source:2]]。事件的後續意義，將落在這項布局如何成為買家能評估、能下單的產品，以及性能數字能否對應公開測試條件。"
+      ]
+    }
+  ],
+  "checklist": [
+    "正式交割公告，以及預計時程或交易條件是否調整。",
+    "具名產品、封裝介面及公開的電氣與散熱測試條件。",
+    "特定產品的驗證資料、製造安排與供貨日期。",
+    "具備工作負載、操作條件及量測範圍的系統比較結果。"
+  ],
+  "limitsText": "事件日期為 2026 年 11 月 2 日，資料查閱至 11 月 4 日。交易條件依 8-K 第 1.01 項整理，本文不是完整併購契約的法律審查。Evertiq 與 Benzinga 是獨立於公司的報導來源，其報導不等於獨立性能驗證。所引公告尚未建立客戶採用、特定產品驗證、製造良率、配額、價格或交貨日期；製造影響屬 ZIMONAI 編輯判讀。辦公室照片是歷史示意，不是 IVR 生產證據。"
+},
       ddpChargerDeliveryImport: {
   "topic": "DDP 交貨條件",
   "published": "2026 年 11 月 3 日",
@@ -10405,6 +10584,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      onsemiFerricPowerDelivery: {
+  "topic": "处理器供电集成",
+  "published": "2026 年 11 月 4 日",
+  "readTime": "4 分钟",
+  "title": "安森美拟收购 Ferric，布局芯片供电",
+  "description": "安森美 11 月 2 日公布 Ferric 收购协议：6 亿美元现金，另有最高 1.75 亿美元与营收挂钩。解析 IVR 的封装集成方向及交易与供货之间的距离。",
+  "imageAlt": "加州 Sunnyvale 一栋办公楼入口上方的 onsemi 标识，照片拍摄于 2024 年 1 月。",
+  "imageCaption": "历史企业示意照片：BrokenSegue 拍摄的 Onsemi office in Sunnyvale, CA，日期为 2024 年 1 月 12 日，采用 CC BY 4.0 许可。2026 年 11 月 4 日下载后裁切、等比例缩小并压缩为 JPEG，另有版面裁切。画面是办公楼，并非 Ferric、签约活动或生产线，也不代表 ZIMONAI 项目或摄影者认可。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "尚未明确的信息"
+  },
+  "answer": "安森美（onsemi）于 2026 年 11 月 2 日公布收购 Ferric 的协议，现金对价为 6 亿美元，并设置最高 1.75 亿美元的营收里程碑付款 [[source:1]]。Ferric 的集成稳压器面向 AI 处理器附近的供电环节 [[source:2]]。交易尚待满足交割条件，已将封装内供电推向产业竞争焦点。ZIMONAI 的编辑判断是，后续看点在于电路、散热与封装的联合验证；签约与某款产品形成明确供货计划，仍是两项进展。",
+  "takeaways": [
+    "6 亿美元现金对价存在惯常价格调整，最高 1.75 亿美元的额外付款以营收条件为前提 [[source:1]]。",
+    "安森美介绍的 IVR 路线，是把多种电能转换元件放入紧凑封装，靠近处理器供电 [[source:2]]。",
+    "预计交割时间为 2026 年第四季度，条件仍需满足；具体产品的验证与交付进度需另看后续资料 [[source:1]]。"
+  ],
+  "sections": [
+    {
+      "title": "协议价格与条件",
+      "paragraphs": [
+        "安森美 11 月 2 日的 Form 8-K 披露，由其子公司作为买方签署合并协议。第 1.01 项列明 6 亿美元现金对价及惯常价格调整，另有达到指定营收里程碑后最高 1.75 亿美元的付款 [[source:1]]。Evertiq、Benzinga 分别报道了交易消息 [[source:3]][[source:4]]。因此，基本金额与可能追加的款项，不宜合并写成已经支付的收购价格。",
+        "完成交易还需满足惯常条件，其中包括适用的美国反垄断等待期届满或提前终止。公司在申报中预计于 2026 年第四季度交割 [[source:1]]。这是预期时间，尚非完成公告。协议体现的是把 Ferric 纳入安森美电源业务的计划，而不是已经完成技术、产品与客户业务的全面整合。"
+      ]
+    },
+    {
+      "title": "供电集成进入处理器封装",
+      "paragraphs": [
+        "按照安森美的技术说明，IVR 即集成稳压器，方向是将电能转换放进处理器封装或基板。Ferric 的方案将控制器、场效应晶体管、电感和电容组合在紧凑封装内 [[source:2]]。这里涉及的是运算芯片附近的供电位置与集成方式，并非数据中心从输入电源到处理器的整套系统都被替换。",
+        "公司称，更接近处理器有助于减少损耗，并更快响应负载变化 [[source:2]]。这些是公司给出的技术解释，本文没有独立测试。ZIMONAI 的产业判断是，设计边界会随着集成而改变：电路、封装布置和散热需要协同考虑。对比集成方案与分立器件时，工作负载、运行条件和系统范围比单独比较尺寸更有解释力。"
+      ]
+    },
+    {
+      "title": "产业价值还要落到产品与交付",
+      "paragraphs": [
+        "ZIMONAI 认为，后续应观察这项技术怎样落实为可重复生产的产品。对制造和采购团队，集成后的交付单元、测试范围与封装变更责任，都影响产品导入的分工。这是基于整合方向的编辑分析，并非已核实某家客户采用、产线扩建或现有供货合同发生变化。",
+        "交割完成后的产品文件、验证信息及明确供货安排，将比收购金额更能说明落地进度。现有公告提供了协议条款和公司的技术路径，尚未形成某个型号的交付承诺 [[source:1]][[source:2]]。接下来的关键是把集成方案变成客户可以评估和订购的产品，并让性能说法对应可比较的测试条件。"
+      ]
+    }
+  ],
+  "checklist": [
+    "正式完成交易的公告，以及交割时间和条件的变化。",
+    "具体产品名称、封装接口与电气、散热测试条件。",
+    "产品验证记录、制造安排及明确的供货日期。",
+    "披露工作负载、运行点和测量范围的系统对比结果。"
+  ],
+  "limitsText": "事件发生于 2026 年 11 月 2 日，资料核对截至 11 月 4 日。交易条款依据 8-K 第 1.01 项，本文不构成对完整合并协议的法律审阅。Evertiq 和 Benzinga 属独立报道机构，其报道并非独立性能测试。所引公告尚未证实客户采用、特定产品验证、制造良率、配额、价格及交货日期；制造影响属于 ZIMONAI 编辑分析。办公楼照片仅作历史示意，不证明 IVR 的生产情况。"
+},
       ddpChargerDeliveryImport: {
   "topic": "DDP 交货条件",
   "published": "2026 年 11 月 3 日",

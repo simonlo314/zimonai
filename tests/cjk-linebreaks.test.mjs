@@ -1461,3 +1461,192 @@ test('robotics import news keeps native equipment and policy terms intact in con
     for(const phrase of phrases)assert.ok(html.includes('>'+phrase+'</span>'),locale+': '+phrase);
   }
 });
+
+
+test('Ferric news keeps native power-integration and transaction terms copyable and intact', () => {
+  const terms={
+  "shared": [
+    "onsemi",
+    "Ferric",
+    "IVR",
+    "Form 8-K",
+    "8-K",
+    "Evertiq",
+    "Benzinga",
+    "BrokenSegue",
+    "Sunnyvale"
+  ],
+  "native": {
+    "zh-tw": [
+      "擬收購",
+      "布局",
+      "晶片供電",
+      "處理器供電整合",
+      "收購協議",
+      "整合式電壓調節器",
+      "電壓調節器",
+      "調節電壓",
+      "電壓調節",
+      "電力轉換",
+      "封裝內供電",
+      "封裝介面",
+      "封裝布局",
+      "基本現金對價",
+      "現金對價",
+      "條件式對價",
+      "營收里程碑",
+      "追加款",
+      "交割條件",
+      "交割公告",
+      "反托拉斯",
+      "等待期",
+      "提前終止",
+      "子公司",
+      "場效電晶體",
+      "控制器",
+      "電感",
+      "電容",
+      "小型封裝",
+      "分立元件",
+      "整合方案",
+      "工作負載",
+      "系統範圍",
+      "量測範圍",
+      "操作條件",
+      "測試條件",
+      "性能數字",
+      "技術方向",
+      "技術說明",
+      "獨立實測",
+      "獨立性能驗證",
+      "聯合驗證",
+      "共同驗證",
+      "電氣",
+      "散熱",
+      "驗證資訊",
+      "供貨時程",
+      "產品文件",
+      "產品驗證",
+      "交付單元",
+      "製程",
+      "可重複生產",
+      "布局晶片供電",
+      "簽約現場",
+      "生產線",
+      "歷史企業示意照片",
+      "辦公室",
+      "美國",
+      "基板",
+      "負載變化",
+      "供電整合",
+      "AI 處理器",
+      "第 1.01 項",
+      "6 億美元",
+      "1.75 億美元",
+      "第四季"
+    ],
+    "zh-cn": [
+      "安森美",
+      "拟收购",
+      "布局",
+      "芯片供电",
+      "处理器供电集成",
+      "收购协议",
+      "集成稳压器",
+      "电能转换",
+      "封装内供电",
+      "封装接口",
+      "封装布置",
+      "现金对价",
+      "营收里程碑",
+      "追加款",
+      "交割条件",
+      "交割公告",
+      "反垄断",
+      "等待期",
+      "提前终止",
+      "子公司",
+      "场效应晶体管",
+      "控制器",
+      "电感",
+      "电容",
+      "紧凑封装",
+      "分立器件",
+      "集成方案",
+      "工作负载",
+      "运行条件",
+      "系统范围",
+      "测量范围",
+      "运行点",
+      "测试条件",
+      "技术路径",
+      "技术说明",
+      "技术解释",
+      "独立测试",
+      "独立性能测试",
+      "联合验证",
+      "电气",
+      "散热",
+      "验证信息",
+      "供货计划",
+      "供货安排",
+      "产品文件",
+      "产品验证",
+      "交付单元",
+      "可重复生产",
+      "布局芯片供电",
+      "签约活动",
+      "生产线",
+      "历史企业示意照片",
+      "办公楼",
+      "美国",
+      "基板",
+      "负载变化",
+      "供电集成",
+      "AI 处理器",
+      "第 1.01 项",
+      "6 亿美元",
+      "1.75 亿美元",
+      "第四季度"
+    ]
+  }
+};
+  const cases={
+  "zh-tw": [
+    "onsemi 擬收購 Ferric，布局晶片供電。",
+    "Ferric 的整合式電壓調節器，著眼於貼近 AI 處理器的供電整合。",
+    "現金對價 6 億美元，另有最高 1.75 億美元與營收里程碑連動的款項。",
+    "交割條件包括反托拉斯等待期；小型封裝結合場效電晶體、電感與電容。"
+  ],
+  "zh-cn": [
+    "安森美拟收购 Ferric，布局芯片供电。",
+    "Ferric 的集成稳压器面向 AI 处理器附近的供电环节。",
+    "现金对价为 6 亿美元，并设置最高 1.75 亿美元的营收里程碑付款。",
+    "交割条件涉及反垄断等待期；紧凑封装包括场效应晶体管、电感和电容。"
+  ]
+};
+  for(const [locale,lines] of Object.entries(cases)){
+    for(const text of lines){
+      const html=protectCjkText(text,locale);
+      assert.equal(removeProtectionMarkup(html),text);
+      for(const term of [...terms.shared,...terms.native[locale]].filter(t=>text.includes(t))){
+        assert.ok(cjkProtectedTerms[locale].includes(term),locale+": "+term);
+      }
+    }
+    for(const term of [...terms.shared,...terms.native[locale]]){
+      const html=protectCjkText(term+"。",locale);
+      assert.equal(removeProtectionMarkup(html),term+"。");
+      assert.ok(html.includes(">"+term+"。</span>"),locale+": "+term);
+    }
+  }
+});
+
+
+test('Ferric caption actions and compact native heading stay intact in context', () => {
+  const cases={"zh-tw": ["等比例縮小", "交貨時程", "散熱安排", "辦公室實景", "攝影者"], "zh-cn": ["等比例缩小", "交货时间", "散热安排", "协议价格", "摄影者"]};
+  for(const [locale,terms] of Object.entries(cases))for(const term of terms){
+    const text=term+"。", html=protectCjkText(text,locale);
+    assert.equal(removeProtectionMarkup(html),text);
+    assert.ok(html.includes(">"+term+"。</span>"),locale+": "+term);
+  }
+});
