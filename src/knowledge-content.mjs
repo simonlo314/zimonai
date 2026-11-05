@@ -7,6 +7,92 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: connect a supplier SMETA report to the manufacturing site and verified corrective actions.
+  // Related questions: membership versus audit; site identity; pillar scope; approved issuer; report sharing; verified closure.
+  {
+  "id": "knowledge-smeta-site-corrective-actions",
+  "key": "smetaSiteCorrectiveActions",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/smeta-site-corrective-actions",
+  "category": "factory-onsite",
+  "products": [
+    "charger",
+    "power-adapter",
+    "power-bank"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "SMETA audit report",
+      "Sedex supplier site",
+      "corrective action verification"
+    ],
+    "zh-tw": [
+      "SMETA 驗廠報告",
+      "Sedex 工廠紀錄",
+      "改善措施查證"
+    ],
+    "zh-cn": [
+      "SMETA 验厂报告",
+      "Sedex 工厂记录",
+      "整改措施核查"
+    ]
+  },
+  "datePublished": "2026-11-05",
+  "dateModified": "2026-11-05",
+  "image": "/assets/editorial-smeta-document-review.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 1333,
+  "imageCrop": {
+    "card": "51% 65%",
+    "article": "49% 60%",
+    "mobile": "53% 62%"
+  },
+  "photo": {
+    "photographer": "MART PRODUCTION",
+    "page": "https://www.pexels.com/photo/a-to-do-list-on-a-clipboard-7718755/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "sources": [
+    {
+      "publisher": "Sedex",
+      "title": "What we do — certification boundary, membership and risk-based audit frequency",
+      "url": "https://www.sedex.com/what-we-do-at-sedex/"
+    },
+    {
+      "publisher": "Sedex",
+      "title": "SMETA audit — worksite assessment, pillars and approved audit companies",
+      "url": "https://www.sedex.com/solutions/smeta-audit/"
+    },
+    {
+      "publisher": "Sedex",
+      "title": "The Complete SMETA Audit Guide — pp. 6, 13–14: scope, full report, CAPR and follow-up",
+      "url": "https://info.sedex.com/hubfs/Reports/The%20Complete%20SMETA%20Audit%20Guide.pdf?hsLang=en"
+    },
+    {
+      "publisher": "Sedex",
+      "title": "Approved Affiliate Audit Companies — current list and suspension notices",
+      "url": "https://www.sedex.com/about/who-we-work-with/affiliate-auditors/"
+    },
+    {
+      "publisher": "Sedex",
+      "title": "SMETA workflow overview — report access through customer authorisation",
+      "url": "https://www.sedex.com/app/uploads/2022/11/SMETA-Workflow-EN-Global.pdf"
+    },
+    {
+      "publisher": "MART PRODUCTION / Pexels",
+      "title": "A To Do List on a Clipboard — real editorial photograph",
+      "url": "https://www.pexels.com/photo/a-to-do-list-on-a-clipboard-7718755/"
+    },
+    {
+      "publisher": "Pexels",
+      "title": "Photo licence — website reuse and no implied endorsement",
+      "url": "https://www.pexels.com/license/"
+    }
+  ]
+},
   // Search intent: understand the announced Ferric deal and its significance for AI processor power delivery.
   // Related questions: base and contingent price; closing conditions; IVR integration; manufacturing validation; product availability; evidence to watch.
   {
@@ -348,7 +434,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-04",
+  "featuredReviewedThrough": "2026-11-05",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3541,6 +3627,52 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      smetaSiteCorrectiveActions: {
+  "topic": "Social audit evidence",
+  "published": "5 November 2026",
+  "readTime": "4 minutes",
+  "title": "SMETA reports: match the site and follow the corrective actions",
+  "description": "Read a supplier’s SMETA report through the audited worksite, assessment scope and verified corrective actions. Keep social-audit findings separate from charger quality.",
+  "imageAlt": "A clipboard with lined paper marked To Do, photographed against a yellow background.",
+  "imageCaption": "Editorial document-review illustration: MART PRODUCTION / Pexels. Downloaded 5 November 2026 as a resized rendition; JPEG-compressed, with layout crops. This is a generic task list, not a SMETA report, an audited factory or a ZIMONAI assignment. No endorsement is implied.",
+  "answer": "SMETA is Sedex’s on-site social audit methodology for assessing conditions at a worksite; membership and an audit are not certifications [[source:1]][[source:2]]. Its findings concern the assessed site and scope, rather than the safety or consistency of a charger shipment. For overseas buyers, a useful report therefore needs a clear connection to the factory making the order. ZIMONAI’s editorial view is to review that connection alongside the corrective-action record: a promised fix and an auditor-verified closure mark different stages of progress.",
+  "takeaways": [
+    "Sedex does not issue a SMETA pass or fail; a membership screenshot is a different record from an audit report [[source:1]].",
+    "Read the site, date and scope together. Labour and health and safety are core pillars; the four-pillar assessment adds environment and business ethics [[source:2]].",
+    "Request the full report and Corrective Action Plan Report (CAPR), including subsequent verification, rather than relying on a completion claim [[source:3]]."
+  ],
+  "sections": [
+    {
+      "title": "Connect the audited site to the order",
+      "paragraphs": [
+        "SMETA examines a worksite. Sedex’s workflow provides for authorised customers to view the uploaded report [[source:5]]. Ask the supplier to share the relevant record through the platform where available, then compare the site name and address with the production location declared for your order.",
+        "ZIMONAI recommends documenting any difference between the seller and the audited factory. A group company, sales office or another workshop should not silently stand in for the intended production site. Record the relationship and any unresolved gap before using the report in supplier approval."
+      ]
+    },
+    {
+      "title": "Read the scope and issuing organisation",
+      "paragraphs": [
+        "Check the report’s assessment scope, not just the SMETA name. Sedex describes both two-pillar and four-pillar assessments; its guide also notes a basic environmental assessment within the two-pillar version [[source:2]][[source:3]]. Confirm which worksite and areas were actually reviewed.",
+        "Only Sedex-approved Affiliate Audit Companies (AACs) conduct SMETA audits. Sedex’s current directory also carries suspension notices [[source:4]]. Use it to check the issuing organisation; a current listing alone does not authenticate an old PDF. For a disputed record, seek confirmation through an independently obtained contact channel."
+      ]
+    },
+    {
+      "title": "Separate proposed action from verified closure",
+      "paragraphs": [
+        "The CAPR summarises findings, actions, timescales and verification methods. Follow-up may use a desktop review or a site visit; worker testimony cannot be replaced by desktop evidence alone [[source:3]]. Read the latest status and its supporting verification, rather than treating an uploaded photo as automatic closure.",
+        "For charger procurement, ZIMONAI recommends keeping social-audit follow-up alongside separate product, production and shipment checks. Decide who will resolve each open issue and when it will be reviewed. Sedex describes audit frequency as risk-based, so this guide assigns no universal expiry period to every report [[source:1]]."
+      ]
+    }
+  ],
+  "checklist": [
+    "Match the audited worksite and address to the declared manufacturing site for the order.",
+    "Obtain the full report, scope, date and relevant CAPR through an authorised sharing route.",
+    "Check the audit company and clarify unexplained report or identity differences.",
+    "Separate open findings, promised actions and auditor-verified closures; retain the supporting record.",
+    "Keep charger specifications, product compliance and shipment acceptance in their own evidence chain."
+  ],
+  "limitsText": "Primary Sedex guidance reviewed 5 November 2026. No private platform account, supplier report or factory has been verified. This is a report-reading guide, not a social audit, product certification, legal opinion or claim that ZIMONAI is an approved AAC. Buyer workflow recommendations are editorial judgment; acceptance criteria remain for the parties to define."
+},
       onsemiFerricPowerDelivery: {
   "topic": "Processor power integration",
   "published": "4 November 2026",
@@ -7082,6 +7214,52 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      smetaSiteCorrectiveActions: {
+  "topic": "社會責任稽核",
+  "published": "2026 年 11 月 5 日",
+  "readTime": "4 分鐘",
+  "title": "SMETA 驗廠報告：工廠與改善紀錄",
+  "description": "從受稽核工廠、範圍與後續改善紀錄，讀懂供應商的 SMETA 報告，並與充電器品質、產品認證及出貨驗收分開判斷。",
+  "imageAlt": "黃色背景上的文件夾板，橫線紙上寫著 To Do。",
+  "imageCaption": "文件審閱示意照片：MART PRODUCTION／Pexels。2026 年 11 月 5 日下載縮小版本，經 JPEG 壓縮與版面裁切。畫面是一般待辦清單，不是 SMETA 報告、受稽核工廠或 ZIMONAI 專案，亦無背書關係。",
+  "answer": "SMETA 是 Sedex 的現場社會責任稽核方法，用來了解工作場所的條件；會員身分與完成稽核都不是認證 [[source:1]][[source:2]]。報告的意義取決於受稽核地點與範圍，並不涵蓋某批充電器的安全或量產一致性。海外買家採購時，關鍵是把報告連回訂單的實際製造工廠。ZIMONAI 的編輯判讀是，工廠對應與改善紀錄應一起閱讀，區分供應商承諾改善，以及稽核方已查證結案的事項。",
+  "takeaways": [
+    "Sedex 的 SMETA 方法沒有通過或不通過判定；會員畫面與完整稽核報告是不同紀錄 [[source:1]]。",
+    "地點、日期與範圍要一起看；四大支柱的稽核，在勞動及健康安全之外，另納入環境與商業道德 [[source:2]]。",
+    "完整報告與改善措施計畫報告（CAPR）應搭配後續查證閱讀，完成聲明不足以交代改善進度 [[source:3]]。"
+  ],
+  "sections": [
+    {
+      "title": "先確認是哪一座工廠",
+      "paragraphs": [
+        "SMETA 的對象是工作場所。Sedex 流程說明，供應商授權的客戶可在平台查看上傳的報告 [[source:5]]。買家可要求透過適當授權分享紀錄，再把報告名稱、地址與訂單申報的生產地點逐一對照。",
+        "ZIMONAI 建議，賣方與受稽核工廠不同時，先留下主體關係與實際生產安排的說明。集團公司、業務辦公室或另一個車間的紀錄，不應默默代替本次訂單的製造地點；有缺口就標明待查。"
+      ]
+    },
+    {
+      "title": "範圍與出具單位要對上",
+      "paragraphs": [
+        "兩大支柱與四大支柱的稽核範圍不同。Sedex 指引也說明，兩大支柱版本仍包含基本環境評估 [[source:2]][[source:3]]。閱讀時應確認實際涵蓋的場所與項目，避免把 SMETA 名稱直接當成全部風險都已評估。",
+        "SMETA 稽核須由 Sedex 核准的合作稽核公司（AAC）執行，官方名錄亦刊載暫停資格資訊 [[source:4]]。先查出具單位，再處理報告真偽；今天名列官方名錄，不會自動證實一份舊 PDF。資料有疑義時，另找獨立聯絡管道確認。"
+      ]
+    },
+    {
+      "title": "改善承諾如何走到結案",
+      "paragraphs": [
+        "CAPR 彙整發現事項、改善措施、時程與查證方式。後續可採文件審閱或現場複查；需要勞工陳述才能查明的事項，不能只靠遠端文件取代 [[source:3]]。買家應讀最新狀態與查證紀錄，而非看到供應商上傳照片，就視為已結案。",
+        "針對充電器採購，ZIMONAI 建議把社會責任議題的後續處理，與產品、製程及出貨查核並列安排，註明未結事項由誰處理、何時再看。Sedex 採風險導向決定稽核頻率，本文不替所有報告設定同一有效期限 [[source:1]]。"
+      ]
+    }
+  ],
+  "checklist": [
+    "將受稽核名稱與地址，對回訂單指定的實際製造工廠。",
+    "透過授權分享取得完整報告、日期、範圍及相關 CAPR。",
+    "確認出具公司，追查報告或主體資料的未解差異。",
+    "分列待處理事項、改善承諾與已查證結案事項，保留支持紀錄。",
+    "另外確認充電器規格、產品合規及批次驗收證據。"
+  ],
+  "limitsText": "Sedex 一手指引查閱至 2026 年 11 月 5 日。本文未登入私人平台帳戶，亦未查核特定供應商、報告或工廠。這是文件閱讀指南，不是社會責任稽核、產品認證或法律意見，也不表示 ZIMONAI 具有 AAC 資格。買家流程建議屬編輯判讀，採購接受條件仍須由相關各方確認。"
+},
       onsemiFerricPowerDelivery: {
   "topic": "處理器供電整合",
   "published": "2026 年 11 月 4 日",
@@ -10584,6 +10762,52 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      smetaSiteCorrectiveActions: {
+  "topic": "社会责任审核",
+  "published": "2026 年 11 月 5 日",
+  "readTime": "4 分钟",
+  "title": "SMETA 验厂报告：工厂与整改记录",
+  "description": "审核的是哪家工厂，整改是否经过验证？沿着场所、范围和 CAPR 阅读 SMETA 报告，分清社会责任审核与充电器产品质量。",
+  "imageAlt": "夹板上的横线纸写着 To Do，背后是黄色桌面。",
+  "imageCaption": "文件审阅示意照片：MART PRODUCTION／Pexels。2026 年 11 月 5 日下载缩小版本，再作 JPEG 压缩及版面裁切。图中为普通待办清单，并非 SMETA 报告、受审核工厂或 ZIMONAI 项目，也不表示背书。",
+  "answer": "SMETA 由 Sedex 制定，是评估工作场所条件的现场社会责任审核方法；Sedex 会员资格和完成审核均不属于认证 [[source:1]][[source:2]]。报告反映的是特定场所与范围，充电器安全和批量质量仍需各自的证据。海外买家使用这份资料时，应先建立它与订单实际生产工厂的联系。ZIMONAI 的编辑判断是，把工厂身份与整改进度合并审阅更有价值：供应商提出措施，与审核方验证关闭问题，代表不同的进展。",
+  "takeaways": [
+    "SMETA 方法不设通过或不通过结论；Sedex 会员记录并不等同于验厂报告 [[source:1]]。",
+    "审核范围应落实到场所、时间和项目；四支柱审核在劳工、健康安全之外，还评估环境与商业道德 [[source:2]]。",
+    "完整报告、整改计划报告（CAPR）和后续验证共同说明问题进展，不能只看完成声明 [[source:3]]。"
+  ],
+  "sections": [
+    {
+      "title": "把场所记录连回订单",
+      "paragraphs": [
+        "SMETA 以工作场所为审核对象。Sedex 的流程说明，获得授权的客户能够通过平台查看上传的报告 [[source:5]]。买家可请供应商分享对应资料，再核对报告中的名称、地址与本次订单申报的生产地点。",
+        "ZIMONAI 建议，对销售公司和生产工厂之间的关系保留说明。集团内另一工厂、办公室或其他车间的报告，不能在没有解释的情况下代替订单制造地点；尚未接上的关系应明确标为待核实。"
+      ]
+    },
+    {
+      "title": "核对范围与审核机构",
+      "paragraphs": [
+        "两支柱与四支柱属于不同范围，Sedex 指南同时指出，两支柱版本也包含基础环境评估 [[source:2]][[source:3]]。应读清实际覆盖的场所和项目，而不是由 SMETA 这个名称推导全部风险都已审查。",
+        "只有 Sedex 批准的合作审核公司（AAC）可开展 SMETA，官方目录也会列出暂停资格的情况 [[source:4]]。核查机构身份与确认文件真实，是两项工作。当前在目录内，并不能自动证明旧 PDF 的真实性；有疑点时，应使用独立取得的联系方式确认。"
+      ]
+    },
+    {
+      "title": "整改状态要有验证支持",
+      "paragraphs": [
+        "CAPR 列出发现的问题、拟采取的措施、时限和验证方式。后续验证可采用桌面审阅或到场复核，但需要工人证词的问题不适合只靠远程材料确认 [[source:3]]。因此，应核对最新状态及验证依据，将已提交照片与已验证关闭分开记录。",
+        "对于充电器采购，ZIMONAI 建议同时安排社会责任跟进、产品合规和出货验收，写清未结问题的负责人及复核节点。Sedex 说明审核频率取决于风险等因素，本文不把统一有效期套在所有报告上 [[source:1]]。"
+      ]
+    }
+  ],
+  "checklist": [
+    "核对受审核场所名称、地址与订单的实际生产工厂。",
+    "通过授权取得完整报告、审核日期、范围及相关 CAPR。",
+    "检查出具机构，对身份或文件中的疑点取得独立确认。",
+    "将待解决问题、整改承诺和已验证关闭分别记录，留存依据。",
+    "另行取得充电器规格、产品合规与批次验收资料。"
+  ],
+  "limitsText": "本次依据为截至 2026 年 11 月 5 日查阅的 Sedex 一手指南，未访问私人平台账号，也未验证具体供应商、报告或工厂。文章提供阅读方法，不构成社会责任审核、产品认证或法律意见，不代表 ZIMONAI 获得 AAC 批准。采购流程建议属于编辑分析，各方仍需明确接受条件。"
+},
       onsemiFerricPowerDelivery: {
   "topic": "处理器供电集成",
   "published": "2026 年 11 月 4 日",

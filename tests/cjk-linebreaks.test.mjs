@@ -1650,3 +1650,114 @@ test('Ferric caption actions and compact native heading stay intact in context',
     assert.ok(html.includes(">"+term+"。</span>"),locale+": "+term);
   }
 });
+
+
+test('SMETA report review preserves native social-audit and corrective-action terms', () => {
+ const terms={
+  "shared": [
+    "SMETA",
+    "Sedex",
+    "CAPR",
+    "AAC",
+    "MART PRODUCTION",
+    "To Do"
+  ],
+  "native": {
+    "zh-tw": [
+      "驗廠報告",
+      "改善紀錄",
+      "社會責任稽核",
+      "現場社會責任稽核方法",
+      "受稽核",
+      "工作場所",
+      "會員身分",
+      "稽核方",
+      "查證結案",
+      "改善措施計畫報告",
+      "改善措施",
+      "改善進度",
+      "改善承諾",
+      "完整稽核報告",
+      "四大支柱",
+      "兩大支柱",
+      "勞動",
+      "健康安全",
+      "商業道德",
+      "基本環境評估",
+      "合作稽核公司",
+      "出具單位",
+      "官方名錄",
+      "暫停資格",
+      "文件審閱",
+      "現場複查",
+      "勞工陳述",
+      "最新狀態",
+      "查證紀錄",
+      "製造工廠",
+      "生產地點",
+      "文件夾板",
+      "待辦清單",
+      "受稽核工廠",
+      "文件審閱示意照片",
+      "背書關係",
+      "本地照片",
+      "複查授權",
+      "版面裁切"
+    ],
+    "zh-cn": [
+      "验厂报告",
+      "整改记录",
+      "社会责任审核",
+      "现场社会责任审核方法",
+      "受审核",
+      "工作场所",
+      "会员资格",
+      "审核方",
+      "验证关闭",
+      "整改计划报告",
+      "整改措施",
+      "整改进度",
+      "整改承诺",
+      "完整报告",
+      "四支柱",
+      "两支柱",
+      "劳工",
+      "健康安全",
+      "商业道德",
+      "基础环境评估",
+      "合作审核公司",
+      "审核机构",
+      "出具机构",
+      "暂停资格",
+      "桌面审阅",
+      "到场复核",
+      "工人证词",
+      "最新状态",
+      "验证依据",
+      "生产工厂",
+      "生产地点",
+      "待办清单",
+      "受审核工厂",
+      "文件审阅示意照片",
+      "本地照片",
+      "核查许可",
+      "版面裁切"
+    ]
+  }
+};
+ for(const locale of ['zh-tw','zh-cn'])for(const term of [...terms.shared,...terms.native[locale]]){
+  const text=term+'。';const html=protectCjkText(text,locale);
+  assert.equal(removeProtectionMarkup(html),text);
+  assert.ok(cjkProtectedTerms[locale].includes(term),locale+': '+term);
+  assert.ok(html.includes('>'+text+'</span>'),locale+': '+term);
+ }
+ const contexts={'zh-tw':'SMETA 驗廠報告：工廠與改善紀錄。受稽核工廠的改善措施，須與查證結案紀錄一起看。','zh-cn':'SMETA 验厂报告：工厂与整改记录。受审核工厂的整改措施，应与验证关闭的依据一起看。'};
+ const reportTerms={"zh-tw": ["量產一致性", "受稽核地點", "實際製造工廠", "工廠對應", "後續查證", "完成聲明", "報告名稱", "生產安排", "業務辦公室", "製造地點", "稽核範圍", "暫停資格資訊", "報告真偽", "發現事項", "遠端文件", "未結事項", "風險導向", "有效期限", "主體資料", "支持紀錄", "私人平台帳戶", "法律意見", "買家流程", "採購接受條件"], "zh-cn": ["受审核场所", "工厂身份", "后续验证", "完成声明", "报告名称", "销售公司", "生产安排", "制造地点", "审核范围", "机构身份", "文件真实", "验证方式", "远程材料", "未结问题", "复核节点", "有效期", "接受条件", "私人平台账号", "法律意见", "采购流程"]};
+ for(const [locale,terms]of Object.entries(reportTerms))for(const term of terms){const prefix=locale==='zh-tw'?'核對':'核对';const text=prefix+term+'。';const html=protectCjkText(text,locale);assert.equal(removeProtectionMarkup(html),text);assert.ok(html.includes(term));}
+ const additionalNative={"zh-tw": ["社會責任", "產品合規", "批次驗收", "稽核報告", "生產安排", "主體關係", "文件閱讀指南", "查證方式", "稽核頻率"], "zh-cn": ["社会责任", "产品合规", "审核报告", "主体关系", "阅读方法", "验证方式", "审核频率"]};
+ for(const [locale,terms]of Object.entries(additionalNative))for(const term of terms){const text='核對'+term+'。';const html=protectCjkText(text,locale);assert.equal(removeProtectionMarkup(html),text);assert.ok(html.includes(term));}
+ const regressionDescriptions={'zh-tw':['產品認證及出貨驗收分開判斷。','出貨驗收'],'zh-cn':['分清社会责任审核与充电器产品质量。','产品质量']};
+ for(const [locale,[text,term]]of Object.entries(regressionDescriptions)){const html=protectCjkText(text,locale);assert.equal(removeProtectionMarkup(html),text);assert.ok(html.includes(term),'Regression: '+locale+' '+term);}
+ for(const [locale,text]of Object.entries(contexts))assert.equal(removeProtectionMarkup(protectCjkText(text,locale)),text);
+ for(const [locale,terms]of Object.entries({'zh-tw':['獨立聯絡管道','縮小版本','出貨驗收','出貨查核','產品品質'],'zh-cn':['独立联系方式','缩小版本','出货验收','出货核查','产品质量','批量质量']}))for(const term of terms){const html=protectCjkText(term+'。',locale);assert.equal(removeProtectionMarkup(html),term+'。');assert.ok(html.includes('>'+term+'。</span>'));}
+});
