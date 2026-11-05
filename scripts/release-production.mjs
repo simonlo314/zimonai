@@ -4,6 +4,7 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { exportDatabaseBackup } from './d1-backup.mjs';
+import { inspectD1ReadOnly } from './d1-readonly-inspection.mjs';
 
 const SCRIPT_FILE = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(SCRIPT_FILE), '..');
@@ -212,25 +213,8 @@ function assertReleaseSource({ git = gitOutput, expectedRoot = ROOT } = {}) {
   return { commitHash, commitMessage };
 }
 
-function wranglerJson(args) {
-  const output = run(WRANGLER, args, { capture: true });
-  try {
-    return JSON.parse(output);
-  } catch {
-    fail(`Wrangler returned non-JSON output for: wrangler ${args.join(' ')}`);
-  }
-}
-
 function query(database, sql) {
-  const response = wranglerJson([
-    'd1',
-    'execute',
-    database,
-    '--remote',
-    '--json',
-    '--command',
-    sql,
-  ]);
+  const response = inspectD1ReadOnly({ database, sql, wrangler: WRANGLER, cwd: ROOT });
   if (!Array.isArray(response) || response.some((entry) => entry.success !== true)) {
     fail(`Remote read-only query failed for ${database}.`);
   }

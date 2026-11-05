@@ -118,6 +118,19 @@ Both databases must pass before any existing migration or deployment gate can
 continue. Git, confirmation, isolated-artifact and schema protections remain
 unchanged.
 
+### Read-only inspection connection-loss handling
+
+Wrangler can also return the exact JSON error `{"error":{"text":"fetch failed"}}`
+while inspecting a schema or migration ledger. Only the four allowlisted
+release-inspection SELECT shapes, on the two release databases, retry that
+specific transport failure at most twice (after 2 and 5 seconds). Each retry
+executes the identical query, and every returned schema and ledger still goes
+through the existing contract checks. An exhausted retry, authentication/API
+error, unexpected output, invalid JSON or unsuccessful result stops the release.
+The helper refuses other SQL before execution. It does not wrap backups,
+mutations, migrations, Git commands or Pages upload; full backup validation and
+all existing source, confirmation and schema gates remain mandatory.
+
 ## Failure behavior
 
 - A schema mismatch, ledger gap, failed test, failed export or failed migration
