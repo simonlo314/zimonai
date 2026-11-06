@@ -8,6 +8,21 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('Helios article keeps rack delivery terminology and names copyable', () => {
+  const nativeTerms = {
+    'zh-tw': ['Helios 機櫃上線', '整合進機櫃', '整櫃交付', '大量出貨', '資料中心', '現場驗收', '蘇姿丰'],
+    'zh-cn': ['Helios 机柜投运', '集成在机柜中', '整柜到货', '批量发货', '数据中心', '验收投运', '苏姿丰']
+  };
+  for (const [locale, terms] of Object.entries(nativeTerms)) {
+    for (const term of [...terms, 'AMD Helios', 'MI455X', 'Oracle Cloud Infrastructure']) {
+      const text = term + '。';
+      const html = protectCjkText(text, locale);
+      assert.ok(html.includes('>' + text + '</span>'), locale + ': ' + term);
+      assert.equal(removeProtectionMarkup(html), text);
+    }
+  }
+});
+
 test('DDP quotation context preserves native import compounds and copyable trade terms', () => {
   const cases = [
     ['zh-tw', 'DDP 充電器報價：交貨與清關。進口清關安排、卸貨費用、履行證據與所有權移轉。Incoterms® 2020。', ['DDP 充電器報價：', '交貨與清關。', '進口清關安排、', '卸貨費用、', '履行證據', '所有權移轉。', 'Incoterms® 2020。']],

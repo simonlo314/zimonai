@@ -7,6 +7,90 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand AMD’s Helios rack rollout and what the 3 November earnings update confirms.
+  // Related questions: MI455X volume shipments; first racks online; whole-rack components; vendor shipments; site acceptance; disclosed counts.
+  {
+  "id": "knowledge-amd-helios-rack-rollout",
+  "key": "amdHeliosRackRollout",
+  "contentType": "current-affairs",
+  "slug": "knowledge/amd-helios-rack-rollout",
+  "category": "commercial-risk",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "AMD Helios rack rollout",
+      "MI455X shipments",
+      "AI rack delivery"
+    ],
+    "zh-tw": [
+      "AMD Helios 機櫃",
+      "MI455X 出貨",
+      "AI 機櫃交付"
+    ],
+    "zh-cn": [
+      "AMD Helios 机柜",
+      "MI455X 发货",
+      "AI 整柜交付"
+    ]
+  },
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "image": "/assets/editorial-amd-helios-lisa-su-sxsw.jpg",
+  "imageWidth": 1800,
+  "imageHeight": 1219,
+  "imageCrop": {
+    "card": "43% 29%",
+    "article": "49% 20%",
+    "mobile": "45% 34%"
+  },
+  "photo": {
+    "photographer": "Fuzheado",
+    "page": "https://commons.wikimedia.org/wiki/File:SXSW-2024-alih-OB7A0861-Lisa_Su.jpg",
+    "license": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "AMD Investor Relations",
+      "title": "Third-quarter 2026 results, 3 November — early Helios deployments and Data Center segment results",
+      "url": "https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results"
+    },
+    {
+      "publisher": "AMD management remarks via Stock Analysis",
+      "title": "3 November earnings call transcript — MI455X volume shipments and expected fourth-quarter rack shipments",
+      "url": "https://stockanalysis.com/stocks/amd/transcripts/724028-q3-2026/"
+    },
+    {
+      "publisher": "CRN",
+      "title": "3 November earnings coverage — MI455X and Helios deployment progress",
+      "url": "https://www.crn.com/news/data-center/2026/amd-data-center-revenue-soars-97-percent-on-ai-epyc-demand"
+    },
+    {
+      "publisher": "AMD Newsroom",
+      "title": "Helios press kit — rack-scale architecture and component roles",
+      "url": "https://newsroom.amd.com/press-kits/press-kit-helios-rackscale-solution/"
+    },
+    {
+      "publisher": "Reuters via Investing.com",
+      "title": "3 November earnings coverage — Helios production and fourth-quarter ramp",
+      "url": "https://www.investing.com/news/stock-market-news/amd-forecasts-quarterly-revenue-above-estimates-as-datacenter-growth-accelerates-4996502"
+    },
+    {
+      "publisher": "Fuzheado / Wikimedia Commons",
+      "title": "Lisa Su at SXSW, 11 March 2024 — original photograph and author",
+      "url": "https://commons.wikimedia.org/wiki/File:SXSW-2024-alih-OB7A0861-Lisa_Su.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution 4.0 International licence",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+},
   // Search intent: connect a supplier SMETA report to the manufacturing site and verified corrective actions.
   // Related questions: membership versus audit; site identity; pillar scope; approved issuer; report sharing; verified closure.
   {
@@ -434,7 +518,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-05",
+  "featuredReviewedThrough": "2026-11-06",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3627,6 +3711,55 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      amdHeliosRackRollout: {
+  "topic": "AI rack manufacturing",
+  "published": "6 November 2026",
+  "readTime": "4 minutes",
+  "title": "AMD’s first Helios racks are online as MI455X shipments ramp",
+  "description": "AMD says early Helios racks are running and MI455X volume shipments began in Q3. What the November earnings update says about complete rack delivery.",
+  "imageAlt": "AMD chief executive Lisa Su speaking onstage at SXSW in Austin in March 2024.",
+  "imageCaption": "File photo: Fuzheado / Wikimedia Commons, CC BY 4.0. Lisa Su at SXSW in Austin, 11 March 2024. Downloaded 6 November 2026, cropped, resized and JPEG-compressed.",
+  "labels": {
+    "summary": "News overview",
+    "checklist": "What to watch next",
+    "limits": "What remains unclear"
+  },
+  "answer": "On 3 November 2026, AMD said it had begun shipping its MI455X AI accelerator in volume in the third quarter and that early Helios racks were running customer workloads [[source:1]][[source:2]]. AMD expects more deployments in the fourth quarter and has yet to disclose how many complete racks it has delivered. The ramp shifts the focus of procurement to the whole rack. ZIMONAI’s editorial view is that a rack going live is a more useful milestone for infrastructure planning than an accelerator shipment alone.",
+  "takeaways": [
+    "AMD put the start of MI455X volume shipments in the third quarter. It also reported the first customer Helios racks in operation [[source:1]][[source:2]].",
+    "AMD expects deployments to increase in the fourth quarter as more system vendors begin shipping. That is management’s outlook [[source:2]][[source:3]].",
+    "AMD reported $8.5 billion in third-quarter Data Center revenue, up 97% year over year. The segment includes EPYC and Instinct products, so the figure does not isolate Helios rack sales [[source:1]]."
+  ],
+  "sections": [
+    {
+      "title": "First racks are running customer workloads",
+      "paragraphs": [
+        "AMD’s earnings release named Anthropic, Meta, Microsoft, OpenAI and Oracle Cloud Infrastructure among the users running workloads on the first Helios systems. On the earnings call, CEO Lisa Su also said MI455X volume shipments had started during the quarter [[source:1]][[source:2]].",
+        "CRN covered both milestones, and Reuters reported that AMD expected Helios production to increase in the fourth quarter [[source:3]][[source:5]]. Those accounts document what management said. AMD has not disclosed a breakdown of complete rack deliveries by customer."
+      ]
+    },
+    {
+      "title": "A rack brings together several supply streams",
+      "paragraphs": [
+        "AMD’s technical description pairs Instinct MI455X accelerators with sixth-generation EPYC server processors and Pensando networking, with ROCm as the software layer [[source:4]]. The rack is a unit of infrastructure intended to be deployed as an integrated system.",
+        "An accelerator can leave the factory while the rack is still awaiting parts, assembly or system testing. Once shipped, the system still needs site power, cooling, network connections and acceptance before the operator can put it into service. Those are distinct milestones in an infrastructure schedule."
+      ]
+    },
+    {
+      "title": "The next milestone is delivery through system vendors",
+      "paragraphs": [
+        "On the call, AMD expected HPE, Dell, Lenovo, Supermicro and other partners to start shipping systems as fourth-quarter deployments increase [[source:2]][[source:3]]. For ZIMONAI, shipment windows tied to a specific configuration will be more useful for procurement than aggregate segment growth.",
+        "Early racks running workloads are an operational milestone. The next question is whether system vendors can repeat those deliveries at scale and give buyers a dependable date for the configuration they are ordering."
+      ]
+    }
+  ],
+  "checklist": [
+    "Named configurations and shipment windows from system vendors.",
+    "Updates that distinguish accelerators shipped, completed racks delivered and racks in service.",
+    "Site power, cooling, network and acceptance requirements for the configuration on offer."
+  ],
+  "limitsText": "Event date: 3 November 2026. Sources reviewed 6 November. Rack counts, customer allocations, prices, lead times and production yields are absent from the cited updates. The archive photograph shows Lisa Su at SXSW in 2024. It does not depict Helios, the earnings announcement or a ZIMONAI project."
+},
       smetaSiteCorrectiveActions: {
   "topic": "Social audit evidence",
   "published": "5 November 2026",
@@ -7214,6 +7347,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      amdHeliosRackRollout: {
+  "topic": "AI 機櫃交付",
+  "published": "2026 年 11 月 6 日",
+  "readTime": "4 分鐘",
+  "title": "AMD 首批 Helios 機櫃上線",
+  "description": "AMD 在 11 月 3 日說明首批 Helios 機櫃上線，MI455X 已開始大量出貨。整套系統何時能交貨，接下來要看設備商的供應進度。",
+  "imageAlt": "AMD 執行長蘇姿丰於 2024 年 3 月在奧斯汀 SXSW 活動發言。",
+  "imageCaption": "檔案照片由 Fuzheado 拍攝，來自 Wikimedia Commons，採 CC BY 4.0 授權。蘇姿丰於 2024 年 3 月 11 日出席奧斯汀 SXSW 活動。2026 年 11 月 6 日下載，經裁切、等比縮圖及 JPEG 壓縮。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來觀察什麼",
+    "limits": "目前還有哪些未知"
+  },
+  "answer": "AMD 在 2026 年 11 月 3 日公布財報，表示 MI455X 加速器已在第三季開始大量出貨，首批 Helios 機櫃也已開始執行客戶的運算工作 [[source:1]][[source:2]]。AMD 預期第四季會有更多機櫃上線，目前尚未公布機櫃交付總數。更值得注意的是，兩項進度各自對應不同的交付階段。ZIMONAI 的判讀是，資料中心採購與安排啟用時程時，機櫃何時能在現場運作，比單看晶片何時出貨更有參考價值。",
+  "takeaways": [
+    "AMD 公布的第三季進展有兩項：MI455X 開始大量出貨，首批 Helios 機櫃投入運作 [[source:1]][[source:2]]。",
+    "AMD 預期第四季會有更多系統廠出貨，部署規模也會擴大。這是公司展望 [[source:2]][[source:3]]。",
+    "第三季資料中心部門營收為 85 億美元，年增 97%。這包含 EPYC 與 Instinct 等產品，無法用來換算 Helios 機櫃銷售量 [[source:1]]。"
+  ],
+  "sections": [
+    {
+      "title": "首批機櫃已開始運算",
+      "paragraphs": [
+        "AMD 在財報公告中點名 Anthropic、Meta、Microsoft、OpenAI 及 Oracle Cloud Infrastructure，表示這些業者已用首批 Helios 系統執行模型或其他運算工作。執行長蘇姿丰在法說會補充，MI455X 加速器已於第三季開始大量出貨 [[source:1]][[source:2]]。",
+        "CRN 報導了這兩項進展；路透也報導，AMD 預期第四季會擴大 Helios 生產 [[source:3]][[source:5]]。這兩家媒體報導的是公司公布的進度，AMD 尚未公開各客戶收到的機櫃數量。"
+      ]
+    },
+    {
+      "title": "整櫃出貨前要完成哪些工作",
+      "paragraphs": [
+        "Helios 把 MI455X 加速器、第六代 EPYC 伺服器處理器與 Pensando 網路元件整合進機櫃。AMD 的架構說明也把 ROCm 軟體納入這套共同部署的系統 [[source:4]]。",
+        "晶片出貨後，系統廠仍需備齊其他零組件，完成組裝與測試。機櫃送到資料中心後，還要接上供電、冷卻及網路，通過現場驗收才會啟用。只追蹤其中一個日期，容易看錯整個專案的進度。"
+      ]
+    },
+    {
+      "title": "下一步要看系統廠的交期",
+      "paragraphs": [
+        "AMD 在法說會預期，HPE、Dell、Lenovo、Supermicro 等合作廠商會開始出貨，第四季的部署量也將增加 [[source:2]][[source:3]]。ZIMONAI 認為，採購方可從系統廠公布的配置與出貨時程，判斷能否配合自己的機房啟用計畫。",
+        "首批機櫃已經開始運作。接下來值得觀察的是，系統廠能否持續交付，並把供應時程說明到買家實際要採購的配置。"
+      ]
+    }
+  ],
+  "checklist": [
+    "系統廠公告的機櫃配置與出貨時程。",
+    "後續是否分別揭露晶片出貨、整櫃交付及上線進度。",
+    "該配置所需的供電、冷卻、網路及現場驗收條件。"
+  ],
+  "limitsText": "事件發生於 2026 年 11 月 3 日，來源查閱至 11 月 6 日。已查閱資料未揭露機櫃交付數、客戶配額、價格、個別交期及生產良率。本文使用 2024 年 SXSW 檔案照，畫面為蘇姿丰當時出席活動。"
+},
       smetaSiteCorrectiveActions: {
   "topic": "社會責任稽核",
   "published": "2026 年 11 月 5 日",
@@ -10762,6 +10944,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      amdHeliosRackRollout: {
+  "topic": "AI 整柜交付",
+  "published": "2026 年 11 月 6 日",
+  "readTime": "4 分钟",
+  "title": "AMD 首批 Helios 机柜投运",
+  "description": "AMD 在 11 月 3 日财报中披露 Helios 首批机柜上线。芯片批量发货后，整柜供应还取决于系统厂商的出货节奏和现场验收。",
+  "imageAlt": "AMD 首席执行官苏姿丰于 2024 年 3 月在奥斯汀 SXSW 大会上发言。",
+  "imageCaption": "资料照片来自 Wikimedia Commons，摄影为 Fuzheado，采用 CC BY 4.0 许可。苏姿丰于 2024 年 3 月 11 日出席奥斯汀 SXSW 大会。2026 年 11 月 6 日下载，经过裁剪、等比缩放和 JPEG 压缩。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察",
+    "limits": "尚未披露的信息"
+  },
+  "answer": "AMD 于 2026 年 11 月 3 日发布财报，披露首批 Helios 机柜已运行客户的工作负载，MI455X 加速器也在第三季度开始批量发货 [[source:1]][[source:2]]。公司预计四季度会有更多机柜投运。已交付的整柜总量尚未公布。值得关注的是，芯片发货和机柜上线分属两个交付环节。ZIMONAI 的判断是，数据中心制定采购与投运计划时，应把机柜上线日期和芯片到货日期分别纳入计划。",
+  "takeaways": [
+    "AMD 表示，MI455X 加速器在三季度开始批量发货，首批 Helios 机柜已经投入运行 [[source:1]][[source:2]]。",
+    "管理层预计，随着更多系统厂商开始出货，四季度的部署规模将扩大 [[source:2]][[source:3]]。",
+    "数据中心业务三季度收入为 85 亿美元，同比增长 97%。该口径包括 EPYC 和 Instinct 等产品，财报未单列 Helios 机柜收入 [[source:1]]。"
+  ],
+  "sections": [
+    {
+      "title": "早期客户已经运行模型",
+      "paragraphs": [
+        "AMD 在财报中列出 Anthropic、Meta、Microsoft、OpenAI 和 Oracle Cloud Infrastructure，称这些客户已使用首批 Helios 系统运行模型及其他工作负载。首席执行官苏姿丰在电话会上透露，MI455X 加速器在第三季度开始批量发货 [[source:1]][[source:2]]。",
+        "CRN 报道了芯片发货与早期部署的进展，路透社则报道了四季度扩大 Helios 生产的预期 [[source:3]][[source:5]]。这些信息来自公司披露，目前没有分客户的整柜交付数据。"
+      ]
+    },
+    {
+      "title": "从加速器发货到整柜交付",
+      "paragraphs": [
+        "根据 AMD 的架构资料，Helios 将 MI455X 加速器、第六代 EPYC 服务器处理器和 Pensando 网络组件集成在机柜中，软件采用 ROCm [[source:4]]。一套系统涉及多类物料和协同测试。",
+        "加速器可以先发往系统厂商，机柜还要等其他组件到齐并完成组装和测试。运抵数据中心之后，供电、冷却和网络也要就绪，系统才能验收投运。三个节点分别对应不同的交付责任。"
+      ]
+    },
+    {
+      "title": "规模部署还要看系统厂商",
+      "paragraphs": [
+        "AMD 预计，HPE、Dell、联想、超微等合作厂商将陆续出货，推动四季度部署增长 [[source:2]][[source:3]]。在 ZIMONAI 看来，采购团队真正能排进项目计划的是具体配置的到货窗口和现场验收日期。",
+        "首批机柜投入运行，意味着系统已进入客户现场。后续要看的是各家系统厂商能否持续交付，以及它们何时能给出对应不同配置的供应安排。"
+      ]
+    }
+  ],
+  "checklist": [
+    "系统厂商公布的整柜配置和交付时间。",
+    "后续披露是否区分芯片发货、整柜到货与上线。",
+    "项目现场的供电、冷却、网络及验收条件。"
+  ],
+  "limitsText": "事件日期为 2026 年 11 月 3 日，资料查阅至 11 月 6 日。公开信息未给出整柜交付数量、客户配额、定价、具体交期或量产良率。配图是 2024 年 SXSW 大会的苏姿丰资料照片。"
+},
       smetaSiteCorrectiveActions: {
   "topic": "社会责任审核",
   "published": "2026 年 11 月 5 日",
