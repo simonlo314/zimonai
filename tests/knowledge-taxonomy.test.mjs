@@ -102,6 +102,14 @@ test('Chinese article-summary labels stay natural and format-specific', () => {
   assert.equal(knowledgeContent['zh-cn'].articles.ankerMagGo2Pro.labels.summary, '新闻摘要');
 });
 
+test('Taiwan BSMI adapter guide uses the controlled trilingual Taiwan market', () => {
+  assert.equal(knowledgeContent.en.taxonomy.markets.taiwan, 'Taiwan');
+  assert.equal(knowledgeContent['zh-tw'].taxonomy.markets.taiwan, '臺灣');
+  assert.equal(knowledgeContent['zh-cn'].taxonomy.markets.taiwan, '台湾');
+  const spec = knowledgeArticleSpecs.find(({ key }) => key === 'taiwanBsmiPowerAdapterRpc');
+  assert.deepEqual(spec.markets, ['taiwan']);
+});
+
 test('South Korea is a controlled trilingual market filter', () => {
   assert.equal(knowledgeContent.en.taxonomy.markets['south-korea'], 'South Korea');
   assert.equal(knowledgeContent['zh-tw'].taxonomy.markets['south-korea'], '韓國');

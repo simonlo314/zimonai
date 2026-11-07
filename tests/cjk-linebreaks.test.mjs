@@ -8,6 +8,21 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('BSMI guide preserves native certificate and label terminology', () => {
+  const terms = {
+    'zh-tw': ['電源轉接器', '轉接器型號', '商品檢驗標識使用辦法', '驗證登錄證書', 'R 字軌', '系列型式', '授權放行通知書', '核對紀錄', '辦理通關'],
+    'zh-cn': ['电源适配器', '适配器型号', '商品驗證登錄辦法', '验证登录证书', 'R 字轨', '系列型式', '授权放行通知书', '核对记录', '办理通关']
+  };
+  for (const [locale, phrases] of Object.entries(terms)) {
+    for (const phrase of phrases) {
+      const text = phrase + '。';
+      const protectedText = protectCjkText(text, locale);
+      assert.ok(protectedText.includes('>' + text + '</span>'), locale + ': ' + phrase);
+      assert.equal(removeProtectionMarkup(protectedText), text);
+    }
+  }
+});
+
 test('Helios article keeps rack delivery terminology and names copyable', () => {
   const nativeTerms = {
     'zh-tw': ['Helios 機櫃上線', '整合進機櫃', '整櫃交付', '大量出貨', '資料中心', '現場驗收', '蘇姿丰'],

@@ -342,3 +342,10 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Photographer: Fuzheado. [Original photograph](https://commons.wikimedia.org/wiki/File:SXSW-2024-alih-OB7A0861-Lisa_Su.jpg) of AMD CEO Lisa Su at SXSW in Austin, Texas, on 11 March 2024. [CC BY 4.0 licence](https://creativecommons.org/licenses/by/4.0/) permits redistribution and adaptation with attribution.
 - Downloaded 6 November 2026 from [Wikimedia Commons original](https://upload.wikimedia.org/wikipedia/commons/d/dd/SXSW-2024-alih-OB7A0861-Lisa_Su.jpg). Cropped, proportionally resized and JPEG-compressed, with separate layout focal positions.
 - Editorial use on the three Helios article routes and knowledge cards. The visible caption identifies an archival photograph of the CEO, distinct from the 2026 earnings announcement and from Helios hardware. No endorsement is implied. The AMD Helios press kit was reviewed but its download terms limit use to marketing products that include AMD processors.
+
+## Taiwan BSMI adapter article photograph
+
+- Local asset: `src/assets/editorial-bsmi-power-adapter.jpg` (1177 × 1177 JPEG).
+- Photographer: Gregory Varnum. [Original photograph](https://commons.wikimedia.org/wiki/File:Apple_5W_USB_Power_Adapter_(4935).jpg) of an Apple 5W USB power adapter, photographed 19 November 2017, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The local photograph and its cropped renditions remain under the same licence.
+- Downloaded 7 November 2026 from the [Wikimedia original](https://upload.wikimedia.org/wikipedia/commons/a/a8/Apple_5W_USB_Power_Adapter_%284935%29.jpg), orientation normalized and JPEG recompressed.
+- Editorial use on the three Taiwan BSMI adapter routes and knowledge cards. The photograph illustrates the hardware and does not show a certification result or imply endorsement.

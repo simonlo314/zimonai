@@ -7,6 +7,91 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: use a Taiwan BSMI R mark to verify the quoted adapter model and the importer’s authority.
+  // Related questions: R prefix; separate identifiers; certificate status; main and series models; importer authorization.
+  {
+  "id": "knowledge-taiwan-bsmi-power-adapter-rpc",
+  "key": "taiwanBsmiPowerAdapterRpc",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/taiwan-bsmi-power-adapter-rpc",
+  "category": "certification-market-access",
+  "products": [
+    "charger",
+    "power-adapter"
+  ],
+  "markets": [
+    "taiwan"
+  ],
+  "keywords": {
+    "en": [
+      "Taiwan BSMI power adapter",
+      "BSMI R mark lookup",
+      "RPC certificate model"
+    ],
+    "zh-tw": [
+      "臺灣 BSMI 電源轉接器",
+      "商品檢驗標識查詢",
+      "驗證登錄型號"
+    ],
+    "zh-cn": [
+      "台湾 BSMI 电源适配器",
+      "商品检验标识查询",
+      "验证登录证书型号"
+    ]
+  },
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "image": "/assets/editorial-bsmi-power-adapter.jpg",
+  "imageWidth": 1177,
+  "imageHeight": 1177,
+  "imageCrop": {
+    "card": "54% 54%",
+    "article": "49% 52%",
+    "mobile": "47% 56%"
+  },
+  "photo": {
+    "photographer": "Gregory Varnum",
+    "page": "https://commons.wikimedia.org/wiki/File:Apple_5W_USB_Power_Adapter_(4935).jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "Taiwan Ministry of Economic Affairs",
+      "title": "Regulations Governing the Use of Commodity Inspection Mark, Articles 3–4",
+      "url": "https://law.moea.gov.tw/LawContent.aspx?id=GL000628"
+    },
+    {
+      "publisher": "BSMI",
+      "title": "Registration of Product Certification certificate lookup",
+      "url": "https://civil.bsmi.gov.tw/bsmi_pqn/pqn/uqi2102f.do"
+    },
+    {
+      "publisher": "Taiwan Ministry of Economic Affairs",
+      "title": "Regulations Governing Registration of Product Certification, Articles 5–10",
+      "url": "https://law.moea.gov.tw/LawContent.aspx?id=FL011459"
+    },
+    {
+      "publisher": "BSMI",
+      "title": "How do I find out whether a product requires inspection?",
+      "url": "https://www.bsmi.gov.tw/bsmiGIP/wSite/fp?ctNode=9830&mp=1&xItem=110595"
+    },
+    {
+      "publisher": "BSMI",
+      "title": "Self-printed Commodity Inspection Mark lookup",
+      "url": "https://civil.bsmi.gov.tw/bsmi_pqn/pqn/uqi5102f.do"
+    },
+    {
+      "publisher": "Gregory Varnum / Wikimedia Commons",
+      "title": "Apple 5W USB Power Adapter (4935), 19 November 2017",
+      "url": "https://commons.wikimedia.org/wiki/File:Apple_5W_USB_Power_Adapter_(4935).jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 4.0 International",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+},
   // Search intent: understand AMD’s Helios rack rollout and what the 3 November earnings update confirms.
   // Related questions: MI455X volume shipments; first racks online; whole-rack components; vendor shipments; site acceptance; disclosed counts.
   {
@@ -518,7 +603,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-06",
+  "featuredReviewedThrough": "2026-11-07",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3686,6 +3771,7 @@ export const knowledgeContent = {
         australia: 'Australia',
         japan: 'Japan',
         'south-korea': 'South Korea',
+        taiwan: 'Taiwan',
         'united-kingdom': 'United Kingdom',
         'european-union': 'European Union',
         global: 'Global standards',
@@ -3711,6 +3797,52 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      taiwanBsmiPowerAdapterRpc: {
+  "topic": "Taiwan product certification",
+  "published": "7 November 2026",
+  "readTime": "4 minutes",
+  "title": "Taiwan BSMI marks: match the adapter to its certificate",
+  "description": "Use the BSMI mark to find a Taiwan RPC certificate, check the exact adapter model, and establish who can import it under that certificate.",
+  "imageAlt": "A white USB wall adapter with two flat plug blades and a USB port.",
+  "imageCaption": "Editorial photograph of a USB wall adapter by Gregory Varnum, via Wikimedia Commons. CC BY-SA 4.0. Downloaded 7 November 2026 and recompressed. The view illustrates the hardware and carries no certification finding.",
+  "answer": "On a power adapter registered under Taiwan’s Registration of Product Certification scheme, the R-prefixed mark gives buyers a starting point in the BSMI registry [[source:1]][[source:2]]. The mark, the certificate number and the model are separate identifiers. The certificate records the registered scope, while the proposed shipment may involve a different variant or importer. ZIMONAI’s editorial view is to match the label, the exact registered model and the party importing it before accepting a supplier’s evidence.",
+  "takeaways": [
+    "Use the R code to locate records. The BSMI certificate form has separate fields for the registration identifier, certificate number and model [[source:1]][[source:2]].",
+    "Check the certificate status and expiry, then match the exact model to the main or series type in the record [[source:2]].",
+    "If the importer differs from the certificate holder, check the authorization and release-notice route separately [[source:3]]."
+  ],
+  "sections": [
+    {
+      "title": "Start with the mark and the applicable route",
+      "paragraphs": [
+        "Check the current BSMI listing or ask for a commodity-scope determination if the adapter’s classification is unclear [[source:4]]. This guide covers Registration of Product Certification, or RPC. Under Article 3, its inspection identifier generally uses the R prefix and a designated code. Specifically designated goods may also carry a serial number [[source:1]].",
+        "Ask for a legible photo of the complete product label. In the public BSMI service, the self-printed mark lookup takes the prefix and code. The RPC certificate form has a separate registration field and directs users to omit the prefix there [[source:2]][[source:5]]. Keep the mark code, the certificate number and the product model in separate columns on your check sheet."
+      ]
+    },
+    {
+      "title": "Read the exact model and the live certificate",
+      "paragraphs": [
+        "Open the certificate record and read the applicant, status, validity, production site and listed types together. The registry distinguishes the main type from series types and says the record is evidence of completion of the inspection procedure. The record does not establish origin [[source:2]].",
+        "Compare the complete label model and input and output ratings with the purchase specification and registered documentation. A suffix, a changed design or a new production site deserves its own review. Articles 9 and 10 set out different approval routes for changes to registered products and production sites [[source:3]]. Put any unresolved mismatch on hold before using the certificate for the order."
+      ]
+    },
+    {
+      "title": "Confirm who will use the certificate to import",
+      "paragraphs": [
+        "The supplier, certificate holder and importer may be different parties. Article 7 allows an importer other than the holder to obtain a release notice from the issuing authority or body through the holder’s authorization [[source:3]]. Ask the intended importer to show how that route applies to the shipment. If the product is sold under another party’s name, also review the separate reporting provision in Article 5 [[source:3]].",
+        "A matched certificate answers the scope question for the registered product. Keep the label and order specification on file for incoming checks, with separate evidence for the shipment’s production lot and quality acceptance."
+      ]
+    }
+  ],
+  "checklist": [
+    "Save a readable label photograph and the exact model, including suffixes.",
+    "Record the inspection identifier, registration identifier and certificate number separately.",
+    "Verify the record status, expiry and registered main or series type.",
+    "Confirm which party will import and obtain the relevant authorization record where applicable.",
+    "Retain the checked record and date alongside the order specification."
+  ],
+  "limitsText": "Official sources checked on 7 November 2026. This guide covers Taiwan RPC records for power adapters. The correct inspection route depends on the product’s classification and current BSMI notices. A registry result has a limited scope and leaves shipment identity, origin and production quality to separate evidence."
+},
       amdHeliosRackRollout: {
   "topic": "AI rack manufacturing",
   "published": "6 November 2026",
@@ -7322,6 +7454,7 @@ export const knowledgeContent = {
         australia: '澳洲',
         japan: '日本',
         'south-korea': '韓國',
+        taiwan: '臺灣',
         'united-kingdom': '英國',
         'european-union': '歐盟',
         global: '全球標準',
@@ -7347,6 +7480,52 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      taiwanBsmiPowerAdapterRpc: {
+  "topic": "臺灣商品驗證登錄",
+  "published": "2026 年 11 月 7 日",
+  "readTime": "4 分鐘",
+  "title": "臺灣 BSMI 標識如何對回轉接器型號？",
+  "description": "從電源轉接器的 R 字軌標識查到驗證登錄證書，核對主型式、系列型式、有效期限與進口授權。",
+  "imageAlt": "白色 USB 電源轉接器，畫面可見兩片扁插腳與 USB 連接埠。",
+  "imageCaption": "編輯用實拍照片由 Gregory Varnum 提供，來自 Wikimedia Commons，採 CC BY-SA 4.0 授權。2026 年 11 月 7 日下載並重新壓縮。畫面用於辨識轉接器外觀。",
+  "answer": "臺灣採商品驗證登錄的電源轉接器，機身上的 R 字軌標識可用來追查標準檢驗局的登錄資料 [[source:1]][[source:2]]。標識上的代碼與證書號碼分開編列，證書也有自己的型號範圍。海外買家採購時，還得確認報價型號和實際進口人。買家若換了型號尾碼，就要重新核對這張證書的適用範圍。ZIMONAI 的編輯判讀是，把銘牌、登錄型式與進口人放在同一份核對紀錄，才能看出證書和這張訂單之間少了哪一項證據。",
+  "takeaways": [
+    "R 字軌可作為查詢線索。驗證登錄查詢頁把登錄字號、證書號碼和型號分成不同欄位 [[source:1]][[source:2]]。",
+    "看證書狀態和有效期限，再從主型式與系列型式找出採購的完整型號 [[source:2]]。",
+    "實際進口人與證書名義人不同時，另核對授權和放行文件 [[source:3]]。"
+  ],
+  "sections": [
+    {
+      "title": "先分清標識與證書號碼",
+      "paragraphs": [
+        "先確認轉接器落在哪個應施檢驗品目。品目或檢驗方式有疑義時，可從標準檢驗局的品目查詢入口確認 [[source:4]]。本文只談驗證登錄。《商品檢驗標識使用辦法》第三條規定，這類標識的識別號碼原則上由 R 字軌與指定代碼組成。局方指定公告的品項可能另有流水號 [[source:1]]。",
+        "請供應商提供能看清整張銘牌的照片。標準檢驗局的業者自印標識查詢要選字母，再輸入代碼。查驗證登錄證書時，登錄字號欄位則提示省略字軌 [[source:2]][[source:5]]。把兩個查詢結果和供應商提供的證書放在一起比對。"
+      ]
+    },
+    {
+      "title": "把完整型號對回登錄範圍",
+      "paragraphs": [
+        "開啟官方證書紀錄後，查申請人、證書狀態、有效期限和生產廠場。用完整型號核對主型式或系列型式，並對照採購規格中的輸入與輸出額定值。查詢頁說明，證書記載的是檢驗程序的完成情形，產地要另外查證 [[source:2]]。",
+        "型號尾碼不同時，請對方指明證書涵蓋哪個版本。遇到設計變更或生產廠場異動，再依《商品驗證登錄辦法》第九、十條確認適用程序。需要補件時，先把差異留在核對紀錄 [[source:3]]。"
+      ]
+    },
+    {
+      "title": "進口人不同時要查授權",
+      "paragraphs": [
+        "供應商可能是賣方，證書則由另一家公司持有。依《商品驗證登錄辦法》第七條，非證書名義人的進口人可經持有人授權，取得驗證機關或機構核發的授權放行通知書辦理通關 [[source:3]]。向預定進口人確認安排，並核對所用證書。",
+        "若商品會以他人名義銷售，再另看第五條的報備規定 [[source:3]]。出貨驗收時，則用訂單規格和批次資料核對交來的實物。"
+      ]
+    }
+  ],
+  "checklist": [
+    "取得清楚的整張銘牌照片，記下包含尾碼的型號。",
+    "分欄記錄標識代碼、登錄字號與證書號碼。",
+    "在官方系統確認證書狀態、效期及型式。",
+    "釐清證書名義人、實際進口人與適用的授權文件。",
+    "把查詢日期和對照資料留在採購紀錄。"
+  ],
+  "limitsText": "官方資料查閱於 2026 年 11 月 7 日。本文限於臺灣電源轉接器的商品驗證登錄紀錄。實際檢驗方式以產品分類和標準檢驗局公告為準。公開證書的範圍有其限制，來貨是否一致、產地及批次品質均需另外查驗。"
+},
       amdHeliosRackRollout: {
   "topic": "AI 機櫃交付",
   "published": "2026 年 11 月 6 日",
@@ -10919,6 +11098,7 @@ export const knowledgeContent = {
         australia: '澳大利亚',
         japan: '日本',
         'south-korea': '韩国',
+        taiwan: '台湾',
         'united-kingdom': '英国',
         'european-union': '欧盟',
         global: '全球标准',
@@ -10944,6 +11124,52 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      taiwanBsmiPowerAdapterRpc: {
+  "topic": "台湾商品验证登录",
+  "published": "2026 年 11 月 7 日",
+  "readTime": "4 分钟",
+  "title": "台湾 BSMI 标识怎样对应适配器型号？",
+  "description": "用电源适配器上的 R 字轨标识查询台湾 BSMI 证书，核对型号、证书状态和进口授权。",
+  "imageAlt": "一只白色 USB 电源适配器，可见两个扁插脚和 USB 接口。",
+  "imageCaption": "编辑配图为 Gregory Varnum 拍摄的实物照片，来源为 Wikimedia Commons，采用 CC BY-SA 4.0 许可。2026 年 11 月 7 日下载并重新压缩。照片展示适配器外观。",
+  "answer": "在台湾采用商品验证登录的电源适配器上，R 字轨标识为查询标准检验局的登记信息提供线索 [[source:1]][[source:2]]。查到证书后，仍需看实际订购的型号是否在登记范围内，并确认使用证书办理进口的主体。对海外采购来说，尤其要留意型号后缀和进口方的变化。证书与订单的对应关系也应留给收货人员核对。ZIMONAI 的编辑判断是，将铭牌照片、具体证书和进口安排一并归档，方便发现订单在哪个环节缺少证据。",
+  "takeaways": [
+    "把产品标识、登录字号和证书号码分开记录。官方证书查询页另设型号栏 [[source:1]][[source:2]]。",
+    "先看证书当前状态及有效期，再找与所购型号对应的主型式或系列型式 [[source:2]]。",
+    "进口方和证书持有人不一致时，核对是否有相应的授权放行文件 [[source:3]]。"
+  ],
+  "sections": [
+    {
+      "title": "根据铭牌找登记记录",
+      "paragraphs": [
+        "这套核对流程适用于已采用商品验证登录的电源适配器。产品需要走哪种检验程序，应先看标准检验局公布的品目和适用条件 [[source:4]]。按台湾《商品檢驗標識使用辦法》第三条，验证登录标识通常以 R 字轨配指定代码。局方指定公告的商品还可能有流水号 [[source:1]]。",
+        "让供应商拍下完整铭牌。到官方的自印标识查询页，按要求选择字母、填写代码。再进入验证登录证书查询页，按提示在登录字号栏省略字轨，并用证书号码或型号缩小范围 [[source:2]][[source:5]]。"
+      ]
+    },
+    {
+      "title": "查证书所列的型号",
+      "paragraphs": [
+        "打开证书详情，确认申请人、状态、有效期及生产场所。核对铭牌的完整型号是否列在主型式或系列型式下，再把输入、输出额定值与订单及登记资料进行对照。官方查询页把证书的证明范围限定在检验程序 [[source:2]]。",
+        "后缀变化先请对方给出型号对应依据。如果涉及设计或生产场所变化，台湾《商品驗證登錄辦法》第九、十条规定了相应程序。供应商提交的旧版证书只有在对应现行登记范围时才有参考价值 [[source:3]]。"
+      ]
+    },
+    {
+      "title": "核对谁负责进口",
+      "paragraphs": [
+        "订单卖方可能和证书持有人分属不同公司。按《商品驗證登錄辦法》第七条，非持有人的进口方可经持有人授权，取得发证机关或机构核发的授权放行通知书，再凭通知书办理通关。以他人名义销售时，还应单独核对第五条的报备要求 [[source:3]]。",
+        "采购可在下单前让进口方说明使用哪份证书及授权文件。收货时再依据订单约定，核对实际标签、规格和批次。"
+      ]
+    }
+  ],
+  "checklist": [
+    "索取完整铭牌照片及包含后缀的型号。",
+    "区分标识代码、登录字号与证书号码。",
+    "查询证书状态、有效期及登记型式。",
+    "核对实际进口方与适用的授权文件。",
+    "保存查询日期、结果和订单规格。"
+  ],
+  "limitsText": "官方资料核对日期为 2026 年 11 月 7 日。本文仅说明台湾商品验证登录记录的核对方法。实际检验路径取决于适用品目和官方公告，实物批次、产地和交付质量需要单独的证据。"
+},
       amdHeliosRackRollout: {
   "topic": "AI 整柜交付",
   "published": "2026 年 11 月 6 日",
