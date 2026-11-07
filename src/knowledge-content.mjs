@@ -7,6 +7,90 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the Panasonic Hukou plant fire and the evidence on circuit-board material deliveries.
+  // Related questions: timeline; casualties; plant products; affected orders; recovery and restart.
+  {
+  "id": "knowledge-panasonic-hukou-plant-fire",
+  "key": "panasonicHukouPlantFire",
+  "contentType": "current-affairs",
+  "slug": "knowledge/panasonic-hukou-plant-fire",
+  "category": "commercial-risk",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "taiwan"
+  ],
+  "keywords": {
+    "en": [
+      "Panasonic Hukou plant fire",
+      "Hsinchu PCB materials",
+      "Panasonic Taiwan production restart"
+    ],
+    "zh-tw": [
+      "松下湖口廠火災",
+      "台灣松下多層材料",
+      "印刷電路板供貨"
+    ],
+    "zh-cn": [
+      "松下湖口工厂火灾",
+      "台湾松下多层材料",
+      "印制电路板材料供应"
+    ]
+  },
+  "datePublished": "2026-11-08",
+  "dateModified": "2026-11-08",
+  "image": "/assets/editorial-panasonic-hukou-park.jpg",
+  "imageWidth": 1800,
+  "imageHeight": 1200,
+  "imageCrop": {
+    "card": "46% 58%",
+    "article": "52% 49%",
+    "mobile": "48% 62%"
+  },
+  "photo": {
+    "photographer": "Yuriy kosygin",
+    "page": "https://commons.wikimedia.org/wiki/File:Hsinchu_Industrial_Park_-_20240614.jpg",
+    "license": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "Taiwan National Fire Agency",
+      "title": "Hukou plant fire, initial incident report, 4 November 2026",
+      "url": "https://www.nfa.gov.tw/pro/index.php?article_id=22250&code=list&flag=detail&ids=114"
+    },
+    {
+      "publisher": "Central News Agency / Focus Taiwan",
+      "title": "County fire bureau confirms two missing employees found dead, 5 November 2026",
+      "url": "https://focustaiwan.tw/society/202611050019"
+    },
+    {
+      "publisher": "Reuters via Internazionale",
+      "title": "Two confirmed dead after Taiwan Panasonic factory fire, 5 November 2026",
+      "url": "https://www.internazionale.it/ultime-notizie-reuters/2026/11/05/two-confirmed-dead-after-taiwan-panasonic-factory-fire"
+    },
+    {
+      "publisher": "Panasonic",
+      "title": "Panasonic Industrial Devices Materials Taiwan company profile and product scope",
+      "url": "https://panasonic.cn/about/panasonic-china/pidmtw/"
+    },
+    {
+      "publisher": "Taiwan Ministry of Economic Affairs",
+      "title": "Industrial park directory entry for the Hukou plant",
+      "url": "https://land.bip.gov.tw/supply/ManufQuery/Show?ID=253164"
+    },
+    {
+      "publisher": "Yuriy kosygin / Wikimedia Commons",
+      "title": "Hsinchu Industrial Park sign, photographed 14 June 2024",
+      "url": "https://commons.wikimedia.org/wiki/File:Hsinchu_Industrial_Park_-_20240614.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution 4.0 International",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+},
   // Search intent: use a Taiwan BSMI R mark to verify the quoted adapter model and the importer’s authority.
   // Related questions: R prefix; separate identifiers; certificate status; main and series models; importer authorization.
   {
@@ -603,7 +687,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-07",
+  "featuredReviewedThrough": "2026-11-08",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3797,6 +3881,55 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      panasonicHukouPlantFire: {
+  "topic": "Circuit-board materials",
+  "published": "8 November 2026",
+  "readTime": "4 minutes",
+  "title": "Two killed in fire at Panasonic’s Hukou plant in Taiwan",
+  "description": "A 4 November fire at Panasonic’s Hukou plant killed two employees and injured five. The cause and the effect on circuit-board material shipments remain open.",
+  "imageAlt": "The yellow Hsinchu Industrial Park sign near the Hukou interchange, photographed in June 2024.",
+  "imageCaption": "File photo of the Hsinchu Industrial Park sign near the Hukou interchange, 14 June 2024. Yuriy kosygin / Wikimedia Commons, CC BY 4.0. Downloaded 7 November 2026, cropped, resized and JPEG-compressed. The photograph shows the wider industrial park.",
+  "labels": {
+    "summary": "News overview",
+    "checklist": "What to watch next",
+    "limits": "What remains unclear"
+  },
+  "answer": "A fire broke out at Panasonic’s Hukou plant in Taiwan on 4 November 2026. County authorities confirmed the next day that two employees had died. Five people were injured [[source:1]][[source:2]][[source:3]]. The site makes printed circuit boards and related materials, and the cause and impact on shipments remain unclear. This matters because buyers may source finished boards through a different company. ZIMONAI’s editorial view is to trace the specific material and production site before assuming an order is affected.",
+  "takeaways": [
+    "The National Fire Agency’s 4 November report recorded five people taken to hospital and two missing. The county confirmed the two deaths on 5 November [[source:1]][[source:2]][[source:3]].",
+    "Panasonic lists multilayer boards and materials for IC substrates among the Taiwan operation’s products [[source:4]].",
+    "The sources reviewed identify the site. They leave the affected production lines, customer exposure and restart schedule open."
+  ],
+  "sections": [
+    {
+      "title": "The fire and the search in Hukou",
+      "paragraphs": [
+        "Taiwan’s National Fire Agency said it received the report at 2 a.m. local time on 4 November. The site was Panasonic Industrial Devices Materials Taiwan’s plant on Guangfu Road in Hukou, Hsinchu County. The initial report recorded five people taken to hospital and two missing [[source:1]].",
+        "The two missing employees were found dead on 5 November, the county fire bureau told the Central News Agency [[source:2]]. Reuters separately reported the county’s confirmation and said Panasonic had acknowledged an explosion and was investigating what caused it [[source:3]]."
+      ]
+    },
+    {
+      "title": "Where the plant fits in the supply chain",
+      "paragraphs": [
+        "The Ministry of Economic Affairs lists the Guangfu Road facility in Hsinchu Industrial Park under printed circuit board manufacturing. Panasonic describes the Taiwan operation as making multilayer printed circuit boards and materials, including material for IC substrates [[source:4]][[source:5]].",
+        "A board maker can buy an input from one company and sell the finished board under its own name. A change at the material plant may therefore matter to a buyer who deals only with the board maker. The product list explains the possible connection. It gives no shipment-level evidence about which materials or orders came from the affected production area."
+      ]
+    },
+    {
+      "title": "What would clarify the effect on deliveries",
+      "paragraphs": [
+        "The first useful update would identify which processes can run and which items are available from stock. If production shifts, the site, material grade and customer qualification status will determine when substitute material can be used. Those are procurement implications, with the factory’s recovery details still to be confirmed.",
+        "ZIMONAI’s assessment is that the clearest signal for buyers will be a dated delivery update for the specific material or board on order. The fire investigation, the reopening of a line and the resumption of shipments each answer a different question."
+      ]
+    }
+  ],
+  "checklist": [
+    "Findings from the fire investigation and any confirmed restrictions on restarting operations.",
+    "Identification of affected processes and material grades, plus a dated shipment update.",
+    "Where applicable, identification and approval status of a substitute site or material."
+  ],
+  "limitsText": "Event date 4 November 2026. Sources checked 7 November. The reviewed accounts leave the cause, restart schedule, affected capacity and customer allocations unresolved. The supply-chain implications are ZIMONAI’s assessment. The image is a 2024 view of the industrial park sign."
+},
       taiwanBsmiPowerAdapterRpc: {
   "topic": "Taiwan product certification",
   "published": "7 November 2026",
@@ -7480,6 +7613,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      panasonicHukouPlantFire: {
+  "topic": "印刷電路板材料",
+  "published": "2026 年 11 月 8 日",
+  "readTime": "4 分鐘",
+  "title": "松下湖口廠火災，兩名員工罹難",
+  "description": "台灣松下多層材料湖口廠 11 月 4 日起火，造成兩死五傷。起火原因仍待釐清，受影響的產線與交貨範圍也未明。",
+  "imageAlt": "2024 年拍攝的新竹產業園區路旁招牌，黃色拱形地標位於湖口交流道附近。",
+  "imageCaption": "湖口交流道附近的新竹產業園區招牌，為檔案照片，攝於 2024 年 6 月 14 日。Yuriy kosygin／Wikimedia Commons，採 CC BY 4.0 授權。2026 年 11 月 7 日下載，經裁切、等比縮圖及壓縮。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "後續觀察",
+    "limits": "目前仍待釐清"
+  },
+  "answer": "台灣松下多層材料位於新竹縣湖口的工廠，在 2026 年 11 月 4 日凌晨發生火災。縣府隔天證實兩名員工罹難，另有五人受傷 [[source:1]][[source:2]][[source:3]]。廠區涉及印刷電路板與相關材料製造，起火原因及出貨影響仍待釐清。值得注意的是，採購端有時只接觸板廠，未必掌握板材的實際產地。ZIMONAI 的判讀是，先追到訂單使用的材料與生產地點，再判斷交期是否受影響。",
+  "takeaways": [
+    "消防署 11 月 4 日初報列五人送醫、兩人失聯。縣府在 11 月 5 日確認兩人罹難 [[source:1]][[source:2]][[source:3]]。",
+    "松下公開資料把多層印刷電路板與 IC 載板用材料列在臺灣公司的業務範圍 [[source:4]]。",
+    "已查閱的資料尚未交代受影響產線、材料牌號及恢復出貨時程。"
+  ],
+  "sections": [
+    {
+      "title": "湖口廠凌晨起火",
+      "paragraphs": [
+        "消防署初報記載，11 月 4 日凌晨 2 時接獲通報。地點是新竹縣湖口鄉光復路上的台灣松下多層材料工廠。當時有五人送醫，兩人失聯 [[source:1]]。",
+        "中央社引述新竹縣消防局指出，兩名失聯員工在 11 月 5 日尋獲時已無生命跡象。路透也報導縣府確認兩人罹難，並引述松下表示廠內發生爆炸，事故原因正調查中 [[source:2]][[source:3]]。"
+      ]
+    },
+    {
+      "title": "湖口廠在電路板供應鏈的位置",
+      "paragraphs": [
+        "經濟部園區事業名錄把該地址列在新竹產業園區，登記產品為印刷電路板。松下也在公司資料列出多層印刷電路板及 IC 載板用材料等業務 [[source:4]][[source:5]]。",
+        "品牌商可能向板廠採購成品，板廠再向材料商採購用料。這讓上游工廠的變化有機會影響不同層級的訂單。公開的產品範圍能說明這條關係，但目前仍無資料指出哪些料號來自受影響區域。"
+      ]
+    },
+    {
+      "title": "供貨影響要看哪些訊息",
+      "paragraphs": [
+        "接下來可留意哪些製程恢復、哪些材料還有庫存，以及供應商何時能提出對應料號的交貨日期。若供應商改用其他廠區或材料，仍須確認替代來源是否已獲客戶認可。",
+        "ZIMONAI 認為，採購端最需要的是對應訂單的書面交貨更新。事故調查、產線復工和恢復出貨會各自提供不同資訊。"
+      ]
+    }
+  ],
+  "checklist": [
+    "消防調查結果，以及是否公布復工條件。",
+    "供應商有無公布受影響的製程、材料牌號及交期。",
+    "若提出替代供應，是否列出廠區、材料及客戶認可進度。"
+  ],
+  "limitsText": "事件發生於 2026 年 11 月 4 日，來源查閱至 11 月 7 日。已查閱資料未確認事故原因、復工日、受影響產能或特定客戶訂單。供應鏈影響為編輯判讀。配圖是 2024 年拍攝的新竹產業園區路旁招牌。"
+},
       taiwanBsmiPowerAdapterRpc: {
   "topic": "臺灣商品驗證登錄",
   "published": "2026 年 11 月 7 日",
@@ -11124,6 +11306,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      panasonicHukouPlantFire: {
+  "topic": "印制电路板材料",
+  "published": "2026 年 11 月 8 日",
+  "readTime": "4 分钟",
+  "title": "松下湖口工厂起火，两名员工遇难",
+  "description": "台湾松下多层材料湖口工厂 11 月 4 日起火，造成两人死亡、五人受伤。具体产线和交付影响仍待披露。",
+  "imageAlt": "2024 年拍摄的新竹产业园区路旁标识，黄色拱形地标位于湖口立交附近。",
+  "imageCaption": "湖口立交附近的新竹产业园区路旁标识资料照片，摄于 2024 年 6 月 14 日。摄影为 Yuriy kosygin，来源为 Wikimedia Commons，采用 CC BY 4.0 许可。2026 年 11 月 7 日下载后裁剪、等比缩放并压缩。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续关注",
+    "limits": "目前仍待确认"
+  },
+  "answer": "2026 年 11 月 4 日凌晨，台湾松下多层材料位于新竹县湖口的工厂发生火灾。当地政府次日确认两名员工死亡，另有五人受伤 [[source:1]][[source:2]][[source:3]]。工厂涉及印制电路板及相关材料生产，事故原因和出货影响仍未明确。值得关注的是，板材可能经由板厂进入成品，采购方接触的供货商和原材料生产地有时分属两层。ZIMONAI 的判断是，先查订单对应的材料和生产地点，再评估是否涉及交付变动。",
+  "takeaways": [
+    "消防署 11 月 4 日通报五人送医及两人失联。次日确认两名失联员工死亡 [[source:1]][[source:2]][[source:3]]。",
+    "松下将多层印制电路板和 IC 载板用材料列为该台湾公司的业务 [[source:4]]。",
+    "现有公开消息尚未给出受影响产线、材料牌号或恢复发货时间。"
+  ],
+  "sections": [
+    {
+      "title": "事故地点与搜救进展",
+      "paragraphs": [
+        "消防署初报记载，11 月 4 日凌晨 2 时接到报警。事发地点是台湾松下多层材料位于新竹县湖口乡光复路的工厂。初报显示五人送医及两名员工失联 [[source:1]]。",
+        "中央社援引新竹县消防局消息说，两名失联员工于 11 月 5 日被找到，均已死亡。路透社同日引述县政府确认死亡人数，并报道松下承认厂内发生爆炸，事故原因仍在调查 [[source:2]][[source:3]]。"
+      ]
+    },
+    {
+      "title": "材料厂与成品板之间的关系",
+      "paragraphs": [
+        "台湾经济部园区名录将该厂址归入新竹产业园区，登记产品为印制电路板。松下的公司资料还列有多层印制电路板和 IC 载板用材料 [[source:4]][[source:5]]。",
+        "整机厂采购的是组装所需的板件，板件供应商可能另向上游采购材料。厂址变化要沿着物料往上追，才能判断与哪一笔采购有关。公开产品目录提供了产业背景，但目前没有公布受影响区域对应的材料和订单。"
+      ]
+    },
+    {
+      "title": "交付恢复需要哪些信号",
+      "paragraphs": [
+        "后续有用的信息包括哪些工序恢复、什么材料可以由现有库存交付，以及订单是否得到更新的发货日期。若转到其他生产场所，替代材料或新产地是否已通过客户认可，也会影响安排。",
+        "ZIMONAI 认为，采购可以把有日期的订单交付更新作为判断依据。火灾调查、产线复工和恢复发货需要分别跟进。"
+      ]
+    }
+  ],
+  "checklist": [
+    "事故调查进展和复工条件。",
+    "受影响工序、材料牌号及对应订单的发货安排。",
+    "替代场所或材料的来源及客户认可进度。"
+  ],
+  "limitsText": "事件发生于 2026 年 11 月 4 日，来源查阅至 11 月 7 日。已查阅资料未明确事故原因、复工时间、受影响产能及具体客户订单。供应链影响属于编辑判断。配图为 2024 年拍摄的新竹产业园区路旁标识。"
+},
       taiwanBsmiPowerAdapterRpc: {
   "topic": "台湾商品验证登录",
   "published": "2026 年 11 月 7 日",

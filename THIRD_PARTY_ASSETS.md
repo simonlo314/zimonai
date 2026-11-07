@@ -349,3 +349,10 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Photographer: Gregory Varnum. [Original photograph](https://commons.wikimedia.org/wiki/File:Apple_5W_USB_Power_Adapter_(4935).jpg) of an Apple 5W USB power adapter, photographed 19 November 2017, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The local photograph and its cropped renditions remain under the same licence.
 - Downloaded 7 November 2026 from the [Wikimedia original](https://upload.wikimedia.org/wikipedia/commons/a/a8/Apple_5W_USB_Power_Adapter_%284935%29.jpg), orientation normalized and JPEG recompressed.
 - Editorial use on the three Taiwan BSMI adapter routes and knowledge cards. The photograph illustrates the hardware and does not show a certification result or imply endorsement.
+
+## Panasonic Hukou fire report — industrial park archive photo
+
+- Local asset: `src/assets/editorial-panasonic-hukou-park.jpg` (1800 × 1200 JPEG).
+- Photographer: Yuriy kosygin. [Original photograph](https://commons.wikimedia.org/wiki/File:Hsinchu_Industrial_Park_-_20240614.jpg) of the Hsinchu Industrial Park roadside sign near the Hukou interchange, 14 June 2024, under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- Downloaded 7 November 2026 from the [Wikimedia original](https://upload.wikimedia.org/wikipedia/commons/2/28/Hsinchu_Industrial_Park_-_20240614.jpg); cropped, proportionally resized and JPEG-compressed.
+- Used on the three Panasonic Hukou article routes and their existing knowledge card presentation. The photo shows a roadside landmark near the park in 2024. The publisher credit and caption identify it as an archival location image, without presenting it as a photo of the factory, the fire, or a ZIMONAI assignment.

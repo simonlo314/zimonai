@@ -8,6 +8,21 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('Hukou report preserves plant names and circuit-board material terms', () => {
+  const terms = {
+    'zh-tw': ['松下湖口廠', '兩名員工罹難', '兩人失聯', '五人送醫', '台灣松下多層材料', '多層印刷電路板', 'IC 載板用材料', '新竹產業園區', '恢復出貨時程', '路旁招牌', '湖口交流道', '接獲通報'],
+    'zh-cn': ['松下湖口工厂', '两名员工遇难', '两人失联', '五人送医', '台湾松下多层材料', '多层印制电路板', 'IC 载板用材料', '新竹产业园区', '恢复发货', '路旁标识', '湖口立交', '接到报警']
+  };
+  for (const [locale, phrases] of Object.entries(terms)) {
+    for (const phrase of phrases) {
+      const text = phrase + '。';
+      const result = protectCjkText(text, locale);
+      assert.ok(result.includes('>' + text + '</span>'), locale + ': ' + phrase);
+      assert.equal(removeProtectionMarkup(result), text);
+    }
+  }
+});
+
 test('BSMI guide preserves native certificate and label terminology', () => {
   const terms = {
     'zh-tw': ['電源轉接器', '轉接器型號', '商品檢驗標識使用辦法', '驗證登錄證書', 'R 字軌', '系列型式', '授權放行通知書', '核對紀錄', '辦理通關'],
