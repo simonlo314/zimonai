@@ -356,3 +356,8 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Photographer: Yuriy kosygin. [Original photograph](https://commons.wikimedia.org/wiki/File:Hsinchu_Industrial_Park_-_20240614.jpg) of the Hsinchu Industrial Park roadside sign near the Hukou interchange, 14 June 2024, under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 - Downloaded 7 November 2026 from the [Wikimedia original](https://upload.wikimedia.org/wikipedia/commons/2/28/Hsinchu_Industrial_Park_-_20240614.jpg); cropped, proportionally resized and JPEG-compressed.
 - Used on the three Panasonic Hukou article routes and their existing knowledge card presentation. The photo shows a roadside landmark near the park in 2024. The publisher credit and caption identify it as an archival location image, without presenting it as a photo of the factory, the fire, or a ZIMONAI assignment.
+
+## Multiport USB-C charger power-sharing guide — 9 November 2026
+
+- Asset: `src/assets/editorial-usb-c-multiport-charger.jpg`, 1920 × 1440 JPEG. Real photograph by **RuinDig / Yuki Uchida**, 28 July 2022. [Source and creator](https://commons.wikimedia.org/wiki/File:ADTEC-USBcharger-APD-V140AC2-BK_003.jpg), [original image](https://upload.wikimedia.org/wikipedia/commons/6/6d/ADTEC-USBcharger-APD-V140AC2-BK_003.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Downloaded 9 November 2026.
+- Processing: proportional resizing, JPEG compression and responsive layout cropping. The image depicts the ports of the ADTEC APD-V140AC2-BK documented in the guide. Use is editorial and the image is not presented as a measurement, certification, ZIMONAI supplier sample or client evidence. The image source and licence are clickable from the article.

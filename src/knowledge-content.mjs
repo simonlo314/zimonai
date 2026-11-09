@@ -7,6 +7,87 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: verify per-port USB-C charger output when several devices share the charger.
+  // Related questions: label limits; port combinations; negotiated versus delivered power; plug/unplug interruption; shipment acceptance.
+  {
+  "id": "knowledge-usb-c-multiport-charger-power-sharing",
+  "key": "usbCMultiportChargerPowerSharing",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/usb-c-multiport-charger-power-sharing",
+  "category": "factory-onsite",
+  "products": [
+    "charger",
+    "power-adapter",
+    "gan-charger"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "multiport USB-C charger power sharing",
+      "USB-C charger power allocation",
+      "USB PD dual-port load test"
+    ],
+    "zh-tw": [
+      "多孔 USB-C 充電器",
+      "充電器功率分配",
+      "雙埠供電測試"
+    ],
+    "zh-cn": [
+      "多口 USB-C 充电器",
+      "充电器功率分配",
+      "双口输出测试"
+    ]
+  },
+  "datePublished": "2026-11-09",
+  "dateModified": "2026-11-09",
+  "image": "/assets/editorial-usb-c-multiport-charger.jpg",
+  "imageWidth": 1920,
+  "imageHeight": 1440,
+  "imageCrop": {
+    "card": "56% 24%",
+    "article": "58% 28%",
+    "mobile": "53% 52%"
+  },
+  "photo": {
+    "photographer": "RuinDig / Yuki Uchida",
+    "page": "https://commons.wikimedia.org/wiki/File:ADTEC-USBcharger-APD-V140AC2-BK_003.jpg",
+    "license": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "USB Implementers Forum",
+      "title": "USB Type-C Shared Capacity Charger Interoperability Compliance Test Specification, version 1.0, pp. 5–9",
+      "url": "https://www.usb.org/sites/default/files/USB_Type-C_Shared_Capacity_Interoperabiltiy_CTS_1.0.pdf"
+    },
+    {
+      "publisher": "ADTEC",
+      "title": "APD-V140AC2 series manual, section ④ Product specifications",
+      "url": "https://www.adtec.co.jp/wp-content/uploads/2022/07/APD-V140AC2_manual.pdf"
+    },
+    {
+      "publisher": "ADTEC",
+      "title": "APD-V140AC2 series product archive and port-by-port specifications",
+      "url": "https://www.adtec.co.jp/product/charger/apd_pd31/"
+    },
+    {
+      "publisher": "USB Implementers Forum",
+      "title": "USB Power Delivery overview: negotiation, EPR power and cable requirements",
+      "url": "https://www.usb.org/usb-charger-pd"
+    },
+    {
+      "publisher": "RuinDig / Yuki Uchida via Wikimedia Commons",
+      "title": "ADTEC APD-V140AC2-BK, photograph dated 28 July 2022",
+      "url": "https://commons.wikimedia.org/wiki/File:ADTEC-USBcharger-APD-V140AC2-BK_003.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution 4.0 International",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+},
   // Search intent: understand the Panasonic Hukou plant fire and the evidence on circuit-board material deliveries.
   // Related questions: timeline; casualties; plant products; affected orders; recovery and restart.
   {
@@ -687,7 +768,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-08",
+  "featuredReviewedThrough": "2026-11-09",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3881,6 +3962,51 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      usbCMultiportChargerPowerSharing: {
+  "topic": "Charger power sharing",
+  "published": "9 November 2026",
+  "readTime": "4 minutes",
+  "title": "How multiport USB-C chargers share power",
+  "description": "Read a USB-C charger’s per-port power table and specify a load test that checks output before, during and after a second device connects.",
+  "imageAlt": "Black ADTEC charger with two USB-C ports and one USB-A port on its front edge.",
+  "imageCaption": "Editorial photograph of the ADTEC APD-V140AC2-BK and its three ports. RuinDig / Yuki Uchida, Wikimedia Commons, CC BY 4.0. Downloaded 9 November 2026 and resized and compressed. The photo identifies the hardware, while the ratings come from the manufacturer’s manual.",
+  "answer": "A power-sharing table tells a buyer how much a multiport USB-C charger offers on each port when particular ports are in use. A headline wattage leaves those combinations open, and the table itself records the supplier’s specification. It takes a test of the quoted unit to see how power changes when another device connects or disconnects. ZIMONAI’s editorial view is to put the required port combination and the allowed interruption in the order, so steady output and the transition can each be verified.",
+  "takeaways": [
+    "Compare single-port output with the limits for the exact combination in use.",
+    "Record both the negotiated USB PD contract and the sustained measured load.",
+    "Check the already-connected device when the second connection is made and removed."
+  ],
+  "sections": [
+    {
+      "title": "Read the table by occupied ports",
+      "paragraphs": [
+        "Treat each row as a separate operating condition. For example, ADTEC’s archived APD-V140AC2 manual lists up to 140 W on C1 by itself and up to 100 W on C2 by itself. With C1 and C2 used together, the published split is up to 100 W and 30 W respectively. The figures describe this model and the specified ports. A device and cable must also support the selected USB PD operating point [[source:2]][[source:3]][[source:4]].",
+        "For a supplier quote, ask for the same layout: each port by itself, the pair you intend to use, and any other combinations that appear on the box. Keep the voltage and current limits with the wattage. Two models can have the same advertised maximum and leave very different amounts for the laptop when another device is attached."
+      ]
+    },
+    {
+      "title": "Watch the transition as well as the steady load",
+      "paragraphs": [
+        "USB-IF’s version 1.0 interoperability procedure covers groups of USB-C source ports that share capacity. Its procedure reconnects devices and checks how the available power is advertised, how contracts settle and whether rebalancing avoids a hard reset. That procedure is defined for the applicable USB-C group and excludes USB-A groups [[source:1]].",
+        "For order acceptance, record the USB PD trace, voltage and current on the loaded ports. Run C1 alone, attach the second device under load, then detach it. Repeat with the order reversed where the port allocation or intended use differs. Log the settled output and the duration of any drop on the first device. The ADTEC example is a manufacturer specification, and its manual warns of a possible brief interruption when profiles switch [[source:2]]."
+      ]
+    },
+    {
+      "title": "Put the load and acceptance limits in the order",
+      "paragraphs": [
+        "Tie each result to the exact model, hardware and firmware versions where available, input supply, cable rating, load and test duration. Agree on per-port minimums under the required combination, the duration to sustain them and any permitted interruption. Keep the PD trace and load record together so an offered contract is not confused with power actually delivered over time.",
+        "If a later shipment changes the controller, firmware or port allocation, ask which settings changed and repeat the affected conditions on samples from that shipment. A prototype result stays tied to the tested sample and setup."
+      ]
+    }
+  ],
+  "checklist": [
+    "Match the label, quoted model and port identifiers on the allocation table.",
+    "Agree on the voltage, current, per-port power and duration for the required load combination.",
+    "Record the plug and unplug sequence, both port traces and any interruption.",
+    "Define the revisions and production sample or lot that the result covers."
+  ],
+  "limitsText": "Sources checked 9 November 2026. The USB-IF procedure defines a test, and the ADTEC manual states the manufacturer’s ratings. Neither is a test report for the buyer’s unit. Product safety, market approval and lot consistency require separate evidence."
+},
       panasonicHukouPlantFire: {
   "topic": "Circuit-board materials",
   "published": "8 November 2026",
@@ -7613,6 +7739,51 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      usbCMultiportChargerPowerSharing: {
+  "topic": "充電器功率分配",
+  "published": "2026 年 11 月 9 日",
+  "readTime": "4 分鐘",
+  "title": "多孔 USB-C 充電器，功率怎麼分？",
+  "description": "核對單埠與雙埠功率，再用帶載插拔測試確認原先供電會不會短暫中斷。",
+  "imageAlt": "黑色 ADTEC 充電器的正面可見兩個 USB-C 埠及一個 USB-A 埠。",
+  "imageCaption": "ADTEC APD-V140AC2-BK 的三個連接埠。編輯用實拍照片由 RuinDig / Yuki Uchida 拍攝，來源為 Wikimedia Commons，採 CC BY 4.0 授權。2026 年 11 月 9 日下載，經等比縮圖及壓縮。功率數字依原廠手冊。",
+  "answer": "多孔 USB-C 充電器的功率分配表會按使用中的連接埠，列出每個埠可供應的功率。外盒標示的最高瓦數只涵蓋特定用法，分配表也只是廠商規格。海外買家若要同時替筆電與手機充電，還得確認第二台裝置接上或拔除時，原本供電的連接埠會降到多少瓦、有沒有短暫中斷。ZIMONAI 的判讀是，採購規格應同時寫明使用組合、穩定輸出及可接受的中斷時間，才能拿同一套條件比對樣品與交貨批次。",
+  "takeaways": [
+    "單埠最高瓦數和雙埠同時使用時的功率，要分開核對。",
+    "把 USB PD 協商結果與帶載量測值一起保存。",
+    "插上或拔除第二台裝置時，觀察第一個埠的供電。"
+  ],
+  "sections": [
+    {
+      "title": "先確認規格表寫的是哪種接法",
+      "paragraphs": [
+        "以 ADTEC 已停售的 APD-V140AC2 系列為例。原廠手冊列出 C1 單獨使用最高 140 W，C2 單獨使用最高 100 W。兩個 USB-C 埠同時使用時，C1 與 C2 分別最高 100 W 和 30 W。這是指定型號的上限，實際供電也受裝置協商與線材額定值影響 [[source:2]][[source:3]][[source:4]]。",
+        "收到報價時，先找出搭配使用的欄位。例如筆電插 C1、手機插 C2，再看兩埠各自的電壓及電流。同樣標示 140 W 的機型，可能用不同方式分配功率。若外盒也宣稱三埠可同時供電，請廠商列出該組合。"
+      ]
+    },
+    {
+      "title": "第二台裝置接上時，量第一個埠",
+      "paragraphs": [
+        "USB-IF 的共用功率互通性測試規範 1.0 版，適用於共用功率的 USB-C 埠組。程序會接上及拔除裝置，查看供電能力訊息是否更新、協商能否重新穩定，以及重新分配時是否觸發硬重設。這份規範的範圍是 USB-C 埠組，未涵蓋 USB-A 埠組 [[source:1]]。",
+        "買家驗收可從 C1 已帶載開始，記錄接上第二台裝置前後的電壓、電流與 USB PD 協商紀錄，拔除後再記一次。若兩埠用法不同，也要對調接法。ADTEC 手冊另提醒切換供電設定時可能短暫中斷，可見穩定後的瓦數與切換過程要分開記錄 [[source:2]]。"
+      ]
+    },
+    {
+      "title": "把量測條件寫進訂單",
+      "paragraphs": [
+        "先定義每埠至少要供應多少電力、需要維持多久，以及短暫中斷可接受多久。留存型號、可取得的硬體與韌體版本、輸入電源、線材規格及負載條件。量測紀錄應包含協商值和持續負載下的電壓及電流。",
+        "後續若更換控制晶片、調整韌體或修改功率配置，應就變動涉及的接法用交貨批次的樣品重測。先前的樣品報告只適用於當時的樣品與條件。"
+      ]
+    }
+  ],
+  "checklist": [
+    "核對報價型號、機身埠位標示及原廠功率分配表。",
+    "訂出實際使用組合、每埠最低輸出與帶載時間。",
+    "留存兩埠的協商紀錄、插拔順序與中斷時間。",
+    "寫明驗收涵蓋的硬體、韌體版本及出貨批次。"
+  ],
+  "limitsText": "來源查閱於 2026 年 11 月 9 日。USB-IF 文件描述測試方法，原廠手冊列出產品規格。買家報價型號的驗收、產品安全、上市合規與整批出貨一致性，仍需各自的證據。"
+},
       panasonicHukouPlantFire: {
   "topic": "印刷電路板材料",
   "published": "2026 年 11 月 8 日",
@@ -11306,6 +11477,51 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      usbCMultiportChargerPowerSharing: {
+  "topic": "充电器功率分配",
+  "published": "2026 年 11 月 9 日",
+  "readTime": "4 分钟",
+  "title": "多口 USB-C 充电器如何分配功率？",
+  "description": "按端口组合核对输出上限，记录带载插拔前后的功率和短暂中断。",
+  "imageAlt": "黑色 ADTEC 充电器正面有两个 USB-C 接口和一个 USB-A 接口。",
+  "imageCaption": "ADTEC APD-V140AC2-BK 的接口实拍。摄影为 RuinDig / Yuki Uchida，来源为 Wikimedia Commons，采用 CC BY 4.0 许可。图片于 2026 年 11 月 9 日下载，经过等比缩放与压缩。功率数值见原厂手册。",
+  "answer": "多口 USB-C 充电器的功率分配表按端口组合列出输出上限。采购方可以据此判断两台设备同时接入时各用哪个口，铭牌上的最大功率则无法交代这些组合。表格给出的是厂家标称值，插拔另一台设备时原端口会不会掉电，还要对报价型号带载验证。ZIMONAI 的判断是，把各口最低输出、持续时间和允许的中断时长一起写入采购要求，才能用同一标准比较不同方案。",
+  "takeaways": [
+    "先找出需要使用的端口组合，再读每口的功率上限。",
+    "协商值与实际输出要分开记录，两者对应同一组负载。",
+    "复测接入顺序变化时，原端口是否降功率或中断。"
+  ],
+  "sections": [
+    {
+      "title": "按端口组合读功率分配表",
+      "paragraphs": [
+        "同一充电器的两个 USB-C 口也可能不同。以 ADTEC 已停售的 APD-V140AC2 系列为例，厂家列明 C1 单用最高 140 W，C2 单用最高 100 W。两个 USB-C 口同时接入时，C1 和 C2 分别最高 100 W 与 30 W。具体设备能取得的功率，还取决于协商结果和线缆额定值 [[source:2]][[source:3]][[source:4]]。",
+        "采购笔记本与手机共用的充电器时，先看双口一栏，再看各自可用的电压和电流。如果还会用第三口，请供应商补齐该组合，避免把不同条件下的单口上限相加。"
+      ]
+    },
+    {
+      "title": "用带载插拔验证切换过程",
+      "paragraphs": [
+        "USB-IF 的共享功率互操作测试规范 1.0 版，针对共享功率的 USB-C 端口组，观察设备接入和移除后的供电能力通告、协商稳定及是否发生硬复位。该规范没有把 USB-A 端口组纳入这项测试 [[source:1]]。",
+        "订单验收可先让第一口带载，再接入第二口，记录两口的电压、电流及 USB PD 协商。拔掉第二台设备时继续记录，必要时对调先后顺序。ADTEC 手册提示切换供电配置时可能短暂断电，因此验收记录还应注明原端口中断了多久 [[source:2]]。"
+      ]
+    },
+    {
+      "title": "在采购要求中定义验收条件",
+      "paragraphs": [
+        "写明目标端口、最低输出、持续时间和可接受的中断时长。记录输入电源、负载、线缆额定值以及可取得的硬件和固件版本。对照协商记录和带载数据，确认约定输出在约定时间内得到维持。",
+        "样品测试通过后，仍要把结论对应到所测版本和批次。如果量产更换控制芯片或调整固件中的分配规则，针对变化所影响的端口组合重新抽样核验。"
+      ]
+    }
+  ],
+  "checklist": [
+    "用报价型号和机身标注核对厂家功率分配表。",
+    "约定端口组合、最低输出、持续时间和中断限制。",
+    "保存插拔顺序、两口协商记录和实际电压电流。",
+    "记录样品版本、线缆条件和报告所覆盖的出货批次。"
+  ],
+  "limitsText": "资料查阅于 2026 年 11 月 9 日。USB-IF 文件给出测试方法，原厂手册说明标称规格。具体报价型号的实测表现、产品安全及量产一致性，应由各自的证据支持。"
+},
       panasonicHukouPlantFire: {
   "topic": "印制电路板材料",
   "published": "2026 年 11 月 8 日",

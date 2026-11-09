@@ -8,6 +8,21 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('multiport charger guide keeps native power-sharing terms copyable', () => {
+  const terms = {
+    'zh-tw': ['多孔 USB-C 充電器', '功率怎麼分', '功率分配表', 'USB-C 埠組', '帶載插拔測試', '原廠手冊', '互通性測試', '硬重設'],
+    'zh-cn': ['多口 USB-C 充电器', '如何分配功率', '功率分配表', 'USB-C 端口组', '带载插拔', '原厂手册', '互操作测试', '硬复位']
+  };
+  for (const [locale, phrases] of Object.entries(terms)) {
+    for (const phrase of [...phrases, 'APD-V140AC2-BK']) {
+      const text = phrase + '。';
+      const protectedText = protectCjkText(text, locale);
+      assert.ok(protectedText.includes('>' + text + '</span>'), locale + ': ' + phrase);
+      assert.equal(removeProtectionMarkup(protectedText), text);
+    }
+  }
+});
+
 test('Hukou report preserves plant names and circuit-board material terms', () => {
   const terms = {
     'zh-tw': ['松下湖口廠', '兩名員工罹難', '兩人失聯', '五人送醫', '台灣松下多層材料', '多層印刷電路板', 'IC 載板用材料', '新竹產業園區', '恢復出貨時程', '路旁招牌', '湖口交流道', '接獲通報'],
