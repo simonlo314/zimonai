@@ -8,6 +8,18 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('Maersk report keeps native shipping and accounting terms intact', () => {
+  const terms = {"zh-tw": ["馬士基", "上調財測", "港口壅塞", "推升運價", "海運艙位", "實收運價", "獲利預估", "船隊規模", "等候靠港", "周轉速度", "名目運能", "船舶數量", "貨櫃船隊", "貨櫃輪", "上海出口貨櫃運價指數", "巴西班讓碼頭", "息稅折舊攤銷前獲利", "財報", "船期", "艙位", "航班", "運價", "運能", "碼頭", "岸橋", "靠港", "開船", "轉船", "報價效期", "庫存緩衝", "基準", "比一年前", "上半年", "每票貨物", "海運業務"], "zh-cn": ["马士基", "上调预期", "港口拥堵", "推高运价", "海运运力", "实收运价", "盈利预期", "船队规模", "等泊时间", "周转效率", "名义运力", "船舶数量", "集装箱船队", "集装箱船", "上海出口集装箱运价指数", "巴西班让码头", "息税折旧摊销前利润", "财报", "船期", "舱位", "航班", "运价", "运力", "码头", "岸桥", "靠港", "离港", "挂靠港", "报价有效期", "库存缓冲", "基准", "上半年", "一票货物", "海运业务"]};
+  for (const [locale, words] of Object.entries(terms)) {
+    for (const term of [...words, 'Maersk Huacho', 'SCFI', 'EBITDA']) {
+      const original = term + '。';
+      const html = protectCjkText(original, locale);
+      assert.ok(html.includes('>' + original + '</span>'), locale + ': ' + term);
+      assert.equal(removeProtectionMarkup(html), original);
+    }
+  }
+});
+
 test('multiport charger guide keeps native power-sharing terms copyable', () => {
   const terms = {
     'zh-tw': ['多孔 USB-C 充電器', '功率怎麼分', '功率分配表', 'USB-C 埠組', '帶載插拔測試', '原廠手冊', '互通性測試', '硬重設'],

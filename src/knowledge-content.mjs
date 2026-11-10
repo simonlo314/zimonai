@@ -7,6 +7,80 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand why Maersk raised its outlook while port congestion constrained available shipping capacity.
+  // Related questions: guidance change; fleet growth versus usable capacity; port waiting times; SCFI versus realised rates; implications for delivery planning.
+  {
+  "id": "knowledge-maersk-q3-port-congestion",
+  "key": "maerskQ3PortCongestion",
+  "contentType": "current-affairs",
+  "slug": "knowledge/maersk-q3-port-congestion",
+  "category": "commercial-risk",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "Maersk Q3 2026 earnings",
+      "port congestion shipping capacity",
+      "SCFI freight rates"
+    ],
+    "zh-tw": [
+      "馬士基第三季財報",
+      "港口壅塞",
+      "貨櫃運價"
+    ],
+    "zh-cn": [
+      "马士基三季度业绩",
+      "港口拥堵",
+      "集装箱运价"
+    ]
+  },
+  "datePublished": "2026-11-10",
+  "dateModified": "2026-11-10",
+  "image": "/assets/editorial-maersk-port-congestion.jpg",
+  "imageWidth": 1920,
+  "imageHeight": 1440,
+  "imageCrop": {
+    "card": "48% 63%",
+    "article": "46% 61%",
+    "mobile": "43% 58%"
+  },
+  "photo": {
+    "photographer": "Wzhkevin",
+    "page": "https://commons.wikimedia.org/wiki/File:Maersk_Huacho_container_ship_at_Pasir_Panjang_Container_Terminal.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "A.P. Moller – Maersk",
+      "title": "Q3 results and revised full-year guidance, 5 November 2026",
+      "url": "https://www.maersk.com/news/articles/2026/11/05/maersk-higher-earnings-raises-full-year-guidance"
+    },
+    {
+      "publisher": "A.P. Moller – Maersk",
+      "title": "Interim Report Q3 2026, pp. 8–10: market capacity and freight-rate comparisons",
+      "url": "https://investor.maersk.com/static-files/d2b58e5f-0772-4ec3-8a62-49533c45d4d1"
+    },
+    {
+      "publisher": "Reuters via The Edge Malaysia",
+      "title": "Maersk raises 2026 profit guidance again as rates stay high, 5 November 2026",
+      "url": "https://theedgemalaysia.com/node/824680"
+    },
+    {
+      "publisher": "Wzhkevin / Wikimedia Commons",
+      "title": "Maersk Huacho at Pasir Panjang Container Terminal, 19 November 2021",
+      "url": "https://commons.wikimedia.org/wiki/File:Maersk_Huacho_container_ship_at_Pasir_Panjang_Container_Terminal.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 4.0 International",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+},
   // Search intent: verify per-port USB-C charger output when several devices share the charger.
   // Related questions: label limits; port combinations; negotiated versus delivered power; plug/unplug interruption; shipment acceptance.
   {
@@ -768,7 +842,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-09",
+  "featuredReviewedThrough": "2026-11-10",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -3962,6 +4036,55 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      maerskQ3PortCongestion: {
+  "topic": "Shipping capacity and freight rates",
+  "published": "10 November 2026",
+  "readTime": "4 minutes",
+  "title": "Maersk raises outlook as port congestion lifts freight rates",
+  "description": "Maersk’s 5 November results show how port delays absorb shipping capacity. Read the outlook change and the difference between spot indices and realised rates.",
+  "imageAlt": "The blue Maersk Huacho container ship alongside green cranes at Singapore’s Pasir Panjang terminal.",
+  "imageCaption": "Maersk Huacho in Singapore, 19 November 2021. Archival photograph by Wzhkevin / Wikimedia Commons, CC BY-SA 4.0. Resized and cropped under the same licence; this is not a photograph of the 2026 congestion.",
+  "labels": {
+    "summary": "News summary",
+    "checklist": "What to watch next",
+    "limits": "What remains uncertain"
+  },
+  "answer": "Maersk raised its 2026 earnings outlook on 5 November after port congestion and higher freight rates lifted its third-quarter results [[source:1]]. Delays kept ships occupied even as the global fleet expanded [[source:2]]. This shifts buyers’ focus from fleet size to the sailings they can actually use. The figures describe a market and a carrier’s network, rather than the price or departure of a particular shipment. ZIMONAI’s editorial view is that vessel turnaround deserves as much attention as fleet growth when judging whether freight pressure will ease.",
+  "takeaways": [
+    "Port delays can reduce the capacity available for the next sailing even when the fleet grows.",
+    "The SCFI’s 46% quarterly rise and Maersk’s own freight-rate changes use different measures.",
+    "A higher earnings forecast does not establish how long congestion will last on a particular route."
+  ],
+  "sections": [
+    {
+      "title": "Another upgrade to the full-year outlook",
+      "paragraphs": [
+        "Maersk’s 5 November announcement raised underlying EBITDA guidance to US$14.0–14.5 billion, from US$10.5–12.5 billion. Reuters reported that this was the company’s third increase of the year. The group generated US$4.7 billion in third-quarter EBITDA, although that was below the US$5.04 billion average analyst forecast cited by Reuters [[source:1]][[source:3]].",
+        "The report links stronger Ocean earnings to freight rates supported by constrained capacity. That makes the release useful beyond its financial headline: a carrier can earn more while cargo owners face a less predictable shipping network. Revenue growth alone would miss that operational tension [[source:1]]."
+      ]
+    },
+    {
+      "title": "Fleet growth does not guarantee available sailings",
+      "paragraphs": [
+        "The interim report says the global container fleet’s nominal capacity was 5.1% higher than a year earlier at the end of the quarter. Yet severe weather and port congestion absorbed capacity. Global average port waiting time peaked at 16.6 hours on 25 August, against an average of 9.6 hours in the first half of 2026. The peak is a dated observation, not the waiting time at every port today [[source:2]].",
+        "A ship waiting to berth remains part of the fleet but takes longer to complete its rotation. If that delay carries into the next leg, the same nominal fleet can offer fewer timely departures. For a manufacturer, the practical exposure is the gap between goods being ready and an achievable sailing, especially when a missed connection can disrupt downstream production. This is ZIMONAI’s reading of the mechanism, not a forecast of delays for all buyers."
+      ]
+    },
+    {
+      "title": "Keep the rate comparisons separate",
+      "paragraphs": [
+        "The Shanghai Containerised Freight Index, or SCFI, averaged 46% higher in Q3 than in Q2. Maersk’s own average loaded freight rate rose 20% quarter on quarter; its roughly 46% increase was year on year. The interim report gives both comparison bases. Treating either 46% figure as a universal surcharge would misread the release [[source:2]].",
+        "An index measures a market basket; a carrier’s realised rate reflects its actual business mix. A shipment quote adds its own route, dates and terms. Buyers assessing the cost of a late departure should therefore compare the quoted sailing and quote validity with the inventory buffer they actually have. The next useful signal is whether port waiting times and schedule reliability improve together. That would say more about relief for cargo owners than fleet growth by itself."
+      ]
+    }
+  ],
+  "checklist": [
+    "Whether waiting times fall across the ports relevant to the shipment, rather than only in a global average.",
+    "Whether the proposed sailing remains achievable after the latest arrival and terminal updates.",
+    "Whether a fresh quote changes the rate, its validity or the departure date—and which change matters most to delivery."
+  ],
+  "limitsText": "Sources checked 10 November 2026. The release reports Q3 performance and management’s full-year outlook. It does not set a clearance date for congestion on each route or establish the price, space availability or arrival date for an individual booking."
+},
       usbCMultiportChargerPowerSharing: {
   "topic": "Charger power sharing",
   "published": "9 November 2026",
@@ -7739,6 +7862,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      maerskQ3PortCongestion: {
+  "topic": "海運艙位與運價",
+  "published": "2026 年 11 月 10 日",
+  "readTime": "4 分鐘",
+  "title": "馬士基上調財測，港口壅塞推升運價",
+  "description": "馬士基 11 月 5 日上調全年獲利預估。第三季報告顯示，船隊擴大仍可能遇上艙位緊張；市場運價指數與船公司實收運價也要分開看。",
+  "imageAlt": "藍色 Maersk Huacho 貨櫃輪停靠新加坡巴西班讓碼頭，旁邊可見綠色岸橋。",
+  "imageCaption": "Maersk Huacho 貨櫃輪，2021 年 11 月 19 日攝於新加坡。Wzhkevin／Wikimedia Commons，CC BY-SA 4.0。舊照經縮圖及裁切，沿用相同授權；並非本次壅塞現場。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "目前仍待釐清"
+  },
+  "answer": "馬士基於 2026 年 11 月 5 日公布第三季業績並上調全年獲利預估，港口壅塞與較高運價是重要背景 [[source:1]]。報告顯示，全球船隊雖然擴大，船舶等候靠港仍會占用運能，凸顯物流規劃不能只看船隊規模 [[source:2]]。這些數據描述整體市場與公司營運，個別航線的報價和船期仍有差異。ZIMONAI 的判讀是，海外買家評估交期時，應把船舶周轉速度放在船隊規模旁邊一起看，才較能理解短期艙位為何吃緊。",
+  "takeaways": [
+    "船隊規模擴大，未必立即增加能準時開出的航班。",
+    "SCFI 季增 46%，與馬士基實收運價的比較基準不同。",
+    "獲利預估上調，沒有交代各條航線何時解除壅塞。"
+  ],
+  "sections": [
+    {
+      "title": "全年獲利預估再上調",
+      "paragraphs": [
+        "馬士基將 2026 年基礎 EBITDA 預估從 105 億至 125 億美元，調高至 140 億至 145 億美元。路透社報導，這是公司今年第三次上調預估。第三季集團 EBITDA 為 47 億美元，但低於路透社引述的分析師平均預估 50.4 億美元。EBITDA 是息稅折舊攤銷前獲利，與淨利不同 [[source:1]][[source:3]]。",
+        "公告指出，海運業務受惠於運價上升，而艙位供給受限支撐了運價。這份業績值得關注的地方，是船公司獲利改善與貨主面對的船期壓力同時存在。只看營收成長，容易忽略運輸網路變得較難預測的一面 [[source:1]]。"
+      ]
+    },
+    {
+      "title": "船隊擴大，艙位為何仍吃緊？",
+      "paragraphs": [
+        "季報記載，第三季末全球貨櫃船隊的名目運能比一年前增加 5.1%，但惡劣天氣與港口壅塞占用了運能。全球平均等候靠港時間在 8 月 25 日達到 16.6 小時，高於 2026 年上半年的平均 9.6 小時。16.6 小時是當季某日的高點，並非現在每個港口的等待時間 [[source:2]]。",
+        "船舶在港外等待，仍算在船隊規模內，卻需要更久才能完成同一輪航程。延誤若一路帶到下一站，名目運能就無法全數轉成準時的航班。ZIMONAI 認為，對製造業更實際的影響，是貨物備妥到真正開船之間多出的時間；轉船接不上，也可能干擾後段生產。這是對運作機制的判讀，並非所有買家都會延誤的預測。"
+      ]
+    },
+    {
+      "title": "兩個 46%，比較的是不同事情",
+      "paragraphs": [
+        "上海出口貨櫃運價指數（SCFI）的第三季平均值，比第二季高出 46%。馬士基自身的平均實收運價，則比第二季增加 20%；約 46% 的增幅是與去年同期相比。季報分別交代了這兩種基準，不能把任何一個 46% 直接當成每票貨物都要加收的比例 [[source:2]]。",
+        "市場指數反映一組報價，公司實收運價則受到實際承運業務組合影響。買家的單票報價還有航線、出發日期與條件。因此，評估延遲的代價時，除了金額，也要把可行船期、報價效期與庫存緩衝放在一起比較。接下來值得觀察的是，等候靠港時間縮短時，船期是否也變得穩定；這比船隊規模單獨增加，更接近貨主需要的運輸改善。"
+      ]
+    }
+  ],
+  "checklist": [
+    "與貨物相關的港口，等待時間是否縮短，而非只有全球平均值下降。",
+    "依最新到港與碼頭資訊，原訂航班是否仍趕得上。",
+    "新報價改變的是費率、有效期間或出發日期，哪一項對交貨影響最大。"
+  ],
+  "limitsText": "來源查閱於 2026 年 11 月 10 日。公告涵蓋第三季業績與公司對全年的預估，尚未提供各條航線解除壅塞的日期。個別訂艙的價格、艙位與到貨日，無法從集團財報直接推算。"
+},
       usbCMultiportChargerPowerSharing: {
   "topic": "充電器功率分配",
   "published": "2026 年 11 月 9 日",
@@ -11477,6 +11649,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      maerskQ3PortCongestion: {
+  "topic": "海运运力与运价",
+  "published": "2026 年 11 月 10 日",
+  "readTime": "4 分钟",
+  "title": "马士基上调预期，港口拥堵推高运价",
+  "description": "马士基 11 月 5 日公布三季度业绩并上调全年预期。港口等待占用运力，解释了船队扩张与舱位紧张为何并存。",
+  "imageAlt": "Maersk Huacho 集装箱船停泊在新加坡巴西班让码头，蓝色船体旁排列着绿色岸桥。",
+  "imageCaption": "2021 年 11 月 19 日的新加坡港口旧照，船名 Maersk Huacho。摄影：Wzhkevin／Wikimedia Commons，CC BY-SA 4.0。缩放与裁切后的图片沿用同一许可，不代表本轮拥堵现场。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察",
+    "limits": "仍未明确的信息"
+  },
+  "answer": "马士基于 2026 年 11 月 5 日公布三季度业绩，再次上调全年盈利预期 [[source:1]]。港口拥堵占用了船舶运力，较高运价带动业绩，也凸显物流成本与交期之间的联系：船队扩张并不代表每条航线都有更多准时舱位 [[source:2]]。财报呈现的是市场和公司层面的情况，具体订舱价格及日期还取决于航线安排。ZIMONAI 的判断是，采购方需要同时关注船队规模和周转效率，后者决定新增运力有多少能转化为实际可用的运输服务。",
+  "takeaways": [
+    "港口排队拉长船舶周转时间，名义运力与可用舱位可能出现差距。",
+    "SCFI 环比上涨 46%，不等于马士基的实收运价也环比上涨 46%。",
+    "全年业绩预期改善，没有给出每条航线恢复顺畅的时间表。"
+  ],
+  "sections": [
+    {
+      "title": "业绩预期上调，背后是运力约束",
+      "paragraphs": [
+        "公司把全年基础 EBITDA 指引由 105 亿至 125 亿美元，提高到 140 亿至 145 亿美元。路透社称，这是马士基年内第三次上调预期。三季度集团 EBITDA 为 47 亿美元，仍低于路透社报道的分析师平均预期 50.4 亿美元。EBITDA 指息税折旧摊销前利润，不等同于净利润 [[source:1]][[source:3]]。",
+        "公告将海运盈利改善与较高运价联系起来，运价背后又有可用运力受限的因素。对货主而言，这意味着企业财报向好与运输安排更难预测可以同时发生。仅从营收增长判断物流环境改善，会漏掉这一层关系 [[source:1]]。"
+      ]
+    },
+    {
+      "title": "船队扩张如何遇上港口排队",
+      "paragraphs": [
+        "季报显示，截至三季度末，全球集装箱船队的名义运力同比增长 5.1%，但恶劣天气和港口拥堵消耗了运力。8 月 25 日，全球平均等泊时间达到 16.6 小时；2026 年上半年的平均值为 9.6 小时。这是历史观察值及其比较，不能读成今天所有港口的等待时长 [[source:2]]。",
+        "一艘船在港外等待，仍计入船队，却无法按原计划完成周转。如果延误传导到后续挂靠港，船队规模扩大也未必带来更多准时航班。ZIMONAI 的分析是，制造企业要关注货物齐备之后，距离真正离港还有多久。错过中转连接，可能进一步影响后续生产；这解释了风险的传导方式，并不意味着所有订单都会受损。"
+      ]
+    },
+    {
+      "title": "运价涨幅要先看比较口径",
+      "paragraphs": [
+        "三季度上海出口集装箱运价指数（SCFI）的平均值环比上涨 46%。马士基自己的平均实收运价环比涨幅是 20%，约 46% 则是同比涨幅。两组数据在季报中有不同的比较基准，不能直接拿来当作一票货物的统一加价幅度 [[source:2]]。",
+        "指数反映一组市场报价，船公司的实收价格还受承运业务组合影响。具体询价则包含航线、日期和交易条件。采购方比较方案时，应同时看可落实的开船日期、报价有效期及现有库存缓冲，判断延迟真正会产生多大影响。后续若港口等待缩短，还需要观察船期是否随之稳定；两者一起改善，才更接近货主实际感受到的运力释放。"
+      ]
+    }
+  ],
+  "checklist": [
+    "实际起运、中转和目的港的等待状况是否改善。",
+    "结合最新靠港和码头安排，计划中的船期是否仍可执行。",
+    "新旧报价在价格、有效期和出发日期上有何变化，是否影响交付承诺。"
+  ],
+  "limitsText": "资料查阅于 2026 年 11 月 10 日。已公布信息主要是三季度业绩和管理层全年预期，未给出逐条航线解除拥堵的日期。集团层面的数据不足以确定具体订舱的价格、可用舱位或到货时间。"
+},
       usbCMultiportChargerPowerSharing: {
   "topic": "充电器功率分配",
   "published": "2026 年 11 月 9 日",
