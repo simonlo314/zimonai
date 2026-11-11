@@ -7,6 +7,80 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: compare cell and USB-output capacity claims and define a reproducible purchasing acceptance requirement.
+  // Related questions: mAh voltage basis; Wh conversion; ratings versus measured efficiency; load and measurement boundary; sample and shipment acceptance.
+  {
+  "id": "knowledge-power-bank-cell-output-capacity",
+  "key": "powerBankCellOutputCapacity",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/power-bank-cell-output-capacity",
+  "category": "factory-onsite",
+  "products": [
+    "power-bank"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "power bank rated capacity",
+      "cell capacity versus output capacity",
+      "power bank Wh acceptance test"
+    ],
+    "zh-tw": [
+      "行動電源額定容量",
+      "電芯容量與輸出容量",
+      "行動電源容量驗收"
+    ],
+    "zh-cn": [
+      "移动电源额定容量",
+      "电芯容量与输出容量",
+      "移动电源容量验收"
+    ]
+  },
+  "datePublished": "2026-11-11",
+  "dateModified": "2026-11-11",
+  "image": "/assets/editorial-power-bank-cell-output-capacity.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 1125,
+  "imageCrop": {
+    "card": "48% 53%",
+    "article": "47% 50%",
+    "mobile": "51% 54%"
+  },
+  "photo": {
+    "photographer": "OnionBulb",
+    "page": "https://commons.wikimedia.org/wiki/File:MiPowerBankPro10000mAhQC30Xiaomi20240820001.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "Xiaomi",
+      "title": "10000mAh Mi 18W Fast Charge Power Bank 3 manual, model PLM13ZM, printed p. 04",
+      "url": "https://i01.appmifile.com/webfile/globalimg/Global_UG/Mi_Ecosystem/10000mAh_Mi_18W_Fast_Charge_Power_Bank_3/en-GB_V1.pdf"
+    },
+    {
+      "publisher": "Xiaomi",
+      "title": "Mi Power Bank 10000mAh 3: PLM13ZM capacity specifications",
+      "url": "https://www.mi.com/global/support/article/KA-07576/"
+    },
+    {
+      "publisher": "TP-Link",
+      "title": "Understanding capacity and charge efficiency, 15 October 2014",
+      "url": "https://www.tp-link.com/us/support/faq/741/"
+    },
+    {
+      "publisher": "OnionBulb / Wikimedia Commons",
+      "title": "Xiaomi Mi Power Bank Pro photograph, 20 August 2024",
+      "url": "https://commons.wikimedia.org/wiki/File:MiPowerBankPro10000mAhQC30Xiaomi20240820001.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 4.0 International",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+},
   // Search intent: understand why Maersk raised its outlook while port congestion constrained available shipping capacity.
   // Related questions: guidance change; fleet growth versus usable capacity; port waiting times; SCFI versus realised rates; implications for delivery planning.
   {
@@ -842,7 +916,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-10",
+  "featuredReviewedThrough": "2026-11-11",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4036,6 +4110,53 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      powerBankCellOutputCapacity: {
+  "topic": "Power-bank capacity and acceptance",
+  "published": "11 November 2026",
+  "readTime": "4 minutes",
+  "title": "Power-bank capacity: comparing cell and USB output ratings",
+  "description": "Why a 10,000 mAh power bank can list a lower USB output capacity. Use a Xiaomi specification example to compare Wh and define purchasing acceptance conditions.",
+  "imageAlt": "A rose-coloured Xiaomi Mi Power Bank Pro resting diagonally on a light wood surface.",
+  "imageCaption": "Xiaomi Mi Power Bank Pro, photographed by OnionBulb on 20 August 2024. Product illustration, not the PLM13ZM example or a ZIMONAI test. Resized and cropped; the image remains under CC BY-SA 4.0.",
+  "answer": "Power-bank specifications distinguish stored cell capacity from capacity delivered at the USB output. Xiaomi’s PLM13ZM manual lists 10,000 mAh at 3.7 V for the cells and 5,500 mAh at 5.1 V/2.6 A for rated output. These are different rating bases, not a measured 55% efficiency. For overseas buyers, comparing watt-hours makes quotations clearer, but output claims still need matching test conditions. ZIMONAI’s editorial view is that a useful capacity requirement names where energy is measured and when the test ends, alongside the promised quantity. [[source:1]][[source:2]]",
+  "takeaways": [
+    "An mAh figure needs its voltage and measurement location before it can support a fair comparison.",
+    "The PLM13ZM example translates to 37 Wh for cells and 28.05 Wh for the stated output rating; these are published specifications, not our measurements.",
+    "Write the load, port configuration, measurement point and end condition into the capacity acceptance requirement."
+  ],
+  "sections": [
+    {
+      "title": "Start with the voltage behind each mAh figure",
+      "paragraphs": [
+        "Ampere-hours describe electric charge; watt-hours describe energy. For a rating at a stated voltage, the conversion is Wh = (mAh ÷ 1,000) × V. A higher mAh number does not automatically mean more energy if the voltage basis differs. TP-Link’s technical explanation makes this distinction and describes the conversion between the cells and USB output [[source:3]].",
+        "The Xiaomi manual provides a concrete reading exercise: its cell rating gives 10 Ah × 3.7 V = 37 Wh; its rated output gives 5.5 Ah × 5.1 V = 28.05 Wh. The stated 2.6 A is part of the output condition and must travel with that figure. Do not silently relabel it as a 9 V result or a single-port test. The manual lists 5.1 V/2.6 A as its dual-port output specification [[source:1]]."
+      ]
+    },
+    {
+      "title": "A rating comparison is not an efficiency measurement",
+      "paragraphs": [
+        "Dividing 5,500 by 10,000 produces 55%, but combines charge quantities at different voltages. Even dividing the two rated Wh figures would only compare published ratings. Measuring conversion efficiency requires input and output energy measured across a defined boundary during the same test; a nameplate cell rating is not that input measurement.",
+        "The power bank’s conversion circuitry consumes energy, and load conditions can change performance; TP-Link documents this for its own product example [[source:3]]. That explains why output and cell figures need different treatment, but it does not excuse any shortfall a supplier reports. A result should be judged against the promised output specification under the agreed conditions.",
+        "Wh is also the more useful reporting unit when output voltage changes during a test: record voltage, current and elapsed time and accumulate delivered energy. Multiplying total mAh by one selected voltage can misstate the result if that voltage did not apply throughout. This is measurement arithmetic, not a new product certification rule."
+      ]
+    },
+    {
+      "title": "Turn a capacity claim into an acceptance requirement",
+      "paragraphs": [
+        "ZIMONAI recommends agreeing the measurement boundary before comparing samples: energy measured at the USB port differs from energy measured after a cable. Specify the exact model and revision, starting charge procedure, ambient temperature, output voltage or negotiated mode, load profile, active ports and stopping condition. Stay within the manufacturer’s operating limits; this checklist is a purchasing proposal, not a published standard test method.",
+        "A workable order specification would leave explicit fields for minimum delivered Wh, test load, permitted voltage range, measurement point and end condition. Fill those fields with the supplier before ordering. Ask for each sample’s measured result and test record, rather than accepting an unexplained average or a photograph of the front label.",
+        "Use the same procedure for approval samples and shipment checks, and agree how samples represent a lot and how failures are handled. A different cable, load or stopping rule can turn an apparent capacity dispute into a comparison of different tests. The buying decision becomes clearer when both sides can reproduce the promised output, not merely repeat the largest mAh number."
+      ]
+    }
+  ],
+  "checklist": [
+    "Identify whether each capacity figure describes the cells or USB output; retain its voltage and current conditions.",
+    "Compare rated energy in Wh and keep calculations separate from measured results.",
+    "Agree the charge procedure, temperature, load, active ports, measurement point and end condition.",
+    "Record the minimum acceptable output, sample identities, individual results and lot decision rule before shipment."
+  ],
+  "limitsText": "Sources checked 11 November 2026. The Xiaomi figures illustrate one model’s published ratings; no unit was tested for this article. There is no universal efficiency or pass threshold proposed here. Capacity acceptance alone does not establish battery safety, transport eligibility or market compliance."
+},
       maerskQ3PortCongestion: {
   "topic": "Shipping capacity and freight rates",
   "published": "10 November 2026",
@@ -7862,6 +7983,53 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      powerBankCellOutputCapacity: {
+  "topic": "行動電源容量與驗收",
+  "published": "2026 年 11 月 11 日",
+  "readTime": "4 分鐘",
+  "title": "行動電源容量：電芯與 USB 輸出怎麼比？",
+  "description": "10,000 mAh 的行動電源，為何額定輸出容量比較小？用小米 PLM13ZM 原廠規格拆解 mAh、Wh 與測試條件，讓採購要求有明確驗收基準。",
+  "imageAlt": "玫瑰金色的小米行動電源高配版，斜放在淺色木紋桌面。",
+  "imageCaption": "小米行動電源高配版，OnionBulb 攝於 2024 年 8 月 20 日。產品示意，並非本文的 PLM13ZM 範例或 ZIMONAI 測試。照片經縮圖及裁切，沿用 CC BY-SA 4.0 授權。",
+  "answer": "行動電源規格中的電芯容量與額定輸出容量，描述的是不同位置與電壓下的容量。小米 PLM13ZM 手冊同時列出電芯 10,000 mAh／3.7 V，以及額定輸出 5,500 mAh／5.1 V、2.6 A；兩個數字相除，並不是實測轉換效率。海外買家比較報價時，換算成 Wh 有助於統一能量單位，但仍須保留各自的測試條件。ZIMONAI 的判讀是，容量要求若連同量測位置與結束條件一起約定，才有明確的驗收依據。 [[source:1]][[source:2]]",
+  "takeaways": [
+    "mAh 要連同電壓及量測位置一起看，才能比較容量標示。",
+    "PLM13ZM 的兩項規格換算為 37 Wh 與 28.05 Wh；這是標示值換算，並非本文實測。",
+    "容量驗收要先約定負載、使用埠組、量測位置與結束條件。"
+  ],
+  "sections": [
+    {
+      "title": "先看 mAh 背後的電壓",
+      "paragraphs": [
+        "安培小時表示電荷量，瓦特小時表示能量。換算時，將 mAh 除以 1,000，再乘以標示電壓，即可得到 Wh。電壓基準不同時，mAh 較大不代表能量一定較多。TP-Link 的技術說明也區分這兩種單位，並解釋電芯到 USB 輸出的轉換 [[source:3]]。",
+        "小米手冊提供了一個具體例子：電芯標示換算為 10 Ah × 3.7 V = 37 Wh；額定輸出則是 5.5 Ah × 5.1 V = 28.05 Wh。旁邊的 2.6 A 屬於輸出條件，引用容量時也要保留。手冊將 5.1 V／2.6 A 列為雙埠輸出規格，因此這個容量值不宜擅自改稱為 9 V 或單埠測試結果 [[source:1]]。"
+      ]
+    },
+    {
+      "title": "標示值之比，不等於實測效率",
+      "paragraphs": [
+        "5,500 除以 10,000 雖然得到 55%，卻混用了不同電壓下的電荷量。即使改用兩個額定 Wh 數值相除，也只是規格之間的比值。要量測轉換效率，必須先定義量測邊界，再取得同一次測試中的輸入與輸出能量；銘牌上的電芯額定值，並不是這次測試實際量到的輸入。",
+        "轉換電路會消耗能量，負載條件也會影響表現，TP-Link 對自家產品的說明即提到這些因素 [[source:3]]。這能解釋兩種容量為何要分開看，卻不表示供應商提出任何落差都合理。驗收仍應回到事先承諾的輸出規格，以及雙方同意的測試條件。",
+        "測試過程若切換輸出電壓，紀錄應包含電壓、電流與經過時間，逐段累計輸出的 Wh。只把總 mAh 乘上其中一個電壓，可能算錯實際能量。這是量測上的計算原則，並不是另一項產品認證要求。"
+      ]
+    },
+    {
+      "title": "把容量承諾寫成可驗收的規格",
+      "paragraphs": [
+        "ZIMONAI 建議，先談清楚量測位置：在 USB 埠端量測，與經過線材後再量測，是不同的邊界。再約定精確型號與版本、充飽電的程序、環境溫度、輸出電壓或協議模式、負載變化、使用埠組及何時結束測試。各項條件都應落在原廠操作限制內；這是採購建議，並非引用某項標準的完整測試方法。",
+        "訂單規格可分別留下最低輸出 Wh、測試負載、允許電壓範圍、量測位置與結束條件等欄位，向供應商確認後再填入。審閱樣品結果時，要保留個別數值及測試紀錄，避免只拿到沒有條件說明的平均值，或一張正面容量標籤照片。",
+        "樣品認可與出貨抽查應使用相同程序，並事先約定抽樣如何代表該批貨，以及不合格時的處理方式。線材、負載或結束規則不同，都可能讓容量爭議變成兩種測試在互相比較。買家真正需要的是可重現的輸出承諾，這比只比較包裝上最大的 mAh 數字，更有助於決定是否接受交貨。"
+      ]
+    }
+  ],
+  "checklist": [
+    "分清楚電芯與 USB 輸出容量，保留每個數值的電壓及電流條件。",
+    "將額定能量統一為 Wh，並區分計算結果與實測紀錄。",
+    "事先約定充電程序、溫度、負載、使用埠組、量測位置及結束條件。",
+    "出貨前寫明最低輸出要求、樣品身分、個別結果及整批判定方式。"
+  ],
+  "limitsText": "來源查閱於 2026 年 11 月 11 日。小米數值只示範單一型號的原廠規格，本文未實測產品，也未設定通用效率或合格門檻。容量驗收本身不代表電池安全、運輸條件或目的市場要求都已通過。"
+},
       maerskQ3PortCongestion: {
   "topic": "海運艙位與運價",
   "published": "2026 年 11 月 10 日",
@@ -11649,6 +11817,53 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      powerBankCellOutputCapacity: {
+  "topic": "移动电源容量与验收",
+  "published": "2026 年 11 月 11 日",
+  "readTime": "4 分钟",
+  "title": "移动电源容量：电芯与 USB 输出怎样比？",
+  "description": "同一款移动电源为什么有两组 mAh？从小米 PLM13ZM 的原厂参数出发，说明额定输出、Wh 换算和采购验收条件，避免把容量比值误读为效率。",
+  "imageAlt": "浅色木纹桌面上斜放着一块玫瑰金色的小米移动电源高配版。",
+  "imageCaption": "OnionBulb 于 2024 年 8 月 20 日拍摄的小米移动电源高配版。仅作产品示意，并非 PLM13ZM 样机或 ZIMONAI 测试。图片经缩放、裁切，继续采用 CC BY-SA 4.0 许可。",
+  "answer": "移动电源的电芯容量描述内部储能，额定输出容量则对应 USB 端的指定条件。小米 PLM13ZM 手册给出的两组数据分别是 10,000 mAh／3.7 V 和 5,500 mAh／5.1 V、2.6 A，不能把二者之比当成实测效率。对于海外采购方，换算为 Wh 有助于比较能量，但额定数值仍须与测试条件一起使用。ZIMONAI 认为，把测量位置、负载和终止条件写进采购规格，才能将笼统的容量宣传变成双方可核验的交付要求。 [[source:1]][[source:2]]",
+  "takeaways": [
+    "比较 mAh 前，先确认电压以及数值对应电芯还是 USB 输出端。",
+    "这款产品的两项标称参数分别对应 37 Wh 和 28.05 Wh，计算结果不等于实测记录。",
+    "验收容量需要共同确认负载、端口组合、测量位置及终止条件。"
+  ],
+  "sections": [
+    {
+      "title": "相同单位，背后的电压可能不同",
+      "paragraphs": [
+        "安时衡量电荷量，瓦时衡量能量。按指定电压换算额定容量时，可用 Wh =（mAh ÷ 1,000）× V。因此，不能脱离电压来比较两个 mAh 数字。TP-Link 的技术说明区分了电荷与能量，也说明了电芯与 USB 输出之间的转换关系 [[source:3]]。",
+        "以小米 PLM13ZM 手册为例，电芯参数换算为 10 Ah × 3.7 V = 37 Wh，额定输出则为 5.5 Ah × 5.1 V = 28.05 Wh。输出参数还带有 2.6 A 这一条件。手册把 5.1 V／2.6 A 列为双口输出规格，采购资料应保留这一限定，不应改写成单口或 9 V 下的测量结果 [[source:1]]。"
+      ]
+    },
+    {
+      "title": "为什么 55% 不是实测转换效率",
+      "paragraphs": [
+        "将 5,500 除以 10,000，得到的是不同电压条件下两个电荷量的比值。即便先换成 Wh，再相除，也只是比较两项额定参数。真正的效率测量需要明确边界，并在同一次测试中记录输入和输出能量；铭牌电芯容量不能替代该次测试的输入数据。",
+        "电路自身消耗能量，负载变化也可能改变表现，TP-Link 在其产品示例中说明了这些因素 [[source:3]]。但这并不意味着供应商提交的任何容量差异都有理由。是否接受样品，要依据约定的输出指标和测试条件，而不是套用一个行业通用的损耗比例。",
+        "若测试中输出电压发生变化，记录电压、电流与时间并累计 Wh，才能保留完整的能量信息。把累计 mAh 直接乘以某一阶段的电压，可能得出错误结果。这属于测量计算原则，不是一项额外认证。"
+      ]
+    },
+    {
+      "title": "让采购规格可以复测",
+      "paragraphs": [
+        "ZIMONAI 建议先约定在哪儿测量：USB 端口处的结果，与经过线缆后的结果并不是同一边界。随后明确型号和版本、充满电的程序、环境温度、输出电压或协议模式、负载变化、启用的端口组合及停止测试的条件。所有安排都应遵守原厂操作限制；这份建议用于采购沟通，不代替完整的标准试验方法。",
+        "在订单附件中分别填写最低输出 Wh、测试负载、允许电压范围、测量位置和终止条件，比只写一个容量数字更便于验收。这些字段应在下单前与供应商确认。样品报告需要逐个结果及相应记录，只有平均值或外壳标签照片，难以说明测试是否可复现。",
+        "认可样品和检查出货批次时，采用一致的程序，并约定抽样规则与不合格处理。换了线缆、负载或终止条件，争议可能来自测试方法差异。采购方把交付要求落到可复测的输出上，才能判断这批货是否兑现承诺，而不只是比较宣传中的最大 mAh。"
+      ]
+    }
+  ],
+  "checklist": [
+    "确认每项容量属于电芯还是 USB 输出端，并记录电压、电流条件。",
+    "用 Wh 比较额定能量，将换算值与测量结果分别标明。",
+    "确定充电程序、温度、负载、端口组合、测量位置和终止条件。",
+    "发货前约定最低输出、样品编号、逐个结果及批次判定办法。"
+  ],
+  "limitsText": "资料查阅于 2026 年 11 月 11 日。文中数字来自特定型号的公开规格，本次没有进行实物测试，也没有提出统一的效率或合格比例。容量验收不等同于完成电池安全、运输资格或目标市场合规评估。"
+},
       maerskQ3PortCongestion: {
   "topic": "海运运力与运价",
   "published": "2026 年 11 月 10 日",

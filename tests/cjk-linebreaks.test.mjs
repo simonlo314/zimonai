@@ -8,6 +8,24 @@ function removeProtectionMarkup(value) {
   return stripCjkProtectionMarkup(value);
 }
 
+test('power-bank capacity guide preserves native measurement terms and visible copy', () => {
+  const terms = {"zh-tw": ["使用埠組", "相除", "儲能", "電芯容量", "額定輸出", "額定輸出容量", "輸出容量", "額定容量", "電荷量", "安培小時", "瓦特小時", "轉換效率", "量測邊界", "量測位置", "結束條件", "測試負載", "電壓基準", "輸出條件", "雙埠輸出", "單埠測試", "額定能量", "實測紀錄", "個別結果", "整批判定", "容量驗收", "容量標示", "原廠規格", "標示值", "比值", "銘牌", "電芯", "線材", "負載", "充飽電", "可重現", "實測效率", "輸出怎麼比", "行動電源容量", "能量單位", "高配版", "玫瑰金色", "操作限制", "充電程序", "測試紀錄", "抽樣", "承諾", "低於", "最低輸出", "允許電壓範圍", "樣品身分"], "zh-cn": ["端口组合", "相除", "储能", "电芯容量", "额定输出", "额定输出容量", "输出容量", "额定容量", "电荷量", "安时", "瓦时", "转换效率", "测量边界", "测量位置", "终止条件", "测试负载", "电压基准", "输出条件", "双口输出", "单口测试", "额定能量", "测量结果", "逐个结果", "批次判定", "容量验收", "容量标示", "原厂参数", "标称参数", "比值", "铭牌", "电芯", "线缆", "负载", "充满电", "可复测", "实测效率", "输出怎样比", "移动电源容量", "能量单位", "高配版", "玫瑰金色", "操作限制", "充电程序", "测试记录", "抽样规则", "承诺", "最低输出", "允许电压范围", "样品编号"]};
+  for (const [locale, words] of Object.entries(terms)) for (const term of [...words, '小米', 'PLM13ZM', 'TP-Link', 'OnionBulb', 'mAh', 'Wh']) {
+    const text = term + '。';
+    const html = protectCjkText(text, locale);
+    assert.ok(html.includes('>' + text + '</span>'), locale + ': ' + term);
+    assert.equal(removeProtectionMarkup(html), text);
+  }
+  for (const [locale, text, phrase] of [
+    ['zh-tw', '負載、使用埠組、量測位置與結束條件。', '使用埠組、'],
+    ['zh-cn', '即便先换成 Wh，再相除，也只是比较两项额定参数。', '相除，']
+  ]) {
+    const html = protectCjkText(text, locale);
+    assert.equal(removeProtectionMarkup(html), text);
+    assert.ok(html.includes('>' + phrase + '</span>'));
+  }
+});
+
 test('Maersk report keeps native shipping and accounting terms intact', () => {
   const terms = {"zh-tw": ["馬士基", "上調財測", "港口壅塞", "推升運價", "海運艙位", "實收運價", "獲利預估", "船隊規模", "等候靠港", "周轉速度", "名目運能", "船舶數量", "貨櫃船隊", "貨櫃輪", "上海出口貨櫃運價指數", "巴西班讓碼頭", "息稅折舊攤銷前獲利", "財報", "船期", "艙位", "航班", "運價", "運能", "碼頭", "岸橋", "靠港", "開船", "轉船", "報價效期", "庫存緩衝", "基準", "比一年前", "上半年", "每票貨物", "海運業務"], "zh-cn": ["马士基", "上调预期", "港口拥堵", "推高运价", "海运运力", "实收运价", "盈利预期", "船队规模", "等泊时间", "周转效率", "名义运力", "船舶数量", "集装箱船队", "集装箱船", "上海出口集装箱运价指数", "巴西班让码头", "息税折旧摊销前利润", "财报", "船期", "舱位", "航班", "运价", "运力", "码头", "岸桥", "靠港", "离港", "挂靠港", "报价有效期", "库存缓冲", "基准", "上半年", "一票货物", "海运业务"]};
   for (const [locale, words] of Object.entries(terms)) {
