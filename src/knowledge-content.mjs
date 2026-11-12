@@ -38,8 +38,8 @@ export const knowledgeArticleSpecs = [
       "移动电源容量验收"
     ]
   },
-  "datePublished": "2026-11-11",
-  "dateModified": "2026-11-11",
+  "datePublished": "2026-11-12",
+  "dateModified": "2026-11-12",
   "image": "/assets/editorial-power-bank-cell-output-capacity.jpg",
   "imageWidth": 2000,
   "imageHeight": 1125,
@@ -916,7 +916,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-11",
+  "featuredReviewedThrough": "2026-11-12",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4112,7 +4112,7 @@ export const knowledgeContent = {
     articles: {
       powerBankCellOutputCapacity: {
   "topic": "Power-bank capacity and acceptance",
-  "published": "11 November 2026",
+  "published": "12 November 2026",
   "readTime": "4 minutes",
   "title": "Power-bank capacity: comparing cell and USB output ratings",
   "description": "Why a 10,000 mAh power bank can list a lower USB output capacity. Use a Xiaomi specification example to compare Wh and define purchasing acceptance conditions.",
@@ -4155,7 +4155,7 @@ export const knowledgeContent = {
     "Agree the charge procedure, temperature, load, active ports, measurement point and end condition.",
     "Record the minimum acceptable output, sample identities, individual results and lot decision rule before shipment."
   ],
-  "limitsText": "Sources checked 11 November 2026. The Xiaomi figures illustrate one model’s published ratings; no unit was tested for this article. There is no universal efficiency or pass threshold proposed here. Capacity acceptance alone does not establish battery safety, transport eligibility or market compliance."
+  "limitsText": "Sources checked 12 November 2026. The Xiaomi figures illustrate one model’s published ratings; no unit was tested for this article. There is no universal efficiency or pass threshold proposed here. Capacity acceptance alone does not establish battery safety, transport eligibility or market compliance."
 },
       maerskQ3PortCongestion: {
   "topic": "Shipping capacity and freight rates",
@@ -7985,7 +7985,7 @@ export const knowledgeContent = {
     articles: {
       powerBankCellOutputCapacity: {
   "topic": "行動電源容量與驗收",
-  "published": "2026 年 11 月 11 日",
+  "published": "2026 年 11 月 12 日",
   "readTime": "4 分鐘",
   "title": "行動電源容量：電芯與 USB 輸出怎麼比？",
   "description": "10,000 mAh 的行動電源，為何額定輸出容量比較小？用小米 PLM13ZM 原廠規格拆解 mAh、Wh 與測試條件，讓採購要求有明確驗收基準。",
@@ -8028,7 +8028,7 @@ export const knowledgeContent = {
     "事先約定充電程序、溫度、負載、使用埠組、量測位置及結束條件。",
     "出貨前寫明最低輸出要求、樣品身分、個別結果及整批判定方式。"
   ],
-  "limitsText": "來源查閱於 2026 年 11 月 11 日。小米數值只示範單一型號的原廠規格，本文未實測產品，也未設定通用效率或合格門檻。容量驗收本身不代表電池安全、運輸條件或目的市場要求都已通過。"
+  "limitsText": "來源查閱於 2026 年 11 月 12 日。小米數值只示範單一型號的原廠規格，本文未實測產品，也未設定通用效率或合格門檻。容量驗收本身不代表電池安全、運輸條件或目的市場要求都已通過。"
 },
       maerskQ3PortCongestion: {
   "topic": "海運艙位與運價",
@@ -11819,7 +11819,7 @@ export const knowledgeContent = {
     articles: {
       powerBankCellOutputCapacity: {
   "topic": "移动电源容量与验收",
-  "published": "2026 年 11 月 11 日",
+  "published": "2026 年 11 月 12 日",
   "readTime": "4 分钟",
   "title": "移动电源容量：电芯与 USB 输出怎样比？",
   "description": "同一款移动电源为什么有两组 mAh？从小米 PLM13ZM 的原厂参数出发，说明额定输出、Wh 换算和采购验收条件，避免把容量比值误读为效率。",
@@ -11862,7 +11862,7 @@ export const knowledgeContent = {
     "确定充电程序、温度、负载、端口组合、测量位置和终止条件。",
     "发货前约定最低输出、样品编号、逐个结果及批次判定办法。"
   ],
-  "limitsText": "资料查阅于 2026 年 11 月 11 日。文中数字来自特定型号的公开规格，本次没有进行实物测试，也没有提出统一的效率或合格比例。容量验收不等同于完成电池安全、运输资格或目标市场合规评估。"
+  "limitsText": "资料查阅于 2026 年 11 月 12 日。文中数字来自特定型号的公开规格，本次没有进行实物测试，也没有提出统一的效率或合格比例。容量验收不等同于完成电池安全、运输资格或目标市场合规评估。"
 },
       maerskQ3PortCongestion: {
   "topic": "海运运力与运价",
