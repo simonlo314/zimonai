@@ -7,6 +7,76 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the final US maritime-fee suspension and its shipping-cost planning window.
+  // Related questions: publication versus effective date; precise January deadline; fee and equipment-duty scope; commercial quote implications; post-pause contract exposure.
+  {
+  "id": "knowledge-us-china-ship-fee-pause",
+  "key": "usChinaShipFeePause",
+  "contentType": "current-affairs",
+  "slug": "knowledge/us-china-ship-fee-pause",
+  "category": "commercial-risk",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "united-states",
+    "international"
+  ],
+  "keywords": {
+    "en": [
+      "US China-linked ship fees",
+      "Section 301 port fee suspension",
+      "January 2027 shipping costs"
+    ],
+    "zh-tw": [
+      "美國船舶收費暫停",
+      "301 海運措施",
+      "2027 年海運成本"
+    ],
+    "zh-cn": [
+      "美国涉华船舶收费",
+      "301 海运措施暂停",
+      "2027 年海运成本"
+    ]
+  },
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "image": "/assets/editorial-us-china-ship-fee-pause.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 1207,
+  "imageCrop": {
+    "card": "55% 52%",
+    "article": "54% 48%",
+    "mobile": "59% 51%"
+  },
+  "photo": {
+    "photographer": "Downtowngal",
+    "page": "https://commons.wikimedia.org/wiki/File:View_of_Port_of_Los_Angeles_with_container_ships.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "USTR / Federal Register",
+      "title": "Final modification, 10 November 2026: 91 FR 72608–72609, document 2026-22867",
+      "url": "https://www.govinfo.gov/content/pkg/FR-2026-11-10/pdf/2026-22867.pdf"
+    },
+    {
+      "publisher": "FreightWaves — Stuart Chirls",
+      "title": "US postpones China ship tax until January, 11 November 2026",
+      "url": "https://www.freightwaves.com/news/us-postpones-million-dollar-china-ship-tax-until-january"
+    },
+    {
+      "publisher": "Downtowngal / Wikimedia Commons",
+      "title": "View of Port of Los Angeles with container ships, 18 September 2021",
+      "url": "https://commons.wikimedia.org/wiki/File:View_of_Port_of_Los_Angeles_with_container_ships.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 4.0 International",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+},
   // Search intent: compare cell and USB-output capacity claims and define a reproducible purchasing acceptance requirement.
   // Related questions: mAh voltage basis; Wh conversion; ratings versus measured efficiency; load and measurement boundary; sample and shipment acceptance.
   {
@@ -916,7 +986,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-12",
+  "featuredReviewedThrough": "2026-11-13",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4110,6 +4180,55 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      usChinaShipFeePause: {
+  "topic": "Shipping fees and trade policy",
+  "published": "13 November 2026",
+  "readTime": "4 minutes",
+  "title": "US extends China-linked ship fee pause to January",
+  "description": "USTR’s 10 November notice keeps specified maritime fees and cargo-equipment duties suspended into January 2027. What changes for shipping cost planning?",
+  "imageAlt": "Container ships and green cargo cranes at the Port of Los Angeles in a 2021 archival photograph.",
+  "imageCaption": "Port of Los Angeles, 18 September 2021. Archival photograph by Downtowngal / Wikimedia Commons, CC BY-SA 4.0. Resized and cropped under the same licence. The photograph illustrates port operations; it does not establish any pictured vessel’s fee status or a ZIMONAI assignment.",
+  "labels": {
+    "summary": "News summary",
+    "checklist": "What to watch next",
+    "limits": "What remains uncertain"
+  },
+  "answer": "The US Trade Representative’s 10 November 2026 notice extends the pause on specified ship fees and Chinese cargo-equipment duties through 11:59 p.m. Eastern Time on 9 January 2027, effective 9 November [[source:1]]. This shifts buyers’ focus from an imminent fee restart to the terms of bookings that cross the deadline. Commercial freight prices remain outside the notice’s determination. ZIMONAI’s editorial view is that the pause buys time to revise cost assumptions while US–China talks continue, with limited certainty for annual contracts.",
+  "takeaways": [
+    "The final notice extends the suspension through 9 January 2027, with a precise Eastern Time deadline.",
+    "Specified maritime service fees and additional cargo-equipment duties remain suspended; the notice is not a general freight-price cut.",
+    "The next policy decision matters most for bookings and contracts that extend beyond the suspension window."
+  ],
+  "sections": [
+    {
+      "title": "The extension is now a final action",
+      "paragraphs": [
+        "USTR’s final notice appeared in the Federal Register on 10 November 2026. It follows an October proposal and extends the suspension that had run from 10 November 2025 through 9 November 2026. The new notice specifies 9 November as its effective date and 11:59 p.m. Eastern Time on 9 January 2027 as the end of the further suspension. Those are different dates serving different purposes, rather than competing accounts of when the policy changed [[source:1]].",
+        "The suspended fee categories cover Chinese-owned or operated ships, Chinese-built vessels and foreign-built vehicle carriers; their scope is broader than ships flying China’s flag [[source:2]]. During the suspension, parties neither accrue liability for nor have to pay the maritime service fees in Annexes I, II and III of the April 2025 action, as modified. The additional duties in Annex V.A of the October 2025 action, covering Chinese ship-to-shore cranes and other cargo-handling equipment, are also suspended. FreightWaves independently reported the final extension on 11 November [[source:1]][[source:2]]."
+      ]
+    },
+    {
+      "title": "Short-term shipping costs and long-term shipbuilding pull in different directions",
+      "paragraphs": [
+        "The underlying investigation concerns China’s maritime, logistics and shipbuilding policies. In its account of roughly 60 public comments, USTR describes supporters seeking to avoid higher shipping costs and commercial disruption, while opponents argued that the measures encourage investment in US shipbuilding and related industries. Some respondents wanted equipment tariffs treated separately from shipping fees. These are positions recorded in the consultation, not measured economic outcomes [[source:1]].",
+        "That disagreement explains why the extra two months matter without settling the policy. Ship operators plan routes and contracts while shipbuilding investment develops over a much longer period. ZIMONAI’s reading is that extending the pause reduces an immediate cost uncertainty for affected operations, but gives much less visibility for annual commitments. The notice sets a temporary legal window, not a durable cost baseline for the entire supply chain."
+      ]
+    },
+    {
+      "title": "A fee pause changes one part of the freight calculation",
+      "paragraphs": [
+        "For a buyer arranging sea freight, the practical question is whether the quotation includes a provisional allowance for the suspended government measures. A carrier’s freight rate, terminal charges and other commercial items have their own terms. ZIMONAI’s purchasing interpretation is to ask the provider to identify the relevant line item and its trigger before revising the budget. Removing an assumed government charge from a calculation is different from demonstrating that an all-in quote has fallen.",
+        "Bookings that could cross the January deadline deserve a clear allocation of any later policy-related cost. The parties can identify which event controls a contractual adjustment and what happens if the ship changes or the arrival slips; that contract review does not itself decide statutory liability. USTR says it will consider further suspension or other action before the 10 January deadline [[source:1]]. The next meaningful development is that written decision and the resulting changes to actual offers, rather than an assumption that the present pause will become permanent."
+      ]
+    }
+  ],
+  "checklist": [
+    "A further USTR notice extending, changing or ending the suspension before the January deadline.",
+    "Updated quotations that identify whether a government-fee allowance was removed, retained or replaced—and why.",
+    "The cost-adjustment terms for affected bookings whose vessel or arrival date could change."
+  ],
+  "limitsText": "Sources checked 13 November 2026. This report covers the final US maritime-action notice, not every US–China tariff or China’s separate measures. The notice does not establish shipment-specific liability, a required commercial-price reduction or the policy after the suspension. Those questions depend on the applicable rules, future notices and actual booking terms."
+},
       powerBankCellOutputCapacity: {
   "topic": "Power-bank capacity and acceptance",
   "published": "12 November 2026",
@@ -7983,6 +8102,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      usChinaShipFeePause: {
+  "topic": "海運費用與貿易政策",
+  "published": "2026 年 11 月 13 日",
+  "readTime": "4 分鐘",
+  "title": "美國延長對中船舶收費暫停期",
+  "description": "美國 11 月 10 日公告延長暫停特定船舶收費與中國港口設備附加關稅，至 2027 年 1 月 9 日美東深夜。這段緩衝對海運報價與跨年交貨有何意義？",
+  "imageAlt": "2021 年洛杉磯港實景，貨櫃船停靠在綠色岸橋旁。",
+  "imageCaption": "洛杉磯港，攝於 2021 年 9 月 18 日。攝影：Downtowngal／Wikimedia Commons，CC BY-SA 4.0；等比縮圖及裁切，照片沿用相同授權。此為港口作業檔案照，不代表圖中船舶的收費資格，也不是 ZIMONAI 執行案件的現場。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "仍待確認的事項"
+  },
+  "answer": "美國貿易代表署於 2026 年 11 月 10 日公布最終公告，延長暫停針對中國海運、物流與造船業的 301 措施。特定船舶費用及中國港口設備附加關稅，暫停至美東時間 2027 年 1 月 9 日晚間 11 時 59 分；延長措施自 11 月 9 日生效，為美中磋商爭取時間 [[source:1]]。更值得注意的是，這段緩衝僅有兩個月，個別運價與後續政策仍有變數。ZIMONAI 編輯部認為，買家可趁此整理報價假設與費用分攤條款，跨年交貨仍需要更長的成本規劃。",
+  "takeaways": [
+    "最終公告已延長暫停期，截止時間為 2027 年 1 月 9 日美東深夜。",
+    "暫停範圍是指定海運費用與港口設備附加關稅，個別海運報價仍須依合約判斷。",
+    "跨越暫停期限的訂艙與長約，最需要留意下一份正式政策文件。"
+  ],
+  "sections": [
+    {
+      "title": "從提案走到正式延長",
+      "paragraphs": [
+        "這份公告刊登於 2026 年 11 月 10 日《聯邦公報》，接續 10 月提出的延長方案。原先的一年暫停期從 2025 年 11 月 10 日至 2026 年 11 月 9 日；本次延長自 11 月 9 日生效，至 2027 年 1 月 9 日美東時間晚間 11 時 59 分。公告日、生效日與截止時間各有用途，閱讀新聞時不宜混為同一天 [[source:1]]。",
+        "暫停的收費類別包括中國業者擁有或營運的船舶、中國建造的船舶，以及美國以外建造的車輛運輸船，範圍不只看船旗 [[source:2]]。暫停期間，相關當事人不會累積指定費用的支付義務，也無須繳納該費用。範圍涵蓋 2025 年 4 月措施經修訂後的附件 I、II、III 海運服務費，以及 10 月措施附件 V.A 對中國岸橋與其他貨物裝卸設備的附加關稅。FreightWaves 於 11 月 11 日也報導了這次正式延長 [[source:1]][[source:2]]。"
+      ]
+    },
+    {
+      "title": "航運成本與造船投資的拉鋸",
+      "paragraphs": [
+        "美方調查針對中國海運、物流與造船業政策。USTR 彙整約 60 份不同意見：支持續停者主張避免運輸成本上升與商業中斷；反對者則認為，收費有助鼓勵美國造船及相關產業投資。另有意見要求把港口設備關稅與海運費用分開處理。這些是公眾意見的立場，並非主管機關已量測出的經濟成效 [[source:1]]。",
+        "這個分歧，也說明為何短短兩個月仍值得關注。航商要先安排船期與合約，新增造船能力卻需要更長時間。ZIMONAI 的判讀是，續停減少了眼前一項成本變數，但對全年採購承諾提供的確定性有限。企業可利用這段時間調整安排，尚不宜把暫停期當成供應鏈長期成本的固定前提。"
+      ]
+    },
+    {
+      "title": "報價少了一項假設，總價未必同步改變",
+      "paragraphs": [
+        "對安排海運的買家，實際影響在於報價是否預留了這項政府收費。航商運價、碼頭費與其他商業項目仍有各自條款。ZIMONAI 建議先請承運方說明相關費用欄位及觸發條件，再修正預算。刪除一項暫估政府費用，與整份報價確實降價，是兩件需要分別確認的事。",
+        "若訂艙可能跨過 1 月期限，費用由誰承擔就值得事先寫清楚。雙方可確認合約以何種事件調價，以及換船或到港延誤時如何處理；這項約定本身不決定法定收費義務。USTR 表示，會在 1 月 10 日期限前評估繼續暫停或採取其他行動 [[source:1]]。接下來真正影響成本的，是下一份書面決定及實際報價如何調整，而不是將目前續停直接視為永久安排。"
+      ]
+    }
+  ],
+  "checklist": [
+    "USTR 是否在 1 月期限前另行公告延長、調整或終止暫停。",
+    "新報價是否刪除、保留或改列相關政府費用，以及承運方給出的理由。",
+    "涉及船舶或到港日期變動的訂艙，是否約定後續費用調整與分攤方式。"
+  ],
+  "limitsText": "資料查核日期為 2026 年 11 月 13 日。本文範圍限於美方這份海運措施公告，並未涵蓋所有美中關稅或中方另行措施。特定貨件是否負有支付義務、商業報價是否必須調降，以及暫停期後的政策，仍須依適用規則、後續公告與實際訂艙條款判斷。"
+},
       powerBankCellOutputCapacity: {
   "topic": "行動電源容量與驗收",
   "published": "2026 年 11 月 12 日",
@@ -11817,6 +11985,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      usChinaShipFeePause: {
+  "topic": "航运费用与贸易政策",
+  "published": "2026 年 11 月 13 日",
+  "readTime": "4 分钟",
+  "title": "美国延长涉华船舶收费暂停期",
+  "description": "USTR 11 月 10 日公布最终决定，将指定海运费用及中国港口设备附加关税的暂停期延长至 2027 年 1 月 9 日美东深夜，跨年运输成本仍需重新评估。",
+  "imageAlt": "洛杉矶港的集装箱船与绿色岸桥，照片拍摄于 2021 年。",
+  "imageCaption": "2021 年 9 月 18 日的洛杉矶港。摄影：Downtowngal／Wikimedia Commons，CC BY-SA 4.0。照片经等比缩放、裁切，仍按相同许可使用。这是港口作业资料图，不说明图中船舶是否属于收费对象，也不是 ZIMONAI 项目现场。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "尚待明确的问题"
+  },
+  "answer": "美国贸易代表办公室于 2026 年 11 月 10 日发布最终决定，继续暂停针对中国海运、物流和造船业的 301 措施。指定船舶费用及中国港口设备附加关税，暂停至美东时间 2027 年 1 月 9 日 23 时 59 分；延长措施自 11 月 9 日生效，为美中磋商留出时间 [[source:1]]。更值得关注的是，两个月的延期尚未确定具体运价或长期政策方向。ZIMONAI 编辑部认为，采购方获得了重审报价前提与成本分担的时间，跨年交付和年度合同仍需要更长的规划依据。",
+  "takeaways": [
+    "此次公布的是最终决定，暂停持续至 2027 年 1 月 9 日美东深夜。",
+    "指定海运服务费与港口设备附加关税继续暂停，不等于整份运费报价自动降低。",
+    "涉及 1 月期限之后的运输安排，应关注后续正式决定及合同调价条件。"
+  ],
+  "sections": [
+    {
+      "title": "延长决定已经落地",
+      "paragraphs": [
+        "11 月 10 日刊登的《联邦公报》将 10 月提出的方案转为最终行动。此前的一年暂停期为 2025 年 11 月 10 日至 2026 年 11 月 9 日；新决定以 11 月 9 日为生效日期，并写明延长至 2027 年 1 月 9 日美东时间 23 时 59 分。发布日期与生效日期需要分别理解，不能仅凭新闻标题判断适用时点 [[source:1]]。",
+        "相关收费类别涉及中国业者拥有或运营的船舶、中国建造船舶，以及美国以外建造的车辆运输船，并非只按船旗判断 [[source:2]]。公告明确，在暂停期内，相关方既不累积指定费用的付款责任，也不需要支付这些费用。继续暂停的项目包括经修订的 2025 年 4 月措施附件 I、II、III 海运服务费，以及 10 月措施附件 V.A 对中国岸桥和其他货物装卸设备征收的附加关税。FreightWaves 在 11 月 11 日的独立报道中确认了这次延长 [[source:1]][[source:2]]。"
+      ]
+    },
+    {
+      "title": "短期运输安排遇上长期产业目标",
+      "paragraphs": [
+        "USTR 在公告中概述了约 60 份不同意见。支持继续暂停的一方希望避免运输成本增加与商业活动中断；反对的一方则主张通过相关措施鼓励美国造船和配套产业投资。还有意见要求将港口设备关税与海运服务费分开讨论。上述内容反映的是征求意见中的不同主张，并不是经过验证的实际经济效果 [[source:1]]。",
+        "船公司安排航线和签订合同的节奏，与扩大造船能力的周期并不一致。ZIMONAI 的分析是，这次延长先消除了一项眼前的成本不确定性，却没有为年度采购提供同样长度的政策保障。企业仍需区分暂停期间的运输预算和期限之后的合同责任，不能用短期窗口代替长期价格依据。"
+      ]
+    },
+    {
+      "title": "报价调整还要落到具体费用项目",
+      "paragraphs": [
+        "采购方安排海运时，可以先确认报价是否包含针对这项政府措施的暂估费用。基础运价、码头费用及其他商业收费各有依据，公告并未为整份报价定价。ZIMONAI 建议由承运方说明相关项目的名称与触发条件，再讨论预算调整。这样才能分清一项预计收费被取消，和实际成交运价下降之间的差别。",
+        "对于可能跨过 1 月期限的订舱，合同应明确后续政策成本的承担方式，并说明换船、到港推迟等情况如何触发调整；商业约定本身不决定法定收费责任。USTR 表示将于 1 月 10 日期限前考虑继续暂停或采取其他行动 [[source:1]]。下一步应观察书面决定和承运方正式报价的变化，目前的延期并未确定永久解决方案。"
+      ]
+    }
+  ],
+  "checklist": [
+    "美国是否在 1 月期限前公布继续暂停、修改或恢复相关措施的正式文件。",
+    "新版报价中的相关政府费用是否删除、保留或调整，承运方如何解释。",
+    "船舶或到港日期发生变化时，合同对费用调整及分担是否有明确安排。"
+  ],
+  "limitsText": "资料核对截至 2026 年 11 月 13 日。本文只讨论美国这份海运措施公告，其他美中关税以及中方单独措施不在本次分析范围内。具体货物的法定责任、商业报价是否需要下降、暂停期后的政策安排，须结合适用规定、后续公告及实际订舱合同判断。"
+},
       powerBankCellOutputCapacity: {
   "topic": "移动电源容量与验收",
   "published": "2026 年 11 月 12 日",

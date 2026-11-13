@@ -1,5 +1,14 @@
 # Third-party visual assets
 
+## US maritime-fee suspension — 13 November 2026
+
+- Local asset: `src/assets/editorial-us-china-ship-fee-pause.jpg`, 2000 × 1207 JPEG. Real photograph by Downtowngal, taken 18 September 2021. [Original file page](https://commons.wikimedia.org/wiki/File:View_of_Port_of_Los_Angeles_with_container_ships.jpg); original 4334 × 2364 JPEG at https://upload.wikimedia.org/wikipedia/commons/9/9a/View_of_Port_of_Los_Angeles_with_container_ships.jpg . Downloaded 13 November 2026.
+- The creator's own-work declaration and [CC BY-SA 4.0 licence](https://creativecommons.org/licenses/by-sa/4.0/) checked on that date. Commercial website reuse permitted with attribution, licence, modification notice and share-alike. The adapted photograph retains that licence; article text is not relicensed. No endorsement implied.
+- Processing: original crop rectangle (1600, 250, 4334, 1900), proportional resize to 2000 × 1207 (rounding to whole pixels), JPEG compression, separate responsive CSS crops. No generated content, enlargement, compositing or factual alteration.
+- Use: existing trilingual knowledge route reporting USTR's final 10 November extension. This recognisable US port scene is archival shipping context; no particular vessel's nationality, ownership, construction origin, charge eligibility or present operations are asserted. It is not a ZIMONAI visit, supplier or customer record. Original USTR notice has no event photograph; news-site images are not copied.
+- Focal targets selected independently: card `55% 52%`, desktop `54% 48%`, mobile `59% 51%`. Preserve the ships and crane structure; actual rendered inspection is required. Existing ordinary cards remain text-only; inspect the existing 16:10 photo slot separately. Visible native captions credit photographer, source, licence and crop.
+- Editorial lead reviewed through 13 November: retain the Infineon GaN manufacturing story for its direct charger-sector relevance. No architecture or navigation change.
+
 ## EU BTI charger-import guide — reused port photograph, 26 October 2026
 
 - Reused `src/assets/editorial-china-aeo-port.jpg`, 2000 × 1230 JPEG. Dinkun Chen's real own-work photograph of Mawan Port, Shenzhen, taken 12 December 2020. [Original file page](https://commons.wikimedia.org/wiki/File:MAWAN_PORT,_SHENZHEN_(4).jpg), original 6960 × 4640; downloaded 14 October 2026. No new download or inferred date.
