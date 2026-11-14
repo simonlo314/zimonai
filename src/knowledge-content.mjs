@@ -7,6 +7,82 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: assess charger manufacturing burn-in records for batch acceptance.
+  // Related questions: screening purpose; test conditions and unit coverage; failure traceability; rework and retest; service-life claims.
+  {
+  "id": "knowledge-charger-burn-in-test-records",
+  "key": "chargerBurnInTestRecords",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/charger-burn-in-test-records",
+  "category": "factory-onsite",
+  "products": [
+    "charger",
+    "power-adapter",
+    "gan-charger"
+  ],
+  "markets": [
+    "international"
+  ],
+  "keywords": {
+    "en": [
+      "charger burn-in report",
+      "power supply screening records",
+      "burn-in versus service life"
+    ],
+    "zh-tw": [
+      "充電器老化測試",
+      "電源老化紀錄",
+      "老化測試與使用壽命"
+    ],
+    "zh-cn": [
+      "充电器老化测试",
+      "电源老化记录",
+      "老化测试与使用寿命"
+    ]
+  },
+  "datePublished": "2026-11-15",
+  "dateModified": "2026-11-15",
+  "image": "/assets/editorial-charger-burn-in-record.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 1509,
+  "imageCrop": {
+    "card": "52% 35%",
+    "article": "54% 30%",
+    "mobile": "55% 36%"
+  },
+  "photo": {
+    "photographer": "Thomas Schanz",
+    "page": "https://commons.wikimedia.org/wiki/File:HP-HP9000-375-PowerSupply-0950-1760_27.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "sources": [
+    {
+      "publisher": "NASA / Small Satellite Reliability Initiative",
+      "title": "SSRI Knowledge Base — Burn-In (Integration and Test / Thermal Testing)",
+      "url": "https://s3vi.ndc.nasa.gov/ssri-kb/topics/47/"
+    },
+    {
+      "publisher": "NIST/SEMATECH",
+      "title": "Engineering Statistics Handbook 8.3.1.4 — Accelerated life tests",
+      "url": "https://www.itl.nist.gov/div898/handbook/apr/section3/apr314.htm"
+    },
+    {
+      "publisher": "NIST/SEMATECH",
+      "title": "Engineering Statistics Handbook 8.4.3 — Projecting reliability at use conditions",
+      "url": "https://www.itl.nist.gov/div898/handbook/apr/section4/apr43.htm"
+    },
+    {
+      "publisher": "Thomas Schanz / Wikimedia Commons",
+      "title": "HP-HP9000-375-PowerSupply-0950-1760 27.jpg (2013); crop by DigitalIceAge (2022)",
+      "url": "https://commons.wikimedia.org/wiki/File:HP-HP9000-375-PowerSupply-0950-1760_27.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 3.0 Unported",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0/"
+    }
+  ]
+},
   // Search intent: understand the final US maritime-fee suspension and its shipping-cost planning window.
   // Related questions: publication versus effective date; precise January deadline; fee and equipment-duty scope; commercial quote implications; post-pause contract exposure.
   {
@@ -986,7 +1062,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-13",
+  "featuredReviewedThrough": "2026-11-15",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4180,6 +4256,59 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      chargerBurnInTestRecords: {
+  "topic": "Manufacturing tests and shipment evidence",
+  "published": "15 November 2026",
+  "readTime": "5 minutes",
+  "title": "Charger burn-in reports: how to assess the evidence",
+  "description": "Read charger burn-in records beyond the hour count: identify the units, operating conditions, failures and retests, and separate screening from service-life claims.",
+  "imageAlt": "An archival HP9000 workstation power supply with a BURN IN inspection field on its metal enclosure.",
+  "imageCaption": "HP9000/375 power supply, photographed in 2013 by Thomas Schanz; prior crop by DigitalIceAge. Wikimedia Commons, CC BY-SA 3.0. Resized, compressed and cropped for layout under the same licence. This historical illustration is not a charger shipment record or a ZIMONAI project.",
+  "labels": {
+    "summary": "Reader summary",
+    "checklist": "Buyer checklist",
+    "limits": "Scope and evidence limits"
+  },
+  "answer": "A charger burn-in record documents operation under specified conditions as part of manufacturing screening. Its value lies in linking the tested units, conditions and failures; test hours alone do not establish service life [[source:1]][[source:3]]. For overseas buyers, those links determine whether the report supports acceptance of the ordered batch. ZIMONAI’s editorial view is that a traceable account of failures and retests is more useful than a long hour count accompanied only by a pass stamp.",
+  "takeaways": [
+    "Read the test method and unit coverage before comparing durations.",
+    "Keep original failures visible when reviewing rework and retest results.",
+    "A service-life projection needs evidence beyond a manufacturing screening record."
+  ],
+  "sections": [
+    {
+      "title": "Start with what the supplier means by burn-in",
+      "paragraphs": [
+        "In electronics screening, burn-in involves operating hardware for a defined period, often at elevated temperature, to expose defects. NASA’s small-spacecraft guidance discusses this purpose and the effect of operating configuration on coverage [[source:1]]. It is a spacecraft reference, not a required charger test recipe. A supplier’s use of the same term does not identify its actual procedure.",
+        "ZIMONAI recommends requesting the method revision, charger model and hardware revision, batch or serial-number coverage, tested quantity and shipment quantity together. A sample run and a claim that every unit was screened require different supporting records. An equipment booking or a photograph of a loaded rack shows neither which units completed the run nor their individual results.",
+        "For a charger order, ask the manufacturer to state the input supply, output load and mode, ambient or chamber temperature, start and stop times, interruptions and acceptance limits. If the design has multiple outputs, the record should identify the configuration exercised. This is a purchasing evidence request; the appropriate settings must come from the product’s engineering requirements, not a universal number of hours chosen by the buyer."
+      ]
+    },
+    {
+      "title": "Follow failed units through to their final disposition",
+      "paragraphs": [
+        "A summary marked “pass” leaves an important commercial question unanswered: did every unit pass initially, or does the summary describe only the units retained after screening? ZIMONAI’s suggested review is to reconcile units started, completed, failed, removed, reworked and retested against the shipment list. The same unit may appear in more than one status, so adding all status totals together can double-count it.",
+        "Ask for the relevant measurements or functional checks, their acceptance limits, observed deviations, failure timing and any test interruption. For reworked units, retain the original failure entry and link the repair and retest to the same identifier. A successful retest then has a clear meaning without erasing the earlier defect. The buyer and manufacturer should agree how unresolved failures, replacements and incomplete runs affect shipment release."
+      ]
+    },
+    {
+      "title": "Keep screening evidence separate from life predictions",
+      "paragraphs": [
+        "Accelerated life testing is designed around the failure mechanisms and stress conditions being studied. NIST cautions against stresses that create mechanisms unlike those expected in use [[source:2]]. Its guidance on projecting reliability also requires justified acceleration and life-distribution models, applied to the relevant failure mechanism [[source:3]]. A duration printed on a production record provides none of those assumptions by itself.",
+        "If a supplier claims that a screening run represents several years of use, ask for the underlying reliability study, use conditions, model assumptions and uncertainty. ZIMONAI’s assessment is to treat that claim as a separate review item while checking the production record against the agreed screening method. A longer run is not automatically a better acceptance basis, and a warranty term is a commercial commitment with its own conditions—not a measurement of the tested units’ remaining life."
+      ]
+    }
+  ],
+  "checklist": [
+    "Match the model, hardware revision and unit identifiers to the order and shipment.",
+    "Establish whether the record covers samples or every shipped unit, and reconcile the quantities.",
+    "Read the method revision, input, load configuration, temperature and acceptance limits.",
+    "Check completed operating time, interruptions and the measurements supporting the result.",
+    "Trace each failure through removal, repair or retest without deleting its original entry.",
+    "Request a separate reliability basis for any conversion from test hours to years of service."
+  ],
+  "limitsText": "Sources checked 15 November 2026. This guide explains how buyers can review records; it specifies no universal charger burn-in temperature, duration or acceptance limit. NASA’s reference concerns spacecraft electronics and NIST provides reliability methods, not product certification. No supplier record or shipment was examined for this article. Record authenticity, method suitability and actual execution need separate evidence; a screening report does not replace required safety or market-access documentation."
+},
       usChinaShipFeePause: {
   "topic": "Shipping fees and trade policy",
   "published": "13 November 2026",
@@ -8102,6 +8231,59 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      chargerBurnInTestRecords: {
+  "topic": "製造測試與出貨紀錄",
+  "published": "2026 年 11 月 15 日",
+  "readTime": "5 分鐘",
+  "title": "充電器老化測試：紀錄應該怎麼讀？",
+  "description": "充電器老化測試不能只比時數。從受測批次、負載與溫度、異常處置到重測紀錄，釐清製造篩選與使用壽命推估各自需要的證據。",
+  "imageAlt": "HP9000 工作站的金屬外殼電源供應器，可見 BURN IN 測試欄位。",
+  "imageCaption": "2013 年拍攝的 HP9000/375 電源供應器。攝影：Thomas Schanz；DigitalIceAge 曾裁切原圖。來源：Wikimedia Commons，CC BY-SA 3.0。本圖等比縮小、壓縮並依版面裁切，沿用相同授權；為歷史示意照片，並非充電器出貨紀錄或 ZIMONAI 案件。",
+  "labels": {
+    "summary": "讀者摘要",
+    "checklist": "買家核對清單",
+    "limits": "範圍與限制"
+  },
+  "answer": "充電器老化測試紀錄，是產品在指定條件下持續運轉、進行製造篩選的過程紀錄。閱讀重點在於受測產品、運轉條件與異常結果如何對應，單靠累計時數並不足以推算使用壽命 [[source:1]][[source:3]]。海外買家掌握這些關係，才有依據判斷報告是否涵蓋這次訂單，而非只看到一張通過章。ZIMONAI 的編輯判讀是，保留失敗原因與重測歷程的完整紀錄，比只有漂亮時數的合格摘要，更能支持出貨前的接受或追查決定。",
+  "takeaways": [
+    "先看測試方法與受測範圍，再比較老化時數。",
+    "重測通過仍應保留原先異常，讓改善過程可以追溯。",
+    "製造篩選與使用壽命推估，需要不同層次的證據。"
+  ],
+  "sections": [
+    {
+      "title": "先釐清供應商所稱的老化測試",
+      "paragraphs": [
+        "電子產品的老化篩選，會讓硬體運轉一段時間，常搭配較高溫度，以找出缺陷。NASA 的小型衛星可靠度資料也說明這項目的，以及運轉配置對測試涵蓋範圍的影響 [[source:1]]。這是太空設備的參考資料，並不是充電器應照搬的測試規格；供應商使用同一名稱，也不表示做了同一套試驗。",
+        "ZIMONAI 建議買家把方法版本、產品型號、硬體版本、批次或序號、受測數量與出貨數量放在一起看。抽取樣品測試，與宣稱每一台都做過，應提出的對應紀錄不同。測試設備的排程或滿架產品照片，也無法交代哪些產品完成運轉，以及各自得到什麼結果。",
+        "針對充電器，採購要求可列出輸入條件、輸出負載與模式、環境或箱內溫度、起訖時間、中斷情形及接受限值。多孔機種還應寫明使用了哪些輸出配置。這些是紀錄應回答的問題；實際設定仍須依產品工程要求決定，不宜由買家任意指定一個通用時數。"
+      ]
+    },
+    {
+      "title": "從首次失敗追到最後的處置結果",
+      "paragraphs": [
+        "一張寫著「合格」的摘要，可能只描述最後留下的產品，沒有交代是否曾經失敗。ZIMONAI 建議以產品識別資料逐筆核對：哪些開始測試、完成測試、發生異常、退出、維修或重測，最後哪些進入出貨名單。同一台可能先後出現在不同狀態，不能把所有欄位數量直接相加當成總台數。",
+        "請供應商說明判定所依據的量測值或功能檢查、接受限值、偏差、失敗時間，以及測試中斷情形。維修後重測的產品，應保留原始異常，再把處置與新結果連回同一識別資料。如此才能看懂「重測通過」的意義，而不會把先前缺陷消失在彙總表裡。未結異常、替換品與未完成測試如何影響出貨，也應由雙方事先約定。"
+      ]
+    },
+    {
+      "title": "老化時數與使用年限分開判斷",
+      "paragraphs": [
+        "加速壽命試驗需要圍繞受研究的失效機制與應力條件設計。NIST 提醒，應避免過高應力造成實際使用時不會出現的失效機制 [[source:2]]。從試驗推估使用條件下的可靠度，還需要有依據的加速模型與壽命分布模型，並針對相關失效機制分析 [[source:3]]。生產紀錄上的一個時數，本身沒有提供這些推估前提。",
+        "若供應商宣稱某次老化相當於使用數年，買家可另索取可靠度研究、預設使用條件、模型依據與不確定性。ZIMONAI 的判讀是，把年限宣稱列為獨立查證項目，製造紀錄則依雙方約定的方法驗收。運轉越久並不自動代表證據越好；保固期限也屬於有條件的商業承諾，不是受測產品剩餘壽命的量測結果。"
+      ]
+    }
+  ],
+  "checklist": [
+    "確認型號、硬體版本與產品識別資料對得上訂單及出貨品。",
+    "分清抽樣或全數測試，核對受測範圍與出貨數量。",
+    "取得方法版本、輸入條件、負載配置、溫度與接受限值。",
+    "核對實際完成的運轉時間、中斷紀錄與判定所用的量測資料。",
+    "逐筆追溯異常、退出、維修與重測，保留首次失敗紀錄。",
+    "對「測試時數等於使用年限」的宣稱，另索取可靠度推估依據。"
+  ],
+  "limitsText": "資料查核日期為 2026 年 11 月 15 日。本文是買家閱讀紀錄的方法，未設定所有充電器通用的老化溫度、時間或接受限值。NASA 資料針對太空電子設備，NIST 提供可靠度分析方法，均不等於產品認證。本文沒有查驗特定供應商或出貨批次；紀錄真偽、方法是否適合及實際執行情形，仍需各自取得證據。老化紀錄也不能替代應備的安全及市場准入文件。"
+},
       usChinaShipFeePause: {
   "topic": "海運費用與貿易政策",
   "published": "2026 年 11 月 13 日",
@@ -11985,6 +12167,59 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      chargerBurnInTestRecords: {
+  "topic": "生产测试与交付资料",
+  "published": "2026 年 11 月 15 日",
+  "readTime": "5 分钟",
+  "title": "充电器老化测试：记录应该怎么看？",
+  "description": "评估充电器老化报告，重点在测试对象、负载条件和异常处理。了解采购方应索取哪些记录，以及老化时长与寿命预测之间的证据差别。",
+  "imageAlt": "一台 HP9000 工作站电源，金属外壳上有 BURN IN 等测试项目栏。",
+  "imageCaption": "HP9000/375 电源资料照片，Thomas Schanz 摄于 2013 年；DigitalIceAge 对原图做过裁剪。来源：Wikimedia Commons，CC BY-SA 3.0。本次等比缩放、压缩并按版面裁剪，继续使用相同许可。图片仅作历史示意，不是充电器批次证明或 ZIMONAI 项目现场。",
+  "labels": {
+    "summary": "阅读摘要",
+    "checklist": "采购核对要点",
+    "limits": "范围与证据边界"
+  },
+  "answer": "充电器的老化记录用于说明产品在规定条件下运行的过程，为生产筛选提供资料。记录是否有用，取决于测试对象、运行条件及异常处理能否相互对应；累计时长本身还不足以支持使用寿命预测 [[source:1]][[source:3]]。对海外采购方来说，这些对应关系决定了报告能否用于审查本次交付，而不是只接受一个合格结论。ZIMONAI 的编辑判断是，能够追溯初次失败和后续复测的记录，比单独强调老化时间更有助于识别交付前尚未解决的问题。",
+  "takeaways": [
+    "比较时长之前，先弄清测试方法和覆盖的产品。",
+    "复测合格仍应保留原始异常及处理记录。",
+    "生产筛选记录和寿命预测报告回答的是不同问题。"
+  ],
+  "sections": [
+    {
+      "title": "报告名称之外，实际做了什么",
+      "paragraphs": [
+        "电子设备的老化筛选通常让硬件持续运行，常结合较高温度，以暴露缺陷。NASA 的小卫星可靠性资料介绍了这种用途，并说明运行配置会影响测试覆盖范围 [[source:1]]。该资料面向航天电子设备，不是消费类充电器的强制试验方案。采购方仍需了解供应商自行使用的“老化测试”具体包含哪些步骤。",
+        "ZIMONAI 建议先核对方法版本、产品型号、硬件版本、批次或序列号，再把受测数量与交付数量对应起来。部分样品完成测试，与所有交付产品都接受筛选，是两种不同范围的陈述。设备排期和老化架照片可提供背景，却不足以说明每件产品的完成状态与结果。",
+        "对于充电器，建议要求记录输入条件、输出负载及工作模式、环境或试验箱温度、起止时间、暂停情况和判定限值。多接口产品应说明当时采用的输出组合。采购方是在明确需要哪些证据；具体应力与持续时间应由产品工程要求决定，不能把任意时长套用于所有机型。"
+      ]
+    },
+    {
+      "title": "合格汇总里有没有保留失败记录",
+      "paragraphs": [
+        "报告上的合格数量，可能是最初全部通过，也可能是筛选后留下的数量。ZIMONAI 建议按产品标识核对开始测试、完成、失败、移出、维修和复测等状态，再与交付清单衔接。同一产品可能依次经历多个状态，这些分类数量未必互斥，直接相加容易重复计算。",
+        "审阅时应要求提供相关测量或功能检查结果、判定限值、偏差、异常发生时间及运行中断信息。经过维修的产品，要保留原始失败记录，并把处理措施和复测结果关联到同一标识。复测通过由此才有可解释的过程。对于仍未解决的异常、替换产品或未完成的测试，买卖双方还应约定是否允许交付及需要补充什么资料。"
+      ]
+    },
+    {
+      "title": "从运行时长到寿命预测，还缺哪些依据",
+      "paragraphs": [
+        "NIST 的加速寿命试验方法强调失效机理与应力条件的选择，提醒避免引入正常使用下不会出现的失效机理 [[source:2]]。将高应力试验外推到使用环境，还需要合理的加速模型和寿命分布模型，并按相应失效机理分析 [[source:3]]。生产报告中写出的累计时长，并没有自动包含这些前提。",
+        "供应商若把老化时长换算为数年寿命，采购方应另行索取可靠性研究、使用条件、模型依据与不确定性说明。ZIMONAI 的判断是，把寿命主张单独审查，生产记录则回到约定的筛选方法和交付条件。更长的测试不必然带来更充分的验收证据；保修期限同样属于附带条件的商业承诺，并非这批产品剩余寿命的实测值。"
+      ]
+    }
+  ],
+  "checklist": [
+    "将型号、硬件版本和产品标识对应到订单及交付清单。",
+    "确认测试属于抽样还是全数覆盖，核对数量及范围。",
+    "查看方法版本、输入条件、负载组合、温度和判定限值。",
+    "核实实际运行时间、暂停记录及支撑结论的测量结果。",
+    "保留初次失败，逐项追踪移出、维修、复测及最终处理。",
+    "对时长换算年限的说法，要求独立的可靠性预测依据。"
+  ],
+  "limitsText": "资料核对截至 2026 年 11 月 15 日。本文帮助采购方审阅记录，不规定适用于全部充电器的老化温度、时长或判定限值。NASA 资料讨论航天电子设备，NIST 说明可靠性分析方法，均不是产品认证。本文没有审查任何供应商或交付批次；记录真实性、方法适用性以及实际执行仍需分别验证。生产老化记录不能替代应有的安全和市场准入文件。"
+},
       usChinaShipFeePause: {
   "topic": "航运费用与贸易政策",
   "published": "2026 年 11 月 13 日",

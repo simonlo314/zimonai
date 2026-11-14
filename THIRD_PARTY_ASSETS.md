@@ -386,3 +386,15 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Proportional resize, JPEG compression and responsive cropping only. No AI generation, extension, compositing or factual alteration. Separate focus: card `48% 53%`, desktop `47% 50%`, mobile `51% 54%`; actual rendered approval remains required. Existing regular cards stay text-only, with the existing 16:10 image slot previewed separately.
 - Category illustration for all three capacity-guide routes. Captions identify the pictured Power Bank Pro as distinct from the article's PLM13ZM specification example and from a ZIMONAI test, sample or assignment. The older YipC photograph was inspected and rejected for soft focus and an unclear label. No ordinary Xiaomi product-page image was reused.
 - Featured lead review: retain the existing Infineon Villach report for its direct power-electronics relevance; advance only its review-through date. No template or navigation change.
+
+## 2026-11-15 — Charger burn-in records
+
+- Local asset: `src/assets/editorial-charger-burn-in-record.jpg` (2000 × 1509).
+- Creator: Thomas Schanz; original photograph taken 2013-10-05. Commons current version cropped by DigitalIceAge on 2022-08-16.
+- Original title: HP-HP9000-375-PowerSupply-0950-1760 27.jpg.
+- Source page: https://commons.wikimedia.org/wiki/File:HP-HP9000-375-PowerSupply-0950-1760_27.jpg
+- Download: https://upload.wikimedia.org/wikipedia/commons/9/9d/HP-HP9000-375-PowerSupply-0950-1760_27.jpg (3000 × 2264), downloaded 2026-11-15.
+- Licence: CC BY-SA 3.0 Unported, https://creativecommons.org/licenses/by-sa/3.0/ . Creator and crop history verified on the original file page; attribution, licence link and modification notice shown with the image and in sources. This image adaptation remains under CC BY-SA 3.0.
+- Changes: proportional downsize (rounded pixel height), JPEG compression; responsive display cropping only. No generative or content edits.
+- Use: archival HP9000/375 workstation power supply with visible BURN IN test field, illustrating documentation categories for the three-language charger burn-in guide. Not a modern charger, batch test result, verified factory record, ZIMONAI customer or project photograph.
+- Crop intent: card 52% 35%, desktop article 54% 30%, mobile article 55% 36%; retain the enclosure, test fields and recognizable power-supply context. Actual local browser acceptance completed for card-crop preview, desktop and mobile article views on 2026-11-15; photographic subject and test fields retained. Regular index cards retain the existing text-only template.

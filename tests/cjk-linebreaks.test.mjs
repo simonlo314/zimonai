@@ -1861,3 +1861,18 @@ test('SMETA report review preserves native social-audit and corrective-action te
  for(const [locale,text]of Object.entries(contexts))assert.equal(removeProtectionMarkup(protectCjkText(text,locale)),text);
  for(const [locale,terms]of Object.entries({'zh-tw':['獨立聯絡管道','縮小版本','出貨驗收','出貨查核','產品品質'],'zh-cn':['独立联系方式','缩小版本','出货验收','出货核查','产品质量','批量质量']}))for(const term of terms){const html=protectCjkText(term+'。',locale);assert.equal(removeProtectionMarkup(html),term+'。');assert.ok(html.includes('>'+term+'。</span>'));}
 });
+
+
+test('charger burn-in record terminology stays intact with unchanged visible text', () => {
+  const terms = {"zh-tw":["老化測試","老化篩選","老化時數","使用壽命","使用年限","壽命推估","製造篩選","受測範圍","受測產品","受測數量","方法版本","硬體版本","產品識別資料","負載配置","接受限值","起訖時間","首次失敗","原始異常","異常處置","重測紀錄","重測通過","重測歷程","失效機制","應力條件","加速模型","壽命分布模型","加速壽命試驗","可靠度研究","可靠度推估","可靠度分析","太空設備","太空電子設備","輸出配置","多孔機種","累計時數","運轉條件","判定限值","工作站","電源供應器","歷史示意照片","出貨名單","剩餘壽命","保固期限","採購要求","初次失敗","測試方法","改善過程","輸入條件"],"zh-cn":["老化测试","老化筛选","老化时长","使用寿命","使用年限","寿命预测","生产筛选","测试对象","方法版本","硬件版本","产品标识","负载组合","判定限值","起止时间","初次失败","原始异常","异常处理","复测记录","复测合格","失效机理","应力条件","加速模型","寿命分布模型","加速寿命试验","可靠性研究","可靠性预测","可靠性分析","航天电子设备","输出组合","多接口产品","累计时长","运行条件","测试覆盖范围","工作站","资料照片","交付清单","剩余寿命","保修期限","交付条件","测量结果","输入条件","试验箱温度","运行中断","可靠性资料","生产报告"]};
+  for(const [locale,words] of Object.entries(terms))for(const term of [...words,...["NASA","SSRI","SEMATECH","Thomas Schanz","DigitalIceAge","HP9000/375","HP9000","BURN IN"]]){
+    const text=term+'。'; const html=protectCjkText(text,locale);
+    assert.ok(html.includes('>'+text+'</span>'),locale+': '+term);
+    assert.equal(removeProtectionMarkup(html),text);
+  }
+});
+
+test('burn-in review keeps batch terms and trailing punctuation together',()=>{
+ const terms={"zh-tw":["受測批次","小型衛星","總台數","時數","重測","老化紀錄","處理紀錄"],"zh-cn":["受测批次","小卫星","总台数","时数","复测","老化记录","处理记录"]};
+ for(const [locale,words]of Object.entries(terms))for(const term of words)for(const mark of ['。','，']){const text=term+mark;const html=protectCjkText(text,locale);assert.ok(html.includes('>'+text+'</span>'),locale+text);assert.equal(removeProtectionMarkup(html),text);}
+});
