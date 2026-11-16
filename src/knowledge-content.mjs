@@ -7,6 +7,85 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand Canon FPA-6400ES6a launch and manufacturing value.
+  // Related questions: launch timing; throughput workload; overlay versus resolution; wafer warpage; customer qualification evidence.
+  {
+  "id": "knowledge-canon-krf-scanner-productivity",
+  "key": "canonKrfScannerProductivity",
+  "contentType": "current-affairs",
+  "slug": "knowledge/canon-krf-scanner-productivity",
+  "category": "factory-onsite",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "international"
+  ],
+  "keywords": {
+    "en": [
+      "Canon FPA-6400ES6a",
+      "KrF scanner 400 wafers per hour",
+      "overlay accuracy versus resolution"
+    ],
+    "zh-tw": [
+      "Canon KrF 掃描機",
+      "每小時 400 片晶圓",
+      "套刻精度與解析度"
+    ],
+    "zh-cn": [
+      "佳能 KrF 扫描机",
+      "每小时 400 片晶圆",
+      "套刻精度与分辨率"
+    ]
+  },
+  "datePublished": "2026-11-16",
+  "dateModified": "2026-11-16",
+  "image": "/assets/editorial-canon-headquarters.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 2000,
+  "imageCrop": {
+    "card": "45% 15%",
+    "article": "46% 8%",
+    "mobile": "49% 18%"
+  },
+  "photo": {
+    "photographer": "Asanagi",
+    "page": "https://commons.wikimedia.org/wiki/File:Canon_headquarters_2024-05-04.jpg",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  "sources": [
+    {
+      "publisher": "Canon",
+      "title": "FPA-6400ES6a announcement, 10 November 2026",
+      "url": "https://global.canon/en/news/2026/20261110.html"
+    },
+    {
+      "publisher": "Canon",
+      "title": "FPA-6400ES6a product specifications",
+      "url": "https://global.canon/en/product/indtech/semicon/fpa6400es6a.html"
+    },
+    {
+      "publisher": "DIGITIMES — Jingyue Hsiao",
+      "title": "Canon to launch KrF lithography scanner rated at 400 wafers per hour in December, 11 November 2026; public introduction",
+      "url": "https://www.digitimes.com/news/a20261111PR200/canon-launch-scanner-2026-wafer.html"
+    },
+    {
+      "publisher": "ASML",
+      "title": "Measuring accuracy — lithography principles",
+      "url": "https://www.asml.com/en/technology/lithography-principles/measuring-accuracy"
+    },
+    {
+      "publisher": "Asanagi / Wikimedia Commons",
+      "title": "Canon headquarters, photographed 4 May 2024 — CC0",
+      "url": "https://commons.wikimedia.org/wiki/File:Canon_headquarters_2024-05-04.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "CC0 1.0 Universal Public Domain Dedication",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ]
+},
   // Search intent: assess charger manufacturing burn-in records for batch acceptance.
   // Related questions: screening purpose; test conditions and unit coverage; failure traceability; rework and retest; service-life claims.
   {
@@ -1062,7 +1141,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-15",
+  "featuredReviewedThrough": "2026-11-16",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4256,6 +4335,55 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      canonKrfScannerProductivity: {
+  "topic": "Semiconductor manufacturing equipment",
+  "published": "16 November 2026",
+  "readTime": "4 minutes",
+  "title": "Canon’s new KrF scanner targets 400 wafers an hour",
+  "description": "Canon announced the FPA-6400ES6a on 10 November for an early-December launch. Read its throughput conditions, overlay specification and manufacturing implications.",
+  "imageAlt": "Canon’s headquarters in Tokyo, photographed in May 2024, with the company name visible on the building.",
+  "imageCaption": "Canon headquarters in Tokyo, 4 May 2024. Photograph: Asanagi / Wikimedia Commons, CC0. Resized and compressed; cropped by the page layout. This archival company photograph does not show the new scanner or a ZIMONAI project.",
+  "labels": {
+    "summary": "News summary",
+    "checklist": "What to watch next",
+    "limits": "What remains unconfirmed"
+  },
+  "answer": "Canon announced the FPA-6400ES6a KrF scanner on 10 November 2026, with an early-December launch planned for memory and logic manufacturing [[source:1]]. Its stated 400-wafer hourly throughput depends on a defined exposure workload, while customer production results remain unreported. The announcement brings factory productivity into focus for chip manufacturers. ZIMONAI’s editorial view is that the useful question is how speed and alignment hold up on the intended process, rather than treating a headline rate as ready-made factory capacity.",
+  "takeaways": [
+    "The 400-wafer hourly rating uses 300 mm wafers with 96 exposure shots per wafer.",
+    "The 4 nm overlay specification describes layer alignment; it is not a 4 nm manufacturing-node claim.",
+    "Early December is the announced launch window, with pricing and shipment volumes still undisclosed."
+  ],
+  "sections": [
+    {
+      "title": "A new scanner, with a specific workload behind the speed claim",
+      "paragraphs": [
+        "Canon’s 10 November announcement introduces the FPA-6400ES6a for memory and logic semiconductor manufacturing. DIGITIMES separately reported the planned December launch on 11 November; its publicly available introduction also notes the absence of an exact launch date, price and shipment volume [[source:1]][[source:3]]. The independent report confirms the announcement, rather than validating machine performance in a customer factory.",
+        "Canon specifies 400 wafers per hour for 300 mm wafers at 96 shots per wafer. A shot is an exposure of a patterned area; the workload qualifier therefore belongs beside the rate whenever the figure is compared. The company attributes the higher productivity to a newly developed stage that accelerates faster and spends less time travelling, paired with vibration suppression [[source:1]][[source:2]]."
+      ]
+    },
+    {
+      "title": "Four nanometres refers to alignment, not the manufacturing node",
+      "paragraphs": [
+        "Overlay concerns how accurately successive patterned layers line up, as ASML’s explanation of lithography measurement describes [[source:4]]. Canon lists overlay accuracy of no more than 4 nm separately from resolution of no more than 90 nm and the 248 nm KrF exposure wavelength [[source:2]]. These describe different properties. Reading the overlay number as a claim that the scanner alone produces a 4 nm chip would confuse alignment with feature formation.",
+        "The product page also describes handling wafer warpage up to 700 μm and an optional Hi-ALS alignment light source with selectable measurement wavelengths [[source:2]]. ZIMONAI’s interpretation is that these features deserve attention alongside speed: a production process needs repeatable positioning on its actual wafers, not merely fast movement under a reference workload. The available documents give equipment specifications, without customer-level yield comparisons."
+      ]
+    },
+    {
+      "title": "Turning a machine rating into a manufacturing benefit",
+      "paragraphs": [
+        "For a manufacturer considering the equipment, ZIMONAI would frame the comparison around useful output on the intended process. If changing a recipe, handling warped wafers or maintaining alignment changes the effective exposure workload, a headline hourly rate cannot by itself settle the purchase. A meaningful acceptance plan would connect the selected options and representative wafers with throughput, alignment stability, rework and availability over an agreed run. This is an editorial purchasing framework, not a reported Canon customer trial.",
+        "The wider supply-chain implication is conditional: improved output at a constrained exposure step could help a line, but only after installation, process qualification and integration with surrounding operations. No delivery improvement for a particular chip supplier follows from the announcement alone. The next useful evidence is the commercial rollout and production data on defined workloads. That is where the announced speed could become a measurable manufacturing gain, rather than an assumption embedded in a capacity forecast."
+      ]
+    }
+  ],
+  "checklist": [
+    "The confirmed launch date, delivery availability and configuration offered to customers.",
+    "Throughput and overlay results on representative process recipes, with options and conditions disclosed.",
+    "Evidence connecting equipment performance to sustained usable output, rather than a nominal hourly calculation."
+  ],
+  "limitsText": "Sources checked 16 November 2026. Performance figures are Canon’s specifications; no independent machine test or customer yield result was available in the material reviewed. Only the public introduction of the subscription-only DIGITIMES report was used. ASML supplies background terminology, not an assessment of this Canon model. ZIMONAI has not tested the equipment or verified a customer installation."
+},
       chargerBurnInTestRecords: {
   "topic": "Manufacturing tests and shipment evidence",
   "published": "15 November 2026",
@@ -8231,6 +8359,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      canonKrfScannerProductivity: {
+  "topic": "半導體製造設備",
+  "published": "2026 年 11 月 16 日",
+  "readTime": "4 分鐘",
+  "title": "Canon 新款 KrF 掃描機：每小時曝光 400 片晶圓",
+  "description": "Canon 於 11 月 10 日公布 FPA-6400ES6a，預計 12 月上旬上市。從曝光條件、套刻精度到實際產能，看懂新設備的製造意義。",
+  "imageAlt": "2024 年 5 月拍攝的東京 Canon 總部，建築上可見公司名稱。",
+  "imageCaption": "Canon 東京總部，攝於 2024 年 5 月 4 日。攝影：Asanagi／Wikimedia Commons，CC0。經縮圖與壓縮，並依版面裁切。這是公司歷史照片，並非新款掃描機或 ZIMONAI 專案現場。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "尚待確認的事項"
+  },
+  "answer": "Canon 於 2026 年 11 月 10 日公布用於記憶體與邏輯晶片製造的 FPA-6400ES6a KrF 掃描機，預計 12 月上旬上市 [[source:1]]。每小時曝光 400 片晶圓是特定曝光條件下的原廠規格，客戶產線的實際成果仍未公布。這項發表把設備生產力推向半導體製造的關注焦點。ZIMONAI 的編輯判讀是，採購價值取決於目標製程能否同時維持速度與對準品質，額定速度還需要經過驗證，才能成為工廠的產能依據。",
+  "takeaways": [
+    "每小時 400 片的條件是 300 毫米晶圓、每片曝光 96 次。",
+    "4 奈米套刻精度描述不同圖案層的對準程度，並非宣稱可製造 4 奈米晶片。",
+    "上市時程為 12 月上旬，確切日期、價格與出貨量尚未揭露。"
+  ],
+  "sections": [
+    {
+      "title": "速度數字背後，先有明確的曝光條件",
+      "paragraphs": [
+        "Canon 在 11 月 10 日發表 FPA-6400ES6a，目標應用為記憶體與邏輯晶片製造。DIGITIMES 記者 Jingyue Hsiao 隔日報導這項消息，公開導言也指出原廠未公布確切上市日期、價格與出貨量 [[source:1]][[source:3]]。這是另一家媒體對產品發表的報導，並不是客戶工廠的獨立效能測試。",
+        "原廠標示的每小時 400 片，採用 300 毫米晶圓、每片曝光 96 次的條件。一次曝光處理一個圖案區域，因此比較設備速度時，曝光工作量必須一起看。Canon 說明，新開發的高加速度載台縮短移動時間，並搭配抑制振動的技術 [[source:1]][[source:2]]。"
+      ]
+    },
+    {
+      "title": "套刻精度與解析度，回答的是不同問題",
+      "paragraphs": [
+        "套刻精度關心前後圖案層是否準確對齊；ASML 的微影量測介紹也以層與層之間的對準程度解釋這個概念 [[source:4]]。Canon 規格表將不大於 4 奈米的套刻精度、不大於 90 奈米的解析度，以及 248 奈米的 KrF 曝光波長分別列出 [[source:2]]。把第一個數字讀成「這台設備能製造 4 奈米晶片」，就混淆了對準能力與圖案形成能力。",
+        "產品頁另列出最高 700 微米的晶圓翹曲處理能力，以及可選擇量測波長的 Hi-ALS 對準光源選配項目 [[source:2]]。ZIMONAI 認為，這些資訊與速度同樣值得注意：製程需要設備在實際晶圓上反覆準確定位，而不只是快速移動。目前資料提供的是設備規格，尚未包含客戶良率的比較結果。"
+      ]
+    },
+    {
+      "title": "採購效益，要回到目標製程的有效產出",
+      "paragraphs": [
+        "對評估設備的製造商，ZIMONAI 建議把比較基準放在目標製程的有效產出。配方、晶圓翹曲與對準要求可能改變實際曝光工作量，單一額定速度不足以決定採購。驗收安排應將選配項目、代表性晶圓及運轉條件，連到曝光速度、對準穩定性、重工與設備可用時間。這是本文提出的採購判讀方式，不是已發生的 Canon 客戶測試。",
+        "對供應鏈的影響仍有條件：若曝光是產線瓶頸，提高這個步驟的有效產出可能有幫助，但必須完成裝機、製程驗證及周邊作業整合。產品發表本身，尚不足以推算某家晶片供應商的交期改善。接下來應觀察實際上市與交付進度，以及清楚交代測試條件的生產資料；這些證據才會讓新設備的速度，逐步轉化為可衡量的製造效益。"
+      ]
+    }
+  ],
+  "checklist": [
+    "確認上市日期、可交付時間與客戶實際可選的設備配置。",
+    "觀察代表性製程的曝光速度與套刻結果，以及選配項目和測試條件。",
+    "追蹤能否維持有效產出，而非只用額定速度乘上運轉時數估算產能。"
+  ],
+  "limitsText": "資料核對截至 2026 年 11 月 16 日。效能數值來自 Canon 規格，本次資料未提供獨立設備測試或客戶良率結果。DIGITIMES 僅使用訂閱文章的公開導言；ASML 資料用於說明技術概念，不代表其評估過此機型。ZIMONAI 未測試這台設備，也未查核任何客戶的裝機現場。"
+},
       chargerBurnInTestRecords: {
   "topic": "製造測試與出貨紀錄",
   "published": "2026 年 11 月 15 日",
@@ -12167,6 +12344,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      canonKrfScannerProductivity: {
+  "topic": "半导体制造设备",
+  "published": "2026 年 11 月 16 日",
+  "readTime": "4 分钟",
+  "title": "佳能发布 KrF 扫描机：每小时曝光 400 片晶圆",
+  "description": "佳能 11 月 10 日公布 FPA-6400ES6a，计划 12 月上旬上市。解读每小时 400 片的适用条件、套刻精度，以及设备采购中的产能判断。",
+  "imageAlt": "佳能位于东京的总部大楼，照片摄于 2024 年 5 月，楼顶可见公司名称。",
+  "imageCaption": "佳能东京总部，拍摄于 2024 年 5 月 4 日。摄影：Asanagi／Wikimedia Commons，CC0。已缩放、压缩，并按版面裁切。这张历史照片展示公司总部，不是新款扫描机或 ZIMONAI 项目现场。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "仍待确认的信息"
+  },
+  "answer": "佳能于 2026 年 11 月 10 日发布 FPA-6400ES6a KrF 扫描机，计划 12 月上旬面向存储与逻辑芯片制造上市 [[source:1]]。厂商给出的每小时曝光 400 片晶圆，适用于指定曝光条件，客户产线的实际表现尚未披露。此次发布将设备生产率推向制造端的关注焦点。ZIMONAI 的判断是，采购方应关注目标工艺下速度与对准质量能否同时保持稳定，额定吞吐量只有经过工艺验证，才适合作为工厂产能规划的依据。",
+  "takeaways": [
+    "400 片每小时的标称值以 300 毫米晶圆、每片 96 次曝光为条件。",
+    "4 纳米套刻精度衡量图案层之间的对准，不等于设备采用 4 纳米工艺。",
+    "计划上市时间为 12 月上旬，具体日期、售价和出货规模仍未公布。"
+  ],
+  "sections": [
+    {
+      "title": "新设备的曝光速度，带有具体条件",
+      "paragraphs": [
+        "佳能在 11 月 10 日公布新一代 FPA-6400ES6a，面向存储与逻辑芯片制造。DIGITIMES 的 Jingyue Hsiao 于次日报道这一发布计划，公开导言指出官方没有披露确切上市日、价格和出货量 [[source:1]][[source:3]]。该报道提供了独立媒体的消息确认，不构成对厂商性能指标的独立测试。",
+        "每小时 400 片对应的是 300 毫米晶圆、每片曝光 96 次的工作量。每次曝光处理一个图案区域，因此离开曝光次数讨论速度，容易把不同工作负荷混在一起。佳能称，新开发的高加速度载台减少了移动耗时，并配合振动抑制技术工作 [[source:1]][[source:2]]。"
+      ]
+    },
+    {
+      "title": "套刻精度不能读成芯片工艺节点",
+      "paragraphs": [
+        "ASML 的光刻量测说明将套刻解释为芯片不同层之间的对准精度 [[source:4]]。在佳能产品表中，不超过 4 纳米的套刻精度，与不超过 90 纳米的分辨率、248 纳米的 KrF 曝光波长是分别列出的参数 [[source:2]]。三个数值衡量不同性能，不能把套刻精度当作芯片工艺节点。",
+        "官方还列出最高 700 微米的晶圆翘曲处理能力，并提供可选择量测波长的 Hi-ALS 对准光源选件 [[source:2]]。ZIMONAI 关注这些配置的原因是，制造过程需要在实际晶圆上重复实现稳定定位。更快的运动速度需要与目标工艺的对准要求一起评估；当前产品资料尚未给出客户良率的对比数据。"
+      ]
+    },
+    {
+      "title": "从标称吞吐量到产线收益，中间还有验证",
+      "paragraphs": [
+        "ZIMONAI 的采购判断是，设备比较应围绕目标工艺的有效产出展开。如果工艺配方、晶圆翘曲或对准要求改变了曝光工作量，只看每小时片数就难以形成可靠决策。验收方案应写清选件、代表性晶圆和运行条件，并把吞吐量、对准稳定性、返工及设备可用时间放在同一组数据中判断。这是编辑部提出的评估思路，不是已经完成的客户验收案例。",
+        "供应链收益也需要具体条件。曝光环节如果构成瓶颈，该步骤的有效产出提高，才可能帮助整条线；装机、工艺验证及周边作业的衔接仍要完成。因此，当前公告还不足以推导某家芯片供应商将缩短交期。后续更有价值的信息，是实际交付进度与注明工作条件的生产数据。它们将决定这次设备更新能带来多大制造收益。"
+      ]
+    }
+  ],
+  "checklist": [
+    "上市日期、交付安排，以及客户可采购的具体配置。",
+    "代表性工艺下的吞吐量和套刻结果，是否同时披露测试条件及选件。",
+    "持续有效产出的验证，而非以额定速度直接换算工厂产能。"
+  ],
+  "limitsText": "资料核对截至 2026 年 11 月 16 日。性能数值为佳能公布的规格，本次查阅材料未包含独立设备测试或客户良率结果。DIGITIMES 仅引用付费文章的公开导言；ASML 资料仅用于解释术语，不代表其评价了这款设备。ZIMONAI 未进行设备测试，也未核查客户装机。"
+},
       chargerBurnInTestRecords: {
   "topic": "生产测试与交付资料",
   "published": "2026 年 11 月 15 日",

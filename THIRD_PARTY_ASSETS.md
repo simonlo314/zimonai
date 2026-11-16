@@ -398,3 +398,17 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Changes: proportional downsize (rounded pixel height), JPEG compression; responsive display cropping only. No generative or content edits.
 - Use: archival HP9000/375 workstation power supply with visible BURN IN test field, illustrating documentation categories for the three-language charger burn-in guide. Not a modern charger, batch test result, verified factory record, ZIMONAI customer or project photograph.
 - Crop intent: card 52% 35%, desktop article 54% 30%, mobile article 55% 36%; retain the enclosure, test fields and recognizable power-supply context. Actual local browser acceptance completed for card-crop preview, desktop and mobile article views on 2026-11-15; photographic subject and test fields retained. Regular index cards retain the existing text-only template.
+
+
+## Canon headquarters — new KrF scanner report (16 November 2026)
+
+- Local asset: `src/assets/editorial-canon-headquarters.jpg` (2000 × 2000 JPEG).
+- Creator: Asanagi; own-work photograph taken 4 May 2024 of Canon headquarters in Tokyo, Japan.
+- Original source page: https://commons.wikimedia.org/wiki/File:Canon_headquarters_2024-05-04.jpg
+- Original file: https://upload.wikimedia.org/wikipedia/commons/5/55/Canon_headquarters_2024-05-04.jpg (3024 × 3024).
+- Licence: CC0 1.0 Universal Public Domain Dedication, https://creativecommons.org/publicdomain/zero/1.0/ . Source page explicitly identifies Asanagi, own work and CC0.
+- Downloaded and licence verified: 16 November 2026. Use: trilingual Canon FPA-6400ES6a current-affairs article and knowledge cards.
+- Selection: Canon’s announcement/product-page images have no explicit reuse grant; https://global.canon/en/terms/ requires prior written permission. No rights-cleared photograph of this new model was located. The selected image shows the actual company headquarters and is clearly captioned as an archival photograph, not the scanner, a factory installation, a customer or a ZIMONAI assignment.
+- Processing: resize and JPEG compression only; responsive CSS crop. No AI generation, retouching, compositing or hotlinking.
+- Focal positions reviewed separately: card `45% 15%`, desktop article `46% 8%`, mobile article `49% 18%`; retain the building and identifiable company name. Final visual acceptance is recorded with the release review.
+- Visible caption: Asanagi / Wikimedia Commons / CC0, with clickable source and licence through the existing template.

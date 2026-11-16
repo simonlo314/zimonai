@@ -1876,3 +1876,12 @@ test('burn-in review keeps batch terms and trailing punctuation together',()=>{
  const terms={"zh-tw":["受測批次","小型衛星","總台數","時數","重測","老化紀錄","處理紀錄"],"zh-cn":["受测批次","小卫星","总台数","时数","复测","老化记录","处理记录"]};
  for(const [locale,words]of Object.entries(terms))for(const term of words)for(const mark of ['。','，']){const text=term+mark;const html=protectCjkText(text,locale);assert.ok(html.includes('>'+text+'</span>'),locale+text);assert.equal(removeProtectionMarkup(html),text);}
 });
+
+
+test('Canon KrF manufacturing terms keep natural words intact in both Chinese locales', () => {
+  for(const [locale,words] of Object.entries({"zh-tw":["良率","掃描機","微影設備","套刻精度","解析度","曝光波長","曝光速度","曝光次數","曝光條件","曝光工作量","每小時","晶圓翹曲","記憶體","邏輯晶片","高加速度","載台","抑制振動","對準光源","對準品質","對準穩定性","有效產出","額定速度","製程節點","製程驗證","代表性晶圓","選配項目","設備生產力","歷史照片","工廠產能","運轉時數","設備配置","製造效益"],"zh-cn":["良率","扫描机","光刻设备","套刻精度","分辨率","曝光波长","曝光速度","曝光次数","曝光条件","曝光工作量","每小时","晶圆翘曲","存储芯片","逻辑芯片","高加速度","载台","振动抑制","对准光源","对准质量","对准稳定性","有效产出","额定速度","工艺节点","工艺验证","代表性晶圆","选配项目","设备生产率","历史照片","工厂产能","运行时长","设备配置","制造收益","吞吐量","佳能"]}))for(const term of [...words,...["Canon","FPA-6400ES6a","KrF","Hi-ALS","Asanagi","DIGITIMES"]]){
+    const text=term+'。'; const html=protectCjkText(text,locale);
+    assert.ok(html.includes('>'+text+'</span>'),locale+': '+term);
+    assert.equal(removeProtectionMarkup(html),text);
+  }
+});
