@@ -7,6 +7,87 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: assess supplier Cpk evidence for charger production.
+  // Related questions: specification limits; Cp versus Cpk; process stability; sampling and grouping; model assumptions; shipment acceptance.
+  {
+  "id": "knowledge-charger-cpk-process-capability",
+  "key": "chargerCpkProcessCapability",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/charger-cpk-process-capability",
+  "category": "factory-onsite",
+  "products": [
+    "charger",
+    "power-adapter",
+    "gan-charger"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "charger Cpk report",
+      "supplier process capability",
+      "process stability and specification limits"
+    ],
+    "zh-tw": [
+      "充電器 Cpk 報告",
+      "製程能力",
+      "製程穩定與規格界限"
+    ],
+    "zh-cn": [
+      "充电器 Cpk 报告",
+      "过程能力",
+      "过程稳定与规格限"
+    ]
+  },
+  "datePublished": "2026-11-17",
+  "dateModified": "2026-11-17",
+  "image": "/assets/editorial-cnas-laboratory-workbench.jpg",
+  "imageWidth": 1600,
+  "imageHeight": 1067,
+  "imageCrop": {
+    "card": "47% 84%",
+    "article": "46% 78%",
+    "mobile": "43% 70%"
+  },
+  "photo": {
+    "photographer": "IT services EU",
+    "page": "https://www.pexels.com/photo/digital-multimeter-7639432/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "sources": [
+    {
+      "publisher": "NIST/SEMATECH",
+      "title": "Engineering Statistics Handbook 6.1.6 — What is Process Capability?",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmc/section1/pmc16.htm"
+    },
+    {
+      "publisher": "NIST/SEMATECH",
+      "title": "Engineering Statistics Handbook 3.4.5 — Assessing Process Stability",
+      "url": "https://www.itl.nist.gov/div898/handbook/ppc/section4/ppc45.htm"
+    },
+    {
+      "publisher": "NIST/SEMATECH",
+      "title": "Engineering Statistics Handbook 3.4.6 — Assessing Process Capability",
+      "url": "https://www.itl.nist.gov/div898/handbook/ppc/section4/ppc46.htm"
+    },
+    {
+      "publisher": "NIST/SEMATECH",
+      "title": "Engineering Statistics Handbook 6.1.2 — What are Process Control Techniques?",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmc/section1/pmc12.htm"
+    },
+    {
+      "publisher": "IT services EU / Pexels",
+      "title": "Digital Multimeter — electronics workbench photograph",
+      "url": "https://www.pexels.com/photo/digital-multimeter-7639432/"
+    },
+    {
+      "publisher": "Pexels",
+      "title": "Photo and video licence — website use and attribution",
+      "url": "https://www.pexels.com/license/"
+    }
+  ]
+},
   // Search intent: understand Canon FPA-6400ES6a launch and manufacturing value.
   // Related questions: launch timing; throughput workload; overlay versus resolution; wafer warpage; customer qualification evidence.
   {
@@ -1141,7 +1222,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-16",
+  "featuredReviewedThrough": "2026-11-17",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4335,6 +4416,58 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      chargerCpkProcessCapability: {
+  "topic": "Process capability and charger manufacturing",
+  "published": "17 November 2026",
+  "readTime": "5 minutes",
+  "title": "Charger Cpk reports: check the process behind the number",
+  "description": "Read a supplier’s Cpk report through its specification limits, time-ordered data and statistical assumptions before using it to judge charger production.",
+  "imageAlt": "A digital multimeter and test leads on an electronics workbench beside a microscope and soldering tools.",
+  "imageCaption": "Electronics workbench photograph by IT services EU / Pexels, used under the Pexels License. Resized, compressed and cropped for layout. This measurement-context illustration is not a Cpk study, a charger test result or a ZIMONAI facility or assignment.",
+  "labels": {
+    "summary": "Reader summary",
+    "checklist": "Buyer checklist",
+    "limits": "Scope and evidence limits"
+  },
+  "answer": "A Cpk report compares a measured process characteristic with its specification limits while accounting for variation and an off-centre average. Its interpretation rests on a stable process and a suitable statistical model; the usual calculation assumes normally distributed data [[source:1]][[source:3]]. For overseas charger buyers, a useful report must therefore connect the number to the ordered model, measurement conditions and production period. ZIMONAI’s editorial view is that the most valuable evidence is a reproducible link from raw observations to the purchase specification, rather than a high index presented as approval of an entire shipment.",
+  "takeaways": [
+    "Cpk relates to a defined characteristic and specification, not the whole charger.",
+    "Check time-ordered stability evidence before interpreting a capability index.",
+    "Keep capability evaluation, shipment acceptance and product certification separate."
+  ],
+  "sections": [
+    {
+      "title": "Read the specification before comparing Cpk values",
+      "paragraphs": [
+        "NIST distinguishes Cp, which compares specification width with process spread, from Cpk, which also accounts for the process average being off centre [[source:3]]. In the familiar two-sided calculation, Cpk uses the smaller distance from the average to either specification limit, divided by three standard deviations. Changing the limits changes the result even if the measurements remain the same.",
+        "For a charger, ZIMONAI recommends identifying the exact characteristic first. If it is output voltage, the report should state the output mode, input supply, load, temperature conditions, measurement method and approved limits. This is a proposed evidence request, not a universal test recipe. A voltage-capability result does not describe insulation, temperature rise or every other requirement of the product. The buyer should agree the applicable index and acceptance criterion with the responsible engineer before comparing suppliers."
+      ]
+    },
+    {
+      "title": "Ask what happened over time, not just what the histogram looks like",
+      "paragraphs": [
+        "NIST assesses process stability through behaviour over time, including whether the mean, variance and distribution remain consistent. It describes ordered observations and control charts as ways to examine that behaviour [[source:2]]. A histogram combines observations without preserving their sequence, so the buyer needs the production timeline as well as the distribution plot.",
+        "Request dated raw measurements with unit identifiers, the sampled production period, line and equipment information, and an explanation of sampling and grouping. Records should make it possible to distinguish different units from repeat readings of one unit. Ask how setup changes, adjustments and excluded readings were handled. ZIMONAI’s interpretation is that pooling unlike production conditions can make a neat summary difficult to apply to the order, even when the arithmetic is correct."
+      ]
+    },
+    {
+      "title": "Turn the study into a bounded purchasing decision",
+      "paragraphs": [
+        "The standard capability indices described by NIST assume normal data. Its handbook also discusses alternatives for nonnormal distributions and the uncertainty of estimates based on samples [[source:1]]. Ask which distribution and standard-deviation estimate were used, how their suitability was assessed, and whether an uncertainty interval accompanies the reported index. A displayed decimal is an estimate with assumptions, not an exact property of all future production.",
+        "NIST treats process monitoring and lot acceptance as distinct tools [[source:4]]. For purchasing, ZIMONAI recommends keeping the capability study attached to the model, process revision and period it represents, then defining separate shipment checks. Agree when a change of components, process or measurement setup calls for a new review. If the supplier offers only a single Cpk number, the next useful step is to obtain the underlying study; lowering the evidence requirement to meet a delivery date leaves the production question unresolved."
+      ]
+    }
+  ],
+  "checklist": [
+    "Match the characteristic, model and process revision to the order.",
+    "Confirm approved specification limits and the precise measurement conditions.",
+    "Obtain raw data, unit identifiers, sampling dates and the grouping method.",
+    "Review time-ordered stability evidence and any adjustments or exclusions.",
+    "Identify the distribution, variation estimate and uncertainty behind Cpk.",
+    "Agree the capability criterion, reassessment triggers and separate shipment checks."
+  ],
+  "limitsText": "Sources checked 17 November 2026. This article applies NIST statistical guidance to a buyer’s document review; it is not a charger certification rule or a universal Cpk threshold. No supplier dataset, production line or shipment was assessed. Report authenticity, measurement suitability and actual execution require separate evidence. A capability estimate for one characteristic does not establish overall product safety, market access or acceptance of every shipped unit."
+},
       canonKrfScannerProductivity: {
   "topic": "Semiconductor manufacturing equipment",
   "published": "16 November 2026",
@@ -8359,6 +8492,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      chargerCpkProcessCapability: {
+  "topic": "充電器量產與製程能力",
+  "published": "2026 年 11 月 17 日",
+  "readTime": "5 分鐘",
+  "title": "充電器 Cpk 報告：先看製程，再讀數字",
+  "description": "供應商的 Cpk 數值，要對回哪個型號、量測條件與生產期間？從規格界限、製程穩定性與原始數據，判讀充電器量產的證據。",
+  "imageAlt": "電子工作桌上的數位萬用電表與測試導線，旁邊可見顯微鏡及焊接工具。",
+  "imageCaption": "電子工作桌示意照片，攝影：IT services EU／Pexels，依 Pexels 授權使用。已縮放、壓縮並依版面裁切；照片不是 Cpk 研究、充電器檢驗結果，也不是 ZIMONAI 的設施或委託現場。",
+  "labels": {
+    "summary": "讀者摘要",
+    "checklist": "買家核對清單",
+    "limits": "證據範圍"
+  },
+  "answer": "Cpk 製程能力報告用來比較某項量測特性與規格界限，同時反映數據的變異及平均值偏移。判讀的前提是製程穩定、統計方法適用；常見的計算方式以常態分布為假設 [[source:1]][[source:3]]。海外買家採購充電器時，這份報告的價值在於說清楚哪個型號、哪些量測條件與哪段生產期間受到評估。ZIMONAI 的編輯判讀是，原始數據能否一路對回訂單規格，比單獨一個漂亮的指數更值得重視，也能避免把製程研究當成整批出貨的合格證明。",
+  "takeaways": [
+    "Cpk 評估的是指定特性與規格之間的關係，並非整台充電器的品質分數。",
+    "先查看依時間排列的數據與穩定性分析，再解讀製程能力。",
+    "製程能力、出貨驗收及產品認證，需要分別判斷。"
+  ],
+  "sections": [
+    {
+      "title": "規格界限不同，數值就不能直接比",
+      "paragraphs": [
+        "NIST 說明，Cp 比較規格寬度與製程變異；Cpk 則進一步考慮平均值偏離規格中心的情形 [[source:3]]。在常見的雙邊規格計算中，先比較平均值到上、下限的距離，再取較小者除以三倍標準差。同一組量測數據，只要改變規格界限，指數就會跟著改變。",
+        "以充電器採購而言，ZIMONAI 建議先問清楚被評估的特性。若報告分析輸出電壓，就應交代輸出模式、輸入電源、負載、溫度條件、量測方法與核准的規格上下限。這是建議索取的資料，不是所有充電器共用的測試配方。電壓的製程能力也不代表絕緣、溫升或其他要求都已通過；適用指數與接受標準，宜先由買家和負責工程人員確認。"
+      ]
+    },
+    {
+      "title": "看見時間順序，才知道製程是否穩定",
+      "paragraphs": [
+        "NIST 對製程穩定性的討論，包含平均值、變異與分布是否隨時間維持一致，並以依序排列的觀測值、管制圖等方式檢視 [[source:2]]。直方圖把觀測值彙整成分布，卻沒有保留原本的先後順序。因此，買家除了分布圖，也需要知道數據是在什麼生產過程中取得。",
+        "可索取帶有日期與產品識別資訊的原始量測值、取樣期間、產線與設備資訊，以及抽樣和分組方法。紀錄應區分不同產品的數據，以及同一件產品的反覆量測讀值。報告也應交代調機、設定變更及剔除數據的處理方式。ZIMONAI 的判讀是，把不同生產條件混在一起，即使計算無誤，也可能讓報告難以對應這筆訂單。"
+      ]
+    },
+    {
+      "title": "把研究結果接回訂單，保留出貨驗收",
+      "paragraphs": [
+        "NIST 介紹的常見製程能力指數以常態分布為前提，並另行討論非常態資料的處理方法，以及樣本估計值的不確定性 [[source:1]]。買家可要求說明採用的分布、標準差估計方式、適用性判斷與指數區間。報告上的小數點，是附帶假設的估計結果，不是未來所有量產的固定屬性。",
+        "NIST 將製程監控與批次抽樣驗收列為不同工具 [[source:4]]。ZIMONAI 建議把製程研究綁定到受評型號、製程版本與生產期間，再另訂出貨檢查；零件、製程或量測設定改變時，也應先約定何時重新評估。若供應商只提供一個 Cpk 數字，下一步應是補齊研究依據，才能判斷量產證據是否足夠，並據此討論交貨安排。"
+      ]
+    }
+  ],
+  "checklist": [
+    "確認受評特性、型號與製程版本能對回訂單。",
+    "核對核准的規格界限及完整量測條件。",
+    "取得原始數據、產品識別資訊、取樣日期與分組方式。",
+    "閱讀時間序列與穩定性分析，追查調整及剔除紀錄。",
+    "確認分布、變異估計與指數不確定性的說明。",
+    "約定製程能力標準、重新評估條件及獨立的出貨檢查。"
+  ],
+  "limitsText": "資料核對日期：2026 年 11 月 17 日。本文將 NIST 統計方法用於買家文件審閱，並未制定充電器認證規則或通用 Cpk 門檻，也未查驗特定供應商的數據、產線或出貨。報告真實性、量測方法適用性與實際執行情形，仍需要其他證據。單一特性的製程能力，無法涵蓋整體產品安全、市場准入或每件出貨產品的驗收結果。"
+},
       canonKrfScannerProductivity: {
   "topic": "半導體製造設備",
   "published": "2026 年 11 月 16 日",
@@ -12344,6 +12529,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      chargerCpkProcessCapability: {
+  "topic": "充电器制造与过程能力",
+  "published": "2026 年 11 月 17 日",
+  "readTime": "5 分钟",
+  "title": "充电器 Cpk 报告：数字背后的过程能力",
+  "description": "采购方怎样评估供应商的 Cpk 报告？把规格限、原始数据、过程稳定性与统计假设联系起来，再判断报告适用于哪段充电器生产。",
+  "imageAlt": "电子工作台上的数字万用表和测试线，后方摆有显微镜及焊接工具。",
+  "imageCaption": "测量场景示意照片，由 IT services EU 拍摄，来源为 Pexels，按 Pexels 许可使用。图片经过缩放、压缩及版式裁切；不代表 Cpk 研究、充电器检验结果或 ZIMONAI 的设施及受托项目。",
+  "labels": {
+    "summary": "读者摘要",
+    "checklist": "采购方核对清单",
+    "limits": "证据边界"
+  },
+  "answer": "Cpk 报告把某项过程特性的测量结果与规格限进行比较，既考虑波动，也考虑均值偏离规格中心的影响。解释这一指标，需要过程保持稳定、统计模型适用；常用算法建立在正态分布假设之上 [[source:1]][[source:3]]。对采购充电器的海外买家而言，报告应说明结论对应的型号、测量条件和生产时段。ZIMONAI 的判断是，采购价值来自原始数据与订单要求之间可追溯的联系；脱离这些依据的高数值，容易被误读为整批货物已经获准放行。",
+  "takeaways": [
+    "Cpk 针对具体特性和规格限，不是充电器的综合质量评分。",
+    "先确认过程随时间是否稳定，再讨论能力指数。",
+    "过程能力研究、批次验收和产品认证应分别保留证据。"
+  ],
+  "sections": [
+    {
+      "title": "先看规格限",
+      "paragraphs": [
+        "NIST 对 Cp 和 Cpk 作了区分：前者比较规格宽度与过程波动，后者还计入均值偏离中心的影响 [[source:3]]。对于常见的双侧规格，计算时先取均值到上、下规格限的较小距离。该距离除以三倍标准差，即得到 Cpk。即使原始读数完全相同，放宽规格限也会改变计算结果，因此不能只按数字高低给供应商排序。",
+        "ZIMONAI 建议采购方首先明确受评特性。若供应商提交的是输出电压分析，应核对输出模式、输入电源、负载、温度条件、测量方法以及批准的规格限。这些是资料核对建议，不是通用测试设置。电压指标的表现不覆盖绝缘、温升或其他产品要求；所用指数和接受标准，应结合具体产品，由采购方与负责的工程人员事先约定。"
+      ]
+    },
+    {
+      "title": "原始记录要保留生产的先后顺序",
+      "paragraphs": [
+        "NIST 讨论过程稳定性时，关注均值、方差及分布是否随时间保持一致，并介绍按采样顺序绘图、使用控制图等评估方式 [[source:2]]。直方图展示数据分布，却不保留每次测量的先后关系。采购方需要把分布图与生产时间线一起阅读，才能理解指标所代表的过程。",
+        "建议索取附日期和产品标识的原始测量值、采样覆盖时段、产线设备信息，以及抽样、分组的说明。同一产品的重复读数，应与不同产品的测量记录区分开；设备调整、参数变更和数据剔除也要留有依据。ZIMONAI 认为，混合不同生产条件得到的统计摘要，即便计算正确，也未必能直接用于当前订单。"
+      ]
+    },
+    {
+      "title": "把能力研究与交货决定分开衔接",
+      "paragraphs": [
+        "NIST 的常见能力指数以正态分布为假设；对于非正态数据，手册另有处理思路，并指出样本估计存在不确定性 [[source:1]]。审阅时应问清采用何种分布、怎样估计标准差、模型为何适用，以及是否提供指数的区间估计。报告的小数位数，并不能消除这些统计条件。",
+        "NIST 将过程监控与批次接收抽样列为不同工具 [[source:4]]。采购方可把能力报告限定在相应型号、过程版本和生产时段，另行约定出货检验；同时明确零部件、生产过程或测量设置变化后的复评条件。这是 ZIMONAI 建议的采购衔接方式。面对只有一个 Cpk 数值的报告，先补足研究材料，再谈它能支持哪些交货决定，比把指数当成放行凭证更稳妥。"
+      ]
+    }
+  ],
+  "checklist": [
+    "将受评特性、产品型号和过程版本对应到订单。",
+    "确认规格限经批准，并列明测量条件。",
+    "核对原始读数、产品标识、采样日期和分组方法。",
+    "检查按时间排列的稳定性证据及调整、剔除记录。",
+    "索取分布假设、波动估计和指数不确定性的说明。",
+    "约定能力判据、复评触发条件和单独的出货检验。"
+  ],
+  "limitsText": "资料核对日期为 2026 年 11 月 17 日。本文借助 NIST 统计方法讨论采购文件审阅，不构成充电器认证要求，也未设定通用 Cpk 合格值。文章未评估任何供应商的数据、生产线或具体批次。资料真实性、测量方法与执行情况需另行核实；单项过程能力结果不代表整机安全、市场准入或全部出货产品均已验收。"
+},
       canonKrfScannerProductivity: {
   "topic": "半导体制造设备",
   "published": "2026 年 11 月 16 日",

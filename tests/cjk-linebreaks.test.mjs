@@ -1885,3 +1885,20 @@ test('Canon KrF manufacturing terms keep natural words intact in both Chinese lo
     assert.equal(removeProtectionMarkup(html),text);
   }
 });
+
+
+test('Cpk capability terms stay intact in independent Chinese locale vocabularies', () => {
+  for (const [locale, text, term] of [
+    ['zh-tw', '買家應將分布圖與生產時間線一起閱讀。', '生產時間線'],
+    ['zh-cn', '采购方需要把分布图与生产时间线一起阅读。', '生产时间线']
+  ]) {
+    const html = protectCjkText(text, locale);
+    assert.ok(html.includes('>' + term + '</span>'), locale + ': overlapping production/time terms');
+    assert.equal(removeProtectionMarkup(html), text);
+  }
+  for(const [locale,words] of Object.entries({"zh-tw":["真實性","時間線","製程能力","製程穩定性","製程穩定","規格界限","規格上下限","規格中心","常態分布","非常態資料","平均值","標準差","原始數據","原始量測值","量測特性","量測條件","量測方法","量測設定","時間序列","生產期間","生產條件","受評型號","製程版本","管制圖","直方圖","抽樣驗收","剔除數據","不確定性","統計方法","統計模型","分組方法","指數區間","取樣期間","取樣日期","統計摘要"],"zh-cn":["真实性","时间线","过程能力","过程稳定性","过程稳定","规格限","规格中心","正态分布","非正态数据","均值","标准差","原始数据","原始测量值","测量结果","测量条件","测量方法","测量设置","时间序列","生产时段","生产条件","受评型号","过程版本","控制图","直方图","接收抽样","数据剔除","不确定性","统计方法","统计模型","分组方法","区间估计","采样时段","采样日期","统计摘要","方差","复评条件"]}))for(const term of [...words,...["Cpk","Cp","NIST","SEMATECH","Pexels","IT services EU"]]){
+    const text=term+'。';const html=protectCjkText(text,locale);
+    assert.ok(html.includes('>'+text+'</span>'),locale+': '+term);
+    assert.equal(removeProtectionMarkup(html),text);
+  }
+});

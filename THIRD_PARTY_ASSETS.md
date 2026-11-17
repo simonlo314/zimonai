@@ -412,3 +412,12 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Processing: resize and JPEG compression only; responsive CSS crop. No AI generation, retouching, compositing or hotlinking.
 - Focal positions reviewed separately: card `45% 15%`, desktop article `46% 8%`, mobile article `49% 18%`; retain the building and identifiable company name. Final visual acceptance is recorded with the release review.
 - Visible caption: Asanagi / Wikimedia Commons / CC0, with clickable source and licence through the existing template.
+
+
+## Cpk process-capability guide — 17 November 2026
+
+- Reused local photograph `src/assets/editorial-cnas-laboratory-workbench.jpg`, 1600 × 1067. IT services EU, [Digital Multimeter / Pexels 7639432](https://www.pexels.com/photo/digital-multimeter-7639432/), source page dated 25 April 2021; original 4241 × 2829. Original download 8 October 2026 retained; no new download or factual image alteration.
+- Original creator page and [Pexels License](https://www.pexels.com/license/) rechecked 17 November 2026: commercial website reuse and modification allowed; no endorsement implied. Existing proportional resizing/compression only; no generative editing.
+- Measurement-context illustration for a Cpk buyer guide, explicitly not a process study, charger test, ZIMONAI facility, supplier or assignment. All three captions credit IT services EU / Pexels and link the source.
+- Separate crop foci: card 47% 84%, desktop 46% 78%, mobile 43% 70%; retain the multimeter display and instrument body. Actual rendered review is required. Regular knowledge cards retain the existing text-only template.
+- Existing Infineon editorial lead retained after review: direct GaN supply-chain relevance and licensed event image remain stronger as an entry point than this specialist statistical reference. Review-through date advanced only.
