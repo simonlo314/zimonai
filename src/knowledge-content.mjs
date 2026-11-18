@@ -7,6 +7,80 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the Samsung SDI–Jupiter Power LFP contract and US storage supply implications.
+  // Related questions: 16 versus 27 GWh; delivery start; manufacturing location; material supply; annual allocation; project execution.
+  {
+  "id": "knowledge-samsung-sdi-jupiter-lfp-supply",
+  "key": "samsungSdiJupiterLfpSupply",
+  "contentType": "current-affairs",
+  "slug": "knowledge/samsung-sdi-jupiter-lfp-supply",
+  "category": "commercial-risk",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "united-states"
+  ],
+  "keywords": {
+    "en": [
+      "Samsung SDI Jupiter Power LFP deal",
+      "16 GWh battery supply 2029",
+      "US energy storage battery manufacturing"
+    ],
+    "zh-tw": [
+      "Samsung SDI Jupiter Power 合約",
+      "16 GWh 儲能電池",
+      "美國 LFP 電池供應"
+    ],
+    "zh-cn": [
+      "三星 SDI Jupiter Power 合同",
+      "16 GWh 储能电池",
+      "美国 LFP 电池供应"
+    ]
+  },
+  "datePublished": "2026-11-18",
+  "dateModified": "2026-11-18",
+  "image": "/assets/editorial-samsung-sdi-jupiter-lfp.jpg",
+  "imageWidth": 2000,
+  "imageHeight": 1250,
+  "imageCrop": {
+    "card": "48% 44%",
+    "article": "47% 39%",
+    "mobile": "52% 43%"
+  },
+  "photo": {
+    "photographer": "Bjoertvedt",
+    "page": "https://commons.wikimedia.org/wiki/File:Hungary_G%C3%B6d_with_Samsung_IMG_0199_E77.JPG",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "Samsung SDI",
+      "title": "16 GWh LFP battery agreement announcement — 16 November 2026",
+      "url": "https://news.samsungsdi.com/global/articleView?seq=477"
+    },
+    {
+      "publisher": "Jupiter Power",
+      "title": "Counterparty publication of the supply announcement — 16 November 2026",
+      "url": "https://jupiterpower.io/samsung-sdi-secures-16-gwh-lfp-battery-order-from-jupiter-power-in-u-s/"
+    },
+    {
+      "publisher": "Yonhap News Agency — Kim Han-joo",
+      "title": "Samsung SDI to supply LFP batteries to Jupiter Power — 16 November 2026",
+      "url": "https://en.yna.co.kr/view/AEN20261116002300320"
+    },
+    {
+      "publisher": "Bjoertvedt / Wikimedia Commons",
+      "title": "Hungary Göd with Samsung IMG 0199 E77 — photograph, 3 September 2015",
+      "url": "https://commons.wikimedia.org/wiki/File:Hungary_G%C3%B6d_with_Samsung_IMG_0199_E77.JPG"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 4.0 International",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+},
   // Search intent: assess supplier Cpk evidence for charger production.
   // Related questions: specification limits; Cp versus Cpk; process stability; sampling and grouping; model assumptions; shipment acceptance.
   {
@@ -1222,7 +1296,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-17",
+  "featuredReviewedThrough": "2026-11-18",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4416,6 +4490,55 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      samsungSdiJupiterLfpSupply: {
+  "topic": "Energy storage and battery supply",
+  "published": "18 November 2026",
+  "readTime": "4 minutes",
+  "title": "Samsung SDI wins 16 GWh Jupiter Power battery deal",
+  "description": "Samsung SDI’s 16 November agreement covers LFP battery deliveries from 2029. What the three-year order means for US storage projects and manufacturing planning.",
+  "imageAlt": "An aerial photograph of Samsung’s factory site in Göd, Hungary, taken in September 2015.",
+  "imageCaption": "Archival company illustration: Samsung’s Göd site in Hungary, 3 September 2015. Bjoertvedt, “Hungary Göd with Samsung IMG 0199 E77”, via Wikimedia Commons, CC BY-SA 4.0. Cropped, resized and compressed; the image and layout crops retain this licence. This is not the Indiana plant, the new LFP production line or a ZIMONAI assignment.",
+  "labels": {
+    "summary": "News summary",
+    "checklist": "What to watch next",
+    "limits": "What remains undisclosed"
+  },
+  "answer": "Samsung SDI announced a 16 GWh LFP battery agreement with Jupiter Power on 16 November 2026, covering three years of supply from 2029 [[source:1]]. Indiana production places US manufacturing at the centre of the storage developer’s equipment plans, while annual deliveries and project allocations remain undisclosed. ZIMONAI’s editorial view is that the order creates a longer planning horizon for battery procurement; its practical value will depend on matching factory output with the construction schedule of each storage project.",
+  "takeaways": [
+    "The new 16 GWh agreement starts in 2029 and spans three years.",
+    "Around 27 GWh is the cumulative order total including the earlier deal, not an additional new order.",
+    "Indiana manufacturing is specified; annual delivery volumes and individual project schedules are not."
+  ],
+  "sections": [
+    {
+      "title": "A larger order book, with deliveries still ahead",
+      "paragraphs": [
+        "Samsung SDI America signed the agreement for Jupiter Power’s large-scale US energy storage projects. Jupiter published the announcement on its own website, while Yonhap separately reported the agreement and its timing on 16 November [[source:2]][[source:3]]. The public record therefore supports a signed supply arrangement, with deliveries scheduled to begin in 2029; it does not report that the new volume has already shipped.",
+        "The distinction between 16 GWh and roughly 27 GWh matters. The former is the new three-year commitment; the latter includes the previous agreement [[source:2]]. Neither figure is a disclosed annual factory capacity. Dividing the contract evenly across three years would create a hypothetical schedule, not a delivery plan supplied by the companies. For a project developer, the timing of available equipment can matter as much as the aggregate volume."
+      ]
+    },
+    {
+      "title": "US production connects the contract to a manufacturing transition",
+      "paragraphs": [
+        "Samsung SDI says the batteries will be made in Indiana and that LFP mass production there has recently begun. It is adding lithium iron phosphate to an energy-storage portfolio that also uses nickel-cobalt-aluminium chemistry, and names material supply agreements with POSCO Future M and L&F as part of its supply-chain expansion [[source:1]]. Yonhap identifies the Indiana operation as StarPlus Energy, the Samsung SDI–Stellantis joint venture [[source:3]].",
+        "ZIMONAI reads this as a link between a manufacturing programme and a customer’s future purchasing needs. A named production location and a multiyear order provide more useful planning information than an expansion ambition alone. The commercial benefit is still conditional: production ramp-up, material availability and agreed delivery windows must work together. The announcement provides no line-level yield or delivered-cost comparison, so it does not establish that the new supply will be cheaper or more reliable than competing offers."
+      ]
+    },
+    {
+      "title": "The next milestone is delivery detail, not another headline total",
+      "paragraphs": [
+        "The purchasing question now shifts from the existence of an agreement to its execution. ZIMONAI would look for an annual delivery profile, the projects assigned to those deliveries and evidence that manufacturing milestones align with construction needs. Those details would help distinguish equipment secured on paper from equipment available when a site is ready. This is an editorial assessment of the contract’s implications, not a description of Jupiter’s internal controls or an evaluation of either company.",
+        "For the wider storage industry, the agreement makes the connection between production geography and long-range project procurement more concrete. Its eventual impact will become clearer as delivery milestones and operating projects emerge. A battery order is one input to that outcome: the disclosed volume alone does not establish when storage facilities will enter service or how much power they will deliver. Tracking those next steps will show whether the planning benefit becomes usable project capacity."
+      ]
+    }
+  ],
+  "checklist": [
+    "Annual delivery volumes and changes to the stated 2029 start.",
+    "Project allocations and the relationship between equipment delivery and construction milestones.",
+    "Published production and project progress that can be compared with the contract timetable."
+  ],
+  "limitsText": "Sources checked 18 November 2026. The reviewed announcements do not disclose a fixed contract price, annual delivery split, individual project list, line-level yield or project commissioning dates. Jupiter’s page republishes the company announcement; Yonhap is the independent news source. No conclusion is drawn about tax eligibility, complete material origin, product certification or field performance. ZIMONAI has not inspected either company’s facilities or contracts."
+},
       chargerCpkProcessCapability: {
   "topic": "Process capability and charger manufacturing",
   "published": "17 November 2026",
@@ -8492,6 +8615,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      samsungSdiJupiterLfpSupply: {
+  "topic": "儲能電池與供應安排",
+  "published": "2026 年 11 月 18 日",
+  "readTime": "4 分鐘",
+  "title": "Samsung SDI 獲 Jupiter Power 16 GWh 電池訂單",
+  "description": "Samsung SDI 於 11 月 16 日公布新合約，2029 年起分三年供應 LFP 電池。解讀訂單總量、美國製造與儲能專案交付之間的關係。",
+  "imageAlt": "2015 年 9 月從空中拍攝的 Samsung 匈牙利 Göd 廠區。",
+  "imageCaption": "公司歷史照片：匈牙利 Göd 廠區，攝於 2015 年 9 月 3 日。攝影：Bjoertvedt，原作「Hungary Göd with Samsung IMG 0199 E77」，來源為 Wikimedia Commons，採 CC BY-SA 4.0。照片已裁切並縮圖壓縮，裁切版本沿用相同授權。畫面並非印第安納州工廠、新 LFP 產線或 ZIMONAI 委託現場。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "尚未揭露的資訊"
+  },
+  "answer": "Samsung SDI 於 2026 年 11 月 16 日公布與 Jupiter Power 的新合約，將從 2029 年起分三年供應 16 GWh 磷酸鐵鋰電池 [[source:1]]。電池預定在印第安納州製造，把美國在地生產帶入儲能專案的採購核心，但各年度交貨量與對應專案尚未揭露。ZIMONAI 的編輯判讀是，這筆訂單讓電池採購有了較長的規劃依據；真正的交付價值，仍取決於工廠產出能否配合各專案的施工時程。",
+  "takeaways": [
+    "新合約涵蓋 16 GWh，供貨從 2029 年開始，為期三年。",
+    "約 27 GWh 是加計舊合約的累計訂單，不是另一筆新增數量。",
+    "製造地點已指向印第安納州，年度交貨配置與各專案時程尚未公布。"
+  ],
+  "sections": [
+    {
+      "title": "訂單增加，供貨時程從 2029 年開始",
+      "paragraphs": [
+        "這次由 Samsung SDI America 簽約，供應 Jupiter Power 在美國的大型儲能專案。Jupiter 也在官網刊出公告，韓聯社則於 11 月 16 日另行報導交易規模與時程 [[source:2]][[source:3]]。目前確認的是已簽訂供應安排，並預定自 2029 年交貨；新合約的數量尚非已完成出貨。",
+        "公告中的兩個數字需要分開閱讀：16 GWh 是這次三年合約的數量，約 27 GWh 則包含先前訂單 [[source:2]]。兩者都不是工廠公布的年產能。若把合約總量平均分成三年，只會得到假設性的分配，不能取代雙方的實際交貨計畫。對儲能開發商而言，設備到位時間與採購總量同樣重要。"
+      ]
+    },
+    {
+      "title": "美國製造，連接電池產線與長期需求",
+      "paragraphs": [
+        "Samsung SDI 表示，電池將在印第安納州生產，當地近期已開始量產 LFP 電池。公司在原有鎳鈷鋁電池之外擴充磷酸鐵鋰產品，並提及與 POSCO Future M、L&F 的材料供應合約 [[source:1]]。韓聯社將該製造據點確認為 Samsung SDI 與 Stellantis 合資的 StarPlus Energy [[source:3]]。",
+        "ZIMONAI 認為，這則消息的產業意義，在於製造計畫與客戶未來需求有了明確連結。具名工廠與多年訂單，讓採購規劃比單純的擴產目標多一層依據。不過，產能爬坡、材料到貨及交付窗口仍須互相配合；公告沒有提供產線良率或交付成本比較，因此現階段還無從判斷新供應是否比其他選項更便宜、交貨是否更穩定。"
+      ]
+    },
+    {
+      "title": "下一步看交付細節，才能判斷專案效益",
+      "paragraphs": [
+        "合約成立之後，值得追蹤的是年度交貨配置、設備分配到哪些專案，以及製造進度能否接上施工需求。ZIMONAI 的判讀是，這些資訊有助於區分「已取得供應承諾」與「場地準備好時已有設備可用」。這是對合約意義的編輯分析，並非描述 Jupiter 的內部管理，也不是對兩家公司的查核結論。",
+        "對儲能產業而言，這筆訂單讓生產地點與多年採購規劃之間的關係更具體。後續的交貨節點與專案運轉進度，才會逐步顯示實際影響。電池訂單只是其中一環，單看 GWh 數量，還無法推算儲能設施何時投入使用、屆時能供應多少功率。持續觀察這些進展，才能看出供應安排是否轉化為可用的專案能力。"
+      ]
+    }
+  ],
+  "checklist": [
+    "年度交貨數量，以及 2029 年供貨起點是否有變動。",
+    "設備對應的專案，及交貨時間與施工節點如何銜接。",
+    "可與合約時程相互核對的生產進度及專案運轉資訊。"
+  ],
+  "limitsText": "資料核對截至 2026 年 11 月 18 日。本次公告未揭露確切合約價格、年度交貨分配、個別專案清單、產線良率或專案啟用日期。Jupiter 官網刊載的是公司公告，獨立新聞來源為韓聯社。本文未判定稅務優惠資格、完整材料來源、產品認證或實際運轉表現；ZIMONAI 未查驗兩家公司的設施或合約。"
+},
       chargerCpkProcessCapability: {
   "topic": "充電器量產與製程能力",
   "published": "2026 年 11 月 17 日",
@@ -12529,6 +12701,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      samsungSdiJupiterLfpSupply: {
+  "topic": "储能制造与电池供应",
+  "published": "2026 年 11 月 18 日",
+  "readTime": "4 分钟",
+  "title": "三星 SDI 获 Jupiter Power 16 GWh 电池订单",
+  "description": "三星 SDI 11 月 16 日宣布新供货协议，2029 年起三年交付 LFP 电池。读懂 16 GWh 与累计订单，以及美国制造对储能项目采购的意义。",
+  "imageAlt": "三星位于匈牙利 Göd 的厂区航拍照，拍摄于 2015 年 9 月。",
+  "imageCaption": "企业历史资料图：匈牙利 Göd 厂区，2015 年 9 月 3 日。摄影 Bjoertvedt，原图名为“ Hungary Göd with Samsung IMG 0199 E77 ”，来自 Wikimedia Commons，依据 CC BY-SA 4.0 使用。经过裁切、缩放和压缩，图片及版式裁切版本继续采用相同许可。这不是印第安纳州工厂、新 LFP 产线或 ZIMONAI 受托项目现场。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "尚未公布的信息"
+  },
+  "answer": "三星 SDI 于 2026 年 11 月 16 日宣布与 Jupiter Power 达成新协议，从 2029 年起用三年时间供应 16 GWh 磷酸铁锂电池 [[source:1]]。供货将依托印第安纳州制造，把美国本地生产推向储能项目采购的核心位置，但逐年交付安排和项目分配仍未公布。ZIMONAI 的判断是，多年订单为电池采购提供了更长的计划窗口；能否兑现这一价值，要看工厂产出与各储能项目建设节奏是否衔接。",
+  "takeaways": [
+    "16 GWh 是本次新增协议的总量，计划从 2029 年开始分三年供应。",
+    "约 27 GWh 包含此前订单，不应与新增数量再次相加。",
+    "生产地点已明确，年度交付量及具体项目进度仍需后续披露。"
+  ],
+  "sections": [
+    {
+      "title": "协议已签，新增电池尚待未来交付",
+      "paragraphs": [
+        "签约主体为 Samsung SDI America，电池用于 Jupiter Power 在美国的大型储能项目。Jupiter 在官网发布了这份公告，韩联社记者也于 11 月 16 日报道协议及供货时间 [[source:2]][[source:3]]。已公开的信息支持双方达成供应安排，交付预计在 2029 年启动，而不是说明新增订单已经出货。",
+        "16 GWh 与约 27 GWh 各有口径：前者对应此次三年协议，后者是把此前协议计入后的累计订单 [[source:2]]。这些数值都不是工厂年度产能。简单除以三年，也不能当作企业公布的年度发货计划。对项目开发商来说，设备在建设周期中的到货时间，直接关系到这份供货安排能发挥多大作用。"
+      ]
+    },
+    {
+      "title": "本地制造开始与长期采购需求对接",
+      "paragraphs": [
+        "三星 SDI 称，供货将在印第安纳州生产，当地近期启动了 LFP 电池量产。公司在镍钴铝体系之外增加磷酸铁锂产品，并披露已与 POSCO Future M、L&F 签订材料供应协议 [[source:1]]。韩联社指出，该制造业务位于三星 SDI 与 Stellantis 的合资企业 StarPlus Energy [[source:3]]。",
+        "在 ZIMONAI 看来，值得关注的是制造安排与未来客户需求建立了联系。明确的生产地点和多年采购协议，有助于把扩产目标转化为更具体的供应规划。实际效果仍取决于产能爬坡、材料供应及交货窗口能否协调。现有公告没有产线良率或交付成本对比，因此不能据此给出更低成本、更高可靠性的结论。"
+      ]
+    },
+    {
+      "title": "把订单规模接到项目进度，才看得到成效",
+      "paragraphs": [
+        "下一阶段应关注逐年交货计划、设备对应的储能项目，以及制造里程碑与施工安排之间的关系。ZIMONAI 认为，这些信息能够帮助判断供应承诺是否会在项目需要时转化为可用设备。这是编辑部对交易的分析，并非对 Jupiter 内部采购制度的描述，也不构成对双方的供应商评估。",
+        "这笔协议让美国生产布局与储能项目的长期采购之间形成了更清晰的联系。后续交付和项目运行将决定它的实际分量。电池采购只是项目推进的一个环节，订单中的能量规模并未给出储能设施投运日期，也未说明输出功率。比起继续放大订单总额，更有意义的是跟踪这些尚待落地的节点。"
+      ]
+    }
+  ],
+  "checklist": [
+    "逐年交付量，以及 2029 年开始供货的安排是否调整。",
+    "设备分配到哪些项目，到货时间怎样配合建设进度。",
+    "能够与合同时间表对应的生产里程碑及项目投运信息。"
+  ],
+  "limitsText": "资料核对截至 2026 年 11 月 18 日。所阅公告未公布确切合同金额、年度交货分配、具体项目名单、产线良率及项目投运日期。Jupiter 官网转发公司公告，韩联社提供独立新闻报道。本文不判断税收优惠资格、全部材料来源、产品认证或实际运行性能；ZIMONAI 未查验双方设施或合同。"
+},
       chargerCpkProcessCapability: {
   "topic": "充电器制造与过程能力",
   "published": "2026 年 11 月 17 日",

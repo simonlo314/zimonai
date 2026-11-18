@@ -1902,3 +1902,10 @@ test('Cpk capability terms stay intact in independent Chinese locale vocabularie
     assert.equal(removeProtectionMarkup(html),text);
   }
 });
+
+
+test('LFP supply report terms remain intact in independent Chinese vocabularies',()=>{
+ for(const [locale,words] of Object.entries({"zh-tw":["年產能","年度產能","產線良率","可靠性","製造業務","磷酸鐵鋰","磷酸鐵鋰電池","鎳鈷鋁電池","儲能電池","儲能專案","印第安納州","在地生產","年度交貨量","交貨配置","交貨計畫","交付窗口","施工時程","施工需求","施工節點","專案運轉","產能爬坡","材料供應","合資企業","生產地點","合約價格","廠區","匈牙利","歷史照片","個別專案","產品認證","稅務優惠","供應承諾","採購規劃","長期需求","累計訂單","投入使用","供貨時程","製造據點"],"zh-cn":["年产能","年度产能","产线良率","可靠性","制造业务","磷酸铁锂","磷酸铁锂电池","镍钴铝","储能电池","储能项目","印第安纳州","本地生产","逐年交付","年度交付量","年度发货","交货窗口","建设节奏","建设进度","制造里程碑","产能爬坡","材料供应","合资企业","生产地点","合同金额","厂区","匈牙利","历史资料图","产品认证","税收优惠","供应承诺","采购规划","长期采购","累计订单","投入使用","项目投运","供货协议","合同时间表"]}))for(const term of [...words,...["Samsung SDI","三星 SDI","Jupiter Power","StarPlus Energy","Stellantis","POSCO Future M","L&F","16 GWh","27 GWh","LFP","Bjoertvedt","Göd","CC BY-SA 4.0"]]){
+  const text=term+'。',html=protectCjkText(text,locale);assert.ok(html.includes('>'+text+'</span>'),locale+': '+term);assert.equal(removeProtectionMarkup(html),text);
+ }
+});
