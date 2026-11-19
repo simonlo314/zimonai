@@ -431,3 +431,12 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Use: archival company-site context for three-language reporting of the 16 November contract. Each visible caption identifies Göd, Hungary, the 2015 date and creator; explicitly not Indiana, the new LFP line or a ZIMONAI assignment. It does not establish the site’s current production or this contract’s manufacturing.
 - Official announcement image considered first: [newsroom operation policy](https://news.samsungsdi.com/global/privacy), Article3, does not establish permission for redistribution/modification, so it was not copied. No rights-cleared photograph of the precise signing or Indiana LFP line was located.
 - Existing article template and regular text-only cards retained;16:10 image slot reviewed separately. Infineon GaN editorial lead retained after review, only review-through date advanced.
+
+
+## Power-bank IP-rating configuration guide — 19 November 2026
+
+- Reused `src/assets/editorial-power-bank.jpg` (1600 × 1066), Markus Winkler, [White Power Bank and Blue Coated Wires / Pexels 4072683](https://www.pexels.com/photo/white-power-bank-and-blue-coated-wires-4072683/). Original page dated 4 April 2020, 3999 × 2666. Legacy download date was not recorded; existing local asset retained, with no new download.
+- Source and [Pexels License](https://www.pexels.com/license/) rechecked 19 November 2026. Website use and modification allowed; no endorsement implied. No generative edits; existing proportional resizing/compression and display crops only.
+- Category illustration of a power bank with a connected cable. All native captions expressly state that no IP rating is verified for the pictured device and it is not a test specimen or ZIMONAI project. Source and photographer links remain visible.
+- Individual crop foci: card 48% 76%, desktop article 46% 67%, mobile article 49% 72%. Review requires the power-bank body, connected plug and loose connectors to remain identifiable. Regular knowledge cards retain the text-only template; card crop is reviewed separately.
+- Existing Infineon GaN lead retained as the broader industry entry point; featured review-through date advanced without changing its article.

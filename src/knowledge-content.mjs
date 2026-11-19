@@ -7,6 +7,85 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: match a power-bank IP test report to its ordered and advertised configuration.
+  // Related questions: code meaning; exposure conditions; port covers and accessories; powered state; safety documentation; packaging and configuration changes.
+  {
+  "id": "knowledge-power-bank-ip-rating-configuration",
+  "key": "powerBankIpRatingConfiguration",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/power-bank-ip-rating-configuration",
+  "category": "certification-market-access",
+  "products": [
+    "power-bank"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "power bank IP rating",
+      "IP test report configuration",
+      "power bank port cover water resistance"
+    ],
+    "zh-tw": [
+      "行動電源 IP 防護等級",
+      "防水測試報告",
+      "連接埠保護蓋"
+    ],
+    "zh-cn": [
+      "移动电源 IP 防护等级",
+      "防水测试报告",
+      "接口保护盖"
+    ]
+  },
+  "datePublished": "2026-11-19",
+  "dateModified": "2026-11-19",
+  "image": "/assets/editorial-power-bank.jpg",
+  "imageWidth": 1600,
+  "imageHeight": 1066,
+  "imageCrop": {
+    "card": "48% 76%",
+    "article": "46% 67%",
+    "mobile": "49% 72%"
+  },
+  "photo": {
+    "photographer": "Markus Winkler",
+    "page": "https://www.pexels.com/photo/white-power-bank-and-blue-coated-wires-4072683/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "sources": [
+    {
+      "publisher": "IEC",
+      "title": "IEC 60529 — enclosure protection classification, edition 2.2",
+      "url": "https://webstore.iec.ch/en/publication/2452"
+    },
+    {
+      "publisher": "Kiwa",
+      "title": "IP testing — production configuration and report documentation",
+      "url": "https://www.kiwa.com/en/de/services/testing/ip-xx-testing-solid-objects-and-dust-intrusion-up-to-ip-6x/"
+    },
+    {
+      "publisher": "Intertek",
+      "title": "Ingress protection testing — dust and water categories",
+      "url": "https://www.intertek.com/lighting/performance/ingress-protection/"
+    },
+    {
+      "publisher": "UL Solutions",
+      "title": "IEC 62368-1 engineering Q&A — IP markings and safety safeguards",
+      "url": "https://www.ul.com/resources/iec-62368-1-ask-engineers-question-and-answer-page"
+    },
+    {
+      "publisher": "Markus Winkler / Pexels",
+      "title": "White Power Bank and Blue Coated Wires — original photograph",
+      "url": "https://www.pexels.com/photo/white-power-bank-and-blue-coated-wires-4072683/"
+    },
+    {
+      "publisher": "Pexels",
+      "title": "Photo licence and permitted website use",
+      "url": "https://www.pexels.com/license/"
+    }
+  ]
+},
   // Search intent: understand the Samsung SDI–Jupiter Power LFP contract and US storage supply implications.
   // Related questions: 16 versus 27 GWh; delivery start; manufacturing location; material supply; annual allocation; project execution.
   {
@@ -1296,7 +1375,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-18",
+  "featuredReviewedThrough": "2026-11-19",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4490,6 +4569,58 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      powerBankIpRatingConfiguration: {
+  "topic": "Power-bank enclosures and test evidence",
+  "published": "19 November 2026",
+  "readTime": "5 minutes",
+  "title": "Power-bank IP ratings: match the report to the product",
+  "description": "Review a power bank’s IP claim by matching the tested enclosure, port covers and operating state to the order, product instructions and safety documentation.",
+  "imageAlt": "A white power bank connected to a blue braided cable, with three connector ends alongside it.",
+  "imageCaption": "Product-category illustration by Markus Winkler / Pexels, used under the Pexels licence. The pictured device has no verified IP rating in this article and is not a test specimen or ZIMONAI assignment. Resized and compressed; layout crops only.",
+  "labels": {
+    "summary": "Reader summary",
+    "checklist": "Buyer checklist",
+    "limits": "Scope and evidence limits"
+  },
+  "answer": "An IP test report describes enclosure protection under specified dust or water tests, within the IEC 60529 classification [[source:1]][[source:3]]. Its result is tied to the tested product configuration, including covers and connectors [[source:2]]. Overseas power-bank buyers therefore need to match that configuration to how the ordered device will be supplied and used. ZIMONAI’s editorial view is that the decisive procurement question is whether the report, instructions and sales claim describe the same operating state; a rating shown without those details leaves the intended use unresolved.",
+  "takeaways": [
+    "Read the complete IP code and the actual test conditions.",
+    "Match the enclosure, port covers and accessories to the tested configuration.",
+    "Keep ingress-protection evidence connected to instructions and the applicable safety assessment."
+  ],
+  "sections": [
+    {
+      "title": "Start with the exposure, then read the code",
+      "paragraphs": [
+        "IEC 60529 classifies protection provided by electrical enclosures [[source:1]]. Intertek distinguishes solid-object and dust protection in the first numeral from water protection in the second. Its guide lists water jets, powerful jets and immersion as different test categories [[source:3]]. Kiwa explains that an X leaves that position unrated; IPX7 therefore supplies no solids rating [[source:2]].",
+        "For sourcing, write down the intended exposure before comparing supplier claims: incidental splashes, dust during storage or a specifically defined immersion condition. Ask which report entries address that exposure. A product listing that says only “waterproof” leaves the test category and conditions unclear. ZIMONAI recommends treating the complete code, report reference and stated use conditions as one purchasing requirement, rather than choosing by the largest-looking number."
+      ]
+    },
+    {
+      "title": "The port-cover position belongs in the evidence",
+      "paragraphs": [
+        "Kiwa’s published workflow identifies seals, closures, connectors and accessories as part of the production configuration to define before testing. The report records conditions and results [[source:2]]. This gives buyers a practical way to frame the document request: ask for the pages and photographs that identify the actual sample, not just the cover page and a pass statement.",
+        "For a power bank, ZIMONAI recommends checking the model and enclosure revision, whether each port was covered or connected, which cable or accessory was fitted, and whether the device was operating during exposure. Compare these details with the supplied product and its instructions. If a report covers a closed-port state while advertising depicts use with an open port, obtain a written explanation and supporting evidence before accepting that broader claim. This is a document-review recommendation, not an instruction to test a powered device in water."
+      ]
+    },
+    {
+      "title": "Resolve the claim before approving packaging",
+      "paragraphs": [
+        "UL Solutions explains, in its IEC 62368-1:2023 Q&A, that an IP construction used as a safety safeguard should be documented in the IECEE CB test report and certificate. It distinguishes this from IP claims serving another purpose, and notes that an IP marking does not by itself make equipment an outdoor product [[source:4]]. The applicable product standard, edition and certification scope still need to be established for the specific model.",
+        "ZIMONAI recommends a final comparison of the report, manual and proposed packaging. Record which configuration each claim covers and who must review a change to the enclosure, seal or cover. An unresolved mismatch should lead to a narrower supported claim or further assessment, before packaging is approved. This preserves a clear basis for the order without turning one enclosure test into a general promise about battery safety, service life or every shipped unit."
+      ]
+    }
+  ],
+  "checklist": [
+    "Record the full IP code, standard edition, report number and issuer.",
+    "Identify the sample model, enclosure revision and accompanying photographs.",
+    "Check port-cover positions, fitted accessories and operating state.",
+    "Read the exposure conditions, observations and acceptance outcome.",
+    "Reconcile the report with instructions, packaging and applicable safety documents.",
+    "Agree how configuration changes and unsupported claims will be reviewed."
+  ],
+  "limitsText": "Sources checked 19 November 2026. This is a guide to reviewing evidence, not a test procedure or a claim about any photographed product. No supplier report or shipment was assessed. Product-specific requirements and laboratory competence require separate confirmation. IP evidence alone does not establish electrical or battery safety, market access, performance after wear, or conformity of an entire production batch."
+},
       samsungSdiJupiterLfpSupply: {
   "topic": "Energy storage and battery supply",
   "published": "18 November 2026",
@@ -8615,6 +8746,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      powerBankIpRatingConfiguration: {
+  "topic": "行動電源外殼與測試證據",
+  "published": "2026 年 11 月 19 日",
+  "readTime": "5 分鐘",
+  "title": "行動電源 IP 等級：核對受測配置",
+  "description": "行動電源的 IP 防護等級，測的是哪種外殼、保護蓋與連接狀態？核對測試報告、使用說明與包裝宣稱，釐清採購時應對齊的證據。",
+  "imageAlt": "白色行動電源接著藍色編織線，旁邊放有三種接頭。",
+  "imageCaption": "產品類別示意照片，攝影：Markus Winkler／Pexels，依 Pexels 授權使用。本文未確認圖中產品的 IP 等級；照片不是測試樣品或 ZIMONAI 委託現場。僅經縮放、壓縮與版面裁切。",
+  "labels": {
+    "summary": "讀者摘要",
+    "checklist": "買家核對清單",
+    "limits": "證據限制"
+  },
+  "answer": "IP 測試報告依 IEC 60529 的分類，說明外殼在指定防塵或防水試驗中的防護表現 [[source:1]][[source:3]]。結果對應的是受測配置，保護蓋、連接器與配件都可能是其中一部分 [[source:2]]。海外買家採購行動電源時，應把這個配置對回交付產品與預定使用方式。ZIMONAI 的編輯判讀是，真正影響採購的問題，在於報告、使用說明與銷售宣稱是否描述同一種使用狀態；若只展示等級數字，讀者仍無從判斷宣稱適用的情境。",
+  "takeaways": [
+    "先讀完整 IP 代碼與試驗條件，再比較產品宣稱。",
+    "外殼、連接埠保護蓋與配件，應能對回受測配置。",
+    "防護等級應與使用說明及安全評估相互對照。"
+  ],
+  "sections": [
+    {
+      "title": "先說清楚接觸環境，再讀等級",
+      "paragraphs": [
+        "IEC 60529 處理電氣設備外殼的防護分類 [[source:1]]。Intertek 的說明將第一位數字對應固體異物與灰塵，第二位對應水，並分列噴水、強力噴水及浸水等試驗類別 [[source:3]]。Kiwa 另指出，X 代表該位置未標示評級，因此 IPX7 並未提供固體異物的防護等級 [[source:2]]。",
+        "採購前，可先寫明預定接觸的環境，例如偶發潑水、存放時的粉塵，或具有明確條件的浸水需求，再請供應商指出報告中對應的項目。商品頁只寫「防水」，讀者就不容易知道試驗類別與條件。ZIMONAI 建議把完整代碼、報告編號及使用條件放在同一份採購要求裡，讓比較建立在相同需求上。"
+      ]
+    },
+    {
+      "title": "保護蓋的位置，也是證據的一部分",
+      "paragraphs": [
+        "Kiwa 公開的試驗流程，會先界定密封件、開口封閉方式、連接器與配件等量產配置，並在報告記錄條件及結果 [[source:2]]。買家索取文件時，可據此要求能辨識實際樣品的頁面與照片，而不只收一張封面或合格結論。",
+        "針對行動電源，ZIMONAI 建議核對型號、外殼版本、各連接埠當時是蓋住還是接線、搭配哪些配件，以及接觸水時是否運作，再與交付產品和使用說明比對。若報告只涵蓋封閉連接埠的狀態，廣告卻呈現開蓋使用，應先取得書面說明與相應證據，才能接受擴大的宣稱。這是文件審閱建議，並非要求買家自行將通電產品放入水中。"
+      ]
+    },
+    {
+      "title": "包裝定稿前，把宣稱範圍對齊",
+      "paragraphs": [
+        "UL Solutions 在 IEC 62368-1:2023 的工程問答中說明，當 IP 外殼結構被用作安全防護措施，相關內容應記入 IECEE CB 測試報告與證書；它也區分其他用途的 IP 宣稱，並指出標示 IP 等級本身，不會自動把產品變成戶外設備 [[source:4]]。特定型號適用哪個產品標準、版本與認證範圍，仍須先確認。",
+        "ZIMONAI 建議在包裝定稿前，將報告、說明書與預定宣稱逐項比對，記下各項文字適用的配置，以及外殼、密封件或保護蓋變更後由誰重新審閱。若三者還有落差，應先縮小到證據支持的宣稱，或補做適當評估。這樣才能讓訂單有清楚依據，並保留電池安全、使用壽命與量產一致性各自需要的證據。"
+      ]
+    }
+  ],
+  "checklist": [
+    "記錄完整 IP 代碼、標準版本、報告編號與出具機構。",
+    "對齊樣品型號、外殼版本與辨識照片。",
+    "確認保護蓋位置、配件及受測時的運作狀態。",
+    "閱讀接觸條件、觀察紀錄與判定結果。",
+    "比對使用說明、包裝文字與適用安全文件。",
+    "約定配置變更及證據不足宣稱的審閱方式。"
+  ],
+  "limitsText": "資料核對日期：2026 年 11 月 19 日。本文是證據審閱指南，不是試驗操作程序，也未對照片中的產品作防護宣稱。本次未查驗任何供應商報告或出貨，特定產品要求與實驗室能力需另行確認。IP 證據本身無法涵蓋電氣與電池安全、市場准入、磨耗後表現，或整批量產的一致性。"
+},
       samsungSdiJupiterLfpSupply: {
   "topic": "儲能電池與供應安排",
   "published": "2026 年 11 月 18 日",
@@ -12701,6 +12884,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      powerBankIpRatingConfiguration: {
+  "topic": "移动电源防护与测试文件",
+  "published": "2026 年 11 月 19 日",
+  "readTime": "5 分钟",
+  "title": "移动电源 IP 等级：核对测试配置",
+  "description": "采购移动电源时，怎样理解 IP 防护声明？核对测试样品、接口保护盖和工作状态，让报告、说明书与销售文案对应同一使用条件。",
+  "imageAlt": "白色移动电源连接蓝色编织线，右侧摆放着三个接头。",
+  "imageCaption": "产品类别示意图，由 Markus Winkler 拍摄，来源为 Pexels，按 Pexels 许可使用。图中产品的 IP 等级未经本文核实，不代表试验样品或 ZIMONAI 受托项目。图片仅作缩放、压缩及版式裁切。",
+  "labels": {
+    "summary": "读者摘要",
+    "checklist": "采购方核对清单",
+    "limits": "证据边界"
+  },
+  "answer": "IP 测试报告按照 IEC 60529 的分类，记录外壳在规定防尘或防水试验中的防护表现 [[source:1]][[source:3]]。结论针对送测配置，保护盖、连接器和附件等细节属于需要明确的范围 [[source:2]]。海外采购方选购移动电源时，应将这些条件与交付状态、实际用途联系起来。ZIMONAI 的判断是，报告、说明书和销售文案对使用状态的描述一致，才有助于形成明确的采购要求；脱离配置只展示等级，容易让防护声明超出已有证据。",
+  "takeaways": [
+    "比较 IP 声明前，先明确完整代码与测试条件。",
+    "外壳、接口盖和随附配件应与送测配置对应。",
+    "防护报告需与说明书及适用的安全评估衔接。"
+  ],
+  "sections": [
+    {
+      "title": "从使用环境确定需要核对的项目",
+      "paragraphs": [
+        "IEC 60529 对电气设备外壳提供的防护进行分类 [[source:1]]。Intertek 将代码第一位数字解释为固体异物和粉尘防护，第二位为水防护；喷水、强力喷水、浸水在其指南中分别列出 [[source:3]]。Kiwa 说明，X 表示该项没有给出评定等级，所以 IPX7 中并没有固体异物防护的评级信息 [[source:2]]。",
+        "采购方宜先明确使用环境，例如偶然溅水、存放时的粉尘或特定浸水条件，并要求供应商指出报告中的对应项目。只有“防水”两个字的商品说明，难以交代测试项目与适用条件。ZIMONAI 建议把完整代码、报告引用和使用条件一并写入采购要求，使供应商之间的比较有共同基础。"
+      ]
+    },
+    {
+      "title": "核对接口盖，而不只核对型号",
+      "paragraphs": [
+        "Kiwa 的公开流程要求先明确密封件、封闭结构、连接器及附件等生产配置，再把试验条件与结果记录在报告中 [[source:2]]。采购方可据此索取样品识别页和照片，确认文件实际覆盖的产品，而不是仅凭首页上的合格结论作决定。",
+        "对于移动电源，ZIMONAI 建议逐项核对外壳版本、各接口是否盖合或接线、所用附件，以及接触水时设备是否工作。随后对照交付实物和说明书。如果送测时接口封闭，宣传图却展示开盖使用，应要求书面解释及对应证据，再决定较宽的宣传范围是否成立。这些问题用于审核资料，并不建议采购方自行对通电设备进行浸水试验。"
+      ]
+    },
+    {
+      "title": "让报告、说明书与包装说清同一件事",
+      "paragraphs": [
+        "UL Solutions 针对 IEC 62368-1:2023 的问答指出，当 IP 结构承担安全防护作用时，应在 IECEE CB 测试报告和证书中体现。其说明也区分了其他用途的 IP 标示，并指出产品标注 IP 等级，并不自动等于户外设备 [[source:4]]。具体型号采用的产品标准、版本和认证范围，仍应由相应资料确定。",
+        "在包装批准前，ZIMONAI 建议逐条对照报告、用户说明和销售表述，写清每项声明适用的配置，并约定外壳、密封件或接口盖更改后由谁复核。存在差异时，应先收窄到证据支持的范围，或完成进一步评估。这样的处理能给订单留下可执行的依据，同时把电池安全、寿命与批量一致性留给各自适用的证据判断。"
+      ]
+    }
+  ],
+  "checklist": [
+    "留存完整 IP 代码、标准版本、报告编号和出具机构。",
+    "匹配样品型号、外壳版本及识别照片。",
+    "确认接口盖、附件和试验中的工作状态。",
+    "检查接触条件、观察记录及判定结论。",
+    "将报告与说明书、包装声明及安全文件交叉核对。",
+    "约定配置变动和缺乏依据声明的复核流程。"
+  ],
+  "limitsText": "资料核对日期为 2026 年 11 月 19 日。本文讨论文件审核，不提供试验操作步骤，也未确认图片中产品的防护能力。文章没有审查具体供应商报告或货物；产品要求和实验室能力需另行核实。IP 结果不单独证明电气与电池安全、市场准入、磨损后的性能，或整批产品与样品一致。"
+},
       samsungSdiJupiterLfpSupply: {
   "topic": "储能制造与电池供应",
   "published": "2026 年 11 月 18 日",

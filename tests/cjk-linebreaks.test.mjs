@@ -1909,3 +1909,15 @@ test('LFP supply report terms remain intact in independent Chinese vocabularies'
   const text=term+'。',html=protectCjkText(text,locale);assert.ok(html.includes('>'+text+'</span>'),locale+': '+term);assert.equal(removeProtectionMarkup(html),text);
  }
 });
+
+
+test('IP configuration terms retain native Chinese words and visible text',()=>{
+ for(const [locale,words] of Object.entries({"zh-tw": ["防護等級", "受測配置", "試驗類別", "試驗條件", "固體異物", "灰塵", "防塵", "防水", "噴水", "強力噴水", "浸水", "保護蓋", "密封件", "外殼版本", "使用狀態", "運作狀態", "接觸條件", "配置變更", "銷售宣稱", "使用情境", "使用方式", "封閉連接埠", "量產配置", "安全防護措施", "戶外設備", "試驗操作程序", "磨耗", "外殼", "配件", "開蓋", "接線", "送測", "產品類別"], "zh-cn": ["防护等级", "送测配置", "试验类别", "试验条件", "固体异物", "灰尘", "防尘", "防水", "喷水", "强力喷水", "浸水", "保护盖", "接口盖", "密封件", "外壳版本", "使用状态", "工作状态", "接触条件", "配置变更", "销售文案", "使用情境", "使用方式", "封闭接口", "生产配置", "安全防护", "户外设备", "试验操作", "磨损", "外壳", "配件", "开盖", "接线", "送测", "产品类别"]}))for(const term of [...words,...["IEC 60529", "IEC 62368-1:2023", "IPX7", "IPX8", "IP", "Kiwa", "Intertek", "UL Solutions", "Markus Winkler"]]){
+  const text=term+'。',html=protectCjkText(text,locale);assert.ok(html.includes('>'+text+'</span>'),locale+': '+term);assert.equal(removeProtectionMarkup(html),text);
+ }
+});
+
+
+test('IP review protects configuration and claim compounds after visual inspection',()=>{
+ for(const [locale,words]of Object.entries({"zh-tw":["連接器","第一位數字","第二位數字","第一位","第二位","測試配置","防護表現","防護聲明","使用條件","接觸環境","連接狀態","試驗樣品","連接埠保護蓋","包裝宣稱","採購要求","測試樣品","電池安全"],"zh-cn":["连接器","第一位数字","第二位数字","第一位","第二位","测试配置","防护表现","防护声明","使用条件","使用环境","连接状态","试验样品","接口保护盖","包装声明","采购要求","测试样品","电池安全"]}))for(const term of words){const text=term+'。',html=protectCjkText(text,locale);assert.ok(html.includes('>'+text+'</span>'),locale+term);assert.equal(removeProtectionMarkup(html),text);}
+});
