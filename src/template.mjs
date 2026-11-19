@@ -12,6 +12,7 @@ import { knowledgeArticleSpecs, knowledgeCategoryDefinitions, knowledgeContent, 
 import { portalContent } from './portal-content.mjs';
 import { adminContent } from './admin-content.mjs';
 import { protectCjkHtml } from './cjk-linebreak.mjs';
+import { serviceNotes, serviceNoteLabels } from './knowledge-service-notes.mjs';
 
 const pageMap = Object.fromEntries(pages.map((page) => [page.id, page]));
 
@@ -708,6 +709,12 @@ function knowledgeArticle(t, page) {
   const spec = knowledgeSpecById(page.id);
   const article = copy.articles[spec.key];
   const summaryLabel = article.labels?.summary || copy.ui.quickAnswer;
+  const note = serviceNotes[spec.key]?.[t.__key];
+  const labels = serviceNoteLabels[t.__key];
+  const serviceNote = note ? `<aside id="document-review" class="document-review" aria-labelledby="document-review-title">
+    <h2 id="document-review-title">${esc(note.title)}</h2><p>${esc(note.body)}</p>
+    <div class="document-review__actions"><a href="${pathFor(t.__key, 'services')}#t1"><span>${esc(labels.scope)}</span></a><a href="${pathFor(t.__key, 'request')}?service=t1"><span>${esc(note.action)}</span></a></div>
+  </aside>` : '';
   const checklistLabel = article.labels?.checklist || copy.ui.buyerChecklist;
   const limitsLabel = article.labels?.limits || copy.ui.limits;
   const imageCrop = spec.imageCrop || {};
@@ -736,6 +743,7 @@ function knowledgeArticle(t, page) {
             <p class="kicker">${esc(article.topic)} · ${String(knowledgeArticleSpecs.indexOf(spec) + 1).padStart(2, '0')}</p>
             <h1>${esc(article.title)}</h1>
             <p class="field-note__dek">${esc(article.description)}</p>
+            ${note ? `<a class="document-review-jump" href="#document-review">${esc(labels.jump)}</a>` : ''}
             <dl class="field-note__meta">
               <div><dt>${esc(copy.ui.published)}</dt><dd><time datetime="${esc(spec.datePublished)}">${esc(article.published)}</time></dd></div>
               <div><dt>${esc(copy.ui.readTime)}</dt><dd>${esc(article.readTime)}</dd></div>
@@ -756,7 +764,7 @@ function knowledgeArticle(t, page) {
         <div class="field-note__body">
           <section class="answer-first reveal" aria-labelledby="answer-title"><p class="kicker" id="answer-title">${esc(summaryLabel)}</p><p>${knowledgeText(article.answer, spec)}</p></section>
           <ul class="field-note__takeaways">${article.takeaways.map((item, index) => `<li class="reveal"><span>${String(index + 1).padStart(2, '0')}</span><p>${knowledgeText(item, spec)}</p></li>`).join('')}</ul>
-          ${article.sections.map((section, index) => `<section class="field-note__section reveal" id="section-${index + 1}"><span class="field-note__section-no">${String(index + 1).padStart(2, '0')}</span><h2>${esc(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${knowledgeText(paragraph, spec)}</p>`).join('')}${section.items ? `<ul>${section.items.map((item) => `<li>${knowledgeText(item, spec)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
+          ${article.sections.map((section, index) => `${index === 1 ? serviceNote : ''}<section class="field-note__section reveal" id="section-${index + 1}"><span class="field-note__section-no">${String(index + 1).padStart(2, '0')}</span><h2>${esc(section.title)}</h2>${section.paragraphs.map((paragraph) => `<p>${knowledgeText(paragraph, spec)}</p>`).join('')}${section.items ? `<ul>${section.items.map((item) => `<li>${knowledgeText(item, spec)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
           <section class="buyer-checklist reveal"><p class="kicker">${esc(checklistLabel)}</p><h2>${esc(checklistLabel)}</h2><ul>${article.checklist.map((item) => `<li><span class="buyer-checklist__mark" aria-hidden="true">✓</span><span class="buyer-checklist__text">${esc(item)}</span></li>`).join('')}</ul></section>
           <aside class="evidence-limit reveal"><span>!</span><div><p class="kicker">${esc(limitsLabel)}</p><h2>${esc(limitsLabel)}</h2><p>${esc(article.limitsText)}</p></div></aside>
         </div>

@@ -1399,6 +1399,17 @@ html[data-layout="cjk"] .knowledge-row h3 { letter-spacing: 0; line-height: 1.45
 .knowledge-next > p { max-width: 40em; margin: 0; font-size: 18px; }
 
 .field-note { margin-top: 18px; }
+.document-review { margin-block: 2rem; border-inline-start: 3px solid var(--blue); background: #fff; padding: clamp(1rem, 3vw, 2rem); scroll-margin-top: 7rem; }
+.document-review h2 { margin: 0; color: var(--ink); font-size: clamp(1.25rem, 2vw, 1.65rem); line-height: 1.35; }
+.document-review p { max-width: 68ch; margin: .75rem 0; line-height: 1.65; }
+.document-review__actions { display: flex; flex-wrap: wrap; column-gap: 1.5rem; }
+.document-review__actions a, .document-review-jump { align-items: center; min-height: 44px; font-weight: 650; text-decoration: underline; text-underline-offset: .2em; }
+.document-review__actions a { display: inline-flex; color: var(--blue); }
+.document-review-jump { display: none; }
+@media (max-width: 760px) {
+  .document-review-jump { display: inline-flex; color: #fff; }
+  .document-review__actions { flex-direction: column; align-items: flex-start; }
+}
 .field-note__hero { position: relative; overflow: hidden; color: #fff; background: linear-gradient(110deg,var(--navy) 0%,#183753 100%); }
 .field-note__hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg,transparent 0 62%,rgba(49,146,232,.08) 62% 62.08%,transparent 62.08%); }
 .field-note__hero-grid { position: relative; min-height: 0; display: grid; grid-template-columns: minmax(0,1.08fr) minmax(440px,.92fr); gap: clamp(48px,5vw,84px); align-items: start; padding-block: clamp(54px,5vw,76px); }
