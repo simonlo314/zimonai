@@ -440,3 +440,11 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Category illustration of a power bank with a connected cable. All native captions expressly state that no IP rating is verified for the pictured device and it is not a test specimen or ZIMONAI project. Source and photographer links remain visible.
 - Individual crop foci: card 48% 76%, desktop article 46% 67%, mobile article 49% 72%. Review requires the power-bank body, connected plug and loose connectors to remain identifiable. Regular knowledge cards retain the text-only template; card crop is reviewed separately.
 - Existing Infineon GaN lead retained as the broader industry entry point; featured review-through date advanced without changing its article.
+
+
+## Japanese automotive materials initiative — 20 November 2026
+
+- `src/assets/editorial-japan-auto-wire-harness.jpg`, 1600 × 1200. Original photograph: simonov, “Wire harness into engine compartment,” 23 December 2009. [Commons source and reviewed licence](https://commons.wikimedia.org/wiki/File:Wire_harness_into_engine_compartment.jpg), [original Flickr page](https://www.flickr.com/photos/26209464@N00/4209187743/). Downloaded 20 November 2026 from the original Flickr file linked by Commons. Original SHA-1 `e4b74591f5e416053548a202e15d66c179d9f798` matches Commons; original 1637 × 1228.
+- [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/): commercial website use and adaptation allowed with attribution, title, source, licence and share-alike. Resized proportionally and JPEG compressed; layout crops only. This modified photograph remains licensed CC BY-SA 2.0. No AI generation or alteration.
+- Archival automotive wiring illustration, explicitly dated and distinguished from the Japanese initiative and any ZIMONAI assignment in all three captions. Foreground metal tubes are brake lines, not wires. No explicit reuse/adaptation grant for official event photos was found on the JAMA announcement, so those images were not copied.
+- Crop foci: card56%40%, desktop54%35%, mobile58%42%. Coloured wires and rubber pass-through must remain identifiable in each view. Ordinary knowledge rows remain text-only; the card image crop is reviewed separately.

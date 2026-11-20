@@ -1921,3 +1921,8 @@ test('IP configuration terms retain native Chinese words and visible text',()=>{
 test('IP review protects configuration and claim compounds after visual inspection',()=>{
  for(const [locale,words]of Object.entries({"zh-tw":["連接器","第一位數字","第二位數字","第一位","第二位","測試配置","防護表現","防護聲明","使用條件","接觸環境","連接狀態","試驗樣品","連接埠保護蓋","包裝宣稱","採購要求","測試樣品","電池安全"],"zh-cn":["连接器","第一位数字","第二位数字","第一位","第二位","测试配置","防护表现","防护声明","使用条件","使用环境","连接状态","试验样品","接口保护盖","包装声明","采购要求","测试样品","电池安全"]}))for(const term of words){const text=term+'。',html=protectCjkText(text,locale);assert.ok(html.includes('>'+text+'</span>'),locale+term);assert.equal(removeProtectionMarkup(html),text);}
 });
+
+
+test('Japanese automotive initiative preserves native material and production terms',()=>{
+ for(const [locale,words]of Object.entries({"zh-tw": ["汽車材料", "汽車零件", "共通化", "日本自動車工業會", "日本自動車部品工業會", "零件工業會", "自工會", "鋼材", "樹脂", "再生樹脂", "線束", "電線", "鋁線", "高電壓", "高壓電線", "識別色", "橘色", "插入力", "連接器", "品質評估", "評估方法", "共同要求", "共同規格", "規格差異", "材料種類", "電線種類", "作業指導書", "允收條件", "引擎室", "護圈", "煞車管線", "歷史示意照片", "既有庫存", "替代來源", "工程資源", "工程工作", "生產自動化", "市場准入", "工業會"], "zh-cn": ["汽车业", "汽车材料", "汽车零部件", "通用化", "日本汽车工业协会", "日本汽车零部件工业协会", "钢材", "树脂", "再生树脂", "线束", "电线", "铝线", "高压电线", "橙色", "插入力", "连接器", "质量评价", "评价要求", "评价方法", "共同要求", "共同规格", "规格差异", "材料种类", "电线种类", "作业文件", "接收条件", "发动机舱", "护圈", "制动管线", "历史示意照片", "现有库存", "替代供应来源", "工程资源", "工程工作", "生产自动化", "市场准入", "生产负担"]}))for(const term of [...words,'JAMA','JAPIA','simonov','Flickr']){const text=term+'。',html=protectCjkText(text,locale);assert.ok(html.includes('>'+text+'</span>'),locale+term);assert.equal(removeProtectionMarkup(html),text);}
+});

@@ -7,6 +7,80 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the JAMA/JAPIA common-materials announcement and its supplier implications.
+  // Related questions: initial scope; evaluation requirements; wire-harness examples; manufacturing benefit; adoption and transition.
+  {
+  "id": "knowledge-japan-auto-materials-standardisation",
+  "key": "japanAutoMaterialsStandardisation",
+  "contentType": "current-affairs",
+  "slug": "knowledge/japan-auto-materials-standardisation",
+  "category": "commercial-risk",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "japan"
+  ],
+  "keywords": {
+    "en": [
+      "Japan automotive materials standardisation",
+      "JAMA JAPIA wire harness standards",
+      "automotive supply chain common specifications"
+    ],
+    "zh-tw": [
+      "日本汽車材料共通化",
+      "JAMA JAPIA 線束規格",
+      "汽車零件供應鏈"
+    ],
+    "zh-cn": [
+      "日本汽车材料通用化",
+      "JAMA JAPIA 线束标准",
+      "汽车零部件供应链"
+    ]
+  },
+  "datePublished": "2026-11-20",
+  "dateModified": "2026-11-20",
+  "image": "/assets/editorial-japan-auto-wire-harness.jpg",
+  "imageWidth": 1600,
+  "imageHeight": 1200,
+  "imageCrop": {
+    "card": "56% 40%",
+    "article": "54% 35%",
+    "mobile": "58% 42%"
+  },
+  "photo": {
+    "photographer": "simonov",
+    "page": "https://commons.wikimedia.org/wiki/File:Wire_harness_into_engine_compartment.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/2.0/"
+  },
+  "sources": [
+    {
+      "publisher": "JAMA",
+      "title": "19 November 2026 press conference — supply-chain task-force transcript",
+      "url": "https://www.jama.or.jp/release/press_conference/2026/3908/"
+    },
+    {
+      "publisher": "Reuters / Maki Shiraki, via Newsweek Japan",
+      "title": "Japanese automakers plan common materials and parts — 19 November 2026",
+      "url": "https://www.newsweekjapan.jp/articles/-/340697"
+    },
+    {
+      "publisher": "JAMA / JAPIA",
+      "title": "Supply-chain resilience task-force briefing — 19 November 2026",
+      "url": "https://blog.jama.or.jp/wp-content/uploads/2026/11/261119_%E8%A8%98%E8%80%85%E3%83%AC%E3%82%AF%E8%B3%87%E6%96%99_SC%E5%BC%B7%E9%9D%AD%E5%8C%96TF.pdf"
+    },
+    {
+      "publisher": "simonov / Wikimedia Commons",
+      "title": "Wire harness into engine compartment — photograph, 23 December 2009",
+      "url": "https://commons.wikimedia.org/wiki/File:Wire_harness_into_engine_compartment.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 2.0 Generic",
+      "url": "https://creativecommons.org/licenses/by-sa/2.0/"
+    }
+  ]
+},
   // Search intent: match a power-bank IP test report to its ordered and advertised configuration.
   // Related questions: code meaning; exposure conditions; port covers and accessories; powered state; safety documentation; packaging and configuration changes.
   {
@@ -1375,7 +1449,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-19",
+  "featuredReviewedThrough": "2026-11-20",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4569,6 +4643,57 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      japanAutoMaterialsStandardisation: {
+  "topic": "Automotive materials and supplier requirements",
+  "published": "20 November 2026",
+  "readTime": "5 minutes",
+  "title": "Japan targets common steel, resin and wire-harness standards",
+  "description": "JAMA and JAPIA outlined a shared-specification initiative on 19 November. Its supplier impact will depend on which requirements converge and how changes are qualified.",
+  "imageAlt": "Coloured automotive wires pass through a rubber grommet into an engine compartment; metal brake lines cross the foreground.",
+  "imageCaption": "Archival illustration: “Wire harness into engine compartment,” photographed by simonov on 23 December 2009. Source: Wikimedia Commons / Flickr, CC BY-SA 2.0. Resized, compressed and cropped for layout; this photograph remains under the same licence. It shows neither the Japanese initiative nor a ZIMONAI assignment.",
+  "labels": {
+    "summary": "News summary",
+    "checklist": "What to watch next",
+    "limits": "What remains unresolved"
+  },
+  "answer": "Japan’s automaker and auto-parts associations, JAMA and JAPIA, outlined a common-specification initiative on 19 November 2026, starting with steel, resins and wire harnesses [[source:1]][[source:2]]. The work targets differences in materials and evaluation requirements, while implementation and realised savings remain to be demonstrated. What matters for suppliers is the possibility of fewer customer-specific variations to manufacture and qualify. ZIMONAI’s editorial view is that the useful measure of progress will be an agreed requirement that customers actually adopt, accompanied by a clear transition path for existing parts.",
+  "takeaways": [
+    "Steel, resins and wire harnesses form the initial scope.",
+    "Shared evaluation requirements matter alongside fewer material and wire variants.",
+    "Published plans do not yet establish realised savings or interchangeable approved parts."
+  ],
+  "sections": [
+    {
+      "title": "A common starting point across competing brands",
+      "paragraphs": [
+        "At the 19 November briefing, JAMA and JAPIA presented joint work on materials and parts. Reuters independently reported the announcement and the initial three areas [[source:1]][[source:2]]. The official briefing identifies consolidation of low-volume steel materials, work on recycled-resin requirements and reduced wire variety among the activities being considered [[source:3]]. These are directions for cooperation; the announcement is not a replacement specification for a supplier’s current order.",
+        "The distinction matters because a shared material name alone gives a supplier little basis for changing production. A usable requirement needs to say what is being evaluated, under which method and against which acceptance criteria. ZIMONAI reads this initiative as an effort to reduce differences at that level, where repeated customer-specific work can consume engineering time before a part reaches a vehicle."
+      ]
+    },
+    {
+      "title": "Wire harnesses make the manufacturing question tangible",
+      "paragraphs": [
+        "JAMA’s transcript gives unusually concrete examples: differences between manufacturers in the orange used to identify high-voltage wiring, and in connector insertion-force requirements. The wire-harness discussion also covers aluminium-wire use and production automation [[source:1]]. The examples concern requirements under review, not permission to change a safety-related feature or substitute a material today.",
+        "ZIMONAI’s manufacturing interpretation is that fewer variants could make tooling, work instructions and validation more reusable across orders. That benefit depends on customers accepting the same requirements. If each customer keeps a separate exception list, a nominally common specification may still leave a supplier running distinct processes. A change that makes assembly easier also needs to remain consistent with the intended connection, identification and service conditions; the announcement does not itself demonstrate that balance for a particular component."
+      ]
+    },
+    {
+      "title": "The next milestone is adoption, followed by a controlled transition",
+      "paragraphs": [
+        "For purchasing teams, the first useful signal will be a published common requirement with a defined scope and participating customers. The next is how it enters a real specification, drawing or purchasing agreement. ZIMONAI suggests watching whether old and new versions can coexist, which party approves the change, and how existing stock is handled. Those are editorial follow-up questions, not conditions already announced by the associations.",
+        "A common specification may make alternative sourcing easier to evaluate, but an additional supplier still needs the relevant capability and customer approval. The broader significance of this announcement is the attempt to free engineering capacity by removing unnecessary differences. Its commercial value will become clearer when shared requirements are adopted and the industry reports what changed in production, qualification effort or supply continuity."
+      ]
+    }
+  ],
+  "checklist": [
+    "Publication of the first common requirements and their precise scope.",
+    "Which automakers and suppliers adopt each version.",
+    "Changes to evaluation methods and treatment of customer exceptions.",
+    "Transition arrangements for drawings, approvals and existing inventory.",
+    "Evidence of production benefits and any remaining supplier-specific constraints."
+  ],
+  "limitsText": "Event: 19 November 2026; sources checked 20 November. The cited announcement does not establish a quantified saving, an industry-wide completion date or automatic interchangeability of approved parts. This report does not identify a new contract, mandate or market-access approval for a particular supplier. ZIMONAI’s manufacturing and purchasing implications are editorial analysis."
+},
       powerBankIpRatingConfiguration: {
   "topic": "Power-bank enclosures and test evidence",
   "published": "19 November 2026",
@@ -8746,6 +8871,57 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      japanAutoMaterialsStandardisation: {
+  "topic": "汽車材料與供應商規格",
+  "published": "2026 年 11 月 20 日",
+  "readTime": "5 分鐘",
+  "title": "日本汽車材料共通化：鋼材、樹脂、線束先行",
+  "description": "日本自工會與零件工業會 11 月 19 日公布共通化方向。規格與評估方法如何整合，將影響供應商的製造、驗證及轉換成本。",
+  "imageAlt": "不同顏色的汽車電線穿過橡膠護圈進入引擎室，前景可見金屬煞車管線。",
+  "imageCaption": "歷史示意照片：simonov 於 2009 年 12 月 23 日拍攝的「Wire harness into engine compartment」，來源為 Wikimedia Commons／Flickr，採 CC BY-SA 2.0 授權。僅經縮放、壓縮與版面裁切，照片沿用相同授權；不是本次日本計畫或 ZIMONAI 專案的影像。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "仍待釐清的事項"
+  },
+  "answer": "日本自動車工業會 JAMA 與日本自動車部品工業會 JAPIA於 2026 年 11 月 19 日公布材料與零件共通化方向，首波聚焦鋼材、樹脂及線束 [[source:1]][[source:2]]。兩個團體希望整合不同車廠的材料與評估要求，實際導入及節省成果仍有待後續驗證。對供應商而言，更值得注意的是，有機會減少為不同客戶分別製造、驗證的規格差異。ZIMONAI 的編輯判讀是，下一個關鍵進展會是車廠真正採用共同要求，並交代既有零件如何轉換，讓共通化落實到訂單與產線。",
+  "takeaways": [
+    "首波涵蓋鋼材、樹脂與線束三個領域。",
+    "材料種類之外，品質評估要求也是整合重點。",
+    "共通化方向已公布，實際效益仍待導入結果。"
+  ],
+  "sections": [
+    {
+      "title": "競爭品牌，先找出共同的規格起點",
+      "paragraphs": [
+        "兩個產業團體在 11 月 19 日的記者會上說明材料與零件的合作方向，路透也獨立報導首波三項領域 [[source:1]][[source:2]]。官方簡報列出整併少量使用的鋼材、處理再生樹脂要求，以及減少電線種類等工作 [[source:3]]。這些內容是合作方向，尚不能直接取代供應商手上訂單的規格。",
+        "只把材料名稱統一，製造現場仍可能不知道該改什麼。真正可執行的要求，還要說明評估項目、方法與允收條件。ZIMONAI 認為，這次工作值得注意之處，正是把討論推進到這些細節：同一個零件進入不同車廠前，究竟有哪些重複工程工作源於必要差異，哪些可以整合。"
+      ]
+    },
+    {
+      "title": "線束案例，讓製造差異變得具體",
+      "paragraphs": [
+        "官方逐字紀錄舉了兩個明確例子：用來辨識高電壓電線的橘色，各車廠之間仍有差異；連接器的插入力要求也不盡相同。線束小組另討論擴大鋁線應用與生產自動化 [[source:1]]。這些都是正在研議的項目，並不表示供應商現在就能更動安全相關特徵，或自行替換材料。",
+        "從製造角度看，ZIMONAI 判讀，若規格種類減少，治具、作業指導書及驗證資料就可能更容易跨訂單運用。前提是客戶實際接受相同要求；若共同規格後面仍接著各家不同的例外清單，供應商可能仍須維持多套製程。任何有利組裝的改動，也要兼顧連接、辨識與維修情境，本次公布並未替特定零件證明這些條件都已滿足。"
+      ]
+    },
+    {
+      "title": "從共同要求走到採用，還有轉換工作",
+      "paragraphs": [
+        "採購端接下來可觀察的第一個訊號，是具有明確範圍與採用車廠的共同要求文件；再來才是它如何進入圖面、規格書與採購約定。ZIMONAI 建議留意新舊版本是否並行、由誰核准變更，以及既有庫存如何處理。這些是編輯部提出的追蹤問題，並非兩個團體已公布的執行條件。",
+        "共同規格有機會讓替代來源的比較更有依據，但新增供應商仍需具備相應能力，並取得客戶接受。這次事件的產業意義，是嘗試透過減少不必要的差異，騰出工程資源。待共同要求正式採用，且產業提出製造、驗證投入或供應持續性的變化，才會更清楚看見它的商業價值。"
+      ]
+    }
+  ],
+  "checklist": [
+    "第一批共同要求文件的發布時間與涵蓋範圍。",
+    "各版本實際由哪些車廠及供應商採用。",
+    "評估方法的變更，以及個別客戶例外如何處理。",
+    "圖面、核准流程及既有庫存的轉換安排。",
+    "產線效益的具體證據與仍存在的供應限制。"
+  ],
+  "limitsText": "事件日期為 2026 年 11 月 19 日，資料於 11 月 20 日核對。本次引用的公布內容，未證實具體節省幅度、全產業完成日期，或已核准零件可自動互換。本文也未確認特定供應商取得新合約、強制要求或市場准入資格。製造與採購影響屬於 ZIMONAI 編輯分析。"
+},
       powerBankIpRatingConfiguration: {
   "topic": "行動電源外殼與測試證據",
   "published": "2026 年 11 月 19 日",
@@ -12884,6 +13060,57 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      japanAutoMaterialsStandardisation: {
+  "topic": "汽车材料与供应商要求",
+  "published": "2026 年 11 月 20 日",
+  "readTime": "5 分钟",
+  "title": "日本汽车业推进材料通用化：钢材、树脂、线束先行",
+  "description": "JAMA 与 JAPIA 于 11 月 19 日提出材料和零部件通用化方向。对供应商的实际影响，取决于哪些要求统一，以及客户如何批准转换。",
+  "imageAlt": "多色汽车电线穿过橡胶护圈通向发动机舱，金属制动管线位于前景。",
+  "imageCaption": "历史示意照片：“Wire harness into engine compartment”，由 simonov 于 2009 年 12 月 23 日拍摄，来自 Wikimedia Commons／Flickr，依据 CC BY-SA 2.0 使用。图片仅作缩放、压缩及版式裁切，继续适用相同许可，不是本次日本计划或 ZIMONAI 项目的照片。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "尚待明确的信息"
+  },
+  "answer": "日本汽车工业协会 JAMA 与日本汽车零部件工业协会 JAPIA在 2026 年 11 月 19 日公布材料和零部件通用化方向，首先涉及钢材、树脂与线束 [[source:1]][[source:2]]。这项工作着眼于不同车企的材料及评价要求，具体实施和节约效果仍需观察。值得关注的是，供应商有望减少面向不同客户分别生产、验证的规格差异。ZIMONAI 判断，衡量进展的关键将是共同要求是否被客户实际采用，以及现有零部件能否按明确流程完成转换；只有进入采购和生产文件，通用化才有可执行的基础。",
+  "takeaways": [
+    "钢材、树脂和线束是首批合作领域。",
+    "统一评价要求与减少材料种类同样重要。",
+    "公布方向尚不等于已经降低成本或实现零件互换。"
+  ],
+  "sections": [
+    {
+      "title": "先统一哪些要求，是这次合作的起点",
+      "paragraphs": [
+        "JAMA 与 JAPIA 在 11 月 19 日介绍了材料、零部件合作方向，路透独立报道了相关发布及首批三个领域 [[source:1]][[source:2]]。官方简报涉及整合低用量钢材、再生树脂要求和电线种类缩减等工作 [[source:3]]。这些内容为行业协作指明了方向，并没有直接改写供应商正在执行的订单规格。",
+        "对生产企业来说，共用一个材料名称还不足以安排工艺变化。可执行的要求需要明确评价对象、测试方法和接收条件。ZIMONAI 认为，这次合作值得关注的地方，是将讨论深入到这些差异：供应商为不同客户重复开展的工程工作中，哪些对应真实需求，哪些有条件统一。"
+      ]
+    },
+    {
+      "title": "从线束细节看供应商的生产负担",
+      "paragraphs": [
+        "JAMA 的会议记录提到，高压电线用于识别的橙色在不同车企之间存在细微差异，连接器插入力要求也各不相同。线束相关讨论还包括扩大铝线使用及生产自动化 [[source:1]]。这些议题目前属于研究和协作范围，并不是允许供应商立即调整安全特征或替换材料的批准文件。",
+        "ZIMONAI 的制造分析是，规格种类减少，有可能提高工装、作业文件和验证资料在不同订单之间的复用程度。实际收益取决于客户是否接受共同要求。如果统一规格仍附带多套客户例外，工厂可能照样需要分别管理生产。装配便利性也要与连接、识别及维修条件相协调；这次发布没有证明某个具体零部件已经完成相应验证。"
+      ]
+    },
+    {
+      "title": "落地进度：客户采用、版本转换",
+      "paragraphs": [
+        "采购团队后续可以先关注共同要求文件是否发布、适用范围是否清楚，再看哪些客户把它纳入图纸、技术规格或采购协议。ZIMONAI 建议持续观察新旧版本如何并行、变更由谁批准，以及现有库存如何消化。这是编辑部提出的跟踪方向，不应误读为协会已经确定的实施条款。",
+        "共同规格可能让替代供应来源更容易比较，但新供应商的能力与客户认可仍需单独落实。这项计划的重要意义，在于尝试减少不必要的差异，将工程资源用于后续开发。随着共同要求被采用，以及生产效率、验证投入或供应连续性数据逐步出现，行业才能判断其实际商业价值。"
+      ]
+    }
+  ],
+  "checklist": [
+    "首批共同要求何时发布，具体覆盖哪些项目。",
+    "车企和供应商分别采用了哪个版本。",
+    "评价方法怎样调整，客户例外如何保留或取消。",
+    "图纸、审批及现有库存的转换安排。",
+    "生产收益的可验证结果和仍未解决的供应约束。"
+  ],
+  "limitsText": "事件发生于 2026 年 11 月 19 日，资料核对日期为 11 月 20 日。引用材料尚未证实可量化的节约成果、全行业完成时间，或已批准零部件之间的自动互换。文章没有确认某家供应商获得新合同、强制要求或市场准入批准。制造和采购层面的影响属于 ZIMONAI 编辑分析。"
+},
       powerBankIpRatingConfiguration: {
   "topic": "移动电源防护与测试文件",
   "published": "2026 年 11 月 19 日",
