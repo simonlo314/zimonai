@@ -7,6 +7,96 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: substantiate a charger housing V-0 claim through material, thickness, colour and supply traceability.
+  // Related questions: classification scope; exact grade; colour changes; minimum wall thickness; shipment identity; end-product review.
+  {
+  "id": "knowledge-charger-enclosure-ul94-yellow-card",
+  "key": "chargerEnclosureUl94YellowCard",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/charger-enclosure-ul94-yellow-card",
+  "category": "certification-market-access",
+  "products": [
+    "charger",
+    "power-adapter"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "charger housing UL 94 V-0",
+      "UL Yellow Card plastic thickness",
+      "charger enclosure material traceability"
+    ],
+    "zh-tw": [
+      "充電器外殼 V-0",
+      "UL 94 塑膠材料黃卡",
+      "材料牌號 厚度 顏色"
+    ],
+    "zh-cn": [
+      "充电器外壳 V-0",
+      "UL 94 塑料黄卡",
+      "材料牌号 最小厚度 颜色"
+    ]
+  },
+  "datePublished": "2026-11-21",
+  "dateModified": "2026-11-21",
+  "image": "/assets/editorial-california-maedbs-charger.jpg",
+  "imageWidth": 1028,
+  "imageHeight": 1200,
+  "imageCrop": {
+    "card": "53% 76%",
+    "article": "51% 74%",
+    "mobile": "54% 70%"
+  },
+  "photo": {
+    "photographer": "Fortal Fototeca",
+    "page": "https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "sources": [
+    {
+      "publisher": "UL Solutions",
+      "title": "How to Read the UL Solutions Yellow Card — official guide",
+      "url": "https://www.ul.com/resources/how-read-ul-yellow-card"
+    },
+    {
+      "publisher": "UL Solutions",
+      "title": "Combustion (Fire) Tests for Plastics",
+      "url": "https://www.ul.com/services/combustion-fire-tests-plastics"
+    },
+    {
+      "publisher": "UL Solutions",
+      "title": "Color Codes and Abbreviations for Plastics Recognition",
+      "url": "https://www.ul.com/resources/color-codes-and-abbreviations-plastics-recognition"
+    },
+    {
+      "publisher": "UL Solutions",
+      "title": "UL Recognized Colorant — Frequently Asked Questions",
+      "url": "https://www.ul.com/resources/ul-recognized-colorant-frequently-asked-questions"
+    },
+    {
+      "publisher": "UL Standards & Engagement",
+      "title": "UL 746D — Polymeric Materials, Fabricated Parts: published scope",
+      "url": "https://shopulstandards.com/ProductDetail.aspx?productId=UL746D"
+    },
+    {
+      "publisher": "UL Solutions",
+      "title": "The UL Component Recognition Classification",
+      "url": "https://www.ul.com/thecodeauthority/knowledge/ul-component-recognition-classification"
+    },
+    {
+      "publisher": "Fortal Fototeca / Pexels",
+      "title": "Close-Up Photo of White Adaptor — 17 November 2022",
+      "url": "https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/"
+    },
+    {
+      "publisher": "Pexels",
+      "title": "Pexels License",
+      "url": "https://www.pexels.com/license/"
+    }
+  ]
+},
   // Search intent: understand the JAMA/JAPIA common-materials announcement and its supplier implications.
   // Related questions: initial scope; evaluation requirements; wire-harness examples; manufacturing benefit; adoption and transition.
   {
@@ -1449,7 +1539,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-20",
+  "featuredReviewedThrough": "2026-11-21",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4643,6 +4733,55 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      chargerEnclosureUl94YellowCard: {
+  "topic": "Charger enclosure materials",
+  "published": "21 November 2026",
+  "readTime": "5 minutes",
+  "title": "UL 94 V-0: checking charger housing claims",
+  "description": "Read a charger housing’s V-0 claim against its plastic grade, colour and minimum thickness, then connect the material record to the parts supplied.",
+  "imageAlt": "A white power adapter with a plastic housing and two round plug pins, photographed against a yellow background.",
+  "imageCaption": "Housing illustration by Fortal Fototeca / Pexels, photographed 17 November 2022. Existing local image, proportionally resized and cropped for layout under the Pexels License. The pictured adapter’s plastic grade and flame rating have not been verified; this is not a ZIMONAI test or assignment.",
+  "answer": "A UL Yellow Card records evaluated properties of a plastic material, including flame classification at stated thicknesses and colours [[source:1]]. A V-0 entry describes material behaviour under a defined test, while acceptance in a finished charger requires its own evaluation [[source:2]][[source:6]]. For overseas buyers, the practical task is to connect that record to the ordered housing and the material actually used. ZIMONAI’s editorial view is that a useful V-0 claim needs both a matching material specification and a traceable route into the supplied parts.",
+  "takeaways": [
+    "Read the material manufacturer and full grade together with colour, thickness and flame class.",
+    "An ALL-colour entry does not automatically cover colouring performed later by a moulder.",
+    "Material recognition and finished-charger acceptance answer different questions."
+  ],
+  "sections": [
+    {
+      "title": "V-0 describes a material test, not the whole charger",
+      "paragraphs": [
+        "UL 94 classifications describe burning behaviour in controlled, small-scale tests. The vertical tests assess burning and afterglow times and flaming drips. VTM-0 is a different thin-material classification, not an interchangeable spelling of V-0 [[source:2]]. A quotation that says only “fireproof plastic” leaves the actual classification unclear.",
+        "UL Component Recognition applies to a component intended for use in a larger product; it does not certify a complete standalone product [[source:6]]. For purchasing, keep the housing-material record alongside the charger’s own construction and certification evidence. The required material properties depend on the intended application; this guide does not prescribe V-0 for every charger housing."
+      ]
+    },
+    {
+      "title": "Match the grade, colour and thickness as one record",
+      "paragraphs": [
+        "Start with the material company, file number and complete grade designation. UL’s Yellow Card guide distinguishes the generic polymer type from the specific grade [[source:1]]. “PC” or “PC/ABS” in a quotation is therefore too broad to establish a match. Ask the supplier to identify the exact material entry and retain its retrieval date.",
+        "Read across the relevant row. UL defines “Min Thk. mm” as minimum thickness in millimetres; colour codes include BK for black, NC for natural and ALL for any colour [[source:3]]. Compare the applicable rating with the housing drawing and its relevant minimum wall thickness, including the specified tolerance. A rating shown for a thicker material is not evidence for an unlisted thinner wall.",
+        "Colour deserves its own check. UL’s guide limits ALL-colour recognition to the material supplied directly by its manufacturer; later colouring requires further evaluation [[source:1]]. Its colorant FAQ explains that recognised colorants rated V-2 or better must be evaluated with a specific resin [[source:4]]. Ask whether the resin arrives precoloured or whether the moulder adds a concentrate, and request the applicable evaluation rather than assuming the original card covers the mixture."
+      ]
+    },
+    {
+      "title": "Connect the material record to the delivered housing",
+      "paragraphs": [
+        "UL 746D’s public scope describes material-identity control through handling, moulding or fabrication, and shipping. It allows identification through the part, shipping carton or an accompanying specification sheet [[source:5]]. This explains the purpose of traceability; it does not establish that a particular supplier participates in that programme.",
+        "ZIMONAI suggests asking for an order-specific connection among the approved material specification, incoming material identification, moulding batch and housing delivery. Useful supporting records may include resin packaging identifiers, purchasing records, batch records and the housing drawing revision. Agree which records the supplier can provide and how they relate to the goods being accepted; an unrelated yellow-card PDF leaves that connection unresolved.",
+        "If the grade, colour formulation, wall thickness or moulding source changes, record the change and obtain the responsible technical reviewer’s decision before relying on the old evidence. The buyer’s useful outcome is a defined housing specification with a traceable supply record. A material card alone cannot establish the composition of every delivered part."
+      ]
+    }
+  ],
+  "checklist": [
+    "Material company, UL file number, exact grade and dated source record.",
+    "Applicable colour, flame class, minimum thickness and card footnotes.",
+    "Housing drawing revision, relevant wall dimensions and tolerances.",
+    "Precoloured resin or separately added colour concentrate, with the applicable evaluation.",
+    "Records connecting material identity to the moulding batch and delivered housings.",
+    "Finished-product review and written handling of proposed material or construction changes."
+  ],
+  "limitsText": "Sources checked 21 November 2026. This guide uses UL’s public explanations and the published scope of UL 746D, not a complete standards assessment. No supplier, resin grade, housing sample or shipment was tested or certified here. Required properties and acceptance depend on the actual product and application. The suggested purchasing records are ZIMONAI editorial guidance, not a claim that every supplier must follow one universal document list."
+},
       japanAutoMaterialsStandardisation: {
   "topic": "Automotive materials and supplier requirements",
   "published": "20 November 2026",
@@ -8871,6 +9010,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      chargerEnclosureUl94YellowCard: {
+  "topic": "充電器外殼材料",
+  "published": "2026 年 11 月 21 日",
+  "readTime": "5 分鐘",
+  "title": "充電器外殼 V-0：核對材料與厚度",
+  "description": "供應商說外殼使用 V-0 材料時，從塑膠牌號、顏色與最小厚度讀懂 UL 黃卡，再把材料紀錄接到實際交付的外殼。",
+  "imageAlt": "白色電源適配器放在黃色背景前，可見塑膠外殼及兩支圓形插腳。",
+  "imageCaption": "外殼示意照片：Fortal Fototeca／Pexels，拍攝於 2022 年 11 月 17 日。沿用依 Pexels 授權儲存的真實照片，僅經等比例縮放與版面裁切；圖中產品的塑膠牌號及燃燒等級未經查證，也不是 ZIMONAI 測試或專案影像。",
+  "answer": "UL 材料黃卡記載塑膠材料經評估的性能，燃燒分類須連同厚度與顏色閱讀 [[source:1]]。其中的 V-0 描述材料在指定試驗下的表現，裝入充電器後是否適用，仍屬成品評估範圍 [[source:2]][[source:6]]。海外買家需要把黃卡條件對上訂購外殼，並確認量產實際使用的材料。ZIMONAI 的編輯判讀是，一項有採購價值的 V-0 聲明，應同時說清楚材料規格，以及這項材料如何進入本批交付的外殼。",
+  "takeaways": [
+    "材料製造商、完整牌號、顏色、厚度與燃燒分類，必須一起核對。",
+    "ALL 顏色限於材料製造商供應的配方，後續調色須另行評估。",
+    "材料認可與充電器成品評估，分別回答不同問題。"
+  ],
+  "sections": [
+    {
+      "title": "V-0 描述的是材料燃燒試驗",
+      "paragraphs": [
+        "UL 94 以受控的小尺度試驗區分材料燃燒特性；垂直燃燒試驗會評估燃燒時間、餘灼時間及燃燒滴落物。薄材料使用的 VTM-0，與 V-0 並不是可互換的分類 [[source:2]]。因此，報價單只寫「防火塑膠」，仍不足以判讀實際引用哪一項分類。",
+        "UL 說明，零組件認可適用於裝入更大產品的元件，並非完整獨立產品的認證 [[source:6]]。採購端應將外殼材料資料與充電器的結構及認證文件一起看。材料需要哪些性能，取決於實際用途；本文沒有主張所有充電器外殼都必須使用 V-0 材料。"
+      ]
+    },
+    {
+      "title": "將牌號、顏色與厚度對在一起",
+      "paragraphs": [
+        "先辨識材料公司、UL 檔案號碼與完整牌號。UL 黃卡圖解將聚合物種類與特定材料牌號分開說明 [[source:1]]。報價單上的「PC」或「PC/ABS」只提供材料種類，尚不足以對應黃卡。請供應商指出完整材料紀錄，並留下查詢日期。",
+        "接著橫向閱讀同一列條件。UL 將 Min Thk. mm 定義為以毫米表示的最小厚度；BK 為黑色、NC 為未著色原色，ALL 為任何顏色 [[source:3]]。核對外殼圖面時，應確認相關部位的最小壁厚與尺寸公差。較厚材料取得的分類，不能直接用來支持未列入範圍的較薄外殼。",
+        "調色方式也會影響判讀。UL 圖解指出，ALL 顏色認可針對材料製造商直接供應的材料，後續著色須另行評估 [[source:1]]；著色劑問答亦說明，獲認可為 V-2 或更高分類的著色劑，須與特定樹脂組合評估 [[source:4]]。買家可先問清楚：進料時已完成調色，還是成型廠另外加入色母？後者需要對應的評估依據，不能只沿用原材料黃卡。"
+      ]
+    },
+    {
+      "title": "讓材料紀錄接得上交付外殼",
+      "paragraphs": [
+        "UL 746D 的公開範圍說明，材料身分控制涵蓋搬運、成型或加工及出貨，並可透過零件、包裝箱或隨箱規格文件識別材料 [[source:5]]。這說明追溯制度的用途，但不表示眼前的供應商已參與該計畫。",
+        "ZIMONAI 建議，針對實際訂單核對已核准材料規格、進料識別、成型批次及外殼交付紀錄。可討論的佐證包括原料包裝識別、採購紀錄、批次紀錄與外殼圖面版本，再確認供應商能提供哪些資料，以及資料如何對上待驗收貨物。單獨附上一份其他材料的黃卡，無法補上這段關係。",
+        "若牌號、調色配方、壁厚或成型來源改變，應先記錄差異，取得負責技術審查者的判斷，再決定是否沿用既有依據。採購真正需要的是明確的外殼規格與可追溯的供貨紀錄；材料黃卡本身，不足以確認每件交付外殼的實際組成。"
+      ]
+    }
+  ],
+  "checklist": [
+    "材料公司、UL 檔案號碼、完整牌號與查詢日期。",
+    "適用顏色、燃燒分類、最小厚度及黃卡註記。",
+    "外殼圖面版本、相關壁厚與尺寸公差。",
+    "原料是否已調色，額外色母是否有對應評估。",
+    "材料識別、成型批次與交付外殼之間的紀錄。",
+    "成品審查依據，以及材料或結構變更的書面處理方式。"
+  ],
+  "limitsText": "資料核對日期為 2026 年 11 月 21 日。本文依 UL 公開說明及 UL 746D 公開範圍撰寫，並未完成標準全文評估，也沒有測試或認證特定供應商、材料牌號、外殼樣品或出貨。所需性能與適用性須依實際產品及用途判斷。文中建議索取的採購紀錄屬 ZIMONAI 編輯觀點，不是所有供應商通用的強制文件清單。"
+},
       japanAutoMaterialsStandardisation: {
   "topic": "汽車材料與供應商規格",
   "published": "2026 年 11 月 20 日",
@@ -13060,6 +13248,55 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      chargerEnclosureUl94YellowCard: {
+  "topic": "充电器外壳用料",
+  "published": "2026 年 11 月 21 日",
+  "readTime": "5 分钟",
+  "title": "充电器外壳 V-0：查清材料与厚度",
+  "description": "外壳宣称采用 V-0 塑料，采购应怎样核对？从 UL 黄卡的牌号、颜色和最小厚度入手，追溯材料与交付零件的关系。",
+  "imageAlt": "黄色背景前的白色电源适配器，塑料外壳和两根圆形插脚清晰可见。",
+  "imageCaption": "产品外壳示意图，摄影：Fortal Fototeca／Pexels，拍摄日期为 2022 年 11 月 17 日。沿用依 Pexels 许可保存的真实照片，仅作等比例缩放和排版裁切。未核实图中产品的塑料牌号或燃烧等级，也不代表 ZIMONAI 的检测或项目。",
+  "answer": "UL 黄卡为塑料选材提供性能记录，燃烧分类对应明确的材料、厚度和颜色条件 [[source:1]]。V-0 属于规定试验条件下的材料表现，整台充电器的适用性需要结合成品另行评估 [[source:2]][[source:6]]。对海外采购而言，关键是把这份材料记录与订单外壳及实际投料联系起来。ZIMONAI 认为，V-0 声明只有落实到确定的用料规格和交付追溯记录，才便于买家判断供应商交来的零件是否有相应依据。",
+  "takeaways": [
+    "核对完整材料牌号，并连同颜色、厚度和燃烧分类阅读。",
+    "ALL 颜色认可能覆盖的范围，不等于加工厂可以随意加色母。",
+    "塑料获得材料认可，仍需核对其在成品中的适用性。"
+  ],
+  "sections": [
+    {
+      "title": "材料分类有明确边界",
+      "paragraphs": [
+        "UL 94 使用受控的小规模试验评价材料燃烧行为。垂直燃烧试验关注燃烧时间、余灼时间和燃烧滴落物；薄材料的 VTM-0 与 V-0 采用不同方法，两者不能等同使用 [[source:2]]。供应商只写“防火料”，采购还无法据此判断具体分类。",
+        "UL 对零部件认可的解释是，它面向将被装入更大产品的组件，不构成对完整独立产品的认证 [[source:6]]。因此，外壳材料资料应与充电器结构文件、成品认证资料分别核对后再关联。最终要求由产品用途决定，本文并未把 V-0 设为所有充电器外壳的统一门槛。"
+      ]
+    },
+    {
+      "title": "牌号、颜色、厚度须对应",
+      "paragraphs": [
+        "先确认材料企业、UL 档案号和完整牌号。UL 黄卡阅读指南把聚合物通用类型与材料牌号区分开来 [[source:1]]。报价中的 PC、PC/ABS 属于材料类型信息，不能替代具体牌号。要求供应商指明对应记录，并保存查询日期。",
+        "再看颜色和壁厚。UL 的缩写表将 Min Thk. mm 解释为最小厚度，单位为毫米；BK 指黑色，NC 指没有着色的原色，ALL 指任何颜色 [[source:3]]。把相应一行的分类与外壳图纸、相关部位的最小壁厚及公差对照。对较厚材料给出的结果，不应直接作为未覆盖的较薄零件的依据。",
+        "成型环节的调色需要单独说明。UL 指南指出，ALL 颜色认可适用于材料厂家直接提供的材料，后续着色要进一步评价 [[source:1]]。UL 的着色剂问答也说明，获认可为 V-2 或更高分类的着色剂，需要和具体树脂一起评价 [[source:4]]。采购可先区分预着色原料与现场添加色母，再索取对应组合的依据；原料黄卡并不自动覆盖加工厂调出的每一种混合物。"
+      ]
+    },
+    {
+      "title": "从材料身份追溯到本次交货",
+      "paragraphs": [
+        "UL 746D 的公开范围包含材料在搬运、成型或加工、发运过程中的身份控制，并说明可通过零件标识、运输包装或随箱规格文件识别材料 [[source:5]]。这项制度关注的是追溯，不能由此推定某家供应商已经加入该计划。",
+        "对具体订单，ZIMONAI 建议核对已批准的用料要求、原料入库标识、成型批次及外壳交货记录。原料包装信息、采购凭证、批次记录和图纸版本，都可以作为与供应商讨论的材料。应约定实际能提供哪些记录，以及它们如何对应待验收零件；仅有一份与交货无关的黄卡，证据仍不完整。",
+        "更换牌号、调整配色、减薄壁厚或改变成型来源时，要把差异交给负责技术评审的人员判断，并记录能否继续使用原有依据。采购工作最后应形成明确的外壳用料要求和可核对的交付记录。材料黄卡无法单独确认每件到货零件的真实组成。"
+      ]
+    }
+  ],
+  "checklist": [
+    "材料企业、UL 档案号、完整牌号和记录查询日期。",
+    "适用颜色、燃烧分类、最小厚度及附注。",
+    "外壳图纸版本、相关壁厚和尺寸公差。",
+    "预着色或额外添加色母的情况，以及组合评价资料。",
+    "原料身份、成型批次与到货外壳的对应记录。",
+    "成品技术评审及材料、结构变更的书面处理约定。"
+  ],
+  "limitsText": "资料核对截至 2026 年 11 月 21 日。文章依据 UL 公开说明和 UL 746D 公布的范围，并非标准全文评估。本文没有检测或认证具体供应商、树脂牌号、外壳样品和交货批次。所需性能及适用性要结合实际产品和用途判断；建议采购索取的记录属于 ZIMONAI 编辑建议，不是面向全部供应商的统一强制清单。"
+},
       japanAutoMaterialsStandardisation: {
   "topic": "汽车材料与供应商要求",
   "published": "2026 年 11 月 20 日",

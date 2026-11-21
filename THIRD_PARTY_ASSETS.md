@@ -448,3 +448,12 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/): commercial website use and adaptation allowed with attribution, title, source, licence and share-alike. Resized proportionally and JPEG compressed; layout crops only. This modified photograph remains licensed CC BY-SA 2.0. No AI generation or alteration.
 - Archival automotive wiring illustration, explicitly dated and distinguished from the Japanese initiative and any ZIMONAI assignment in all three captions. Foreground metal tubes are brake lines, not wires. No explicit reuse/adaptation grant for official event photos was found on the JAMA announcement, so those images were not copied.
 - Crop foci: card56%40%, desktop54%35%, mobile58%42%. Coloured wires and rubber pass-through must remain identifiable in each view. Ordinary knowledge rows remain text-only; the card image crop is reviewed separately.
+
+
+## Charger housing UL 94 guide — 21 November 2026
+
+- Reused `src/assets/editorial-california-maedbs-charger.jpg`, 1028 × 1200 JPEG. Real photograph by Fortal Fototeca, [Close-Up Photo of White Adaptor](https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/), photographed 17 November 2022, original3307×3858. Existing download28September2026 retained; no new download.
+- Original creator page and [Pexels License](https://www.pexels.com/license/) rechecked21November2026. Commercial website reuse and modification permitted; no endorsement implied. Existing proportional resizing/compression and responsive crops only; no AI generation, retouching, compositing or factual alteration.
+- Housing-category illustration in the three-language UL94 guide. All captions identify creator/source and state that the pictured material grade and flame rating have not been verified; not a ZIMONAI test, customer or assignment.
+- Separate focus targets: card53%76%, desktop51%74%, mobile54%70%; preserve the housing and plug pins. Actual browser review is required. Existing ordinary knowledge cards remain text-only, with the16:10image slot checked separately.
+- Infineon editorial lead retained for direct GaN manufacturing relevance; only review-through date advanced.
