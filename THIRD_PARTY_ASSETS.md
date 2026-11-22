@@ -457,3 +457,12 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Housing-category illustration in the three-language UL94 guide. All captions identify creator/source and state that the pictured material grade and flame rating have not been verified; not a ZIMONAI test, customer or assignment.
 - Separate focus targets: card53%76%, desktop51%74%, mobile54%70%; preserve the housing and plug pins. Actual browser review is required. Existing ordinary knowledge cards remain text-only, with the16:10image slot checked separately.
 - Infineon editorial lead retained for direct GaN manufacturing relevance; only review-through date advanced.
+
+
+## PCB materials supply alert — 22 November 2026
+
+- Reused `src/assets/editorial-rohs-circuit-board.jpg`, 1600 × 1000 JPEG, Ivan Chumak. [Original Pexels photo](https://www.pexels.com/photo/close-up-of-electronic-circuit-board-with-components-34924858/), photographed 23 November 2025, source dimensions 7728 × 4344. Legacy download date not recorded; no new download or inferred date. Existing resized/cropped photograph unchanged.
+- Source creator, photograph metadata and [Pexels License](https://www.pexels.com/license/) verified 22 November 2026 via web. Website reuse and cropping allowed without endorsement. No AI generation, retouching, compositing or factual alteration.
+- Direct circuit-board category illustration for the 18 November PCB materials alert. Official alert offers no suitable event photograph; explanatory report cover not reused. Captions distinguish the image from affected goods, AI-server boards and ZIMONAI assignments. Visible creator/source and licence links retained.
+- Card 55% 60%, desktop 53% 56%, mobile 59% 61%; preserve the soldered components and board context. Each crop requires actual rendered inspection. Regular index rows retain existing text-only layout.
+- Infineon lead retained for direct power-electronics relevance and actual event photograph; review-through advanced only.

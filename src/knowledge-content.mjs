@@ -7,6 +7,85 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the 18 November PCB materials alert and why factory expansion may not shorten near-term deliveries.
+  // Related questions: upstream constraints; forecast scope; phased capacity; material substitution; order delivery.
+  {
+  "id": "knowledge-pcb-materials-shortage-alert",
+  "key": "pcbMaterialsShortageAlert",
+  "contentType": "current-affairs",
+  "slug": "knowledge/pcb-materials-shortage-alert",
+  "category": "commercial-risk",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "PCB material shortage",
+      "Global Electronics Association alert",
+      "PCB capacity lead times"
+    ],
+    "zh-tw": [
+      "PCB 材料缺貨",
+      "全球電子協會警報",
+      "電路板擴產交期"
+    ],
+    "zh-cn": [
+      "PCB 材料短缺",
+      "全球电子协会预警",
+      "电路板扩产交期"
+    ]
+  },
+  "datePublished": "2026-11-22",
+  "dateModified": "2026-11-22",
+  "image": "/assets/editorial-rohs-circuit-board.jpg",
+  "imageWidth": 1600,
+  "imageHeight": 1000,
+  "imageCrop": {
+    "card": "55% 60%",
+    "article": "53% 56%",
+    "mobile": "59% 61%"
+  },
+  "photo": {
+    "photographer": "Ivan Chumak",
+    "page": "https://www.pexels.com/photo/close-up-of-electronic-circuit-board-with-components-34924858/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "sources": [
+    {
+      "publisher": "Global Electronics Association",
+      "title": "PCB supply-chain industry alert — 18 November 2026",
+      "url": "https://www.electronics.org/news-release/global-electronics-association-growing-shortages-across-pcb-supply-chain-threaten-next"
+    },
+    {
+      "publisher": "Evertiq / Dennis Dahlgren",
+      "title": "PCB shortage could rival 2021 chip crisis, industry association warns — 19 November 2026",
+      "url": "https://evertiq.com/news/2026-11-19-pcb-shortage-could-rival-2021-chip-crisis-industry-association-warns"
+    },
+    {
+      "publisher": "Panasonic Industry",
+      "title": "AI-related investment and phased MEGTRON expansion — 30 October 2026",
+      "url": "https://news.panasonic.com/global/press/en261030-4"
+    },
+    {
+      "publisher": "Global Electronics Association",
+      "title": "The PCB Squeeze: A Wake-Up Call for Global Electronics — explanatory note",
+      "url": "https://www.electronics.org/pcb-global-advisory-explanatory-note"
+    },
+    {
+      "publisher": "Ivan Chumak / Pexels",
+      "title": "Close-up of Electronic Circuit Board with Components",
+      "url": "https://www.pexels.com/photo/close-up-of-electronic-circuit-board-with-components-34924858/"
+    },
+    {
+      "publisher": "Pexels",
+      "title": "Pexels License",
+      "url": "https://www.pexels.com/license/"
+    }
+  ]
+},
   // Search intent: substantiate a charger housing V-0 claim through material, thickness, colour and supply traceability.
   // Related questions: classification scope; exact grade; colour changes; minimum wall thickness; shipment identity; end-product review.
   {
@@ -1539,7 +1618,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-21",
+  "featuredReviewedThrough": "2026-11-22",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4733,6 +4812,58 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      pcbMaterialsShortageAlert: {
+  "topic": "PCB materials and production capacity",
+  "published": "22 November 2026",
+  "readTime": "4 minutes",
+  "title": "PCB supply alert: new factories still need materials",
+  "description": "The Global Electronics Association’s 18 November warning shifts attention from PCB factory expansion to material availability. What announced capacity means for delivery planning.",
+  "imageAlt": "A close-up photograph of components, solder joints and white markings on a blue circuit board.",
+  "imageCaption": "Circuit-board illustration photographed by Ivan Chumak on 23 November 2025, via Pexels. Existing licensed photograph, with resizing and layout cropping only. It does not show a board affected by this alert, an AI-server design or a ZIMONAI project.",
+  "labels": {
+    "summary": "News summary",
+    "checklist": "What to watch next",
+    "limits": "What remains uncertain"
+  },
+  "answer": "The Global Electronics Association issued a printed circuit board (PCB) supply-chain alert on 18 November 2026, warning that material shortages are limiting new factory capacity [[source:1]]. Its outlook is an industry assessment, with exposure varying by material and application. For electronics buyers, the alert shifts the focus from announced capacity to materials available for near-term orders. ZIMONAI’s reading is that usable supply, backed by a confirmed delivery, is the more informative milestone when assessing whether expansion can help a production schedule.",
+  "takeaways": [
+    "The alert concerns the supply chain behind circuit boards, including materials.",
+    "Panasonic’s published expansion schedule separates several phases over multiple years.",
+    "Sector forecasts need to be distinguished from commitments for a particular order."
+  ],
+  "sections": [
+    {
+      "title": "The warning reaches beyond board factories",
+      "paragraphs": [
+        "The association identifies glass fabric, resin, copper foil and laminate as constraints, and says non-AI industries are also encountering supply difficulties [[source:1]]. Its explanatory note places the bottleneck upstream of finished-board production [[source:4]]. The association links the pressure to AI-server boards with more layers, which require more of those inputs [[source:1]]. The news is therefore about the availability of inputs as well as the number of fabrication lines.",
+        "Evertiq’s independent report on 19 November sets the alert alongside materials investments and earlier reporting on market constraints [[source:2]]. That provides additional industry context; the association remains the source of the alert’s forecast. Reading the two as separate estimates of the same outcome would overstate the corroboration."
+      ]
+    },
+    {
+      "title": "Expansion has several dates, not one",
+      "paragraphs": [
+        "Panasonic Industry’s 30 October release gives a concrete example. Its MEGTRON materials programme schedules Suzhou Phase I mass production for December 2026 and Ayutthaya Phase I operations for November 2027. The additional Phase II buildings are scheduled for August 2028 in Suzhou and April 2029 in Ayutthaya [[source:3]]. These are company plans, not confirmation that those future facilities are operating.",
+        "For production planning, the distinction matters. An announced investment, the start of operations and a supplier’s confirmed delivery are different milestones. ZIMONAI’s interpretation is that buyers should keep them separate when comparing capacity news with their own production dates. A future plant can improve the longer-term outlook while doing little for an order needed next month.",
+        "This example also has a defined scope: Panasonic describes high-performance multilayer circuit-board materials for uses including AI servers [[source:3]]. It would be a mistake to treat that programme as interchangeable capacity for every board construction or power-electronics product."
+      ]
+    },
+    {
+      "title": "The next signal is usable supply",
+      "paragraphs": [
+        "The association’s explanatory note expects standard materials to remain constrained through at least the first half of 2027, with meaningful relief unlikely before mid-2028 [[source:4]]. Those dates express its outlook; they are not a universal shortage deadline. The practical question for an individual programme is which specified material, quantity and delivery window is actually affected.",
+        "For charger and power-adapter buyers, ZIMONAI would use the alert as a reason to discuss any proposed board-material substitution before accepting a revised delivery promise. The report does not establish that a particular charger supplier faces a shortage. A useful supplier response would identify the affected item, any substitute under consideration, the required technical review and the date it can commit to.",
+        "The next developments worth following are commissioning progress, availability of the relevant material grades and whether quoted lead times turn into deliveries. A durable improvement would connect those steps. More factory announcements alone would leave the alert’s central concern unresolved."
+      ]
+    }
+  ],
+  "checklist": [
+    "Do the announced facilities reach their stated operating milestones?",
+    "Which material grades and applications gain usable supply?",
+    "Do quoted delivery windows shorten, and are they then met?",
+    "Are substitutions reviewed before they are introduced into production?"
+  ],
+  "limitsText": "Sources checked 22 November 2026. The event date is the association’s own 18 November publication; Evertiq reported on 19 November. Sector forecasts are attributed assessments. The sources do not establish a shortage, price increase or late delivery for a specific ZIMONAI reader, charger model or supplier. Panasonic’s dates remain scheduled milestones. Purchasing implications are ZIMONAI editorial analysis."
+},
       chargerEnclosureUl94YellowCard: {
   "topic": "Charger enclosure materials",
   "published": "21 November 2026",
@@ -9010,6 +9141,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      pcbMaterialsShortageAlert: {
+  "topic": "電路板材料與產能",
+  "published": "2026 年 11 月 22 日",
+  "readTime": "4 分鐘",
+  "title": "全球電子協會示警：電路板擴產仍缺材料",
+  "description": "全球電子協會 11 月 18 日發布 PCB 供應鏈警報。從上游材料瓶頸與 Panasonic 分期擴產時程，看懂新廠消息和近期交貨之間的差距。",
+  "imageAlt": "藍色電路板上的電子零件、焊點與白色標記特寫。",
+  "imageCaption": "電路板示意照片，攝影：Ivan Chumak／Pexels，拍攝於 2025 年 11 月 23 日。沿用已依 Pexels 授權保存的真實照片，僅經縮放與版面裁切；不是本次警報中的缺料產品、AI 伺服器設計或 ZIMONAI 專案。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "仍待確認的事項"
+  },
+  "answer": "全球電子協會於 2026 年 11 月 18 日發布 PCB 供應鏈警報，指出上游材料短缺正限制電路板新產能的效益 [[source:1]]。這是協會對產業的評估，個別用途與材料的受影響程度仍有差異。警報凸顯電子產品採購的優先課題：新增產能何時能取得材料，並支援近期交貨。ZIMONAI 的判讀是，真正值得追蹤的節點，是符合需求的材料何時能用於已確認的生產訂單，而不只是工廠宣布投資的日期。",
+  "takeaways": [
+    "警報涵蓋電路板背後的材料供應，問題不只在板廠產能。",
+    "Panasonic 的擴產計畫分期實施，時程跨越數年。",
+    "產業展望與個別訂單的交貨承諾，需要分開閱讀。"
+  ],
+  "sections": [
+    {
+      "title": "缺料壓力不只出現在板廠",
+      "paragraphs": [
+        "協會點名玻纖布、樹脂、銅箔及積層板等材料受限，並指出非 AI 產業也面臨供貨困難 [[source:1]]。搭配發布的說明文件將關鍵限制放在成品電路板的上游 [[source:4]]。協會將這股壓力連到 AI 伺服器電路板層數增加、用料需求隨之上升 [[source:1]]。這次警報關注的，是產線所需投入材料的可得性，而非單看新增多少製板設備。",
+        "Evertiq 於 11 月 19 日獨立報導這項警報，加入材料投資及先前供應鏈報導的背景 [[source:2]]。這有助於理解產業脈絡，但文中引用的缺料展望仍來自協會；不宜把兩篇文章當成兩套各自驗證過的預測。"
+      ]
+    },
+    {
+      "title": "擴產有好幾個日期",
+      "paragraphs": [
+        "Panasonic Industry 在 10 月 30 日的公告提供了具體對照：MEGTRON 材料的蘇州一期廠預定於 2026 年 12 月量產，大城一期廠預定於 2027 年 11 月營運；新增二期建築則分別預定於 2028 年 8 月及 2029 年 4 月啟用 [[source:3]]。這些是公司規畫的時程，不是未來設施已投產的證明。",
+        "對生產排程而言，宣布投資、開始營運與供應商承諾交貨，是三個不同節點。ZIMONAI 認為，買家把擴產消息對照自己的用料日期時，應保留這些區別。新工廠可能改善中長期供給，卻未必能支援下個月就要投料的訂單。",
+        "這個例子也有產品範圍：Panasonic 公告談的是可用於 AI 伺服器等用途的高性能多層電路板材料 [[source:3]]。這項投資不宜直接換算成所有板材結構或電源產品都能使用的替代產能。"
+      ]
+    },
+    {
+      "title": "下一步看材料如何變成交貨",
+      "paragraphs": [
+        "協會說明文件預期，標準材料至少到 2027 年上半年仍將受限，明顯緩解不太可能早於 2028 年年中 [[source:4]]。這是它的產業展望，並非所有產品一致的缺貨期限。落到個別專案，仍要辨識是哪一項指定材料、多少數量，以及哪個交貨期間受到影響。",
+        "對充電器與電源適配器買家，ZIMONAI 建議把這項警報用作討論板材變更的背景，再評估供應商提出的新交期。本文沒有確認特定供應商正在缺料；有資訊價值的回覆，應說明受影響品項、擬用替代材料、必要技術審查，以及可承諾的日期。",
+        "後續應觀察新設施的啟用進度、相關材料牌號的實際供應，以及報價交期能否落實為出貨。這幾個環節接得起來，才代表供應狀況有所改善；只有更多建廠公告，仍未解決本次警報指出的問題。"
+      ]
+    }
+  ],
+  "checklist": [
+    "新設施是否按公布時程開始營運？",
+    "哪些材料牌號與應用真正增加可用供給？",
+    "報價交期是否縮短，且能實際履約？",
+    "替代材料是否在導入量產前完成技術審查？"
+  ],
+  "limitsText": "資料核對截至 2026 年 11 月 22 日。事件日期採協會官網發布日 11 月 18 日；Evertiq 報導日期為 11 月 19 日。缺料展望屬具名產業評估，來源未證實特定讀者、充電器型號或供應商已遭遇缺貨、漲價或延遲。Panasonic 日期仍為預定時程，採購影響則是 ZIMONAI 編輯判讀。"
+},
       chargerEnclosureUl94YellowCard: {
   "topic": "充電器外殼材料",
   "published": "2026 年 11 月 21 日",
@@ -13248,6 +13431,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      pcbMaterialsShortageAlert: {
+  "topic": "电路板材料与供应",
+  "published": "2026 年 11 月 22 日",
+  "readTime": "4 分钟",
+  "title": "全球电子协会预警：电路板扩产仍受缺料制约",
+  "description": "11 月 18 日的 PCB 供应链预警指出材料端约束。结合 Panasonic 已公布的分期投产计划，理解新增产能为何不等于眼前订单可交付。",
+  "imageAlt": "蓝色电路板的微距照片，可见电子元件、焊点及白色丝印。",
+  "imageCaption": "电路板示意照片，摄影：Ivan Chumak／Pexels，拍摄于 2025 年 11 月 23 日，按 Pexels 许可使用并作排版裁切。照片并非此次预警确认的缺料产品，也不代表 AI 服务器设计或 ZIMONAI 项目。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "尚待明确的信息"
+  },
+  "answer": "全球电子协会在 2026 年 11 月 18 日发布 PCB 供应链预警，指出材料短缺使新建电路板产能难以充分发挥作用 [[source:1]]。协会给出的是行业判断，不同材料和应用面对的情况并不一致。更值得关注的是，新建产能能否及时获得材料，支持采购企业眼前的订单。ZIMONAI 认为，值得关注的进展是合适的材料何时能够支持已确认的生产订单，而非仅仅统计新增投资或建厂公告。",
+  "takeaways": [
+    "预警指向电路板供应链的材料环节，不只是加工产能。",
+    "Panasonic 的计划分期实施，各阶段的投产日期相隔数年。",
+    "行业预测不能替代某笔订单的供应安排和交付承诺。"
+  ],
+  "sections": [
+    {
+      "title": "材料端成为供给约束",
+      "paragraphs": [
+        "协会列出的受限材料包括玻纤布、树脂、铜箔和覆铜板，并指出 AI 以外的行业也遇到采购困难 [[source:1]]。相关说明文件进一步强调，关键约束位于成品电路板上游 [[source:4]]。协会指出，AI 服务器电路板层数增加，每加一层都会消耗更多相关材料 [[source:1]]。因此，判断供给时，除了加工设备，还要看所需材料是否到位。",
+        "11 月 19 日，Evertiq 的独立报道将这次预警与材料企业投资、此前供应链报道放在一起讨论 [[source:2]]。这些背景有助于理解问题，但报道中的短缺预测仍引用协会判断，不能算作另一个独立预测模型的验证结果。"
+      ]
+    },
+    {
+      "title": "投产计划必须按阶段阅读",
+      "paragraphs": [
+        "Panasonic Industry 10 月 30 日公布的 MEGTRON 材料扩产计划显示：苏州一期计划于 2026 年 12 月量产，大城一期计划于 2027 年 11 月运营；新增二期厂房分别安排在 2028 年 8 月和 2029 年 4 月投入运营 [[source:3]]。这些未来节点属于公司计划，尚不是已经形成的供应量。",
+        "ZIMONAI 的判断是，采购排产需要分清投资公告、设施运营和订单交付三个时间点。即使新增工厂有利于长期供应，也未必能解决下个月的用料缺口。用几年后的计划容量解释近期订单，容易让双方讨论的时间范围错位。",
+        "公告中的高性能多层电路板材料面向 AI 服务器等应用 [[source:3]]。这并不意味着各种板材结构和电源产品都能直接使用同一新增产能；材料用途应与买家的具体要求对应。"
+      ]
+    },
+    {
+      "title": "关注可用材料与实际交付",
+      "paragraphs": [
+        "协会的说明文件预计，标准材料至少到 2027 年上半年仍会受限，明显缓解不太可能早于 2028 年年中 [[source:4]]。这是行业展望，不是每种产品共同的缺货截止日。对于具体项目，更需要识别受影响的指定材料、需求数量和交货窗口。",
+        "充电器和电源适配器采购可将预警作为讨论板材替换的背景。按 ZIMONAI 的编辑建议，在接受新交期前，应了解供应商提出变更的品项、备选材料、技术评审安排及能够承诺的日期。本文并未确认某家供应商已经缺料，也没有把更换材料作为默认解决方案。",
+        "接下来值得跟进的是设施投产进展、相关材料牌号的供应，以及报价中的交期是否兑现。三者能够连起来，才有助于判断供应改善是否已进入实际订单；新增建厂消息本身还不足以回答这一问题。"
+      ]
+    }
+  ],
+  "checklist": [
+    "各阶段设施是否达到公布的运营节点？",
+    "实际新增供给覆盖哪些材料牌号和用途？",
+    "交期承诺是否缩短，并得到履行？",
+    "替代材料导入生产前是否经过技术评审？"
+  ],
+  "limitsText": "资料核对日期为 2026 年 11 月 22 日。本文以协会官网 11 月 18 日的发布日期作为事件日期，独立报道发表于次日。短缺展望为协会评估，不能据此确定特定买家、充电器型号或供应商的缺料、涨价及延迟情况。Panasonic 的日期属于规划时程；采购层面的分析与建议由 ZIMONAI 编辑部提出。"
+},
       chargerEnclosureUl94YellowCard: {
   "topic": "充电器外壳用料",
   "published": "2026 年 11 月 21 日",
