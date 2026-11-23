@@ -7,6 +7,82 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: interpret charger hipot records against the applicable method and shipment.
+  // Related questions: test function; AC/DC differences; test points and timing; procedure mismatch; unit coverage.
+  {
+  "id": "knowledge-charger-hipot-test-conditions",
+  "key": "chargerHipotTestConditions",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/charger-hipot-test-conditions",
+  "category": "factory-onsite",
+  "products": [
+    "charger",
+    "power-adapter",
+    "gan-charger"
+  ],
+  "markets": [
+    "international"
+  ],
+  "keywords": {
+    "en": [
+      "charger hipot test report",
+      "dielectric withstand test conditions",
+      "AC DC hipot records"
+    ],
+    "zh-tw": [
+      "充電器耐壓測試",
+      "耐壓測試紀錄",
+      "交流直流耐壓條件"
+    ],
+    "zh-cn": [
+      "充电器耐压测试",
+      "耐压测试记录",
+      "交流直流耐压条件"
+    ]
+  },
+  "datePublished": "2026-11-23",
+  "dateModified": "2026-11-23",
+  "image": "/assets/editorial-hipot-tester.jpg",
+  "imageWidth": 1600,
+  "imageHeight": 1323,
+  "imageCrop": {
+    "card": "48% 27%",
+    "article": "47% 25%",
+    "mobile": "52% 30%"
+  },
+  "photo": {
+    "photographer": "Wtshymanski",
+    "page": "https://commons.wikimedia.org/wiki/File:High_voltage_test_set.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "Chroma",
+      "title": "AC DC Hipot Test — dielectric strength, method and current behaviour",
+      "url": "https://www.chromausa.com/applications/safety-compliance-test/ac-dc-hipot-test/"
+    },
+    {
+      "publisher": "Chroma",
+      "title": "Product FAQs — dielectric withstand, insulation resistance and leakage-current tests",
+      "url": "https://www.chromausa.com/support/product-faqs/"
+    },
+    {
+      "publisher": "UL Solutions",
+      "title": "FUStart: Preparing for your Follow-Up Services inspections (2023), page 40",
+      "url": "https://www.ul.com/sites/g/files/qbfpbp251/files/2023-06/FUStart_Presentation_June_2023.pdf"
+    },
+    {
+      "publisher": "Wtshymanski / Wikimedia Commons",
+      "title": "High voltage test set.jpg — photograph, 31 July 2014",
+      "url": "https://commons.wikimedia.org/wiki/File:High_voltage_test_set.jpg"
+    },
+    {
+      "publisher": "Creative Commons",
+      "title": "Attribution-ShareAlike 4.0 International",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+},
   // Search intent: understand the 18 November PCB materials alert and why factory expansion may not shorten near-term deliveries.
   // Related questions: upstream constraints; forecast scope; phased capacity; material substitution; order delivery.
   {
@@ -1618,7 +1694,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-22",
+  "featuredReviewedThrough": "2026-11-23",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4812,6 +4888,61 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      chargerHipotTestConditions: {
+  "topic": "Electrical test records",
+  "published": "23 November 2026",
+  "readTime": "5 minutes",
+  "title": "Charger hipot reports: read the conditions behind a pass",
+  "description": "Review charger dielectric withstand records by test method, connection points, duration and current limits. Connect the result to the applicable procedure and shipped units.",
+  "imageAlt": "Control panel of an industrial high-voltage test set, showing separate voltage and current meters.",
+  "imageCaption": "Industrial high-voltage test set, photographed by Wtshymanski on 31 July 2014; Wikimedia Commons, CC BY-SA 4.0. Resized, compressed and cropped under the same licence. Equipment illustration for switchgear testing; its scale is not a charger test setting, and it is not a ZIMONAI project.",
+  "labels": {
+    "summary": "Reader summary",
+    "checklist": "Buyer checklist",
+    "limits": "Scope and evidence limits"
+  },
+  "answer": "A charger hipot report records an insulation stress test under specified electrical conditions [[source:1]]. A pass applies to the tested configuration and procedure; it does not establish the charger’s complete safety or the coverage of a shipment. Overseas buyers need the conditions behind the result to compare it with the order’s requirements. ZIMONAI’s editorial view is that a pass becomes useful purchasing evidence when the test method, acceptance criteria and tested units can be traced together, rather than when the reported voltage simply looks high.",
+  "takeaways": [
+    "Identify the test function before interpreting a pass or a current reading.",
+    "Compare the full method, including AC or DC, test points, timing and limits.",
+    "Link the approved procedure and original results to the units being shipped."
+  ],
+  "sections": [
+    {
+      "title": "First establish which electrical test was performed",
+      "paragraphs": [
+        "Hipot, also called dielectric withstand testing, examines insulation under electrical stress. It answers a different question from an insulation-resistance reading or an operating leakage-current test [[source:1]][[source:2]]. A report headed only “electrical safety: pass” leaves the actual test unidentified.",
+        "Chroma’s FAQ distinguishes insulation resistance, reported in ohms, from the current measurement in a dielectric withstand test. It also describes leakage-current testing with equipment operating and a measuring network representing human-body impedance [[source:2]]. Similar-looking current units therefore do not make those test results interchangeable.",
+        "For procurement review, ask for the test name, applicable product standard and edition, procedure revision, charger model and hardware configuration. Then locate the test points in that procedure. A result obtained across one insulation boundary should not be assumed to describe every boundary in the charger. This is a document-matching step, not a request for the buyer to wire a high-voltage test."
+      ]
+    },
+    {
+      "title": "AC and DC results need their own context",
+      "paragraphs": [
+        "Chroma explains that AC testing can include capacitive current, while a DC test has charging behaviour before it settles [[source:1]]. This is why ZIMONAI would question a comparison based only on a current value or the highest voltage printed on two reports.",
+        "Request a method record covering AC or DC, voltage, frequency where applicable, connection points, ramp time, time at the specified voltage and current acceptance limits. Keep the measured results separate from the instrument’s programmed settings. Ask the technical owner to explain any difference between the production programme and the applicable approved procedure.",
+        "Consider a hypothetical document mismatch: a supplier provides a DC test record while the purchasing file refers to an AC procedure. The useful response is the authorised technical basis for using that method. A buyer should not silently accept the substitution, calculate a conversion from a generic internet example, or increase a limit to turn a failure into a pass. These are different test conditions that need a documented resolution."
+      ]
+    },
+    {
+      "title": "Make the test result traceable to the order",
+      "paragraphs": [
+        "UL Solutions’ FUStart guidance says that, where required production-line testing applies, manufacturers must retain nonconforming results and the disposition of affected products [[source:3]]. This is a requirement in the described UL programme, not evidence that every charger worldwide follows an identical test schedule.",
+        "ZIMONAI recommends joining the procedure revision, instrument identity, test date, model and batch or serial identifiers in one review file. Confirm whether the supplied record covers samples or every unit claimed to have been tested. For a failure, retain the original result and its link to investigation, repair, rejection or an authorised retest; a later pass should not erase the earlier entry.",
+        "The buyer’s decision is then more concrete: does the evidence show that the relevant units completed the specified test, and are method differences or failed units still unresolved? Product certification, other safety tests and shipment acceptance remain separate parts of the purchasing file. A well-documented hipot result supports that review without standing in for the whole assessment."
+      ]
+    }
+  ],
+  "checklist": [
+    "Identify the exact test function, product standard, edition and procedure revision.",
+    "Match the charger model, configuration and test points to the purchasing file.",
+    "Read AC/DC, voltage, applicable frequency, ramp, hold time and current limits together.",
+    "Distinguish programmed settings from measured results and explain method differences.",
+    "Connect instrument identity, test date and tested quantities to batch or serial identifiers.",
+    "Retain failures and their disposition, including the basis for any retest."
+  ],
+  "limitsText": "Sources checked 23 November 2026. This guide concerns purchasing evidence, not high-voltage test operation or a universal charger test recipe. Applicable methods, unit coverage and acceptance criteria require the product’s technical and certification documents. The hypothetical AC/DC mismatch and review sequence are ZIMONAI editorial analysis. No supplier, test record or shipment has been authenticated or approved through this article."
+},
       pcbMaterialsShortageAlert: {
   "topic": "PCB materials and production capacity",
   "published": "22 November 2026",
@@ -9141,6 +9272,61 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      chargerHipotTestConditions: {
+  "topic": "電氣測試紀錄",
+  "published": "2026 年 11 月 23 日",
+  "readTime": "5 分鐘",
+  "title": "充電器耐壓測試：通過之前先看條件",
+  "description": "充電器耐壓紀錄如何看？從測試方式、位置、持續時間與電流門檻，核對適用程序及出貨批次，釐清通過判定的範圍。",
+  "imageAlt": "工業高壓測試設備的控制面板，可見分開的電壓表與電流表。",
+  "imageCaption": "工業高壓測試設備資料照片，Wtshymanski 攝於 2014 年 7 月 31 日。來源：Wikimedia Commons，CC BY-SA 4.0。僅縮放、壓縮及版面裁切，衍生圖片沿用相同授權。原設備用於開關設備等測試，表上刻度不是充電器測試設定，也不是 ZIMONAI 專案。",
+  "labels": {
+    "summary": "讀者摘要",
+    "checklist": "買家核對清單",
+    "limits": "範圍與證據限制"
+  },
+  "answer": "充電器耐壓測試紀錄，用來記載絕緣在指定電氣條件下承受測試的結果 [[source:1]]。通過判定對應的是受測配置與程序，完整產品安全及整批出貨涵蓋範圍仍需要其他證據。海外買家掌握測試條件，才有依據比對訂單要求。ZIMONAI 的判讀是，採購上有用的紀錄，應讓測試方法、允收條件與受測產品彼此對得起來；單看一個很高的電壓數字，容易忽略真正決定結果意義的條件。",
+  "takeaways": [
+    "先辨識測試項目，再解讀通過判定或電流數值。",
+    "交流、直流、測試位置、時間與門檻應一起核對。",
+    "把適用程序、原始結果與出貨產品連起來，保留異常處置。"
+  ],
+  "sections": [
+    {
+      "title": "先分清楚做的是哪一種測試",
+      "paragraphs": [
+        "耐壓測試也稱為 hipot 或介電耐壓測試，關注絕緣承受電氣應力的情況。絕緣電阻量測關注的是另一個問題，運轉狀態下的漏電流測試也有不同目的 [[source:1]][[source:2]]。供應商若只交來一張寫著「電氣安全通過」的表格，測試項目其實還沒說清楚。",
+        "Chroma 的官方問答區分了以歐姆表示的絕緣電阻，以及耐壓測試中的電流量測；也說明漏電流測試會涉及設備運轉與模擬人體阻抗的量測網路 [[source:2]]。因此，即使兩份表格都出現電流單位，也不代表測的是同一件事。",
+        "買家可先請供應商提供測試名稱、產品適用標準與版本、程序版次，以及充電器型號和硬體配置，再找到程序中對應的測試位置。某一處絕緣的測試結果，不宜直接當成其他位置的結果。這一步是在比對文件，而不是請採購人員自行接線操作高壓設備。"
+      ]
+    },
+    {
+      "title": "交流與直流紀錄分開理解",
+      "paragraphs": [
+        "Chroma 說明，交流測試可能包含電容性電流；直流測試則有充電後逐漸穩定的過程 [[source:1]]。ZIMONAI 因此認為，兩份紀錄若只拿電流值或最高電壓互相比較，很可能漏掉方法上的差異。",
+        "核對時，應一起取得交流或直流、電壓、適用頻率、測試位置、升壓時間、指定電壓下的持續時間，以及電流允收門檻。儀器設定值與實際量測結果也要分開。若產線程式與適用的核准程序不同，應由技術負責人說明差異及依據。",
+        "例如，採購文件引用交流程序，供應商卻提交直流紀錄，這是一個假設的文件不一致情境。此時有價值的補件，是採用該方法的技術依據與授權紀錄。買家不宜默認兩者等同，也不宜從網路通例自行換算電壓，或為了讓失敗結果變成通過而提高門檻。方法差異應先獲得有文件支持的釐清。"
+      ]
+    },
+    {
+      "title": "讓結果對應到這一筆訂單",
+      "paragraphs": [
+        "UL Solutions 的 FUStart 指引指出，在適用的必要產線測試中，製造商須保存不合格結果及相關產品的處置紀錄 [[source:3]]。這是該 UL 計畫下的要求，並不表示全球所有充電器都採同一套測試頻率或程序。",
+        "ZIMONAI 建議，把程序版次、儀器識別、測試日期、型號，以及批號或序號放在同一份審查資料中。先確認紀錄涵蓋樣品，還是供應商宣稱已逐件測試的產品。遇到失敗結果，應保留原始紀錄，並連到調查、維修、剔除或經授權的重測；後來通過，不應讓先前的異常消失。",
+        "這樣才有具體的採購判斷依據：相關產品是否完成指定測試？方法差異與失敗產品是否仍有未結事項？產品認證、其他安全測試及出貨驗收仍各有角色。資料完整的耐壓結果能支援這份審查，但不會取代整體評估。"
+      ]
+    }
+  ],
+  "checklist": [
+    "確認測試項目、適用產品標準、版本及程序版次。",
+    "比對充電器型號、配置與測試位置是否符合採購文件。",
+    "一起核對交流或直流、電壓、適用頻率、升壓、持續時間與電流門檻。",
+    "分清儀器設定值與量測結果，釐清不同方法的採用依據。",
+    "把儀器識別、日期與測試數量連到批號或序號。",
+    "保存失敗結果、處置方式及重測依據。"
+  ],
+  "limitsText": "資料核對截至 2026 年 11 月 23 日。本文說明採購證據的閱讀方式，不是高壓設備操作指引，也不提供所有充電器通用的測試參數。適用方法、測試涵蓋範圍與允收條件，須以產品的技術及認證文件確認。交流與直流紀錄不一致的例子為假設情境，核對順序為 ZIMONAI 編輯建議；本文未驗證或核准任何供應商、紀錄或出貨批次。"
+},
       pcbMaterialsShortageAlert: {
   "topic": "電路板材料與產能",
   "published": "2026 年 11 月 22 日",
@@ -13431,6 +13617,61 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      chargerHipotTestConditions: {
+  "topic": "电气测试证据",
+  "published": "2026 年 11 月 23 日",
+  "readTime": "5 分钟",
+  "title": "充电器耐压测试：读懂通过判定的条件",
+  "description": "采购如何审核充电器耐压记录？识别测试项目，核对交流直流方式、测试点、时间和电流限值，再将结果对应到程序及出货产品。",
+  "imageAlt": "工业高压测试装置的面板，上方和左侧分别设有电压表及电流表。",
+  "imageCaption": "工业高压测试装置资料照片，Wtshymanski 摄于 2014 年 7 月 31 日，来自 Wikimedia Commons，采用 CC BY-SA 4.0 许可。仅缩放、压缩及版面裁切，修改版沿用相同许可。原设备用于开关设备等测试，表盘刻度不是充电器测试参数，也不代表 ZIMONAI 项目。",
+  "labels": {
+    "summary": "阅读摘要",
+    "checklist": "采购核对清单",
+    "limits": "适用范围"
+  },
+  "answer": "充电器耐压记录描述绝缘在特定电气条件下接受测试的结果 [[source:1]]。一次通过对应具体的受测配置和程序，不能据此包办整机安全评价或确认全部出货产品都已受测。海外采购要判断这份记录是否支持订单要求，首先需要读懂这些条件。ZIMONAI 认为，审核的重点是方法、判定准则和受测产品能否相互对应；将较高的测试电压直接理解为更可靠，反而容易忽略决定证据范围的关键差异。",
+  "takeaways": [
+    "先确认实际测试项目，避免把不同的电气结果混为一谈。",
+    "测试方式、位置、时间及电流限值共同决定结果的含义。",
+    "结果应对应具体程序和产品，并保留不合格品的处理过程。"
+  ],
+  "sections": [
+    {
+      "title": "测试名称决定了记录的含义",
+      "paragraphs": [
+        "耐压测试又称 hipot 或介电耐压测试，用于考察绝缘在电气应力下的表现。绝缘电阻测量、设备运行时的泄漏电流测试，各有不同目的 [[source:1]][[source:2]]。只看到“电气安全合格”，还不足以知道供应商究竟完成了哪个项目。",
+        "Chroma 官方问答将以欧姆表示的绝缘电阻与耐压测试中的电流测量作了区分，并介绍了运行状态下使用人体阻抗模拟网络的泄漏电流测试 [[source:2]]。两份记录即便都有电流读数，测试含义也可能不同。",
+        "采购可先索取项目名称、适用产品标准及版本、作业程序版次、充电器型号和硬件配置，再查看程序指定的测试点。一处绝缘的结果不应被扩展为其他位置的证明。这里要完成的是文件对应，不是由采购人员决定高压仪器的接线。"
+      ]
+    },
+    {
+      "title": "不同方法的电流值不宜直接比较",
+      "paragraphs": [
+        "Chroma 对交流与直流测试的说明指出，交流中可能存在电容性电流，直流则经历充电后趋于稳定的过程 [[source:1]]。这给采购审阅带来的启示是：先解释方法差异，再讨论读数，而不是把较高电压或较低电流当作单独的优劣指标。",
+        "建议将交流或直流方式、电压、适用频率、测试点、升压时间、规定电压下的保持时间及电流限值一并列出，并区分设定值和实测值。产线调用的程序与适用批准文件如有不同，应请技术负责人提供解释和依据。",
+        "举一个假设例子：订单技术文件采用交流程序，提交的却是直流测试记录。此时应补充的是方法适用的技术依据和授权文件。采购不宜默认两种方法等效，也不应照搬网上的电压换算示例，或通过放宽限值使失败记录变成通过。先解决文件之间的不一致，才有条件评价该结果。"
+      ]
+    },
+    {
+      "title": "将测试证据落到出货产品上",
+      "paragraphs": [
+        "UL Solutions 在 FUStart 指引中说明，对适用的必要产线测试，制造商须保留不合格结果以及相关产品的处置记录 [[source:3]]。这条要求有其 UL 计划范围，不能扩展成所有充电器通用的测试安排。",
+        "按 ZIMONAI 的编辑建议，审核资料应串联程序版次、仪器标识、测试日期、产品型号及批号或序列号。需要先分清记录覆盖抽取样品，还是供应商声称已逐台测试的产品。失败条目应能追溯到调查、返修、剔除或获授权的复测，并保留原始结果。",
+        "采购最终要解决的是具体问题：相关产品是否按要求完成测试，方法差异或不合格品是否还有未处理事项。产品认证、其他安全项目与出货验收应继续分别审核。耐压记录提供其中一部分证据，不能因为资料整齐就扩大它的结论范围。"
+      ]
+    }
+  ],
+  "checklist": [
+    "识别测试项目、适用产品标准及版本、程序版次。",
+    "将型号、硬件配置和测试点对应到订单技术文件。",
+    "核对测试方式、电压、频率、升压时间、保持时间及电流限值。",
+    "区分设定值与实测值，要求说明方法变化的依据。",
+    "核对仪器、日期、受测数量及产品批号或序列号。",
+    "保留不合格记录、处置结果和复测授权依据。"
+  ],
+  "limitsText": "资料核对日期为 2026 年 11 月 23 日。本文用于阅读采购证据，不指导高压测试操作，也不规定充电器通用的测试数值。具体方法、受测范围及判定准则应以产品技术和认证文件为依据。文中的交流与直流不一致为假设示例，审核建议属于 ZIMONAI 编辑判断。本文没有验证某份记录的真伪，也未批准供应商或出货产品。"
+},
       pcbMaterialsShortageAlert: {
   "topic": "电路板材料与供应",
   "published": "2026 年 11 月 22 日",

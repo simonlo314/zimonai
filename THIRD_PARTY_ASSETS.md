@@ -466,3 +466,13 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Direct circuit-board category illustration for the 18 November PCB materials alert. Official alert offers no suitable event photograph; explanatory report cover not reused. Captions distinguish the image from affected goods, AI-server boards and ZIMONAI assignments. Visible creator/source and licence links retained.
 - Card 55% 60%, desktop 53% 56%, mobile 59% 61%; preserve the soldered components and board context. Each crop requires actual rendered inspection. Regular index rows retain existing text-only layout.
 - Infineon lead retained for direct power-electronics relevance and actual event photograph; review-through advanced only.
+
+
+## Charger hipot test conditions — 23 November 2026
+
+- New local asset: `src/assets/editorial-hipot-tester.jpg`, 1600 × 1323 JPEG. Wtshymanski, [High voltage test set.jpg](https://commons.wikimedia.org/wiki/File:High_voltage_test_set.jpg), photographed 31 July 2014, original 3582 × 2962; downloaded 23 November 2026 from the linked original Wikimedia file. The source has a recorded orientation correction in 2015.
+- [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), source and licence verified 23 November 2026. Visible attribution, source, licence and changes beside the image. Resizing, JPEG compression and layout crops only; the local derivative is offered under the same CC BY-SA 4.0 licence. No generative alteration.
+- Actual industrial AC high-voltage test panel illustrating voltage/current conditions. The source identifies switchgear and other assemblies as the original testing context. All three captions explicitly distinguish the instrument scale from charger settings and from ZIMONAI projects. No test or customer claim.
+- Card 48% 27%, desktop 47% 25%, mobile 52% 30%; retain both analog meter faces for actual rendered acceptance. Regular cards remain text only.
+- Rejected candidate: Commons `Hipot tester.jpg` by Dr Lotus Black. Actual image inspection showed a DC winding resistance tester, despite the file title. It is retained only in the ignored research folder, not published.
+- Existing Infineon feature retained after relevance review; reviewed-through date advanced.

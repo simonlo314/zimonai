@@ -1937,3 +1937,9 @@ test('PCB alert preserves separate native material and delivery terms',()=>{
  const terms={"zh-tw":["仍缺材料","AI 伺服器","伺服器","供給","材料用途","而非","全球電子協會","電路板","板廠","玻纖布","銅箔","積層板","材料短缺","材料牌號","上游材料","高性能","多層電路板","替代材料","產業展望","一期廠","二期建築","分期擴產","供貨困難","可得性","受影響","投產","新產能","供應狀況","交貨承諾"],"zh-cn":["仍受缺料制约","AI 服务器","服务器","供给","材料用途","而非","全球电子协会","电路板","玻纤布","铜箔","覆铜板","材料短缺","材料牌号","上游材料","高性能","多层电路板","替代材料","行业展望","一期","二期厂房","分期投产","供应安排","受影响","投产","新增产能","供给约束","交付承诺"]};
  for(const [locale,words]of Object.entries(terms))for(const term of [...words,"MEGTRON","Ivan Chumak"]){const text=term+"。";const result=protectCjkText(text,locale);assert.ok(result.includes(">"+text+"</span>"),locale+term);assert.equal(removeProtectionMarkup(result),text);}
 });
+
+
+test('Hipot guide preserves electrical conditions and native test terminology',()=>{
+ const terms={"zh-tw":["耐壓測試","耐壓紀錄","介電耐壓測試","電氣測試","電氣安全","電氣應力","電氣條件","絕緣電阻","漏電流","電容性電流","人體阻抗","量測網路","允收條件","允收門檻","電流門檻","出貨產品","高壓設備","採購人員","測試位置","升壓時間","持續時間","儀器識別","硬體配置","程序版次","受測產品","受測配置","通過判定","通過之前","先看條件","不合格結果","處置紀錄","技術負責人","電壓表","電流表","測試線","攜帶式","控制面板"],"zh-cn":["耐压测试","耐压记录","介电耐压测试","电气测试","电气安全","电气应力","电气条件","绝缘电阻","泄漏电流","电容性电流","人体阻抗","模拟网络","判定准则","电流限值","出货产品","高压设备","采购人员","测试点","升压时间","保持时间","仪器标识","硬件配置","程序版次","受测产品","受测配置","通过判定","读懂","不合格结果","处置记录","技术负责人","电压表","电流表","测试线","便携式","控制旋钮"]};
+ for(const [locale,words]of Object.entries(terms))for(const term of [...words,"hipot","Chroma","FUStart","Wtshymanski"]){const text=term+"。";const result=protectCjkText(text,locale);assert.ok(result.includes(">"+text+"</span>"),locale+term);assert.equal(removeProtectionMarkup(result),text);}
+});
