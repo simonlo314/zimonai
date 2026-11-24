@@ -7,6 +7,75 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand Ford’s first Michigan LFP shipment and the next manufacturing stage.
+  // Related questions: prototype destination; technology licensing; pack integration; line rate versus output; 2027 milestone.
+  {
+  "id": "knowledge-ford-michigan-lfp-first-cells",
+  "key": "fordMichiganLfpFirstCells",
+  "contentType": "current-affairs",
+  "slug": "knowledge/ford-michigan-lfp-first-cells",
+  "category": "factory-onsite",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "united-states"
+  ],
+  "keywords": {
+    "en": [
+      "Ford Michigan LFP cells",
+      "Fathom prototype batteries",
+      "CATL technology licensing"
+    ],
+    "zh-tw": [
+      "Ford 密西根電芯",
+      "Fathom 原型車",
+      "LFP 技術授權"
+    ],
+    "zh-cn": [
+      "Ford 密歇根电芯",
+      "Fathom 原型车",
+      "LFP 技术授权"
+    ]
+  },
+  "datePublished": "2026-11-24",
+  "dateModified": "2026-11-24",
+  "image": "/assets/editorial-ford-michigan-lfp-cells.jpg",
+  "imageWidth": 1600,
+  "imageHeight": 1067,
+  "imageCrop": {
+    "card": "47% 70%",
+    "article": "46% 68%",
+    "mobile": "44% 64%"
+  },
+  "photo": {
+    "photographer": "Ford Motor Company",
+    "page": "https://www.fromtheroad.ford.com/us/en/search-results/albums?id=%2Fcontent%2Fdam%2Ffordmediasite%2Fus%2Fen%2Flibrary%2F2026%2Fford-ships-first-battery-cells-from-michigan-plant-for-fathom-electric-pickup-key-milestone-for-ford-energy&title=Ford+Ships+First+Battery+Cells+from+Michigan+Plant+for+Fathom+Electric+Pickup+Key+Milestone+for+Ford+Energy",
+    "license": "https://www.fromtheroad.ford.com/us/en/articles/2026/ford-fathom-lfp-prismatic-battery-cells-ship"
+  },
+  "sources": [
+    {
+      "publisher": "Ford / Charles Poon",
+      "title": "First Michigan LFP cells for Fathom prototypes — 18 November 2026",
+      "url": "https://www.fromtheroad.ford.com/us/en/articles/2026/ford-fathom-lfp-prismatic-battery-cells-ship"
+    },
+    {
+      "publisher": "Reuters / Kalea Hall, via StreetInsider",
+      "title": "Ford ships first battery cells using CATL technology — 18 November 2026",
+      "url": "https://new.streetinsider.com/Reuters/Ford%2Bships%2Bfirst%2Bbattery%C2%A0cells%2Busing%2BCATL%2Btechnology/27368999.html"
+    },
+    {
+      "publisher": "electrive / Cora Werwitzke",
+      "title": "Ford delivers first LFP batteries for test fitting in Fathom prototypes — 19 November 2026",
+      "url": "https://www.electrive.com/2026/11/19/ford-delivers-first-lfp-batteries-for-test-fitting-in-fathom-prototypes/"
+    },
+    {
+      "publisher": "Ford Motor Company",
+      "title": "Official media album — final cell inspection; editorial-use notice in footer",
+      "url": "https://www.fromtheroad.ford.com/us/en/search-results/albums?id=%2Fcontent%2Fdam%2Ffordmediasite%2Fus%2Fen%2Flibrary%2F2026%2Fford-ships-first-battery-cells-from-michigan-plant-for-fathom-electric-pickup-key-milestone-for-ford-energy&title=Ford+Ships+First+Battery+Cells+from+Michigan+Plant+for+Fathom+Electric+Pickup+Key+Milestone+for+Ford+Energy"
+    }
+  ]
+},
   // Search intent: interpret charger hipot records against the applicable method and shipment.
   // Related questions: test function; AC/DC differences; test points and timing; procedure mismatch; unit coverage.
   {
@@ -1694,7 +1763,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-23",
+  "featuredReviewedThrough": "2026-11-24",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4888,6 +4957,58 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      fordMichiganLfpFirstCells: {
+  "topic": "Battery manufacturing",
+  "published": "24 November 2026",
+  "readTime": "4 minutes",
+  "title": "Ford ships Michigan LFP cells for Fathom prototypes",
+  "description": "Ford’s 18 November shipment marks a step from licensed battery technology to US cell production. Prototype use and a planned 2027 pack plant define what comes next.",
+  "imageAlt": "A Ford worker wearing blue gloves holds a blue prismatic battery cell, with its two terminals visible, during final inspection.",
+  "imageCaption": "Ford Motor Company official media photograph, released 18 November 2026. Ford identifies the scene as final inspection before cells enter shipping containers. Used for this editorial report under the media site’s editorial-use notice; resized, compressed and cropped for layout only. It is not a ZIMONAI assignment or an independent inspection.",
+  "labels": {
+    "summary": "News summary",
+    "checklist": "What to watch next",
+    "limits": "What remains uncertain"
+  },
+  "answer": "Ford announced on 18 November 2026 that its first Michigan-made lithium iron phosphate (LFP) cells were heading to Louisville for Fathom electric-truck prototypes [[source:1]]. The shipment marks a manufacturing milestone, while prototype use and a planned 2027 battery-pack plant place it within an ongoing development programme. For the battery industry, it connects CATL-licensed technology with a Ford-owned US factory [[source:2]]. ZIMONAI sees this shipment as a step that shifts the focus to pack integration and repeatable vehicle production, where the industry can assess how local cell output becomes durable supply.",
+  "takeaways": [
+    "The first cells are intended for Fathom prototypes, not announced customer deliveries.",
+    "Ford owns the Michigan plant and uses technology licensed from CATL.",
+    "Pack production and sustained manufacturing performance remain the next milestones."
+  ],
+  "sections": [
+    {
+      "title": "A first shipment with a specific destination",
+      "paragraphs": [
+        "The cells come from BlueOval Battery Park Michigan in Marshall and are destined for Louisville Assembly Plant in Kentucky. Ford’s 18 November update describes prismatic LFP cells for Fathom prototypes and plans to start the Marshall battery-pack plant in 2027 before the vehicle’s launch [[source:1]]. Reuters independently reported the shipment and the CATL licensing arrangement that day [[source:2]].",
+        "That sequence gives the announcement its significance. An operating cell line has produced material for a vehicle development programme. It also defines the stage: supplying prototypes is a tangible step, while the pack plant’s operating date remains a company plan. Electrive’s 19 November report likewise places the shipment ahead of the Fathom’s scheduled 2027 series production [[source:3]]."
+      ]
+    },
+    {
+      "title": "The manufacturing story includes the pack design",
+      "paragraphs": [
+        "Ford says the rectangular cells support a design in which the battery pack becomes part of the vehicle structure. Its announcement also describes combining electrical and sensing connections in a flexible circuit board and integrating compact power electronics into the pack [[source:1]]. These are Ford’s descriptions of its design, rather than an independent assessment of cost or performance.",
+        "ZIMONAI sees a useful manufacturing implication here: a cell production milestone and a completed vehicle system answer different questions. The cell’s dimensions, connections and integration must work with the pack and vehicle design. A factory’s location alone says little about whether that whole sequence has reached a stable operating state.",
+        "The licensing arrangement is another distinction worth retaining. Reuters identifies Ford as the plant owner and CATL as the technology licensor [[source:2]]. Ownership, manufacturing location and the source of process knowledge are separate facts. Describing the cells as Michigan-made should not erase the role of licensed technology, just as licensing does not turn the plant into a CATL-owned facility."
+      ]
+    },
+    {
+      "title": "What would demonstrate the next stage?",
+      "paragraphs": [
+        "Ford states that its assembly lines can deliver 40 cells a minute and describes image-recognition tools for detecting defects [[source:1]]. The rate is a company capacity statement. ZIMONAI would not convert it into annual saleable output without operating hours, downtime and accepted-cell data. Nor does the use of inspection tools, on its own, establish an achieved defect rate.",
+        "For industry readers, the useful follow-up is whether the planned pack operation starts, how prototype development progresses and whether later disclosures show sustained accepted output. A buyer assessing any new battery programme can use the same distinction: a line-speed figure, a shipped batch and evidence of repeatable deliveries describe different parts of production readiness.",
+        "The event therefore moves the story beyond a factory announcement. Its longer-term significance will depend on the connection between local cell production, pack integration and vehicle manufacturing. Progress across those stages would be more informative than another headline capacity figure; their timing and measured performance remain worth watching."
+      ]
+    }
+  ],
+  "checklist": [
+    "Does the Marshall pack plant reach its planned 2027 operating milestone?",
+    "What does Ford disclose about Fathom prototype development and vehicle production?",
+    "Are later output figures tied to accepted cells, operating periods and deliveries?",
+    "Do reported manufacturing improvements distinguish targets from measured results?"
+  ],
+  "limitsText": "Sources checked 24 November 2026; the announcement and Reuters report are dated 18 November, followed by electrive on 19 November. Factory and design details are attributed to their sources. The cited update does not provide a sustained accepted-output series, an independently verified defect rate or a measured cost saving. The 2027 pack milestone is forward-looking. Manufacturing and purchasing implications are ZIMONAI editorial analysis; this article does not verify a supplier, certify a battery or imply participation in Ford’s programme."
+},
       chargerHipotTestConditions: {
   "topic": "Electrical test records",
   "published": "23 November 2026",
@@ -9272,6 +9393,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      fordMichiganLfpFirstCells: {
+  "topic": "電池製造進展",
+  "published": "2026 年 11 月 24 日",
+  "readTime": "4 分鐘",
+  "title": "Ford 密西根 LFP 電芯出貨，用於 Fathom 原型車",
+  "description": "Ford 於 11 月 18 日宣布密西根工廠首批 LFP 電芯出貨，用於 Fathom 原型車。技術授權、電池組整合與量產進度，各代表哪一階段？",
+  "imageAlt": "Ford 工作人員戴著藍色手套，手持藍色方形電芯進行最終檢查，頂部兩個端子清楚可見。",
+  "imageCaption": "Ford Motor Company 官方媒體照片，發布於 2026 年 11 月 18 日。Ford 圖說指明這是電芯裝入運輸容器前的最終檢查；依媒體網站的編輯用途聲明用於本篇報導，僅縮放、壓縮及版面裁切。非 ZIMONAI 專案或獨立查核紀錄。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "尚待確認的資訊"
+  },
+  "answer": "Ford 於 2026 年 11 月 18 日宣布，密西根工廠首批磷酸鐵鋰（LFP）電芯正送往路易維爾，供 Fathom 電動皮卡原型車使用 [[source:1]]。這次出貨讓製造計畫跨出具體一步，但用途仍是原型車，電池組工廠則預計 2027 年啟用。對電池產業而言，事件呈現了 CATL 技術授權與 Ford 自有美國工廠的結合 [[source:2]]。ZIMONAI 認為，後續更值得注意的是這批電芯如何接上電池組整合及穩定造車流程，讓首批出貨逐步形成可持續的供應。",
+  "takeaways": [
+    "首批電芯供原型車使用，公告未將它描述為交付消費者的車輛。",
+    "密西根工廠由 Ford 持有，採用 CATL 授權技術。",
+    "電池組工廠進度與持續合格產出，是下一階段觀察重點。"
+  ],
+  "sections": [
+    {
+      "title": "首批出貨有明確用途",
+      "paragraphs": [
+        "電芯來自密西根州馬歇爾的 BlueOval Battery Park Michigan，目的地是肯塔基州的路易維爾組裝廠。Ford 的 11 月 18 日公告說明，這批方形 LFP 電芯用於 Fathom 原型車，馬歇爾電池組工廠則計畫在 2027 年、車款上市前投入運作 [[source:1]]。Reuters 同日另行報導出貨消息與 CATL 技術授權安排 [[source:2]]。",
+        "新聞的意義在於，電芯產線已經有實際產品送進車輛開發計畫。這也交代了當前階段：原型車供料已有具體進展，電池組工廠啟用仍屬未來時程。electrive 於 11 月 19 日的報導，同樣把這次出貨放在 Fathom 預定 2027 年量產之前 [[source:3]]。"
+      ]
+    },
+    {
+      "title": "製造進展要連同電池組設計一起看",
+      "paragraphs": [
+        "Ford 說明，方形電芯配合其電池組成為車體結構一部分的設計；公告也提到，以軟性電路板整合電氣與感測連接，並把精簡的電力電子元件整合進電池組 [[source:1]]。這些是公司的設計說明，尚非外部驗證的成本或效能成果。",
+        "ZIMONAI 的判讀是，電芯出線與整車系統完成，分別回答不同的製造問題。電芯尺寸、連接方式及整合流程，必須與電池組、車輛設計配合。僅憑工廠設在哪裡，還不足以掌握整段流程是否已穩定運作。",
+        "技術授權也值得分開理解。Reuters 將 Ford 列為工廠持有者，CATL 則是技術授權方 [[source:2]]。資產歸屬、製造地點及製程知識來源，是三項不同事實。稱這批電芯為密西根製造，不應省略授權技術的角色；有技術授權，也不表示工廠由 CATL 持有。"
+      ]
+    },
+    {
+      "title": "下一個里程碑要看持續產出",
+      "paragraphs": [
+        "Ford 宣布產線具備每分鐘 40 顆電芯的能力，並介紹以影像辨識協助找出缺陷的做法 [[source:1]]。這是公司公布的產線能力。ZIMONAI 不會在缺少運轉時間、停機及合格品資料的情況下，把它換算成全年可出售產量；使用檢查工具，也不等於已達到某個缺陷率。",
+        "產業讀者接下來可觀察電池組工廠是否如期啟用、原型車開發如何推進，以及後續揭露有沒有呈現持續合格產出。買家評估新的電池製造計畫時，也可保留同樣區分：線速、一次出貨與重複交付的證據，各自反映不同層次的生產準備。",
+        "這次事件讓故事從建廠計畫走到實際供料。長期意義則取決於電芯製造、電池組整合與造車流程能否接續完成。跨越這些階段的進展，會比另一個名目產能數字更有參考價值；時程是否落實、實測表現如何，是後續值得追蹤的變化。"
+      ]
+    }
+  ],
+  "checklist": [
+    "馬歇爾電池組工廠是否達成預定 2027 年啟用目標？",
+    "Fathom 原型車開發與車輛生產有何新進展？",
+    "後續產量揭露是否連結合格品、運轉期間與實際交付？",
+    "製造改善的說明是否區分目標與已量測成果？"
+  ],
+  "limitsText": "資料核對截至 2026 年 11 月 24 日。Ford 公告及 Reuters 報導日期為 11 月 18 日，electrive 報導為 11 月 19 日。工廠與設計資訊均依來源標示；所引公告未提供持續合格產量序列、獨立驗證的缺陷率或實測成本節省。2027 年電池組工廠進度仍是預定時程。製造與採購意涵屬 ZIMONAI 編輯判讀，本文未查核特定供應商、認證電池，也未參與 Ford 計畫。"
+},
       chargerHipotTestConditions: {
   "topic": "電氣測試紀錄",
   "published": "2026 年 11 月 23 日",
@@ -13617,6 +13790,58 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      fordMichiganLfpFirstCells: {
+  "topic": "电池制造动态",
+  "published": "2026 年 11 月 24 日",
+  "readTime": "4 分钟",
+  "title": "Ford 密歇根工厂交付 LFP 电芯，用于 Fathom 原型车",
+  "description": "Ford 11 月 18 日公布密歇根首批 LFP 电芯出货，用于 Fathom 原型车。解读技术授权、本地制造与后续电池包投产之间的关系。",
+  "imageAlt": "Ford 工人戴蓝色手套检查一颗蓝色方形电芯，电芯顶面的两个端子可见。",
+  "imageCaption": "Ford Motor Company 官方媒体图片，发布于 2026 年 11 月 18 日。原图说明为电芯装入运输容器前的最终检查。依据媒体网站的编辑用途声明用于本报道，仅作等比例缩放、压缩及版面裁切；不代表 ZIMONAI 项目或独立核查结果。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "仍待明确的信息"
+  },
+  "answer": "Ford 在 2026 年 11 月 18 日披露，密歇根工厂生产的首批磷酸铁锂（LFP）电芯正运往路易斯维尔，用于 Fathom 电动皮卡原型车 [[source:1]]。实际出货推动了制造计划，但原型车用途与计划于 2027 年启用的电池包工厂，也表明项目仍有后续阶段。对电池行业，这展示了 CATL 技术授权在 Ford 自有美国工厂的落地 [[source:2]]。ZIMONAI 认为，接下来更值得关注的是电芯如何完成电池包及整车集成，并逐步形成稳定交付；这些进展将让首批出货的产业意义更加清晰。",
+  "takeaways": [
+    "本批电芯服务于原型车开发，尚非面向消费者的车辆交付公告。",
+    "工厂归 Ford 所有，电芯制造采用 CATL 授权技术。",
+    "电池包投产进度与持续合格产出，是后续判断重点。"
+  ],
+  "sections": [
+    {
+      "title": "从建厂计划走到原型车供料",
+      "paragraphs": [
+        "这批电芯由密歇根州马歇尔的 BlueOval Battery Park Michigan 生产，发往肯塔基州路易斯维尔组装厂。Ford 的 11 月 18 日公告将其用途明确为 Fathom 原型车，并计划让马歇尔电池包工厂于 2027 年、车型上市前开始运营 [[source:1]]。Reuters 当天独立报道了这次出货及 CATL 技术授权安排 [[source:2]]。",
+        "实际产品进入车辆开发流程，是这则消息区别于投资或建厂公告的地方。不过，原型车供料与面向市场的稳定生产仍处于不同阶段。electrive 在 11 月 19 日报道中，也把此次交付与 Fathom 计划于 2027 年量产的时间表联系起来 [[source:3]]；未来节点仍应按计划理解。"
+      ]
+    },
+    {
+      "title": "技术授权与系统集成各有角色",
+      "paragraphs": [
+        "Ford 介绍，方形电芯配合其将电池包纳入车体结构的设计，同时利用柔性电路板整合电气及传感连接，并将紧凑的电力电子部件置于电池包内 [[source:1]]。这些信息描述了公司的技术方案，并不构成对实际成本降幅或性能的第三方验证。",
+        "在 ZIMONAI 看来，值得追踪的是各制造环节如何衔接。电芯从生产线出来之后，其尺寸、连接和集成方式还要服务于电池包及整车设计。工厂所在地能说明生产位置，却不能独自回答系统是否已具备稳定生产能力。",
+        "Reuters 明确区分了 Ford 的工厂所有权与 CATL 的技术许可角色 [[source:2]]。因此，本地制造、资产归属和工艺知识来源应分别陈述。把密歇根制造说成完全不依赖外部技术，或把技术许可理解为 CATL 持有该工厂，都超出了这些事实。"
+      ]
+    },
+    {
+      "title": "线速之后，还要观察什么",
+      "paragraphs": [
+        "Ford 表示其装配线具备每分钟生产 40 颗电芯的能力，并说明了用图像识别发现生产缺陷的做法 [[source:1]]。这是企业公布的能力指标。按 ZIMONAI 的解读，缺少运行时间、停机和合格品数据时，不能将这个数字直接推算为全年可售产量；采用检测工具同样不是已实现某项缺陷率的证明。",
+        "后续有价值的信息包括：电池包工厂是否按计划运营、原型车开发是否继续推进，以及公开数据能否体现持续合格产出。采购观察新的电池项目时，也应区分产线速度、单次批量出货与重复交付记录。它们反映的是生产准备中的不同部分。",
+        "首批出货已经让这项计划具备了具体的产品去向。更长远的影响，将取决于电芯生产、电池包集成和整车制造能否衔接起来。后续实际完成的阶段及测得的表现，比单一名义产能更能帮助行业判断这座工厂的供给作用。"
+      ]
+    }
+  ],
+  "checklist": [
+    "马歇尔电池包工厂能否实现计划中的 2027 年运营节点？",
+    "Fathom 原型车开发和车辆生产将披露哪些新进展？",
+    "后续产量是否注明合格品口径、运行周期及交付情况？",
+    "企业的制造改善说明是否区分目标和实测结果？"
+  ],
+  "limitsText": "资料核对日期为 2026 年 11 月 24 日。Ford 公告和 Reuters 报道发表于 11 月 18 日，electrive 于 11 月 19 日跟进。工厂及设计描述均注明来源；所引公告没有提供持续合格产量序列、独立验证的缺陷率或实测成本节省。2027 年电池包工厂节点属于前瞻计划。制造及采购意义为 ZIMONAI 编辑判断，本文未核查具体供应商、认证电池或参与 Ford 项目。"
+},
       chargerHipotTestConditions: {
   "topic": "电气测试证据",
   "published": "2026 年 11 月 23 日",

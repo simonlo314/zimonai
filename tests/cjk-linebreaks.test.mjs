@@ -1943,3 +1943,9 @@ test('Hipot guide preserves electrical conditions and native test terminology',(
  const terms={"zh-tw":["耐壓測試","耐壓紀錄","介電耐壓測試","電氣測試","電氣安全","電氣應力","電氣條件","絕緣電阻","漏電流","電容性電流","人體阻抗","量測網路","允收條件","允收門檻","電流門檻","出貨產品","高壓設備","採購人員","測試位置","升壓時間","持續時間","儀器識別","硬體配置","程序版次","受測產品","受測配置","通過判定","通過之前","先看條件","不合格結果","處置紀錄","技術負責人","電壓表","電流表","測試線","攜帶式","控制面板"],"zh-cn":["耐压测试","耐压记录","介电耐压测试","电气测试","电气安全","电气应力","电气条件","绝缘电阻","泄漏电流","电容性电流","人体阻抗","模拟网络","判定准则","电流限值","出货产品","高压设备","采购人员","测试点","升压时间","保持时间","仪器标识","硬件配置","程序版次","受测产品","受测配置","通过判定","读懂","不合格结果","处置记录","技术负责人","电压表","电流表","测试线","便携式","控制旋钮"]};
  for(const [locale,words]of Object.entries(terms))for(const term of [...words,"hipot","Chroma","FUStart","Wtshymanski"]){const text=term+"。";const result=protectCjkText(text,locale);assert.ok(result.includes(">"+text+"</span>"),locale+term);assert.equal(removeProtectionMarkup(result),text);}
 });
+
+
+test('Ford LFP news preserves native manufacturing and location terms',()=>{
+ const terms={"zh-tw":["磷酸鐵鋰（LFP）","線速","密西根","路易維爾","肯塔基州","馬歇爾","磷酸鐵鋰","電芯","方形電芯","原型車","電動皮卡","電池組","技術授權","產線能力","合格品","合格產出","電力電子元件","軟性電路板","感測連接","製程知識","持有者","授權方","運轉時間","最終檢查","運輸容器","獨立查核","名目產能","重複交付","持續產出","本地製造","資產歸屬"],"zh-cn":["磷酸铁锂（LFP）","线速","密歇根","路易斯维尔","肯塔基州","马歇尔","磷酸铁锂","电芯","方形电芯","原型车","电动皮卡","电池包","技术授权","产线速度","合格品","合格产出","电力电子部件","柔性电路板","传感连接","工艺知识","所有权","技术许可","运行时间","最终检查","运输容器","独立核查","名义产能","重复交付","持续产出","本地制造","资产归属"]};
+ for(const [locale,words]of Object.entries(terms))for(const term of [...words,"Ford","Fathom","CATL","electrive"]){const text=term+"。";const result=protectCjkText(text,locale);assert.ok(result.includes(">"+text+"</span>"),locale+term);assert.equal(removeProtectionMarkup(result),text);}
+});
