@@ -7,6 +7,77 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: compare charger output ripple reports under equivalent measurement conditions.
+  // Related questions: peak-to-peak versus RMS; bandwidth and filters; probe connection; test location; output/load coverage.
+  {
+  "id": "knowledge-charger-output-ripple-measurement",
+  "key": "chargerOutputRippleMeasurement",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/charger-output-ripple-measurement",
+  "category": "factory-onsite",
+  "products": [
+    "charger",
+    "power-adapter",
+    "gan-charger"
+  ],
+  "markets": [
+    "international"
+  ],
+  "keywords": {
+    "en": [
+      "charger output ripple",
+      "ripple measurement report",
+      "oscilloscope bandwidth"
+    ],
+    "zh-tw": [
+      "充電器輸出漣波",
+      "漣波量測報告",
+      "示波器頻寬"
+    ],
+    "zh-cn": [
+      "充电器输出纹波",
+      "纹波测试报告",
+      "示波器带宽"
+    ]
+  },
+  "datePublished": "2026-11-25",
+  "dateModified": "2026-11-25",
+  "image": "/assets/editorial-oscilloscope-ripple.jpg",
+  "imageWidth": 1600,
+  "imageHeight": 1200,
+  "imageCrop": {
+    "card": "48% 36%",
+    "article": "46% 31%",
+    "mobile": "52% 34%"
+  },
+  "photo": {
+    "photographer": "Wilson Monse",
+    "page": "https://commons.wikimedia.org/wiki/File:Modern_Digital_Oscilloscope.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "sources": [
+    {
+      "publisher": "Tektronix",
+      "title": "Probing Techniques for Accurate Voltage Measurements on Power Supplies with Oscilloscopes",
+      "url": "https://www.tek.com/en/documents/application-note/probing-techniques-accurate-voltage-measurements-power-converters-oscillos"
+    },
+    {
+      "publisher": "Analog Devices / Wesley Ballar and Jacob Ciolfi",
+      "title": "Lab Skills for Switch-Mode Power Supply Evaluation — Part 1",
+      "url": "https://www.analog.com/en/resources/analog-dialogue/articles/lab-skills-for-switch-mode-power-supply-eval-part-1.html"
+    },
+    {
+      "publisher": "Keysight",
+      "title": "Measure Power Supply Noise Accurately",
+      "url": "https://www.keysight.com/us/en/use-cases/measure-power-supply-noise-accurately.html"
+    },
+    {
+      "publisher": "TDK-Lambda",
+      "title": "FAQ: How to measure output ripple noise — power modules and onboard supplies",
+      "url": "https://product.tdk.com/en/contact/faq/power-supplies-0045.html"
+    }
+  ]
+},
   // Search intent: understand Ford’s first Michigan LFP shipment and the next manufacturing stage.
   // Related questions: prototype destination; technology licensing; pack integration; line rate versus output; 2027 milestone.
   {
@@ -1763,7 +1834,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-24",
+  "featuredReviewedThrough": "2026-11-25",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -4957,6 +5028,56 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      chargerOutputRippleMeasurement: {
+  "topic": "Electrical measurement",
+  "published": "25 November 2026",
+  "readTime": "4 minutes",
+  "title": "Charger output ripple: compare the test conditions",
+  "description": "Read charger ripple reports by checking the measurement quantity, bandwidth, probe connection, test point and operating mode before comparing supplier results.",
+  "imageAlt": "A digital oscilloscope with a signal trace and spectrum on its screen, control knobs and front input connectors.",
+  "imageCaption": "Instrument illustration: Modern Digital Oscilloscope, photographed by Wilson Monse on 28 April 2023. The displayed signal and spectrum are not a charger ripple test. Resized, compressed and cropped for layout; this image remains under CC BY-SA 4.0. It is not a ZIMONAI facility or inspection record.",
+  "answer": "An output-ripple report describes the small voltage variations measured at a power supply’s output under stated conditions. Probe connections, bandwidth and measurement location influence the result [[source:1]][[source:2]]. For overseas buyers comparing chargers, a lower figure is meaningful only alongside the same measurement definition and operating conditions. ZIMONAI’s editorial view is to agree on the test method before ranking samples: a trace tied to a model, output mode and acceptance criterion is more useful than an isolated millivolt claim.",
+  "takeaways": [
+    "Compare like quantities: peak-to-peak ripple and RMS noise describe different measurements.",
+    "Keep bandwidth, filtering, probe arrangement and measurement location visible in the report.",
+    "Agree on output modes, loads and acceptance criteria before comparing samples."
+  ],
+  "sections": [
+    {
+      "title": "Start with the quantity, not the smallest number",
+      "paragraphs": [
+        "A figure labelled mV is incomplete. Peak-to-peak voltage is the difference between the highest and lowest observed values; RMS is a different calculation. A report should identify the quantity, the captured interval and whether the DC component is excluded. Keysight’s noise-measurement guidance treats RMS and peak-to-peak as separate measurements and includes oscilloscope configuration in the workflow [[source:3]].",
+        "For procurement review, retain the waveform and its settings with the result. A cropped number without the time scale, voltage scale or acquisition context leaves too much for the reader to infer. This is a ZIMONAI documentation recommendation, not a claim that one screenshot format is universally required.",
+        "Consider a hypothetical comparison: one supplier reports a bandwidth-limited peak-to-peak value, while another supplies an RMS value from a differently configured instrument. The figures do not form a useful ranking. Ask for results under an agreed method before judging which sample better meets the intended requirement."
+      ]
+    },
+    {
+      "title": "Bandwidth and connections are part of the result",
+      "paragraphs": [
+        "Tektronix explains that long probe ground leads can introduce ringing and pick up noise. Probe attenuation also matters when the signal approaches the instrument’s noise floor [[source:1]]. These are reasons to request the connection arrangement and instrument/probe identification, rather than treating every visible spike as a product defect.",
+        "Bandwidth must come from the applicable specification or agreed procedure. TDK-Lambda’s FAQ for power modules illustrates a 100 MHz measurement and directs readers to the relevant series manual [[source:4]]. That example is specific to its stated equipment category; it does not establish a charger-wide requirement. A familiar 20 MHz setting should likewise not be assumed without a method.",
+        "Filtering can change the recorded noise: Keysight describes a comparison with and without an external filter [[source:3]]. If reports use different filters or acquisition settings, preserve that difference in the comparison. A smaller displayed value after a method change is not, by itself, evidence of a better charger."
+      ]
+    },
+    {
+      "title": "Connect the trace to the product being purchased",
+      "paragraphs": [
+        "Measurement location also needs a name. Analog Devices describes how ripple at the load can differ from ripple near the converter because the circuit between those points matters [[source:2]]. For a finished charger, ZIMONAI recommends identifying whether the reported point is the output connector, a specified cable end or an internal point. This is an application of the measurement principle, not a universal charger test procedure.",
+        "Before sample approval, agree on the input supply, negotiated output voltage, load, active ports, cable or fixture, stabilisation condition and acceptance limit. For a multiport charger, state the port combination being assessed. The purchasing question is which ordered configuration the evidence covers; a result from one operating point should not silently become a claim about every advertised mode.",
+        "Finally, attach the record to the sample identifier, hardware revision, test date and procedure version. A sample result describes that sample under that method. Batch coverage and later design changes need their own records. This gives engineering and purchasing a concrete basis for resolving a difference: repeat a defined comparison, then investigate any remaining product variation."
+      ]
+    }
+  ],
+  "checklist": [
+    "Is the quantity explicitly peak-to-peak or RMS, with units and capture context?",
+    "Are bandwidth, filtering, coupling and relevant acquisition settings recorded?",
+    "Can the instrument, probe and connection arrangement be identified?",
+    "Are the test point, cable or fixture, output mode, load and active ports specified?",
+    "Does the result link to a sample, hardware revision, procedure and agreed limit?",
+    "Is any claim about batch coverage supported by separate sampling and production records?"
+  ],
+  "limitsText": "Sources checked 25 November 2026. The cited documents explain measurement practice; they do not certify a charger or define one ripple limit for every product. The checklist is ZIMONAI editorial guidance for reviewing records. Electrical testing belongs with qualified personnel using equipment and procedures suitable for the circuit. This article is not a wiring procedure for mains-powered equipment. Ripple results alone do not establish electrical safety, regulatory compliance or production consistency."
+},
       fordMichiganLfpFirstCells: {
   "topic": "Battery manufacturing",
   "published": "24 November 2026",
@@ -9393,6 +9514,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      chargerOutputRippleMeasurement: {
+  "topic": "電氣量測紀錄",
+  "published": "2026 年 11 月 25 日",
+  "readTime": "4 分鐘",
+  "title": "充電器輸出漣波：比較前先看條件",
+  "description": "充電器漣波報告的數字受量測定義、頻寬、探棒接法與測試位置影響。買家比較樣品前，如何對齊輸出模式、負載及允收條件？",
+  "imageAlt": "數位示波器螢幕顯示訊號波形與頻譜，右側有控制旋鈕，下方可見輸入接頭。",
+  "imageCaption": "儀器示意照片：Wilson Monse 於 2023 年 4 月 28 日拍攝的 Modern Digital Oscilloscope。螢幕中的訊號與頻譜並非充電器漣波測試。僅縮放、壓縮及版面裁切，圖片維持 CC BY-SA 4.0 授權；非 ZIMONAI 設施或查核紀錄。",
+  "answer": "輸出漣波報告用來描述電源在特定條件下，輸出電壓出現的細微變動。探棒接法、量測頻寬及測試位置都會影響讀值，因此報告的數字必須連同方法一起解讀 [[source:1]][[source:2]]。海外買家比較充電器樣品時，先對齊量測定義與運作條件，才有依據判斷較低讀值的意義。ZIMONAI 認為，採購前先約定測試方法，並讓波形對應型號、輸出模式及允收條件，比單獨追求一個更小的毫伏數字，更能減少驗收時的爭議。",
+  "takeaways": [
+    "峰對峰值與有效值是不同量測，僅有毫伏數字不足以比較。",
+    "頻寬、濾波、探棒接法與測試位置，都是報告的一部分。",
+    "比較樣品前，先約定輸出模式、負載及允收條件。"
+  ],
+  "sections": [
+    {
+      "title": "先看量測定義，再看數字大小",
+      "paragraphs": [
+        "報告只寫 mV，仍缺少關鍵資訊。峰對峰值是觀察區間內最高值與最低值的差；有效值採用另一種計算方式。紀錄應說明量測項目、擷取區間，以及是否排除直流成分。Keysight 的電源雜訊量測說明分別列出有效值與峰對峰值，也把示波器設定納入流程 [[source:3]]。",
+        "ZIMONAI 建議買家把波形及其設定與結果一起保存。若只留下裁切過的數字，沒有時間刻度、電壓刻度及擷取條件，審閱者就得自行猜測。這是讓紀錄便於比較的編輯建議，並非所有產品都必須採同一種截圖格式。",
+        "假設一家供應商交付限制頻寬後的峰對峰值，另一家則提供不同儀器設定下的有效值。這兩個數字即使都用毫伏表示，也不適合直接排名。先請雙方依約定方法提供結果，再討論哪個樣品更符合需求，才有共同基準。"
+      ]
+    },
+    {
+      "title": "頻寬與探棒接法會改變讀值",
+      "paragraphs": [
+        "Tektronix 說明，較長的探棒接地線可能引入振鈴，並拾取外部雜訊；訊號接近儀器本底雜訊時，探棒衰減也會影響觀察 [[source:1]]。因此，報告應能辨識儀器、探棒及接線安排，避免把每個可見尖峰都直接當成產品缺陷。",
+        "頻寬要回到適用規格或雙方約定的程序。TDK-Lambda 針對模組電源的常見問題，以 100 MHz 說明其中一種量測方式，並要求參閱各系列手冊 [[source:4]]。這個例子有其設備範圍，不代表所有充電器都適用；常見的 20 MHz 設定，也應有明確的方法依據。",
+        "Keysight 的說明比較了加入外接濾波器前後的雜訊 [[source:3]]。買家遇到不同濾波或擷取設定時，應保留這項差異。方法改變後，畫面數字變小，尚不足以說明充電器本身的表現已經改善。"
+      ]
+    },
+    {
+      "title": "把波形連回實際採購配置",
+      "paragraphs": [
+        "測試位置也要寫清楚。Analog Devices 指出，負載端與轉換器附近的漣波可能不同，因為兩點之間的電路會影響波形 [[source:2]]。套用到成品充電器的紀錄審閱，ZIMONAI 建議註明是在輸出接頭、指定線材末端，還是內部測試點量測；這是原理的採購應用，不是通用的充電器測試程序。",
+        "樣品確認前，可先約定輸入電源、協商後的輸出電壓、負載、使用中的連接埠、線材或治具、穩定條件與允收門檻。多孔充電器還應寫出受測的連接埠組合。重點是釐清結果涵蓋哪一種訂購配置，避免把單一運作點的數據，延伸成所有標示模式的表現。",
+        "最後，讓紀錄連結樣品編號、硬體版次、測試日期及程序版本。樣品結果描述的是該樣品在該方法下的狀態；批次涵蓋範圍與後續設計變更，需要另外的紀錄。工程與採購因此能先重做條件明確的比較，再追查剩下的產品差異。"
+      ]
+    }
+  ],
+  "checklist": [
+    "量測項目是峰對峰值還是有效值？單位及擷取條件是否明確？",
+    "頻寬、濾波、耦合及擷取設定是否完整記錄？",
+    "儀器、探棒及接線安排是否可辨識？",
+    "測試位置、線材或治具、輸出模式、負載及連接埠組合是否列明？",
+    "結果是否對應樣品、硬體版次、程序及約定門檻？",
+    "若宣稱涵蓋整批產品，是否另有抽樣與生產紀錄支持？"
+  ],
+  "limitsText": "資料核對日期為 2026 年 11 月 25 日。一手資料說明量測實務，並未替某款充電器認證，也未訂出所有產品共用的漣波門檻。核對清單屬 ZIMONAI 編輯建議。實際電氣測試應由合格人員使用適合受測電路的設備與程序執行；本文不提供市電設備接線教學。漣波結果本身不代表電氣安全、法規合規或量產一致性。"
+},
       fordMichiganLfpFirstCells: {
   "topic": "電池製造進展",
   "published": "2026 年 11 月 24 日",
@@ -13790,6 +13961,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      chargerOutputRippleMeasurement: {
+  "topic": "电气测量记录",
+  "published": "2026 年 11 月 25 日",
+  "readTime": "4 分钟",
+  "title": "充电器输出纹波：怎样比较测试结果？",
+  "description": "比较充电器纹波报告，先核对测量定义、带宽、探头连接和测试点，再对齐输出模式与负载。避免把不同条件下的读数直接排名。",
+  "imageAlt": "一台数字示波器显示信号波形及频谱，旁边是控制旋钮，面板下部排列着输入接口。",
+  "imageCaption": "仪器示意照片：Modern Digital Oscilloscope，由 Wilson Monse 摄于 2023 年 4 月 28 日。屏幕内容并非充电器纹波测试。本图仅调整尺寸、压缩并按版面裁切，继续采用 CC BY-SA 4.0 许可；不代表 ZIMONAI 设施或核查现场。",
+  "answer": "输出纹波报告记录电源在给定条件下的输出电压细小变化，为比较电气表现提供依据。探头连接、测量带宽和测试点都会影响结果，单独的毫伏读数并未交代完整条件 [[source:1]][[source:2]]。海外买家选购充电器时，统一测量定义与工作状态，才能把样品差异放在同一基础上讨论。ZIMONAI 的判断是，先约定方法，再把波形、型号、输出模式和验收要求对应起来，比围绕一个较低数值议价，更有助于减少交付后的分歧。",
+  "takeaways": [
+    "峰峰值和有效值采用不同定义，比较时应先统一口径。",
+    "带宽、滤波、探头连接及测量位置都会影响报告的可比性。",
+    "选样前明确输出模式、负载和验收要求，便于复核差异。"
+  ],
+  "sections": [
+    {
+      "title": "同样写着毫伏，测量内容可能不同",
+      "paragraphs": [
+        "峰峰值反映观察区间内最大值与最小值之差，有效值则使用另一种计算方式。报告除了 mV 单位，还应注明具体测量项目、采集区间，以及是否去除直流分量。Keysight 在电源噪声测量说明中分别使用有效值与峰峰值，并要求配置示波器参数 [[source:3]]。",
+        "从采购审阅角度，波形、设置和数值应保存在同一份记录中。只截取读数，省略时间刻度、电压刻度和采集条件，会让后续比较失去上下文。这是 ZIMONAI 对记录完整性的建议，不是规定所有产品采用统一截图模板。",
+        "举一个假设情形：甲方给出限制带宽后的峰峰值，乙方提交另一套仪器设置下的有效值。两份报告都写毫伏，并不意味着可以按数字大小判断样品优劣。更有用的下一步，是请双方按商定方法补充可比结果。"
+      ]
+    },
+    {
+      "title": "仪器设置和连接方式也需要审阅",
+      "paragraphs": [
+        "Tektronix 指出，探头过长的接地线可能产生振铃并拾取噪声；当被测信号接近仪器本底噪声时，探头衰减也会影响测量 [[source:1]]。因此，记录中应能查到仪器和探头型号，以及实际连接方式。看到尖峰后，仍需分辨它来自产品还是测量安排。",
+        "带宽应遵循适用规格或约定程序。TDK-Lambda 关于模块电源的说明展示了采用 100 MHz 的方法，并提示按具体系列查阅手册 [[source:4]]。这个例子不构成所有充电器的统一要求。同样，选择 20 MHz 也应有程序依据，而不能仅因为这一设置常见。",
+        "Keysight 用加装外接滤波器前后的测量说明噪声读数会发生变化 [[source:3]]。如果两份报告的滤波或采集设置不同，应先标明差异。设置变化后读数降低，与产品性能得到改善，是需要分别验证的两件事。"
+      ]
+    },
+    {
+      "title": "让测试结果对应订购产品",
+      "paragraphs": [
+        "测试点决定了记录描述的具体位置。Analog Devices 说明，负载处和靠近变换器的位置可能呈现不同纹波，中间电路会影响波形 [[source:2]]。据此，ZIMONAI 建议审阅成品充电器时，区分输出接口、指定线缆末端与内部测试点。这属于测量原理在采购中的应用，并非该来源给出的通用充电器规程。",
+        "确认样品时，可把输入电源、协商后的输出电压、负载、启用端口、线缆或夹具、稳定条件及验收限值写入约定。多口充电器还需要注明端口组合。买家要确认的是证据覆盖哪种订购配置，避免把一个工作点的结果当作全部输出模式的表现。",
+        "记录还应关联样品编号、硬件版本、测试日期和程序版本。样品结果有明确的对象与方法；批量覆盖情况和后续设计变更，应另行提供记录。这样，出现差异时，双方能够先按明确条件复测，再调查产品本身的变化。"
+      ]
+    }
+  ],
+  "checklist": [
+    "峰峰值或有效值、单位及采集条件是否明确？",
+    "带宽、滤波、耦合和有关采集设置能否查到？",
+    "仪器、探头及连接方式是否明确？",
+    "测试点、线缆或夹具、输出模式、负载及端口组合是否一致？",
+    "结果是否对应样品、硬件版本、测试程序和约定限值？",
+    "涉及整批产品的结论，是否另有抽样和生产记录支撑？"
+  ],
+  "limitsText": "资料核对截至 2026 年 11 月 25 日。引用资料讨论测量实践，不为具体充电器提供认证，也没有设定所有产品通用的纹波限值。核对清单为 ZIMONAI 编辑建议。实际电气测试应由合格人员采用适合被测电路的设备与程序完成；本文不提供市电设备接线操作指导。纹波结果本身不能确立电气安全、法规符合性或批量一致性。"
+},
       fordMichiganLfpFirstCells: {
   "topic": "电池制造动态",
   "published": "2026 年 11 月 24 日",

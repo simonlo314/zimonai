@@ -486,3 +486,12 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - Image manually inspected: worker with gloves holding a blue prismatic cell, both top terminals visible. Only proportional resize, JPEG compression and layout cropping; no generative editing or factual alteration. Not a ZIMONAI client, site visit, verification or independent quality result.
 - Separate focal positions: card 47% 70%, desktop 46% 68%, mobile 44% 64%; verify both terminals, cell and hands remain recognisable. Existing regular index cards remain text only; card image crop checked in the existing preview context.
 - Evidence: `output/playwright/daily-20261124/ford-official.html`, official browser album snapshot and original image. Existing Infineon lead retained after topic review, review-through advanced.
+
+
+## Oscilloscope illustration for output ripple guide — 25 November 2026
+
+- Asset: `src/assets/editorial-oscilloscope-ripple.jpg`, 1600 × 1200 JPEG; proportional resize and compression from 2016 × 1512 original. Creator: Wilson Monse. [Original source page](https://commons.wikimedia.org/wiki/File:Modern_Digital_Oscilloscope.jpg); [original file](https://upload.wikimedia.org/wikipedia/commons/3/33/Modern_Digital_Oscilloscope.jpg). Source declares own work, photographed 28 April 2023. Downloaded 25 November 2026.
+- License: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), permits commercial reuse with attribution, license link and changes noted. The resized/compressed/cropped image remains CC BY-SA 4.0; no additional restrictions on the image. Creator and original source linked beside the photograph; the caption names CC BY-SA 4.0 and the linked Commons source page includes its license link. Changes stated in all three captions.
+- Actual photograph manually inspected: digital oscilloscope showing a signal trace and spectrum. Instrument illustration only, explicitly not charger ripple data, a ZIMONAI facility, inspection or endorsement. No generative changes; only resize, compression and CSS crop.
+- Focal positions: card 48% 36%, desktop 46% 31%, mobile 52% 34%. Inspect screen and instrument identity in all layouts. Existing regular hub/category/search cards are text only; review their text and separately preview the supported card image ratio.
+- Purpose: trilingual industry-knowledge article `knowledge/charger-output-ripple-measurement`, addressing comparison of supplier measurement records. Original retained in ignored QA directory `output/playwright/daily-20261125/`.
