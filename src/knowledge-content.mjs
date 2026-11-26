@@ -7,6 +7,90 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand the TSMC Texas tax application and its manufacturing implications.
+  // Related questions: filing status; project scope; competing locations; construction projections; next public decision.
+  {
+  "id": "knowledge-tsmc-texas-fab-tax-application",
+  "key": "tsmcTexasFabTaxApplication",
+  "contentType": "current-affairs",
+  "slug": "knowledge/tsmc-texas-fab-tax-application",
+  "category": "factory-onsite",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "united-states"
+  ],
+  "keywords": {
+    "en": [
+      "TSMC Texas fab",
+      "JETI application J0055",
+      "Brazos County semiconductor investment"
+    ],
+    "zh-tw": [
+      "台積電德州晶圓廠",
+      "JETI 租稅優惠",
+      "Brazos County 投資案"
+    ],
+    "zh-cn": [
+      "台积电得州工厂",
+      "JETI 税收优惠",
+      "Brazos County 晶圆厂"
+    ]
+  },
+  "datePublished": "2026-11-26",
+  "dateModified": "2026-11-26",
+  "image": "/assets/editorial-tsmc-q3-2026-2nm.jpg",
+  "imageWidth": 1600,
+  "imageHeight": 1071,
+  "imageCrop": {
+    "card": "28% 38%",
+    "article": "30% 40%",
+    "mobile": "0% 34%"
+  },
+  "photo": {
+    "photographer": "Peellden",
+    "page": "https://commons.wikimedia.org/wiki/File:TSMC_Fab5.JPG",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "sources": [
+    {
+      "publisher": "Brazos County",
+      "title": "Potential Semiconductor Project in Brazos County — 23 November 2026",
+      "url": "https://brazoscountytx.gov/potential-semiconductor-project-in-brazos-county/"
+    },
+    {
+      "publisher": "Texas Comptroller of Public Accounts",
+      "title": "J0055: TSMC Arizona Corporation application and recommendation posting dates",
+      "url": "https://comptroller.texas.gov/economy/development/prop-tax/jeti/application-details.php?id=J0055"
+    },
+    {
+      "publisher": "TSMC Arizona Corporation / Texas Comptroller",
+      "title": "JETI application J0055 — project description, page 8",
+      "url": "https://assets.comptroller.texas.gov/open-data/jeti/J0055/J0055-tsmcarizona-collegestation-app.pdf"
+    },
+    {
+      "publisher": "Texas Comptroller of Public Accounts",
+      "title": "Recommendation packet, 24 November 2026 — letter and Attachment A, pages 1–3",
+      "url": "https://assets.comptroller.texas.gov/open-data/jeti/J0055/J0055-tsmcarizona-collegestation-rec.pdf"
+    },
+    {
+      "publisher": "College Station ISD",
+      "title": "Notice of public hearing on 10 December 2026 — posted 24 November",
+      "url": "https://resources.finalsite.net/images/v1795538064/csisdorg/fgvtsiyfmdxdcgpgcyz1/HPScan55.pdf"
+    },
+    {
+      "publisher": "Reuters / Anusha Shah, via StreetInsider",
+      "title": "TSMC unit seeks Texas property tax limit for proposed $22.6 billion chip making facility — 24 November 2026",
+      "url": "https://www.streetinsider.com/Reuters/TSMC%2Bunit%2Bseeks%2BTexas%2Bproperty%2Btax%2Blimit%2Bfor%2Bproposed%2B%2422.6%2Bbillion%2Bchip%2Bmaking%2Bfacility/27389881.html"
+    },
+    {
+      "publisher": "KBTX / Adrienne DeMoss",
+      "title": "TSMC tax break application heads to governor and school district — 24 November 2026",
+      "url": "https://www.kbtx.com/2026/11/24/tsmc-tax-break-application-heads-governor-school-district/"
+    }
+  ]
+},
   // Search intent: compare charger output ripple reports under equivalent measurement conditions.
   // Related questions: peak-to-peak versus RMS; bandwidth and filters; probe connection; test location; output/load coverage.
   {
@@ -1834,7 +1918,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-25",
+  "featuredReviewedThrough": "2026-11-26",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -5028,6 +5112,59 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      tsmcTexasFabTaxApplication: {
+  "topic": "Semiconductor investment",
+  "published": "26 November 2026",
+  "readTime": "4 minutes",
+  "title": "TSMC seeks Texas tax relief for proposed $22.6bn fab",
+  "description": "TSMC’s Brazos County proposal entered public tax-incentive review on 23 November. A recommendation and December hearing advance a project still awaiting an investment decision.",
+  "imageAlt": "Archival photograph of TSMC Fab 5 in Hsinchu, Taiwan, showing the company sign on the building.",
+  "imageCaption": "Archival company illustration: TSMC Fab 5 in Hsinchu, Taiwan, photographed by Peellden on 5 September 2010. This is not the proposed Texas site or a 2nm production line. Resized, compressed and cropped for layout; the image remains under CC BY-SA 3.0. It is not a ZIMONAI site visit.",
+  "labels": {
+    "summary": "News summary",
+    "checklist": "What to watch next",
+    "limits": "What remains uncertain"
+  },
+  "answer": "TSMC’s proposed $22.6 billion Texas fab entered public tax-incentive review on 23 November 2026. Brazos County says it would make 2nm or more advanced logic chips, subject to approvals and TSMC’s final investment decision [[source:1]]. The application shifts the manufacturing debate’s focus to site economics. ZIMONAI’s editorial view is that buyers should read this as a site-selection milestone: public review makes the proposal more concrete, while usable supply will depend on subsequent investment, construction and production progress.",
+  "takeaways": [
+    "The public filing concerns a proposed investment, with final approval and investment decisions still ahead.",
+    "A state recommendation was posted on 24 November; the school district has announced a 10 December hearing.",
+    "Construction dates in the assessment are projections, distinct from qualified chip deliveries."
+  ],
+  "sections": [
+    {
+      "title": "A public proposal moves into review",
+      "paragraphs": [
+        "Texas lists application J0055 under TSMC Arizona Corporation and College Station ISD. The application was posted on 23 November, followed by a recommendation packet on 24 November [[source:2]]. The project description specifies leading-edge logic for AI, high-performance computing and mobile applications [[source:3]].",
+        "The Comptroller’s letter recommends approval after finding the eligibility requirements satisfied. It also expressly limits what that recommendation establishes: it is not a guarantee of future outcomes [[source:4]]. KBTX independently reported the recommendation and the remaining governor and school-district process on 24 November [[source:7]].",
+        "For readers following semiconductor expansion, this creates a public record against which later decisions can be checked. A tax review is a substantive development in the proposal, but the county still describes the project as conditional on approvals and a final investment decision [[source:1]]."
+      ]
+    },
+    {
+      "title": "Why location economics matter",
+      "paragraphs": [
+        "Reuters reported that the requested property-tax limitation is a deciding factor in the Texas proposal, with Arizona remaining an alternative location [[source:6]]. That places the filing within a comparison of manufacturing locations, rather than a completed allocation of new capacity.",
+        "ZIMONAI’s assessment is that incentives matter through the overall economics of building and operating a site. The practical industry question is whether a proposed location can progress into a funded, equipped and functioning factory. A headline investment amount alone gives little information about when particular customers could receive qualified output.",
+        "For component buyers, the useful distinction is between a possible future source and supply available for an existing product programme. A proposed leading-edge logic fab does not establish additional capacity for every semiconductor category. Procurement plans for chargers or power electronics should therefore follow the actual components and suppliers involved, without treating this announcement as a general reduction in chip lead times."
+      ]
+    },
+    {
+      "title": "The next milestones have different meanings",
+      "paragraphs": [
+        "Attachment A of the state recommendation projects construction starting in 2027 and ending in 2031 [[source:4]]. Those are assessment assumptions, not a confirmed date for customer shipments. ZIMONAI would track construction, equipment readiness and production evidence separately rather than turning a projected completion year into an available-supply date.",
+        "College Station ISD’s notice schedules a public hearing for 10 December 2026 at 5 p.m. local time, with possible board consideration afterward [[source:5]]. The notice gives the next concrete review milestone; holding a hearing and approving an agreement are separate outcomes.",
+        "The near-term significance is that the Texas option now has a public application and a review sequence. Its longer-term supply-chain importance will become clearer as decisions are made and implementation is documented. For buyers and manufacturing partners, those completed steps will be more informative than treating all announced investment as capacity already secured."
+      ]
+    }
+  ],
+  "checklist": [
+    "What decision follows the school district’s 10 December hearing?",
+    "Do the required approvals and TSMC’s final investment decision follow?",
+    "Are projected construction dates maintained or revised in later disclosures?",
+    "What production, qualification and customer-delivery evidence emerges after construction?"
+  ],
+  "limitsText": "Checked 26 November 2026. The event is the application posted on 23 November, followed by the 24 November recommendation. The reviewed sources do not establish a final investment commitment, qualified output or customer allocation. Construction dates are projections. Manufacturing and procurement implications are ZIMONAI editorial analysis, not a regulator’s conclusion or a claim of involvement in the project."
+},
       chargerOutputRippleMeasurement: {
   "topic": "Electrical measurement",
   "published": "25 November 2026",
@@ -9514,6 +9651,59 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      tsmcTexasFabTaxApplication: {
+  "topic": "半導體投資動態",
+  "published": "2026 年 11 月 26 日",
+  "readTime": "4 分鐘",
+  "title": "台積電評估德州晶圓廠，申請租稅優惠",
+  "description": "台積電擬在德州 Brazos County 投資 226 億美元設廠，11 月 23 日公開租稅優惠申請。審查建議與聽證時程，如何影響未來產能的判讀？",
+  "imageAlt": "台積電新竹五廠的歷史照片，廠房外牆可見台積電標誌。",
+  "imageCaption": "企業歷史示意照片：Peellden 於 2010 年 9 月 5 日拍攝的台積電新竹五廠，並非德州預定地或 2 奈米產線。僅縮放、壓縮及版面裁切，圖片維持 CC BY-SA 3.0 授權；非 ZIMONAI 查核現場。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "後續觀察重點",
+    "limits": "仍待確認的事項"
+  },
+  "answer": "台積電評估在德州興建晶圓廠，規劃投資 226 億美元，租稅優惠申請於 2026 年 11 月 23 日公開。Brazos County 說明，擬建廠房將採用 2 奈米或更先進的邏輯製程，仍待必要核准及台積電最終投資決定 [[source:1]]。這項申請把新增美國製造據點的成本條件帶入產業焦點。ZIMONAI 認為，公開審查讓選址進度更具體；買家評估未來供應時，則應持續追蹤投資決策、建廠與實際產出，才能判斷這座新廠何時可能形成可用產能。",
+  "takeaways": [
+    "目前進展是投資提案進入公開審查，仍待核准與最終投資決定。",
+    "州政府已於 11 月 24 日公布審查建議，學區聽證會訂於 12 月 10 日。",
+    "文件中的建廠年度屬預估，與合格晶片交付是不同節點。"
+  ],
+  "sections": [
+    {
+      "title": "申請公開，接著進入審議程序",
+      "paragraphs": [
+        "德州官方列出的案號為 J0055，申請人是 TSMC Arizona Corporation，所屬學區為 College Station ISD。申請文件於 11 月 23 日公布，審查建議於翌日上線 [[source:2]]。計畫說明鎖定人工智慧、高效能運算及行動裝置使用的先進邏輯晶片 [[source:3]]。",
+        "德州主計機關的函文認定申請符合資格，建議核准，同時明確保留對未來結果的限制 [[source:4]]。KBTX 於 11 月 24 日的獨立報導，也說明州長與學區仍有後續程序 [[source:7]]。",
+        "這次進展的價值，在於產業能以公開文件追蹤後續決策。租稅優惠審查確實讓提案往前推進；Brazos County 對計畫的定位，仍是等待核准及最終投資決定的設廠方案 [[source:1]]。"
+      ]
+    },
+    {
+      "title": "選址競爭背後，是製造成本條件",
+      "paragraphs": [
+        "Reuters 報導，申請中的財產稅優惠是台積電是否選擇德州的重要決定因素，亞利桑那州仍是另一個候選地點 [[source:6]]。因此，這份文件反映的是不同製造地點之間的評估，尚未代表新增產能已經定案。",
+        "ZIMONAI 的判讀是，租稅條件要放回建廠與營運的整體經濟性理解。產業真正關心的，是選址能否接著形成投資、設備與可運作的工廠。單看投資金額，仍難以知道特定客戶何時能取得符合需求的產品。",
+        "對零組件買家而言，未來可能增加的供應來源，與現有產品計畫能使用的供應能力，需要分開評估。先進邏輯晶圓廠提案並未替所有半導體品類增加產能。充電器或電源電子採購，仍應追蹤實際使用的元件及供應商，不宜把這則消息直接解讀為整體晶片交期縮短。"
+      ]
+    },
+    {
+      "title": "建廠預估與聽證日期，各自代表什麼",
+      "paragraphs": [
+        "州政府審查文件的附件 A 預估，工程於 2027 年開始、2031 年完成 [[source:4]]。這是評估採用的時程，並非客戶出貨日期。依 ZIMONAI 的觀點，施工、設備就緒與生產成果值得分開追蹤，避免把預估完工年直接當成可用供應的起點。",
+        "College Station ISD 公告，將於 2026 年 12 月 10 日當地時間下午 5 點舉行公開聽證會，之後董事會可能討論相關決議 [[source:5]]。這提供了下一個具體審議節點；召開聽證與通過協議，仍是兩個不同階段。",
+        "短期來看，德州方案已有公開申請與審議順序。更長期的供應鏈意義，則會隨決策完成及執行進度逐步清楚。對買家與製造合作方而言，後續真正完成的階段，比把所有公告投資都列入已確保產能，更能支持規劃。"
+      ]
+    }
+  ],
+  "checklist": [
+    "12 月 10 日學區聽證會後，會出現哪些決議？",
+    "必要核准與台積電最終投資決定是否完成？",
+    "後續公開資料是否維持或調整建廠預估？",
+    "施工之後，是否出現生產、客戶驗證及交付的實際進展？"
+  ],
+  "limitsText": "資料核對日期為 2026 年 11 月 26 日。事件為 11 月 23 日公開申請，以及 11 月 24 日審查建議。所核對資料尚未確立最終投資承諾、合格產出或客戶配額；建廠年度屬預估。製造與採購意義為 ZIMONAI 編輯判讀，並非主管機關結論，也不代表參與本案。"
+},
       chargerOutputRippleMeasurement: {
   "topic": "電氣量測紀錄",
   "published": "2026 年 11 月 25 日",
@@ -13961,6 +14151,59 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      tsmcTexasFabTaxApplication: {
+  "topic": "半导体投资动态",
+  "published": "2026 年 11 月 26 日",
+  "readTime": "4 分钟",
+  "title": "台积电拟在得州建厂，申请税收优惠",
+  "description": "台积电拟投资 226 亿美元建设得州晶圆厂，11 月 23 日公开 JETI 申请。解读选址经济性、审批进展及建设预估与实际供给的区别。",
+  "imageAlt": "台积电位于台湾新竹的五厂历史照片，建筑外墙上有公司标志。",
+  "imageCaption": "企业历史配图：台积电新竹五厂，Peellden 摄于 2010 年 9 月 5 日。图片不代表得州拟建项目或 2 纳米产线。仅调整尺寸、压缩并按版面裁切，继续采用 CC BY-SA 3.0 许可；并非 ZIMONAI 核查现场。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "仍待明确的信息"
+  },
+  "answer": "台积电拟投资 226 亿美元在美国得州建设晶圆厂，相关税收优惠申请于 2026 年 11 月 23 日公开。Brazos County 表示，项目计划采用 2 纳米或更先进的逻辑工艺，实施仍取决于必要审批和台积电的最终投资决定 [[source:1]]。这项申请凸显了制造成本在选址竞争中的分量。ZIMONAI 认为，公开审查提供了更清楚的选址进展；买家判断未来供给时，还应观察投资落定、厂房建设和实际产出，逐步确认项目何时能转化为可用产能。",
+  "takeaways": [
+    "税收优惠申请已进入公开审查，项目仍有审批和投资决策环节。",
+    "州政府 11 月 24 日发布审查建议，学区拟于 12 月 10 日举行听证。",
+    "建设预估反映项目假设，不能直接当作合格芯片的交付时间。"
+  ],
+  "sections": [
+    {
+      "title": "从选址提案走向公开审查",
+      "paragraphs": [
+        "德州官方登记的 J0055 申请来自 TSMC Arizona Corporation，对应 College Station ISD 学区。申请于 11 月 23 日上线，审查建议文件于 11 月 24 日公布 [[source:2]]。项目说明将产品定位于人工智能、高性能计算及移动设备所需的先进逻辑芯片 [[source:3]]。",
+        "德州主计部门在函件中认定资格条件已满足并建议批准，同时说明该建议不保证项目的未来结果 [[source:4]]。KBTX 当天独立报道了这一进展，以及州长和学区接下来的审议环节 [[source:7]]。",
+        "对关注制造布局的读者，公开申请提供了可持续追踪的决策记录。它使提案向前推进，但 Brazos County 对项目的表述仍保留必要审批与最终投资决定这两项条件 [[source:1]]。"
+      ]
+    },
+    {
+      "title": "税收条件如何进入选址判断",
+      "paragraphs": [
+        "Reuters 报道，这项财产税优惠是台积电决定是否落户得州的重要因素，亚利桑那州仍在备选范围内 [[source:6]]。因此，申请体现的是制造地点之间的比较，而不是新增产能已经确定分配。",
+        "ZIMONAI 的判断是，优惠条件需要结合建设和运营的整体经济性来看。项目能否落实资金、设备与工厂运行，是比投资总额更具体的问题。仅凭一个金额，无法推算特定客户何时能够拿到满足要求的芯片。",
+        "采购端需要区分潜在新增来源与现有产品可以调用的供应能力。先进逻辑晶圆厂提案并不意味着所有半导体品类的供给同步扩大。充电器和电源电子买家应继续关注实际物料与供应商，不能仅凭这项计划，就调整对整个芯片市场交期的判断。"
+      ]
+    },
+    {
+      "title": "下一步看决策，也看执行",
+      "paragraphs": [
+        "州政府建议文件的附件 A 将 2027 年列为预计开工时间，2031 年列为预计完工时间 [[source:4]]。这是评估使用的项目假设，并非确认客户出货。按 ZIMONAI 的解读，建设、设备准备和生产成果各有自己的进度，完工年份不宜直接替代供给可用日期。",
+        "College Station ISD 的正式通知安排在 2026 年 12 月 10 日当地时间下午 5 点召开公开听证会，并说明董事会可能随后讨论有关决定 [[source:5]]。听证会提供了明确的观察节点，但开会与批准协议仍属于不同结果。",
+        "这项消息让得州方案有了公开文件及后续审议路径。它对供应链的长期作用，还将由投资决策和落地进展逐步说明。对买家及制造合作方，持续观察已完成的阶段，比提前把全部拟议投资计入确定产能，更有助于制定实际计划。"
+      ]
+    }
+  ],
+  "checklist": [
+    "学区 12 月 10 日听证会后将形成什么决定？",
+    "必要审批及台积电的最终投资决定是否完成？",
+    "后续文件是否更新预计建设时间？",
+    "项目推进后，有哪些生产、客户验证和交付记录公开？"
+  ],
+  "limitsText": "资料核对截至 2026 年 11 月 26 日。本文关注 11 月 23 日公开申请及 11 月 24 日审查建议。所核对材料尚未确立最终投资承诺、合格产出或客户配额，建设时间仍为预测。制造与采购影响属于 ZIMONAI 编辑分析，不代表主管部门结论或 ZIMONAI 的项目参与记录。"
+},
       chargerOutputRippleMeasurement: {
   "topic": "电气测量记录",
   "published": "2026 年 11 月 25 日",
