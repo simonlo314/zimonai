@@ -504,3 +504,10 @@ These are editorial product/category photographs. They do not depict ZimonAI off
 - New use: `knowledge/tsmc-texas-fab-tax-application`. The actual image was inspected: recognisable TSMC sign and building. It illustrates the company, explicitly not the proposed Texas site, a 2nm line, a ZIMONAI visit or independent verification. No generated or fact-altering edits.
 - Official TSMC photo-gallery download agreement rechecked: editing/modification calls for prior written permission. No permission was assumed and no form submitted. The separately licensed real photograph provides a compatible alternative; no Texas construction photograph is asserted to exist for this proposal.
 - Separately reviewed focal positions: card 28% 38%, desktop 30% 40%, mobile 0% 34%. Preserve the TSMC sign in each. Regular knowledge hub/category/search cards remain text only; supported card image ratio is checked in the existing preview context.
+
+
+## Adapter photograph reused for thermal derating guide — 27 November 2026
+
+- Existing local asset: `src/assets/editorial-california-maedbs-charger.jpg`, 1028 × 1200 JPEG, original download 28 September 2026; bytes unchanged in this release. Creator: Fortal Fototeca. [Original photograph page](https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/), photographed 17 November 2022. Source page and [Pexels License](https://www.pexels.com/license/) rechecked 27 November 2026; commercial website reuse and resizing/cropping permitted. Photographer and source link visible beside each locale image.
+- Actual image inspected: white plug-in adapter with metal pins on a yellow background. Product-category illustration only; explicitly not the GST120A example, a thermal test, supplier inspection or ZIMONAI facility. No generative changes; existing resizing/compression plus layout cropping only.
+- Purpose: `knowledge/power-adapter-thermal-derating`, trilingual industry knowledge. Crop focal positions: card 53% 76%, desktop 51% 74%, mobile 54% 70%; review plug and adapter identity in each ratio. Regular hub/category/search cards remain text only; image-card crop separately previewed without architecture changes.

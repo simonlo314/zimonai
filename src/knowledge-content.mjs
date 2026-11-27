@@ -7,6 +7,71 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: match power-adapter rated output to actual operating temperature.
+  // Related questions: full power versus temperature range; input voltage; ambient versus case; cooling and placement; purchase evidence.
+  {
+  "id": "knowledge-power-adapter-thermal-derating",
+  "key": "powerAdapterThermalDerating",
+  "contentType": "industry-knowledge",
+  "slug": "knowledge/power-adapter-thermal-derating",
+  "category": "product-transport-documents",
+  "products": [
+    "power-adapter",
+    "charger"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "power adapter thermal derating",
+      "rated output ambient temperature",
+      "power supply derating curve"
+    ],
+    "zh-tw": [
+      "電源適配器降額",
+      "額定功率與環境溫度",
+      "電源降額曲線"
+    ],
+    "zh-cn": [
+      "电源适配器降额",
+      "额定功率与环境温度",
+      "电源降额曲线"
+    ]
+  },
+  "datePublished": "2026-11-27",
+  "dateModified": "2026-11-27",
+  "image": "/assets/editorial-california-maedbs-charger.jpg",
+  "imageWidth": 1028,
+  "imageHeight": 1200,
+  "imageCrop": {
+    "card": "53% 76%",
+    "article": "51% 74%",
+    "mobile": "54% 70%"
+  },
+  "photo": {
+    "photographer": "Fortal Fototeca",
+    "page": "https://www.pexels.com/photo/close-up-photo-of-white-adaptor-14468975/",
+    "license": "https://www.pexels.com/license/"
+  },
+  "sources": [
+    {
+      "publisher": "MEAN WELL",
+      "title": "GST120A specifications — downloaded revision 2025-03-28, pages 2–3",
+      "url": "https://www.meanwell.com/Upload/PDF/GST120A/GST120A-SPEC.PDF"
+    },
+    {
+      "publisher": "RECOM",
+      "title": "Rather be Cool than Dead — thermal derating explanation, 13 January 2023",
+      "url": "https://recom-power.com/en/knowledgebase/media-center/rec-n-rather-be-cool-than-dead-245.html"
+    },
+    {
+      "publisher": "MEAN WELL",
+      "title": "Adaptor Installation Manual — installation and cautions, page 1",
+      "url": "https://www.meanwell.com/Upload/PDF/Adaptor_EN.pdf"
+    }
+  ]
+},
   // Search intent: understand the TSMC Texas tax application and its manufacturing implications.
   // Related questions: filing status; project scope; competing locations; construction projections; next public decision.
   {
@@ -1918,7 +1983,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-26",
+  "featuredReviewedThrough": "2026-11-27",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -5112,6 +5177,56 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      powerAdapterThermalDerating: {
+  "topic": "Power and temperature",
+  "published": "27 November 2026",
+  "readTime": "6 min read",
+  "title": "Power-adapter derating: read power and temperature together",
+  "description": "Read a power-adapter derating curve with its input voltage and cooling conditions. A worked example shows how buyers can define usable output before ordering.",
+  "imageAlt": "A white plug-in power adapter on a yellow background, with its metal pins visible.",
+  "imageCaption": "Editorial category illustration by Fortal Fototeca, via Pexels. This photograph does not show the GST120A example or a thermal test, supplier inspection or ZIMONAI facility. Only resizing, compression and layout cropping are used.",
+  "answer": "A thermal derating curve links a power adapter’s permitted output to its operating conditions. Its temperature range must be read alongside input voltage and cooling assumptions; the highest listed temperature is not a promise of full power [[source:1]][[source:2]]. For overseas buyers, those conditions determine whether the quoted rating matches the intended installation. ZIMONAI’s editorial view is to agree on the required operating point before comparing wattages, then tie supporting records to the exact model and configuration.",
+  "takeaways": [
+    "Read the load percentage against the specified temperature, input and cooling conditions.",
+    "Keep ambient temperature, enclosure temperature and protection behaviour distinct.",
+    "Specify the required operating point and evidence before approving a substitute model."
+  ],
+  "sections": [
+    {
+      "title": "A temperature range needs its accompanying curve",
+      "paragraphs": [
+        "MEAN WELL lists GST120A24 at 24 V, 5 A and 120 W. Its GST120A datasheet gives a −30 to +70°C working range and directs readers to the derating curve. At 230 VAC, that graph specifies horizontal placement and reaches 50% load at 70°C: for this variant, 120 W × 50% = 60 W [[source:1]].",
+        "This is a reading of the published chart, not a ZIMONAI measurement or an approval of a finished installation. The example shows why a quotation saying “120 W, up to 70°C” leaves a purchasing question unresolved: how much continuous output is required at the buyer’s actual operating point?",
+        "Ask for the exact model suffix and the dated specification behind the offer. Save the chart together with its notes, rather than retaining only a cropped graph or a product-listing headline. The calculation above belongs to this model and these stated conditions; it is not a general reduction rule for chargers."
+      ]
+    },
+    {
+      "title": "Check what temperature and cooling conditions mean",
+      "paragraphs": [
+        "RECOM explains that derating diagrams apply to defined input and cooling conditions. It also distinguishes calculations based on assumptions from measured curves [[source:2]]. For procurement review, ZIMONAI therefore recommends asking which conditions and evidence support the curve supplied with a quotation.",
+        "If an axis describes ambient temperature, a case-temperature reading answers a different question. Ask the supplier to identify the temperature being reported and the measurement location. A report described only as “temperature test passed” gives the purchasing team too little context to compare it with the requirement.",
+        "MEAN WELL’s adapter installation manual calls for ventilation and directs readers to the product specification for the maximum ambient temperature [[source:3]]. The buyer’s description should therefore include placement, nearby heat sources and any enclosure around the adapter. Where that arrangement differs from the published conditions, obtain a documented assessment for it before accepting the rating."
+      ]
+    },
+    {
+      "title": "Turn the intended operating point into a purchase requirement",
+      "paragraphs": [
+        "A useful request states the required continuous output, intended input range, expected ambient conditions and installation arrangement. For a multi-output product, also identify the output or port combination being considered. This is ZIMONAI’s proposed purchasing record, not a universal test procedure or a claim that every adapter has the same controls.",
+        "Keep protection information separate from the output commitment. A supplier describing an overtemperature shutdown has described a protective response, not demonstrated that the required output is sustained throughout the agreed operating conditions. Ask for the specification or test record that addresses the latter question directly.",
+        "When the supplier proposes an alternative, compare the same operating point and retain the model, hardware revision and document version with the decision. A sample report should identify the tested unit and setup. Any claim about subsequent production needs its own supporting records; a curve alone is not evidence of batch consistency."
+      ]
+    }
+  ],
+  "checklist": [
+    "Does the offer identify the exact model, output variant and specification revision?",
+    "What continuous output is required at the intended ambient temperature and input voltage?",
+    "Which curve, cooling conditions and placement apply to that requirement?",
+    "Does each temperature reading identify what and where it measures?",
+    "Do installation details and any departures from the published conditions have a documented assessment?",
+    "Are sample evidence, acceptance criteria and later product changes traceable?"
+  ],
+  "limitsText": "Sources reviewed on 27 November 2026. The numeric example uses the downloaded GST120A specification marked 2025-03-28. It is document arithmetic, not a product test or a universal temperature limit. Buyer documentation suggestions are ZIMONAI editorial guidance. Thermal suitability, electrical safety, market compliance and production consistency require their respective evidence; testing should be carried out by qualified personnel using an appropriate procedure."
+},
       tsmcTexasFabTaxApplication: {
   "topic": "Semiconductor investment",
   "published": "26 November 2026",
@@ -9651,6 +9766,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      powerAdapterThermalDerating: {
+  "topic": "功率與使用溫度",
+  "published": "2026 年 11 月 27 日",
+  "readTime": "閱讀約 6 分鐘",
+  "title": "電源適配器降額：溫度如何影響功率？",
+  "description": "從一張原廠降額曲線，理解電源適配器在不同環境溫度下的輸出限制，以及輸入電壓、擺放方式和散熱條件如何影響採購規格。",
+  "imageAlt": "黃色背景上的白色插牆式電源適配器，金屬插腳清楚可見。",
+  "imageCaption": "產品類別示意照片，由 Fortal Fototeca 拍攝，來源為 Pexels。照片並非本文舉例的 GST120A，也不是溫度測試、供應商查核現場或 ZIMONAI 設施；僅進行尺寸調整、壓縮及版面裁切。",
+  "answer": "降額曲線說明電源適配器的可用功率如何隨使用條件改變。規格書列出的工作溫度範圍，需要連同輸入電壓與散熱條件閱讀，最高溫度並不代表全程都能維持額定功率 [[source:1]][[source:2]]。海外買家把實際安裝環境與所需的連續輸出寫清楚，才有依據判斷報價中的瓦數是否適用。ZIMONAI 的判讀是，先確認產品必須在哪個工作點交付多少功率，再比對型號及佐證文件，能讓選型與替代料審查更有依據。",
+  "takeaways": [
+    "降額曲線要連同溫度、輸入電壓及散熱條件閱讀。",
+    "環境溫度、外殼溫度與保護動作，各自回答不同問題。",
+    "先約定所需工作點與佐證資料，再評估替代型號。"
+  ],
+  "sections": [
+    {
+      "title": "溫度範圍後面的註記，會影響可用功率",
+      "paragraphs": [
+        "明緯 GST120A24 的額定輸出為 24 V、5 A、120 W。GST120A 規格書列出 −30 至 +70°C 工作溫度，並要求參考降額曲線。圖中的 230 VAC 曲線標示水平擺放，在 70°C 對應 50% 負載；套用此型號的額定功率，即為 120 W × 50% = 60 W [[source:1]]。",
+        "這是依規格圖進行的計算，並非 ZIMONAI 實測結果，也不是對完整安裝環境的認可。報價若只列出額定瓦數及溫度上限，採購仍缺少一項關鍵資訊：產品在預定工作點，需要持續供應多少功率？",
+        "索取資料時，應保留完整型號、輸出版本與規格書版次。曲線、註記及測試條件最好一起保存，避免只留下截圖或商品頁上的大標。上述數字只適用於該型號與圖中條件，不能變成所有充電器的通用降額比例。"
+      ]
+    },
+    {
+      "title": "先確認溫度指的是哪裡",
+      "paragraphs": [
+        "RECOM 說明，降額圖適用於特定輸入與冷卻條件，並區分建立在假設上的計算圖與實測曲線 [[source:2]]。據此，ZIMONAI 建議審閱報價附件時，先釐清供應商提供的曲線採用哪些條件、背後是哪一類資料。",
+        "橫軸若寫環境溫度，外殼測溫讀值就不是同一項資訊。買家應請供應商標明量測對象與位置，再與規格要求對照。只有「溫度測試通過」一句結論，還不足以讓採購判斷這份紀錄是否涵蓋預定用途。",
+        "明緯的適配器安裝手冊要求保持通風，最高環境溫度則依個別產品規格判斷 [[source:3]]。買家描述安裝環境時，可納入擺放方式、附近熱源及適配器是否置於其他外殼內。實際安排若不同於規格條件，應取得對應評估，再接受其輸出承諾。"
+      ]
+    },
+    {
+      "title": "把工作點寫進採購約定",
+      "paragraphs": [
+        "一份有用的需求紀錄，應交代所需連續輸出、預定輸入範圍、環境溫度與安裝方式。若產品有多組輸出，也要指出本次評估的輸出或連接埠組合。這是 ZIMONAI 對採購文件的建議，不是統一測試程序，也不預設所有適配器都有相同控制方式。",
+        "保護功能與輸出承諾應分開審閱。供應商說明過溫時會停止輸出，描述的是保護反應；採購要確認的，則是產品在約定使用條件下是否持續達到需求。請對方提供直接回答後者的規格或測試紀錄。",
+        "遇到替代料提案，先以同一工作點比較，再把型號、硬體版次與文件版本留在選型紀錄中。樣品報告要能追溯受測單位與測試配置。至於後續量產是否一致，仍需相應生產紀錄支持，不能單憑一張曲線推定整批表現。"
+      ]
+    }
+  ],
+  "checklist": [
+    "完整型號、輸出版本與規格版次是否齊全？",
+    "預定環境溫度及輸入電壓下，需要多少連續輸出？",
+    "需求對應哪條曲線、散熱條件與擺放方式？",
+    "每個溫度讀值是否標明量測對象與位置？",
+    "安裝細節及偏離原廠條件的情況，是否有對應評估？",
+    "樣品證據、驗收條件與後續產品變更是否可追溯？"
+  ],
+  "limitsText": "資料核對截至 2026 年 11 月 27 日。數值例子採用下載檔標示為 2025-03-28 的 GST120A 規格書，屬文件計算，不是產品實測或通用溫度限值。採購紀錄建議為 ZIMONAI 編輯判讀。熱性能適用性、電氣安全、市場法規及量產一致性，需要各自對應的證據；實際測試應由合格人員依適當程序執行。"
+},
       tsmcTexasFabTaxApplication: {
   "topic": "半導體投資動態",
   "published": "2026 年 11 月 26 日",
@@ -14151,6 +14316,56 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      powerAdapterThermalDerating: {
+  "topic": "功率与温度条件",
+  "published": "2026 年 11 月 27 日",
+  "readTime": "阅读约 6 分钟",
+  "title": "电源适配器降额：温度如何影响功率？",
+  "description": "通过原厂规格书中的降额曲线，厘清额定功率、环境温度、输入电压及散热条件的关系，让适配器采购要求对应实际使用场景。",
+  "imageAlt": "黄色背景中放置着白色插墙式电源适配器，金属插脚清晰可见。",
+  "imageCaption": "产品类别示意照片，摄影者为 Fortal Fototeca，来源为 Pexels。图中产品并非文中举例的 GST120A，也不代表温度测试、供应商核查现场或 ZIMONAI 设施；仅作尺寸调整、压缩和版面裁切。",
+  "answer": "电源适配器的降额曲线，用来说明不同使用条件下的输出功率。规格书中的工作温度范围要结合输入电压和散热条件理解，不能把温度上限当作始终满功率运行的承诺 [[source:1]][[source:2]]。海外买家据此明确实际安装环境与连续输出需求，才能判断报价中的额定值是否适合项目。ZIMONAI 的判断是，先确定工作点，再审阅型号及支持文件，能为选型和替代方案提供清楚依据。",
+  "takeaways": [
+    "查看降额曲线时，同时确认温度、输入电压与散热条件。",
+    "环境温度、外壳温度和保护动作，应分别审阅。",
+    "明确所需工作点及证据要求，有助于比较替代型号。"
+  ],
+  "sections": [
+    {
+      "title": "标注温度上限，不等于全程满功率",
+      "paragraphs": [
+        "以明纬 GST120A24 为例，其额定输出是 24 V、5 A、120 W。GST120A 规格书给出 −30 至 +70°C 工作温度，并注明参阅降额曲线。图中 230 VAC 曲线采用水平放置条件，70°C 时对应 50% 负载；按该型号计算，120 W × 50% = 60 W [[source:1]]。",
+        "这里展示的是规格图的读法与算式，并非 ZIMONAI 的产品实测，也没有对整套安装方案作出认可。报价若只列额定瓦数与温度上限，双方还需要说清楚：预定工作点究竟要求多少持续输出？",
+        "审阅时请保留型号后缀、输出版本及规格书版本。曲线附近的说明也是证据的一部分，不能只截取图形，或拿商品页面标题代替完整文件。这个例子的数值仅适用于对应型号和条件，不应套用于所有充电器。"
+      ]
+    },
+    {
+      "title": "先区分环境温度、外壳温度",
+      "paragraphs": [
+        "RECOM 的技术说明指出，降额图对应特定输入与冷却条件，并区分基于假设的计算图和实测曲线 [[source:2]]。ZIMONAI 据此建议，收到供应商附件后，先确认曲线采用的条件，以及它所依据的资料类型。",
+        "当图表横轴是环境温度时，外壳上的测温结果并不能直接替换这一参数。采购审阅应要求记录测量对象和位置，再与需求逐项对应。记录若仅写温度测试通过，仍缺少判断报告适用范围所需的上下文。",
+        "明纬适配器安装手册要求保持通风，并提示按产品规格确定最高环境温度 [[source:3]]。因此，买家的应用说明宜写明放置方式、邻近热源，以及适配器外部是否还有其他机壳。安装安排与规格条件不同时，应先取得针对这一差异的评估资料。"
+      ]
+    },
+    {
+      "title": "先约定使用条件，再审查功率承诺",
+      "paragraphs": [
+        "采购需求可以按连续输出、输入范围、环境温度、安装方式逐项填写。针对多路输出产品，还应明确评估的是哪一路输出或哪种端口组合。这是 ZIMONAI 对采购记录的建议，不是适用于所有产品的测试规程，也不假定各类适配器具有相同控制功能。",
+        "保护动作说明与持续输出能力属于不同证据。供应商提到过温关断，说明的是保护响应；要确认约定条件下的供电能力，仍应查阅直接对应这一要求的规格或测试记录。不要用保护功能的描述替代输出承诺。",
+        "供应商更换型号时，应回到同一工作点比较，并把型号、硬件版本和文件版本与选型结论一并保存。样品报告需要指向受测产品及测试配置。涉及后续批量一致性的主张，还须补充相应生产记录，单张曲线并未覆盖这些内容。"
+      ]
+    }
+  ],
+  "checklist": [
+    "是否取得完整型号、输出版本及规格书版本？",
+    "实际环境温度和输入电压下，需要多少连续输出？",
+    "哪条曲线及哪些散热、放置条件适用于该需求？",
+    "温度记录是否明确测量对象与位置？",
+    "与原厂条件不同的安装安排，是否已有对应评估？",
+    "样品证据、验收条件及后续产品变更能否追溯？"
+  ],
+  "limitsText": "资料核对截至 2026 年 11 月 27 日。文中算例使用下载文件标示为 2025-03-28 的 GST120A 规格书，仅作文件计算，不构成实测结果或通用温度限值。采购记录建议属于 ZIMONAI 编辑判断。热性能适用性、电气安全、市场法规及批量一致性，应分别取得对应证据；实际测试应由合格人员依适当程序完成。"
+},
       tsmcTexasFabTaxApplication: {
   "topic": "半导体投资动态",
   "published": "2026 年 11 月 26 日",

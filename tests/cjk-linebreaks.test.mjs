@@ -1961,3 +1961,9 @@ test('TSMC Texas proposal preserves native manufacturing and review terms',()=>{
  const terms={"zh-tw":["行動裝置","晶片","226 億美元","2 奈米","建廠","人工智慧","客戶驗證","台積電","德州","晶圓廠","租稅優惠","租稅條件","財產稅","選址","審查建議","投資決定","投資決策","投資提案","投資承諾","最終投資決定","邏輯製程","邏輯晶片","高效能運算","公開聽證會","聽證會","聽證","學區","董事會","主計機關","審議程序","建廠預估","預估完工年","預估","完工","開工","客戶配額","設備就緒","可用產能","製造據點","經濟性","新竹五廠","亞利桑那州","半導體","電源電子"],"zh-cn":["移动设备","芯片","226 亿美元","2 纳米","建厂","人工智能","客户验证","台积电","得州","晶圆厂","税收优惠","财产税","选址","审查建议","投资决定","投资决策","投资提案","投资承诺","最终投资决定","逻辑工艺","逻辑芯片","高性能计算","公开听证会","听证会","听证","学区","董事会","主计部门","审议环节","建设预估","预计完工时间","预计开工时间","预估","完工","开工","客户配额","设备准备","可用产能","制造基地","经济性","新竹五厂","亚利桑那州","半导体","电源电子"]};
  for(const [locale,words]of Object.entries(terms))for(const term of [...words,"JETI","J0055","Brazos County","College Station ISD","TSMC Arizona Corporation","KBTX"]){const text=term+"。";const result=protectCjkText(text,locale);assert.ok(result.includes(">"+text+"</span>"),locale+term);assert.equal(removeProtectionMarkup(result),text);}
 });
+
+
+test("Derating guide preserves native thermal terminology",()=>{
+ const terms={"zh-tw":["規格書","替代料","替代型號","輸入範圍","額定瓦數","可用功率","溫度限值","規格版次","齊全","降額","降額曲線","額定功率","環境溫度","外殼溫度","輸入電壓","散熱條件","水平擺放","工作溫度","溫度範圍","過溫","連續輸出","工作點","輸出額度","輸出版本","滿載","量測對象","測溫","熱源","熱性能","適用性","明緯"],"zh-cn":["规格书","替代料","替代型号","输入范围","额定瓦数","温度限值","替代方案","降额","降额曲线","额定功率","环境温度","外壳温度","输入电压","散热条件","水平放置","工作温度","温度范围","过温","连续输出","工作点","输出额度","输出版本","满载","测量对象","测温","热源","热性能","适用性","明纬"]};
+ for(const [locale,words]of Object.entries(terms))for(const term of [...words,...["GST120A","GST120A24","RECOM","MEAN WELL"]]){const text=term+"。";const result=protectCjkText(text,locale);assert.ok(result.includes(">"+text+"</span>"),locale+term);assert.equal(removeProtectionMarkup(result),text);}
+});
