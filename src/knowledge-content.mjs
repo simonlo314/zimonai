@@ -7,6 +7,80 @@ export const knowledgeCategoryDefinitions = [
 ];
 
 export const knowledgeArticleSpecs = [
+  // Search intent: understand Wevo Singapore production start and regional materials supply.
+  // Related questions: event date; materials produced; engineering significance; ramp-up; delivery evidence.
+  {
+  "id": "knowledge-wevo-singapore-electronics-materials",
+  "key": "wevoSingaporeElectronicsMaterials",
+  "contentType": "current-affairs",
+  "slug": "knowledge/wevo-singapore-electronics-materials",
+  "category": "factory-onsite",
+  "products": [
+    "general"
+  ],
+  "markets": [
+    "global"
+  ],
+  "keywords": {
+    "en": [
+      "Wevo Singapore factory",
+      "electronics potting materials",
+      "Tuas production plant"
+    ],
+    "zh-tw": [
+      "Wevo 新加坡工廠",
+      "電子灌封材料",
+      "大士生產基地"
+    ],
+    "zh-cn": [
+      "Wevo 新加坡工厂",
+      "电子灌封材料",
+      "大士生产基地"
+    ]
+  },
+  "datePublished": "2026-11-28",
+  "dateModified": "2026-11-28",
+  "image": "/assets/editorial-wevo-singapore-opening.jpg",
+  "imageWidth": 1600,
+  "imageHeight": 1067,
+  "imageCrop": {
+    "card": "48% 35%",
+    "article": "47% 30%",
+    "mobile": "52% 34%"
+  },
+  "photo": {
+    "photographer": "WEVO Chemical (Asia-Pacific) Pte. Ltd.",
+    "page": "https://www.wevo-chemie.de/news-presse/detailseite/wevo-eroeffnet-produktionsstandort-singapur",
+    "license": "https://www.wevo-chemie.de/fileadmin/PDF_downloads/wevo-pi-eroeffnung-singapur-de-261126.pdf"
+  },
+  "sources": [
+    {
+      "publisher": "WEVO-CHEMIE",
+      "title": "Singapore facility opening — official press release, 26 November 2026",
+      "url": "https://www.wevo-chemie.de/fileadmin/PDF_downloads/wevo-pi-eroeffnung-singapur-de-261126.pdf"
+    },
+    {
+      "publisher": "Lianhe Zaobao / Gan Tian",
+      "title": "Wevo opens its first Asian factory in Singapore — 26 November 2026",
+      "url": "https://www.zaobao.com.sg/finance/singapore/story20261126-10061087"
+    },
+    {
+      "publisher": "WEVO-CHEMIE",
+      "title": "Thermal conductivity — potting-material technical background",
+      "url": "https://www.wevo-chemie.de/eigenschaften/waermeleitfaehigkeit"
+    },
+    {
+      "publisher": "WEVO-CHEMIE",
+      "title": "Electrical properties — potting-material technical background",
+      "url": "https://www.wevo-chemie.de/eigenschaften/elektrische-eigenschaften"
+    },
+    {
+      "publisher": "JTC / Wevo-issued release",
+      "title": "Speciality chemicals manufacturer Wevo opens production site in Singapore — 26 November 2026",
+      "url": "https://www.jtc.gov.sg/about-jtc/news-and-stories/industry-news/speciality-chemicals-manufacturer-wevo-opens-production-site-in-singapore"
+    }
+  ]
+},
   // Search intent: match power-adapter rated output to actual operating temperature.
   // Related questions: full power versus temperature range; input voltage; ambient versus case; cooling and placement; purchase evidence.
   {
@@ -1983,7 +2057,7 @@ export const knowledgeArticleSpecs = [
     "global"
   ],
   "featured": true,
-  "featuredReviewedThrough": "2026-11-27",
+  "featuredReviewedThrough": "2026-11-28",
   "keywords": {
     "en": [
       "Infineon Villach 300mm GaN",
@@ -5177,6 +5251,57 @@ export const knowledgeContent = {
       editorialCredit: 'Produced by the ZIMONAI Editorial Desk at Zhimengwan Technology.'
     },
     articles: {
+      wevoSingaporeElectronicsMaterials: {
+  "topic": "Electronics materials",
+  "published": "28 November 2026",
+  "readTime": "4 min read",
+  "title": "Wevo opens Singapore plant for electronics materials",
+  "description": "Wevo opened its Tuas plant on 25 November. Local production of potting compounds, adhesives and sealants brings material supply closer to Asia-Pacific manufacturers.",
+  "imageAlt": "Six guests cut a blue ribbon in front of the Wevo name at the Singapore factory opening.",
+  "imageCaption": "Official photograph of the 25 November 2026 Singapore opening, © WEVO Chemical (Asia-Pacific) Pte. Ltd. Used only in reporting this announcement, as permitted by the linked press release. Proportionally resized, compressed and cropped for layout; not a ZIMONAI visit or assignment.",
+  "labels": {
+    "summary": "News summary",
+    "checklist": "What to watch next",
+    "limits": "What remains uncertain"
+  },
+  "answer": "Wevo opened its electronics-materials factory in Singapore’s Tuas district on 25 November 2026, with production of potting compounds, adhesives and sealants underway [[source:1]]. The company plans to increase output in the coming months, so the opening marks a new supply location rather than a measured improvement in every customer’s lead time. For Asia-Pacific manufacturers and buyers, the development creates an opportunity to source these materials closer to production. ZIMONAI sees the opening as a step that shifts the focus to qualified material availability and repeatable deliveries.",
+  "takeaways": [
+    "Production has started; the coming months are a ramp-up period.",
+    "Potting materials belong in the thermal and electrical design discussion.",
+    "Regional manufacturing becomes useful to buyers when the required grade is available and approved."
+  ],
+  "sections": [
+    {
+      "title": "A manufacturing site joins the regional supply network",
+      "paragraphs": [
+        "The German company’s Tuas facility is its first factory in Asia, according to Lianhe Zaobao’s 26 November report. The newspaper puts the investment above €10 million and describes the site as a manufacturing, technical and logistics hub for the region [[source:2]].",
+        "Wevo’s release describes laboratory commissioning, process verification and initial samples preceding the opening. JTC carries that release with an explicit Wevo attribution; it is another accessible copy of the company’s account, not a separate factory audit [[source:1]][[source:5]]. The announcement therefore establishes a production start while leaving the scale of sustained customer deliveries to subsequent evidence."
+      ]
+    },
+    {
+      "title": "Why these materials matter inside electronics",
+      "paragraphs": [
+        "Potting compounds surround electronic assemblies with a protective material. Wevo’s technical explanation describes thermally conductive formulations as a route for moving heat away from boards and components [[source:3]]. Its electrical-properties guidance also treats insulation and dielectric behaviour as design considerations [[source:4]]. These are material functions, not a performance result for the new factory.",
+        "ZIMONAI sees a practical supply-chain consequence: material sourcing and product engineering need to move together. A nearer plant is useful only if the offered formulation fits the manufacturer’s assembly and process. When a buyer considers a different production source, the review should identify the material grade, supporting specification and approval needed for that application. This is an editorial purchasing implication, not evidence that Wevo customers must change formulations."
+      ]
+    },
+    {
+      "title": "The next test is dependable availability",
+      "paragraphs": [
+        "The company says the coming months will focus on increasing production [[source:1]]. For buyers, ZIMONAI would distinguish three milestones: a site operating, the required material being available from that site, and that material supporting repeatable deliveries for an approved application. They need not occur on the same date.",
+        "A useful follow-up would compare actual order lead times, available grades and the timing of customer approvals. Those are suggested indicators, not disclosed results. The cited announcement provides no site-wide annual tonnage or measured reduction in customer delivery time.",
+        "The opening gives the industry a concrete new regional production point. Its longer-term value will become clearer as the factory’s output connects with customers’ approved materials and delivery schedules; that connection is more informative than geography alone."
+      ]
+    }
+  ],
+  "checklist": [
+    "Which material grades become available from Singapore?",
+    "How does output develop during the announced ramp-up?",
+    "Do customer approvals cover the intended material and production source?",
+    "Do later disclosures show actual delivery-time improvements?"
+  ],
+  "limitsText": "Sources checked 28 November 2026. The opening took place on 25 November; the company release and independent newspaper report followed on 26 November. Production and commissioning details are attributed to Wevo. The cited sources do not establish annual site capacity, customer-specific approvals or measured lead-time savings. Technical pages describe material functions, not a test of Singapore output. Supply-chain implications are ZIMONAI editorial analysis; no customer relationship or site inspection is implied."
+},
       powerAdapterThermalDerating: {
   "topic": "Power and temperature",
   "published": "27 November 2026",
@@ -9766,6 +9891,57 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙灣科技編輯部製作。'
     },
     articles: {
+      wevoSingaporeElectronicsMaterials: {
+  "topic": "電子材料供應",
+  "published": "2026 年 11 月 28 日",
+  "readTime": "閱讀約 4 分鐘",
+  "title": "Wevo 新加坡廠啟用，電子材料就近生產",
+  "description": "Wevo 於 11 月 25 日啟用新加坡大士工廠，灌封料、黏著劑及密封材料已開始生產。區域供應新增據點，接下來要看材料供貨與客戶採用進度。",
+  "imageAlt": "六位來賓在 Wevo 品牌背板前剪下藍色彩帶，參加新加坡工廠開幕。",
+  "imageCaption": "2026 年 11 月 25 日新加坡工廠開幕官方照片，© WEVO Chemical (Asia-Pacific) Pte. Ltd.。依新聞稿所列範圍，僅用於本次事件報導；只做等比例縮圖、壓縮及版面裁切，並非 ZIMONAI 參訪或受託專案。",
+  "labels": {
+    "summary": "新聞摘要",
+    "checklist": "接下來值得觀察",
+    "limits": "尚待確認的資訊"
+  },
+  "answer": "Wevo 於 2026 年 11 月 25 日啟用新加坡大士工廠，電子製造使用的灌封料、黏著劑與密封材料已開始生產 [[source:1]]。公司將在未來幾個月提高產量，因此這次開幕代表區域供應多了一個生產據點，交期改善幅度仍待實際出貨驗證。對亞太製造商與買家而言，新廠提供了就近取得材料的機會。ZIMONAI 認為，後續更值得注意的是所需牌號能否完成應用確認，並從在地生產轉為穩定交付。",
+  "takeaways": [
+    "新廠已開始生產，後續仍有提高產量的階段。",
+    "灌封材料涉及電子產品的散熱與電氣設計。",
+    "區域製造的價值，取決於適用材料能否穩定供貨。"
+  ],
+  "sections": [
+    {
+      "title": "從區域據點走向在地製造",
+      "paragraphs": [
+        "《聯合早報》11 月 26 日報導，這是德國 Wevo 在亞洲的第一座工廠，投資超過 1,000 萬歐元，將作為亞太地區的製造、技術及物流據點 [[source:2]]。",
+        "Wevo 新聞稿提到，開幕前已完成實驗室啟用、製程驗證及首批樣品製作與寄送。JTC 網站刊載同一份資料，並明確註記新聞稿由 Wevo 發布；這是公司說明的另一個公開版本，不應視為獨立的工廠稽核結果 [[source:1]][[source:5]]。目前可確認的是生產啟動，長期交付規模還要看後續資訊。"
+      ]
+    },
+    {
+      "title": "材料供應也牽動產品設計",
+      "paragraphs": [
+        "灌封料是在電子組件周圍形成保護的材料。Wevo 的技術說明指出，導熱配方可協助把電路板與零組件產生的熱導出；電氣特性資料則說明絕緣與介電行為也是選材考量 [[source:3]][[source:4]]。這些是材料功能的背景，並非新加坡廠產品的實測成績。",
+        "ZIMONAI 的判讀是，材料採購與產品工程需要同步評估。生產地點靠近組裝廠，仍要確認供應的配方適合既有組件與製程。買家評估不同生產來源時，可把牌號、規格文件與應用所需的認可一起列入審查。這是採購上的推論，不代表 Wevo 客戶必須更換配方。"
+      ]
+    },
+    {
+      "title": "接下來看交付表現",
+      "paragraphs": [
+        "公司表示，接下來幾個月將以提高產量為重點 [[source:1]]。對買家而言，ZIMONAI 建議區分工廠開始運作、所需材料可由該廠供應，以及材料已能穩定用於獲認可的應用，這些進度未必在同一天完成。",
+        "值得追蹤的資訊包括可供牌號、客戶採用進度與實際訂單交期。這些是編輯部建議的觀察指標，不是已公布成果；本次公告未提供全廠年產噸數，也未量化客戶交期縮短多少。",
+        "這次開幕讓區域生產有了具體據點。往後更值得看的，是新廠產出如何接上客戶認可的材料與交貨安排；這段銜接，才會顯示在地製造對電子供應鏈的實際價值。"
+      ]
+    }
+  ],
+  "checklist": [
+    "哪些材料牌號開始由新加坡供應？",
+    "提高產量的進度是否有後續資料？",
+    "客戶認可是否涵蓋材料及預定生產來源？",
+    "實際交貨紀錄是否顯示交期改善？"
+  ],
+  "limitsText": "資料核對截至 2026 年 11 月 28 日。開幕日期為 11 月 25 日，公司新聞稿與獨立媒體報導均於 11 月 26 日發布。生產與啟用細節來自 Wevo 說明；引用資料未證實全廠年產能、個別客戶認可或實測交期節省。技術頁面用於解釋材料功能，不是新加坡產品的測試證據。供應鏈影響為 ZIMONAI 編輯判讀，不涉及客戶關係或現場查核宣稱。"
+},
       powerAdapterThermalDerating: {
   "topic": "功率與使用溫度",
   "published": "2026 年 11 月 27 日",
@@ -14316,6 +14492,57 @@ export const knowledgeContent = {
       editorialCredit: '本文由 ZIMONAI｜智蒙湾科技编辑部制作。'
     },
     articles: {
+      wevoSingaporeElectronicsMaterials: {
+  "topic": "电子材料供应",
+  "published": "2026 年 11 月 28 日",
+  "readTime": "阅读约 4 分钟",
+  "title": "Wevo 新加坡工厂投产，面向亚太供货",
+  "description": "Wevo 在新加坡大士启用电子材料工厂，灌封料、胶粘剂和密封材料已投入生产。区域供应更近一步，材料可用性和稳定交付成为后续观察重点。",
+  "imageAlt": "Wevo 新加坡工厂开幕现场，六位嘉宾在品牌背景板前剪彩。",
+  "imageCaption": "Wevo 新加坡工厂于 2026 年 11 月 25 日开幕的官方照片，© WEVO Chemical (Asia-Pacific) Pte. Ltd.。按新闻稿中的使用范围，仅配合本次事件报道；图片仅经等比例缩放、压缩及版面裁切，不代表 ZIMONAI 到访或参与项目。",
+  "labels": {
+    "summary": "新闻摘要",
+    "checklist": "后续观察重点",
+    "limits": "仍待披露的信息"
+  },
+  "answer": "德国 Wevo 于 2026 年 11 月 25 日为新加坡大士工厂举行开幕仪式，电子制造所需的灌封料、胶粘剂及密封材料已投入生产 [[source:1]]。新厂接下来数月仍将逐步提高产量，缩短运输距离的目标尚未转化为已量化的客户交期改善。亚太制造商和买家因此多了一个就近采购材料的机会。ZIMONAI 的判断是，后续更值得关注的是合适的材料牌号能否获得应用认可，并形成持续、稳定的供货。",
+  "takeaways": [
+    "生产已经启动，产量提升将是下一阶段任务。",
+    "电子灌封材料同时涉及散热与电气性能。",
+    "买家需要关注材料适用性如何衔接稳定供货。"
+  ],
+  "sections": [
+    {
+      "title": "亚太布局新增生产环节",
+      "paragraphs": [
+        "据《联合早报》11 月 26 日报道，大士新厂是 Wevo 在亚洲的首座工厂，投资超过 1,000 万欧元，将承担面向区域市场的制造、技术及物流职能 [[source:2]]。",
+        "公司发布的信息显示，实验室启用、工艺验证以及首批样品的制作和发运已在开幕前进行。JTC 网站转载时明确标注内容由 Wevo 发布，应将其视为同一公司消息的公开渠道，而非另一份独立验厂结论 [[source:1]][[source:5]]。生产开始有了依据，持续交付的规模还需要后续数据说明。"
+      ]
+    },
+    {
+      "title": "就近供货为何仍要连接产品工程",
+      "paragraphs": [
+        "灌封材料在电子组件周围形成保护。Wevo 的技术资料介绍，导热配方能够帮助电路板和元器件散热；其电气特性说明还涉及绝缘和介电性能 [[source:3]][[source:4]]。这些资料解释材料的作用，并未测定新加坡工厂的产品表现。",
+        "从采购角度看，ZIMONAI 认为，地理距离缩短与材料适用性需要分别评估。供应的配方应与制造商的组件设计、加工工艺相匹配。若考虑新的生产来源，审查资料宜包括材料牌号、规格及该应用所需的批准。这是编辑部对采购决策的建议，不是对 Wevo 客户换料安排的报道。"
+      ]
+    },
+    {
+      "title": "稳定交付将决定新厂的长期价值",
+      "paragraphs": [
+        "Wevo 表示，未来几个月将着重提升产量 [[source:1]]。ZIMONAI 建议读者分别观察工厂运转、目标材料可供货，以及获认可的应用形成持续交付这几个阶段；开幕日期并不能代替后面各项进度。",
+        "后续可关注新加坡供应的具体牌号、客户采用情况和订单实际交期。这些指标是观察方向，尚非公布的成绩。本次公告没有给出全厂年度吨位，也没有量化客户能够节省多少等待时间。",
+        "新厂让区域供应拥有了新的制造节点。接下来，产出能否进入客户认可的材料体系并支撑交货计划，将比单纯的区位优势更能说明这笔投资对电子供应链的意义。"
+      ]
+    }
+  ],
+  "checklist": [
+    "新加坡工厂可以供应哪些具体材料牌号？",
+    "产量提升是否有新的进度披露？",
+    "客户批准是否对应材料及其生产来源？",
+    "后续交货记录能否体现交期改善？"
+  ],
+  "limitsText": "资料核对日期为 2026 年 11 月 28 日。开幕活动发生于 11 月 25 日，公司新闻稿和独立媒体报道发布于 11 月 26 日。生产准备细节依据 Wevo 的披露；相关资料没有证实全厂年产能、特定客户的批准或实际交期节省。技术页面介绍材料作用，不构成对新加坡产出的测试。产业及采购含义属于 ZIMONAI 编辑判断，不暗示客户关系或现场核查经历。"
+},
       powerAdapterThermalDerating: {
   "topic": "功率与温度条件",
   "published": "2026 年 11 月 27 日",

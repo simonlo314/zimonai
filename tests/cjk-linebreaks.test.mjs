@@ -1967,3 +1967,9 @@ test("Derating guide preserves native thermal terminology",()=>{
  const terms={"zh-tw":["規格書","替代料","替代型號","輸入範圍","額定瓦數","可用功率","溫度限值","規格版次","齊全","降額","降額曲線","額定功率","環境溫度","外殼溫度","輸入電壓","散熱條件","水平擺放","工作溫度","溫度範圍","過溫","連續輸出","工作點","輸出額度","輸出版本","滿載","量測對象","測溫","熱源","熱性能","適用性","明緯"],"zh-cn":["规格书","替代料","替代型号","输入范围","额定瓦数","温度限值","替代方案","降额","降额曲线","额定功率","环境温度","外壳温度","输入电压","散热条件","水平放置","工作温度","温度范围","过温","连续输出","工作点","输出额度","输出版本","满载","测量对象","测温","热源","热性能","适用性","明纬"]};
  for(const [locale,words]of Object.entries(terms))for(const term of [...words,...["GST120A","GST120A24","RECOM","MEAN WELL"]]){const text=term+"。";const result=protectCjkText(text,locale);assert.ok(result.includes(">"+text+"</span>"),locale+term);assert.equal(removeProtectionMarkup(result),text);}
 });
+
+
+test("Wevo report preserves native electronics-materials terminology",()=>{
+ const terms={"zh-tw":["接下來","考慮","配方","萬歐元","歐元","首批樣品","開始","縮短","物流據點","新加坡廠","新加坡","大士","電子材料","灌封料","灌封材料","黏著劑","密封材料","導熱配方","介電行為","牌號","在地生產","在地製造","區域供應","亞太","提高產量","穩定交付","就近生產","生產據點","材料供應","電子組件","年產噸數","實測成績","應用確認"],"zh-cn":["接下来","考虑","配方","万欧元","欧元","首批样品","开始","缩短","物流职能","批准","披露","新加坡工厂","新加坡","大士","电子材料","灌封料","灌封材料","胶粘剂","密封材料","导热配方","介电性能","牌号","区域供应","亚太","逐步提高","稳定交付","就近采购","生产来源","材料供应","电子组件","元器件","年度吨位","材料体系","区位优势","生产环节"]};
+ for(const [locale,words]of Object.entries(terms))for(const term of [...words,...["Wevo","WEVO","Tuas","JTC"]]){const text=term+"。";const result=protectCjkText(text,locale);assert.ok(result.includes(">"+text+"</span>"),locale+term);assert.equal(removeProtectionMarkup(result),text);}
+});
